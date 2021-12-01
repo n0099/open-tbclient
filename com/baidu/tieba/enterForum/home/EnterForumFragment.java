@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
+import c.a.d.f.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -28,38 +28,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EnterForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.o0.h.a f48479e;
+    public c.a.r0.u0.h.a f43490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.o0.h.c f48480f;
+    public c.a.r0.u0.h.c f43491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f48481g;
+    public NoNetworkView f43492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PluginErrorTipView f48482h;
+    public PluginErrorTipView f43493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f48483i;
-    public ObservedChangeLinearLayout j;
-    public RelativeLayout k;
+    public RelativeLayout f43494i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ObservedChangeLinearLayout f43495j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public RelativeLayout f43496k;
     public CustomMessageListener l;
     public CustomMessageListener m;
     public final CustomMessageListener n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumFragment f48484a;
+        public final /* synthetic */ EnterForumFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EnterForumFragment enterForumFragment, int i2) {
@@ -79,26 +81,24 @@ public class EnterForumFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f48484a = enterForumFragment;
+            this.a = enterForumFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && this.f48484a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.f48484a.getActivity() && this.f48484a.f48479e != null) {
-                this.f48484a.f48479e.x();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && this.a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.a.getActivity() && this.a.f43490e != null) {
+                this.a.f43490e.x();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumFragment f48485a;
+        public final /* synthetic */ EnterForumFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EnterForumFragment enterForumFragment, int i2) {
@@ -118,31 +118,31 @@ public class EnterForumFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f48485a = enterForumFragment;
+            this.a = enterForumFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && this.f48485a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.f48485a.getActivity()) {
-                if (this.f48485a.f48479e != null) {
-                    this.f48485a.f48479e.M(true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && this.a.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == this.a.getActivity()) {
+                if (this.a.f43490e != null) {
+                    this.a.f43490e.M(true);
                 }
-                if (this.f48485a.f48480f != null) {
-                    this.f48485a.f48480f.n();
+                if (this.a.f43491f != null) {
+                    this.a.f43491f.n();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EnterForumFragment f48486e;
+        public final /* synthetic */ EnterForumFragment f43497e;
 
         public c(EnterForumFragment enterForumFragment) {
             Interceptable interceptable = $ic;
@@ -159,25 +159,26 @@ public class EnterForumFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f48486e = enterForumFragment;
+            this.f43497e = enterForumFragment;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f48486e.f48479e.M(z);
-                if (this.f48486e.getTabViewController() != null) {
-                    this.f48486e.getTabViewController().P();
+                this.f43497e.f43490e.M(z);
+                if (this.f43497e.getTabViewController() != null) {
+                    this.f43497e.getTabViewController().L();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EnterForumFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(EnterForumFragment enterForumFragment, int i2) {
@@ -197,14 +198,15 @@ public class EnterForumFragment extends BaseFragment {
                     return;
                 }
             }
+            this.a = enterForumFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && b.a.r0.o0.j.b.b()) {
-                b.a.r0.o0.j.b.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && c.a.r0.u0.j.b.b()) {
+                c.a.r0.u0.j.b.a();
             }
         }
     }
@@ -243,74 +245,74 @@ public class EnterForumFragment extends BaseFragment {
         this.n = new d(this, 2001371);
     }
 
-    public final void c(View view) {
+    public final void d(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f48483i = (RelativeLayout) view.findViewById(R.id.enter_root_layout);
-            this.f48481g = (NoNetworkView) view.findViewById(R.id.view_no_network);
-            this.f48482h = (PluginErrorTipView) view.findViewById(R.id.view_plugin_error_tip);
-            this.j = (ObservedChangeLinearLayout) view.findViewById(R.id.tab_layout);
-            b.a.r0.o0.h.a aVar = new b.a.r0.o0.h.a(this);
-            this.f48479e = aVar;
+            this.f43494i = (RelativeLayout) view.findViewById(R.id.enter_root_layout);
+            this.f43492g = (NoNetworkView) view.findViewById(R.id.view_no_network);
+            this.f43493h = (PluginErrorTipView) view.findViewById(R.id.view_plugin_error_tip);
+            this.f43495j = (ObservedChangeLinearLayout) view.findViewById(R.id.tab_layout);
+            c.a.r0.u0.h.a aVar = new c.a.r0.u0.h.a(this);
+            this.f43490e = aVar;
             aVar.R(getUniqueId());
-            this.f48481g.addNetworkChangeListener(new c(this));
-            this.f48483i.addView(this.f48479e.z(), 0);
-            this.f48479e.B();
-            View findViewById = this.f48483i.findViewById(R.id.enter_forum_ad);
+            this.f43492g.addNetworkChangeListener(new c(this));
+            this.f43494i.addView(this.f43490e.z(), 0);
+            this.f43490e.B();
+            View findViewById = this.f43494i.findViewById(R.id.enter_forum_ad);
             if (findViewById != null) {
-                this.f48483i.removeView(findViewById);
-                this.f48483i.addView(findViewById, 0);
+                this.f43494i.removeView(findViewById);
+                this.f43494i.addView(findViewById, 0);
             }
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            this.f48479e.G();
+            this.f43490e.G();
         }
     }
 
-    public final void g() {
-        b.a.r0.o0.h.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f48479e) == null) {
-            return;
-        }
-        aVar.v(true);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a025" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a025" : (String) invokeV.objValue;
     }
 
     public RelativeLayout getRootLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48483i : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43494i : (RelativeLayout) invokeV.objValue;
     }
 
     public ObservedChangeLinearLayout getTabLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (ObservedChangeLinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43495j : (ObservedChangeLinearLayout) invokeV.objValue;
     }
 
-    public b.a.r0.o0.h.c getTabViewController() {
+    public c.a.r0.u0.h.c getTabViewController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48480f : (b.a.r0.o0.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43491f : (c.a.r0.u0.h.c) invokeV.objValue;
+    }
+
+    public final void i() {
+        c.a.r0.u0.h.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f43490e) == null) {
+            return;
+        }
+        aVar.v(true);
     }
 
     public boolean isAtTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b.a.r0.o0.h.a aVar = this.f48479e;
+            c.a.r0.u0.h.a aVar = this.f43490e;
             if (aVar == null || aVar.y() == null) {
                 return true;
             }
-            return this.f48479e.y().U();
+            return this.f43490e.y().U();
         }
         return invokeV.booleanValue;
     }
@@ -321,21 +323,21 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f48483i, R.color.CAM_X0201);
-            b.a.r0.o0.h.a aVar = this.f48479e;
+            SkinManager.setBackgroundColor(this.f43494i, R.color.CAM_X0201);
+            c.a.r0.u0.h.a aVar = this.f43490e;
             if (aVar != null) {
                 aVar.H(i2);
             }
-            NoNetworkView noNetworkView = this.f48481g;
+            NoNetworkView noNetworkView = this.f43492g;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(getPageContext(), i2);
             }
-            PluginErrorTipView pluginErrorTipView = this.f48482h;
+            PluginErrorTipView pluginErrorTipView = this.f43493h;
             if (pluginErrorTipView != null) {
                 pluginErrorTipView.onChangeSkinType(getPageContext(), i2);
             }
-            if (this.k != null) {
-                b.a.q0.v0.a.a(getPageContext(), this.k);
+            if (this.f43496k != null) {
+                c.a.q0.w0.a.a(getPageContext(), this.f43496k);
             }
         }
     }
@@ -349,7 +351,7 @@ public class EnterForumFragment extends BaseFragment {
             registerListener(this.n);
             registerListener(this.l);
             registerListener(this.m);
-            b.a.r0.l3.c.g().i(getUniqueId());
+            c.a.r0.s3.c.g().i(getUniqueId());
         }
     }
 
@@ -359,9 +361,9 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.fragment_enter_forum, viewGroup, false);
-            c(inflate);
+            d(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            b.a.r0.l3.c.g().i(getUniqueId());
+            c.a.r0.s3.c.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -371,15 +373,15 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b.a.r0.o0.h.a aVar = this.f48479e;
+            c.a.r0.u0.h.a aVar = this.f43490e;
             if (aVar != null) {
                 aVar.I();
             }
-            this.f48480f = null;
+            this.f43491f = null;
             MessageManager.getInstance().unRegisterListener(this.l);
             MessageManager.getInstance().unRegisterListener(this.m);
             MessageManager.getInstance().unRegisterListener(this.n);
-            b.a.r0.l3.c.g().k(getUniqueId());
+            c.a.r0.s3.c.g().k(getUniqueId());
             super.onDestroy();
         }
     }
@@ -388,18 +390,18 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            b.a.r0.l3.c.g().k(getUniqueId());
+            c.a.r0.s3.c.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
 
     public void onNavigationbarHeightChange(View view, int i2) {
-        b.a.r0.o0.h.a aVar;
+        c.a.r0.u0.h.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048588, this, view, i2) == null) || (aVar = this.f48479e) == null || aVar.y() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048588, this, view, i2) == null) || (aVar = this.f43490e) == null || aVar.y() == null) {
             return;
         }
-        this.f48479e.y().Y(view, i2);
+        this.f43490e.y().Y(view, i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -407,7 +409,7 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            b.a.r0.o0.h.a aVar = this.f48479e;
+            c.a.r0.u0.h.a aVar = this.f43490e;
             if (aVar != null) {
                 aVar.J();
             }
@@ -421,18 +423,18 @@ public class EnterForumFragment extends BaseFragment {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
                 switchTab();
-                b.a.r0.o0.h.a aVar = this.f48479e;
+                c.a.r0.u0.h.a aVar = this.f43490e;
                 if (aVar != null) {
                     refreshImage(aVar.z());
                 }
-                b.a.r0.l3.c.g().h(getUniqueId(), false);
+                c.a.r0.s3.c.g().h(getUniqueId(), false);
             }
-            b.a.r0.o0.h.a aVar2 = this.f48479e;
+            c.a.r0.u0.h.a aVar2 = this.f43490e;
             if (aVar2 != null) {
                 aVar2.K();
             }
             if (getTabViewController() != null) {
-                getTabViewController().P();
+                getTabViewController().L();
             }
         }
     }
@@ -442,32 +444,32 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
-            NoNetworkView noNetworkView = this.f48481g;
+            NoNetworkView noNetworkView = this.f43492g;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0 && j.z()) {
-                this.f48481g.update(false);
+                this.f43492g.update(false);
             }
         }
     }
 
-    public void setAdState(b.a.r0.o0.d.c cVar) {
+    public void setAdState(c.a.r0.u0.d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.f48480f.R(cVar);
+            this.f43491f.O(cVar);
         }
     }
 
-    public void setTabViewController(b.a.r0.o0.h.c cVar) {
+    public void setTabViewController(c.a.r0.u0.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
-            this.f48480f = cVar;
+            this.f43491f = cVar;
         }
     }
 
     public void switchTab() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            g();
-            b.a.r0.o0.h.a aVar = this.f48479e;
+            i();
+            c.a.r0.u0.h.a aVar = this.f43490e;
             if (aVar != null) {
                 aVar.G();
             }

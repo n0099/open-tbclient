@@ -1,7 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +14,12 @@ import com.google.zxing.common.BitSource;
 import com.google.zxing.common.CharacterSetECI;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.common.StringUtils;
+import com.kuaishou.weapon.un.w0;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHANUMERIC_CHARS;
@@ -209,7 +209,7 @@ public final class DecodedBitStreamParser {
 
     public static void decodeHanziSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, bitSource, sb, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65541, null, bitSource, sb, i2) == null) {
             if (i2 * 13 <= bitSource.available()) {
                 byte[] bArr = new byte[i2 * 2];
                 int i3 = 0;
@@ -235,7 +235,7 @@ public final class DecodedBitStreamParser {
 
     public static void decodeKanjiSegment(BitSource bitSource, StringBuilder sb, int i2) throws FormatException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, bitSource, sb, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65542, null, bitSource, sb, i2) == null) {
             if (i2 * 13 <= bitSource.available()) {
                 byte[] bArr = new byte[i2 * 2];
                 int i3 = 0;
@@ -313,7 +313,7 @@ public final class DecodedBitStreamParser {
             if ((readBits & 192) == 128) {
                 return bitSource.readBits(8) | ((readBits & 63) << 8);
             }
-            if ((readBits & 224) == 192) {
+            if ((readBits & w0.Q) == 192) {
                 return bitSource.readBits(16) | ((readBits & 31) << 16);
             }
             throw FormatException.getFormatInstance();

@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -126,7 +125,7 @@ public final class HttpUrl {
     public static int defaultPort(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str.equals("http")) {
                 return 80;
             }
@@ -156,7 +155,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f34958h);
+                    sb.append(a.f31351h);
                     sb.append(str2);
                 }
             }
@@ -641,7 +640,7 @@ public final class HttpUrl {
             InterceptResult invokeLII;
             int parseInt;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, str, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i2, i3)) == null) {
                 try {
                     parseInt = Integer.parseInt(HttpUrl.canonicalize(str, i2, i3, "", false, false, false, true, null));
                 } catch (NumberFormatException unused) {
@@ -656,7 +655,7 @@ public final class HttpUrl {
 
         private void pop() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65542, this) == null) {
                 List<String> list = this.encodedPathSegments;
                 if (list.remove(list.size() - 1).isEmpty() && !this.encodedPathSegments.isEmpty()) {
                     List<String> list2 = this.encodedPathSegments;
@@ -1458,7 +1457,7 @@ public final class HttpUrl {
 
     public static void canonicalize(Buffer buffer, String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{buffer, str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{buffer, str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
             Buffer buffer2 = null;
             while (i2 < i3) {
                 int codePointAt = str.codePointAt(i2);

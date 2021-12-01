@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class h implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,13 +31,13 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             String str = null;
-            if (!((n.f63807b == null || n.f63806a == null) ? false : true)) {
+            if (!((n.f55764b == null || n.a == null) ? false : true)) {
                 FunOpenIDSdk.isLogEnabled();
                 aVar.a(false, null);
                 return;
             }
-            Method method = n.f63808c;
-            Object obj = n.f63806a;
+            Method method = n.f55765c;
+            Object obj = n.a;
             if (obj != null && method != null) {
                 try {
                     Object invoke = method.invoke(obj, context);

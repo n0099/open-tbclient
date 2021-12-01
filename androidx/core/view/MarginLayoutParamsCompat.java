@@ -2,7 +2,6 @@ package androidx.core.view;
 
 import android.os.Build;
 import android.view.ViewGroup;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,7 +77,7 @@ public final class MarginLayoutParamsCompat {
 
     public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
         marginLayoutParams.resolveLayoutDirection(i2);
@@ -86,7 +85,7 @@ public final class MarginLayoutParamsCompat {
 
     public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
         marginLayoutParams.setLayoutDirection(i2);

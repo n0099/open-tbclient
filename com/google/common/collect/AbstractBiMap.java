@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.d0;
-import b.h.d.c.e0;
-import b.h.d.c.j0;
-import b.h.d.c.k;
-import b.h.d.c.m;
+import c.i.d.a.n;
+import c.i.d.c.d0;
+import c.i.d.c.e0;
+import c.i.d.c.j0;
+import c.i.d.c.k;
+import c.i.d.c.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -32,7 +32,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
     public transient Set<K> keySet;
     public transient Set<V> valueSet;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Inverse<K, V> extends AbstractBiMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -76,10 +76,10 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
 
         @Override // com.google.common.collect.AbstractBiMap
-        public K checkKey(K k) {
+        public K checkKey(K k2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.inverse.checkValue(k) : (K) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? this.inverse.checkValue(k2) : (K) invokeL.objValue;
         }
 
         @Override // com.google.common.collect.AbstractBiMap
@@ -89,7 +89,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v)) == null) ? this.inverse.checkKey(v) : (V) invokeL.objValue;
         }
 
-        @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, b.h.d.c.h0
+        @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, c.i.d.c.h0
         public /* bridge */ /* synthetic */ Object delegate() {
             return super.delegate();
         }
@@ -100,25 +100,25 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? inverse().inverse() : invokeV.objValue;
         }
 
-        @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+        @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
         public /* bridge */ /* synthetic */ Collection values() {
             return super.values();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class a implements Iterator<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map.Entry<K, V> f64125e;
+        public Map.Entry<K, V> f56072e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f64126f;
+        public final /* synthetic */ Iterator f56073f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f64127g;
+        public final /* synthetic */ AbstractBiMap f56074g;
 
         public a(AbstractBiMap abstractBiMap, Iterator it) {
             Interceptable interceptable = $ic;
@@ -135,8 +135,8 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f64127g = abstractBiMap;
-            this.f64126f = it;
+            this.f56074g = abstractBiMap;
+            this.f56073f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -146,9 +146,9 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Map.Entry<K, V> entry = (Map.Entry) this.f64126f.next();
-                this.f64125e = entry;
-                return new b(this.f64127g, entry);
+                Map.Entry<K, V> entry = (Map.Entry) this.f56073f.next();
+                this.f56072e = entry;
+                return new b(this.f56074g, entry);
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -157,32 +157,32 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64126f.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56073f.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f64125e != null);
-                V value = this.f64125e.getValue();
-                this.f64126f.remove();
-                this.f64127g.removeFromInverseMap(value);
-                this.f64125e = null;
+                m.e(this.f56072e != null);
+                V value = this.f56072e.getValue();
+                this.f56073f.remove();
+                this.f56074g.removeFromInverseMap(value);
+                this.f56072e = null;
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class b extends e0<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map.Entry<K, V> f64128e;
+        public final Map.Entry<K, V> f56075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f64129f;
+        public final /* synthetic */ AbstractBiMap f56076f;
 
         public b(AbstractBiMap abstractBiMap, Map.Entry<K, V> entry) {
             Interceptable interceptable = $ic;
@@ -199,49 +199,49 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f64129f = abstractBiMap;
-            this.f64128e = entry;
+            this.f56076f = abstractBiMap;
+            this.f56075e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.h.d.c.h0
+        @Override // c.i.d.c.h0
         /* renamed from: d */
         public Map.Entry<K, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64128e : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56075e : (Map.Entry) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.e0, java.util.Map.Entry
+        @Override // c.i.d.c.e0, java.util.Map.Entry
         public V setValue(V v) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
-                this.f64129f.checkValue(v);
-                n.x(this.f64129f.entrySet().contains(this), "entry no longer in map");
-                if (b.h.d.a.k.a(v, getValue())) {
+                this.f56076f.checkValue(v);
+                n.x(this.f56076f.entrySet().contains(this), "entry no longer in map");
+                if (c.i.d.a.k.a(v, getValue())) {
                     return v;
                 }
-                n.k(!this.f64129f.containsValue(v), "value already present: %s", v);
-                V value = this.f64128e.setValue(v);
-                n.x(b.h.d.a.k.a(v, this.f64129f.get(getKey())), "entry no longer in map");
-                this.f64129f.updateInverseMap(getKey(), true, value, v);
+                n.k(!this.f56076f.containsValue(v), "value already present: %s", v);
+                V value = this.f56075e.setValue(v);
+                n.x(c.i.d.a.k.a(v, this.f56076f.get(getKey())), "entry no longer in map");
+                this.f56076f.updateInverseMap(getKey(), true, value, v);
                 return value;
             }
             return (V) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class c extends j0<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<Map.Entry<K, V>> f64130e;
+        public final Set<Map.Entry<K, V>> f56077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f64131f;
+        public final /* synthetic */ AbstractBiMap f56078f;
 
         public c(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -258,48 +258,48 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f64131f = abstractBiMap;
-            this.f64130e = this.f64131f.delegate.entrySet();
+            this.f56078f = abstractBiMap;
+            this.f56077e = this.f56078f.delegate.entrySet();
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64131f.clear();
+                this.f56078f.clear();
             }
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? Maps.f(delegate(), obj) : invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? standardContainsAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection, java.lang.Iterable, b.h.d.c.s0
+        @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64131f.entrySetIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56078f.entrySetIterator() : (Iterator) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-                if (this.f64130e.contains(obj)) {
+                if (this.f56077e.contains(obj)) {
                     Map.Entry entry = (Map.Entry) obj;
-                    this.f64131f.inverse.delegate.remove(entry.getValue());
-                    this.f64130e.remove(entry);
+                    this.f56078f.inverse.delegate.remove(entry.getValue());
+                    this.f56077e.remove(entry);
                     return true;
                 }
                 return false;
@@ -307,28 +307,28 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             return invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean removeAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) ? standardRemoveAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) ? standardRetainAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? standardToArray() : (Object[]) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -340,21 +340,21 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.h.d.c.j0, b.h.d.c.y, b.h.d.c.h0
+        @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
         public Set<Map.Entry<K, V>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64130e : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56077e : (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class d extends j0<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f64132e;
+        public final /* synthetic */ AbstractBiMap f56079e;
 
         public d(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -371,31 +371,31 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f64132e = abstractBiMap;
+            this.f56079e = abstractBiMap;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64132e.clear();
+                this.f56079e.clear();
             }
         }
 
-        @Override // b.h.d.c.y, java.util.Collection, java.lang.Iterable, b.h.d.c.s0
+        @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.o(this.f64132e.entrySet().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.o(this.f56079e.entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
                 if (contains(obj)) {
-                    this.f64132e.removeFromBothMaps(obj);
+                    this.f56079e.removeFromBothMaps(obj);
                     return true;
                 }
                 return false;
@@ -403,14 +403,14 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             return invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean removeAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) ? standardRemoveAll(collection) : invokeL.booleanValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -422,24 +422,24 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.h.d.c.j0, b.h.d.c.y, b.h.d.c.h0
+        @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
         public Set<K> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64132e.delegate.keySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56079e.delegate.keySet() : (Set) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class e extends j0<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<V> f64133e;
+        public final Set<V> f56080e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbstractBiMap f64134f;
+        public final /* synthetic */ AbstractBiMap f56081f;
 
         public e(AbstractBiMap abstractBiMap) {
             Interceptable interceptable = $ic;
@@ -456,32 +456,32 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
                     return;
                 }
             }
-            this.f64134f = abstractBiMap;
-            this.f64133e = this.f64134f.inverse.keySet();
+            this.f56081f = abstractBiMap;
+            this.f56080e = this.f56081f.inverse.keySet();
         }
 
-        @Override // b.h.d.c.y, java.util.Collection, java.lang.Iterable, b.h.d.c.s0
+        @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Maps.O(this.f64134f.entrySet().iterator()) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Maps.O(this.f56081f.entrySet().iterator()) : (Iterator) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? standardToArray() : (Object[]) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.h0, java.lang.Object
+        @Override // c.i.d.c.h0, java.lang.Object
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? standardToString() : (String) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.y, java.util.Collection
+        @Override // c.i.d.c.y, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -493,11 +493,11 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.h.d.c.j0, b.h.d.c.y, b.h.d.c.h0
+        @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
         public Set<V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64133e : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56080e : (Set) invokeV.objValue;
         }
     }
 
@@ -505,14 +505,14 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         this(map, abstractBiMap);
     }
 
-    private V putInBothMaps(K k, V v, boolean z) {
+    private V putInBothMaps(K k2, V v, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, this, k, v, z)) == null) {
-            checkKey(k);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, this, k2, v, z)) == null) {
+            checkKey(k2);
             checkValue(v);
-            boolean containsKey = containsKey(k);
-            if (containsKey && b.h.d.a.k.a(v, get(k))) {
+            boolean containsKey = containsKey(k2);
+            if (containsKey && c.i.d.a.k.a(v, get(k2))) {
                 return v;
             }
             if (z) {
@@ -520,8 +520,8 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
             } else {
                 n.k(!containsValue(v), "value already present: %s", v);
             }
-            V put = this.delegate.put(k, v);
-            updateInverseMap(k, containsKey, put, v);
+            V put = this.delegate.put(k2, v);
+            updateInverseMap(k2, containsKey, put, v);
             return put;
         }
         return (V) invokeLLZ.objValue;
@@ -548,20 +548,20 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateInverseMap(K k, boolean z, V v, V v2) {
+    public void updateInverseMap(K k2, boolean z, V v, V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{k, Boolean.valueOf(z), v, v2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{k2, Boolean.valueOf(z), v, v2}) == null) {
             if (z) {
                 removeFromInverseMap(v);
             }
-            this.inverse.delegate.put(v2, k);
+            this.inverse.delegate.put(v2, k2);
         }
     }
 
-    public K checkKey(K k) {
+    public K checkKey(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? k : (K) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? k2 : (K) invokeL.objValue;
     }
 
     public V checkValue(V v) {
@@ -570,7 +570,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v)) == null) ? v : (V) invokeL.objValue;
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -579,14 +579,14 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public boolean containsValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.inverse.containsKey(obj) : invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -608,21 +608,21 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this, this.delegate.entrySet().iterator()) : (Iterator) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.k
-    public V forcePut(K k, V v) {
+    @Override // c.i.d.c.k
+    public V forcePut(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) ? putInBothMaps(k, v, true) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) ? putInBothMaps(k2, v, true) : (V) invokeLL.objValue;
     }
 
-    @Override // b.h.d.c.k
+    @Override // c.i.d.c.k
     public k<V, K> inverse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.inverse : (k) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public Set<K> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -644,14 +644,14 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) ? new Inverse(map, this) : (AbstractBiMap) invokeL.objValue;
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
-    public V put(K k, V v) {
+    @Override // c.i.d.c.d0, java.util.Map
+    public V put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) ? putInBothMaps(k, v, false) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k2, v)) == null) ? putInBothMaps(k2, v, false) : (V) invokeLL.objValue;
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public void putAll(Map<? extends K, ? extends V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
@@ -661,7 +661,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
         }
     }
 
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public V remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -713,7 +713,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.d0, b.h.d.c.h0
+    @Override // c.i.d.c.d0, c.i.d.c.h0
     public Map<K, V> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -721,7 +721,7 @@ public abstract class AbstractBiMap<K, V> extends d0<K, V> implements k<K, V>, S
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public Set<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

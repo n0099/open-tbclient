@@ -13,18 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final iy f72102a;
+    public static final iy a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f72103b;
+    public static final iy f63079b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -50,8 +48,8 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             }
         }
         f603a = new jg("XmPushActionCheckClientInfo");
-        f72102a = new iy("", (byte) 8, (short) 1);
-        f72103b = new iy("", (byte) 8, (short) 2);
+        a = new iy("", (byte) 8, (short) 1);
+        f63079b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -80,11 +78,11 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hxVar)) == null) {
             if (hx.class.equals(hxVar.getClass())) {
-                int compareTo = Boolean.valueOf(m430a()).compareTo(Boolean.valueOf(hxVar.m430a()));
+                int compareTo = Boolean.valueOf(m479a()).compareTo(Boolean.valueOf(hxVar.m479a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m430a() || (a3 = ir.a(this.f604a, hxVar.f604a)) == 0) {
+                if (!m479a() || (a3 = ir.a(this.f604a, hxVar.f604a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hxVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -122,17 +120,17 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void a(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jbVar) == null) {
-            jbVar.m527a();
+            jbVar.m576a();
             while (true) {
-                iy m523a = jbVar.m523a();
-                byte b2 = m523a.f72248a;
+                iy m572a = jbVar.m572a();
+                byte b2 = m572a.a;
                 if (b2 == 0) {
                     break;
                 }
-                short s = m523a.f815a;
+                short s = m572a.f815a;
                 if (s != 1) {
                     if (s == 2 && b2 == 8) {
-                        this.f606b = jbVar.m521a();
+                        this.f606b = jbVar.m570a();
                         b(true);
                         jbVar.g();
                     }
@@ -140,7 +138,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                     jbVar.g();
                 } else {
                     if (b2 == 8) {
-                        this.f604a = jbVar.m521a();
+                        this.f604a = jbVar.m570a();
                         a(true);
                         jbVar.g();
                     }
@@ -149,7 +147,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 }
             }
             jbVar.f();
-            if (!m430a()) {
+            if (!m479a()) {
                 throw new jc("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
             } else if (b()) {
                 a();
@@ -167,14 +165,14 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m430a() {
+    public boolean m479a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f605a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m431a(hx hxVar) {
+    public boolean m480a(hx hxVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hxVar)) == null) ? hxVar != null && this.f604a == hxVar.f604a && this.f606b == hxVar.f606b : invokeL.booleanValue;
@@ -197,14 +195,14 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
             a();
             jbVar.a(f603a);
-            jbVar.a(f72102a);
+            jbVar.a(a);
             jbVar.a(this.f604a);
             jbVar.b();
-            jbVar.a(f72103b);
+            jbVar.a(f63079b);
             jbVar.a(this.f606b);
             jbVar.b();
             jbVar.c();
-            jbVar.m531a();
+            jbVar.m580a();
         }
     }
 
@@ -226,7 +224,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof hx)) {
-                return m431a((hx) obj);
+                return m480a((hx) obj);
             }
             return false;
         }

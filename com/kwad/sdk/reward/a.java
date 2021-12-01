@@ -1,11 +1,13 @@
 package com.kwad.sdk.reward;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,8 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.kwad.sdk.core.download.a.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
+import com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,58 +28,69 @@ import org.json.JSONObject;
 public class a extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f66923a;
+    public Set<com.kwad.sdk.reward.a.f> A;
+    public Handler B;
+    public List<com.kwad.sdk.reward.a.a> a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f66924b;
+    public com.kwad.sdk.reward.a.b f58869b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f66925c;
-    @Nullable
+    public com.kwad.sdk.reward.a.d f58870c;
+    @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f66926d;
+    public KsVideoPlayConfig f58871d;
+    @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66927e;
-    @NonNull
+    public JSONObject f58872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f66928f;
+    public int f58873f;
+    @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f66929g;
-    @NonNull
+    public AdTemplate f58874g;
+    @Deprecated
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f66930h;
-    @NonNull
+    public Activity f58875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f66931i;
-    @Nullable
-    public com.kwad.sdk.core.download.b.b j;
+    public Context f58876i;
     @NonNull
-    public com.kwad.sdk.reward.b.b.a.a k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public AdBaseFrameLayout f58877j;
+    @NonNull
+
+    /* renamed from: k  reason: collision with root package name */
+    public com.kwad.sdk.reward.c.a f58878k;
     @Nullable
-    public com.kwad.sdk.d.c l;
+    public com.kwad.sdk.core.download.a.b l;
     @Nullable
-    public com.kwad.sdk.d.a m;
+    public com.kwad.sdk.widget.e m;
+    @NonNull
+    public RewardActionBarControl n;
     @Nullable
-    public com.kwad.sdk.d.b n;
-    public Set<com.kwad.sdk.reward.a.e> o;
-    public Set<com.kwad.sdk.reward.a.d> p;
-    public boolean q;
+    public com.kwad.sdk.i.b o;
+    @Nullable
+    public com.kwad.sdk.i.a p;
+    public Set<com.kwad.sdk.reward.a.e> q;
     public boolean r;
     public boolean s;
     public boolean t;
     public boolean u;
-    public Set<com.kwad.sdk.reward.a.f> v;
-    public Handler w;
+    public boolean v;
+    public List<Integer> w;
+    public boolean x;
+    @Nullable
+    public com.kwad.sdk.reward.b.a.a y;
+    @Nullable
+    public com.kwad.sdk.reward.b.kwai.a z;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -90,26 +105,36 @@ public class a extends com.kwad.sdk.core.e.b {
                 return;
             }
         }
-        this.f66923a = new ArrayList();
-        this.v = new HashSet();
-        this.o = new HashSet();
-        this.p = new HashSet();
-        this.s = false;
+        this.a = new ArrayList();
+        this.A = new HashSet();
+        this.q = new HashSet();
         this.t = false;
-        this.w = new Handler(Looper.getMainLooper());
         this.u = false;
+        this.v = false;
+        this.w = new ArrayList();
+        this.x = false;
+        this.B = new Handler(Looper.getMainLooper());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
+            com.kwad.sdk.core.report.a.a(this.f58874g, i2, this.f58877j.getTouchCoords(), this.f58872e);
+            this.f58869b.a();
+        }
     }
 
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            for (com.kwad.sdk.reward.a.f fVar : this.v) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            for (com.kwad.sdk.reward.a.f fVar : this.A) {
                 fVar.a();
             }
         }
@@ -119,94 +144,95 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66923a.clear();
-            this.v.clear();
-            this.f66931i.i();
-            com.kwad.sdk.core.download.b.b bVar = this.j;
+            this.a.clear();
+            this.A.clear();
+            com.kwad.sdk.reward.c.a aVar = this.f58878k;
+            if (aVar != null) {
+                aVar.e();
+            }
+            com.kwad.sdk.core.download.a.b bVar = this.l;
             if (bVar != null) {
-                bVar.f();
+                bVar.i();
             }
-            com.kwad.sdk.d.c cVar = this.l;
-            if (cVar != null) {
-                cVar.f();
-            }
-            com.kwad.sdk.d.b bVar2 = this.n;
+            com.kwad.sdk.i.b bVar2 = this.o;
             if (bVar2 != null) {
                 bVar2.f();
             }
-            Set<com.kwad.sdk.reward.a.d> set = this.p;
+            Set<com.kwad.sdk.reward.a.e> set = this.q;
             if (set != null) {
                 set.clear();
             }
         }
     }
 
-    public void a(long j, long j2, int i2) {
+    public void a(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            for (com.kwad.sdk.reward.a.d dVar : this.p) {
-                dVar.a(j, j2, i2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            for (com.kwad.sdk.reward.a.e eVar : this.q) {
+                eVar.a(j2, j3, i2);
             }
+        }
+    }
+
+    public void a(Context context, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i2, i3) == null) {
+            com.kwad.sdk.core.download.a.a.a(new a.C2015a(context).a(this.f58874g).a(this.l).a(false).a(i3).a(new a.b(this, i2) { // from class: com.kwad.sdk.reward.a.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ int a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ a f58879b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f58879b = this;
+                    this.a = i2;
+                }
+
+                @Override // com.kwad.sdk.core.download.a.a.b
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f58879b.a(this.a);
+                    }
+                }
+            }));
         }
     }
 
     @MainThread
     public void a(com.kwad.sdk.reward.a.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.v.add(fVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            this.A.add(fVar);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (c()) {
                 d();
-                return;
-            }
-            Activity activity = this.f66929g;
-            if (activity != null) {
-                activity.runOnUiThread(new Runnable(this) { // from class: com.kwad.sdk.reward.a.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f66932a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f66932a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66932a.b();
-                        }
-                    }
-                });
             } else {
-                this.w.post(new Runnable(this) { // from class: com.kwad.sdk.reward.a.2
+                this.B.post(new Runnable(this) { // from class: com.kwad.sdk.reward.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f66933a;
+                    public final /* synthetic */ a a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -223,14 +249,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f66933a = this;
+                        this.a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66933a.b();
+                            this.a.b();
                         }
                     }
                 });
@@ -241,8 +267,8 @@ public class a extends com.kwad.sdk.core.e.b {
     @MainThread
     public void b(com.kwad.sdk.reward.a.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.v.remove(fVar);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.A.remove(fVar);
         }
     }
 }

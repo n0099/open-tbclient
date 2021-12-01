@@ -9,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTUAL_IMAGE_INDEX = 2;
@@ -141,7 +140,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     private void fadeOutLayer(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || i2 < 0) {
             return;
         }
         this.mFadeDrawable.fadeOutLayer(i2);
@@ -150,7 +149,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     private DrawableParent getParentDrawableAtIndex(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
             DrawableParent drawableParentForIndex = this.mFadeDrawable.getDrawableParentForIndex(i2);
             if (drawableParentForIndex.getDrawable() instanceof MatrixDrawable) {
                 drawableParentForIndex = (MatrixDrawable) drawableParentForIndex.getDrawable();

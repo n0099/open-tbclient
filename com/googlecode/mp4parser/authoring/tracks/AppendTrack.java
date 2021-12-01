@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -236,7 +235,7 @@ public class AppendTrack extends AbstractTrack {
     private SampleDescriptionBox mergeStsds(SampleDescriptionBox sampleDescriptionBox, SampleDescriptionBox sampleDescriptionBox2) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, sampleDescriptionBox, sampleDescriptionBox2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, sampleDescriptionBox, sampleDescriptionBox2)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
             try {
@@ -261,7 +260,7 @@ public class AppendTrack extends AbstractTrack {
     private VisualSampleEntry mergeVisualSampleEntry(VisualSampleEntry visualSampleEntry, VisualSampleEntry visualSampleEntry2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, visualSampleEntry, visualSampleEntry2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, visualSampleEntry, visualSampleEntry2)) == null) {
             VisualSampleEntry visualSampleEntry3 = new VisualSampleEntry();
             if (visualSampleEntry.getHorizresolution() == visualSampleEntry2.getHorizresolution()) {
                 visualSampleEntry3.setHorizresolution(visualSampleEntry.getHorizresolution());
@@ -455,18 +454,18 @@ public class AppendTrack extends AbstractTrack {
                 i2 += track.getSyncSamples().length;
             }
             long[] jArr = new long[i2];
-            long j = 0;
+            long j2 = 0;
             int i3 = 0;
             for (Track track2 : this.tracks) {
                 long[] syncSamples = track2.getSyncSamples();
                 int length = syncSamples.length;
                 int i4 = 0;
                 while (i4 < length) {
-                    jArr[i3] = syncSamples[i4] + j;
+                    jArr[i3] = syncSamples[i4] + j2;
                     i4++;
                     i3++;
                 }
-                j += track2.getSamples().size();
+                j2 += track2.getSamples().size();
             }
             return jArr;
         }

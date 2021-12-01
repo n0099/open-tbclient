@@ -3,7 +3,6 @@ package com.dxmpay.apollon.utils;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Md5Utils implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static char[] hexChars;
@@ -122,7 +121,7 @@ public final class Md5Utils implements NoProguard {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = null;
                 str2 = null;
@@ -213,7 +212,7 @@ public final class Md5Utils implements NoProguard {
         Interceptable interceptable;
         InterceptResult invokeL;
         Interceptable interceptable2 = $ic;
-        if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(65542, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = null;
                 str2 = null;

@@ -20,14 +20,12 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AuthActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f71099a;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -163,10 +161,10 @@ public class AuthActivity extends Activity {
                         }
                     } else {
                         if (string.equals("shareToQzone") && i.a((Context) this, "com.tencent.mobileqq") != null && i.c(this, "5.2.0") < 0) {
-                            int i2 = f71099a + 1;
-                            f71099a = i2;
+                            int i2 = a + 1;
+                            a = i2;
                             if (i2 == 2) {
-                                f71099a = 0;
+                                a = 0;
                                 finish();
                                 return;
                             }

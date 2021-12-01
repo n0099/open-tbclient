@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +123,7 @@ public class LinearSnapHelper extends SnapHelper {
     private OrientationHelper getHorizontalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, layoutManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, layoutManager)) == null) {
             OrientationHelper orientationHelper = this.mHorizontalHelper;
             if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
                 this.mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
@@ -138,7 +137,7 @@ public class LinearSnapHelper extends SnapHelper {
     private OrientationHelper getVerticalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, layoutManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, layoutManager)) == null) {
             OrientationHelper orientationHelper = this.mVerticalHelper;
             if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
                 this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);

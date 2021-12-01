@@ -15,20 +15,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ModelLoaderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoaderCache cache;
     public final MultiModelLoaderFactory multiModelLoaderFactory;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ModelLoaderCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<Class<?>, Entry<?>> cachedModelLoaders;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static class Entry<Model> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -120,10 +120,10 @@ public class ModelLoaderRegistry {
     }
 
     @NonNull
-    public static <A> Class<A> getClass(@NonNull A a2) {
+    public static <A> Class<A> getClass(@NonNull A a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, a2)) == null) ? (Class<A>) a2.getClass() : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, a)) == null) ? (Class<A>) a.getClass() : (Class) invokeL.objValue;
     }
 
     @NonNull
@@ -191,17 +191,17 @@ public class ModelLoaderRegistry {
     }
 
     @NonNull
-    public <A> List<ModelLoader<A, ?>> getModelLoaders(@NonNull A a2) {
+    public <A> List<ModelLoader<A, ?>> getModelLoaders(@NonNull A a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a2)) == null) {
-            List<ModelLoader<A, ?>> modelLoadersForClass = getModelLoadersForClass(getClass(a2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a)) == null) {
+            List<ModelLoader<A, ?>> modelLoadersForClass = getModelLoadersForClass(getClass(a));
             int size = modelLoadersForClass.size();
             List<ModelLoader<A, ?>> emptyList = Collections.emptyList();
             boolean z = true;
             for (int i2 = 0; i2 < size; i2++) {
                 ModelLoader<A, ?> modelLoader = modelLoadersForClass.get(i2);
-                if (modelLoader.handles(a2)) {
+                if (modelLoader.handles(a)) {
                     if (z) {
                         emptyList = new ArrayList<>(size - i2);
                         z = false;

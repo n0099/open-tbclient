@@ -5,13 +5,12 @@ import android.graphics.Rect;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ImageSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_SCHEME = "file:///android_asset/";
@@ -75,13 +74,13 @@ public final class ImageSource {
     public static ImageSource resource(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new ImageSource(i2) : (ImageSource) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new ImageSource(i2) : (ImageSource) invokeI.objValue;
     }
 
     private void setInvariants() {
         Rect rect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (rect = this.sRegion) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (rect = this.sRegion) == null) {
             return;
         }
         this.tile = true;

@@ -2,7 +2,6 @@ package okhttp3.internal.connection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -264,12 +263,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     private Request createTunnelRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build() : (Request) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build() : (Request) invokeV.objValue;
     }
 
     private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i2, Call call, EventListener eventListener) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(AdIconUtil.BAIDU_LOGO_ID, this, connectionSpecSelector, i2, call, eventListener) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65542, this, connectionSpecSelector, i2, call, eventListener) == null) {
             if (this.route.address().sslSocketFactory() == null) {
                 if (this.route.address().protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
                     this.socket = this.rawSocket;
@@ -300,13 +299,13 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j) {
+    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j2)})) == null) {
             RealConnection realConnection = new RealConnection(connectionPool, route);
             realConnection.socket = socket;
-            realConnection.idleAtNanos = j;
+            realConnection.idleAtNanos = j2;
             return realConnection;
         }
         return (RealConnection) invokeCommon.objValue;

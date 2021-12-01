@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpResponse;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class f implements ConnectionKeepAliveStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f34690a;
+    public final /* synthetic */ d a;
 
     public f(d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class f implements ConnectionKeepAliveStrategy {
                 return;
             }
         }
-        this.f34690a = dVar;
+        this.a = dVar;
     }
 
     @Override // org.apache.http.conn.ConnectionKeepAliveStrategy

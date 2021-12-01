@@ -31,6 +31,7 @@ import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.SimpleLottieValueCallback;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieDrawable extends Drawable implements Drawable.Callback, Animatable {
     public static final int INFINITE = -1;
     public static final int RESTART = 1;
@@ -77,7 +78,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     public final Set<ColorFilterData> colorFilterData = new HashSet();
     public final ArrayList<LazyCompositionTask> lazyCompositionTasks = new ArrayList<>();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ColorFilterData {
         @Nullable
         public final ColorFilter colorFilter;
@@ -104,19 +105,19 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
 
         public int hashCode() {
             String str = this.layerName;
-            int hashCode = str != null ? 527 * str.hashCode() : 17;
+            int hashCode = str != null ? PayBeanFactory.BEAN_ID_WIDTHDRAW * str.hashCode() : 17;
             String str2 = this.contentName;
             return str2 != null ? hashCode * 31 * str2.hashCode() : hashCode;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface LazyCompositionTask {
         void run(LottieComposition lottieComposition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface RepeatMode {
     }
 
@@ -587,12 +588,12 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
         Drawable.Callback callback = getCallback();
         if (callback == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j);
+        callback.scheduleDrawable(this, runnable, j2);
     }
 
     @Override // android.graphics.drawable.Drawable

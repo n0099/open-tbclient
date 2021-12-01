@@ -7,7 +7,6 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.ParseContext;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
@@ -22,7 +22,7 @@ import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AwtCodec instance;
@@ -142,13 +142,13 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     if (jSONLexer.token() == 2) {
                         int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                        if (stringVal.equalsIgnoreCase(r.f41000a)) {
+                        if (stringVal.equalsIgnoreCase("r")) {
                             i2 = intValue;
                         } else if (stringVal.equalsIgnoreCase("g")) {
                             i3 = intValue;
                         } else if (stringVal.equalsIgnoreCase("b")) {
                             i4 = intValue;
-                        } else if (!stringVal.equalsIgnoreCase("alpha")) {
+                        } else if (!stringVal.equalsIgnoreCase(AnimationProperty.OPACITY)) {
                             throw new JSONException("syntax error, " + stringVal);
                         } else {
                             i5 = intValue;
@@ -340,11 +340,11 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                 serializeWriter.writeFieldValue(',', "height", rectangle.height);
             } else if (obj instanceof Color) {
                 Color color = (Color) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, ExtendedMessageFormat.START_FE), r.f41000a, color.getRed());
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, ExtendedMessageFormat.START_FE), "r", color.getRed());
                 serializeWriter.writeFieldValue(',', "g", color.getGreen());
                 serializeWriter.writeFieldValue(',', "b", color.getBlue());
                 if (color.getAlpha() > 0) {
-                    serializeWriter.writeFieldValue(',', "alpha", color.getAlpha());
+                    serializeWriter.writeFieldValue(',', AnimationProperty.OPACITY, color.getAlpha());
                 }
             } else {
                 throw new JSONException("not support awt class : " + obj.getClass().getName());

@@ -14,13 +14,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableRepeatUntil<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BooleanSupplier until;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RepeatSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
@@ -99,10 +99,10 @@ public final class FlowableRepeatUntil<T> extends AbstractFlowableWithUpstream<T
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
                 int i2 = 1;
                 while (!this.sa.isCancelled()) {
-                    long j = this.produced;
-                    if (j != 0) {
+                    long j2 = this.produced;
+                    if (j2 != 0) {
                         this.produced = 0L;
-                        this.sa.produced(j);
+                        this.sa.produced(j2);
                     }
                     this.source.subscribe(this);
                     i2 = addAndGet(-i2);

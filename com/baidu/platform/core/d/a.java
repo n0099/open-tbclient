@@ -14,7 +14,6 @@ import com.baidu.mapapi.search.route.BikingRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,13 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.filter.FilterValue;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,8 +153,8 @@ public class a extends com.baidu.platform.base.d {
                     } else if (optInt2 != 2 || (optJSONArray = optJSONObject2.optJSONArray("routes")) == null || optJSONArray.length() <= 0) {
                         return false;
                     } else {
-                        RouteNode a2 = a(optJSONObject2, FilterValue.DEFAULT_FILTER_VALUE, "originPt");
-                        RouteNode a3 = a(optJSONObject2, "destination", "destinationPt");
+                        RouteNode a = a(optJSONObject2, FilterValue.DEFAULT_FILTER_VALUE, "originPt");
+                        RouteNode a2 = a(optJSONObject2, "destination", "destinationPt");
                         ArrayList arrayList = new ArrayList();
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             BikingRouteLine bikingRouteLine = new BikingRouteLine();
@@ -167,8 +165,8 @@ public class a extends com.baidu.platform.base.d {
                             if (optJSONObject == null) {
                                 return false;
                             }
-                            bikingRouteLine.setStarting(a2);
-                            bikingRouteLine.setTerminal(a3);
+                            bikingRouteLine.setStarting(a);
+                            bikingRouteLine.setTerminal(a2);
                             bikingRouteLine.setDistance(optJSONObject.optInt("distance"));
                             bikingRouteLine.setDuration(optJSONObject.optInt("duration"));
                             bikingRouteLine.setSteps(a(optJSONObject.optJSONArray("steps")));
@@ -189,7 +187,7 @@ public class a extends com.baidu.platform.base.d {
     private SuggestAddrInfo b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
@@ -223,7 +221,7 @@ public class a extends com.baidu.platform.base.d {
         InterceptResult invokeLLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, jSONObject, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, jSONObject, str, str2)) == null) {
             if (jSONObject != null && str != null && !"".equals(str) && (optJSONArray = jSONObject.optJSONArray(str)) != null) {
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -301,7 +299,7 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                 if (jSONObject2 != null) {
                     CityInfo cityInfo = new CityInfo();
-                    cityInfo.num = jSONObject2.optInt(IdCardActivity.KEY_NUMBER);
+                    cityInfo.num = jSONObject2.optInt("number");
                     cityInfo.city = jSONObject2.optString("name");
                     arrayList.add(cityInfo);
                 }

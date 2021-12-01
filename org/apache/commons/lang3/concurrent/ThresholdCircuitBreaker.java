@@ -15,12 +15,12 @@ public class ThresholdCircuitBreaker extends AbstractCircuitBreaker<Long> {
     public final long threshold;
     public final AtomicLong used;
 
-    public ThresholdCircuitBreaker(long j) {
+    public ThresholdCircuitBreaker(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public class ThresholdCircuitBreaker extends AbstractCircuitBreaker<Long> {
             }
         }
         this.used = new AtomicLong(0L);
-        this.threshold = j;
+        this.threshold = j2;
     }
 
     @Override // org.apache.commons.lang3.concurrent.AbstractCircuitBreaker, org.apache.commons.lang3.concurrent.CircuitBreaker

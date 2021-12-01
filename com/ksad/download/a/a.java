@@ -1,56 +1,46 @@
 package com.ksad.download.a;
 
-import android.content.Context;
-import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ksad.download.DownloadTask;
-import com.kwad.sdk.api.proxy.app.DownloadService;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 /* loaded from: classes2.dex */
-public class a {
+public class a implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            com.kwad.sdk.core.d.a.a("DownloadClient", "pauseDownload");
-            try {
-                Intent intent = new Intent(context, DownloadService.class);
-                intent.putExtra("download_service_type_tag", 2);
-                intent.putExtra("download_service_id_tag", str);
-                context.startService(intent);
-            } catch (Exception unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(Context context, String str, DownloadTask.DownloadRequest downloadRequest) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, downloadRequest) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             try {
-                Intent intent = new Intent(context, DownloadService.class);
-                intent.putExtra("download_service_type_tag", 1);
-                intent.putExtra("download_service_id_tag", str);
-                intent.putExtra("download_service_args_tag", downloadRequest);
-                context.startService(intent);
+                return chain.proceed(chain.request());
             } catch (Exception e2) {
-                e2.printStackTrace();
+                if (e2 instanceof IOException) {
+                    throw e2;
+                }
+                throw new IOException(e2);
             }
         }
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            com.kwad.sdk.core.d.a.a("DownloadClient", "cancelDownload");
-            try {
-                Intent intent = new Intent(context, DownloadService.class);
-                intent.putExtra("download_service_type_tag", 4);
-                intent.putExtra("download_service_id_tag", str);
-                context.startService(intent);
-            } catch (Exception unused) {
-            }
-        }
+        return (Response) invokeL.objValue;
     }
 }

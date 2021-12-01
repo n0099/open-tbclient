@@ -9,9 +9,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,41 +50,37 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f62572a;
+    public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62573b;
+    public static final String f54755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CountDownLatch f62574c;
+    public static final CountDownLatch f54756c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final HashMap<String, TTPluginListener> f62575d;
+    public static final HashMap<String, TTPluginListener> f54757d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashMap<String, Handler> f62576e;
+    public static final HashMap<String, Handler> f54758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile DexClassLoader f62577f;
+    public static volatile DexClassLoader f54759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile f f62578g;
+    public static volatile f f54760g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62579h;
+    public String f54761h;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final c f62587a;
+        public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -101,11 +96,11 @@ public class f {
                     return;
                 }
             }
-            f62587a = new c();
+            a = new c();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class b implements TTAdEvent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,20 +123,20 @@ public class f {
         public void onEvent(int i2, Bundle bundle) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) && i2 == 1) {
-                d a2 = f.a(bundle.getString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
-                if (a2 != null && !TextUtils.isEmpty(a2.mPackageName)) {
+                d a = f.a(bundle.getString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
+                if (a != null && !TextUtils.isEmpty(a.mPackageName)) {
                     boolean z = bundle.getBoolean("success");
-                    TTPluginListener tTPluginListener = (TTPluginListener) f.f62575d.get(a2.mPackageName);
+                    TTPluginListener tTPluginListener = (TTPluginListener) f.f54757d.get(a.mPackageName);
                     if (z) {
-                        com.bytedance.sdk.openadsdk.api.b.d.c("TTPluginManager", "plugin update received: " + a2.mPackageName);
-                        if (!a2.isRevert) {
-                            if (f.b(a2, tTPluginListener)) {
+                        com.bytedance.sdk.openadsdk.api.b.d.c("TTPluginManager", "plugin update received: " + a.mPackageName);
+                        if (!a.isRevert) {
+                            if (f.b(a, tTPluginListener)) {
                                 bundle.putBoolean("installed", true);
                                 return;
                             }
                             return;
                         }
-                        Zeus.unInstallPlugin(a2.mPackageName);
+                        Zeus.unInstallPlugin(a.mPackageName);
                         return;
                     }
                     if (tTPluginListener != null) {
@@ -168,12 +163,12 @@ public class f {
                 return;
             }
         }
-        f62572a = UnitedSchemeConstants.UNITED_SCHEME_NEXT + File.separator;
-        f62573b = File.separator + "conf";
-        f62574c = new CountDownLatch(1);
-        f62575d = new HashMap<>();
-        f62576e = new HashMap<>();
-        f62578g = null;
+        a = "next" + File.separator;
+        f54755b = File.separator + "conf";
+        f54756c = new CountDownLatch(1);
+        f54757d = new HashMap<>();
+        f54758e = new HashMap<>();
+        f54760g = null;
     }
 
     public f(Context context) {
@@ -205,7 +200,7 @@ public class f {
             try {
                 String a2 = com.bytedance.sdk.openadsdk.api.plugin.b.a(PluginConstants.getSign());
                 File f2 = f(context);
-                File file = new File(f2, (a2 + "-4011-4011") + ".apk");
+                File file = new File(f2, (a2 + "-4011-4011") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                 if (a(assets.open(a2), file)) {
                     com.bytedance.sdk.openadsdk.api.b.d.c("TTPluginManager", "Select nested");
                     return a(file, PluginConstants.getSign());
@@ -256,7 +251,7 @@ public class f {
                 ArrayList arrayList = new ArrayList();
                 for (File file : listFiles) {
                     d a2 = a(c(file));
-                    if (a2 != null && a2.f62564b.exists()) {
+                    if (a2 != null && a2.f54750b.exists()) {
                         arrayList.add(a2);
                     }
                 }
@@ -270,13 +265,13 @@ public class f {
     public static File f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) ? new File(h(context), f62572a) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) ? new File(h(context), a) : (File) invokeL.objValue;
     }
 
     public static File g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) ? new File(h(context), f62573b) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) ? new File(h(context), f54755b) : (File) invokeL.objValue;
     }
 
     public static File h(Context context) {
@@ -293,9 +288,7 @@ public class f {
                 ZeusParam build = new ZeusParam.Builder().autoFetch(true).closeDefaultReport(true).reporter(new IZeusReporter(this) { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f62583a;
+                    public final /* synthetic */ f a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -312,7 +305,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f62583a = this;
+                        this.a = this;
                     }
 
                     @Override // com.bytedance.pangle.log.IZeusReporter
@@ -325,9 +318,7 @@ public class f {
                 }).verifyWith(new ApkVerifier(this) { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f62582a;
+                    public final /* synthetic */ f a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -344,7 +335,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f62582a = this;
+                        this.a = this;
                     }
 
                     @Override // com.bytedance.pangle.ApkVerifier
@@ -354,21 +345,19 @@ public class f {
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
                             d b2 = f.b(file);
                             if (b2 != null) {
-                                return a.f62587a.a(b2.f62563a, file);
+                                return a.a.a(b2.a, file);
                             }
-                            return a.f62587a.a(this.f62582a.f62579h, file);
+                            return a.a.a(this.a.f54761h, file);
                         }
                         return invokeL.booleanValue;
                     }
                 }).pluginProvider(new PluginProvider(this, context) { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f62580a;
+                    public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ f f62581b;
+                    public final /* synthetic */ f f54762b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -385,8 +374,8 @@ public class f {
                                 return;
                             }
                         }
-                        this.f62581b = this;
-                        this.f62580a = context;
+                        this.f54762b = this;
+                        this.a = context;
                     }
 
                     @Override // com.bytedance.pangle.plugin.PluginProvider
@@ -397,7 +386,7 @@ public class f {
                             if (Zeus.isPluginInstalled(TTAdConstant.BUILT_IN_PLUGIN_NAME)) {
                                 return null;
                             }
-                            return this.f62581b.d(this.f62580a);
+                            return this.f54762b.d(this.a);
                         }
                         return (File) invokeV.objValue;
                     }
@@ -406,7 +395,7 @@ public class f {
                     public List<PluginDownloadBean> providePluginConfig() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.e(this.f62580a) : (List) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.e(this.a) : (List) invokeV.objValue;
                     }
 
                     @Override // com.bytedance.pangle.plugin.PluginProvider
@@ -424,9 +413,7 @@ public class f {
                 Zeus.registerPluginStateListener(new ZeusPluginStateListener(this) { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f62584a;
+                    public final /* synthetic */ f a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -443,7 +430,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f62584a = this;
+                        this.a = this;
                     }
 
                     @Override // com.bytedance.pangle.ZeusPluginStateListener
@@ -453,12 +440,12 @@ public class f {
                             com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Plugin install result: [" + str + "]," + z);
                             if (TTAdConstant.BUILT_IN_PLUGIN_NAME.equals(str)) {
                                 if (z && Zeus.loadPlugin(str)) {
-                                    DexClassLoader unused = f.f62577f = Zeus.getPlugin(str).mClassLoader;
+                                    DexClassLoader unused = f.f54759f = Zeus.getPlugin(str).mClassLoader;
                                 }
-                                f.f62574c.countDown();
+                                f.f54756c.countDown();
                                 return;
                             }
-                            f.b(z, str, (TTPluginListener) f.f62575d.get(str));
+                            f.b(z, str, (TTPluginListener) f.f54757d.get(str));
                         }
                     }
                 });
@@ -488,15 +475,15 @@ public class f {
     public static f a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f62578g == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (f54760g == null) {
                 synchronized (f.class) {
-                    if (f62578g == null) {
-                        f62578g = new f(context);
+                    if (f54760g == null) {
+                        f54760g = new f(context);
                     }
                 }
             }
-            return f62578g;
+            return f54760g;
         }
         return (f) invokeL.objValue;
     }
@@ -519,7 +506,7 @@ public class f {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, dVar, tTPluginListener)) == null) {
-            if (dVar != null && (file = dVar.f62564b) != null) {
+            if (dVar != null && (file = dVar.f54750b) != null) {
                 boolean syncInstallPlugin = Zeus.syncInstallPlugin(file.getAbsolutePath());
                 b(syncInstallPlugin, dVar.mPackageName, tTPluginListener);
                 return syncInstallPlugin;
@@ -537,16 +524,16 @@ public class f {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 if (!Zeus.isPluginInstalled(TTAdConstant.BUILT_IN_PLUGIN_NAME)) {
-                    f62574c.await(60000L, TimeUnit.MILLISECONDS);
+                    f54756c.await(60000L, TimeUnit.MILLISECONDS);
                 }
                 if (!Zeus.isPluginLoaded(TTAdConstant.BUILT_IN_PLUGIN_NAME) && Zeus.loadPlugin(TTAdConstant.BUILT_IN_PLUGIN_NAME)) {
-                    f62577f = Zeus.getPlugin(TTAdConstant.BUILT_IN_PLUGIN_NAME).mClassLoader;
+                    f54759f = Zeus.getPlugin(TTAdConstant.BUILT_IN_PLUGIN_NAME).mClassLoader;
                 }
             } catch (Exception e2) {
                 com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Unexpected error for load plugin.", e2);
                 e.a(3, e2.getMessage(), System.currentTimeMillis() - currentTimeMillis);
             }
-            return f62577f;
+            return f54759f;
         }
         return (DexClassLoader) invokeV.objValue;
     }
@@ -561,7 +548,7 @@ public class f {
             sb.append(", need notify: ");
             sb.append(tTPluginListener != null);
             com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", sb.toString());
-            Handler handler = f62576e.get(str);
+            Handler handler = f54758e.get(str);
             if (tTPluginListener == null || handler == null) {
                 return;
             }
@@ -581,8 +568,8 @@ public class f {
             } else {
                 tTPluginListener.onPluginListener(1001, null, null, null);
             }
-            f62575d.remove(str);
-            f62576e.remove(str);
+            f54757d.remove(str);
+            f54758e.remove(str);
         }
     }
 
@@ -649,7 +636,7 @@ public class f {
                 com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Selected plugin with empty sign");
                 return null;
             }
-            this.f62579h = str;
+            this.f54761h = str;
             return file;
         }
         return (File) invokeLL.objValue;
@@ -680,12 +667,10 @@ public class f {
             handler.postDelayed(new Runnable(this, tTPluginListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTPluginListener f62585a;
+                public final /* synthetic */ TTPluginListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f62586b;
+                public final /* synthetic */ f f54763b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -702,8 +687,8 @@ public class f {
                             return;
                         }
                     }
-                    this.f62586b = this;
-                    this.f62585a = tTPluginListener;
+                    this.f54763b = this;
+                    this.a = tTPluginListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -711,7 +696,7 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Load plugin failed, caused by timeout.");
-                        this.f62585a.onPluginListener(1001, null, null, null);
+                        this.a.onPluginListener(1001, null, null, null);
                     }
                 }
             }, 180000L);
@@ -727,8 +712,8 @@ public class f {
                 tTPluginListener.onPluginListener(1000, plugin2.mClassLoader, plugin2.mResources, null);
                 return;
             }
-            f62575d.put(packageName, tTPluginListener);
-            f62576e.put(packageName, handler);
+            f54757d.put(packageName, tTPluginListener);
+            f54758e.put(packageName, handler);
         }
     }
 
@@ -763,9 +748,9 @@ public class f {
             dVar.mMd5 = jSONObject.optString(PackageTable.MD5);
             dVar.mApiVersionMin = jSONObject.optInt("min_version");
             dVar.mApiVersionMax = jSONObject.optInt("max_version");
-            dVar.f62563a = jSONObject.optString("sign");
+            dVar.a = jSONObject.optString("sign");
             dVar.isRevert = jSONObject.optBoolean("is_revert");
-            dVar.f62564b = new File(jSONObject.optString("plugin_file"));
+            dVar.f54750b = new File(jSONObject.optString("plugin_file"));
             return dVar;
         }
         return (d) invokeL.objValue;

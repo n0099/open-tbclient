@@ -31,7 +31,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -210,7 +209,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     public static AnimatedVectorDrawableCompat createFromXmlInner(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, context, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, null, context, resources, xmlPullParser, attributeSet, theme)) == null) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat = new AnimatedVectorDrawableCompat(context);
             animatedVectorDrawableCompat.inflate(resources, xmlPullParser, attributeSet, theme);
             return animatedVectorDrawableCompat;
@@ -1022,10 +1021,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             }
 
             @Override // android.graphics.drawable.Drawable.Callback
-            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-                    this.this$0.scheduleSelf(runnable, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
+                    this.this$0.scheduleSelf(runnable, j2);
                 }
             }
 
@@ -1073,7 +1072,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
 
     public static void registerAnimationCallback(Drawable drawable, Animatable2Compat.AnimationCallback animationCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, drawable, animationCallback) == null) || drawable == null || animationCallback == null || !(drawable instanceof Animatable)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, drawable, animationCallback) == null) || drawable == null || animationCallback == null || !(drawable instanceof Animatable)) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 24) {

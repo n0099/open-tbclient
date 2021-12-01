@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.diskCache;
 
 import android.content.Intent;
 import android.os.IBinder;
-import b.a.e.f.a.d;
+import c.a.d.f.a.d;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIMES = 10000;
@@ -21,8 +21,8 @@ public class ImagesInvalidService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate mDiskFileOperate;
 
-    /* loaded from: classes8.dex */
-    public static class a extends DiskFileOperate implements b.a.e.f.a.a {
+    /* loaded from: classes9.dex */
+    public static class a extends DiskFileOperate implements c.a.d.f.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,12 +52,12 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                b.a.q0.s.t.a.stopService();
+                c.a.q0.s.t.a.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
 
-        @Override // b.a.e.f.a.a
+        @Override // c.a.d.f.a.a
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            b.a.q0.s.t.a.e(z);
+            c.a.q0.s.t.a.e(z);
         }
     }
 

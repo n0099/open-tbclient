@@ -3,7 +3,6 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,18 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f64851a = "newversion";
+    public static String a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64852b = "curversion";
+    public static String f57000b = "curversion";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f64853c = "apiversion";
+    public static String f57001c = "apiversion";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f64854d = "_enable";
+    public static String f57002d = "_enable";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +42,7 @@ public class f {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f64853c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(context, f57001c) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
@@ -96,8 +93,8 @@ public class f {
 
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            a(context, f64853c, str);
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            a(context, f57001c, str);
         }
     }
 }

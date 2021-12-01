@@ -2,8 +2,6 @@ package com.baidu.android.util.io;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CommentUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +35,7 @@ public class CommentUtils {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005d: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005d */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005c: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005c */
     public static String readApk(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
@@ -54,7 +52,7 @@ public class CommentUtils {
         }
         try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f41000a);
+                randomAccessFile2 = new RandomAccessFile(file, "r");
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;
@@ -203,9 +201,9 @@ public class CommentUtils {
         return invokeLI.shortValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00ab A[Catch: Exception -> 0x00a7, TryCatch #10 {Exception -> 0x00a7, blocks: (B:55:0x00a3, B:59:0x00ab, B:61:0x00b0), top: B:75:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00b0 A[Catch: Exception -> 0x00a7, TRY_LEAVE, TryCatch #10 {Exception -> 0x00a7, blocks: (B:55:0x00a3, B:59:0x00ab, B:61:0x00b0), top: B:75:0x00a3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00aa A[Catch: Exception -> 0x00a6, TryCatch #9 {Exception -> 0x00a6, blocks: (B:55:0x00a2, B:59:0x00aa, B:61:0x00af), top: B:73:0x00a2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00af A[Catch: Exception -> 0x00a6, TRY_LEAVE, TryCatch #9 {Exception -> 0x00a6, blocks: (B:55:0x00a2, B:59:0x00aa, B:61:0x00af), top: B:73:0x00a2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -215,7 +213,7 @@ public class CommentUtils {
         RandomAccessFile randomAccessFile;
         byte[] byteArray;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, file, str)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, file, str)) != null) {
             return (String) invokeLL.objValue;
         }
         ZipFile zipFile = null;

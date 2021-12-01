@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
@@ -51,7 +50,7 @@ import kotlinx.coroutines.GlobalScope;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000 <2\u00020\u0001:\u0003<=>B\u000f\u0012\u0006\u0010(\u001a\u00020'¢\u0006\u0004\b:\u0010;J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J%\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u0007¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJG\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00112\u0006\u0010\u0017\u001a\u00020\u00112\u0006\u0010\u0018\u001a\u00020\u0011H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u0017\u0010\u001c\u001a\u00020\u00042\b\u0010\u001b\u001a\u0004\u0018\u00010\u000b¢\u0006\u0004\b\u001c\u0010\u001dJ'\u0010\u001e\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010!\u001a\u00020 H\u0002¢\u0006\u0004\b!\u0010\"JG\u0010#\u001a\u00020\u00042\u0006\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0016\u001a\u00020\u00112\u0006\u0010\u0017\u001a\u00020\u00112\u0006\u0010\u0018\u001a\u00020\u0011H\u0002¢\u0006\u0004\b#\u0010\u001aJ\u000f\u0010$\u001a\u00020\u0004H\u0016¢\u0006\u0004\b$\u0010\u000fJ\u000f\u0010%\u001a\u00020\u0004H\u0016¢\u0006\u0004\b%\u0010\u000fJ\u0015\u0010&\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b&\u0010\u0006R\u0016\u0010(\u001a\u00020'8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010,R\u0016\u0010-\u001a\u00020\u00118\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R:\u00102\u001a&\u0012\u0004\u0012\u00020\u0007\u0012\b\u0012\u000600R\u00020\u00000/j\u0012\u0012\u0004\u0012\u00020\u0007\u0012\b\u0012\u000600R\u00020\u0000`18\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\u00118\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b4\u0010.R&\u00107\u001a\u0012\u0012\u0004\u0012\u00020\u000205j\b\u0012\u0004\u0012\u00020\u0002`68\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u00109\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010,¨\u0006?"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer;", "Lcom/baidu/searchbox/fluency/tracer/Tracer;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener;", "listener", "", "addListener", "(Lcom/baidu/searchbox/fluency/listener/FrameRateListener;)V", "", "from", "page", "type", "", "beginFpsCollect", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", "deleteCsvFileIfExist", "()V", "scene", "", "startNs", "endNs", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doFrame", "(Ljava/lang/String;JJZJJJ)V", "key", "endFpsCollect", "(Ljava/lang/Object;)V", "generateCollectorKey", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "Ljava/io/File;", "getCsvFile", "()Ljava/io/File;", "notifyListener", "onAlive", "onDead", "removeListener", "Lcom/baidu/searchbox/fluency/config/BdTracesConfig;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/searchbox/fluency/config/BdTracesConfig;", "", "droppedSum", "I", "durationSum", "J", "Ljava/util/HashMap;", "Lcom/baidu/searchbox/fluency/tracer/FpsTracer$FpsCollector;", "Lkotlin/collections/HashMap;", "fpsCollectorCache", "Ljava/util/HashMap;", "frameIntervalNs", "Ljava/util/HashSet;", "Lkotlin/collections/HashSet;", "listeners", "Ljava/util/HashSet;", "timeSliceMs", "<init>", "(Lcom/baidu/searchbox/fluency/config/BdTracesConfig;)V", "Companion", "FpsCollector", "FrameCollectItem", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FpsTracer extends Tracer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CSV_PATH_DEFAULT = "/CSV/";
@@ -74,7 +73,7 @@ public final class FpsTracer extends Tracer {
     public int timeSliceMs;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer$Companion;", "", "CSV_PATH_DEFAULT", "Ljava/lang/String;", "TAG", "UBC_KEY_EXT", "UBC_KEY_FLUENCY", "UBC_KEY_FROM", "UBC_KEY_NET_TYPE", "UBC_KEY_PAGE", "UBC_KEY_TOP_VIEW", "UBC_KEY_TYPE", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +98,7 @@ public final class FpsTracer extends Tracer {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b-\u0010.J\u001d\u0010\u0006\u001a\u00020\u00052\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00030\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007JO\u0010\u0014\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\n2\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0011\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\rH\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ%\u0010\u001e\u001a\u00020\u00052\u0006\u0010\u001b\u001a\u00020\b2\u0006\u0010\u001c\u001a\u00020\b2\u0006\u0010\u001d\u001a\u00020\b¢\u0006\u0004\b\u001e\u0010\u001fR:\u0010$\u001a&\u0012\u0004\u0012\u00020\b\u0012\b\u0012\u00060!R\u00020\"0 j\u0012\u0012\u0004\u0012\u00020\b\u0012\b\u0012\u00060!R\u00020\"`#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0016\u0010&\u001a\u00020\u00168\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010\u001b\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010+R\u0016\u0010\u001c\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010+R\u0016\u0010,\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010+R\u0016\u0010\u001d\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010+¨\u0006/"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer$FpsCollector;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener;", "", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "frameList", "", "doReplay", "(Ljava/util/List;)V", "", "topPage", "", "startNs", "endNs", "", "dropFrames", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doReplayInner", "(Ljava/lang/String;JJIZJJJ)V", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "getIntervalFrameReplay", "()I", "from", "page", "type", "setStatParams", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "Ljava/util/HashMap;", "Lcom/baidu/searchbox/fluency/tracer/FpsTracer$FrameCollectItem;", "Lcom/baidu/searchbox/fluency/tracer/FpsTracer;", "Lkotlin/collections/HashMap;", "collectMap", "Ljava/util/HashMap;", "fpsExecutor", "Ljava/util/concurrent/Executor;", "Landroid/os/Handler;", "frameHandler", "Landroid/os/Handler;", "Ljava/lang/String;", "scene", "<init>", "(Lcom/baidu/searchbox/fluency/tracer/FpsTracer;)V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class FpsCollector extends FrameRateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +171,9 @@ public final class FpsTracer extends Tracer {
 
         /* JADX WARN: Type inference failed for: r8v2, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
         /* JADX WARN: Type inference failed for: r8v9, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
-        private final void doReplayInner(String str, long j, long j2, int i2, boolean z, long j3, long j4, long j5) {
+        private final void doReplayInner(String str, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) && !TextUtils.isEmpty(str) && z) {
+            if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) && !TextUtils.isEmpty(str) && z) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 FrameCollectItem frameCollectItem = this.collectMap.get(this.scene);
                 objectRef.element = frameCollectItem;
@@ -239,7 +238,7 @@ public final class FpsTracer extends Tracer {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0015\n\u0002\b\u0011\b\u0086\u0004\u0018\u0000B/\u0012\u0006\u0010\u0010\u001a\u00020\r\u0012\u0006\u0010\u0011\u001a\u00020\r\u0012\u0006\u0010\u0012\u001a\u00020\r\u0012\u0006\u0010\u001f\u001a\u00020\r\u0012\u0006\u0010\u0013\u001a\u00020\r¢\u0006\u0004\b'\u0010(J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u0011\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0003¢\u0006\u0004\b\t\u0010\nJ\u0013\u0010\u000b\u001a\u00020\u0003H\u0086@ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ7\u0010\u0016\u001a\u00020\u00032\u0006\u0010\u0010\u001a\u00020\r2\u0006\u0010\u0011\u001a\u00020\r2\u0006\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0013\u001a\u00020\r2\u0006\u0010\u0015\u001a\u00020\u0014H\u0002¢\u0006\u0004\b\u0016\u0010\u0017R\u0016\u0010\u0019\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0019\u0010\u001aR\u0016\u0010\u001b\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010\u001aR\u0016\u0010\u001c\u001a\u00020\u00068\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u001c\u0010\u001dR\u0016\u0010\u0010\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0010\u0010\u001eR\u0016\u0010\u0011\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0011\u0010\u001eR\u0016\u0010\u001f\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010\u001eR\"\u0010 \u001a\u00020\u00068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010\u001d\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R\u0016\u0010\u0013\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010\u001eR\u0016\u0010\u0012\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0012\u0010\u001e\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006)"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer$FrameCollectItem;", "", "droppedFrames", "", "collect", "(I)V", "", "getDeviceScore", "()Ljava/lang/Float;", "report", "()V", "saveCsv", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "", "toString", "()Ljava/lang/String;", "from", "page", "type", "topPage", "Lorg/json/JSONObject;", "fluencyObj", "ubcEvent", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONObject;)V", "", FpsConstants.REPORT_DROP_LEVEL, "[I", FpsConstants.REPORT_DROP_SUM, "frameIntervalCost", "F", "Ljava/lang/String;", "scene", "sumFrameCost", "getSumFrameCost", "()F", "setSumFrameCost", "(F)V", "sumFrames", "I", "<init>", "(Lcom/baidu/searchbox/fluency/tracer/FpsTracer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class FrameCollectItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -289,7 +288,7 @@ public final class FpsTracer extends Tracer {
         private final Float getDeviceScore() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
                 IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
                 if (iDeviceScore != null) {
                     return Float.valueOf(iDeviceScore.getFinalScore(AppRuntime.getAppContext()));
@@ -503,7 +502,7 @@ public final class FpsTracer extends Tracer {
 
     private final void deleteCsvFileIfExist() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             File csvFile = getCsvFile();
             if (csvFile.exists()) {
                 csvFile.delete();
@@ -546,23 +545,23 @@ public final class FpsTracer extends Tracer {
         return (File) invokeV.objValue;
     }
 
-    private final void notifyListener(final String str, final long j, final long j2, final boolean z, final long j3, final long j4, final long j5) {
+    private final void notifyListener(final String str, final long j2, final long j3, final boolean z, final long j4, final long j5, final long j6) {
         FpsTracer fpsTracer;
         long currentTimeMillis;
         HashSet<FrameRateListener> hashSet;
         Iterator<FrameRateListener> it;
         final int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) != null) {
             return;
         }
         FpsTracer fpsTracer2 = this;
         long currentTimeMillis2 = System.currentTimeMillis();
-        long j6 = j2 - j;
+        long j7 = j3 - j2;
         try {
-            int i3 = (int) (j6 / fpsTracer2.frameIntervalNs);
+            int i3 = (int) (j7 / fpsTracer2.frameIntervalNs);
             fpsTracer2.droppedSum += i3;
-            fpsTracer2.durationSum += Math.max(j6, fpsTracer2.frameIntervalNs);
+            fpsTracer2.durationSum += Math.max(j7, fpsTracer2.frameIntervalNs);
             HashSet<FrameRateListener> hashSet2 = fpsTracer2.listeners;
             synchronized (hashSet2) {
                 try {
@@ -575,7 +574,7 @@ public final class FpsTracer extends Tracer {
                                     i2 = i3;
                                     hashSet = hashSet2;
                                     try {
-                                        next.collect(str, j, j2, i3, z, j3, j4, j5);
+                                        next.collect(str, j2, j3, i3, z, j4, j5, j6);
                                         it = it2;
                                     } catch (Throwable th) {
                                         th = th;
@@ -598,7 +597,7 @@ public final class FpsTracer extends Tracer {
                                         Executor executor = next.getExecutor();
                                         Intrinsics.checkNotNull(executor);
                                         it = it2;
-                                        executor.execute(new Runnable(next, this, str, j, j2, i2, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
+                                        executor.execute(new Runnable(next, this, str, j2, j3, i2, z, j4, j5, j6) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
                                             public static /* synthetic */ Interceptable $ic;
                                             public final /* synthetic */ long $animationCostNs$inlined;
                                             public final /* synthetic */ int $dropFrame$inlined;
@@ -617,7 +616,7 @@ public final class FpsTracer extends Tracer {
                                                 if (interceptable2 != null) {
                                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                                     newInitContext.initArgs = r4;
-                                                    Object[] objArr = {next, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+                                                    Object[] objArr = {next, this, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
                                                     interceptable2.invokeUnInit(65536, newInitContext);
                                                     int i4 = newInitContext.flag;
                                                     if ((i4 & 1) != 0) {
@@ -630,13 +629,13 @@ public final class FpsTracer extends Tracer {
                                                 this.$listener = next;
                                                 this.this$0 = this;
                                                 this.$scene$inlined = str;
-                                                this.$startNs$inlined = j;
-                                                this.$endNs$inlined = j2;
+                                                this.$startNs$inlined = j2;
+                                                this.$endNs$inlined = j3;
                                                 this.$dropFrame$inlined = i2;
                                                 this.$isVsyncFrame$inlined = z;
-                                                this.$inputCostNs$inlined = j3;
-                                                this.$animationCostNs$inlined = j4;
-                                                this.$traversalCostNs$inlined = j5;
+                                                this.$inputCostNs$inlined = j4;
+                                                this.$animationCostNs$inlined = j5;
+                                                this.$traversalCostNs$inlined = j6;
                                             }
 
                                             @Override // java.lang.Runnable
@@ -657,7 +656,7 @@ public final class FpsTracer extends Tracer {
                                 it = it2;
                                 i2 = i3;
                                 hashSet = hashSet2;
-                                next.doFrameSync(str, j, j2, i2, z, j3, j4, j5);
+                                next.doFrameSync(str, j2, j3, i2, z, j4, j5, j6);
                             }
                             fpsTracer2 = this;
                             i3 = i2;
@@ -736,12 +735,12 @@ public final class FpsTracer extends Tracer {
     }
 
     @Override // com.baidu.searchbox.fluency.core.FrameRefreshMonitor.FrameRefreshObserver
-    public void doFrame(String scene, long j, long j2, boolean z, long j3, long j4, long j5) {
+    public void doFrame(String scene, long j2, long j3, boolean z, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{scene, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{scene, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             if (BdBoxActivityManager.isForeground()) {
-                notifyListener(scene, j, j2, z, j3, j4, j5);
+                notifyListener(scene, j2, j3, z, j4, j5, j6);
             }
         }
     }

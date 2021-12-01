@@ -11,8 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +24,7 @@ public abstract class Overlay {
     public String y;
     public int z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Overlay overlay);
 
@@ -53,7 +54,7 @@ public abstract class Overlay {
             bundle2.putFloat("red", ((i2 >> 16) & 255) / 255.0f);
             bundle2.putFloat("green", ((i2 >> 8) & 255) / 255.0f);
             bundle2.putFloat("blue", (i2 & 255) / 255.0f);
-            bundle2.putFloat("alpha", (i2 >>> 24) / 255.0f);
+            bundle2.putFloat(AnimationProperty.OPACITY, (i2 >>> 24) / 255.0f);
             bundle.putBundle("color", bundle2);
         }
     }

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.callback.UbcUploadImplCallback;
 import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.BindType;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SapiConfiguration implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BROWSE_MODE_STATE_ONLY = 2;
@@ -36,6 +37,7 @@ public final class SapiConfiguration implements NoProguard {
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_FAST_REG = 2;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_LOGIN = 0;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_NAME_PHONE_EMAIL_LOGIN = 6;
+    public static final int QUICK_LOGIN_VIEW_BTN_ACTION_PRE_NAME_PHONE_LOGIN = 7;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_SMS_LOGIN = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean accountCenterRealAutnen;
@@ -68,6 +70,7 @@ public final class SapiConfiguration implements NoProguard {
     public final boolean isNewLogin;
     public boolean isNightMode;
     public boolean isShowBottomBackText;
+    public boolean isSupportDebugShareLogin;
     public final Language language;
     public final String meizuRedirectUri;
     public final String mzAppID;
@@ -98,6 +101,7 @@ public final class SapiConfiguration implements NoProguard {
     public int textZoom;
     public final String tpl;
     public String twitterAppKey;
+    public UbcUploadImplCallback ubcUploadImplCallback;
     public final boolean uniteVerify;
     public final String userAgent;
     public final String wxAppID;
@@ -106,7 +110,7 @@ public final class SapiConfiguration implements NoProguard {
     public String yyAppId;
 
     /* renamed from: com.baidu.sapi2.SapiConfiguration$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +314,7 @@ public final class SapiConfiguration implements NoProguard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,6 +347,7 @@ public final class SapiConfiguration implements NoProguard {
         public boolean isNewLogin;
         public boolean isNightMode;
         public boolean isShowBottomBackText;
+        public boolean isSupportDebugShareLogin;
         public Language language;
         public String meizuRedirectUri;
         public String mzAppID;
@@ -373,6 +378,7 @@ public final class SapiConfiguration implements NoProguard {
         public int textZoom;
         public String tpl;
         public String twitterAppKey;
+        public UbcUploadImplCallback ubcUploadImplCallback;
         public boolean uniteVerify;
         public String userAgent;
         public String wxAppID;
@@ -689,10 +695,20 @@ public final class SapiConfiguration implements NoProguard {
             return (Builder) invokeZ.objValue;
         }
 
+        public Builder setDebugSupportShareLogin(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
+                this.isSupportDebugShareLogin = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
         public Builder setDeviceName(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
                 this.deviceName = str;
                 return this;
             }
@@ -702,7 +718,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setDisableVoiceVerify(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
                 this.disableVoiceVerify = z;
                 return this;
             }
@@ -712,7 +728,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setFaceLincense(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, str, str2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) == null) {
                 this.faceLincenseID = str;
                 this.faceLincenseFile = str2;
                 return this;
@@ -723,7 +739,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setLanguage(Language language) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, language)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, language)) == null) {
                 this.language = language;
                 return this;
             }
@@ -733,13 +749,13 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setLowerUpdateFreq(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) ? this : (Builder) invokeZ.objValue;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048603, this, z)) == null) ? this : (Builder) invokeZ.objValue;
         }
 
         public Builder setNightMode(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048603, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
                 this.isNightMode = z;
                 return this;
             }
@@ -749,7 +765,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setProcessName(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return this;
                 }
@@ -774,7 +790,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setProductLineInfo(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, str, str2, str3)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, str, str2, str3)) == null) {
                 this.tpl = str;
                 this.appId = str2;
                 this.appSignKey = str3;
@@ -786,7 +802,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setRuntimeEnvironment(Domain domain) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, domain)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, domain)) == null) {
                 this.environment = domain;
                 return this;
             }
@@ -796,7 +812,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setShowBottomBackText(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
                 this.isShowBottomBackText = z;
                 return this;
             }
@@ -806,7 +822,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setShowCloseBtn(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
                 this.showCloseBtn = z;
                 return this;
             }
@@ -816,7 +832,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSocialBindType(BindType bindType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, bindType)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, bindType)) == null) {
                 this.socialBindType = bindType;
                 return this;
             }
@@ -826,7 +842,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupNewVerSapiLogin(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048611, this, z)) == null) {
                 this.supNewVerSapiLogin = z;
                 return this;
             }
@@ -836,7 +852,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportBrowseMode(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048611, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048612, this, z)) == null) {
                 this.supportBrowseMode = z;
                 return this;
             }
@@ -846,7 +862,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportCheckFloatfLayer(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048612, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048613, this, z)) == null) {
                 this.supportCheckFloatfLayer = z;
                 return this;
             }
@@ -856,7 +872,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportFaceLogin(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048613, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048614, this, z)) == null) {
                 this.supportFaceLogin = z;
                 return this;
             }
@@ -866,7 +882,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportGestureSlide(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048614, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048615, this, z)) == null) {
                 this.supportGestureSlide = z;
                 return this;
             }
@@ -876,7 +892,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportMultipleAccounts(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048615, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048616, this, z)) == null) {
                 this.supportMultipleAccounts = z;
                 return this;
             }
@@ -886,7 +902,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportPhoto(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048616, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048617, this, z)) == null) {
                 this.supportPhoto = z;
                 return this;
             }
@@ -896,7 +912,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setSupportTouchLogin(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048617, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
                 this.supportTouchLogin = z;
                 return this;
             }
@@ -906,7 +922,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder setTextZoom(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
                 if (i2 > 0 && i2 < 200) {
                     this.textZoom = i2;
                 }
@@ -915,10 +931,20 @@ public final class SapiConfiguration implements NoProguard {
             return (Builder) invokeI.objValue;
         }
 
+        public Builder setUbcUploadImplCallback(UbcUploadImplCallback ubcUploadImplCallback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, ubcUploadImplCallback)) == null) {
+                this.ubcUploadImplCallback = ubcUploadImplCallback;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public Builder showBottomBack(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048621, this, z)) == null) {
                 this.showBottomBack = z;
                 return this;
             }
@@ -928,7 +954,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder showRegLink(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048622, this, z)) == null) {
                 this.showRegLink = z;
                 return this;
             }
@@ -938,7 +964,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder sinaAppID(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048622, this, str, str2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, str, str2)) == null) {
                 this.sinaAppID = str;
                 this.sinaRedirectUri = str2;
                 return this;
@@ -949,7 +975,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder skin(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
                 this.skin = str;
                 return this;
             }
@@ -959,7 +985,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, smsLoginConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, smsLoginConfig)) == null) {
                 this.smsLoginConfig = smsLoginConfig;
                 return this;
             }
@@ -969,7 +995,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder sofireSdkConfig(String str, String str2, int i2) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048625, this, str, str2, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048627, this, str, str2, i2)) == null) {
                 this.sofireAppKey = str;
                 this.sofireSecKey = str2;
                 this.sofireHostID = i2;
@@ -981,7 +1007,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder supportRealNameAuthen(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048626, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048628, this, z)) == null) {
                 this.accountCenterRealNameAuthen = z;
                 return this;
             }
@@ -991,7 +1017,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder syncOneKeyLoginInfo(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048629, this, z)) == null) {
                 this.syncOneKeyLoginInfo = z;
                 return this;
             }
@@ -1001,7 +1027,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder twitterOauthConfig(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, str)) == null) {
                 this.twitterAppKey = str;
                 return this;
             }
@@ -1011,7 +1037,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder uniteVerify(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048629, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048631, this, z)) == null) {
                 this.uniteVerify = z;
                 return this;
             }
@@ -1021,7 +1047,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder wxAppID(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
                 this.wxAppID = str;
                 return this;
             }
@@ -1031,7 +1057,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder xiaoAppID(Long l, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, l, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, l, str)) == null) {
                 this.xiaomiAppID = l;
                 this.xiaomiRedirectUri = str;
                 return this;
@@ -1042,7 +1068,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder yyOauthConfig(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
                 this.yyAppId = str;
                 return this;
             }
@@ -1052,7 +1078,7 @@ public final class SapiConfiguration implements NoProguard {
         public Builder sinaAppID(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) ? sinaAppID(str, Domain.DOMAIN_ONLINE.getURL(true)) : (Builder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) ? sinaAppID(str, Domain.DOMAIN_ONLINE.getURL(true)) : (Builder) invokeL.objValue;
         }
     }
 
@@ -1134,9 +1160,11 @@ public final class SapiConfiguration implements NoProguard {
         this.isHideLoginHelpEntrance = builder.isHideLoginHelpEntrance;
         this.browseModeState = builder.browseModeState;
         this.supportBrowseMode = builder.supportBrowseMode;
+        this.isSupportDebugShareLogin = builder.isSupportDebugShareLogin;
+        this.ubcUploadImplCallback = builder.ubcUploadImplCallback;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SmsLoginConfig implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,12 +6,16 @@ import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import io.flutter.plugin.common.BinaryMessenger;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
-public final class MethodChannel {
+/* loaded from: classes3.dex */
+public class MethodChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MethodChannel#";
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +23,7 @@ public final class MethodChannel {
     public final BinaryMessenger messenger;
     public final String name;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,6 +47,17 @@ public final class MethodChannel {
             }
             this.this$0 = methodChannel;
             this.handler = methodCallHandler;
+        }
+
+        private String getStackTrace(Exception exc) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, exc)) == null) {
+                StringWriter stringWriter = new StringWriter();
+                exc.printStackTrace(new PrintWriter(stringWriter));
+                return stringWriter.toString();
+            }
+            return (String) invokeL.objValue;
         }
 
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryMessageHandler
@@ -101,14 +116,14 @@ public final class MethodChannel {
                         }
                     });
                 } catch (RuntimeException e2) {
-                    String str = MethodChannel.TAG + this.this$0.name;
-                    binaryReply.reply(this.this$0.codec.encodeErrorEnvelope("error", e2.getMessage(), null));
+                    Log.e(MethodChannel.TAG + this.this$0.name, "Failed to handle method call", e2);
+                    binaryReply.reply(this.this$0.codec.encodeErrorEnvelopeWithStacktrace("error", e2.getMessage(), null, getStackTrace(e2)));
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class IncomingResultHandler implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,20 +164,20 @@ public final class MethodChannel {
                             this.callback.error(e2.code, e2.getMessage(), e2.details);
                         }
                     }
-                } catch (RuntimeException unused) {
-                    String str = MethodChannel.TAG + this.this$0.name;
+                } catch (RuntimeException e3) {
+                    Log.e(MethodChannel.TAG + this.this$0.name, "Failed to handle method call result", e3);
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MethodCallHandler {
         @UiThread
         void onMethodCall(@NonNull MethodCall methodCall, @NonNull Result result);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Result {
         @UiThread
         void error(String str, @Nullable String str2, @Nullable Object obj);
@@ -239,7 +254,7 @@ public final class MethodChannel {
     }
 
     @UiThread
-    public void invokeMethod(String str, @Nullable Object obj, Result result) {
+    public void invokeMethod(String str, @Nullable Object obj, @Nullable Result result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, result) == null) {
             this.messenger.send(this.name, this.codec.encodeMethodCall(new MethodCall(str, obj)), result == null ? null : new IncomingResultHandler(this, result));

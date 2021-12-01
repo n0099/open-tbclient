@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.addownload.d;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,9 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static com.ss.android.downloadlib.addownload.a.c f69541a;
+    public static com.ss.android.downloadlib.addownload.a.c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -41,7 +38,7 @@ public class a implements d {
     public static com.ss.android.downloadlib.addownload.a.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f69541a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (com.ss.android.downloadlib.addownload.a.c) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadlib.addownload.d.d
@@ -58,18 +55,16 @@ public class a implements d {
             if (a3 <= 0 || totalBytes <= 0 || totalBytes > a(bVar.s())) {
                 return false;
             }
-            f69541a = new com.ss.android.downloadlib.addownload.a.c(this, bVar, cVar) { // from class: com.ss.android.downloadlib.addownload.d.a.1
+            a = new com.ss.android.downloadlib.addownload.a.c(this, bVar, cVar) { // from class: com.ss.android.downloadlib.addownload.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69542a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f69543b;
+                public final /* synthetic */ c f61287b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f69544c;
+                public final /* synthetic */ a f61288c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,16 +81,16 @@ public class a implements d {
                             return;
                         }
                     }
-                    this.f69544c = this;
-                    this.f69542a = bVar;
-                    this.f69543b = cVar;
+                    this.f61288c = this;
+                    this.a = bVar;
+                    this.f61287b = cVar;
                 }
 
                 @Override // com.ss.android.downloadlib.addownload.a.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.ss.android.downloadlib.addownload.a.c unused = a.f69541a = null;
+                        com.ss.android.downloadlib.addownload.a.c unused = a.a = null;
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.putOpt("pause_optimise_type", "apk_size");
@@ -103,7 +98,7 @@ public class a implements d {
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f69542a);
+                        com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.a);
                     }
                 }
 
@@ -111,7 +106,7 @@ public class a implements d {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        com.ss.android.downloadlib.addownload.a.c unused = a.f69541a = null;
+                        com.ss.android.downloadlib.addownload.a.c unused = a.a = null;
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.putOpt("pause_optimise_type", "apk_size");
@@ -119,8 +114,8 @@ public class a implements d {
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.f69542a);
-                        this.f69543b.a(this.f69542a);
+                        com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, this.a);
+                        this.f61287b.a(this.a);
                     }
                 }
             };
@@ -140,20 +135,20 @@ public class a implements d {
     private boolean a(com.ss.android.downloadad.api.a.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar)) == null) ? com.ss.android.downloadlib.g.e.a(aVar).a("pause_optimise_apk_size_switch", 0) == 1 && aVar.q() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, aVar)) == null) ? com.ss.android.downloadlib.g.e.a(aVar).a("pause_optimise_apk_size_switch", 0) == 1 && aVar.q() : invokeL.booleanValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) {
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
-            if (j >= 1073741824) {
-                return (j / 1073741824) + "G";
-            } else if (j >= 1048576) {
-                return (j / 1048576) + "M";
+            if (j2 >= 1073741824) {
+                return (j2 / 1073741824) + "G";
+            } else if (j2 >= 1048576) {
+                return (j2 / 1048576) + "M";
             } else {
-                return decimalFormat.format(((float) j) / 1048576.0f) + "M";
+                return decimalFormat.format(((float) j2) / 1048576.0f) + "M";
             }
         }
         return (String) invokeJ.objValue;

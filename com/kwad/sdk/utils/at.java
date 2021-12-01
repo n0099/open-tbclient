@@ -1,160 +1,82 @@
 package com.kwad.sdk.utils;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes2.dex */
 public class at {
     public static /* synthetic */ Interceptable $ic;
+    public static final SimpleDateFormat a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final SimpleDateFormat f59603b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final SimpleDateFormat f59604c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final SimpleDateFormat f59605d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final SimpleDateFormat f59606e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final SimpleDateFormat f59607f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final SimpleDateFormat f59608g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ValueAnimator a(View view, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, view, i2, i3)) == null) {
-            b(view, i2);
-            ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
-            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(view) { // from class: com.kwad.sdk.utils.at.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f67568a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {view};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f67568a = view;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        at.b(this.f67568a, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-                    }
-                }
-            });
-            ofInt.addListener(new AnimatorListenerAdapter(view, i3) { // from class: com.kwad.sdk.utils.at.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f67569a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f67570b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {view, Integer.valueOf(i3)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f67569a = view;
-                    this.f67570b = i3;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        at.b(this.f67569a, this.f67570b);
-                    }
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        at.b(this.f67569a, this.f67570b);
-                    }
-                }
-            });
-            return ofInt;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734607, "Lcom/kwad/sdk/utils/at;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734607, "Lcom/kwad/sdk/utils/at;");
+                return;
+            }
         }
-        return (ValueAnimator) invokeLII.objValue;
+        a = new SimpleDateFormat("MM/dd", Locale.US);
+        f59603b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+        f59604c = new SimpleDateFormat("MM月dd日", Locale.US);
+        f59605d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+        f59606e = new SimpleDateFormat("HH:mm", Locale.US);
+        f59607f = new SimpleDateFormat("MM-dd", Locale.US);
+        f59608g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
     }
 
-    public static ValueAnimator b(View view, int i2, int i3) {
-        InterceptResult invokeLII;
+    @Deprecated
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, view, i2, i3)) == null) {
-            ValueAnimator ofInt = ObjectAnimator.ofInt(i2, i3);
-            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(view) { // from class: com.kwad.sdk.utils.at.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f67571a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {view};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f67571a = view;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.f67571a.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
-                    }
-                }
-            });
-            return ofInt;
-        }
-        return (ValueAnimator) invokeLII.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str) : invokeL.booleanValue;
     }
 
-    public static void b(View view, int i2) {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, view, i2) == null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            layoutParams.height = i2;
-            view.setLayoutParams(layoutParams);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? !TextUtils.isEmpty(str) && str.equals(str2) : invokeLL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.matches(".*\\.kpg.*");
         }
+        return invokeL.booleanValue;
     }
 }

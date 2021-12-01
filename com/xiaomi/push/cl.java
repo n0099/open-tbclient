@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cl {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f71674a;
+    public static String a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f193a;
@@ -34,7 +32,7 @@ public class cl {
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f193a = simpleDateFormat;
-        f71674a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static hj a(Context context, String str) {
@@ -51,7 +49,7 @@ public class cl {
             hjVar.b(str);
             hjVar.a(true);
             hjVar.b(System.currentTimeMillis());
-            hjVar.g(bu.a(context).m195a());
+            hjVar.g(bu.a(context).m244a());
             hjVar.e("com.xiaomi.xmsf");
             hjVar.f("");
             hjVar.c("push_stat");

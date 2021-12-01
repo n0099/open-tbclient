@@ -1,7 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALPHANUMERIC_TABLE;
@@ -29,7 +28,7 @@ public final class Encoder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -159,7 +158,7 @@ public final class Encoder {
 
     public static void appendECI(CharacterSetECI characterSetECI, BitArray bitArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, characterSetECI, bitArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, characterSetECI, bitArray) == null) {
             bitArray.appendBits(Mode.ECI.getBits(), 4);
             bitArray.appendBits(characterSetECI.getValue(), 8);
         }
@@ -173,7 +172,7 @@ public final class Encoder {
     public static void appendKanjiBytes(String str, BitArray bitArray) throws WriterException {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bitArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, bitArray) == null) {
             try {
                 byte[] bytes = str.getBytes("Shift_JIS");
                 int length = bytes.length;

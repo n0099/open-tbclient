@@ -19,7 +19,6 @@ import androidx.annotation.StyleRes;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic;
     @StyleRes
@@ -171,14 +170,14 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     private float calculateTextOriginAndAlignment(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, rect)) == null) ? rect.centerY() - calculateTextCenterFromBaseline() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, rect)) == null) ? rect.centerY() - calculateTextCenterFromBaseline() : invokeL.floatValue;
     }
 
     @NonNull
     public static TooltipDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeL.objValue;
     }
 
     @NonNull

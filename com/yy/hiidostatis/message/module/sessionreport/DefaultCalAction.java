@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.message.module.sessionreport;
 
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DefaultCalAction {
     public static /* synthetic */ Interceptable $ic;
     public static final CalAction AVERAGE;
@@ -239,13 +238,13 @@ public final class DefaultCalAction {
     public static boolean isInt(Number number) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, number)) == null) ? number == null || (number instanceof Long) || (number instanceof Integer) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, number)) == null) ? number == null || (number instanceof Long) || (number instanceof Integer) : invokeL.booleanValue;
     }
 
     public static double safeToFloat(Number number) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, number)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, number)) == null) {
             if (number == null) {
                 return 0.0d;
             }

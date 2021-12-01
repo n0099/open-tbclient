@@ -1,7 +1,7 @@
 package com.baidubce.auth;
 
 import com.baidubce.internal.InternalRequest;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Signer {
     void sign(InternalRequest internalRequest, BceCredentials bceCredentials);
 

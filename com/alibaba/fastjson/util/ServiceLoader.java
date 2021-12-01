@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ServiceLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "META-INF/services/";

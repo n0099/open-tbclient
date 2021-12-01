@@ -7,7 +7,6 @@ import android.view.accessibility.AccessibilityRecord;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -447,7 +446,7 @@ public class AccessibilityRecordCompat {
 
     public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
             return;
         }
         accessibilityRecord.setMaxScrollX(i2);
@@ -455,7 +454,7 @@ public class AccessibilityRecordCompat {
 
     public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
             return;
         }
         accessibilityRecord.setMaxScrollY(i2);

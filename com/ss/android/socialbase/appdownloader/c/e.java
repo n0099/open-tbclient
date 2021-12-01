@@ -6,7 +6,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 public interface e {
     String a();
 
-    void a(int i2, String str, int i3, long j);
+    void a(int i2, String str, int i3, long j2);
 
     void a(int i2, String str, String str2, String str3);
 

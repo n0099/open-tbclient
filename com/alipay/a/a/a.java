@@ -10,7 +10,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a implements i, j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public final class a implements i, j {
                     throw new IllegalArgumentException("Does not support generic array!");
                 }
                 Class<?> componentType = ((Class) type).getComponentType();
-                int a2 = aVar.a();
-                Object newInstance = Array.newInstance(componentType, a2);
-                for (int i2 = 0; i2 < a2; i2++) {
+                int a = aVar.a();
+                Object newInstance = Array.newInstance(componentType, a);
+                for (int i2 = 0; i2 < a; i2++) {
                     Array.set(newInstance, i2, e.a(aVar.a(i2), componentType));
                 }
                 return newInstance;

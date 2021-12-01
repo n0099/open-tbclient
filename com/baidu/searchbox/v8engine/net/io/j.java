@@ -6,12 +6,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Charset f43811a;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,14 +25,14 @@ public final class j {
                 return;
             }
         }
-        f43811a = Charset.forName("UTF-8");
+        a = Charset.forName("UTF-8");
     }
 
-    public static void a(long j, long j2, long j3) {
+    public static void a(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
-                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)));
             }
         }
     }

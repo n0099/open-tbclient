@@ -6,7 +6,6 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +90,7 @@ public final class Insets {
     public static Insets wrap(@NonNull android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, insets)) == null) ? toCompatInsets(insets) : (Insets) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, insets)) == null) ? toCompatInsets(insets) : (Insets) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {

@@ -194,17 +194,17 @@ public class WeiboParameters {
     }
 
     @Deprecated
-    public void add(String str, long j) {
+    public void add(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            this.mParams.put(str, String.valueOf(j));
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
+            this.mParams.put(str, String.valueOf(j2));
         }
     }
 
-    public void put(String str, long j) {
+    public void put(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) {
-            this.mParams.put(str, String.valueOf(j));
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j2) == null) {
+            this.mParams.put(str, String.valueOf(j2));
         }
     }
 

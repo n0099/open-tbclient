@@ -8,47 +8,44 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.d.a;
-import com.kwad.sdk.utils.ap;
-import com.kwad.sdk.utils.au;
-import com.kwad.sdk.widget.d;
+import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.ba;
+import com.kwad.sdk.widget.k;
 /* loaded from: classes2.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f66114a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f66115b;
+    public float f57937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66116c;
+    public boolean f57938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66117d;
+    public boolean f57939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66118e;
+    public int f57940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f66119f;
+    public ViewTreeObserver.OnScrollChangedListener f57941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewTreeObserver f66120g;
+    public ViewTreeObserver f57942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public au f66121h;
+    public ba f57943h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f66122i;
+    public k f57944i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBasePvFrameLayout(@NonNull Context context) {
@@ -68,9 +65,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f66114a = 500L;
-        this.f66115b = 0.1f;
-        this.f66117d = true;
+        this.a = 500L;
+        this.f57937b = 0.1f;
+        this.f57939d = true;
         a();
     }
 
@@ -93,9 +90,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f66114a = 500L;
-        this.f66115b = 0.1f;
-        this.f66117d = true;
+        this.a = 500L;
+        this.f57937b = 0.1f;
+        this.f57939d = true;
         a();
     }
 
@@ -118,26 +115,26 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 return;
             }
         }
-        this.f66114a = 500L;
-        this.f66115b = 0.1f;
-        this.f66117d = true;
+        this.a = 500L;
+        this.f57937b = 0.1f;
+        this.f57939d = true;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f66121h = new au(this);
-            this.f66118e = ap.l(getContext());
-            this.f66117d = m();
+            this.f57943h = new ba(this);
+            this.f57940e = av.o(getContext());
+            this.f57939d = l();
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (c()) {
-                o();
+                n();
             } else {
                 d();
             }
@@ -148,25 +145,23 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (!this.f66121h.a() || Math.abs(this.f66121h.f67572a.height() - getHeight()) > getHeight() * (1.0f - this.f66115b) || getHeight() <= 0 || getWidth() <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (!this.f57943h.a() || Math.abs(this.f57943h.a.height() - getHeight()) > getHeight() * (1.0f - this.f57937b) || getHeight() <= 0 || getWidth() <= 0) {
                 return false;
             }
-            Rect rect = this.f66121h.f67572a;
-            return rect.bottom > 0 && rect.top < this.f66118e;
+            Rect rect = this.f57943h.a;
+            return rect.bottom > 0 && rect.top < this.f57940e;
         }
         return invokeV.booleanValue;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f66119f == null) {
-            this.f66119f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f57941f == null) {
+            this.f57941f = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdBasePvFrameLayout f66123a;
+                public final /* synthetic */ AdBasePvFrameLayout a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,26 +178,26 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                             return;
                         }
                     }
-                    this.f66123a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f66123a.c()) {
-                        this.f66123a.o();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.c()) {
+                        this.a.n();
                     }
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f66120g = viewTreeObserver;
+            this.f57942g = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f66119f);
+                viewTreeObserver.addOnScrollChangedListener(this.f57941f);
             }
         }
     }
 
-    public boolean m() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -211,20 +206,34 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         return invokeV.booleanValue;
     }
 
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f57939d) {
+            b();
+        }
+    }
+
     public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f66117d) {
-            b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            o();
+            k kVar = this.f57944i;
+            if (kVar != null) {
+                kVar.a();
+            }
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            p();
-            d dVar = this.f66122i;
-            if (dVar != null) {
-                dVar.a();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.f57941f != null && this.f57942g != null && this.f57942g.isAlive()) {
+                    this.f57942g.removeOnScrollChangedListener(this.f57941f);
+                }
+                this.f57941f = null;
+            } catch (Exception e2) {
+                a.a(e2);
             }
         }
     }
@@ -232,7 +241,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
             d();
         }
@@ -241,40 +250,26 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            p();
-            this.f66116c = false;
+            o();
+            this.f57938c = false;
         }
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             boolean z = true;
-            if (this.f66116c || (i4 | i5) != 0 || (i2 | i3) == 0) {
+            if (this.f57938c || (i4 | i5) != 0 || (i2 | i3) == 0) {
                 z = false;
             } else {
-                this.f66116c = true;
+                this.f57938c = true;
             }
             super.onSizeChanged(i2, i3, i4, i5);
             if (z) {
-                n();
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            try {
-                if (this.f66119f != null && this.f66120g != null && this.f66120g.isAlive()) {
-                    this.f66120g.removeOnScrollChangedListener(this.f66119f);
-                }
-                this.f66119f = null;
-            } catch (Exception e2) {
-                a.a(e2);
+                m();
             }
         }
     }
@@ -282,14 +277,14 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public void setCheckDefaultImpressionLogThreshold(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f66115b = f2;
+            this.f57937b = f2;
         }
     }
 
-    public void setVisibleListener(d dVar) {
+    public void setVisibleListener(k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f66122i = dVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kVar) == null) {
+            this.f57944i = kVar;
         }
     }
 }

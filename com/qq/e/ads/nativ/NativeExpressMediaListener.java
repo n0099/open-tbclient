@@ -19,7 +19,7 @@ public interface NativeExpressMediaListener {
 
     void onVideoPause(NativeExpressADView nativeExpressADView);
 
-    void onVideoReady(NativeExpressADView nativeExpressADView, long j);
+    void onVideoReady(NativeExpressADView nativeExpressADView, long j2);
 
     void onVideoStart(NativeExpressADView nativeExpressADView);
 }

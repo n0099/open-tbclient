@@ -118,9 +118,9 @@ public final class RealBufferedSink implements BufferedSink {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!this.closed) {
                 Buffer buffer = this.buffer;
-                long j = buffer.size;
-                if (j > 0) {
-                    this.sink.write(buffer, j);
+                long j2 = buffer.size;
+                if (j2 > 0) {
+                    this.sink.write(buffer, j2);
                 }
                 this.sink.flush();
                 return;
@@ -239,11 +239,11 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, buffer, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, buffer, j2) == null) {
             if (!this.closed) {
-                this.buffer.write(buffer, j);
+                this.buffer.write(buffer, j2);
                 emitCompleteSegments();
                 return;
             }
@@ -261,13 +261,13 @@ public final class RealBufferedSink implements BufferedSink {
         if (source == null) {
             throw new IllegalArgumentException("source == null");
         }
-        long j = 0;
+        long j2 = 0;
         while (true) {
             long read = source.read(this.buffer, 8192L);
             if (read == -1) {
-                return j;
+                return j2;
             }
-            j += read;
+            j2 += read;
             emitCompleteSegments();
         }
     }
@@ -287,12 +287,12 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeDecimalLong(long j) throws IOException {
+    public BufferedSink writeDecimalLong(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
             if (!this.closed) {
-                this.buffer.writeDecimalLong(j);
+                this.buffer.writeDecimalLong(j2);
                 return emitCompleteSegments();
             }
             throw new IllegalStateException("closed");
@@ -301,12 +301,12 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeHexadecimalUnsignedLong(long j) throws IOException {
+    public BufferedSink writeHexadecimalUnsignedLong(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j2)) == null) {
             if (!this.closed) {
-                this.buffer.writeHexadecimalUnsignedLong(j);
+                this.buffer.writeHexadecimalUnsignedLong(j2);
                 return emitCompleteSegments();
             }
             throw new IllegalStateException("closed");
@@ -343,12 +343,12 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeLong(long j) throws IOException {
+    public BufferedSink writeLong(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j2)) == null) {
             if (!this.closed) {
-                this.buffer.writeLong(j);
+                this.buffer.writeLong(j2);
                 return emitCompleteSegments();
             }
             throw new IllegalStateException("closed");
@@ -357,12 +357,12 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink writeLongLe(long j) throws IOException {
+    public BufferedSink writeLongLe(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
             if (!this.closed) {
-                this.buffer.writeLongLe(j);
+                this.buffer.writeLongLe(j2);
                 return emitCompleteSegments();
             }
             throw new IllegalStateException("closed");
@@ -526,14 +526,14 @@ public final class RealBufferedSink implements BufferedSink {
     }
 
     @Override // okio.BufferedSink
-    public BufferedSink write(Source source, long j) throws IOException {
+    public BufferedSink write(Source source, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, source, j)) == null) {
-            while (j > 0) {
-                long read = source.read(this.buffer, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, source, j2)) == null) {
+            while (j2 > 0) {
+                long read = source.read(this.buffer, j2);
                 if (read != -1) {
-                    j -= read;
+                    j2 -= read;
                     emitCompleteSegments();
                 } else {
                     throw new EOFException();

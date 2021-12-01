@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,33 +63,31 @@ import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile String f62606a;
+    public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62607b;
+    public static boolean f54776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ITTDownloadVisitor f62608c;
+    public static ITTDownloadVisitor f54777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final AtomicBoolean f62609d;
+    public static final AtomicBoolean f54778d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f62610e;
+    public static Context f54779e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> f62611f;
+    public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> f54780f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final com.ss.android.download.api.download.a.a f62612g;
+    public static final com.ss.android.download.api.download.a.a f54781g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class e implements IDownloadHttpService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,24 +111,22 @@ public class d {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, str, list)) == null) {
-                c.a a2 = com.bytedance.sdk.openadsdk.downloadnew.c.a(str, list);
-                if (a2 != null) {
-                    return new i(this, a2) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.e.1
+                c.a a = com.bytedance.sdk.openadsdk.downloadnew.c.a(str, list);
+                if (a != null) {
+                    return new i(this, a) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.e.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c.a f62623a;
+                        public final /* synthetic */ c.a a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ e f62624b;
+                        public final /* synthetic */ e f54786b;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, a2};
+                                Object[] objArr = {this, a};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -141,22 +136,22 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f62624b = this;
-                            this.f62623a = a2;
+                            this.f54786b = this;
+                            this.a = a;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.i
                         public InputStream a() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62623a.f62599a : (InputStream) invokeV.objValue;
+                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.a.a : (InputStream) invokeV.objValue;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
                         public int b() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62623a.f62601c : invokeV.intValue;
+                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f54772c : invokeV.intValue;
                         }
 
                         @Override // com.ss.android.socialbase.downloader.network.g
@@ -171,7 +166,7 @@ public class d {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                                 try {
-                                    this.f62623a.f62602d.disconnect();
+                                    this.a.f54773d.disconnect();
                                 } catch (Exception unused) {
                                 }
                             }
@@ -182,7 +177,7 @@ public class d {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) {
-                                Map<String, String> map = this.f62623a.f62600b;
+                                Map<String, String> map = this.a.f54771b;
                                 if (map != null) {
                                     return map.get(str2);
                                 }
@@ -211,13 +206,13 @@ public class d {
                 return;
             }
         }
-        f62609d = new AtomicBoolean(false);
-        f62607b = true;
+        f54778d = new AtomicBoolean(false);
+        f54776b = true;
         try {
-            f62606a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+            a = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
         } catch (Throwable unused) {
         }
-        f62612g = new com.ss.android.download.api.download.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.6
+        f54781g = new com.ss.android.download.api.download.a.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -306,7 +301,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            ITTDownloadVisitor iTTDownloadVisitor = f62608c;
+            ITTDownloadVisitor iTTDownloadVisitor = f54777c;
             return iTTDownloadVisitor == null ? (ITTDownloadVisitor) TTAdSdk.getAdManager().getExtra(ITTDownloadVisitor.class, com.bytedance.sdk.openadsdk.downloadnew.b.a(1)) : iTTDownloadVisitor;
         }
         return (ITTDownloadVisitor) invokeV.objValue;
@@ -316,13 +311,13 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            Context context = f62610e;
+            Context context = f54779e;
             return context == null ? TTAppContextHolder.getContext() : context;
         }
         return (Context) invokeV.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements com.ss.android.download.api.config.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -389,7 +384,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class c implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -424,12 +419,10 @@ public class d {
             d.e().requestPermission(activity, strArr, new ITTPermissionCallback(this, sVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ s f62618a;
+                public final /* synthetic */ s a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f62619b;
+                public final /* synthetic */ c f54784b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -446,15 +439,15 @@ public class d {
                             return;
                         }
                     }
-                    this.f62619b = this;
-                    this.f62618a = sVar;
+                    this.f54784b = this;
+                    this.a = sVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.ITTPermissionCallback
                 public void onDenied(String str) {
                     s sVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || (sVar2 = this.f62618a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || (sVar2 = this.a) == null) {
                         return;
                     }
                     sVar2.a(str);
@@ -464,7 +457,7 @@ public class d {
                 public void onGranted() {
                     s sVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar2 = this.f62618a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar2 = this.a) == null) {
                         return;
                     }
                     sVar2.a();
@@ -492,19 +485,19 @@ public class d {
             if (context == null) {
                 context = TTAppContextHolder.getContext();
             }
-            if (context == null || f62609d.get()) {
+            if (context == null || f54778d.get()) {
                 return;
             }
             synchronized (d.class) {
-                if (!f62609d.get()) {
-                    f62610e = context.getApplicationContext();
+                if (!f54778d.get()) {
+                    f54779e = context.getApplicationContext();
                     if (e() != null) {
-                        String initPath = e().initPath(f62607b);
+                        String initPath = e().initPath(f54776b);
                         if (!TextUtils.isEmpty(initPath)) {
-                            f62606a = initPath;
+                            a = initPath;
                         }
                     }
-                    f62609d.set(b(f62610e));
+                    f54778d.set(b(f54779e));
                 }
             }
         }
@@ -515,12 +508,12 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             a().g();
             if (e() != null) {
-                e().clearAllData(f62606a);
+                e().clearAllData(a);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,12 +555,10 @@ public class d {
                     d.e().execute(i2, str2, map, new ITTHttpCallback(this, qVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ q f62614a;
+                        public final /* synthetic */ q a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ b f62615b;
+                        public final /* synthetic */ b f54782b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -584,15 +575,15 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f62615b = this;
-                            this.f62614a = qVar;
+                            this.f54782b = this;
+                            this.a = qVar;
                         }
 
                         @Override // com.bytedance.sdk.openadsdk.downloadnew.core.ITTHttpCallback
                         public void onError(Throwable th) {
                             q qVar2;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) || (qVar2 = this.f62614a) == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) || (qVar2 = this.a) == null) {
                                 return;
                             }
                             qVar2.a(th);
@@ -602,7 +593,7 @@ public class d {
                         public void onResponse(String str3) {
                             q qVar2;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3) == null) || (qVar2 = this.f62614a) == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3) == null) || (qVar2 = this.a) == null) {
                                 return;
                             }
                             qVar2.a(str3);
@@ -621,12 +612,10 @@ public class d {
             d.e().postBody(str, bArr, str2, new ITTHttpCallback(this, qVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f62616a;
+                public final /* synthetic */ q a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f62617b;
+                public final /* synthetic */ b f54783b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -643,15 +632,15 @@ public class d {
                             return;
                         }
                     }
-                    this.f62617b = this;
-                    this.f62616a = qVar;
+                    this.f54783b = this;
+                    this.a = qVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.ITTHttpCallback
                 public void onError(Throwable th) {
                     q qVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) || (qVar2 = this.f62616a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) || (qVar2 = this.a) == null) {
                         return;
                     }
                     qVar2.a(th);
@@ -661,7 +650,7 @@ public class d {
                 public void onResponse(String str3) {
                     q qVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3) == null) || (qVar2 = this.f62616a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3) == null) || (qVar2 = this.a) == null) {
                         return;
                     }
                     qVar2.a(str3);
@@ -671,15 +660,13 @@ public class d {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.d$d  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1889d implements k {
+    /* loaded from: classes12.dex */
+    public static class C1961d implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<Context> a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<Context> f62620a;
-
-        public C1889d(Context context) {
+        public C1961d(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -694,21 +681,19 @@ public class d {
                     return;
                 }
             }
-            this.f62620a = new WeakReference<>(context);
+            this.a = new WeakReference<>(context);
         }
 
         private DialogBuilder c(com.ss.android.download.api.model.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bVar)) == null) ? DialogBuilder.builder().setTitle(bVar.f69260b).setMessage(bVar.f69261c).setNegativeBtnText(bVar.f69263e).setPositiveBtnText(bVar.f69262d).setIcon(bVar.f69265g).setDialogStatusChangedListener(new IDialogStatusChangedListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bVar)) == null) ? DialogBuilder.builder().setTitle(bVar.f61079b).setMessage(bVar.f61080c).setNegativeBtnText(bVar.f61082e).setPositiveBtnText(bVar.f61081d).setIcon(bVar.f61084g).setDialogStatusChangedListener(new IDialogStatusChangedListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.download.api.model.b f62621a;
+                public final /* synthetic */ com.ss.android.download.api.model.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ C1889d f62622b;
+                public final /* synthetic */ C1961d f54785b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -725,29 +710,29 @@ public class d {
                             return;
                         }
                     }
-                    this.f62622b = this;
-                    this.f62621a = bVar;
+                    this.f54785b = this;
+                    this.a = bVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.InterfaceC2003b interfaceC2003b;
+                    b.InterfaceC2094b interfaceC2094b;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC2003b = this.f62621a.f69266h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || (interfaceC2094b = this.a.f61085h) == null) {
                         return;
                     }
-                    interfaceC2003b.c(dialogInterface);
+                    interfaceC2094b.c(dialogInterface);
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onNegativeBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC2003b interfaceC2003b;
+                    b.InterfaceC2094b interfaceC2094b;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || (interfaceC2003b = this.f62621a.f69266h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) || (interfaceC2094b = this.a.f61085h) == null) {
                         return;
                     }
                     try {
-                        interfaceC2003b.b(dialogInterface);
+                        interfaceC2094b.b(dialogInterface);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -755,12 +740,12 @@ public class d {
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onPositiveBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC2003b interfaceC2003b;
+                    b.InterfaceC2094b interfaceC2094b;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || (interfaceC2003b = this.f62621a.f69266h) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) || (interfaceC2094b = this.a.f61085h) == null) {
                         return;
                     }
-                    interfaceC2003b.a(dialogInterface);
+                    interfaceC2094b.a(dialogInterface);
                 }
             }) : (DialogBuilder) invokeL.objValue;
         }
@@ -788,11 +773,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
                 if (bVar != null && d.e() != null) {
-                    Context context = bVar.f69259a;
+                    Context context = bVar.a;
                     if (context != null && (context instanceof Activity)) {
-                        return d.e().showDialogBySelf((Activity) bVar.f69259a, bVar.j == 1, c(bVar));
+                        return d.e().showDialogBySelf((Activity) bVar.a, bVar.f61087j == 1, c(bVar));
                     }
-                    d.e().showDialogByDelegate(this.f62620a, bVar.j == 1, c(bVar));
+                    d.e().showDialogByDelegate(this.a, bVar.f61087j == 1, c(bVar));
                 }
                 return null;
             }
@@ -816,7 +801,7 @@ public class d {
             if (a2 == null) {
                 return false;
             }
-            com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C1889d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
+            com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C1961d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -876,7 +861,7 @@ public class d {
                     }
                     return invokeV.booleanValue;
                 }
-            }).a(new a.C2002a().b("143").a(TTAdConstant.APP_NAME).c("4.0.1.1").d(String.valueOf(4011)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
+            }).a(new a.C2093a().b("143").a(TTAdConstant.APP_NAME).c("4.0.1.1").d(String.valueOf(4011)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -904,7 +889,7 @@ public class d {
             a3.a(packageName + ".TTFileProvider").a(a(applicationContext, e() != null ? e().getDownloadSettings() : new JSONObject())).a();
             com.ss.android.downloadlib.g.a.a();
             com.ss.android.downloadlib.g.a(applicationContext).d().a(1);
-            com.ss.android.downloadlib.g.a(applicationContext).a(f62612g);
+            com.ss.android.downloadlib.g.a(applicationContext).a(f54781g);
             com.ss.android.socialbase.appdownloader.d.j().a(new ad() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -941,7 +926,7 @@ public class d {
     public static Map<Integer, ITTDownloadAdapter.OnEventLogHandler> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f62611f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f54780f : (Map) invokeV.objValue;
     }
 
     public static void a(String str) {
@@ -949,7 +934,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f62606a = str;
+        a = str;
     }
 
     public static com.ss.android.downloadlib.g a() {
@@ -977,7 +962,7 @@ public class d {
     public static void a(int i2) {
         Map<Integer, ITTDownloadAdapter.OnEventLogHandler> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) || (map = f62611f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65541, null, i2) == null) || (map = f54780f) == null) {
             return;
         }
         map.remove(Integer.valueOf(i2));
@@ -985,13 +970,13 @@ public class d {
 
     public static void a(int i2, ITTDownloadAdapter.OnEventLogHandler onEventLogHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, onEventLogHandler) == null) || onEventLogHandler == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65542, null, i2, onEventLogHandler) == null) || onEventLogHandler == null) {
             return;
         }
-        if (f62611f == null) {
-            f62611f = Collections.synchronizedMap(new WeakHashMap());
+        if (f54780f == null) {
+            f54780f = Collections.synchronizedMap(new WeakHashMap());
         }
-        f62611f.put(Integer.valueOf(i2), onEventLogHandler);
+        f54780f.put(Integer.valueOf(i2), onEventLogHandler);
     }
 
     public static boolean a(String str, String str2, JSONObject jSONObject, Object obj) {
@@ -1104,12 +1089,10 @@ public class d {
     public static boolean a(Activity activity, ExitInstallListener exitInstallListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, activity, exitInstallListener)) == null) ? com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC2008a(exitInstallListener) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, activity, exitInstallListener)) == null) ? com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC2099a(exitInstallListener) { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ExitInstallListener f62613a;
+            public final /* synthetic */ ExitInstallListener a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1126,14 +1109,14 @@ public class d {
                         return;
                     }
                 }
-                this.f62613a = exitInstallListener;
+                this.a = exitInstallListener;
             }
 
-            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC2008a
+            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC2099a
             public void a() {
                 ExitInstallListener exitInstallListener2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f62613a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.a) == null) {
                     return;
                 }
                 exitInstallListener2.onExitInstall();

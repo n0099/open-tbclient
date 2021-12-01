@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class StorageUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
@@ -69,7 +67,7 @@ public final class StorageUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File file = new File(new File(new File(new File(Environment.getExternalStorageDirectory(), "Android"), "data"), context.getPackageName()), SapiOptions.KEY_CACHE);
+            File file = new File(new File(new File(new File(Environment.getExternalStorageDirectory(), "Android"), "data"), context.getPackageName()), "cache");
             if (!file.exists()) {
                 if (!file.mkdirs()) {
                     LogUtil.d(TAG, "Unable to create external cache directory");
@@ -89,7 +87,7 @@ public final class StorageUtils {
     public static boolean hasExternalStoragePermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? PermissionManager.checkCallingPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? PermissionManager.checkCallingPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") : invokeL.booleanValue;
     }
 
     public static File getCacheDirectory(Context context, boolean z) {

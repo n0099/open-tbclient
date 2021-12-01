@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.database.Cursor;
 import android.text.TextUtils;
-import b.a.e.f.p.m;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TiebaDatabase;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NEW_EMOTION_SHARPTEXT_PREFIX = "#(meme,";

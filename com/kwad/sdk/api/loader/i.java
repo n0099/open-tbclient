@@ -15,12 +15,10 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f64863a;
+    public static final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f64864b;
+    public static final Handler f57006b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,13 +34,13 @@ public class i {
                 return;
             }
         }
-        f64863a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        f64864b = new Handler(Looper.getMainLooper());
+        a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        f57006b = new Handler(Looper.getMainLooper());
     }
 
     public static Future<?> a(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? f64863a.submit(runnable) : (Future) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? a.submit(runnable) : (Future) invokeL.objValue;
     }
 }

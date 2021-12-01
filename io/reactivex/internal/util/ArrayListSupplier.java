@@ -2,7 +2,6 @@ package io.reactivex.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ArrayListSupplier implements Callable<List<Object>>, Function<Object, List<Object>> {
     public static final /* synthetic */ ArrayListSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -80,7 +79,7 @@ public final class ArrayListSupplier implements Callable<List<Object>>, Function
     public static ArrayListSupplier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ArrayListSupplier[]) $VALUES.clone() : (ArrayListSupplier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ArrayListSupplier[]) $VALUES.clone() : (ArrayListSupplier[]) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

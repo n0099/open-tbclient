@@ -10,7 +10,6 @@ import androidx.annotation.Dimension;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,7 +80,7 @@ public final class TypedArrayKt {
     public static final int getDimensionPixelOffsetOrThrow(TypedArray typedArray, @StyleableRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, typedArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, typedArray, i2)) == null) {
             checkAttribute(typedArray, i2);
             return typedArray.getDimensionPixelOffset(i2, 0);
         }
@@ -92,7 +91,7 @@ public final class TypedArrayKt {
     public static final int getDimensionPixelSizeOrThrow(TypedArray typedArray, @StyleableRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, typedArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, typedArray, i2)) == null) {
             checkAttribute(typedArray, i2);
             return typedArray.getDimensionPixelSize(i2, 0);
         }

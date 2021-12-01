@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.nativecode;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 @DoNotStrip
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NativeRoundingFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +62,7 @@ public class NativeRoundingFilter {
 
     public static void toCircleWithBorder(Bitmap bitmap, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             Preconditions.checkNotNull(bitmap);
             nativeToCircleWithBorderFilter(bitmap, i2, i3, z);
         }
@@ -71,7 +70,7 @@ public class NativeRoundingFilter {
 
     public static void toCircle(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, bitmap, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65541, null, bitmap, z) == null) {
             Preconditions.checkNotNull(bitmap);
             nativeToCircleFilter(bitmap, z);
         }

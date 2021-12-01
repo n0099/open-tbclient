@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class j extends b<String> {
+public class j extends a<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(String str, String str2) {
-        super(str, str2);
+    public j(String str, Integer num) {
+        super(str, num);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {str, num};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,7 +38,7 @@ public class j extends b<String> {
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putString(b(), a());
+            editor.putInt(b(), a().intValue());
         }
     }
 
@@ -46,16 +46,15 @@ public class j extends b<String> {
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            a((j) sharedPreferences.getString(b(), c()));
+            a((j) Integer.valueOf(sharedPreferences.getInt(b(), c().intValue())));
         }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            a((j) ((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(b())) == null) ? c() : optJSONObject.toString()));
+            a((j) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(b(), c().intValue())) : c()));
         }
     }
 }

@@ -24,9 +24,7 @@ public class c implements com.ss.android.download.api.b.a {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static c f69694a;
+        public static c a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +40,7 @@ public class c implements com.ss.android.download.api.b.a {
                     return;
                 }
             }
-            f69694a = new c();
+            a = new c();
         }
     }
 
@@ -63,7 +61,7 @@ public class c implements com.ss.android.download.api.b.a {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f69694a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (c) invokeV.objValue;
     }
 
     public void b(String str) {

@@ -54,7 +54,6 @@ import androidx.savedstate.SavedStateRegistryController;
 import androidx.savedstate.SavedStateRegistryOwner;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -349,7 +348,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public static Fragment instantiate(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? instantiate(context, str, null) : (Fragment) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? instantiate(context, str, null) : (Fragment) invokeLL.objValue;
     }
 
     public void callStartTransitionListener() {
@@ -2433,7 +2432,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public static Fragment instantiate(@NonNull Context context, @NonNull String str, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, bundle)) == null) {
             try {
                 Fragment newInstance = FragmentFactory.loadFragmentClass(context.getClassLoader(), str).getConstructor(new Class[0]).newInstance(new Object[0]);
                 if (bundle != null) {
@@ -2461,10 +2460,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
     }
 
-    public final void postponeEnterTransition(long j, @NonNull TimeUnit timeUnit) {
+    public final void postponeEnterTransition(long j2, @NonNull TimeUnit timeUnit) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048700, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048700, this, j2, timeUnit) == null) {
             ensureAnimationInfo().mEnterTransitionPostponed = true;
             FragmentManager fragmentManager = this.mFragmentManager;
             if (fragmentManager != null) {
@@ -2473,7 +2472,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 handler = new Handler(Looper.getMainLooper());
             }
             handler.removeCallbacks(this.mPostponedDurationRunnable);
-            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j));
+            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j2));
         }
     }
 

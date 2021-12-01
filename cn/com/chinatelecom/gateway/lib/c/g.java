@@ -3,7 +3,6 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,12 +23,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f34652a;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +42,7 @@ public final class g {
                 return;
             }
         }
-        f34652a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
     }
 
     public static String a() {
@@ -63,7 +60,7 @@ public final class g {
                         Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
                         while (inetAddresses.hasMoreElements()) {
                             InetAddress nextElement2 = inetAddresses.nextElement();
-                            if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && f34652a.matcher(hostAddress).matches()) {
+                            if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && a.matcher(hostAddress).matches()) {
                                 if (stringBuffer.length() > 0) {
                                     stringBuffer.append(",");
                                 }
@@ -141,7 +138,7 @@ public final class g {
     public static String b(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, map, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, str)) == null) {
             ArrayList arrayList = new ArrayList(map.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: cn.com.chinatelecom.gateway.lib.c.g.1
                 public static /* synthetic */ Interceptable $ic;

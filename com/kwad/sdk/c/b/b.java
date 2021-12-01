@@ -1,50 +1,60 @@
 package com.kwad.sdk.c.b;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import com.kwad.sdk.c.kwai.d;
+import com.kwad.sdk.core.report.ReportAction;
+import com.kwad.sdk.core.report.f;
+import java.util.Random;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f65028a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f65029b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f65030c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f65031d;
-
-    public b() {
+    public static void a(d dVar, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLI(65536, null, dVar, i2) == null) && a()) {
+            ReportAction reportAction = new ReportAction(230L);
+            reportAction.bz = dVar.a;
+            reportAction.bA = dVar.f57075e;
+            reportAction.bB = dVar.f57077g;
+            reportAction.bC = i2;
+            reportAction.bD = System.currentTimeMillis();
+            f.a(reportAction);
         }
     }
 
-    @NonNull
-    public String toString() {
+    public static void a(d dVar, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65537, null, dVar, i2, str) == null) && a()) {
+            ReportAction reportAction = new ReportAction(230L);
+            reportAction.bz = dVar.a;
+            reportAction.bA = dVar.f57075e;
+            reportAction.bB = dVar.f57077g;
+            reportAction.bC = 0;
+            reportAction.bE = i2;
+            reportAction.bD = System.currentTimeMillis();
+            reportAction.bF = str;
+            f.a(reportAction);
+        }
+    }
+
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageMonitorInfo{pageName='" + this.f65028a + ExtendedMessageFormat.QUOTE + ", pageLaunchTime=" + this.f65029b + ", pageCreateTime=" + this.f65030c + ", pageResumeTime=" + this.f65031d + ExtendedMessageFormat.END_FE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String U = com.kwad.sdk.core.config.b.U();
+            if (TextUtils.isEmpty(U)) {
+                return false;
+            }
+            String[] split = U.split(":");
+            if (split.length == 2) {
+                return new Random().nextInt(Integer.parseInt(split[0])) <= Integer.parseInt(split[1]);
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

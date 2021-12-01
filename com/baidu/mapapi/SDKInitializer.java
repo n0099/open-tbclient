@@ -4,7 +4,6 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SDKInitializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
@@ -22,9 +21,7 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_OK = "permission check ok";
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE = "error_code";
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static CoordType f40062a;
+    public static CoordType a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +37,7 @@ public class SDKInitializer {
                 return;
             }
         }
-        f40062a = CoordType.BD09LL;
+        a = CoordType.BD09LL;
     }
 
     public SDKInitializer() {
@@ -60,7 +57,7 @@ public class SDKInitializer {
     public static CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f40062a : (CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (CoordType) invokeV.objValue;
     }
 
     public static void initialize(Context context) {
@@ -79,7 +76,7 @@ public class SDKInitializer {
 
     public static void initialize(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, context) == null) {
             c.a(context, false, null, str, null);
         }
     }
@@ -87,13 +84,13 @@ public class SDKInitializer {
     public static boolean isHttpsEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? HttpClient.isHttpsEnable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? HttpClient.isHttpsEnable : invokeV.booleanValue;
     }
 
     public static void setCoordType(CoordType coordType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, coordType) == null) {
-            f40062a = coordType;
+            a = coordType;
         }
     }
 

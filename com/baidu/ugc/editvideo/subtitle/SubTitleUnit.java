@@ -8,8 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.g;
-import b.a.x0.t.h;
+import c.a.x0.t.g;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,13 +19,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,8 +139,8 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 jSONObject.put("line", subTitleUnit.line);
                 jSONObject.put("engLine", subTitleUnit.engLine);
                 jSONObject.put("textSize", String.valueOf(subTitleUnit.textSize));
-                jSONObject.put("scale", String.valueOf(subTitleUnit.scale));
-                jSONObject.put("rotate", subTitleUnit.rotate);
+                jSONObject.put(AnimationProperty.SCALE, String.valueOf(subTitleUnit.scale));
+                jSONObject.put(AnimationProperty.ROTATE, subTitleUnit.rotate);
                 jSONObject.put("textColor", subTitleUnit.textColor);
                 jSONObject.put("chineseShadowColor", subTitleUnit.chineseShadowColor);
                 jSONObject.put("isChineseBold", subTitleUnit.isChineseBold);
@@ -164,14 +165,14 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 jSONObject.put("isEngCenterBlank", subTitleUnit.isEngCenterBlank);
                 if (subTitleUnit.chineseShadowConfig != null) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("shadowRadius", String.valueOf(subTitleUnit.chineseShadowConfig.shadowRadius));
+                    jSONObject2.put(AnimationProperty.SHADOW_RADIUS, String.valueOf(subTitleUnit.chineseShadowConfig.shadowRadius));
                     jSONObject2.put("shadowDx", String.valueOf(subTitleUnit.chineseShadowConfig.shadowDx));
                     jSONObject2.put("shadowDy", String.valueOf(subTitleUnit.chineseShadowConfig.shadowDy));
                     jSONObject.put("chinese_shadow_config", jSONObject2);
                 }
                 if (subTitleUnit.engShadowConfig != null) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("shadowRadius", String.valueOf(subTitleUnit.engShadowConfig.shadowRadius));
+                    jSONObject3.put(AnimationProperty.SHADOW_RADIUS, String.valueOf(subTitleUnit.engShadowConfig.shadowRadius));
                     jSONObject3.put("shadowDx", String.valueOf(subTitleUnit.engShadowConfig.shadowDx));
                     jSONObject3.put("shadowDy", String.valueOf(subTitleUnit.engShadowConfig.shadowDy));
                     jSONObject.put("eng_shadow_config", jSONObject3);
@@ -239,8 +240,8 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 subTitleUnit.line = jSONObject.optString("line");
                 subTitleUnit.engLine = jSONObject.optString("engLine");
                 subTitleUnit.textSize = g.a(jSONObject.optString("textSize"), 0.0f);
-                subTitleUnit.scale = g.a(jSONObject.optString("scale"), 0.0f);
-                subTitleUnit.rotate = jSONObject.optInt("rotate");
+                subTitleUnit.scale = g.a(jSONObject.optString(AnimationProperty.SCALE), 0.0f);
+                subTitleUnit.rotate = jSONObject.optInt(AnimationProperty.ROTATE);
                 subTitleUnit.textColor = jSONObject.optInt("textColor");
                 subTitleUnit.chineseShadowColor = jSONObject.optInt("chineseShadowColor");
                 subTitleUnit.isChineseBold = jSONObject.optInt("isChineseBold", -1);
@@ -266,7 +267,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject optJSONObject = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject != null) {
                     SubTitleConfig.ShadowConfig shadowConfig = new SubTitleConfig.ShadowConfig();
-                    shadowConfig.shadowRadius = g.a(optJSONObject.optString("shadowRadius"), 2.0f);
+                    shadowConfig.shadowRadius = g.a(optJSONObject.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
                     shadowConfig.shadowDx = g.a(optJSONObject.optString("shadowDx"), 0.0f);
                     shadowConfig.shadowDy = g.a(optJSONObject.optString("shadowDy"), 2.0f);
                     subTitleUnit.chineseShadowConfig = shadowConfig;
@@ -274,7 +275,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject2 != null) {
                     SubTitleConfig.ShadowConfig shadowConfig2 = new SubTitleConfig.ShadowConfig();
-                    shadowConfig2.shadowRadius = g.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                    shadowConfig2.shadowRadius = g.a(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
                     shadowConfig2.shadowDx = g.a(optJSONObject2.optString("shadowDx"), 0.0f);
                     shadowConfig2.shadowDy = g.a(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleUnit.engShadowConfig = shadowConfig2;
@@ -315,7 +316,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m45clone() throws CloneNotSupportedException {
+    public SubTitleUnit m93clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SubTitleUnit) super.clone() : (SubTitleUnit) invokeV.objValue;

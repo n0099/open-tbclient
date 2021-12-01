@@ -11,11 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +83,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                 this.mLayoutX = jSONObject.optInt("layout_x");
                 this.mLayoutY = jSONObject.optInt("layout_y");
                 this.mRotateAngle = jSONObject.optInt("rotate_angle");
-                this.mScale = jSONObject.optInt("scale");
+                this.mScale = jSONObject.optInt(AnimationProperty.SCALE);
                 this.mCoverPercent = (float) jSONObject.optDouble(SapiOptions.KEY_CACHE_PERCENT);
                 JSONObject optJSONObject = jSONObject.optJSONObject("style");
                 if (optJSONObject != null) {
@@ -115,7 +116,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                 jSONObject.put("layout_x", this.mLayoutX);
                 jSONObject.put("layout_y", this.mLayoutY);
                 jSONObject.put("rotate_angle", this.mRotateAngle);
-                jSONObject.put("scale", this.mScale);
+                jSONObject.put(AnimationProperty.SCALE, this.mScale);
                 jSONObject.put(SapiOptions.KEY_CACHE_PERCENT, this.mCoverPercent);
                 if (this.mStyleEntity != null) {
                     jSONObject.put("style", TextWordsEntity.TextStyleEntity.toJson(this.mStyleEntity));

@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobads.container.util.XAdSimpleImageLoader;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NetworkCache {
     public final Context appContext;
 
@@ -90,7 +89,7 @@ public class NetworkCache {
 
     public void renameTempFile(String str, FileExtension fileExtension) {
         File file = new File(parentDir(), filenameForUrl(str, fileExtension, true));
-        File file2 = new File(file.getAbsolutePath().replace(XAdSimpleImageLoader.TEMP_SUFFIX, ""));
+        File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
         Logger.debug("Copying temp file to real file (" + file2 + SmallTailInfo.EMOTION_SUFFIX);
         if (renameTo) {

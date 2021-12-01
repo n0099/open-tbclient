@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
-import b.a.q0.c1.f;
+import c.a.q0.d1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,25 +11,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdExtParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD_CONTEXT_LIST = "ad_context_list";
     public static final String KEY_FLOOR_INFO = "floor_info";
     public static final String KEY_FORUM_NAME = "forum_name";
     public static final String KEY_IADEX = "iadex";
+    public static final String KEY_NAD_CORE_VERSION = "nad_core_version";
     public static final String KEY_REQUEST_TYPE = "requestType";
     public static final String KEY_SHOUBAI_CUID = "shoubai_cuid";
     public static final String KEY_THREAD_COUNT = "pre_ad_thread_count";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public HashMap f46905a;
+        public HashMap a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,8 +50,11 @@ public class AdExtParam {
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
                 HashMap hashMap = new HashMap();
-                aVar.f46905a = hashMap;
-                hashMap.put("iadex", f.e());
+                aVar.a = hashMap;
+                hashMap.put(AdExtParam.KEY_IADEX, f.e());
+                if (c.a.r0.a.h().y()) {
+                    aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "4.2.1.3");
+                }
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -63,7 +65,7 @@ public class AdExtParam {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    return new Gson().toJson(this.f46905a);
+                    return new Gson().toJson(this.a);
                 } catch (Exception unused) {
                     return "";
                 }
@@ -75,7 +77,7 @@ public class AdExtParam {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f46905a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+                this.a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -85,7 +87,7 @@ public class AdExtParam {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f46905a.put("shoubai_cuid", str);
+                this.a.put("shoubai_cuid", str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -95,7 +97,7 @@ public class AdExtParam {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f46905a.put(AdExtParam.KEY_FLOOR_INFO, str);
+                this.a.put(AdExtParam.KEY_FLOOR_INFO, str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -105,7 +107,7 @@ public class AdExtParam {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f46905a.put("forum_name", str);
+                this.a.put("forum_name", str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -115,7 +117,7 @@ public class AdExtParam {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f46905a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i2));
+                this.a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i2));
                 return this;
             }
             return (a) invokeI.objValue;
@@ -125,7 +127,7 @@ public class AdExtParam {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f46905a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i2));
+                this.a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i2));
                 return this;
             }
             return (a) invokeI.objValue;

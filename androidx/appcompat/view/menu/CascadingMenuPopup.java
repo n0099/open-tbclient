@@ -31,7 +31,6 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -405,7 +404,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         int i2;
         int firstVisiblePosition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, cascadingMenuInfo, menuBuilder)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, cascadingMenuInfo, menuBuilder)) == null) {
             MenuItem findMenuItemForSubmenu = findMenuItemForSubmenu(cascadingMenuInfo.menu, menuBuilder);
             if (findMenuItemForSubmenu == null) {
                 return null;
@@ -443,7 +442,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     private int getInitialMenuPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? ViewCompat.getLayoutDirection(this.mAnchorView) == 1 ? 0 : 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? ViewCompat.getLayoutDirection(this.mAnchorView) == 1 ? 0 : 1 : invokeV.intValue;
     }
 
     private int getNextMenuPosition(int i2) {

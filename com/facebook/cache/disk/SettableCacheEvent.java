@@ -15,7 +15,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SettableCacheEvent implements CacheEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_RECYCLED = 5;
@@ -173,21 +173,21 @@ public class SettableCacheEvent implements CacheEvent {
         return (SettableCacheEvent) invokeL.objValue;
     }
 
-    public SettableCacheEvent setCacheLimit(long j) {
+    public SettableCacheEvent setCacheLimit(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            this.mCacheLimit = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+            this.mCacheLimit = j2;
             return this;
         }
         return (SettableCacheEvent) invokeJ.objValue;
     }
 
-    public SettableCacheEvent setCacheSize(long j) {
+    public SettableCacheEvent setCacheSize(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            this.mCacheSize = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
+            this.mCacheSize = j2;
             return this;
         }
         return (SettableCacheEvent) invokeJ.objValue;
@@ -213,11 +213,11 @@ public class SettableCacheEvent implements CacheEvent {
         return (SettableCacheEvent) invokeL.objValue;
     }
 
-    public SettableCacheEvent setItemSize(long j) {
+    public SettableCacheEvent setItemSize(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            this.mItemSize = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
+            this.mItemSize = j2;
             return this;
         }
         return (SettableCacheEvent) invokeJ.objValue;

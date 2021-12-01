@@ -12,7 +12,6 @@ import android.content.pm.ServiceInfo;
 import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,12 +24,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Boolean f71323a;
+    public static Boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.vivo.push.model.b a(Context context) {
@@ -124,7 +121,7 @@ public final class s {
         }
         try {
             try {
-                query = context.getContentResolver().query(com.vivo.push.z.f71355a, null, null, null, null);
+                query = context.getContentResolver().query(com.vivo.push.z.a, null, null, null, null);
             } catch (Exception e3) {
                 e = e3;
                 str = null;
@@ -211,7 +208,7 @@ public final class s {
         InterceptResult invokeL;
         List<ResolveInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             HashSet hashSet = new HashSet();
             List<ResolveInfo> list2 = null;
             try {
@@ -318,7 +315,7 @@ public final class s {
         ProviderInfo resolveContentProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            Boolean bool = f71323a;
+            Boolean bool = a;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -327,7 +324,7 @@ public final class s {
                 str = resolveContentProvider.packageName;
             }
             Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-            f71323a = valueOf;
+            a = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -398,7 +395,7 @@ public final class s {
     public static boolean b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? a(context, str, "com.vivo.pushclient.action.RECEIVE") : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? a(context, str, "com.vivo.pushclient.action.RECEIVE") : invokeLL.booleanValue;
     }
 
     public static boolean a(Context context, String str) {
@@ -435,13 +432,13 @@ public final class s {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context, long j) {
+    public static boolean a(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
             com.vivo.push.cache.e a2 = com.vivo.push.cache.b.a().a(context);
             if (a2 != null) {
-                return a2.isInBlackList(j);
+                return a2.isInBlackList(j2);
             }
             return false;
         }

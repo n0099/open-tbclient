@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.collector.model.jni.UploadEntryNative;
+import com.kwad.sdk.utils.t;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -48,15 +49,15 @@ public class j {
             return;
         }
         File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
-        List<com.kwad.sdk.collector.model.e> a2 = b.a().a(uploadTargets, obtainUploadConfigFileMaxSize, file.getAbsolutePath() + "/");
-        List<com.kwad.sdk.collector.model.jni.c> b2 = b(context);
+        List<com.kwad.sdk.collector.model.e> a = b.a().a(uploadTargets, obtainUploadConfigFileMaxSize, file.getAbsolutePath() + "/");
+        List<UploadEntryNative> b2 = b(context);
         if (b2 != null) {
-            a2.addAll(b2);
-            HashSet hashSet = new HashSet(a2);
-            a2.clear();
-            a2.addAll(hashSet);
+            a.addAll(b2);
+            HashSet hashSet = new HashSet(a);
+            a.clear();
+            a.addAll(hashSet);
         }
-        a(context, a2);
+        a(context, a);
     }
 
     @RequiresApi(api = 19)
@@ -65,12 +66,10 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLL(65538, null, context, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        new com.kwad.sdk.core.network.i<com.kwad.sdk.collector.b.b, CollectResponse>(list) { // from class: com.kwad.sdk.collector.j.1
+        new com.kwad.sdk.core.network.i<com.kwad.sdk.collector.a.b, CollectResponse>(list) { // from class: com.kwad.sdk.collector.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f65104a;
+            public final /* synthetic */ List a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -87,7 +86,7 @@ public class j {
                         return;
                     }
                 }
-                this.f65104a = list;
+                this.a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -109,10 +108,10 @@ public class j {
             @Override // com.kwad.sdk.core.network.a
             @NonNull
             /* renamed from: a */
-            public com.kwad.sdk.collector.b.b b() {
+            public com.kwad.sdk.collector.a.b b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.b.b(this.f65104a) : (com.kwad.sdk.collector.b.b) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.kwad.sdk.collector.a.b(this.a) : (com.kwad.sdk.collector.a.b) invokeV.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.i
@@ -124,12 +123,10 @@ public class j {
                 }
                 return invokeV.booleanValue;
             }
-        }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.collector.b.b, CollectResponse>(context) { // from class: com.kwad.sdk.collector.j.2
+        }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.collector.a.b, CollectResponse>(context) { // from class: com.kwad.sdk.collector.j.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f65105a;
+            public final /* synthetic */ Context a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -146,21 +143,21 @@ public class j {
                         return;
                     }
                 }
-                this.f65105a = context;
+                this.a = context;
             }
 
             private synchronized void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
                     synchronized (this) {
-                        j.a(this.f65105a);
+                        j.a(this.a);
                     }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.b bVar) {
+            public void a(@NonNull com.kwad.sdk.collector.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
                     super.a((AnonymousClass2) bVar);
@@ -169,7 +166,7 @@ public class j {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.b bVar, int i2, String str) {
+            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2, str) == null) {
                     super.a((AnonymousClass2) bVar, i2, str);
@@ -178,24 +175,24 @@ public class j {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.b.b bVar, @NonNull CollectResponse collectResponse) {
+            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, @NonNull CollectResponse collectResponse) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, collectResponse) == null) {
-                    super.a((AnonymousClass2) bVar, (com.kwad.sdk.collector.b.b) collectResponse);
+                    super.a((AnonymousClass2) bVar, (com.kwad.sdk.collector.a.b) collectResponse);
                     a();
                 }
             }
         });
     }
 
-    public static List<com.kwad.sdk.collector.model.jni.c> b(Context context) {
+    public static List<UploadEntryNative> b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             File file = new File(context.getApplicationInfo().dataDir, "LOCAL_TEMP_UPLOAD_FAILURE_JSON");
             if (file.exists()) {
                 try {
-                    return q.a(com.kwad.sdk.crash.utils.h.a(file));
+                    return t.a(com.kwad.sdk.crash.utils.h.a(file));
                 } catch (IOException unused) {
                     return null;
                 }

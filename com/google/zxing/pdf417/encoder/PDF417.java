@@ -2,7 +2,6 @@ package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.WriterException;
 import java.nio.charset.Charset;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class PDF417 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CODEWORD_TABLE;
@@ -109,7 +108,7 @@ public final class PDF417 {
 
     public static void encodeChar(int i2, int i3, BarcodeRow barcodeRow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(AdIconUtil.AD_TEXT_ID, null, i2, i3, barcodeRow) == null) {
+        if (interceptable == null || interceptable.invokeIIL(65541, null, i2, i3, barcodeRow) == null) {
             int i4 = 1 << (i3 - 1);
             boolean z = (i2 & i4) != 0;
             int i5 = 0;
@@ -133,7 +132,7 @@ public final class PDF417 {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), barcodeMatrix}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), barcodeMatrix}) == null) {
             int i8 = 0;
             for (int i9 = 0; i9 < i3; i9++) {
                 int i10 = i9 % 3;

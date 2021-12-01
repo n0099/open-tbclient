@@ -10,7 +10,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.BaiduStatJSInterface;
 import com.baidu.mobstat.dxmpay.MtjConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,22 +22,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f42372a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnZidReceiveListener {
         String getZid();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -75,9 +72,9 @@ public class StatService {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            String k = w.k(context);
-            return !TextUtils.isEmpty(k) && k.contains("helios");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            String k2 = w.k(context);
+            return !TextUtils.isEmpty(k2) && k2.contains("helios");
         }
         return invokeL.booleanValue;
     }
@@ -257,10 +254,10 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || f42372a || a(context)) {
+        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || a || a(context)) {
             return;
         }
-        f42372a = true;
+        a = true;
         if ((i2 & 1) != 0) {
             a(context, false);
         } else if ((i2 & 16) != 0) {
@@ -399,7 +396,7 @@ public class StatService {
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             if (context == null) {
                 h c2 = h.c();
                 c2.b("[WARNING] " + str + ", context is null, invalid");

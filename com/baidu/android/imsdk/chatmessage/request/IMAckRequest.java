@@ -27,7 +27,7 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMAckRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMAckRequest";
@@ -44,12 +44,12 @@ public class IMAckRequest extends BaseHttpRequest {
     public long mTriggerId;
     public long mUk;
 
-    public IMAckRequest(Context context, String str, long j, long j2, int i2, int i3, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
+    public IMAckRequest(Context context, String str, long j2, long j3, int i2, int i3, long j4, long j5, boolean z, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), arrayList};
+            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z), arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -62,12 +62,12 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mAckList = new JSONArray();
         this.mContext = context;
         this.mKey = str;
-        this.mUk = j;
-        this.mContacter = j2;
+        this.mUk = j2;
+        this.mContacter = j3;
         this.mCategory = i2;
         this.mCount = i3;
-        this.mBeginid = j3;
-        this.mEndid = j4;
+        this.mBeginid = j4;
+        this.mEndid = j5;
         this.mIsReliable = z;
         this.mMsgList = arrayList;
         this.mTriggerId = Utility.getTriggerId(context);

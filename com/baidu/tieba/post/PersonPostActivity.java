@@ -10,17 +10,17 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import b.a.e.f.p.j;
-import b.a.e.f.p.l;
-import b.a.e.m.e.q;
-import b.a.r0.u2.d;
-import b.a.r0.u2.h;
+import c.a.d.f.p.j;
+import c.a.d.f.p.l;
+import c.a.d.m.e.q;
+import c.a.r0.b3.d;
+import c.a.r0.b3.h;
+import c.a.r0.w2.e;
+import c.a.r0.w2.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,7 +39,6 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.R;
 import com.baidu.tieba.personExtra.PersonExtraStatic;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
@@ -48,8 +47,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, b.a.r0.u2.b {
+/* loaded from: classes11.dex */
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, d, c.a.r0.b3.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CURRTABINDEX = "CurrTabIndex";
     public static final String KEY_EMPTYVIEW_TXT = "key_empty_view_text";
@@ -77,13 +76,13 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public String mUtype;
     public VoiceManager mVoiceManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f54276e;
+        public final /* synthetic */ PersonPostActivity f48501e;
 
         public a(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -100,25 +99,25 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f54276e = personPostActivity;
+            this.f48501e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54276e.finish();
+                this.f48501e.finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f54277e;
+        public final /* synthetic */ PersonPostActivity f48502e;
 
         public b(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -135,27 +134,25 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f54277e = personPostActivity;
+            this.f48502e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f54277e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
-                this.f54277e.showRecycleBinRedTip(false);
-                UrlManager.getInstance().dealOneLink(this.f54277e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f48502e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
+                this.f48502e.showRecycleBinRedTip(false);
+                UrlManager.getInstance().dealOneLink(this.f48502e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f54278a;
+        public final /* synthetic */ PersonPostActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonPostActivity personPostActivity, int i2) {
@@ -175,7 +172,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f54278a = personPostActivity;
+            this.a = personPostActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -189,7 +186,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f54278a.getPageContext(), new String[]{str});
+            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{str});
         }
     }
 
@@ -219,20 +216,20 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f46035c = fragment;
-        bVar.f46033a = i2;
+        bVar.f41050c = fragment;
+        bVar.a = i2;
         fragmentTabIndicator.setText(str);
-        fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f46034b = fragmentTabIndicator;
+        fragmentTabIndicator.dayTextColorResId = c.a.r0.w2.a.s_actionbar_text_color;
+        fragmentTabIndicator.setTextSize(0, getResources().getDimension(c.a.r0.w2.b.fontsize32));
+        bVar.f41049b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
     private void initPersonPostTasks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            b.a.r0.m3.f0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, b.a.r0.m3.f0.a.a("c/u/feed/userpost", 303002));
+            c.a.r0.t3.f0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, c.a.r0.t3.f0.a.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -254,9 +251,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             int itemPageType = this.mPersonPostAdapter.getItemPageType(i2);
             if (item != null) {
                 if (itemPageType == 0) {
-                    createAndAddTabSpec(item, 0, getPageContext().getString(R.string.person_post_thread_new));
+                    createAndAddTabSpec(item, 0, getPageContext().getString(g.person_post_thread_new));
                 } else if (itemPageType == 1) {
-                    createAndAddTabSpec(item, 1, getPageContext().getString(R.string.reply));
+                    createAndAddTabSpec(item, 1, getPageContext().getString(g.reply));
                 }
             }
         }
@@ -265,35 +262,35 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
 
     private void initUI(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, bundle) == null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.r0.w2.d.view_navigation_bar);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getPageContext().getString(R.string.my_post));
+            navigationBar.setCenterTextTitle(getPageContext().getString(g.my_post));
             View view = (View) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
             this.mBack = view;
             view.setOnClickListener(new a(this));
-            RelativeLayout relativeLayout = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.person_post_naviagtion_bar_recycle_bin, (View.OnClickListener) null);
+            RelativeLayout relativeLayout = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.person_post_naviagtion_bar_recycle_bin, (View.OnClickListener) null);
             this.mRecycleBinLayout = relativeLayout;
             relativeLayout.setOnClickListener(new b(this));
-            this.mRecycleBinTitle = (TextView) this.mRecycleBinLayout.findViewById(R.id.tv_recycle_bin);
-            this.mRecycleBinRedTip = (ImageView) this.mRecycleBinLayout.findViewById(R.id.iv_recycle_bin_red_tip);
-            if (b.a.q0.s.e0.b.j().g(b.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), false)) {
+            this.mRecycleBinTitle = (TextView) this.mRecycleBinLayout.findViewById(c.a.r0.w2.d.tv_recycle_bin);
+            this.mRecycleBinRedTip = (ImageView) this.mRecycleBinLayout.findViewById(c.a.r0.w2.d.iv_recycle_bin_red_tip);
+            if (c.a.q0.s.e0.b.j().g(c.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), false)) {
                 this.mRecycleBinRedTip.setVisibility(0);
             } else {
                 this.mRecycleBinRedTip.setVisibility(8);
             }
-            this.mNoNetworkView = (NoNetworkView) findViewById(R.id.person_post_no_network_view);
+            this.mNoNetworkView = (NoNetworkView) findViewById(c.a.r0.w2.d.person_post_no_network_view);
             this.mTypes = new int[]{0, 1};
             this.mPersonPostAdapter = new PersonPostAdapter(this);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.tab_host);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(c.a.r0.w2.d.tab_host);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setOnPageChangeListener(this);
-            this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.ds100));
-            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(l.g(getActivity(), R.dimen.ds64));
+            this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(c.a.r0.w2.b.ds100));
+            this.mTabHost.getFragmentTabWidget().setDviderRectWidth(l.f(getActivity(), c.a.r0.w2.b.ds64));
             initTabSpec();
-            ((RelativeLayout.LayoutParams) this.mTabHost.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds88), 0, 0);
+            ((RelativeLayout.LayoutParams) this.mTabHost.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + l.f(getActivity(), c.a.r0.w2.b.ds88), 0, 0);
             if (bundle != null) {
                 this.mCurrTabIndex = bundle.getInt("CurrTabIndex");
             } else {
@@ -303,7 +300,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,9 +312,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.isHost) {
-                return getPageContext().getString(R.string.person_post_lv_empty_host);
+                return getPageContext().getString(g.person_post_lv_empty_host);
             }
-            return String.format(getPageContext().getString(R.string.person_post_lv_empty_guest), getUtype());
+            return String.format(getPageContext().getString(g.person_post_lv_empty_guest), getUtype());
         }
         return (String) invokeV.objValue;
     }
@@ -395,10 +392,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(0);
             this.mTabHost.onChangeSkinType(i2);
             if (this.mTabHost.getFragmentTabWidget() != null) {
-                SkinManager.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), c.a.r0.w2.a.CAM_X0201);
             }
-            SkinManager.setViewTextColor(this.mRecycleBinTitle, R.color.CAM_X0105);
-            this.mRecycleBinRedTip.setImageDrawable(SkinManager.getDrawable(i2, R.drawable.person_center_red_tip_shape));
+            SkinManager.setViewTextColor(this.mRecycleBinTitle, c.a.r0.w2.a.CAM_X0105);
+            this.mRecycleBinRedTip.setImageDrawable(SkinManager.getDrawable(i2, c.a.r0.w2.c.person_center_red_tip_shape));
             PersonPostAdapter personPostAdapter = this.mPersonPostAdapter;
             if (personPostAdapter != null) {
                 int count = personPostAdapter.getCount();
@@ -419,9 +416,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             super.onCreate(bundle);
             initPersonPostTasks();
             if (!j.z()) {
-                showToast(R.string.neterror);
+                showToast(g.neterror);
             }
-            setContentView(R.layout.person_post_activity);
+            setContentView(e.person_post_activity);
             VoiceManager voiceManager = getVoiceManager();
             this.mVoiceManager = voiceManager;
             if (voiceManager != null) {
@@ -436,16 +433,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             }
             this.mUid = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.mUtype = getPageContext().getString(R.string.me);
+                this.mUtype = getPageContext().getString(g.me);
                 this.isHost = true;
             } else {
                 int intExtra = getIntent().getIntExtra("key_sex", 0);
                 if (intExtra == 1) {
-                    this.mUtype = getPageContext().getString(R.string.he);
+                    this.mUtype = getPageContext().getString(g.he);
                 } else if (intExtra != 2) {
-                    this.mUtype = getPageContext().getString(R.string.ta);
+                    this.mUtype = getPageContext().getString(g.ta);
                 } else {
-                    this.mUtype = getPageContext().getString(R.string.she);
+                    this.mUtype = getPageContext().getString(g.she);
                 }
             }
             TbadkCoreApplication.isMyLive = false;
@@ -492,15 +489,15 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return (q) invokeV.objValue;
     }
 
-    @Override // b.a.r0.u2.d
+    @Override // c.a.r0.b3.d
     public void onNoNetRefresh() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.mPersonPostAdapter == null) {
             return;
         }
         for (int i2 = 0; i2 < this.mPersonPostAdapter.getCount(); i2++) {
-            if (this.mPersonPostAdapter.getItem(i2) instanceof b.a.r0.u2.c) {
-                ((b.a.r0.u2.c) this.mPersonPostAdapter.getItem(i2)).fetchDataOnNoNetRefresh();
+            if (this.mPersonPostAdapter.getItem(i2) instanceof c.a.r0.b3.c) {
+                ((c.a.r0.b3.c) this.mPersonPostAdapter.getItem(i2)).fetchDataOnNoNetRefresh();
             }
         }
     }
@@ -528,9 +525,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.mCurrTabIndex = i2;
         int[] iArr = this.mTypes;
         if (iArr[i2] == 0) {
-            TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_thread" : "pp_his_thread", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
         } else if (iArr[i2] == 1) {
-            TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_reply" : "pp_his_reply", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+            TiebaStatic.eventStat(getPageContext().getContext(), this.isHost ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
         }
     }
 
@@ -607,7 +604,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // b.a.r0.u2.b
+    @Override // c.a.r0.b3.b
     public void showRecycleBinRedTip(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
@@ -616,11 +613,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         if (z && imageView.getVisibility() == 8) {
             this.mRecycleBinRedTip.setVisibility(0);
-            b.a.q0.s.e0.b.j().t(b.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), true);
+            c.a.q0.s.e0.b.j().t(c.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), true);
         } else if (z || this.mRecycleBinRedTip.getVisibility() != 0) {
         } else {
             this.mRecycleBinRedTip.setVisibility(8);
-            b.a.q0.s.e0.b.j().t(b.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
+            c.a.q0.s.e0.b.j().t(c.a.q0.s.e0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
         }
     }
 }

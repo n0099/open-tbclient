@@ -40,8 +40,8 @@ public abstract class aa extends PngChunk {
                 return true;
             }
             if (obj != null && getClass() == obj.getClass()) {
-                String str = this.f66806a;
-                String str2 = ((aa) obj).f66806a;
+                String str = this.a;
+                String str2 = ((aa) obj).a;
                 if (str == null) {
                     if (str2 != null) {
                         return false;
@@ -60,7 +60,7 @@ public abstract class aa extends PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f66806a;
+            String str = this.a;
             return 31 + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;

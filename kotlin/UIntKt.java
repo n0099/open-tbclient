@@ -1,46 +1,46 @@
 package kotlin;
 
 import kotlin.internal.InlineOnly;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0010\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0006\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\n\n\u0002\b\u0002\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\u0000H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\u0003\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\u0004H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\u0005\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\u0006H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\u0007\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\bH\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\t\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\nH\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\u000b\u001a\u0017\u0010\u0002\u001a\u00020\u0001*\u00020\fH\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0002\u0010\r\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000e"}, d2 = {"", "Lkotlin/UInt;", "toUInt", "(B)I", "", "(D)I", "", "(F)I", "", "(I)I", "", "(J)I", "", "(S)I", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(d1 = {"\u0000,\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0005\n\u0000\n\u0002\u0010\u0006\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\n\n\u0002\b\u0002\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\u0003\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u0004H\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\u0005\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\u0006H\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\u0007\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\bH\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\t\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\nH\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\u000b\u001a\u0015\u0010\u0000\u001a\u00020\u0001*\u00020\fH\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\r\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000e"}, d2 = {"toUInt", "Lkotlin/UInt;", "", "(B)I", "", "(D)I", "", "(F)I", "", "(I)I", "", "(J)I", "", "(S)I", "kotlin-stdlib"}, k = 2, mv = {1, 5, 1})
+/* loaded from: classes3.dex */
 public final class UIntKt {
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(byte b2) {
-        return UInt.m738constructorimpl(b2);
+        return UInt.m796constructorimpl(b2);
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(short s) {
-        return UInt.m738constructorimpl(s);
+        return UInt.m796constructorimpl(s);
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(int i2) {
-        return UInt.m738constructorimpl(i2);
+        return UInt.m796constructorimpl(i2);
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final int toUInt(long j) {
-        return UInt.m738constructorimpl((int) j);
+    public static final int toUInt(long j2) {
+        return UInt.m796constructorimpl((int) j2);
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(float f2) {
         return UnsignedKt.doubleToUInt(f2);
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(double d2) {
         return UnsignedKt.doubleToUInt(d2);

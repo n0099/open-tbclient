@@ -1,10 +1,9 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +20,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Ints {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class IntArrayAsList extends AbstractList<Integer> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -245,7 +244,7 @@ public final class Ints {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class IntConverter extends Converter<String, Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final IntConverter INSTANCE;
@@ -312,7 +311,7 @@ public final class Ints {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -394,12 +393,12 @@ public final class Ints {
         }
     }
 
-    public static int c(long j) {
+    public static int c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            int i2 = (int) j;
-            n.h(((long) i2) == j, "Out of range: %s", j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            int i2 = (int) j2;
+            n.h(((long) i2) == j2, "Out of range: %s", j2);
             return i2;
         }
         return invokeJ.intValue;
@@ -426,13 +425,13 @@ public final class Ints {
     public static int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 : invokeI.intValue;
     }
 
     public static int g(int[] iArr, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, iArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, iArr, i2, i3, i4)) == null) {
             while (i3 < i4) {
                 if (iArr[i3] == i2) {
                     return i3;
@@ -474,17 +473,17 @@ public final class Ints {
         return invokeL.intValue;
     }
 
-    public static int j(long j) {
+    public static int j(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
-            if (j > 2147483647L) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
+            if (j2 > 2147483647L) {
                 return Integer.MAX_VALUE;
             }
-            if (j < -2147483648L) {
+            if (j2 < -2147483648L) {
                 return Integer.MIN_VALUE;
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeJ.intValue;
     }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UriHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.apollon.utils.LogUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ApollonBaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f36673a = "ApollonBaseActivity";
+    public static final String a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +88,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTaskExcept(ApollonBaseActivity apollonBaseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, apollonBaseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, apollonBaseActivity) == null) {
             synchronized (ApollonBaseActivity.class) {
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -106,9 +103,9 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTasksTopOf(ApollonBaseActivity apollonBaseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, apollonBaseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, apollonBaseActivity) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f36673a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+                LogUtil.d(a, "clearTasksTopOf. stack size = " + mActivityStack.size());
                 for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                     ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                     if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -124,7 +121,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f36673a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                LogUtil.d(a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
                     ApollonBaseActivity next = it.next();

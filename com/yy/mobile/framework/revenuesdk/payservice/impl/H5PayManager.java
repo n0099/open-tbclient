@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +24,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReq
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUERY_RESULT_FAIL = 2;
@@ -121,7 +120,7 @@ public class H5PayManager {
 
     private synchronized void notifyPayResult(String str, H5PayParams h5PayParams, GetChargeOrderStatusResult getChargeOrderStatusResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, str, h5PayParams, getChargeOrderStatusResult) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, str, h5PayParams, getChargeOrderStatusResult) == null) {
             synchronized (this) {
                 CurrencyChargeMessage currencyChargeMessage = new CurrencyChargeMessage();
                 currencyChargeMessage.appid = h5PayParams.appId;
@@ -188,7 +187,7 @@ public class H5PayManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void onOrderVerifyAck(int i2, String str, H5PayVerifyTask h5PayVerifyTask, GetChargeOrderStatusResult getChargeOrderStatusResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), str, h5PayVerifyTask, getChargeOrderStatusResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), str, h5PayVerifyTask, getChargeOrderStatusResult}) == null) {
             RLog.info(TAG, "onOrderVerifyAck orderId:" + str);
             synchronized (this) {
                 H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;

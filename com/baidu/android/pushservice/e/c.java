@@ -6,8 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,21 +38,19 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends SSLSocketFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public HostnameVerifier f36140a;
+        public HostnameVerifier a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f36141b;
+        public HttpsURLConnection f32446b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -71,8 +67,8 @@ public class c {
                     return;
                 }
             }
-            this.f36140a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f36141b = httpsURLConnection;
+            this.a = HttpsURLConnection.getDefaultHostnameVerifier();
+            this.f32446b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -130,7 +126,7 @@ public class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f36141b.getRequestProperty("Host");
+                String requestProperty = this.f32446b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }
@@ -149,7 +145,7 @@ public class c {
                     } catch (Throwable unused) {
                     }
                 }
-                if (this.f36140a.verify(str, sSLSocket.getSession())) {
+                if (this.a.verify(str, sSLSocket.getSession())) {
                     return sSLSocket;
                 }
                 throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
@@ -311,7 +307,7 @@ public class c {
     public static String a(HashMap<String, String> hashMap) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, hashMap)) == null) {
             if (hashMap == null) {
                 return "";
             }
@@ -344,7 +340,7 @@ public class c {
     public static HttpURLConnection a(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, str, str2, str3, str4)) == null) {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 httpURLConnection.setConnectTimeout(30000);
@@ -357,7 +353,7 @@ public class c {
                     }
                     httpURLConnection.setRequestMethod(str2);
                     httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-                    httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                     if (!TextUtils.isEmpty(str3)) {
                         httpURLConnection.setRequestProperty("User-Agent", str3);
                     }
@@ -370,9 +366,7 @@ public class c {
                         ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new HostnameVerifier(httpURLConnection) { // from class: com.baidu.android.pushservice.e.c.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ HttpURLConnection f36138a;
+                            public final /* synthetic */ HttpURLConnection a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -389,7 +383,7 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f36138a = httpURLConnection;
+                                this.a = httpURLConnection;
                             }
 
                             @Override // javax.net.ssl.HostnameVerifier
@@ -397,7 +391,7 @@ public class c {
                                 InterceptResult invokeLL;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str5, sSLSession)) == null) {
-                                    String requestProperty = this.f36138a.getRequestProperty("Host");
+                                    String requestProperty = this.a.getRequestProperty("Host");
                                     if (!TextUtils.isEmpty(requestProperty)) {
                                         str5 = requestProperty;
                                     }
@@ -415,7 +409,7 @@ public class c {
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestMethod(str2);
                 httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-                httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                 if (!TextUtils.isEmpty(str3)) {
                 }
                 if (!TextUtils.isEmpty(str4)) {
@@ -452,7 +446,7 @@ public class c {
                     }
                     httpURLConnection.setRequestMethod(str2);
                     httpURLConnection.setRequestProperty("Content-type", str3);
-                    httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                     for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                         httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                     }
@@ -462,9 +456,7 @@ public class c {
                         ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new HostnameVerifier(httpURLConnection) { // from class: com.baidu.android.pushservice.e.c.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ HttpURLConnection f36139a;
+                            public final /* synthetic */ HttpURLConnection a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -481,7 +473,7 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f36139a = httpURLConnection;
+                                this.a = httpURLConnection;
                             }
 
                             @Override // javax.net.ssl.HostnameVerifier
@@ -489,7 +481,7 @@ public class c {
                                 InterceptResult invokeLL;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str4, sSLSession)) == null) {
-                                    String requestProperty = this.f36139a.getRequestProperty("Host");
+                                    String requestProperty = this.a.getRequestProperty("Host");
                                     if (!TextUtils.isEmpty(requestProperty)) {
                                         str4 = requestProperty;
                                     }
@@ -507,7 +499,7 @@ public class c {
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestMethod(str2);
                 httpURLConnection.setRequestProperty("Content-type", str3);
-                httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                 while (r5.hasNext()) {
                 }
                 if (httpURLConnection instanceof HttpsURLConnection) {

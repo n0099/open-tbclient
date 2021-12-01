@@ -15,33 +15,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class APayEntranceActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34801c = "ap_order_info";
+    public static final String f31215c = "ap_order_info";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34802d = "ap_target_packagename";
+    public static final String f31216d = "ap_target_packagename";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34803e = "ap_session";
+    public static final String f31217e = "ap_session";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34804f = "ap_local_info";
+    public static final String f31218f = "ap_local_info";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f34805g;
+    public static final ConcurrentHashMap<String, a> f31219g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f34806a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34807b;
+    public String f31220b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(String str);
     }
@@ -59,7 +57,7 @@ public class APayEntranceActivity extends Activity {
                 return;
             }
         }
-        f34805g = new ConcurrentHashMap<>();
+        f31219g = new ConcurrentHashMap<>();
     }
 
     public APayEntranceActivity() {
@@ -80,12 +78,12 @@ public class APayEntranceActivity extends Activity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a remove = f34805g.remove(this.f34807b);
-            if (TextUtils.isEmpty(this.f34806a)) {
-                this.f34806a = b.a();
+            a remove = f31219g.remove(this.f31220b);
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = b.a();
             }
             if (remove != null) {
-                remove.a(this.f34806a);
+                remove.a(this.a);
             }
             try {
                 super.finish();
@@ -102,12 +100,12 @@ public class APayEntranceActivity extends Activity {
             if (i2 == 1000) {
                 try {
                     if (intent != null) {
-                        this.f34806a = intent.getStringExtra("result");
+                        this.a = intent.getStringExtra("result");
                     } else {
-                        this.f34806a = b.a();
+                        this.a = b.a();
                     }
                 } catch (Throwable unused) {
-                    this.f34806a = b.a();
+                    this.a = b.a();
                 }
                 finish();
             }
@@ -126,10 +124,10 @@ public class APayEntranceActivity extends Activity {
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                String string = extras.getString(f34801c);
-                String string2 = extras.getString(f34802d);
-                this.f34807b = extras.getString(f34803e);
-                String string3 = extras.getString(f34804f, StringUtil.EMPTY_ARRAY);
+                String string = extras.getString(f31215c);
+                String string2 = extras.getString(f31216d);
+                this.f31220b = extras.getString(f31217e);
+                String string3 = extras.getString(f31218f, StringUtil.EMPTY_ARRAY);
                 Intent intent = new Intent();
                 intent.putExtra("order_info", string);
                 intent.putExtra("localInfo", string3);

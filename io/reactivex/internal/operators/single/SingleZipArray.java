@@ -18,14 +18,14 @@ import io.reactivex.internal.operators.single.SingleMap;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SingleZipArray<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T>[] sources;
     public final Function<? super Object[], ? extends R> zipper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class SingleZipArray<T, R> extends Single<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipCoordinator<T, R> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5556924161382950569L;
@@ -163,7 +163,7 @@ public final class SingleZipArray<T, R> extends Single<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3323743579927613702L;

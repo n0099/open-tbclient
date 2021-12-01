@@ -11,12 +11,10 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.lang.ref.WeakReference;
 import java.security.cert.CertificateException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<Signature[]> f62290a;
+    public static WeakReference<Signature[]> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(String str) {
@@ -33,14 +31,14 @@ public final class e {
                 } else {
                     a2 = a.a(str);
                 }
-                Signature[] signatureArr = a2 != null ? a2.f62311b : null;
-                WeakReference<Signature[]> weakReference = f62290a;
+                Signature[] signatureArr = a2 != null ? a2.f54591b : null;
+                WeakReference<Signature[]> weakReference = a;
                 Signature[] signatureArr2 = weakReference != null ? weakReference.get() : null;
                 if (signatureArr2 == null || signatureArr2.length == 0) {
                     try {
                         PackageInfo packageInfo = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 64);
                         Signature[] signatureArr3 = packageInfo.signatures;
-                        f62290a = new WeakReference<>(packageInfo.signatures);
+                        a = new WeakReference<>(packageInfo.signatures);
                         signatureArr2 = signatureArr3;
                     } catch (PackageManager.NameNotFoundException unused) {
                         ZeusLogger.w(ZeusLogger.TAG_INSTALL, "ApkSignatureVerify get host signature error : ".concat(String.valueOf(str)));

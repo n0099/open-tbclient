@@ -9,24 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final hm f72031a;
+    public static final hm a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hm[] f501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f72032b;
+    public static final hm f63010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f72033c;
+    public static final hm f63011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f72034d;
+    public static final hm f63012d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -45,12 +43,12 @@ public final class hm {
                 return;
             }
         }
-        f72031a = new hm("INT", 0, 1);
-        f72032b = new hm("LONG", 1, 2);
-        f72033c = new hm("STRING", 2, 3);
+        a = new hm("INT", 0, 1);
+        f63010b = new hm("LONG", 1, 2);
+        f63011c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f72034d = hmVar;
-        f501a = new hm[]{f72031a, f72032b, f72033c, hmVar};
+        f63012d = hmVar;
+        f501a = new hm[]{a, f63010b, f63011c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -84,13 +82,13 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f72034d;
+                        return f63012d;
                     }
-                    return f72033c;
+                    return f63011c;
                 }
-                return f72032b;
+                return f63010b;
             }
-            return f72031a;
+            return a;
         }
         return (hm) invokeI.objValue;
     }

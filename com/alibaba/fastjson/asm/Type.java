@@ -3,7 +3,6 @@ package com.alibaba.fastjson.asm;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Type {
     public static /* synthetic */ Interceptable $ic;
     public static final Type BOOLEAN_TYPE;
@@ -170,7 +169,7 @@ public class Type {
     public static Type getType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? getType(str.toCharArray(), 0) : (Type) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? getType(str.toCharArray(), 0) : (Type) invokeL.objValue;
     }
 
     public String getClassName() {
@@ -225,7 +224,7 @@ public class Type {
         InterceptResult invokeLI;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, cArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cArr, i2)) == null) {
             char c2 = cArr[i2];
             if (c2 != 'F') {
                 if (c2 != 'S') {

@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f58882a;
+    public Context a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -35,14 +33,14 @@ public class b extends OrientationEventListener {
                 return;
             }
         }
-        this.f58882a = context;
+        this.a = context;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             disable();
-            this.f58882a = null;
+            this.a = null;
         }
     }
 
@@ -50,10 +48,10 @@ public class b extends OrientationEventListener {
     public void onOrientationChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            Context context = this.f58882a;
+            Context context = this.a;
             if (context instanceof Activity) {
                 if (Build.VERSION.SDK_INT != 26 || context.getApplicationInfo().targetSdkVersion <= 26) {
-                    ((Activity) this.f58882a).setRequestedOrientation(1);
+                    ((Activity) this.a).setRequestedOrientation(1);
                 }
             }
         }

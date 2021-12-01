@@ -75,10 +75,10 @@ public abstract class ForwardingSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
-            this.delegate.write(buffer, j);
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j2) == null) {
+            this.delegate.write(buffer, j2);
         }
     }
 }

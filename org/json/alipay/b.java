@@ -3,7 +3,6 @@ package org.json.alipay;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.utility.FileUtil;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,13 +19,11 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f73490a;
+    public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f73491b;
+    public Map f64307b;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -82,7 +80,7 @@ public class b {
                 return;
             }
         }
-        f73490a = new a((byte) 0);
+        a = new a((byte) 0);
     }
 
     public b() {
@@ -98,7 +96,7 @@ public class b {
                 return;
             }
         }
-        this.f73491b = new HashMap();
+        this.f64307b = new HashMap();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -136,7 +134,7 @@ public class b {
                 return;
             }
         }
-        this.f73491b = map == null ? new HashMap() : map;
+        this.f64307b = map == null ? new HashMap() : map;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -184,9 +182,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f73491b.put(obj, d2);
+                this.f64307b.put(obj, d2);
             } else {
-                this.f73491b.remove(obj);
+                this.f64307b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -205,7 +203,7 @@ public class b {
     public static String a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
             if (obj == null || obj.equals(null)) {
                 return StringUtil.NULL_STRING;
             }
@@ -231,7 +229,7 @@ public class b {
 
     public static void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, obj) == null) || obj == null) {
             return;
         }
         if (obj instanceof Double) {
@@ -298,7 +296,7 @@ public class b {
                             }
                         }
                     }
-                    stringBuffer.append('\\');
+                    stringBuffer.append(FileUtil.WINDOWS_SEPARATOR);
                     stringBuffer.append(charAt);
                     i2++;
                     c2 = charAt;
@@ -319,7 +317,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object obj = str == null ? null : this.f73491b.get(str);
+            Object obj = str == null ? null : this.f64307b.get(str);
             if (obj != null) {
                 return obj;
             }
@@ -331,13 +329,13 @@ public class b {
     public final Iterator a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73491b.keySet().iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64307b.keySet().iterator() : (Iterator) invokeV.objValue;
     }
 
     public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f73491b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f64307b.containsKey(str) : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -354,7 +352,7 @@ public class b {
                     Object next = a2.next();
                     stringBuffer.append(c(next.toString()));
                     stringBuffer.append(':');
-                    stringBuffer.append(a(this.f73491b.get(next)));
+                    stringBuffer.append(a(this.f64307b.get(next)));
                 }
                 stringBuffer.append(ExtendedMessageFormat.END_FE);
                 return stringBuffer.toString();

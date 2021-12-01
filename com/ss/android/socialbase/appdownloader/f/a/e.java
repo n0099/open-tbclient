@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +56,7 @@ public class e {
         ZipFile zipFile3;
         ZipInputStream zipInputStream4;
         int b2;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
             return (PackageInfo) invokeL.objValue;
@@ -187,14 +186,14 @@ public class e {
                                 }
                             }
                             try {
-                                j = Long.parseLong(str);
+                                j2 = Long.parseLong(str);
                             } catch (c unused6) {
-                                j = -1;
+                                j2 = -1;
                             }
-                            if (j != -1) {
+                            if (j2 != -1) {
                                 PackageInfo packageInfo = new PackageInfo();
                                 packageInfo.versionName = str2;
-                                packageInfo.versionCode = (int) j;
+                                packageInfo.versionCode = (int) j2;
                                 packageInfo.packageName = str3;
                                 if (zipInputStream4 != null) {
                                     try {
@@ -259,7 +258,7 @@ public class e {
     public static PackageInfo b(@NonNull Context context, @NonNull File file, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, context, file, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, file, i2)) == null) {
             PackageManager packageManager = context.getPackageManager();
             if (packageManager == null) {
                 a("unzip_getpackagearchiveinfo", "packageManager == null");
@@ -296,7 +295,7 @@ public class e {
     public static void a(@NonNull String str, @NonNull String str2) {
         com.ss.android.socialbase.downloader.d.b g2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || (g2 = com.ss.android.socialbase.downloader.downloader.c.g()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (g2 = com.ss.android.socialbase.downloader.downloader.c.g()) == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();

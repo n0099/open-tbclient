@@ -19,7 +19,6 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -433,7 +432,7 @@ public class ChangeTransform extends Transition {
     private ObjectAnimator createTransformAnimator(TransitionValues transitionValues, TransitionValues transitionValues2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, this, transitionValues, transitionValues2, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, this, transitionValues, transitionValues2, z)) == null) {
             Matrix matrix = (Matrix) transitionValues.values.get(PROPNAME_MATRIX);
             Matrix matrix2 = (Matrix) transitionValues2.values.get(PROPNAME_MATRIX);
             if (matrix == null) {
@@ -566,7 +565,7 @@ public class ChangeTransform extends Transition {
     private boolean parentsMatch(ViewGroup viewGroup, ViewGroup viewGroup2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, viewGroup, viewGroup2)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65542, this, viewGroup, viewGroup2)) != null) {
             return invokeLL.booleanValue;
         }
         boolean z = true;

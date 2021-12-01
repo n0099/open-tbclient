@@ -12,7 +12,6 @@ import android.os.Build;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,7 +144,7 @@ public class EglBase14 implements EglBase {
 
     private void createSurfaceInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, obj) == null) {
             if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
                 throw new IllegalStateException("Input must be either a Surface or SurfaceTexture");
             }
@@ -165,7 +164,7 @@ public class EglBase14 implements EglBase {
     public static EGLConfig getEglConfig(EGLDisplay eGLDisplay, int[] iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, eGLDisplay, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, eGLDisplay, iArr)) == null) {
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
             int[] iArr2 = new int[1];
             if (EGL14.eglChooseConfig(eGLDisplay, iArr, 0, eGLConfigArr, 0, 1, iArr2, 0)) {
@@ -367,13 +366,13 @@ public class EglBase14 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void swapBuffers(long j) {
+    public void swapBuffers(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
             checkIsNotReleased();
             if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
                 synchronized (EglBase.lock) {
-                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j);
+                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j2);
                     EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
                 }
                 return;

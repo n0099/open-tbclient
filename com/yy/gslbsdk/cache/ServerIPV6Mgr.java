@@ -3,7 +3,6 @@ package com.yy.gslbsdk.cache;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ServerIPV6Mgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SERVER_IP_CMC;
@@ -127,7 +126,7 @@ public class ServerIPV6Mgr {
         InterceptResult invokeLI;
         String ip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             List<ServerV6TB> serverV6ByIsp = DBAccessMgr.getInstance(context).getServerV6ByIsp(i2);
             if (serverV6ByIsp != null && !serverV6ByIsp.isEmpty()) {

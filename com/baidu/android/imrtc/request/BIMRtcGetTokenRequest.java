@@ -16,13 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcGetTokenRequest";
@@ -49,12 +50,12 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
+    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j2, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Long.valueOf(j), bIMRtcTokenListener};
+            Object[] objArr = {context, str, str2, Long.valueOf(j2), bIMRtcTokenListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,7 +72,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         this.mListener = bIMRtcTokenListener;
         this.mSource = str;
         this.mRtcRoomId = str2;
-        this.mRtcUserId = j;
+        this.mRtcUserId = j2;
     }
 
     public static String byte2Hex(byte[] bArr) {
@@ -161,7 +162,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 jSONObject.put("signal_sdk_version", 103050L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
-                jSONObject.put("ts", currentTimeMillis);
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
                 jSONObject.put("sign", getMd5("imrtc:" + appId + currentTimeMillis + uk));
                 StringBuilder sb = new StringBuilder();
                 sb.append("RtcGetTokenRequest msg :");
@@ -186,7 +187,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         trackRequest(i2, "room/get_rtc_token");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
     /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
     /*
@@ -197,8 +198,6 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         String str;
         String str2;
         String str3;
-        JSONObject jSONObject;
-        int optInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
             String str4 = "";
@@ -206,29 +205,29 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             LogUtils.e(TAG, "onSuccess :" + str5);
             int i2 = -1;
             try {
-                jSONObject = new JSONObject(str5);
-                optInt = jSONObject.optInt("error_code", -1);
+                JSONObject jSONObject = new JSONObject(str5);
+                int optInt = jSONObject.optInt("error_code", -1);
                 str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 str3 = jSONObject.optString(RtcUtility.KEY_RTC_ROOM_TOKEN, "");
-            } catch (JSONException e2) {
-                jSONException = e2;
-                str = "";
-            }
-            try {
-                RtcUtility.setRtcRoomToken(this.mContext, str3);
-                str4 = jSONObject.optString("rtc_appid", "");
-                RtcUtility.setRtcAppId(this.mContext, str4);
-                i2 = optInt;
+                try {
+                    RtcUtility.setRtcRoomToken(this.mContext, str3);
+                    str4 = jSONObject.optString("rtc_appid", "");
+                    RtcUtility.setRtcAppId(this.mContext, str4);
+                    i2 = optInt;
+                } catch (JSONException e2) {
+                    jSONException = e2;
+                    str = str4;
+                    str4 = str3;
+                    LogUtils.e(TAG, "JSONException", jSONException);
+                    str2 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
+                    str3 = str4;
+                    str4 = str;
+                    if (this.mListener == null) {
+                    }
+                }
             } catch (JSONException e3) {
                 jSONException = e3;
-                str = str4;
-                str4 = str3;
-                LogUtils.e(TAG, "JSONException", jSONException);
-                str2 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
-                str3 = str4;
-                str4 = str;
-                if (this.mListener == null) {
-                }
+                str = "";
             }
             if (this.mListener == null) {
                 BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult = new BIMRtcTokenListener.BIMRTCGetTokeResult();

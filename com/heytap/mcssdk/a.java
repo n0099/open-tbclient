@@ -7,24 +7,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f64606a = false;
+    public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f64607b = "com.heytap.mcssdk";
+    public static final String f56527b = "com.heytap.mcssdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f64608c = "release";
+    public static final String f56528c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f64609d = "";
+    public static final String f56529d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f64610e = 2002;
+    public static final int f56530e = 2002;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f64611f = "2.0.2";
+    public static final String f56531f = "2.0.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

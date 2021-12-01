@@ -2,7 +2,6 @@ package com.facebook.datasource;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,21 +15,21 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @ThreadSafe
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         public int mIndex;
         public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +155,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
             InterceptResult invokeV;
             DataSource<T> dataSource;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                 synchronized (this) {
                     dataSource = this.mDataSourceWithResult;
                 }
@@ -169,7 +168,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         private synchronized Supplier<DataSource<T>> getNextSupplier() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
                 synchronized (this) {
                     if (isClosed() || this.mIndex >= this.this$0.mDataSourceSuppliers.size()) {
                         return null;

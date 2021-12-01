@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMSendQuizOptMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendQuizOptMsg";
@@ -31,12 +31,12 @@ public class IMSendQuizOptMsg extends Message {
     public long mRoomId;
     public long mUid;
 
-    public IMSendQuizOptMsg(Context context, long j, long j2, int i2, String str, String str2) {
+    public IMSendQuizOptMsg(Context context, long j2, long j3, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -49,8 +49,8 @@ public class IMSendQuizOptMsg extends Message {
         this.mContext = context;
         initCommonParameter(context);
         this.mListenerKey = str2;
-        this.mCastId = j;
-        this.mRoomId = j2;
+        this.mCastId = j2;
+        this.mRoomId = j3;
         this.mOpCode = i2;
         this.mOptExt = str;
         setListenerKey(str2);
@@ -79,14 +79,14 @@ public class IMSendQuizOptMsg extends Message {
                 jSONObject.put("method", 210);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
-                long j = 0;
+                long j2 = 0;
                 try {
-                    j = Long.parseLong(Utility.readUid(this.mContext));
+                    j2 = Long.parseLong(Utility.readUid(this.mContext));
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "bd uid is null");
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 }
-                jSONObject.put("bd_uid", j);
+                jSONObject.put("bd_uid", j2);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 jSONObject.put("mcast_id", this.mCastId);
                 jSONObject.put("room_id", this.mRoomId);

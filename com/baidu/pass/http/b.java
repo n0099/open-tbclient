@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.http.MultipartHashMap;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,31 +25,29 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f42805a = "HttpStack";
+    public static final String a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42806b = "Set-Cookie";
+    public static final String f38295b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f42807c;
+    public static final char[] f38296c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f42808d = "User-Agent";
+    public static final String f38297d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f42809e = 15000;
+    public static final int f38298e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42810f;
+    public String f38299f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42811g;
+    public boolean f38300g;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +62,7 @@ public class b {
                 return;
             }
         }
-        f42807c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f38296c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -81,8 +78,8 @@ public class b {
                 return;
             }
         }
-        this.f42810f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f42811g = false;
+        this.f38299f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f38300g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -118,7 +115,7 @@ public class b {
             return;
         }
         a();
-        int i2 = a.f42804a[passHttpClientRequest.method.ordinal()];
+        int i2 = a.a[passHttpClientRequest.method.ordinal()];
         OutputStream outputStream = null;
         if (i2 == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
@@ -201,7 +198,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f42810f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f38299f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -212,7 +209,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.f42791a, aVar.f42792b, aVar.f42794d, aVar.f42793c);
+                a(byteArrayOutputStream, aVar.a, aVar.f38286b, aVar.f38288d, aVar.f38287c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -305,7 +302,7 @@ public class b {
     private HashMap<String, String> a(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, httpURLConnection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, httpURLConnection)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
             int size = httpURLConnection.getHeaderFields().size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -323,14 +320,14 @@ public class b {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f42807c;
+                char[] cArr = f38296c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f42810f = sb.toString();
+            this.f38299f = sb.toString();
         }
     }
 
@@ -340,13 +337,13 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f42807c;
+                char[] cArr = f38296c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f42810f + Part.CRLF).getBytes();
-            if (!this.f42811g) {
-                this.f42811g = true;
-                byteArrayOutputStream.write(("--" + this.f42810f + Part.CRLF).getBytes());
+            byte[] bytes = ("\r\n--" + this.f38299f + "\r\n").getBytes();
+            if (!this.f38300g) {
+                this.f38300g = true;
+                byteArrayOutputStream.write(("--" + this.f38299f + "\r\n").getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

@@ -3,7 +3,6 @@ package com.yy.hiidostatis.message.sender;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppInfoManager implements AppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +73,7 @@ public class AppInfoManager implements AppInfo {
     private FilenameFilter getFileFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? new FilenameFilter(this) { // from class: com.yy.hiidostatis.message.sender.AppInfoManager.2
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new FilenameFilter(this) { // from class: com.yy.hiidostatis.message.sender.AppInfoManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AppInfoManager this$0;
@@ -109,7 +108,7 @@ public class AppInfoManager implements AppInfo {
     private synchronized void load() {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             synchronized (this) {
                 try {
                 } catch (Exception e2) {

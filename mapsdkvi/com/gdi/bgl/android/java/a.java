@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Typeface f73484a;
+    public Typeface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f73485b;
+    public int f64304b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public class a {
                 return;
             }
         }
-        this.f73484a = null;
-        this.f73485b = 0;
+        this.a = null;
+        this.f64304b = 0;
     }
 }

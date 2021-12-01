@@ -13,8 +13,8 @@ public final class SemaphoreSegment extends Segment<SemaphoreSegment> {
     public AtomicReferenceArray acquirers;
     public volatile int cancelledSlots;
 
-    public SemaphoreSegment(long j, SemaphoreSegment semaphoreSegment) {
-        super(j, semaphoreSegment);
+    public SemaphoreSegment(long j2, SemaphoreSegment semaphoreSegment) {
+        super(j2, semaphoreSegment);
         int i2;
         i2 = SemaphoreKt.SEGMENT_SIZE;
         this.acquirers = new AtomicReferenceArray(i2);

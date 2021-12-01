@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bz implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f71655a;
+    public String a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<Context> f174a;
@@ -33,7 +31,7 @@ public class bz implements Runnable {
                 return;
             }
         }
-        this.f71655a = str;
+        this.a = str;
         this.f174a = weakReference;
     }
 
@@ -45,14 +43,14 @@ public class bz implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakReference = this.f174a) == null || (context = weakReference.get()) == null) {
             return;
         }
-        if (cm.a(this.f71655a) <= by.f172a) {
+        if (cm.a(this.a) <= by.f172a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }
-        cc a2 = cc.a(this.f71655a);
-        cb a3 = cb.a(this.f71655a);
-        a2.a(a3);
-        a3.a(ca.a(context, this.f71655a, 1000));
-        cg.a(context).a((cg.a) a2);
+        cc a = cc.a(this.a);
+        cb a2 = cb.a(this.a);
+        a.a(a2);
+        a2.a(ca.a(context, this.a, 1000));
+        cg.a(context).a((cg.a) a);
     }
 }

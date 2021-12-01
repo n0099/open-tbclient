@@ -18,9 +18,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 public class a implements r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f69460a;
+    public int a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,21 +38,21 @@ public class a implements r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar)) == null) {
-            long a2 = aVar.a("clear_space_sleep_time", 0L);
-            if (a2 <= 0) {
+            long a = aVar.a("clear_space_sleep_time", 0L);
+            if (a <= 0) {
                 return 0L;
             }
-            if (a2 > 5000) {
-                a2 = 5000;
+            if (a > 5000) {
+                a = 5000;
             }
-            k.b("AppDownloadDiskSpaceHandler", "waiting for space clear, sleepTime = " + a2, null);
+            k.b("AppDownloadDiskSpaceHandler", "waiting for space clear, sleepTime = " + a, null);
             try {
-                Thread.sleep(a2);
+                Thread.sleep(a);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
             k.b("AppDownloadDiskSpaceHandler", "waiting end!", null);
-            return a2;
+            return a;
         }
         return invokeL.longValue;
     }
@@ -62,36 +60,36 @@ public class a implements r {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f69460a = i2;
+            this.a = i2;
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.r
-    public boolean a(long j, long j2, q qVar) {
+    public boolean a(long j2, long j3, q qVar) {
         InterceptResult invokeCommon;
-        long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), qVar})) == null) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(this.f69460a);
-            if (a(a2)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), qVar})) == null) {
+            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(this.a);
+            if (a(a)) {
                 long currentTimeMillis = System.currentTimeMillis();
                 d.a().c();
-                long a3 = l.a(0L);
+                long a2 = l.a(0L);
                 a();
-                long a4 = l.a(0L);
+                long a3 = l.a(0L);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (a4 < j2) {
-                    long b2 = b(a2);
+                if (a3 < j3) {
+                    long b2 = b(a);
                     if (b2 > 0) {
-                        a4 = l.a(0L);
+                        a3 = l.a(0L);
                     }
-                    j3 = b2;
+                    j4 = b2;
                 } else {
-                    j3 = 0;
+                    j4 = 0;
                 }
-                k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j2 + ", byteAvailableAfter = " + a4 + ", cleaned = " + (a4 - a3), null);
-                a(a3, a4, j2, currentTimeMillis2, j3);
-                if (a4 < j2) {
+                k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j3 + ", byteAvailableAfter = " + a3 + ", cleaned = " + (a3 - a2), null);
+                a(a2, a3, j3, currentTimeMillis2, j4);
+                if (a3 < j3) {
                     return false;
                 }
                 if (qVar != null) {
@@ -129,14 +127,14 @@ public class a implements r {
         }
     }
 
-    private void a(long j, long j2, long j3, long j4, long j5) {
+    private void a(long j2, long j3, long j4, long j5, long j6) {
         DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.f69460a)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.a)) == null) {
             return;
         }
         try {
-            com.ss.android.downloadlib.a.a().a(downloadInfo, j, j2, j3, j4, j5, j2 > j3);
+            com.ss.android.downloadlib.a.a().a(downloadInfo, j2, j3, j4, j5, j6, j3 > j4);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

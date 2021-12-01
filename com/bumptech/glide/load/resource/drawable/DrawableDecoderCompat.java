@@ -10,7 +10,6 @@ import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class DrawableDecoderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean shouldCallAppCompatResources = true;
@@ -62,13 +61,13 @@ public final class DrawableDecoderCompat {
     public static Drawable loadDrawableV4(Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, context, i2, theme)) == null) ? ResourcesCompat.getDrawable(context.getResources(), i2, theme) : (Drawable) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, context, i2, theme)) == null) ? ResourcesCompat.getDrawable(context.getResources(), i2, theme) : (Drawable) invokeLIL.objValue;
     }
 
     public static Drawable loadDrawableV7(Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, context, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i2, theme)) == null) {
             if (theme != null) {
                 context = new ContextThemeWrapper(context, theme);
             }

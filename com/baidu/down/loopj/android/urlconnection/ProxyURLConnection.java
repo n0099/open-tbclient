@@ -11,7 +11,6 @@ import com.baidu.down.common.NameValuePair;
 import com.baidu.down.loopj.android.http.ConnectManager;
 import com.baidu.down.loopj.android.request.handler.HttpDns;
 import com.baidu.down.utils.DownPrefUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -131,7 +130,7 @@ public class ProxyURLConnection {
         String str2;
         Exception e2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, str)) != null) {
             return (String) invokeL.objValue;
         }
         if (TextUtils.isEmpty(str)) {
@@ -200,7 +199,7 @@ public class ProxyURLConnection {
     private String obtainParams(List<NameValuePair> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, list, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, this, list, z)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (NameValuePair nameValuePair : list) {
                 stringBuffer.append(Typography.amp);
@@ -209,7 +208,7 @@ public class ProxyURLConnection {
                     name = Uri.encode(name);
                 }
                 stringBuffer.append(name);
-                stringBuffer.append(a.f34958h);
+                stringBuffer.append(a.f31351h);
                 stringBuffer.append(Uri.encode(nameValuePair.getValue()));
             }
             return stringBuffer.toString();

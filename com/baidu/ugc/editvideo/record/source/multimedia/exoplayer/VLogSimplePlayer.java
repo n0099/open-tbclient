@@ -4,8 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.i.c;
-import b.a.x0.i.f.b;
+import c.a.x0.i.c;
+import c.a.x0.i.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VLogSimplePlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -61,7 +61,7 @@ public class VLogSimplePlayer {
     public float mVolumeBackUp;
     public Runnable mVolumeRunnable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class SeekRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,10 +95,10 @@ public class VLogSimplePlayer {
             }
         }
 
-        public void setseekTime(long j) {
+        public void setseekTime(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.mSeekTime = j;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                this.mSeekTime = j2;
             }
         }
     }
@@ -527,9 +527,9 @@ public class VLogSimplePlayer {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
                     this.this$0.mCurrentState = 2;
-                    long j = this.this$0.mSeekWhenPrepared;
-                    if (j != 0) {
-                        this.this$0.seekTo(j);
+                    long j2 = this.this$0.mSeekWhenPrepared;
+                    if (j2 != 0) {
+                        this.this$0.seekTo(j2);
                     }
                     this.this$0.notifyPrepared(iMediaPlayer);
                     this.this$0.setVolumeInternal();
@@ -671,23 +671,23 @@ public class VLogSimplePlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void seekToInternal(long j) {
+    public void seekToInternal(long j2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65575, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65575, this, j2) == null) {
             try {
                 QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
                 if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                    this.mSeekWhenPrepared = j;
+                    this.mSeekWhenPrepared = j2;
                 } else {
-                    qMExoWrapperMediaPlayer.seekTo(j);
+                    qMExoWrapperMediaPlayer.seekTo(j2);
                     qMExoWrapperMediaPlayer.pause();
                     this.mSeekWhenPrepared = 0L;
                 }
                 if (!isAudioTypeChange() || (bVar = this.mAudioPlayer) == null) {
                     return;
                 }
-                bVar.B(j);
+                bVar.B(j2);
                 bVar.pause();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -901,10 +901,10 @@ public class VLogSimplePlayer {
         }
     }
 
-    public void seekTo(long j) {
+    public void seekTo(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.mSeekRunnable.setseekTime(j);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.mSeekRunnable.setseekTime(j2);
             schedule(this.mSeekRunnable);
         }
     }

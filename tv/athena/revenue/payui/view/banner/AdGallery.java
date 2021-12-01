@@ -19,31 +19,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdGallery extends Gallery implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f74118e;
+    public final Handler f64882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f74119f;
+    public int f64883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f74120g;
+    public boolean f64884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f74121h;
+    public boolean f64885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f74122i;
-    public boolean j;
-    public boolean k;
+    public boolean f64886i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f64887j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f64888k;
     public final BroadcastReceiver l;
     public boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,23 +77,21 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
-                    this.this$0.k = false;
-                    this.this$0.g();
+                    this.this$0.f64888k = false;
+                    this.this$0.j();
                 } else if ("android.intent.action.USER_PRESENT".equals(action)) {
-                    this.this$0.k = true;
-                    this.this$0.h(false);
+                    this.this$0.f64888k = true;
+                    this.this$0.k(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public WeakReference<AdGallery> f74123a;
+        public WeakReference<AdGallery> a;
 
         public b(AdGallery adGallery) {
             Interceptable interceptable = $ic;
@@ -106,21 +108,21 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f74123a = new WeakReference<>(adGallery);
+            this.a = new WeakReference<>(adGallery);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             AdGallery adGallery;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = this.f74123a.get()) != null && message.what == 1 && adGallery.f74121h) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = this.a.get()) != null && message.what == 1 && adGallery.f64885h) {
                 if (adGallery.getSelectedItemPosition() >= adGallery.getCount() - 1) {
                     adGallery.setSelection(0, true);
                     adGallery.onKeyDown(21, null);
                 } else {
                     adGallery.onKeyDown(22, null);
                 }
-                sendMessageDelayed(obtainMessage(1), adGallery.f74119f);
+                sendMessageDelayed(obtainMessage(1), adGallery.f64883f);
             }
         }
     }
@@ -144,13 +146,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
                 return;
             }
         }
-        this.f74118e = new b(this);
-        this.f74119f = 10000;
-        this.f74120g = false;
-        this.f74121h = false;
-        this.f74122i = false;
-        this.j = false;
-        this.k = true;
+        this.f64882e = new b(this);
+        this.f64883f = 10000;
+        this.f64884g = false;
+        this.f64885h = false;
+        this.f64886i = false;
+        this.f64887j = false;
+        this.f64888k = true;
         this.l = new a(this);
         this.m = false;
         init();
@@ -162,7 +164,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.SCREEN_OFF");
             intentFilter.addAction("android.intent.action.USER_PRESENT");
-            getContext().registerReceiver(this.l, intentFilter, null, this.f74118e);
+            getContext().registerReceiver(this.l, intentFilter, null, this.f64882e);
             this.m = true;
             RLog.debug("AdGallery", "[onAttachedToWindow] mHasRegisterReceiver = " + this.m);
         }
@@ -191,38 +193,15 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         }
     }
 
-    public final boolean f(MotionEvent motionEvent, MotionEvent motionEvent2) {
+    public final boolean i(MotionEvent motionEvent, MotionEvent motionEvent2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, motionEvent2)) == null) ? motionEvent2.getX() > motionEvent.getX() + 50.0f : invokeLL.booleanValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            h(true);
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            boolean z2 = this.j && this.f74122i && this.k;
-            if (z2 != this.f74121h) {
-                if (z2) {
-                    setSelection(getSelectedItemPosition(), z);
-                    this.f74118e.sendMessageDelayed(this.f74118e.obtainMessage(1), this.f74119f);
-                } else {
-                    this.f74118e.removeMessages(1);
-                }
-                this.f74121h = z2;
-            }
-        }
-    }
-
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setOnTouchListener(this);
             setSoundEffectsEnabled(false);
             setFocusableInTouchMode(true);
@@ -232,13 +211,36 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public boolean isAutoStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f74120g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64884g : invokeV.booleanValue;
     }
 
     public boolean isFlipping() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74122i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64886i : invokeV.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            k(true);
+        }
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            boolean z2 = this.f64887j && this.f64886i && this.f64888k;
+            if (z2 != this.f64885h) {
+                if (z2) {
+                    setSelection(getSelectedItemPosition(), z);
+                    this.f64882e.sendMessageDelayed(this.f64882e.obtainMessage(1), this.f64883f);
+                } else {
+                    this.f64882e.removeMessages(1);
+                }
+                this.f64885h = z2;
+            }
+        }
     }
 
     @Override // android.widget.Gallery, android.view.ViewGroup, android.view.View
@@ -247,7 +249,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onAttachedToWindow();
             registerReceiver();
-            if (this.f74120g) {
+            if (this.f64884g) {
                 startFlipping();
             }
         }
@@ -258,9 +260,9 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDetachedFromWindow();
-            this.j = false;
+            this.f64887j = false;
             unregisterReceiver();
-            g();
+            j();
         }
     }
 
@@ -269,7 +271,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            onKeyDown(f(motionEvent, motionEvent2) ? 21 : 22, null);
+            onKeyDown(i(motionEvent, motionEvent2) ? 21 : 22, null);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -302,22 +304,22 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            this.j = i2 == 0;
-            h(false);
+            this.f64887j = i2 == 0;
+            k(false);
         }
     }
 
     public void setAutoStart(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f74120g = z;
+            this.f64884g = z;
         }
     }
 
     public void setFlipInterval(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f74119f = i2;
+            this.f64883f = i2;
         }
     }
 
@@ -331,16 +333,16 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public void startFlipping() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f74122i = true;
-            g();
+            this.f64886i = true;
+            j();
         }
     }
 
     public void stopFlipping() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f74122i = false;
-            g();
+            this.f64886i = false;
+            j();
         }
     }
 
@@ -362,13 +364,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
                 return;
             }
         }
-        this.f74118e = new b(this);
-        this.f74119f = 10000;
-        this.f74120g = false;
-        this.f74121h = false;
-        this.f74122i = false;
-        this.j = false;
-        this.k = true;
+        this.f64882e = new b(this);
+        this.f64883f = 10000;
+        this.f64884g = false;
+        this.f64885h = false;
+        this.f64886i = false;
+        this.f64887j = false;
+        this.f64888k = true;
         this.l = new a(this);
         this.m = false;
         init();
@@ -393,13 +395,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
                 return;
             }
         }
-        this.f74118e = new b(this);
-        this.f74119f = 10000;
-        this.f74120g = false;
-        this.f74121h = false;
-        this.f74122i = false;
-        this.j = false;
-        this.k = true;
+        this.f64882e = new b(this);
+        this.f64883f = 10000;
+        this.f64884g = false;
+        this.f64885h = false;
+        this.f64886i = false;
+        this.f64887j = false;
+        this.f64888k = true;
         this.l = new a(this);
         this.m = false;
         init();

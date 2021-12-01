@@ -7,7 +7,6 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,19 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35021b = "00:00:00:00:00:00";
+    public static final String f31405b = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f35022c;
+    public static a f31406c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f35023a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -62,20 +59,20 @@ public class a {
         try {
             try {
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f35023a = macAddress;
+                this.a = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 c.a(e2);
-                if (!TextUtils.isEmpty(this.f35023a)) {
+                if (!TextUtils.isEmpty(this.a)) {
                     return;
                 }
             }
-            this.f35023a = f35021b;
+            this.a = f31405b;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f35023a)) {
-                this.f35023a = f35021b;
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = f31405b;
             }
             throw th;
         }
@@ -85,10 +82,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f35022c == null) {
-                f35022c = new a(context);
+            if (f31406c == null) {
+                f31406c = new a(context);
             }
-            return f35022c;
+            return f31406c;
         }
         return (a) invokeL.objValue;
     }
@@ -138,20 +135,20 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35023a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public static e d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
                     return e.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return e.f35027c;
+                    return e.f31408c;
                 }
                 return e.r;
             } catch (Exception unused) {

@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.d;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.crash.a;
+import com.kwad.sdk.utils.t;
 import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,12 +38,12 @@ public class RulesTargetNative extends NativeObject implements d {
         this.mPtr = AppStatusNative.nativeCreateRulesTarget();
     }
 
-    public RulesTargetNative(long j) {
+    public RulesTargetNative(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -52,16 +53,16 @@ public class RulesTargetNative extends NativeObject implements d {
                 return;
             }
         }
-        this.mPtr = j;
+        this.mPtr = j2;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.mPtr;
-            if (j != 0) {
-                AppStatusNative.nativeDeleteRulesTarget(j);
+            long j2 = this.mPtr;
+            if (j2 != 0) {
+                AppStatusNative.nativeDeleteRulesTarget(j2);
                 this.mPtr = 0L;
             }
         }
@@ -85,7 +86,7 @@ public class RulesTargetNative extends NativeObject implements d {
                 AppStatusNative.rulesTargetSetPaths(this, strArr);
             }
         } catch (Exception e2) {
-            com.kwad.sdk.crash.a.a(e2);
+            a.a(e2);
             com.kwad.sdk.core.d.a.a(e2);
         }
     }
@@ -96,8 +97,8 @@ public class RulesTargetNative extends NativeObject implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
-            q.a(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
+            t.a(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
+            t.a(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -7,7 +7,7 @@ import com.airbnb.lottie.animation.content.PolystarContent;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PolystarShape implements ContentModel {
     public final boolean hidden;
     public final AnimatableFloatValue innerRadius;
@@ -20,7 +20,7 @@ public class PolystarShape implements ContentModel {
     public final AnimatableFloatValue rotation;
     public final Type type;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum Type {
         STAR(1),
         POLYGON(2);

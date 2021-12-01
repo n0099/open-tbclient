@@ -23,30 +23,30 @@ public final class StackTraceRecoveryKt {
     public static final String stackTraceRecoveryClassName;
 
     static {
-        Object m652constructorimpl;
-        Object m652constructorimpl2;
+        Object m702constructorimpl;
+        Object m702constructorimpl2;
         try {
             Result.Companion companion = Result.Companion;
-            m652constructorimpl = Result.m652constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
+            m702constructorimpl = Result.m702constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m652constructorimpl = Result.m652constructorimpl(ResultKt.createFailure(th));
+            m702constructorimpl = Result.m702constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m655exceptionOrNullimpl(m652constructorimpl) != null) {
-            m652constructorimpl = baseContinuationImplClass;
+        if (Result.m705exceptionOrNullimpl(m702constructorimpl) != null) {
+            m702constructorimpl = baseContinuationImplClass;
         }
-        baseContinuationImplClassName = (String) m652constructorimpl;
+        baseContinuationImplClassName = (String) m702constructorimpl;
         try {
             Result.Companion companion3 = Result.Companion;
-            m652constructorimpl2 = Result.m652constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
+            m702constructorimpl2 = Result.m702constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
         } catch (Throwable th2) {
             Result.Companion companion4 = Result.Companion;
-            m652constructorimpl2 = Result.m652constructorimpl(ResultKt.createFailure(th2));
+            m702constructorimpl2 = Result.m702constructorimpl(ResultKt.createFailure(th2));
         }
-        if (Result.m655exceptionOrNullimpl(m652constructorimpl2) != null) {
-            m652constructorimpl2 = stackTraceRecoveryClass;
+        if (Result.m705exceptionOrNullimpl(m702constructorimpl2) != null) {
+            m702constructorimpl2 = stackTraceRecoveryClass;
         }
-        stackTraceRecoveryClassName = (String) m652constructorimpl2;
+        stackTraceRecoveryClassName = (String) m702constructorimpl2;
     }
 
     public static /* synthetic */ void CoroutineStackFrame$annotations() {

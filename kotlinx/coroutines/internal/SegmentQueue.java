@@ -41,12 +41,12 @@ public abstract class SegmentQueue<S extends Segment<S>> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlinx.coroutines.internal.SegmentQueue */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ Segment newSegment$default(SegmentQueue segmentQueue, long j, Segment segment, int i2, Object obj) {
+    public static /* synthetic */ Segment newSegment$default(SegmentQueue segmentQueue, long j2, Segment segment, int i2, Object obj) {
         if (obj == null) {
             if ((i2 & 2) != 0) {
                 segment = null;
             }
-            return segmentQueue.newSegment(j, segment);
+            return segmentQueue.newSegment(j2, segment);
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: newSegment");
     }
@@ -58,8 +58,8 @@ public abstract class SegmentQueue<S extends Segment<S>> {
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlinx.coroutines.internal.SegmentQueue<S extends kotlinx.coroutines.internal.Segment<S>> */
     /* JADX DEBUG: Multi-variable search result rejected for r6v9, resolved type: S extends kotlinx.coroutines.internal.Segment<S> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final S getSegment(S s, long j) {
-        while (s.getId() < j) {
+    public final S getSegment(S s, long j2) {
+        while (s.getId() < j2) {
             Object next = s.getNext();
             if (next == null) {
                 next = newSegment(s.getId() + 1, s);
@@ -77,17 +77,17 @@ public abstract class SegmentQueue<S extends Segment<S>> {
             }
             s = (S) next;
         }
-        if (s.getId() != j) {
+        if (s.getId() != j2) {
             return null;
         }
         return s;
     }
 
-    public final S getSegmentAndMoveHead(S s, long j) {
-        if (s.getId() == j) {
+    public final S getSegmentAndMoveHead(S s, long j2) {
+        if (s.getId() == j2) {
             return s;
         }
-        S segment = getSegment(s, j);
+        S segment = getSegment(s, j2);
         if (segment != null) {
             moveHeadForward(segment);
             return segment;
@@ -99,5 +99,5 @@ public abstract class SegmentQueue<S extends Segment<S>> {
         return (S) this._tail;
     }
 
-    public abstract S newSegment(long j, S s);
+    public abstract S newSegment(long j2, S s);
 }

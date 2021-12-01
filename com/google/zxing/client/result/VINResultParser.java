@@ -2,7 +2,6 @@ package com.google.zxing.client.result;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class VINResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AZ09;
@@ -174,7 +173,7 @@ public final class VINResultParser extends ResultParser {
     public static int modelYear(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) {
             if (c2 < 'E' || c2 > 'H') {
                 if (c2 < 'J' || c2 > 'N') {
                     if (c2 == 'P') {
@@ -204,7 +203,7 @@ public final class VINResultParser extends ResultParser {
     public static int vinCharValue(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)})) == null) {
             if (c2 < 'A' || c2 > 'I') {
                 if (c2 < 'J' || c2 > 'R') {
                     if (c2 < 'S' || c2 > 'Z') {

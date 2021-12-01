@@ -86,9 +86,9 @@ public class BasicHttpEntity extends AbstractHttpEntity {
         }
     }
 
-    public void setContentLength(long j) {
+    public void setContentLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

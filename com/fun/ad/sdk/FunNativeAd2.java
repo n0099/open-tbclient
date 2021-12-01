@@ -9,26 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunNativeAd2 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class NativeType {
         public static /* synthetic */ Interceptable $ic;
         public static final NativeType BOTH;
         public static final NativeType CUSTOM;
         public static final NativeType EXPRESS;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ NativeType[] f63638a;
+        public static final /* synthetic */ NativeType[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f63639b;
+        public final boolean f55628b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f63640c;
+        public final boolean f55629c;
 
         static {
             InterceptResult invokeClinit;
@@ -49,7 +47,7 @@ public interface FunNativeAd2 {
             EXPRESS = nativeType2;
             NativeType nativeType3 = new NativeType("BOTH", 2, true, true);
             BOTH = nativeType3;
-            f63638a = new NativeType[]{nativeType, nativeType2, nativeType3};
+            a = new NativeType[]{nativeType, nativeType2, nativeType3};
         }
 
         public NativeType(String str, int i2, boolean z, boolean z2) {
@@ -70,8 +68,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f63639b = z;
-            this.f63640c = z2;
+            this.f55628b = z;
+            this.f55629c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -83,19 +81,19 @@ public interface FunNativeAd2 {
         public static NativeType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) f63638a.clone() : (NativeType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NativeType[]) a.clone() : (NativeType[]) invokeV.objValue;
         }
 
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63639b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55628b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63640c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55629c : invokeV.booleanValue;
         }
     }
 

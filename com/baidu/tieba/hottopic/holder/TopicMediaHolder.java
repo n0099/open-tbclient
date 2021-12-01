@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.r0.j1.e;
+import c.a.r0.p1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(view.getContext());
         this.mVideoView = tbCyberVideoView;
         tbCyberVideoView.setStageType(null);
-        a();
+        b();
         this.mControllerView = (TopicVideoControllerView) view.findViewById(e.topic_video_controller);
         this.mVideoProgressView = (TopicVideoProgressView) view.findViewById(e.topic_video_progress_view);
         this.mReplayLayout = view.findViewById(e.topic_replay_layout);
@@ -71,7 +71,7 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
         this.mVedioLine = view.findViewById(e.topic_vedio_line);
     }
 
-    public final void a() {
+    public final void b() {
         TbCyberVideoView tbCyberVideoView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbCyberVideoView = this.mVideoView) != null && tbCyberVideoView.getParent() == null) {

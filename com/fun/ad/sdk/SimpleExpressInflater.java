@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class SimpleExpressInflater extends ExpressInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f63644b;
+    public ViewGroup f55632b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SimpleExpressInflater(FunNativeAd2 funNativeAd2) {
@@ -42,15 +42,15 @@ public class SimpleExpressInflater extends ExpressInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f63644b != null) {
+            if (this.f55632b != null) {
                 View expressView = getExpressView();
                 ViewParent parent = expressView.getParent();
                 if (parent != null) {
                     ((ViewGroup) parent).removeView(expressView);
                 }
-                this.f63644b.removeAllViews();
-                this.f63644b.addView(expressView);
-                return this.f63644b;
+                this.f55632b.removeAllViews();
+                this.f55632b.addView(expressView);
+                return this.f55632b;
             }
             throw new IllegalStateException("Call setContainer(ViewGroup) with a valid arg first");
         }
@@ -60,7 +60,7 @@ public class SimpleExpressInflater extends ExpressInflater {
     public void setContainer(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            this.f63644b = viewGroup;
+            this.f55632b = viewGroup;
         }
     }
 }

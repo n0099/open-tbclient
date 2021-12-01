@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableCreate<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
     public final FlowableOnSubscribe<T> source;
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableCreate$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class BaseEmitter<T> extends AtomicLong implements FlowableEmitter<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7326289992464377023L;
@@ -185,10 +185,10 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
+        public final void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this, j);
+            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this, j2);
                 onRequested();
             }
         }
@@ -231,7 +231,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BufferAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2427151001689639875L;
@@ -271,10 +271,10 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
                 int i3 = 1;
                 do {
-                    long j = get();
-                    long j2 = 0;
+                    long j2 = get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (isCancelled()) {
@@ -297,7 +297,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j2++;
+                                j3++;
                             }
                         }
                     }
@@ -319,8 +319,8 @@ public final class FlowableCreate<T> extends Flowable<T> {
                             }
                         }
                     }
-                    if (j2 != 0) {
-                        BackpressureHelper.produced(this, j2);
+                    if (j3 != 0) {
+                        BackpressureHelper.produced(this, j3);
                     }
                     i3 = this.wip.addAndGet(-i3);
                 } while (i3 != 0);
@@ -386,7 +386,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DropAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8360058422307496563L;
@@ -420,7 +420,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ErrorAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 338953216916120960L;
@@ -455,7 +455,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LatestAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4023437720691792495L;
@@ -551,11 +551,11 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 AtomicReference<T> atomicReference = this.queue;
                 int i2 = 1;
                 do {
-                    long j = get();
-                    long j2 = 0;
+                    long j2 = get();
+                    long j3 = 0;
                     while (true) {
                         boolean z = false;
-                        int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i3 == 0) {
                             break;
                         } else if (isCancelled()) {
@@ -578,7 +578,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j2++;
+                                j3++;
                             }
                         }
                     }
@@ -645,7 +645,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MissingEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3776720187248809713L;
@@ -673,7 +673,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
 
         @Override // io.reactivex.Emitter
         public void onNext(T t) {
-            long j;
+            long j2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || isCancelled()) {
                 return;
@@ -681,18 +681,18 @@ public final class FlowableCreate<T> extends Flowable<T> {
             if (t != null) {
                 this.actual.onNext(t);
                 do {
-                    j = get();
-                    if (j == 0) {
+                    j2 = get();
+                    if (j2 == 0) {
                         return;
                     }
-                } while (!compareAndSet(j, j - 1));
+                } while (!compareAndSet(j2, j2 - 1));
                 return;
             }
             onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class NoOverflowBaseAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4127754106204442833L;
@@ -737,7 +737,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         public abstract void onOverflow();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SerializedEmitter<T> extends AtomicInteger implements FlowableEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4883307006032401862L;

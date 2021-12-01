@@ -7,19 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.ar;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.ax;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public abstract class c extends com.kwad.sdk.core.response.a.a {
+public abstract class c extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f65918a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f65919b;
+    public JSONObject f57671b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,34 +38,34 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject json = toJson();
-            if (this.f65919b != null) {
+            if (this.f57671b != null) {
                 json.remove("mMergeJsonData");
-                ar.a(json, this.f65919b);
+                ax.a(json, this.f57671b);
             }
             return json;
         }
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterParseJson(jSONObject);
             if (jSONObject != null) {
-                this.f65919b = jSONObject.optJSONObject("mMergeJsonData");
+                this.f57671b = jSONObject.optJSONObject("mMergeJsonData");
             }
         }
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            JSONObject jSONObject2 = this.f65919b;
+            JSONObject jSONObject2 = this.f57671b;
             if (jSONObject2 != null) {
-                q.a(jSONObject, "mMergeJsonData", jSONObject2);
+                t.a(jSONObject, "mMergeJsonData", jSONObject2);
             }
         }
     }

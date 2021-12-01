@@ -4,7 +4,6 @@ import android.util.Xml;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +24,7 @@ public class e {
 
     public static final void a(Map map, OutputStream outputStream) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, map, outputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, map, outputStream) == null) {
             a aVar = new a();
             aVar.setOutput(outputStream, "utf-8");
             aVar.startDocument(null, Boolean.TRUE);
@@ -75,19 +74,19 @@ public class e {
                     obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
                 } else if (name.equals("int-array")) {
                     xmlPullParser.next();
-                    int[] m69a = m69a(xmlPullParser, "int-array", strArr);
+                    int[] m118a = m118a(xmlPullParser, "int-array", strArr);
                     strArr[0] = attributeValue;
-                    return m69a;
+                    return m118a;
                 } else if (name.equals("map")) {
                     xmlPullParser.next();
-                    HashMap m68a = m68a(xmlPullParser, "map", strArr);
+                    HashMap m117a = m117a(xmlPullParser, "map", strArr);
                     strArr[0] = attributeValue;
-                    return m68a;
+                    return m117a;
                 } else if (name.equals("list")) {
                     xmlPullParser.next();
-                    ArrayList a2 = a(xmlPullParser, "list", strArr);
+                    ArrayList a = a(xmlPullParser, "list", strArr);
                     strArr[0] = attributeValue;
-                    return a2;
+                    return a;
                 } else {
                     throw new XmlPullParserException("Unknown tag: " + name);
                 }
@@ -132,7 +131,7 @@ public class e {
 
     public static final void a(List list, String str, XmlSerializer xmlSerializer) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, list, str, xmlSerializer) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, list, str, xmlSerializer) == null) {
             if (list == null) {
                 xmlSerializer.startTag(null, StringUtil.NULL_STRING);
                 xmlSerializer.endTag(null, StringUtil.NULL_STRING);
@@ -272,7 +271,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m68a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m117a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, xmlPullParser, str, strArr)) == null) {
@@ -322,7 +321,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m69a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m118a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xmlPullParser, str, strArr)) == null) {

@@ -1,7 +1,7 @@
 package com.baidu.sofire.ac;
 
 import android.hardware.Camera;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface RecordCallback {
     void onBegin();
 

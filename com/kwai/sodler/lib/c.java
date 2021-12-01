@@ -15,21 +15,19 @@ import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes2.dex */
-public class c implements com.kwai.sodler.lib.a.c {
+public class c implements com.kwai.sodler.lib.kwai.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final File f68028a;
+    public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f68029b;
+    public final File f60092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f68030c;
+    public final Context f60093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.c f68031d;
+    public final com.kwai.sodler.lib.ext.c f60094d;
 
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
@@ -47,23 +45,23 @@ public class c implements com.kwai.sodler.lib.a.c {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f68030c = applicationContext;
-        this.f68031d = cVar;
-        this.f68028a = applicationContext.getDir(cVar.b(), 0);
-        this.f68029b = this.f68030c.getCacheDir();
+        this.f60093c = applicationContext;
+        this.f60094d = cVar;
+        this.a = applicationContext.getDir(cVar.b(), 0);
+        this.f60092b = this.f60093c.getCacheDir();
     }
 
     @Nullable
-    public String a(com.kwai.sodler.lib.a.a aVar) {
+    public String a(com.kwai.sodler.lib.kwai.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? b(aVar.c(), aVar.a()) : (String) invokeL.objValue;
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f68028a.getFreeSpace() < 10000000) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.getFreeSpace() < 10000000) {
             throw new IOException("No enough capacity.");
         }
     }
@@ -71,7 +69,7 @@ public class c implements com.kwai.sodler.lib.a.c {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            com.kwai.sodler.lib.c.a.a(b(str, str2));
+            com.kwai.sodler.lib.b.b.a(b(str, str2));
         }
     }
 
@@ -80,7 +78,7 @@ public class c implements com.kwai.sodler.lib.a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             a.b("Sodler.installer", "Check plugin's validation.");
-            if (com.kwai.sodler.lib.c.a.b(str)) {
+            if (com.kwai.sodler.lib.b.b.b(str)) {
                 a.a("Sodler.installer", "Check plugin's signatures success, path = " + str);
                 return true;
             }
@@ -125,11 +123,11 @@ public class c implements com.kwai.sodler.lib.a.c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68028a.getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getAbsolutePath() : (String) invokeV.objValue;
     }
 
-    @Override // com.kwai.sodler.lib.a.c
-    public String b(com.kwai.sodler.lib.a.a aVar) {
+    @Override // com.kwai.sodler.lib.kwai.c
+    public String b(com.kwai.sodler.lib.kwai.a aVar) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -146,35 +144,35 @@ public class c implements com.kwai.sodler.lib.a.c {
                 a.e("Sodler.installer", "Check plugin's signatures fail.");
                 throw new PluginError.InstallError("Check plugin's signatures fail.", 3003);
             }
-            String a2 = a(aVar);
-            if (TextUtils.isEmpty(a2)) {
+            String a = a(aVar);
+            if (TextUtils.isEmpty(a)) {
                 throw new PluginError.InstallError("Can not get install path.", 3006);
             }
-            a.a("Sodler.installer", "Install path = " + a2);
-            File file2 = new File(a2);
+            a.a("Sodler.installer", "Install path = " + a);
+            File file2 = new File(a);
             if (file2.exists()) {
-                if (!this.f68031d.g() && a(file2.getAbsolutePath(), true)) {
+                if (!this.f60094d.g() && a(file2.getAbsolutePath(), true)) {
                     str = "Plugin has been already installed.";
                     a.b("Sodler.installer", str);
-                    return a2;
+                    return a;
                 }
                 a.b("Sodler.installer", "Ignore installed plugin.");
             }
-            a.b("Sodler.installer", "Install plugin, from = " + e2 + ", to = " + a2);
+            a.b("Sodler.installer", "Install plugin, from = " + e2 + ", to = " + a);
             if (!file.exists()) {
                 a.e("Sodler.installer", "Plugin path not exist");
                 throw new PluginError.InstallError("Plugin file not exist.", 3001);
             } else if (file.renameTo(file2)) {
                 str = "Rename success.";
                 a.b("Sodler.installer", str);
-                return a2;
+                return a;
             } else {
                 try {
                     a();
                     try {
                         a.b("Sodler.installer", "Rename fail, try copy file.");
-                        com.kwai.sodler.lib.c.a.a(file, file2);
-                        return a2;
+                        com.kwai.sodler.lib.b.b.a(file, file2);
+                        return a;
                     } catch (Throwable th) {
                         a.a("Sodler.installer", th);
                         throw new PluginError.InstallError(th, 3004);
@@ -188,12 +186,12 @@ public class c implements com.kwai.sodler.lib.a.c {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return b() + File.separator + str + File.separator + str2 + File.separator + this.f68031d.f();
+            return b() + File.separator + str + File.separator + str2 + File.separator + this.f60094d.f();
         }
         return (String) invokeLL.objValue;
     }
@@ -201,29 +199,29 @@ public class c implements com.kwai.sodler.lib.a.c {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            com.kwai.sodler.lib.c.a.a(str);
+            com.kwai.sodler.lib.b.b.a(str);
         }
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             File file = new File(e(str));
             if (file.exists()) {
-                com.kwai.sodler.lib.c.a.a(file);
+                com.kwai.sodler.lib.b.b.a(file);
                 return;
             }
             a.e("Sodler.installer", "Delete fail, dir not found, path = " + file.getAbsolutePath());
         }
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public boolean c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (this.f68031d.g()) {
+            if (this.f60094d.g()) {
                 return false;
             }
             return a(str, str2, true);
@@ -231,17 +229,17 @@ public class c implements com.kwai.sodler.lib.a.c {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public File d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return File.createTempFile(str + System.currentTimeMillis(), this.f68031d.e(), this.f68029b);
+            return File.createTempFile(str + System.currentTimeMillis(), this.f60094d.e(), this.f60092b);
         }
         return (File) invokeL.objValue;
     }
 
-    @Override // com.kwai.sodler.lib.a.c
+    @Override // com.kwai.sodler.lib.kwai.c
     public String e(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

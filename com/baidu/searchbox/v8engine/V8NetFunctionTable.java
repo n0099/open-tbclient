@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine;
 
 import android.webkit.ValueCallback;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class V8NetFunctionTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "V8NetFunctionTable";
@@ -109,13 +108,13 @@ public class V8NetFunctionTable {
         }
     }
 
-    public static void notifyAllV8NetFunctionTableListeners(long j) {
+    public static void notifyAllV8NetFunctionTableListeners(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65541, null, j2) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
-                sNativeGlobalFunctionTablePointer = j;
+                sNativeGlobalFunctionTablePointer = j2;
                 for (ValueCallback<Long> valueCallback : sV8NetFunctionTableInitListenerList) {
-                    valueCallback.onReceiveValue(Long.valueOf(j));
+                    valueCallback.onReceiveValue(Long.valueOf(j2));
                 }
                 sV8NetFunctionTableInitListenerList.clear();
             }
@@ -124,7 +123,7 @@ public class V8NetFunctionTable {
 
     public static void removeOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, valueCallback) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
                 sV8NetFunctionTableInitListenerList.remove(valueCallback);
             }

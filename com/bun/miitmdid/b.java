@@ -12,21 +12,17 @@ import com.bun.miitmdid.interfaces.IIdConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b implements IIdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f62047a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public v f62048a;
+        public v a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +54,7 @@ public class b implements IIdConfig {
                 return;
             }
         }
-        this.f62047a = new a(this);
+        this.a = new a(this);
     }
 
     public static b a(Context context) {
@@ -98,10 +94,10 @@ public class b implements IIdConfig {
             JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
             v vVar = new v();
             if (optJSONObject != null) {
-                vVar.f62116a = optJSONObject.optString("appid");
-                bVar.f62047a.f62048a = vVar;
+                vVar.a = optJSONObject.optString("appid");
+                bVar.a.a = vVar;
             }
-            return bVar.f62047a.f62048a != null;
+            return bVar.a.a != null;
         }
         return invokeLL.booleanValue;
     }
@@ -113,8 +109,8 @@ public class b implements IIdConfig {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.f62047a;
-            return (aVar == null || (vVar = aVar.f62048a) == null || (str = vVar.f62116a) == null) ? "" : str;
+            a aVar = this.a;
+            return (aVar == null || (vVar = aVar.a) == null || (str = vVar.a) == null) ? "" : str;
         }
         return (String) invokeV.objValue;
     }

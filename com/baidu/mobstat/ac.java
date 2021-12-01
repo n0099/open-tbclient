@@ -7,19 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f41774a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41775b;
+    public String f36957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41776c;
+    public boolean f36958c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -34,9 +32,9 @@ public class ac {
                 return;
             }
         }
-        this.f41774a = false;
-        this.f41775b = "";
-        this.f41776c = false;
+        this.a = false;
+        this.f36957b = "";
+        this.f36958c = false;
     }
 
     public JSONObject a() {
@@ -45,17 +43,17 @@ public class ac {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("SDK_BPLUS_SERVICE", this.f41774a);
+                jSONObject.put("SDK_BPLUS_SERVICE", this.a);
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f41775b);
+                jSONObject.put("SDK_PRODUCT_LY", this.f36957b);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f41776c);
+                jSONObject.put("SDK_LOCAL_SERVER", this.f36958c);
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -79,21 +77,21 @@ public class ac {
                 return;
             }
         }
-        this.f41774a = false;
-        this.f41775b = "";
-        this.f41776c = false;
+        this.a = false;
+        this.f36957b = "";
+        this.f36958c = false;
         try {
-            this.f41774a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f41775b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f36957b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f41776c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f36958c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

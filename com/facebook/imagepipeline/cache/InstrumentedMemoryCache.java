@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Predicate;
 import com.facebook.common.references.CloseableReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public CloseableReference<V> cache(K k, CloseableReference<V> closeableReference) {
+    public CloseableReference<V> cache(K k2, CloseableReference<V> closeableReference) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, closeableReference)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, closeableReference)) == null) {
             this.mTracker.onCachePut();
-            return this.mDelegate.cache(k, closeableReference);
+            return this.mDelegate.cache(k2, closeableReference);
         }
         return (CloseableReference) invokeLL.objValue;
     }
@@ -53,15 +53,15 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public CloseableReference<V> get(K k) {
+    public CloseableReference<V> get(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
-            CloseableReference<V> closeableReference = this.mDelegate.get(k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k2)) == null) {
+            CloseableReference<V> closeableReference = this.mDelegate.get(k2);
             if (closeableReference == null) {
                 this.mTracker.onCacheMiss();
             } else {
-                this.mTracker.onCacheHit(k);
+                this.mTracker.onCacheHit(k2);
             }
             return closeableReference;
         }
@@ -76,9 +76,9 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public boolean contains(K k) {
+    public boolean contains(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) ? this.mDelegate.contains((MemoryCache<K, V>) k) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k2)) == null) ? this.mDelegate.contains((MemoryCache<K, V>) k2) : invokeL.booleanValue;
     }
 }

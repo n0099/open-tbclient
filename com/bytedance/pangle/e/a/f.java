@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int[] f62280a;
+    public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f62281b;
+    public int[] f54574b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -36,16 +34,16 @@ public final class f {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 < 0 || (iArr = this.f62280a) == null || i2 >= iArr.length) {
+            if (i2 < 0 || (iArr = this.a) == null || i2 >= iArr.length) {
                 return null;
             }
             int i3 = iArr[i2];
-            int a2 = a(this.f62281b, i3);
-            StringBuilder sb = new StringBuilder(a2);
-            while (a2 != 0) {
+            int a = a(this.f54574b, i3);
+            StringBuilder sb = new StringBuilder(a);
+            while (a != 0) {
                 i3 += 2;
-                sb.append((char) a(this.f62281b, i3));
-                a2--;
+                sb.append((char) a(this.f54574b, i3));
+                a--;
             }
             return sb.toString();
         }
@@ -63,22 +61,22 @@ public final class f {
         }
         int i2 = 0;
         while (true) {
-            int[] iArr = this.f62280a;
+            int[] iArr = this.a;
             if (i2 == iArr.length) {
                 return -1;
             }
             int i3 = iArr[i2];
-            int a2 = a(this.f62281b, i3);
-            if (a2 == str.length()) {
+            int a = a(this.f54574b, i3);
+            if (a == str.length()) {
                 int i4 = 0;
-                while (i4 != a2) {
+                while (i4 != a) {
                     i3 += 2;
-                    if (str.charAt(i4) != a(this.f62281b, i3)) {
+                    if (str.charAt(i4) != a(this.f54574b, i3)) {
                         break;
                     }
                     i4++;
                 }
-                if (i4 == a2) {
+                if (i4 == a) {
                     return i2;
                 }
             }

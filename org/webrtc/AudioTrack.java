@@ -12,13 +12,13 @@ public class AudioTrack extends MediaStreamTrack {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AudioTrack(long j) {
-        super(j);
+    public AudioTrack(long j2) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public class AudioTrack extends MediaStreamTrack {
         }
     }
 
-    public static native void nativeSetVolume(long j, double d2);
+    public static native void nativeSetVolume(long j2, double d2);
 
     public long getNativeAudioTrack() {
         InterceptResult invokeV;

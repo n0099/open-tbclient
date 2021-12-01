@@ -1,98 +1,106 @@
 package com.kwad.sdk.utils;
 
+import android.app.ActivityManager;
+import android.app.Application;
 import android.content.Context;
-import android.os.Environment;
+import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class al {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        File file;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(408734359, "Lcom/kwad/sdk/utils/al;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(408734359, "Lcom/kwad/sdk/utils/al;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String str = "";
-            try {
-                str = Environment.getExternalStorageState();
-            } catch (IncompatibleClassChangeError | NullPointerException unused) {
-            }
-            String str2 = null;
-            if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
-                try {
-                    file = context.getExternalFilesDir(null);
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    file = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "" : (String) invokeV.objValue;
+    }
+
+    public static String a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String a2 = a();
+                a = a2;
+                if (TextUtils.isEmpty(a2)) {
+                    String b2 = b();
+                    a = b2;
+                    if (TextUtils.isEmpty(b2)) {
+                        String b3 = b(context);
+                        a = b3;
+                        return b3;
+                    }
+                    return a;
                 }
-                if (file != null) {
-                    str2 = file.getPath();
-                }
+                return a;
             }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = context.getFilesDir().getPath();
-            }
-            return str2 + File.separator + "ksadsdk";
+            return a;
         }
         return (String) invokeL.objValue;
     }
 
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        File file;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
-                str = Environment.getExternalStorageState();
-            } catch (IncompatibleClassChangeError | NullPointerException unused) {
+                Method declaredMethod = Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()).getDeclaredMethod("currentProcessName", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(null, new Object[0]);
+                return invoke instanceof String ? (String) invoke : "";
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
             }
-            String str2 = null;
-            if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
-                try {
-                    file = context.getExternalCacheDir();
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    file = null;
-                }
-                if (file != null) {
-                    str2 = file.getPath();
-                }
-            }
-            if (TextUtils.isEmpty(str2)) {
-                str2 = context.getCacheDir().getPath();
-            }
-            return new File(str2 + File.separator + "ksadsdk");
         }
-        return (File) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static File c(Context context) {
+    public static String b(@NonNull Context context) {
         InterceptResult invokeL;
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String a2 = a(context);
-            return new File(a2 + File.separator + "Download");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return "";
             }
-            String path = context.getFilesDir().getPath();
-            return path + File.separator + "ksadsdk";
+            int myPid = Process.myPid();
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }

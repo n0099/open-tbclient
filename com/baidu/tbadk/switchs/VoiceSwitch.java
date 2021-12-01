@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.f.f.a;
+import c.a.d.f.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VoiceSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TYPE = 0;
@@ -48,21 +48,21 @@ public class VoiceSwitch extends a {
         }
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? VOICE_KEY : (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class VoiceSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public class VoiceSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "voice" : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class VoiceSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

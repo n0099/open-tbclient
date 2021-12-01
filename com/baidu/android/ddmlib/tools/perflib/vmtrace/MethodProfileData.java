@@ -3,7 +3,6 @@ package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MethodProfileData {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeUnit DATA_TIME_UNITS;
@@ -28,13 +27,13 @@ public class MethodProfileData {
     public final Map<Integer, Map<Long, MethodStats>> mPerThreadStatsByCaller;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class MethodStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +58,9 @@ public class MethodProfileData {
         }
 
         public static /* synthetic */ long access$1108(MethodStats methodStats) {
-            long j = methodStats.mInvocationCount;
-            methodStats.mInvocationCount = 1 + j;
-            return j;
+            long j2 = methodStats.mInvocationCount;
+            methodStats.mInvocationCount = 1 + j2;
+            return j2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -237,7 +236,7 @@ public class MethodProfileData {
         this.mIsRecursive = builder.mRecursive;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,7 +265,7 @@ public class MethodProfileData {
 
         private void addExclusiveTime(Call call, Call call2, ThreadInfo threadInfo, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, this, call, call2, threadInfo, clockType) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(65541, this, call, call2, threadInfo, clockType) == null) {
                 long exclusiveTime = call.getExclusiveTime(clockType, MethodProfileData.DATA_TIME_UNITS);
                 addExclusiveTime(getPerThreadStats(threadInfo), exclusiveTime, clockType);
                 if (call2 != null) {
@@ -377,24 +376,24 @@ public class MethodProfileData {
             }
         }
 
-        private void addExclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
+        private void addExclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mExclusiveThreadTime += j;
+                    methodStats.mExclusiveThreadTime += j2;
                 } else {
-                    methodStats.mExclusiveGlobalTime += j;
+                    methodStats.mExclusiveGlobalTime += j2;
                 }
             }
         }
 
-        private void addInclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
+        private void addInclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mInclusiveThreadTime += j;
+                    methodStats.mInclusiveThreadTime += j2;
                 } else {
-                    methodStats.mInclusiveGlobalTime += j;
+                    methodStats.mInclusiveGlobalTime += j2;
                 }
             }
         }
@@ -415,7 +414,7 @@ public class MethodProfileData {
     private long getInclusiveTime(@Nullable MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, methodStats, clockType, timeUnit)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, methodStats, clockType, timeUnit)) == null) {
             if (methodStats != null) {
                 return methodStats.getInclusiveTime(clockType, timeUnit);
             }
@@ -427,7 +426,7 @@ public class MethodProfileData {
     private long getInvocationCount(MethodStats methodStats) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, methodStats)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, methodStats)) == null) {
             if (methodStats != null) {
                 return methodStats.getInvocationCount();
             }

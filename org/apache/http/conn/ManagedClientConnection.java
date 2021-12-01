@@ -28,7 +28,7 @@ public interface ManagedClientConnection extends HttpClientConnection, HttpInetC
 
     void open(HttpRoute httpRoute, HttpContext httpContext, HttpParams httpParams) throws IOException;
 
-    void setIdleDuration(long j, TimeUnit timeUnit);
+    void setIdleDuration(long j2, TimeUnit timeUnit);
 
     void setState(Object obj);
 

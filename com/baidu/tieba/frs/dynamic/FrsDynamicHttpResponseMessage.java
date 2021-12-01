@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.dynamic;
 
-import b.a.r0.x0.x1.a;
+import c.a.r0.d1.x1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<a, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,14 +50,14 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             a aVar = new a();
             this.responseData = aVar;
-            StarTrendsResIdl a2 = aVar.a(bArr);
-            if (a2 != null && (error = a2.error) != null) {
+            StarTrendsResIdl a = aVar.a(bArr);
+            if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
                     setError(num.intValue());
-                    this.responseData.f28096h = a2.error.errorno.intValue();
+                    this.responseData.f16179h = a.error.errorno.intValue();
                 }
-                setErrorString(a2.error.usermsg);
+                setErrorString(a.error.usermsg);
             }
             setData(this.responseData);
         }

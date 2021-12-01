@@ -20,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.PayUIReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.PayUVReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.HiidoConstantContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EventReporter implements IEventReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,39 +43,41 @@ import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.core.utils.StringUtils;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implements View.OnClickListener, NumberSmsView.OnSmsChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f60296a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f60297b;
+    public RelativeLayout f53266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SafeScrollView f60298c;
+    public SafeScrollView f53267c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SafeKeyBoardEditText f60299d;
+    public SafeKeyBoardEditText f53268d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NumberSmsView f60300e;
+    public NumberSmsView f53269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f60301f;
+    public TextView f53270f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60302g;
+    public TextView f53271g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60303h;
+    public TextView f53272h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f60304i;
-    public TextView j;
-    public TextView k;
+    public TextView f53273i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f53274j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TextView f53275k;
     public BindFastRequest l;
     public CountDownTimer m;
 
@@ -93,7 +94,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                 return;
             }
         }
-        this.f60296a = 6;
+        this.a = 6;
     }
 
     private void e() {
@@ -161,12 +162,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                     runOnUiThread(new Runnable(this, str) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckSmsActivity.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f60308a;
+                        public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ NewCheckSmsActivity f60309b;
+                        public final /* synthetic */ NewCheckSmsActivity f53277b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -183,15 +182,15 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                                     return;
                                 }
                             }
-                            this.f60309b = this;
-                            this.f60308a = str;
+                            this.f53277b = this;
+                            this.a = str;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                GlobalUtils.toast(this.f60309b, this.f60308a);
+                                GlobalUtils.toast(this.f53277b, this.a);
                             }
                         }
                     });
@@ -219,12 +218,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                     runOnUiThread(new Runnable(this, bindCardResponse != null ? bindCardResponse.card_no : "") { // from class: com.baidu.wallet.newbindcard.ui.NewCheckSmsActivity.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f60306a;
+                        public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ NewCheckSmsActivity f60307b;
+                        public final /* synthetic */ NewCheckSmsActivity f53276b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -241,15 +238,15 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                                     return;
                                 }
                             }
-                            this.f60307b = this;
-                            this.f60306a = r7;
+                            this.f53276b = this;
+                            this.a = r7;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                NewBindCardEntry.getInstance().newBindCardCallback("0", this.f60306a, false);
+                                NewBindCardEntry.getInstance().newBindCardCallback("0", this.a, false);
                             }
                         }
                     });
@@ -285,13 +282,13 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.mLeftImg) {
                 onBackPressed();
-            } else if (view == this.k) {
+            } else if (view == this.f53275k) {
                 b(PayStatServiceEvent.NEW_CLICK_RESEND_SMS);
-                this.f60300e.resetSms();
+                this.f53269e.resetSms();
                 c();
                 b();
                 d();
-            } else if (view == this.j) {
+            } else if (view == this.f53274j) {
                 b(PayStatServiceEvent.NEW_NOT_RECEIVE_SMS);
                 WalletGlobalUtils.safeShowDialog(this, 23, "");
             }
@@ -313,9 +310,9 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SafeScrollView safeScrollView = this.f60298c;
+            SafeScrollView safeScrollView = this.f53267c;
             if (safeScrollView != null && safeScrollView.isPopupWindowShowing()) {
-                this.f60298c.dismissKeyBoard(this.f60299d);
+                this.f53267c.dismissKeyBoard(this.f53268d);
             }
             BeanManager.getInstance().removeAllBeans("NewCheckSmsActivity");
             CountDownTimer countDownTimer = this.m;
@@ -331,12 +328,12 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     public void onSmsChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f60303h.setVisibility(8);
-            if (i2 == this.f60296a) {
-                this.f60300e.setEnabled(false);
+            this.f53272h.setVisibility(8);
+            if (i2 == this.a) {
+                this.f53269e.setEnabled(false);
                 BindFastRequest bindFastRequest = this.l;
                 if (bindFastRequest != null) {
-                    bindFastRequest.mSmsVCode = this.f60300e.getSms();
+                    bindFastRequest.mSmsVCode = this.f53269e.getSms();
                 }
                 b(PayStatServiceEvent.NEW_CHECK_SMS);
                 if (CardAddResponse.getInstance() != null && CardAddResponse.getInstance().user != null && CardAddResponse.getInstance().user.has_mobile_password == 1) {
@@ -353,7 +350,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f60300e.requestFocus();
+                this.f53269e.requestFocus();
             }
             super.onWindowFocusChanged(z);
         }
@@ -369,25 +366,25 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f60297b = (RelativeLayout) findViewById(R.id.relative_check_sms);
-            this.f60298c = (SafeScrollView) findViewById(R.id.scrollview);
-            this.f60300e = (NumberSmsView) findViewById(R.id.new_check_sms_input_box);
-            this.f60301f = (TextView) findViewById(R.id.tv_new_check_sms_main_title);
-            this.f60302g = (TextView) findViewById(R.id.tv_new_check_sms_subtitle);
-            this.f60303h = (TextView) findViewById(R.id.tv_new_check_sms_error);
-            this.k = (TextView) findViewById(R.id.tv_new_check_resend_sms_time);
-            this.f60304i = (TextView) findViewById(R.id.tv_new_check_sms_time);
-            this.j = (TextView) findViewById(R.id.tv_new_check_sms_tip);
+            this.f53266b = (RelativeLayout) findViewById(R.id.relative_check_sms);
+            this.f53267c = (SafeScrollView) findViewById(R.id.scrollview);
+            this.f53269e = (NumberSmsView) findViewById(R.id.new_check_sms_input_box);
+            this.f53270f = (TextView) findViewById(R.id.tv_new_check_sms_main_title);
+            this.f53271g = (TextView) findViewById(R.id.tv_new_check_sms_subtitle);
+            this.f53272h = (TextView) findViewById(R.id.tv_new_check_sms_error);
+            this.f53275k = (TextView) findViewById(R.id.tv_new_check_resend_sms_time);
+            this.f53273i = (TextView) findViewById(R.id.tv_new_check_sms_time);
+            this.f53274j = (TextView) findViewById(R.id.tv_new_check_sms_tip);
             this.mLeftImg.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.f60300e.addNumberSmsChangedListenter(this);
-            this.f60300e.setShowInputMethod(true);
+            this.f53275k.setOnClickListener(this);
+            this.f53274j.setOnClickListener(this);
+            this.f53269e.addNumberSmsChangedListenter(this);
+            this.f53269e.setShowInputMethod(true);
             SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) findViewById(R.id.sms_input);
-            this.f60299d = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f60297b, this.f60298c, this.f60300e, false);
-            this.f60299d.setDisablePast(false);
-            this.f60299d.setGap(20);
+            this.f53268d = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f53266b, this.f53267c, this.f53269e, false);
+            this.f53268d.setDisablePast(false);
+            this.f53268d.setGap(20);
             BindFastRequest bindReq = NewBindCardEntry.getInstance().getBindReq();
             this.l = bindReq;
             if (bindReq == null) {
@@ -398,19 +395,19 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
             String sendSmsphone = bindReq.getSendSmsphone();
             if (!TextUtils.isEmpty(sendSmsphone)) {
                 if (sendSmsphone.length() > 4) {
-                    TextView textView = this.f60301f;
+                    TextView textView = this.f53270f;
                     textView.setText("输入尾号" + sendSmsphone.substring(sendSmsphone.length() - 4, sendSmsphone.length()) + "的短信验证码");
                 }
-                TextView textView2 = this.f60302g;
+                TextView textView2 = this.f53271g;
                 textView2.setText("验证码已发送至您的手机号" + ((Object) StringUtils.maskingPhoneNumber(sendSmsphone)));
             }
             if (!TextUtils.isEmpty(this.l.getSmsLength())) {
-                this.f60296a = Integer.parseInt(this.l.getSmsLength());
+                this.a = Integer.parseInt(this.l.getSmsLength());
             }
-            if (this.f60296a < 1) {
-                this.f60296a = 6;
+            if (this.a < 1) {
+                this.a = 6;
             }
-            this.f60300e.initView(this.f60296a);
+            this.f53269e.initView(this.a);
             b();
             c();
         }
@@ -418,7 +415,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             CountDownTimer countDownTimer = this.m;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
@@ -427,9 +424,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
             CountDownTimer countDownTimer2 = new CountDownTimer(this, 60000L, 1000L) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckSmsActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NewCheckSmsActivity f60305a;
+                public final /* synthetic */ NewCheckSmsActivity a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -450,42 +445,42 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f60305a = this;
+                    this.a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60305a.k.setEnabled(true);
-                        this.f60305a.k.setVisibility(0);
-                        this.f60305a.f60304i.setVisibility(8);
+                        this.a.f53275k.setEnabled(true);
+                        this.a.f53275k.setVisibility(0);
+                        this.a.f53273i.setVisibility(8);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
-                public void onTick(long j) {
+                public void onTick(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                        this.f60305a.f60304i.setVisibility(0);
-                        this.f60305a.k.setVisibility(8);
-                        this.f60305a.k.setEnabled(false);
-                        this.f60305a.f60304i.setText(String.format(ResUtils.getString(this.f60305a.getActivity(), "new_bind_card_check_sms_resend"), Integer.valueOf((int) (j / 1000))));
+                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                        this.a.f53273i.setVisibility(0);
+                        this.a.f53275k.setVisibility(8);
+                        this.a.f53275k.setEnabled(false);
+                        this.a.f53273i.setText(String.format(ResUtils.getString(this.a.getActivity(), "new_bind_card_check_sms_resend"), Integer.valueOf((int) (j2 / 1000))));
                     }
                 }
             };
             this.m = countDownTimer2;
             countDownTimer2.start();
-            this.k.setEnabled(false);
+            this.f53275k.setEnabled(false);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f60300e.smsNomal();
-            this.f60303h.setVisibility(8);
-            this.f60300e.requestFocus();
+            this.f53269e.smsNomal();
+            this.f53272h.setVisibility(8);
+            this.f53269e.requestFocus();
         }
     }
 
@@ -502,7 +497,7 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
 
     private void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             a.a(str, a.a(), a.b(), a.c(), a.d());
         }
     }
@@ -513,12 +508,10 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
             runOnUiThread(new Runnable(this, str) { // from class: com.baidu.wallet.newbindcard.ui.NewCheckSmsActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f60310a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NewCheckSmsActivity f60311b;
+                public final /* synthetic */ NewCheckSmsActivity f53278b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -535,20 +528,20 @@ public class NewCheckSmsActivity extends HalfProtocolScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f60311b = this;
-                    this.f60310a = str;
+                    this.f53278b = this;
+                    this.a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60311b.f60300e.setEnabled(true);
-                        this.f60311b.f60300e.resetSms();
-                        this.f60311b.f60300e.requestFocus();
-                        this.f60311b.f60300e.smsError();
-                        this.f60311b.f60303h.setVisibility(0);
-                        this.f60311b.f60303h.setText(this.f60310a);
+                        this.f53278b.f53269e.setEnabled(true);
+                        this.f53278b.f53269e.resetSms();
+                        this.f53278b.f53269e.requestFocus();
+                        this.f53278b.f53269e.smsError();
+                        this.f53278b.f53272h.setVisibility(0);
+                        this.f53278b.f53272h.setText(this.a);
                     }
                 }
             });

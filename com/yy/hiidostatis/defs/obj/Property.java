@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Property implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_PROPERTY = ",";

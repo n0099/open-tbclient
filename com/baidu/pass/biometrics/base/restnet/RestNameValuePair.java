@@ -7,19 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RestNameValuePair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f42585c = 847806714499261896L;
+    public static final long f38125c = 847806714499261896L;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f42586a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42587b;
+    public String f38126b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RestNameValuePair() {
@@ -43,26 +41,26 @@ public class RestNameValuePair implements Serializable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42586a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42587b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38126b : (String) invokeV.objValue;
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f42586a = str;
+            this.a = str;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f42587b = str;
+            this.f38126b = str;
         }
     }
 
@@ -70,7 +68,7 @@ public class RestNameValuePair implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "name = " + this.f42586a + ", value = " + this.f42587b;
+            return "name = " + this.a + ", value = " + this.f38126b;
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +88,7 @@ public class RestNameValuePair implements Serializable {
                 return;
             }
         }
-        this.f42586a = str;
-        this.f42587b = str2;
+        this.a = str;
+        this.f38126b = str2;
     }
 }

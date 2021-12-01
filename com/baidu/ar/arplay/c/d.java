@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.c.e;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -94,12 +93,12 @@ public class d extends BroadcastReceiver {
     public static boolean bk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? fQ : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? fQ : invokeV.booleanValue;
     }
 
     private void bl() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || fS.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || fS.isEmpty()) {
             return;
         }
         int size = fS.size();

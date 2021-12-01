@@ -3,7 +3,6 @@ package com.google.gson.reflect;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class TypeToken<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +71,13 @@ public class TypeToken<T> {
     public static TypeToken<?> getArray(Type type) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, type)) == null) ? new TypeToken<>(C$Gson$Types.arrayOf(type)) : (TypeToken) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, type)) == null) ? new TypeToken<>(C$Gson$Types.arrayOf(type)) : (TypeToken) invokeL.objValue;
     }
 
     public static TypeToken<?> getParameterized(Type type, Type... typeArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, type, typeArr)) == null) ? new TypeToken<>(C$Gson$Types.newParameterizedTypeWithOwner(null, type, typeArr)) : (TypeToken) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, type, typeArr)) == null) ? new TypeToken<>(C$Gson$Types.newParameterizedTypeWithOwner(null, type, typeArr)) : (TypeToken) invokeLL.objValue;
     }
 
     public static Type getSuperclassTypeParameter(Class<?> cls) {

@@ -26,8 +26,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +51,7 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -97,25 +95,25 @@ public class Utility {
         return invokeL.booleanValue;
     }
 
-    public static String formatTimeDuration(long j) {
+    public static String formatTimeDuration(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            if (j <= 0) {
-                return String.valueOf(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            if (j2 <= 0) {
+                return String.valueOf(j2);
             }
-            long j2 = 86400000;
-            long j3 = j / j2;
-            long j4 = j - (j2 * j3);
-            long j5 = 3600000;
-            long j6 = j4 / j5;
-            long j7 = j4 - (j5 * j6);
-            long j8 = 60000;
-            long j9 = j7 / j8;
-            long j10 = j7 - (j8 * j9);
-            long j11 = 1000;
-            long j12 = j10 / j11;
-            return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
+            long j3 = 86400000;
+            long j4 = j2 / j3;
+            long j5 = j2 - (j3 * j4);
+            long j6 = 3600000;
+            long j7 = j5 / j6;
+            long j8 = j5 - (j6 * j7);
+            long j9 = 60000;
+            long j10 = j8 / j9;
+            long j11 = j8 - (j9 * j10);
+            long j12 = 1000;
+            long j13 = j11 / j12;
+            return j4 + " " + j7 + ":" + j10 + ":" + j13 + ":" + (j11 - (j12 * j13));
         }
         return (String) invokeJ.objValue;
     }
@@ -154,7 +152,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f34958h);
+            sb.append(a.f31351h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);
@@ -169,12 +167,12 @@ public class Utility {
     public static long getProcessStartElapsedRealTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Process.getStartElapsedRealtime() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Process.getStartElapsedRealtime() : invokeV.longValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
         }
     }
 
@@ -250,7 +248,7 @@ public class Utility {
             String str2 = "NUL";
             String replace = TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
             String str3 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str3) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str3.replace("_", "-");
+            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
             String valueOf = String.valueOf(Build.VERSION.SDK_INT);
             String str4 = Build.MANUFACTURER;
             if (!TextUtils.isEmpty(str4)) {

@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Looper;
 import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +30,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
@@ -46,7 +45,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     public volatile Executor mCancellationExecutor;
     public Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class OkHttpNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +95,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
 
     private void getOkHttpClientIfNeeded() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.mCancellationExecutor == null) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.mCancellationExecutor == null) {
             synchronized (this) {
                 if (this.mCancellationExecutor == null) {
                     OkHttpClient okHttpClient = HttpManager.newHttpManager(this.mContext).getOkHttpClient();
@@ -110,7 +109,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     /* JADX INFO: Access modifiers changed from: private */
     public void handleException(Call call, Exception exc, NetworkFetcher.Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, call, exc, callback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, this, call, exc, callback) == null) {
             if (call.isCanceled()) {
                 callback.onCancellation();
             } else {

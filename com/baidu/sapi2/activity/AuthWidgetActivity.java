@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.c0.a.f;
+import c.a.d0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
@@ -15,8 +15,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
@@ -89,7 +90,7 @@ public class AuthWidgetActivity extends BaseActivity {
                 setContentView(f.layout_sapi_sdk_webview_with_title_bar);
                 String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
                 this.t = stringExtra;
-                this.u = SapiUtils.urlParamsToMap(stringExtra).get("u");
+                this.u = SapiUtils.urlParamsToMap(stringExtra).get(x.o);
                 if (!TextUtils.isEmpty(this.t) && !TextUtils.isEmpty(this.u)) {
                     init();
                     setupViews();
@@ -124,9 +125,7 @@ public class AuthWidgetActivity extends BaseActivity {
             this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetActivity f43273a;
+                public final /* synthetic */ AuthWidgetActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,23 +142,21 @@ public class AuthWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43273a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43273a.a();
+                        this.a.a();
                     }
                 }
             });
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetActivity f43274a;
+                public final /* synthetic */ AuthWidgetActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -176,23 +173,21 @@ public class AuthWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43274a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43274a.onClose();
+                        this.a.onClose();
                     }
                 }
             });
             this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetActivity f43275a;
+                public final /* synthetic */ AuthWidgetActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -209,7 +204,7 @@ public class AuthWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43275a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
@@ -217,9 +212,9 @@ public class AuthWidgetActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f43275a.setBtnVisibility(4, 4, 4);
+                            this.a.setBtnVisibility(4, 4, 4);
                         } else {
-                            this.f43275a.setBtnVisibility(4, 0, 4);
+                            this.a.setBtnVisibility(4, 0, 4);
                         }
                     }
                 }
@@ -227,9 +222,7 @@ public class AuthWidgetActivity extends BaseActivity {
             this.sapiWebView.setWebviewClientCallback(new SapiWebView.WebviewClientCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AuthWidgetActivity f43276a;
+                public final /* synthetic */ AuthWidgetActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -246,7 +239,7 @@ public class AuthWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43276a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -266,9 +259,9 @@ public class AuthWidgetActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
                 public void shouldOverrideUrlLoading(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(URLDecoder.decode(this.f43276a.u))) {
+                    if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(URLDecoder.decode(this.a.u))) {
                         CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess(SapiUtils.urlParamsToMap(str).get("authsid"));
-                        this.f43276a.finish();
+                        this.a.finish();
                     }
                 }
             });

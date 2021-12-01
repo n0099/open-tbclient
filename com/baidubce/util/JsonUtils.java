@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,13 +46,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
         public static /* synthetic */ Interceptable $ic;
@@ -328,7 +327,7 @@ public class JsonUtils {
     public static String setAclJson(List<Grant> list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             for (Grant grant : list) {
@@ -356,7 +355,7 @@ public class JsonUtils {
     public static String setPartETag(List<PartETag> list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             for (PartETag partETag : list) {

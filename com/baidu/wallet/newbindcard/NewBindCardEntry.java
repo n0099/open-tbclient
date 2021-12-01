@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,7 +30,7 @@ import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.lollipop.json.JSONObject;
 import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
 import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class NewBindCardEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BING_CARD_SUCCESS_MSG = "ok";
@@ -43,7 +42,7 @@ public class NewBindCardEntry {
     public String mExtraParam;
     public boolean mH5BindCardSuccess;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final NewBindCardEntry INSTANCE;
@@ -83,7 +82,7 @@ public class NewBindCardEntry {
     public static NewBindCardEntry getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? SingletonHolder.INSTANCE : (NewBindCardEntry) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? SingletonHolder.INSTANCE : (NewBindCardEntry) invokeV.objValue;
     }
 
     public PayRequestCache.BindCategory getBindCategory() {

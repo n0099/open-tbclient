@@ -34,18 +34,18 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
                 return;
             }
         }
-        if (!f.f69127d) {
-            this.f69134b = g.f69130b.a();
-            this.f69135c = g.f69129a.a();
+        if (!f.f60990d) {
+            this.f60995b = g.f60992b.a();
+            this.f60996c = g.a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
         String statisticalTestHost = SDKManager.getStatisticalTestHost();
-        this.f69135c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f69129a.a();
+        this.f60996c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.a.a();
         if (c.b(testHost).booleanValue()) {
-            this.f69134b = testHost;
+            this.f60995b = testHost;
         } else {
-            this.f69134b = g.f69130b.a();
+            this.f60995b = g.f60992b.a();
         }
     }
 }

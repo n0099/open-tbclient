@@ -14,30 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<a> f51714a;
+    public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51715b;
+    public int f46318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51716c;
+    public boolean f46319c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Fragment f51717a;
+        public Fragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51718b;
+        public String f46320b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,14 +68,14 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f51715b = -1;
-        this.f51714a = new ArrayList();
+        this.f46318b = -1;
+        this.a = new ArrayList();
     }
 
     public void add(a aVar) {
         List<a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (list = this.f51714a) == null || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (list = this.a) == null || aVar == null) {
             return;
         }
         list.add(aVar);
@@ -88,10 +84,10 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
 
     public void addAll(List<a> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f51714a == null || list == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.a == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f51714a.addAll(list);
+        this.a.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -100,7 +96,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<a> list = this.f51714a;
+            List<a> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -114,11 +110,11 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            List<a> list = this.f51714a;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f51714a.get(i2) == null) {
+            List<a> list = this.a;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.a.get(i2) == null) {
                 return null;
             }
-            return this.f51714a.get(i2).f51717a;
+            return this.a.get(i2).a;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -128,9 +124,9 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<a> list = this.f51714a;
-            if (list != null && i2 >= 0 && i2 < list.size() && this.f51714a.get(i2) != null) {
-                return this.f51714a.get(i2).hashCode();
+            List<a> list = this.a;
+            if (list != null && i2 >= 0 && i2 < list.size() && this.a.get(i2) != null) {
+                return this.a.get(i2).hashCode();
             }
             return super.getItemId(i2);
         }
@@ -142,11 +138,11 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<a> list = this.f51714a;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f51714a.get(i2) == null) {
+            List<a> list = this.a;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.a.get(i2) == null) {
                 return null;
             }
-            return this.f51714a.get(i2).f51718b;
+            return this.a.get(i2).f46320b;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -154,7 +150,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f51716c = z;
+            this.f46319c = z;
         }
     }
 
@@ -164,13 +160,13 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (!this.f51716c || (i3 = this.f51715b) == i2) {
+            if (!this.f46319c || (i3 = this.f46318b) == i2) {
                 return;
             }
             if (i3 != -1) {
                 ((BaseFragment) getItem(i3)).setPrimary(false);
             }
-            this.f51715b = i2;
+            this.f46318b = i2;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
@@ -195,30 +191,30 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f51715b = -1;
-        this.f51714a = new ArrayList();
+        this.f46318b = -1;
+        this.a = new ArrayList();
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f51714a.addAll(list);
+        this.a.addAll(list);
     }
 
     public void add(a aVar, int i2) {
         List<a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2) == null) || (list = this.f51714a) == null || aVar == null || i2 < 0 || i2 > list.size()) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2) == null) || (list = this.a) == null || aVar == null || i2 < 0 || i2 > list.size()) {
             return;
         }
-        this.f51714a.add(i2, aVar);
+        this.a.add(i2, aVar);
         notifyDataSetChanged();
     }
 
     public void addAll(List<a> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) || this.f51714a == null || list == null || list.size() <= 0 || i2 < 0 || i2 > this.f51714a.size()) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) || this.a == null || list == null || list.size() <= 0 || i2 < 0 || i2 > this.a.size()) {
             return;
         }
-        this.f51714a.addAll(i2, list);
+        this.a.addAll(i2, list);
         notifyDataSetChanged();
     }
 }

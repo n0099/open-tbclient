@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,19 +17,17 @@ import java.lang.ref.WeakReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AcceptUrlPat;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f63606a;
+    public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f63607b;
+    public static Pattern f55604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f63608c;
+    public static WeakReference<Paint> f55605c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +43,10 @@ public class StringUtil {
                 return;
             }
         }
-        f63606a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
-        f63607b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
-        f63608c = new WeakReference<>(null);
+        f55604b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+        f55605c = new WeakReference<>(null);
     }
 
     public StringUtil() {
@@ -137,8 +134,8 @@ public class StringUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, null, b2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(f63606a[(b2 >> 4) & 15]);
-            sb.append(f63606a[b2 & 15]);
+            sb.append(a[(b2 >> 4) & 15]);
+            sb.append(a[b2 & 15]);
             return sb.toString();
         }
         return (String) invokeB.objValue;
@@ -147,14 +144,14 @@ public class StringUtil {
     public static float getStringWidth(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0.0f;
             }
-            Paint paint = f63608c.get();
+            Paint paint = f55605c.get();
             if (paint == null) {
                 paint = new Paint();
-                f63608c = new WeakReference<>(paint);
+                f55605c = new WeakReference<>(paint);
             }
             paint.setTextSize(f2);
             return paint.measureText(str);
@@ -165,11 +162,11 @@ public class StringUtil {
     public static CharSequence parseColorString(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, charSequence)) == null) {
             if (charSequence == null) {
                 return null;
             }
-            Matcher matcher = f63607b.matcher(charSequence);
+            Matcher matcher = f55604b.matcher(charSequence);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (matcher.matches()) {
                 spannableStringBuilder.append((CharSequence) matcher.group(1));

@@ -1,7 +1,6 @@
 package io.reactivex.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +9,7 @@ import io.reactivex.Observer;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HalfSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public final class HalfSerializer {
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> void onNext(Subscriber<? super T> subscriber, T t, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, subscriber, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
+        if ((interceptable == null || interceptable.invokeLLLL(65542, null, subscriber, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
             subscriber.onNext(t);
             if (atomicInteger.decrementAndGet() != 0) {
                 Throwable terminate = atomicThrowable.terminate();
@@ -104,7 +103,7 @@ public final class HalfSerializer {
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> void onNext(Observer<? super T> observer, T t, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, observer, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, observer, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
             observer.onNext(t);
             if (atomicInteger.decrementAndGet() != 0) {
                 Throwable terminate = atomicThrowable.terminate();

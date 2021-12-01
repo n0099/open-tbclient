@@ -16,13 +16,11 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f60520a;
+    public BindFastRequest a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> m(Context context) {
@@ -42,13 +40,13 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
                 return;
             }
         }
-        this.f60520a = null;
+        this.a = null;
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f60520a = bindFastRequest;
+            this.a = bindFastRequest;
         }
     }
 
@@ -65,10 +63,10 @@ public class m extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f60520a != null) {
+            if (this.a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f60520a.getmBankCard())));
-                arrayList.add(new RestNameValuePair("account_bank_code", this.f60520a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.a.getmBankCard())));
+                arrayList.add(new RestNameValuePair("account_bank_code", this.a.getSubBankCode()));
                 arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
                 return arrayList;
             }

@@ -2,7 +2,6 @@ package com.baidu.pass.face.platform.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,16 +18,16 @@ import java.io.OutputStream;
 import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 1024;
     public static final int EOF = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ProgressListener {
-        void progress(long j, long j2);
+        void progress(long j2, long j3);
     }
 
     public IoUtils() {
@@ -59,7 +58,7 @@ public class IoUtils {
 
     public static void copyStream(InputStream inputStream, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, outputStream) != null) {
+        if (interceptable != null && interceptable.invokeLL(65542, null, inputStream, outputStream) != null) {
             return;
         }
         byte[] bArr = new byte[1024];
@@ -165,10 +164,10 @@ public class IoUtils {
         }
     }
 
-    public static void copyStream(InputStream inputStream, File file, long j, ProgressListener progressListener) throws IOException {
+    public static void copyStream(InputStream inputStream, File file, long j2, ProgressListener progressListener) throws IOException {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{inputStream, file, Long.valueOf(j), progressListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{inputStream, file, Long.valueOf(j2), progressListener}) == null) {
             try {
                 fileOutputStream = FileUtils.openNewFileOutput(file);
             } catch (Throwable th) {
@@ -176,7 +175,7 @@ public class IoUtils {
                 fileOutputStream = null;
             }
             try {
-                copyStream(inputStream, fileOutputStream, j, progressListener);
+                copyStream(inputStream, fileOutputStream, j2, progressListener);
                 closeQuietly(fileOutputStream);
             } catch (Throwable th2) {
                 th = th2;
@@ -186,22 +185,22 @@ public class IoUtils {
         }
     }
 
-    public static void copyStream(InputStream inputStream, OutputStream outputStream, long j, ProgressListener progressListener) throws IOException {
+    public static void copyStream(InputStream inputStream, OutputStream outputStream, long j2, ProgressListener progressListener) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{inputStream, outputStream, Long.valueOf(j), progressListener}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{inputStream, outputStream, Long.valueOf(j2), progressListener}) != null) {
             return;
         }
         byte[] bArr = new byte[1024];
-        long j2 = 0;
+        long j3 = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (read == -1) {
                 return;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j3 += read;
             if (progressListener != null) {
-                progressListener.progress(j2, j);
+                progressListener.progress(j3, j2);
             }
         }
     }

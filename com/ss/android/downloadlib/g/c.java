@@ -11,24 +11,22 @@ import java.lang.ref.SoftReference;
 public class c<P, R> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public P f69764a;
+    public P a;
 
     /* renamed from: b  reason: collision with root package name */
-    public R f69765b;
+    public R f61432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69766c;
+    public int f61433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SoftReference<a<P, R>> f69767d;
+    public SoftReference<a<P, R>> f61434d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c<?, P> f69768e;
+    public c<?, P> f61435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c<R, ?> f69769f;
+    public c<R, ?> f61436f;
 
     /* loaded from: classes2.dex */
     public interface a<PARAM, RESULT> {
@@ -50,9 +48,9 @@ public class c<P, R> implements Runnable {
                 return;
             }
         }
-        this.f69766c = i2;
-        this.f69767d = new SoftReference<>(aVar);
-        this.f69764a = p;
+        this.f61433c = i2;
+        this.f61434d = new SoftReference<>(aVar);
+        this.a = p;
     }
 
     public static <P, R> c<P, R> a(a<P, R> aVar, P p) {
@@ -64,7 +62,7 @@ public class c<P, R> implements Runnable {
     private R b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f69765b : (R) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f61432b : (R) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
@@ -72,22 +70,22 @@ public class c<P, R> implements Runnable {
         c<?, P> cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f69766c == 0 && !l.a()) {
+            if (this.f61433c == 0 && !l.a()) {
                 com.ss.android.downloadlib.f.a().b().post(this);
-            } else if (this.f69766c == 1 && l.a()) {
+            } else if (this.f61433c == 1 && l.a()) {
                 com.ss.android.downloadlib.d.a().a(this);
-            } else if (this.f69766c == 2 && l.a()) {
+            } else if (this.f61433c == 2 && l.a()) {
                 com.ss.android.downloadlib.d.a().b(this);
             } else {
-                if (this.f69764a == null && (cVar = this.f69768e) != null) {
-                    this.f69764a = cVar.b();
+                if (this.a == null && (cVar = this.f61435e) != null) {
+                    this.a = cVar.b();
                 }
-                a<P, R> aVar = this.f69767d.get();
+                a<P, R> aVar = this.f61434d.get();
                 if (aVar == null) {
                     return;
                 }
-                this.f69765b = aVar.a(this.f69764a);
-                c<R, ?> cVar2 = this.f69769f;
+                this.f61432b = aVar.a(this.a);
+                c<R, ?> cVar2 = this.f61436f;
                 if (cVar2 != null) {
                     cVar2.run();
                 }
@@ -102,8 +100,8 @@ public class c<P, R> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, aVar)) == null) {
             c cVar = (c<R, ?>) new c(i2, aVar, null);
-            this.f69769f = cVar;
-            cVar.f69768e = this;
+            this.f61436f = cVar;
+            cVar.f61435e = this;
             return cVar;
         }
         return (c) invokeIL.objValue;
@@ -118,7 +116,7 @@ public class c<P, R> implements Runnable {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c<?, P> cVar = this.f69768e;
+            c<?, P> cVar = this.f61435e;
             if (cVar != null) {
                 cVar.a();
             } else {

@@ -2,7 +2,6 @@ package com.bun.miitmdid.provider.xiaomi;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class IdentifierManager {
     public static /* synthetic */ Interceptable $ic;
     public static Class<?> sClass;
@@ -83,13 +82,13 @@ public class IdentifierManager {
     public static String getVAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? invokeMethod(context, sGetVAID) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? invokeMethod(context, sGetVAID) : (String) invokeL.objValue;
     }
 
     public static String invokeMethod(Context context, Method method) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, method)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, method)) == null) {
             Object obj = sIdProivderImpl;
             if (obj == null || method == null) {
                 return null;

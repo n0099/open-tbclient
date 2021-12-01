@@ -9,12 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class k extends l implements IConnect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context j;
-    public String k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Context f54413j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f54414k;
     public FreemeIdsSupplier l;
 
     public k(Context context) {
@@ -32,7 +36,7 @@ public class k extends l implements IConnect {
                 return;
             }
         }
-        this.j = context;
+        this.f54413j = context;
     }
 
     @Override // com.android.msasdk.IConnect
@@ -46,12 +50,12 @@ public class k extends l implements IConnect {
         try {
             try {
                 if (z) {
-                    this.f62092f = this.l.isSupported();
+                    this.f54418f = this.l.isSupported();
                     String str3 = null;
-                    if (this.f62092f) {
-                        String aaid = this.l.getAAID(this.k);
+                    if (this.f54418f) {
+                        String aaid = this.l.getAAID(this.f54414k);
                         String oaid = this.l.getOAID();
-                        str2 = this.l.getVAID(this.k);
+                        str2 = this.l.getVAID(this.f54414k);
                         str3 = oaid;
                         str = aaid;
                     } else {
@@ -61,15 +65,15 @@ public class k extends l implements IConnect {
                     if (str3 == null) {
                         str3 = "";
                     }
-                    this.f62089c = str3;
+                    this.f54415c = str3;
                     if (str2 == null) {
                         str2 = "";
                     }
-                    this.f62090d = str2;
+                    this.f54416d = str2;
                     if (str == null) {
                         str = "";
                     }
-                    this.f62091e = str;
+                    this.f54417e = str;
                 } else {
                     e0.b("FreemeProvider", "connectSuccess: false");
                     a();
@@ -79,10 +83,10 @@ public class k extends l implements IConnect {
                 a();
             }
             shutDown();
-            a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+            a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
         } catch (Throwable th) {
             shutDown();
-            a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+            a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
             throw th;
         }
     }
@@ -91,10 +95,10 @@ public class k extends l implements IConnect {
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context a2 = a(this.j);
-            this.j = a2;
-            this.k = a2.getPackageName();
-            this.l = new FreemeIds(this.j);
+            Context a = a(this.f54413j);
+            this.f54413j = a;
+            this.f54414k = a.getPackageName();
+            this.l = new FreemeIds(this.f54413j);
             try {
                 c();
                 this.l.connect(this);
@@ -102,7 +106,7 @@ public class k extends l implements IConnect {
             } catch (Exception e2) {
                 e0.b("FreemeProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
             }
         }
     }

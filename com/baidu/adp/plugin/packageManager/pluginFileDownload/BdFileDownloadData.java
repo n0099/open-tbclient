@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.i.j.e.a;
+import c.a.d.i.j.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdFileDownloadData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
@@ -227,10 +227,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setLength(long j) {
+    public void setLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
-            this.length = j;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
+            this.length = j2;
         }
     }
 
@@ -262,10 +262,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setSize(long j) {
+    public void setSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
-            this.size = j;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
+            this.size = j2;
         }
     }
 

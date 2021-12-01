@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryMemberPauidRequest";
@@ -30,7 +30,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public List<Long> mUids;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class UserId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,12 +38,12 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
         public long mPauid;
         public long mUk;
 
-        public UserId(long j, long j2, long j3) {
+        public UserId(long j2, long j3, long j4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -56,9 +56,9 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
             this.mBduid = 0L;
             this.mPauid = 0L;
             this.mUk = 0L;
-            this.mBduid = j;
-            this.mPauid = j2;
-            this.mUk = j3;
+            this.mBduid = j2;
+            this.mPauid = j3;
+            this.mUk = j4;
         }
 
         public long getBduid() {

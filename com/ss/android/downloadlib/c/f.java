@@ -16,9 +16,7 @@ import org.json.JSONObject;
 public class f implements com.ss.android.socialbase.appdownloader.c.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f69660a;
+    public Context a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +33,7 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
                 return;
             }
         }
-        this.f69660a = context.getApplicationContext();
+        this.a = context.getApplicationContext();
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.d
@@ -47,28 +45,28 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.d
-    public void a(int i2, int i3, String str, int i4, long j) {
+    public void a(int i2, int i3, String str, int i4, long j2) {
         Context context;
         DownloadInfo downloadInfo;
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (context = this.f69660a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() == 0 || (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (context = this.a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() == 0 || (a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
             return;
         }
         if (i3 == 1) {
-            com.ss.android.downloadlib.a.a(downloadInfo, a2);
+            com.ss.android.downloadlib.a.a(downloadInfo, a);
             if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType())) {
-                com.ss.android.downloadlib.addownload.a.a().a(downloadInfo, a2.b(), a2.l(), a2.e(), downloadInfo.getTitle(), a2.d(), downloadInfo.getTargetFilePath());
+                com.ss.android.downloadlib.addownload.a.a().a(downloadInfo, a.b(), a.l(), a.e(), downloadInfo.getTitle(), a.d(), downloadInfo.getTargetFilePath());
             }
         } else if (i3 == 3) {
-            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_install", com.ss.android.downloadlib.a.b(new JSONObject(), downloadInfo), a2);
+            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_install", com.ss.android.downloadlib.a.b(new JSONObject(), downloadInfo), a);
         } else if (i3 == 5) {
-            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_pause", a2);
+            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_pause", a);
         } else if (i3 == 6) {
-            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_continue", a2);
+            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_continue", a);
         } else if (i3 != 7) {
         } else {
-            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_click", a2);
+            com.ss.android.downloadlib.d.a.a().a("download_notification", "download_notification_click", a);
         }
     }
 
@@ -104,11 +102,11 @@ public class f implements com.ss.android.socialbase.appdownloader.c.d {
         Context context;
         DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.f69660a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() != -3) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3}) == null) || (context = this.a) == null || (downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2)) == null || downloadInfo.getStatus() != -3) {
             return;
         }
         downloadInfo.setPackageName(str2);
-        com.ss.android.downloadlib.addownload.b.a().a(this.f69660a, downloadInfo);
+        com.ss.android.downloadlib.addownload.b.a().a(this.a, downloadInfo);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.d

@@ -10,9 +10,7 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 public class j extends BaseException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f70266a;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(int i2, String str) {
@@ -33,6 +31,6 @@ public class j extends BaseException {
                 return;
             }
         }
-        this.f70266a = i2;
+        this.a = i2;
     }
 }

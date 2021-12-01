@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Files {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,17 +28,17 @@ public class Files {
         }
     }
 
-    public static byte[] readFile(InputStream inputStream, long j) throws IOException {
+    public static byte[] readFile(InputStream inputStream, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, inputStream, j)) == null) {
-            if (j <= 2147483647L) {
-                if (j == 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, inputStream, j2)) == null) {
+            if (j2 <= 2147483647L) {
+                if (j2 == 0) {
                     return ByteStreams.toByteArray(inputStream);
                 }
-                return ByteStreams.toByteArray(inputStream, (int) j);
+                return ByteStreams.toByteArray(inputStream, (int) j2);
             }
-            throw new OutOfMemoryError("file is too large to fit in a byte array: " + j + " bytes");
+            throw new OutOfMemoryError("file is too large to fit in a byte array: " + j2 + " bytes");
         }
         return (byte[]) invokeLJ.objValue;
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AI013x0xDecoder extends AI01weightDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 5;

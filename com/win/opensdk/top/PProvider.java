@@ -7,22 +7,20 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import b.o.a.c0;
-import b.o.a.m2;
-import b.o.a.r0;
+import c.p.a.c0;
+import c.p.a.m2;
+import c.p.a.r0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71443a;
+    public Context a;
 
     public PProvider() {
         Interceptable interceptable = $ic;
@@ -40,8 +38,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.f71443a) == 0) {
-            r0.E(this.f71443a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m2.A(this.a) == 0) {
+            r0.E(this.a);
         }
     }
 
@@ -81,10 +79,10 @@ public class PProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
-            this.f71443a = context;
+            this.a = context;
             if (context != null) {
                 if (m2.A(context) == 0) {
-                    r0.E(this.f71443a);
+                    r0.E(this.a);
                     return true;
                 }
                 return true;

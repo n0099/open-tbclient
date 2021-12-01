@@ -2,7 +2,6 @@ package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class CodedInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -63,10 +62,10 @@ public final class CodedInputStream {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
     }
 
-    public static long decodeZigZag64(long j) {
+    public static long decodeZigZag64(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? (-(j2 & 1)) ^ (j2 >>> 1) : invokeJ.longValue;
     }
 
     public static CodedInputStream newInstance(InputStream inputStream) {
@@ -449,12 +448,12 @@ public final class CodedInputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < 64; i2 += 7) {
                 byte readRawByte = readRawByte();
-                j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
+                j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
                 if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
-                    return j;
+                    return j2;
                 }
             }
             throw InvalidProtocolBufferException.malformedVarint();
@@ -661,13 +660,13 @@ public final class CodedInputStream {
     public static CodedInputStream newInstance(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? newInstance(bArr, 0, bArr.length) : (CodedInputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? newInstance(bArr, 0, bArr.length) : (CodedInputStream) invokeL.objValue;
     }
 
     public static CodedInputStream newInstance(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             CodedInputStream codedInputStream = new CodedInputStream(bArr, i2, i3);
             try {
                 codedInputStream.pushLimit(i3);

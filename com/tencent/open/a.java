@@ -18,15 +18,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, b> a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f70930a;
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +52,11 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C2062a c2062a) {
+        public void call(String str, List<String> list, C2169a c2169a) {
             Method method;
             Object invoke;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2062a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2169a) == null) {
                 Method[] declaredMethods = getClass().getDeclaredMethods();
                 int length = declaredMethods.length;
                 int i2 = 0;
@@ -74,8 +72,8 @@ public class a {
                     i2++;
                 }
                 if (method == null) {
-                    if (c2062a != null) {
-                        c2062a.a();
+                    if (c2169a != null) {
+                        c2169a.a();
                         return;
                     }
                     return;
@@ -90,15 +88,15 @@ public class a {
                     Class<?> returnType = method.getReturnType();
                     SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                     if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                        if (c2062a == null || !customCallback()) {
+                        if (c2169a == null || !customCallback()) {
                             return;
                         }
-                        c2062a.a(invoke != null ? invoke.toString() : null);
+                        c2169a.a(invoke != null ? invoke.toString() : null);
                     }
                 } catch (Exception e2) {
                     SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e2);
-                    if (c2062a != null) {
-                        c2062a.a();
+                    if (c2169a != null) {
+                        c2169a.a();
                     }
                 }
             }
@@ -127,19 +125,19 @@ public class a {
                 return;
             }
         }
-        this.f70930a = new HashMap<>();
+        this.a = new HashMap<>();
     }
 
     public void a(b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, str) == null) {
-            this.f70930a.put(str, bVar);
+            this.a.put(str, bVar);
         }
     }
 
-    public void a(String str, String str2, List<String> list, C2062a c2062a) {
+    public void a(String str, String str2, List<String> list, C2169a c2169a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2062a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2169a) == null) {
             SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -149,40 +147,38 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            b bVar = this.f70930a.get(str);
+            b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
-                bVar.call(str2, list, c2062a);
+                bVar.call(str2, list, c2169a);
                 return;
             }
             SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-            if (c2062a != null) {
-                c2062a.a();
+            if (c2169a != null) {
+                c2169a.a();
             }
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C2062a {
+    /* loaded from: classes3.dex */
+    public static class C2169a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public WeakReference<WebView> f70932a;
+        public WeakReference<WebView> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f70933b;
+        public long f62293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70934c;
+        public String f62294c;
 
-        public C2062a(WebView webView, long j, String str) {
+        public C2169a(WebView webView, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {webView, Long.valueOf(j), str};
+                Object[] objArr = {webView, Long.valueOf(j2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -192,16 +188,16 @@ public class a {
                     return;
                 }
             }
-            this.f70932a = new WeakReference<>(webView);
-            this.f70933b = j;
-            this.f70934c = str;
+            this.a = new WeakReference<>(webView);
+            this.f62293b = j2;
+            this.f62294c = str;
         }
 
         public void a(Object obj) {
             WebView webView;
             String obj2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.f70932a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.a.get()) == null) {
                 return;
             }
             if (obj instanceof String) {
@@ -212,22 +208,22 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f70933b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f62293b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.f70932a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.a.get()) == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f70933b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f62293b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.f70932a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.a.get()) == null) {
                 return;
             }
             webView.loadUrl("javascript:" + str);
@@ -245,9 +241,9 @@ public class a {
                     return false;
                 }
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C2062a c2062a = new C2062a(webView, 4L, str);
+                C2169a c2169a = new C2169a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2062a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2169a);
                 return true;
             }
             return false;

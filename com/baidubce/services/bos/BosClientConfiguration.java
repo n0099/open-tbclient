@@ -14,7 +14,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import java.net.InetAddress;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BosClientConfiguration extends BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_STREAM_BUFFER_SIZE = 5242880;

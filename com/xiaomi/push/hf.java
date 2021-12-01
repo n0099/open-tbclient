@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class hf {
     public static /* synthetic */ Interceptable $ic;
     public static final hf A;
@@ -23,38 +23,40 @@ public final class hf {
     public static final hf I;
     public static final hf J;
     public static final hf K;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final hf f71990a;
+    public static final hf a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hf[] f476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hf f71991b;
+    public static final hf f62968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hf f71992c;
+    public static final hf f62969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hf f71993d;
+    public static final hf f62970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hf f71994e;
+    public static final hf f62971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hf f71995f;
+    public static final hf f62972f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hf f71996g;
+    public static final hf f62973g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hf f71997h;
+    public static final hf f62974h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hf f71998i;
-    public static final hf j;
-    public static final hf k;
+    public static final hf f62975i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final hf f62976j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final hf f62977k;
     public static final hf l;
     public static final hf m;
     public static final hf n;
@@ -88,17 +90,17 @@ public final class hf {
                 return;
             }
         }
-        f71990a = new hf("Registration", 0, 1);
-        f71991b = new hf("UnRegistration", 1, 2);
-        f71992c = new hf("Subscription", 2, 3);
-        f71993d = new hf("UnSubscription", 3, 4);
-        f71994e = new hf("SendMessage", 4, 5);
-        f71995f = new hf("AckMessage", 5, 6);
-        f71996g = new hf("SetConfig", 6, 7);
-        f71997h = new hf("ReportFeedback", 7, 8);
-        f71998i = new hf("Notification", 8, 9);
-        j = new hf("Command", 9, 10);
-        k = new hf("MultiConnectionBroadcast", 10, 11);
+        a = new hf("Registration", 0, 1);
+        f62968b = new hf("UnRegistration", 1, 2);
+        f62969c = new hf("Subscription", 2, 3);
+        f62970d = new hf("UnSubscription", 3, 4);
+        f62971e = new hf("SendMessage", 4, 5);
+        f62972f = new hf("AckMessage", 5, 6);
+        f62973g = new hf("SetConfig", 6, 7);
+        f62974h = new hf("ReportFeedback", 7, 8);
+        f62975i = new hf("Notification", 8, 9);
+        f62976j = new hf("Command", 9, 10);
+        f62977k = new hf("MultiConnectionBroadcast", 10, 11);
         l = new hf("MultiConnectionResult", 11, 12);
         m = new hf("ConnectionKick", 12, 13);
         n = new hf("ApnsMessage", 13, 14);
@@ -126,7 +128,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f476a = new hf[]{f71990a, f71991b, f71992c, f71993d, f71994e, f71995f, f71996g, f71997h, f71998i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f476a = new hf[]{a, f62968b, f62969c, f62970d, f62971e, f62972f, f62973g, f62974h, f62975i, f62976j, f62977k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -157,27 +159,27 @@ public final class hf {
             if (i2 != 200) {
                 switch (i2) {
                     case 1:
-                        return f71990a;
+                        return a;
                     case 2:
-                        return f71991b;
+                        return f62968b;
                     case 3:
-                        return f71992c;
+                        return f62969c;
                     case 4:
-                        return f71993d;
+                        return f62970d;
                     case 5:
-                        return f71994e;
+                        return f62971e;
                     case 6:
-                        return f71995f;
+                        return f62972f;
                     case 7:
-                        return f71996g;
+                        return f62973g;
                     case 8:
-                        return f71997h;
+                        return f62974h;
                     case 9:
-                        return f71998i;
+                        return f62975i;
                     case 10:
-                        return j;
+                        return f62976j;
                     case 11:
-                        return k;
+                        return f62977k;
                     case 12:
                         return l;
                     case 13:

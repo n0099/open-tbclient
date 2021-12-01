@@ -11,17 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShareUrlResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShareUrlResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f40677a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40678b;
+    public int f36223b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,8 +66,8 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.f40677a = parcel.readString();
-        this.f40678b = parcel.readInt();
+        this.a = parcel.readString();
+        this.f36223b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -85,20 +83,20 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40677a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40678b = i2;
+            this.f36223b = i2;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f40677a = str;
+            this.a = str;
         }
     }
 
@@ -106,8 +104,8 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeString(this.f40677a);
-            parcel.writeInt(this.f40678b);
+            parcel.writeString(this.a);
+            parcel.writeInt(this.f36223b);
         }
     }
 }

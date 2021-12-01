@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.network.base;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,17 +50,17 @@ public class RequestBodyHelper {
                 sb.setLength(0);
                 sb.append("--");
                 sb.append(str);
-                sb.append(Part.CRLF);
+                sb.append("\r\n");
                 sb.append("Content-Disposition: form-data; name=\"");
                 sb.append(str2);
                 sb.append("\"");
-                sb.append(Part.CRLF);
-                sb.append("Content-Type: text/plain;charset:\"UTF-8\"" + Part.CRLF);
+                sb.append("\r\n");
+                sb.append("Content-Type: text/plain;charset:\"UTF-8\"\r\n");
                 sb.append("Content-Transfer-Encoding: 8bit");
-                sb.append(Part.CRLF);
-                sb.append(Part.CRLF);
+                sb.append("\r\n");
+                sb.append("\r\n");
                 sb.append(String.valueOf(postBundle.get(str2)));
-                sb.append(Part.CRLF);
+                sb.append("\r\n");
                 outputStream.write(sb.toString().getBytes("UTF-8"));
             }
             Map<String, IRequestParam.ValuePart<File>> files = iRequestParam.files();
@@ -72,16 +71,16 @@ public class RequestBodyHelper {
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("--");
                 stringBuffer.append(str);
-                stringBuffer.append(Part.CRLF);
+                stringBuffer.append("\r\n");
                 stringBuffer.append("Content-Disposition: form-data; name=\"");
                 stringBuffer.append(str3);
                 stringBuffer.append("\";");
                 stringBuffer.append("filename=\"");
                 stringBuffer.append(file.getName());
                 stringBuffer.append("\"");
-                stringBuffer.append(Part.CRLF);
-                stringBuffer.append(Part.CONTENT_TYPE + str4 + ";charset:\"UTF-8\"" + Part.CRLF);
-                stringBuffer.append(Part.CRLF);
+                stringBuffer.append("\r\n");
+                stringBuffer.append(Part.CONTENT_TYPE + str4 + ";charset:\"UTF-8\"\r\n");
+                stringBuffer.append("\r\n");
                 outputStream.write(stringBuffer.toString().getBytes("UTF-8"));
                 FileInputStream fileInputStream = new FileInputStream(file);
                 byte[] bArr = new byte[1024];
@@ -92,25 +91,25 @@ public class RequestBodyHelper {
                     }
                 }
                 fileInputStream.close();
-                outputStream.write(Part.CRLF.getBytes());
+                outputStream.write("\r\n".getBytes());
             }
             Map<String, byte[]> byteArrays = iRequestParam.byteArrays();
             for (String str5 : byteArrays.keySet()) {
                 StringBuffer stringBuffer2 = new StringBuffer();
                 stringBuffer2.append("--");
                 stringBuffer2.append(str);
-                stringBuffer2.append(Part.CRLF);
+                stringBuffer2.append("\r\n");
                 stringBuffer2.append("Content-Disposition: form-data; name=\"");
                 stringBuffer2.append(str5);
                 stringBuffer2.append("\"");
-                stringBuffer2.append(Part.CRLF);
-                stringBuffer2.append("Content-Type: text/plain;charset:\"UTF-8\"" + Part.CRLF);
-                stringBuffer2.append(Part.CRLF);
+                stringBuffer2.append("\r\n");
+                stringBuffer2.append("Content-Type: text/plain;charset:\"UTF-8\"\r\n");
+                stringBuffer2.append("\r\n");
                 outputStream.write(stringBuffer2.toString().getBytes());
                 outputStream.write(byteArrays.get(str5));
-                outputStream.write(Part.CRLF.getBytes());
+                outputStream.write("\r\n".getBytes());
             }
-            outputStream.write(("--" + str + "--" + Part.CRLF).getBytes());
+            outputStream.write(("--" + str + "--\r\n").getBytes());
             outputStream.flush();
             outputStream.close();
         }
@@ -169,10 +168,10 @@ public class RequestBodyHelper {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 = 1; i2 < 12; i2++) {
                 long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j = currentTimeMillis % 3;
-                if (j == 0) {
+                long j2 = currentTimeMillis % 3;
+                if (j2 == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j == 1) {
+                } else if (j2 == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
@@ -195,7 +194,7 @@ public class RequestBodyHelper {
     public static byte[] transGzip(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);

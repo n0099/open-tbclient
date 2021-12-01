@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadUriOutputStream implements DownloadOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
     @NonNull
     public final ParcelFileDescriptor pdf;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Factory implements DownloadOutputStream.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,20 +127,20 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream
-    public void seek(long j) throws IOException {
+    public void seek(long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.channel.position(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.channel.position(j2);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream
-    public void setLength(long j) {
+    public void setLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 try {
-                    Os.posix_fallocate(this.pdf.getFileDescriptor(), 0L, j);
+                    Os.posix_fallocate(this.pdf.getFileDescriptor(), 0L, j2);
                     return;
                 } catch (Throwable th) {
                     if (th instanceof ErrnoException) {
@@ -148,20 +148,20 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
                         if (i2 == OsConstants.ENOSYS || i2 == OsConstants.ENOTSUP) {
                             Util.w("DownloadUriOutputStream", "fallocate() not supported; falling back to ftruncate()");
                             try {
-                                Os.ftruncate(this.pdf.getFileDescriptor(), j);
+                                Os.ftruncate(this.pdf.getFileDescriptor(), j2);
                                 return;
                             } catch (Throwable th2) {
-                                Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j + ") on the sdk version(" + Build.VERSION.SDK_INT + "), because of " + th2);
+                                Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j2 + ") on the sdk version(" + Build.VERSION.SDK_INT + "), because of " + th2);
                                 return;
                             }
                         }
                         return;
                     }
-                    Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j + ") on the sdk version(" + Build.VERSION.SDK_INT + "), because of " + th);
+                    Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j2 + ") on the sdk version(" + Build.VERSION.SDK_INT + "), because of " + th);
                     return;
                 }
             }
-            Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j + ") on the sdk version(" + Build.VERSION.SDK_INT + SmallTailInfo.EMOTION_SUFFIX);
+            Util.w("DownloadUriOutputStream", "It can't pre-allocate length(" + j2 + ") on the sdk version(" + Build.VERSION.SDK_INT + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 

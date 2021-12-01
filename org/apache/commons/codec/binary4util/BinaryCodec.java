@@ -3,7 +3,6 @@ package org.apache.commons.codec.binary4util;
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,7 +102,7 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static byte[] toAsciiBytes(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             if (isEmpty(bArr)) {
                 return EMPTY_BYTE_ARRAY;
             }
@@ -135,7 +134,7 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static char[] toAsciiChars(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
             if (isEmpty(bArr)) {
                 return EMPTY_CHAR_ARRAY;
             }

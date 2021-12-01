@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.ActivityStackManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -30,35 +29,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NaSlideActiviy extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f43407g = "NaSlideActivity";
+    public static final String f38674g = "NaSlideActivity";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f43408h = true;
+    public static final boolean f38675h = true;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f43409a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43410b;
+    public boolean f38676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f43411c;
+    public boolean f38677c;
     public SapiConfiguration configuration;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlideInterceptor f43412d;
+    public SlideInterceptor f38678d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidingPaneLayout.PanelSlideListener f43413e;
+    public SlidingPaneLayout.PanelSlideListener f38679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f43414f;
+    public WeakReference<Activity> f38680f;
     public SlideHelper mSlideHelper;
 
     public NaSlideActiviy() {
@@ -74,15 +71,15 @@ public class NaSlideActiviy extends AppCompatActivity {
                 return;
             }
         }
-        this.f43409a = false;
-        this.f43410b = false;
-        this.f43411c = false;
+        this.a = false;
+        this.f38676b = false;
+        this.f38677c = false;
         this.configuration = SapiAccountManager.getInstance().getConfignation();
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             try {
                 Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
                 declaredField.setAccessible(true);
@@ -104,7 +101,7 @@ public class NaSlideActiviy extends AppCompatActivity {
     public void forceActivityTransparent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f43411c = z;
+            this.f38677c = z;
         }
     }
 
@@ -113,7 +110,7 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            Log.d(f43407g, "onConfigurationChanged: ");
+            Log.d(f38674g, "onConfigurationChanged: ");
             SlideHelper slideHelper = this.mSlideHelper;
             if (slideHelper != null) {
                 slideHelper.setCanSlide(configuration.orientation != 2);
@@ -132,9 +129,9 @@ public class NaSlideActiviy extends AppCompatActivity {
             super.onCreate(bundle);
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.supportGestureSlide) {
-                this.f43409a = true;
+                this.a = true;
             } else {
-                this.f43409a = false;
+                this.a = false;
             }
             ?? window = getWindow();
             if (window != 0) {
@@ -149,7 +146,7 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onPostCreate(bundle);
-            Log.d(f43407g, "onPostCreate");
+            Log.d(f38674g, "onPostCreate");
             a();
         }
     }
@@ -160,9 +157,7 @@ public class NaSlideActiviy extends AppCompatActivity {
             SlideUtil.convertFromTranslucent(this, new OnTranslucentListener(this) { // from class: com.baidu.sapi2.activity.NaSlideActiviy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NaSlideActiviy f43415a;
+                public final /* synthetic */ NaSlideActiviy a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,7 +174,7 @@ public class NaSlideActiviy extends AppCompatActivity {
                             return;
                         }
                     }
-                    this.f43415a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.searchbox.widget.OnTranslucentListener
@@ -195,41 +190,41 @@ public class NaSlideActiviy extends AppCompatActivity {
     public void setEnableSliding(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f43409a = z;
+            this.a = z;
         }
     }
 
     public void setEnableTaskRootSlide(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f43410b = z;
+            this.f38676b = z;
         }
     }
 
     public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, panelSlideListener) == null) {
-            this.f43413e = panelSlideListener;
+            this.f38679e = panelSlideListener;
         }
     }
 
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048583, this, z, slideInterceptor) == null) {
-            this.f43409a = z;
-            this.f43412d = slideInterceptor;
+            this.a = z;
+            this.f38678d = slideInterceptor;
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f43409a) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.a) {
             boolean z = getResources().getConfiguration().orientation != 2;
-            if (!this.f43410b && isTaskRoot()) {
+            if (!this.f38676b && isTaskRoot()) {
                 z = false;
             }
             if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                Log.e(f43407g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
+                Log.e(f38674g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             int i2 = displayMetrics != null ? displayMetrics.widthPixels : 0;
@@ -237,17 +232,15 @@ public class NaSlideActiviy extends AppCompatActivity {
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
-            this.mSlideHelper.forceActivityTransparent(this.f43411c);
-            this.mSlideHelper.setSlideInterceptor(this.f43412d);
+            this.mSlideHelper.forceActivityTransparent(this.f38677c);
+            this.mSlideHelper.setSlideInterceptor(this.f38678d);
             this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener(this, i2) { // from class: com.baidu.sapi2.activity.NaSlideActiviy.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f43416a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ NaSlideActiviy f43417b;
+                public final /* synthetic */ NaSlideActiviy f38681b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -264,18 +257,18 @@ public class NaSlideActiviy extends AppCompatActivity {
                             return;
                         }
                     }
-                    this.f43417b = this;
-                    this.f43416a = i2;
+                    this.f38681b = this;
+                    this.a = i2;
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f43417b.f43413e != null) {
-                            this.f43417b.f43413e.onPanelClosed(view);
+                        if (this.f38681b.f38679e != null) {
+                            this.f38681b.f38679e.onPanelClosed(view);
                         }
-                        this.f43417b.a(0.0f);
+                        this.f38681b.a(0.0f);
                     }
                 }
 
@@ -283,13 +276,13 @@ public class NaSlideActiviy extends AppCompatActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f43417b.f43413e != null) {
-                            this.f43417b.f43413e.onPanelOpened(view);
+                        if (this.f38681b.f38679e != null) {
+                            this.f38681b.f38679e.onPanelOpened(view);
                         }
-                        this.f43417b.a(0.0f);
-                        this.f43417b.mSlideHelper.setShadowDrawable(null);
-                        this.f43417b.finishActivityAfterSlideOver();
-                        this.f43417b.overridePendingTransition(0, 0);
+                        this.f38681b.a(0.0f);
+                        this.f38681b.mSlideHelper.setShadowDrawable(null);
+                        this.f38681b.finishActivityAfterSlideOver();
+                        this.f38681b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -297,7 +290,7 @@ public class NaSlideActiviy extends AppCompatActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f43417b.mSlideHelper.getMaskView();
+                        View maskView = this.f38681b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -305,11 +298,11 @@ public class NaSlideActiviy extends AppCompatActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f43417b.f43413e != null) {
-                            this.f43417b.f43413e.onPanelSlide(view, f2);
+                        if (this.f38681b.f38679e != null) {
+                            this.f38681b.f38679e.onPanelSlide(view, f2);
                         }
-                        float f4 = this.f43416a >> 2;
-                        this.f43417b.a((f2 * f4) - f4);
+                        float f4 = this.a >> 2;
+                        this.f38681b.a((f2 * f4) - f4);
                     }
                 }
             });
@@ -321,12 +314,12 @@ public class NaSlideActiviy extends AppCompatActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f2) == null) {
             try {
-                if (this.f43414f == null || this.f43414f.get() == null) {
-                    this.f43414f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
+                if (this.f38680f == null || this.f38680f.get() == null) {
+                    this.f38680f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
                 }
-                if (this.f43414f.get() != null) {
+                if (this.f38680f.get() != null) {
                     Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
-                    Activity activity = this.f43414f.get();
+                    Activity activity = this.f38680f.get();
                     if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                         a(activity, 0.0f);
                     } else {

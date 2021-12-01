@@ -1,14 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ImmutableSortedMapFauxverideShim<K, V> extends ImmutableMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,50 +47,50 @@ public abstract class ImmutableSortedMapFauxverideShim<K, V> extends ImmutableMa
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v) {
+    public static <K, V> ImmutableSortedMap<K, V> of(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k2, v)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMap) invokeLL.objValue;
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2) {
+    public static <K, V> ImmutableSortedMap<K, V> of(K k2, V v, K k3, V v2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k, v, k2, v2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k2, v, k3, v2)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMap) invokeLLLL.objValue;
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    public static <K, V> ImmutableSortedMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{k, v, k2, v2, k3, v3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{k2, v, k3, v2, k4, v3})) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMap) invokeCommon.objValue;
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    public static <K, V> ImmutableSortedMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4})) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMap) invokeCommon.objValue;
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    public static <K, V> ImmutableSortedMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4, K k6, V v5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4, k6, v5})) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMap) invokeCommon.objValue;

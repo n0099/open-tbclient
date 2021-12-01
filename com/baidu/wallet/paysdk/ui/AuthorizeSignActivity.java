@@ -53,7 +53,7 @@ import com.dxmpay.wallet.paysdk.ui.WebViewActivity;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTH_SIGN_TYPE = "AuthorizeSignType";
@@ -62,35 +62,37 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public static final int BUTTON_STATE_NEWCARD = 2;
     public static final int BUTTON_STATE_NEXT = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public e f60893a;
+    public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AuthorizeInfoView f60894b;
+    public AuthorizeInfoView f53640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OrderConfirmation f60895c;
+    public OrderConfirmation f53641c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f60896d;
+    public LinearLayout f53642d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f60897e;
+    public NetImageView f53643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f60898f;
+    public TextView f53644f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60899g;
+    public TextView f53645g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f60900h;
+    public TextView f53646h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WalletBaseButtonWithImage f60901i;
-    public LinearLayout j;
-    public TextView k;
+    public WalletBaseButtonWithImage f53647i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public LinearLayout f53648j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TextView f53649k;
     public LinearLayout l;
     public CheckBox m;
     public TextView n;
@@ -117,8 +119,8 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f60894b != null) {
-                return AuthorizeInfoView.a.a().a(i2, this.f60894b);
+            if (this.f53640b != null) {
+                return AuthorizeInfoView.a.a().a(i2, this.f53640b);
             }
             return null;
         }
@@ -182,9 +184,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.AuthorizeSignActivity.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AuthorizeSignActivity f60904a;
+            public final /* synthetic */ AuthorizeSignActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -201,15 +201,15 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                         return;
                     }
                 }
-                this.f60904a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f60904a.getActivity());
-                    this.f60904a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });
@@ -217,14 +217,14 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
 
     public void initCardList() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f60896d == null || this.f60898f == null || this.f60899g == null || this.f60897e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f53642d == null || this.f53644f == null || this.f53645g == null || this.f53643e == null) {
             return;
         }
         PayRequest payRequest = getPayRequest();
         if (payRequest != null) {
             this.q = payRequest.getDefaultBankCardIdx();
         }
-        e eVar = this.f60893a;
+        e eVar = this.a;
         if (eVar != null) {
             eVar.a(this.q != null);
         }
@@ -235,7 +235,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void initNextButton(View.OnClickListener onClickListener) {
         WalletBaseButtonWithImage walletBaseButtonWithImage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (walletBaseButtonWithImage = this.f60901i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || (walletBaseButtonWithImage = this.f53647i) == null) {
             return;
         }
         if (onClickListener != null) {
@@ -248,34 +248,34 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             setContentView(ResUtils.layout(getApplicationContext(), "wallet_cashdesk_authorize_sign_activity"));
-            this.f60894b = (AuthorizeInfoView) findViewById(ResUtils.id(getApplicationContext(), "sign_info_view"));
-            this.f60895c = (OrderConfirmation) findViewById(ResUtils.id(getApplicationContext(), "sign_order_view"));
-            this.f60896d = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "select_card_panel"));
-            this.f60897e = (NetImageView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_logo"));
-            this.f60898f = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_info"));
-            this.f60899g = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_txt"));
-            this.f60900h = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_need_detail"));
-            this.f60901i = (WalletBaseButtonWithImage) findViewById(ResUtils.id(getApplicationContext(), "sign_next_btn"));
-            this.j = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_panel"));
-            this.k = (TextView) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_txt"));
+            this.f53640b = (AuthorizeInfoView) findViewById(ResUtils.id(getApplicationContext(), "sign_info_view"));
+            this.f53641c = (OrderConfirmation) findViewById(ResUtils.id(getApplicationContext(), "sign_order_view"));
+            this.f53642d = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "select_card_panel"));
+            this.f53643e = (NetImageView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_logo"));
+            this.f53644f = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_bank_info"));
+            this.f53645g = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_txt"));
+            this.f53646h = (TextView) findViewById(ResUtils.id(getApplicationContext(), "select_card_need_detail"));
+            this.f53647i = (WalletBaseButtonWithImage) findViewById(ResUtils.id(getApplicationContext(), "sign_next_btn"));
+            this.f53648j = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_panel"));
+            this.f53649k = (TextView) findViewById(ResUtils.id(getApplicationContext(), "sign_hint_txt"));
             this.l = (LinearLayout) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_panel"));
             this.m = (CheckBox) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_cb"));
             this.n = (TextView) findViewById(ResUtils.id(getApplicationContext(), "sign_protocol_txt"));
-            this.f60895c.getBackButton().setOnClickListener(this);
+            this.f53641c.getBackButton().setOnClickListener(this);
             this.r = findViewById(ResUtils.id(getApplicationContext(), "statusbar_top"));
-            e eVar = this.f60893a;
+            e eVar = this.a;
             if (eVar != null) {
-                this.f60894b.setVisibility(eVar.d() ? 0 : 8);
-                this.f60895c.setVisibility(this.f60893a.e() ? 0 : 8);
-                this.j.setVisibility(this.f60893a.f() ? 0 : 8);
-                if (this.f60893a.c()) {
+                this.f53640b.setVisibility(eVar.d() ? 0 : 8);
+                this.f53641c.setVisibility(this.a.e() ? 0 : 8);
+                this.f53648j.setVisibility(this.a.f() ? 0 : 8);
+                if (this.a.c()) {
                     getBdActionBar().setVisibility(0);
                 } else {
                     getBdActionBar().setVisibility(8);
                     setTop();
                 }
-                getBdActionBar().setVisibility(this.f60893a.c() ? 0 : 8);
-                this.f60893a.a();
+                getBdActionBar().setVisibility(this.a.c() ? 0 : 8);
+                this.a.a();
             }
         }
     }
@@ -302,7 +302,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
             setFlagPaySdk();
-            this.f60893a = d.a().a(getIntent().getIntExtra(AUTH_SIGN_TYPE, 0), this);
+            this.a = d.a().a(getIntent().getIntExtra(AUTH_SIGN_TYPE, 0), this);
             initView();
             EventBus.getInstance().registerSticky(this, "order_confirm_event_bus_key", 0, EventBus.ThreadMode.MainThread);
             StatHelper.statServiceEvent(PayStatServiceEvent.ENTER_AUTHORIZE_SIGN_ACTIVITY);
@@ -337,9 +337,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                 promptDialog.setNegativeBtn(ResUtils.string(this, "dxm_ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.AuthorizeSignActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AuthorizeSignActivity f60902a;
+                    public final /* synthetic */ AuthorizeSignActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -356,23 +354,21 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                 return;
                             }
                         }
-                        this.f60902a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f60902a, 18);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 18);
                         }
                     }
                 });
                 promptDialog.setPositiveBtn(ResUtils.string(this, "bd_wallet_auth_cancel_auth"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.AuthorizeSignActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AuthorizeSignActivity f60903a;
+                    public final /* synthetic */ AuthorizeSignActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -389,7 +385,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                 return;
                             }
                         }
-                        this.f60903a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -397,9 +393,9 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
-                            WalletGlobalUtils.safeDismissDialog(this.f60903a, 18);
-                            PayCallBackManager.callBackClientCancel(this.f60903a, "AuthorizeActivity.onPrepareDialog().1");
-                            this.f60903a.finishWithoutAnim();
+                            WalletGlobalUtils.safeDismissDialog(this.a, 18);
+                            PayCallBackManager.callBackClientCancel(this.a, "AuthorizeActivity.onPrepareDialog().1");
+                            this.a.finishWithoutAnim();
                         }
                     }
                 });
@@ -412,7 +408,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void refreshUI() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (eVar = this.f60893a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (eVar = this.a) == null) {
             return;
         }
         eVar.b();
@@ -421,7 +417,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void setSelectCardListener(View.OnClickListener onClickListener) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) || (linearLayout = this.f60896d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) || (linearLayout = this.f53642d) == null) {
             return;
         }
         linearLayout.setOnClickListener(onClickListener);
@@ -441,25 +437,25 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void updateDiscountTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f60895c.setTitle(str);
+            this.f53641c.setTitle(str);
         }
     }
 
     public void updateDiscountTxt(boolean z, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, CharSequence charSequence4, CharSequence charSequence5, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), charSequence, charSequence2, charSequence3, charSequence4, charSequence5, onClickListener}) == null) {
-            this.f60895c.setDiscountInfoVisiable(z);
-            this.f60895c.setOrderPrice(charSequence5, charSequence2);
-            this.f60895c.setCouponInfo(charSequence3, charSequence4, onClickListener);
-            this.f60895c.setOrderInfo(charSequence);
-            this.f60895c.setSpNameValue(PayDataCache.getInstance().getSpName());
+            this.f53641c.setDiscountInfoVisiable(z);
+            this.f53641c.setOrderPrice(charSequence5, charSequence2);
+            this.f53641c.setCouponInfo(charSequence3, charSequence4, onClickListener);
+            this.f53641c.setOrderInfo(charSequence);
+            this.f53641c.setSpNameValue(PayDataCache.getInstance().getSpName());
         }
     }
 
     public void updateHintText(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (textView = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (textView = this.f53649k) == null) {
             return;
         }
         textView.setText(str);
@@ -468,23 +464,23 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
     public void updateNextButton() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            e eVar = this.f60893a;
+            e eVar = this.a;
             int g2 = eVar != null ? eVar.g() : 0;
             if (g2 == 1) {
-                this.f60901i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
-                this.f60901i.setDrawableLeftVisible(false);
+                this.f53647i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
+                this.f53647i.setDrawableLeftVisible(false);
             } else if (g2 == 2) {
-                this.f60901i.setText(ResUtils.getString(getApplicationContext(), "ebpay_use_newcard_topay"));
-                this.f60901i.setDrawableLeftVisible(false);
+                this.f53647i.setText(ResUtils.getString(getApplicationContext(), "ebpay_use_newcard_topay"));
+                this.f53647i.setDrawableLeftVisible(false);
             } else if (g2 == 3) {
-                this.f60901i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_submit_sign"));
-                this.f60901i.setDrawableLeftVisible(true);
+                this.f53647i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_submit_sign"));
+                this.f53647i.setDrawableLeftVisible(true);
             } else if (g2 != 4) {
-                this.f60901i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
-                this.f60901i.setDrawableLeftVisible(false);
+                this.f53647i.setText(ResUtils.getString(getApplicationContext(), "wallet_base_next_step"));
+                this.f53647i.setDrawableLeftVisible(false);
             } else {
-                this.f60901i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_newcard_submit_sign"));
-                this.f60901i.setDrawableLeftVisible(true);
+                this.f53647i.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_newcard_submit_sign"));
+                this.f53647i.setDrawableLeftVisible(true);
             }
             a(this.m.isChecked());
         }
@@ -504,9 +500,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                     this.m.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(this) { // from class: com.baidu.wallet.paysdk.ui.AuthorizeSignActivity.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AuthorizeSignActivity f60905a;
+                        public final /* synthetic */ AuthorizeSignActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -523,7 +517,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                     return;
                                 }
                             }
-                            this.f60905a = this;
+                            this.a = this;
                         }
 
                         @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -533,7 +527,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                 String[] strArr = new String[1];
                                 strArr[0] = z ? "0" : "1";
                                 StatHelper.statServiceEvent("clickAgreeBtn", null, strArr);
-                                this.f60905a.a(z);
+                                this.a.a(z);
                             }
                         }
                     });
@@ -570,15 +564,13 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                 spannableStringBuilder.setSpan(new ClickableSpan(this, protocolItem2.url, protocolItem2.title.replaceAll("<|>|《|》", "")) { // from class: com.baidu.wallet.paysdk.ui.AuthorizeSignActivity.5
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-
-                                    /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ String f60906a;
+                                    public final /* synthetic */ String a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ String f60907b;
+                                    public final /* synthetic */ String f53650b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AuthorizeSignActivity f60908c;
+                                    public final /* synthetic */ AuthorizeSignActivity f53651c;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -595,9 +587,9 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                                 return;
                                             }
                                         }
-                                        this.f60908c = this;
-                                        this.f60906a = r7;
-                                        this.f60907b = r8;
+                                        this.f53651c = this;
+                                        this.a = r7;
+                                        this.f53650b = r8;
                                     }
 
                                     @Override // android.text.style.ClickableSpan
@@ -605,10 +597,10 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                                             StatisticManager.onEvent("clickUserTerms");
-                                            Intent intent = new Intent(this.f60908c.getActivity(), WebViewActivity.class);
-                                            intent.putExtra("jump_url", this.f60906a);
-                                            intent.putExtra("webview_title_string", this.f60907b);
-                                            this.f60908c.startActivity(intent);
+                                            Intent intent = new Intent(this.f53651c.getActivity(), WebViewActivity.class);
+                                            intent.putExtra("jump_url", this.a);
+                                            intent.putExtra("webview_title_string", this.f53650b);
+                                            this.f53651c.startActivity(intent);
                                         }
                                     }
 
@@ -616,7 +608,7 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                                     public void updateDrawState(TextPaint textPaint) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                                            textPaint.setColor(ResUtils.getColor(this.f60908c.getActivity(), "dxm_wallet_base_mainColor"));
+                                            textPaint.setColor(ResUtils.getColor(this.f53651c.getActivity(), "dxm_wallet_base_mainColor"));
                                         }
                                     }
                                 }, spannableStringBuilder.length() - protocolItem2.title.length(), spannableStringBuilder.length(), 33);
@@ -649,17 +641,17 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
                 if (payRequest != null) {
                     payRequest.mBondCard = bondCard;
                 }
-                this.f60899g.setText(bondCard.getCardDesc(this.mAct, true));
+                this.f53645g.setText(bondCard.getCardDesc(this.mAct, true));
                 if (!TextUtils.isEmpty(bondCard.bank_card_msg)) {
-                    this.f60900h.setVisibility(0);
-                    this.f60900h.setText(bondCard.bank_card_msg);
+                    this.f53646h.setVisibility(0);
+                    this.f53646h.setText(bondCard.bank_card_msg);
                 } else {
-                    this.f60900h.setVisibility(4);
+                    this.f53646h.setVisibility(4);
                 }
             } else {
-                this.f60899g.setText(ResUtils.string(getActivity(), "ebpay_has_no_avaible_pay_type"));
+                this.f53645g.setText(ResUtils.string(getActivity(), "ebpay_has_no_avaible_pay_type"));
             }
-            this.f60898f.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_primary_pay_method"));
+            this.f53644f.setText(ResUtils.getString(getApplicationContext(), "bd_wallet_auth_primary_pay_method"));
         }
     }
 
@@ -668,21 +660,21 @@ public class AuthorizeSignActivity extends PayBaseBeanActivity implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
-                this.f60901i.setEnabled(true);
+                this.f53647i.setEnabled(true);
             } else {
-                this.f60901i.setEnabled(false);
+                this.f53647i.setEnabled(false);
             }
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f60899g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f53645g == null) {
             return;
         }
         Drawable drawable = ResUtils.getDrawable(getActivity(), "dxm_wallet_base_indicator_arrow");
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.f60899g.setCompoundDrawables(null, null, drawable, null);
-        this.f60899g.setCompoundDrawablePadding(DisplayUtils.dip2px(getApplicationContext(), 5.0f));
+        this.f53645g.setCompoundDrawables(null, null, drawable, null);
+        this.f53645g.setCompoundDrawablePadding(DisplayUtils.dip2px(getApplicationContext(), 5.0f));
     }
 }

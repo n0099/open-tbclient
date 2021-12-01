@@ -7,18 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38641a = "1.3.7";
+    public static final String a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38642b = 32;
+    public static final int f34544b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f38643c;
+    public static c f34545c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -39,14 +37,14 @@ public class c extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f38643c == null) {
+            if (f34545c == null) {
                 synchronized (c.class) {
-                    if (f38643c == null) {
-                        f38643c = new c();
+                    if (f34545c == null) {
+                        f34545c = new c();
                     }
                 }
             }
-            return f38643c;
+            return f34545c;
         }
         return (c) invokeV.objValue;
     }
@@ -57,9 +55,7 @@ public class c extends d {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new b(this) { // from class: com.baidu.fsg.face.base.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f38644a;
+            public final /* synthetic */ c a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -76,7 +72,7 @@ public class c extends d {
                         return;
                     }
                 }
-                this.f38644a = this;
+                this.a = this;
             }
 
             @Override // com.baidu.fsg.face.base.b

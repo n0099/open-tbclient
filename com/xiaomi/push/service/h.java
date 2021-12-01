@@ -3,7 +3,6 @@ package com.xiaomi.push.service;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f72411a;
+    public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f72412b;
+    public static long f63271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f72413c;
+    public static long f63272c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -32,13 +29,11 @@ public class h {
     /* renamed from: a  reason: collision with other field name */
     public final c f956a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final c f72414a;
+        public final c a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -55,16 +50,16 @@ public class h {
                     return;
                 }
             }
-            this.f72414a = cVar;
+            this.a = cVar;
         }
 
         public void finalize() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    synchronized (this.f72414a) {
-                        this.f72414a.f72418c = true;
-                        this.f72414a.notify();
+                    synchronized (this.a) {
+                        this.a.f63274c = true;
+                        this.a.notify();
                     }
                 } finally {
                     super.finalize();
@@ -73,13 +68,11 @@ public class h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f72415a;
+        public int a;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -96,17 +89,15 @@ public class h {
                     return;
                 }
             }
-            this.f72415a = i2;
+            this.a = i2;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class c extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public volatile long f72416a;
+        public volatile long a;
 
         /* renamed from: a  reason: collision with other field name */
         public a f957a;
@@ -115,30 +106,28 @@ public class h {
         public volatile boolean f958a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f72417b;
+        public long f63273b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f959b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f72418c;
+        public boolean f63274c;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public int f72419a;
+            public int a;
 
             /* renamed from: a  reason: collision with other field name */
             public d[] f960a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f72420b;
+            public int f63275b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f72421c;
+            public int f63276c;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -153,10 +142,10 @@ public class h {
                         return;
                     }
                 }
-                this.f72419a = 256;
+                this.a = 256;
                 this.f960a = new d[256];
-                this.f72420b = 0;
-                this.f72421c = 0;
+                this.f63275b = 0;
+                this.f63276c = 0;
             }
 
             public /* synthetic */ a(i iVar) {
@@ -188,7 +177,7 @@ public class h {
                 if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) {
                     return;
                 }
-                int i2 = this.f72420b - 1;
+                int i2 = this.f63275b - 1;
                 int i3 = (i2 - 1) / 2;
                 while (true) {
                     d[] dVarArr = this.f960a;
@@ -206,12 +195,12 @@ public class h {
 
             private void c(int i2) {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) != null) {
+                if (interceptable != null && interceptable.invokeI(65541, this, i2) != null) {
                     return;
                 }
                 int i3 = (i2 * 2) + 1;
                 while (true) {
-                    int i4 = this.f72420b;
+                    int i4 = this.f63275b;
                     if (i3 >= i4 || i4 <= 0) {
                         return;
                     }
@@ -242,20 +231,20 @@ public class h {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m629a() {
+            public void m678a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f960a = new d[this.f72419a];
-                    this.f72420b = 0;
+                    this.f960a = new d[this.a];
+                    this.f63275b = 0;
                 }
             }
 
             public void a(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                    for (int i3 = 0; i3 < this.f72420b; i3++) {
+                    for (int i3 = 0; i3 < this.f63275b; i3++) {
                         d[] dVarArr = this.f960a;
-                        if (dVarArr[i3].f72422a == i2) {
+                        if (dVarArr[i3].a == i2) {
                             dVarArr[i3].a();
                         }
                     }
@@ -266,7 +255,7 @@ public class h {
             public void a(int i2, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bVar) == null) {
-                    for (int i3 = 0; i3 < this.f72420b; i3++) {
+                    for (int i3 = 0; i3 < this.f63275b; i3++) {
                         d[] dVarArr = this.f960a;
                         if (dVarArr[i3].f962a == bVar) {
                             dVarArr[i3].a();
@@ -277,39 +266,39 @@ public class h {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m630a(d dVar) {
+            public void m679a(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
                     d[] dVarArr = this.f960a;
                     int length = dVarArr.length;
-                    int i2 = this.f72420b;
+                    int i2 = this.f63275b;
                     if (length == i2) {
                         d[] dVarArr2 = new d[i2 * 2];
                         System.arraycopy(dVarArr, 0, dVarArr2, 0, i2);
                         this.f960a = dVarArr2;
                     }
                     d[] dVarArr3 = this.f960a;
-                    int i3 = this.f72420b;
-                    this.f72420b = i3 + 1;
+                    int i3 = this.f63275b;
+                    this.f63275b = i3 + 1;
                     dVarArr3[i3] = dVar;
                     c();
                 }
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m631a() {
+            public boolean m680a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72420b == 0 : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63275b == 0 : invokeV.booleanValue;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m632a(int i2) {
+            public boolean m681a(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                    for (int i3 = 0; i3 < this.f72420b; i3++) {
-                        if (this.f960a[i3].f72422a == i2) {
+                    for (int i3 = 0; i3 < this.f63275b; i3++) {
+                        if (this.f960a[i3].a == i2) {
                             return true;
                         }
                     }
@@ -322,9 +311,9 @@ public class h {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                     int i2 = 0;
-                    while (i2 < this.f72420b) {
+                    while (i2 < this.f63275b) {
                         if (this.f960a[i2].f964a) {
-                            this.f72421c++;
+                            this.f63276c++;
                             b(i2);
                             i2--;
                         }
@@ -336,12 +325,12 @@ public class h {
             public void b(int i2) {
                 int i3;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 < 0 || i2 >= (i3 = this.f72420b)) {
+                if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 < 0 || i2 >= (i3 = this.f63275b)) {
                     return;
                 }
                 d[] dVarArr = this.f960a;
                 int i4 = i3 - 1;
-                this.f72420b = i4;
+                this.f63275b = i4;
                 dVarArr[i2] = dVarArr[i4];
                 dVarArr[i4] = null;
                 c(i2);
@@ -363,9 +352,9 @@ public class h {
                     return;
                 }
             }
-            this.f72416a = 0L;
+            this.a = 0L;
             this.f958a = false;
-            this.f72417b = 50L;
+            this.f63273b = 50L;
             this.f957a = new a(null);
             setName(str);
             setDaemon(z);
@@ -376,7 +365,7 @@ public class h {
         public void a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, dVar) == null) {
-                this.f957a.m630a(dVar);
+                this.f957a.m679a(dVar);
                 notify();
             }
         }
@@ -386,22 +375,22 @@ public class h {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     this.f959b = true;
-                    this.f957a.m629a();
+                    this.f957a.m678a();
                     notify();
                 }
             }
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m628a() {
+        public boolean m677a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f958a && SystemClock.uptimeMillis() - this.f72416a > 600000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f958a && SystemClock.uptimeMillis() - this.a > 600000 : invokeV.booleanValue;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         /* JADX WARN: Code restructure failed: missing block: B:52:0x0097, code lost:
-            r10.f72416a = android.os.SystemClock.uptimeMillis();
+            r10.a = android.os.SystemClock.uptimeMillis();
             r10.f958a = true;
             r2.f962a.run();
             r10.f958a = false;
@@ -432,26 +421,26 @@ public class h {
                     if (this.f959b) {
                         return;
                     }
-                    if (!this.f957a.m631a()) {
+                    if (!this.f957a.m680a()) {
                         long a2 = h.a();
                         d a3 = this.f957a.a();
                         synchronized (a3.f963a) {
                             if (a3.f964a) {
                                 this.f957a.b(0);
                             } else {
-                                long j = a3.f961a - a2;
-                                if (j > 0) {
-                                    if (j > this.f72417b) {
-                                        j = this.f72417b;
+                                long j2 = a3.f961a - a2;
+                                if (j2 > 0) {
+                                    if (j2 > this.f63273b) {
+                                        j2 = this.f63273b;
                                     }
-                                    long j2 = this.f72417b + 50;
-                                    this.f72417b = j2;
-                                    if (j2 > 500) {
-                                        this.f72417b = 500L;
+                                    long j3 = this.f63273b + 50;
+                                    this.f63273b = j3;
+                                    if (j3 > 500) {
+                                        this.f63273b = 500L;
                                     }
-                                    wait(j);
+                                    wait(j2);
                                 } else {
-                                    this.f72417b = 50L;
+                                    this.f63273b = 50L;
                                     synchronized (a3.f963a) {
                                         int a4 = this.f957a.a().f961a != a3.f961a ? this.f957a.a(a3) : 0;
                                         if (a3.f964a) {
@@ -465,7 +454,7 @@ public class h {
                                 }
                             }
                         }
-                    } else if (this.f72418c) {
+                    } else if (this.f63274c) {
                         return;
                     } else {
                         try {
@@ -478,13 +467,11 @@ public class h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f72422a;
+        public int a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f961a;
@@ -499,7 +486,7 @@ public class h {
         public boolean f964a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f72423b;
+        public long f63277b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -517,11 +504,11 @@ public class h {
             this.f963a = new Object();
         }
 
-        public void a(long j) {
+        public void a(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 synchronized (this.f963a) {
-                    this.f72423b = j;
+                    this.f63277b = j2;
                 }
             }
         }
@@ -555,8 +542,8 @@ public class h {
             }
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() > 0 ? SystemClock.elapsedRealtime() : 0L;
-        f72411a = elapsedRealtime;
-        f72412b = elapsedRealtime;
+        a = elapsedRealtime;
+        f63271b = elapsedRealtime;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -644,49 +631,49 @@ public class h {
 
     public static synchronized long a() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (h.class) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (elapsedRealtime > f72412b) {
-                    f72411a += elapsedRealtime - f72412b;
+                if (elapsedRealtime > f63271b) {
+                    a += elapsedRealtime - f63271b;
                 }
-                f72412b = elapsedRealtime;
-                j = f72411a;
+                f63271b = elapsedRealtime;
+                j2 = a;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
 
     public static synchronized long b() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (h.class) {
-                j = f72413c;
-                f72413c = 1 + j;
+                j2 = f63272c;
+                f63272c = 1 + j2;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
 
-    private void b(b bVar, long j) {
+    private void b(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, this, bVar, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, this, bVar, j2) == null) {
             synchronized (this.f956a) {
                 if (this.f956a.f959b) {
                     throw new IllegalStateException("Timer was canceled");
                 }
-                long a2 = j + a();
+                long a2 = j2 + a();
                 if (a2 < 0) {
                     throw new IllegalArgumentException("Illegal delay to start the TimerTask: " + a2);
                 }
                 d dVar = new d();
-                dVar.f72422a = bVar.f72415a;
+                dVar.a = bVar.a;
                 dVar.f962a = bVar;
                 dVar.f961a = a2;
                 this.f956a.a(dVar);
@@ -695,10 +682,10 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m623a() {
+    public void m672a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("quit. finalizer:" + this.f955a);
+            com.xiaomi.channel.commonutils.logger.b.m122a("quit. finalizer:" + this.f955a);
             this.f956a.a();
         }
     }
@@ -733,44 +720,44 @@ public class h {
         }
     }
 
-    public void a(b bVar, long j) {
+    public void a(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, bVar, j) == null) {
-            if (j >= 0) {
-                b(bVar, j);
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, bVar, j2) == null) {
+            if (j2 >= 0) {
+                b(bVar, j2);
                 return;
             }
-            throw new IllegalArgumentException("delay < 0: " + j);
+            throw new IllegalArgumentException("delay < 0: " + j2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m624a() {
+    public boolean m673a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f956a.m628a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f956a.m677a() : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m625a(int i2) {
+    public boolean m674a(int i2) {
         InterceptResult invokeI;
-        boolean m632a;
+        boolean m681a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             synchronized (this.f956a) {
-                m632a = this.f956a.f957a.m632a(i2);
+                m681a = this.f956a.f957a.m681a(i2);
             }
-            return m632a;
+            return m681a;
         }
         return invokeI.booleanValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m626b() {
+    public void m675b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this.f956a) {
-                this.f956a.f957a.m629a();
+                this.f956a.f957a.m678a();
             }
         }
     }

@@ -28,35 +28,35 @@ public class d {
                 return null;
             }
             File file = new File(savePath);
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo);
+            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo);
             if (str.equals("v1")) {
-                return new j(context, a2, downloadInfo.getTargetFilePath());
+                return new j(context, a, downloadInfo.getTargetFilePath());
             }
             if (str.equals("v2")) {
-                return new k(context, a2, file.getAbsolutePath());
+                return new k(context, a, file.getAbsolutePath());
             }
             if (str.equals("v3")) {
-                return new l(context, a2, file.getAbsolutePath());
+                return new l(context, a, file.getAbsolutePath());
             }
             if (str.equals("o1")) {
-                return new g(context, a2, file.getAbsolutePath());
+                return new g(context, a, file.getAbsolutePath());
             }
             if (str.equals("o2")) {
-                return new h(context, a2, file.getAbsolutePath());
+                return new h(context, a, file.getAbsolutePath());
             }
             if (str.equals("o3")) {
                 String dBJsonString = downloadInfo.getDBJsonString("file_content_uri");
                 if (TextUtils.isEmpty(dBJsonString)) {
                     return null;
                 }
-                return new i(context, a2, file.getAbsolutePath(), dBJsonString, downloadInfo.getName());
+                return new i(context, a, file.getAbsolutePath(), dBJsonString, downloadInfo.getName());
             } else if (str.equals(SchedulerSupport.CUSTOM)) {
-                return new c(context, a2, file.getAbsolutePath(), jSONObject);
+                return new c(context, a, file.getAbsolutePath(), jSONObject);
             } else {
                 if (str.equals("vbi")) {
                     IDownloadFileUriProvider downloadFileUriProvider = Downloader.getInstance(context).getDownloadFileUriProvider(downloadInfo.getId());
                     String d2 = com.ss.android.socialbase.appdownloader.d.j().d();
-                    return new m(context, a2, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d2, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
+                    return new m(context, a, com.ss.android.socialbase.appdownloader.c.a(downloadInfo.getId(), downloadFileUriProvider, context, d2, new File(downloadInfo.getSavePath() + File.separator + downloadInfo.getName())).toString());
                 }
                 return null;
             }

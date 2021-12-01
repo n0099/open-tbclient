@@ -5,13 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBInitMgr extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBInitMgr";
@@ -79,7 +78,7 @@ public class DBInitMgr extends SQLiteOpenHelper {
 
     private void createTbResult(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, sQLiteDatabase) == null) {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS gslb_result(_id INTEGER PRIMARY KEY AUTOINCREMENT,network TEXT,host TEXT,ip TEXT,ttl INTEGER,end_time INTEGER,cmd TEXT,update_time INTEGER,_view TEXT,uip TEXT,src INTEGER)");
             sQLiteDatabase.execSQL("CREATE INDEX gslb_result_idx ON gslb_result(network,host)");
         }
@@ -87,7 +86,7 @@ public class DBInitMgr extends SQLiteOpenHelper {
 
     private void createTbResultV6(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, sQLiteDatabase) == null) {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS gslb_result_v6(_id INTEGER PRIMARY KEY AUTOINCREMENT,network TEXT,host TEXT,ip TEXT,ttl INTEGER,end_time INTEGER,cmd TEXT,update_time INTEGER,_view TEXT,uip TEXT,src INTEGER)");
             sQLiteDatabase.execSQL("CREATE INDEX gslb_result_v6_idx ON gslb_result_v6(network,host)");
         }

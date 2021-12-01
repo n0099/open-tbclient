@@ -3,7 +3,6 @@ package org.apache.commons.lang3;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -208,7 +207,7 @@ public class AnnotationUtils {
         InterceptResult invokeLL;
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, annotation, annotation2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, annotation, annotation2)) == null) {
             if (annotation == annotation2) {
                 return true;
             }
@@ -239,7 +238,7 @@ public class AnnotationUtils {
         InterceptResult invokeL;
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, annotation)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, annotation)) == null) {
             int i2 = 0;
             for (Method method : annotation.annotationType().getDeclaredMethods()) {
                 try {

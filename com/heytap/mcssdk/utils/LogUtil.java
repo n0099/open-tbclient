@@ -1,7 +1,6 @@
 package com.heytap.mcssdk.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,14 +74,14 @@ public class LogUtil {
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && sE && sIsDebug) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && sE && sIsDebug) {
             String str2 = special + sSeparator + str;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && sE && sIsDebug) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && sE && sIsDebug) {
             String str3 = special + sSeparator + str2;
         }
     }

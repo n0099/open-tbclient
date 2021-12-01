@@ -8,9 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.a0.b.a.e;
-import b.a.x0.t.r;
-import b.a.x0.t.u;
+import c.a.a0.b.a.e;
+import c.a.x0.t.r;
+import c.a.x0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -35,7 +35,7 @@ import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GLMediaPreviewView extends MediaPreviewView implements EffectChangeObserver, MediaTrackChangeObserver, OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     public MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public @interface ScaleType {
         public static final int FILL_PARENT = 0;
         public static final int FIT_PARENT = 1;
@@ -358,15 +358,15 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void onDrawFrame(int i2, long j) {
+    public void onDrawFrame(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.mRenderer.onDrawFrame(i2, j);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            this.mRenderer.onDrawFrame(i2, j2);
             List<IEffectProcessor> list = this.mIEffectProcessorList;
             if (list != null) {
                 for (IEffectProcessor iEffectProcessor : list) {
                     if (iEffectProcessor instanceof AEffectProcessor) {
-                        ((AEffectProcessor) iEffectProcessor).startRecordAnim(i2, j);
+                        ((AEffectProcessor) iEffectProcessor).startRecordAnim(i2, j2);
                     }
                 }
             }
@@ -520,11 +520,11 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         if (r.c(pointF, pointF3) + r.c(pointF2, pointF4) >= 5.0f) {
                             PointF d2 = r.d(pointF2, pointF);
                             PointF d3 = r.d(pointF4, pointF3);
-                            float a2 = r.a(d2, d3);
+                            float a = r.a(d2, d3);
                             float e2 = r.e(d2, d3);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter != null) {
-                                multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e2, a2);
+                                multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e2, a);
                             }
                         }
                         this.mLastDownX1 = realX2;
@@ -537,11 +537,11 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                             PointF pointF6 = new PointF(realX, realY);
                             PointF d4 = r.d(stickerCenterPoint, pointF5);
                             PointF d5 = r.d(stickerCenterPoint, pointF6);
-                            float a3 = r.a(d4, d5);
+                            float a2 = r.a(d4, d5);
                             float e3 = r.e(d4, d5);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter3 = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter3 != null) {
-                                multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e3, a3);
+                                multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e3, a2);
                             }
                         } else {
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter4 = this.multiMediaDataSourceViewAdapter;

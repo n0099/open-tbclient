@@ -8,7 +8,7 @@ import com.airbnb.lottie.model.CubicCurveData;
 import com.airbnb.lottie.model.KeyPath;
 import com.airbnb.lottie.model.content.ShapeData;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MiscUtils {
     public static PointF pathFromDataCurrentPoint = new PointF();
 

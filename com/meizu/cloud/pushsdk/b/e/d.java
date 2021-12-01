@@ -6,23 +6,21 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class d extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<com.meizu.cloud.pushsdk.b.d.a> f68281a;
+    public final WeakReference<com.meizu.cloud.pushsdk.b.d.a> a;
 
     public d(com.meizu.cloud.pushsdk.b.d.a aVar) {
         super(Looper.getMainLooper());
-        this.f68281a = new WeakReference<>(aVar);
+        this.a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.meizu.cloud.pushsdk.b.d.a aVar = this.f68281a.get();
+        com.meizu.cloud.pushsdk.b.d.a aVar = this.a.get();
         if (message.what != 1) {
             super.handleMessage(message);
         } else if (aVar != null) {
             com.meizu.cloud.pushsdk.b.f.a aVar2 = (com.meizu.cloud.pushsdk.b.f.a) message.obj;
-            aVar.a(aVar2.f68282a, aVar2.f68283b);
+            aVar.a(aVar2.a, aVar2.f60325b);
         }
     }
 }

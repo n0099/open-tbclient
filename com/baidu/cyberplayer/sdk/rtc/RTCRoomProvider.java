@@ -14,21 +14,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class RTCRoomProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CyberRtcLiveTransferMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRtcLiveTransferMode[] f38049a;
+        public static final /* synthetic */ CyberRtcLiveTransferMode[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +45,7 @@ public abstract class RTCRoomProvider {
             RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION", 0);
             CyberRtcLiveTransferMode cyberRtcLiveTransferMode = new CyberRtcLiveTransferMode("RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION", 1);
             RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION = cyberRtcLiveTransferMode;
-            f38049a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
+            a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
         }
 
         public CyberRtcLiveTransferMode(String str, int i2) {
@@ -78,12 +76,12 @@ public abstract class RTCRoomProvider {
         public static CyberRtcLiveTransferMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcLiveTransferMode[]) f38049a.clone() : (CyberRtcLiveTransferMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcLiveTransferMode[]) a.clone() : (CyberRtcLiveTransferMode[]) invokeV.objValue;
         }
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CyberRtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,12 +89,12 @@ public abstract class RTCRoomProvider {
         public long userID;
         public int volumeLevel;
 
-        public CyberRtcRoomAudioLevel(long j, String str, int i2) {
+        public CyberRtcRoomAudioLevel(long j2, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), str, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -106,14 +104,14 @@ public abstract class RTCRoomProvider {
                     return;
                 }
             }
-            this.userID = j;
+            this.userID = j2;
             this.nicName = str;
             this.volumeLevel = i2;
         }
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i2);
 
@@ -123,13 +121,13 @@ public abstract class RTCRoomProvider {
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i2, long j, String str);
+        void onRoomEventUpdate(int i2, long j2, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CyberRtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,12 +136,12 @@ public abstract class RTCRoomProvider {
         public long userID;
         public String userName;
 
-        public CyberRtcRoomUserInfo(long j, String str, String str2, int i2) {
+        public CyberRtcRoomUserInfo(long j2, String str, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -153,7 +151,7 @@ public abstract class RTCRoomProvider {
                     return;
                 }
             }
-            this.userID = j;
+            this.userID = j2;
             this.userName = str;
             this.attribute = str2;
             this.role = i2;
@@ -161,7 +159,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CyberRtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,14 +184,12 @@ public abstract class RTCRoomProvider {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CyberRtcSoundMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_SPEAKER;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRtcSoundMode[] f38050a;
+        public static final /* synthetic */ CyberRtcSoundMode[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -212,7 +208,7 @@ public abstract class RTCRoomProvider {
             RTC_SOUND_MODE_SPEAKER = new CyberRtcSoundMode("RTC_SOUND_MODE_SPEAKER", 0);
             CyberRtcSoundMode cyberRtcSoundMode = new CyberRtcSoundMode("RTC_SOUND_MODE_EAR", 1);
             RTC_SOUND_MODE_EAR = cyberRtcSoundMode;
-            f38050a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
+            a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
         }
 
         public CyberRtcSoundMode(String str, int i2) {
@@ -243,7 +239,7 @@ public abstract class RTCRoomProvider {
         public static CyberRtcSoundMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcSoundMode[]) f38050a.clone() : (CyberRtcSoundMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRtcSoundMode[]) a.clone() : (CyberRtcSoundMode[]) invokeV.objValue;
         }
     }
 
@@ -261,13 +257,13 @@ public abstract class RTCRoomProvider {
         }
     }
 
-    public abstract void changeSurfaceSize(long j, int i2, int i3);
+    public abstract void changeSurfaceSize(long j2, int i2, int i3);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, CyberRtcLiveTransferMode cyberRtcLiveTransferMode);
 
     public abstract void destroy();
 
-    public abstract void destroyExternalSurface(long j, Surface surface);
+    public abstract void destroyExternalSurface(long j2, Surface surface);
 
     public abstract void disbandRoom();
 
@@ -281,21 +277,21 @@ public abstract class RTCRoomProvider {
 
     public abstract CyberRtcRoomAudioLevel[] getRemoteAudioLevels();
 
-    public abstract CyberRtcRoomVideoDimension getRemoteVideoDimension(long j);
+    public abstract CyberRtcRoomVideoDimension getRemoteVideoDimension(long j2);
 
-    public abstract void getUserAttribute(long j);
+    public abstract void getUserAttribute(long j2);
 
     public abstract CyberRtcRoomUserInfo[] getUserListOfRoom();
 
     public abstract boolean initWithAppID(Context context, String str, String str2, String str3, boolean z);
 
-    public abstract void kickOffUserWithID(long j);
+    public abstract void kickOffUserWithID(long j2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z, boolean z2);
 
     public abstract boolean logoutRtcRoom();
 
@@ -307,37 +303,37 @@ public abstract class RTCRoomProvider {
 
     public abstract void publishStreaming();
 
-    public abstract void sendMessageToUser(String str, long j);
+    public abstract void sendMessageToUser(String str, long j2);
 
     public abstract void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback);
 
     public abstract void setCyberRTCRoomDelegate(CyberRtcRoomDelegate cyberRtcRoomDelegate);
 
-    public abstract void setExternalSurface(long j, Surface surface);
+    public abstract void setExternalSurface(long j2, Surface surface);
 
     public abstract void setParamSettings(CyberRTCSetting cyberRTCSetting, CyberRTCSetting.CyberRTCSettingType cyberRTCSettingType);
 
-    public abstract void setRemoteAudioPlayState(boolean z, long j);
+    public abstract void setRemoteAudioPlayState(boolean z, long j2);
 
     public abstract void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView);
 
-    public abstract void setRemoteVideoPlayState(boolean z, long j);
+    public abstract void setRemoteVideoPlayState(boolean z, long j2);
 
     public abstract void setSoundMod(CyberRtcSoundMode cyberRtcSoundMode);
 
     public abstract void setUserAttribute(String str);
 
-    public abstract void shutUpUserWithID(long j);
+    public abstract void shutUpUserWithID(long j2);
 
-    public abstract void shutUpUserWithID(long j, boolean z);
+    public abstract void shutUpUserWithID(long j2, boolean z);
 
     public abstract void startPublish();
 
     public abstract void stopPublish();
 
-    public abstract void stopSubscribeStreaming(long j);
+    public abstract void stopSubscribeStreaming(long j2);
 
-    public abstract void subscribeStreaming(int i2, long j);
+    public abstract void subscribeStreaming(int i2, long j2);
 
     public abstract void switchCamera();
 }

@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +151,7 @@ public class WbShareToStoryActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void setCallbackActivity(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             FrameLayout frameLayout = this.rootLayout;
             if (frameLayout != null) {
                 frameLayout.setVisibility(8);

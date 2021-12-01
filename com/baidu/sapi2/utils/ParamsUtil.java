@@ -3,7 +3,6 @@ package com.baidu.sapi2.utils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.statistics.h;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -14,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.TextAlign;
 import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class ParamsUtil implements NoProguard {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, sapiConfiguration)) == null) {
             ArrayList arrayList = new ArrayList();
             if (str.contains(sapiConfiguration.environment.getURL())) {
                 wapDomain = sapiConfiguration.environment.getUrlDomain();
@@ -95,7 +95,7 @@ public class ParamsUtil implements NoProguard {
     public static String getAdapterParamValue(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
     }
 
     public static String getUrlBind(SapiConfiguration sapiConfiguration, SocialType socialType, String str, String str2, String str3) {
@@ -173,7 +173,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("supportGuestAccount", "1");
             }
             if (z) {
-                hashMap.put("wapsec", "center");
+                hashMap.put("wapsec", TextAlign.CENTER);
                 hashMap.put("adapter", "3");
             }
             hashMap.put("appid", sapiConfiguration.wxAppID);
@@ -224,7 +224,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put("lang", h.f38333a);
+                hashMap.put("lang", h.a);
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,32 +78,32 @@ public class HttpManager {
                         StringBuilder sb = new StringBuilder(100);
                         sb.setLength(0);
                         sb.append(MP_BOUNDARY);
-                        sb.append(Part.CRLF);
+                        sb.append("\r\n");
                         sb.append("content-disposition: form-data; name=\"");
                         sb.append(str);
                         sb.append("\"\r\n\r\n");
                         sb.append(weiboParameters.get(str));
-                        sb.append(Part.CRLF);
+                        sb.append("\r\n");
                         outputStream.write(sb.toString().getBytes());
                     }
                 }
                 for (String str2 : keySet) {
                     Object obj = weiboParameters.get(str2);
                     if (obj instanceof Bitmap) {
-                        outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
+                        outputStream.write((MP_BOUNDARY + "\r\ncontent-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         ((Bitmap) obj).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                         outputStream.write(byteArrayOutputStream.toByteArray());
-                        outputStream.write(Part.CRLF.getBytes());
+                        outputStream.write("\r\n".getBytes());
                     } else if (obj instanceof ByteArrayOutputStream) {
-                        outputStream.write((MP_BOUNDARY + Part.CRLF + "content-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
+                        outputStream.write((MP_BOUNDARY + "\r\ncontent-disposition: form-data; name=\"" + str2 + "\"; filename=\"file\"\r\nContent-Type: application/octet-stream; charset=utf-8\r\n\r\n").getBytes());
                         ByteArrayOutputStream byteArrayOutputStream2 = (ByteArrayOutputStream) obj;
                         outputStream.write(byteArrayOutputStream2.toByteArray());
-                        outputStream.write(Part.CRLF.getBytes());
+                        outputStream.write("\r\n".getBytes());
                         byteArrayOutputStream2.close();
                     }
                 }
-                outputStream.write((Part.CRLF + END_MP_BOUNDARY).getBytes());
+                outputStream.write(("\r\n" + END_MP_BOUNDARY).getBytes());
             } catch (IOException e2) {
                 throw new WeiboException(e2);
             }
@@ -116,7 +114,7 @@ public class HttpManager {
 
     public static synchronized String downloadFile(Context context, String str, String str2, String str3) throws WeiboException {
         InterceptResult invokeLLLL;
-        long j;
+        long j2;
         long contentLength;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
@@ -140,12 +138,12 @@ public class HttpManager {
                     }
                     try {
                         if (file3.exists()) {
-                            j = file3.length();
+                            j2 = file3.length();
                         } else {
                             file3.createNewFile();
-                            j = 0;
+                            j2 = 0;
                         }
-                        createConnect.setRequestProperty("RANGE", "bytes=" + j);
+                        createConnect.setRequestProperty("RANGE", "bytes=" + j2);
                         int responseCode = createConnect.getResponseCode();
                         if (responseCode == 206) {
                             contentLength = 0;
@@ -184,21 +182,21 @@ public class HttpManager {
 
     public static void fillCommonRequestParam(IRequestParam iRequestParam) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iRequestParam) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, iRequestParam) == null) {
         }
     }
 
     public static String getBoundry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 = 1; i2 < 12; i2++) {
                 long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j = currentTimeMillis % 3;
-                if (j == 0) {
+                long j2 = currentTimeMillis % 3;
+                if (j2 == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j == 1) {
+                } else if (j2 == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));

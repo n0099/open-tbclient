@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Counter implements IJsonSerialize, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,11 +52,11 @@ public class Counter implements IJsonSerialize, Cloneable {
         return invokeV.objValue;
     }
 
-    public synchronized void count(long j, int i2) {
+    public synchronized void count(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             synchronized (this) {
-                this.value += j;
+                this.value += j2;
                 this.invokeCount += i2;
             }
         }
@@ -83,15 +83,15 @@ public class Counter implements IJsonSerialize, Cloneable {
     @Override // com.yy.hiidostatis.defs.obj.IJsonSerialize
     public JSONObject toJson() {
         InterceptResult invokeV;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j = this.value;
-                j2 = this.invokeCount;
+                j2 = this.value;
+                j3 = this.invokeCount;
             }
-            if (j == 0 && j2 == 0) {
+            if (j2 == 0 && j3 == 0) {
                 return null;
             }
             try {
@@ -99,8 +99,8 @@ public class Counter implements IJsonSerialize, Cloneable {
                 jSONObject.put("scode", this.scode);
                 jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
                 jSONObject.put("counterName", URLEncoder.encode(this.counterName, "utf-8"));
-                jSONObject.put("value", j);
-                jSONObject.put("invokecount", (int) j2);
+                jSONObject.put("value", j2);
+                jSONObject.put("invokecount", (int) j3);
                 return jSONObject;
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();

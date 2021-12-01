@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaFetchMsgHttpRequest";
@@ -36,12 +36,12 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     public long mEndMsgTime;
     public String mListenerKey;
 
-    public IMMediaFetchMsgHttpRequest(Context context, long j, long j2, long j3, int i2, String str) {
+    public IMMediaFetchMsgHttpRequest(Context context, long j2, long j3, long j4, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -54,9 +54,9 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j;
-        this.mBeginMsgTime = j2;
-        this.mEndMsgTime = j3;
+        this.mContactor = j2;
+        this.mBeginMsgTime = j3;
+        this.mEndMsgTime = j4;
         this.mCount = i2;
         this.mListenerKey = str;
     }
@@ -233,12 +233,12 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaFetchMsgHttpRequest(Context context, long j, int i2, long j2, String str, long j3, long j4, int i3, String str2) {
+    public IMMediaFetchMsgHttpRequest(Context context, long j2, int i2, long j3, String str, long j4, long j5, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), str2};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -251,13 +251,13 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j;
-        this.mBeginMsgTime = j3;
-        this.mEndMsgTime = j4;
+        this.mContactor = j2;
+        this.mBeginMsgTime = j4;
+        this.mEndMsgTime = j5;
         this.mCount = i3;
         this.mListenerKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j2;
+        this.mContactorPauid = j3;
         this.mContactorThirdid = str;
     }
 }

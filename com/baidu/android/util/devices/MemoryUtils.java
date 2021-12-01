@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.os.Debug;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MemoryUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 8192;
@@ -117,13 +116,13 @@ public class MemoryUtils {
     public static long getJavaFreeMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Runtime.getRuntime().freeMemory() / 1024 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Runtime.getRuntime().freeMemory() / 1024 : invokeV.longValue;
     }
 
     public static long getJavaMaxMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (sJavaMaxMemory == 0) {
                 sJavaMaxMemory = Runtime.getRuntime().maxMemory() / 1024;
             }

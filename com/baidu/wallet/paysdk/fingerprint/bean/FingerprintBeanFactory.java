@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanFactory;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.beans.BeanManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class FingerprintBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_SYS_FINGERPRINT_CLOSE = 773;
@@ -20,18 +20,16 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static FingerprintBeanFactory f60664a;
+        public static FingerprintBeanFactory a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +45,7 @@ public final class FingerprintBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f60664a = new FingerprintBeanFactory(null);
+            a = new FingerprintBeanFactory(null);
         }
     }
 
@@ -58,7 +56,7 @@ public final class FingerprintBeanFactory implements IBeanFactory {
     public static FingerprintBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60664a : (FingerprintBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (FingerprintBeanFactory) invokeV.objValue;
     }
 
     public FingerprintBeanFactory() {

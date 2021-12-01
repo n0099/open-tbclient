@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import com.yy.gslbsdk.flow.DnsResolveFlow;
@@ -20,7 +21,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActiveRefreshController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActiveRefreshController";
@@ -87,7 +88,7 @@ public class ActiveRefreshController {
             try {
                 Map<String, String> map = listRefresh.get(i2);
                 if (map != null && !map.isEmpty()) {
-                    String str = map.get("dm");
+                    String str = map.get(x.B);
                     if (!TextUtils.isEmpty(str)) {
                         String str2 = map.get("ut");
                         if (!TextUtils.isEmpty(str2) && TextUtils.isDigitsOnly(str2)) {

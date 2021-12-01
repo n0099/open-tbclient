@@ -10,7 +10,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,12 +23,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42925b = "c";
+    public static final String f38380b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -125,7 +124,7 @@ public class c extends com.baidu.platform.base.d {
     private boolean a(JSONObject jSONObject, SuggestionResult suggestionResult) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, suggestionResult)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, suggestionResult)) == null) {
             if (jSONObject != null && jSONObject.length() != 0) {
                 suggestionResult.error = SearchResult.ERRORNO.NO_ERROR;
                 JSONArray optJSONArray = jSONObject.optJSONArray("result");

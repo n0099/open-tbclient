@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b.e;
+import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BatchReportResult extends BaseResultData implements com.kwad.sdk.core.b {
@@ -68,7 +68,7 @@ public class BatchReportResult extends BaseResultData implements com.kwad.sdk.co
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "interval", this.interval);
+            t.a(json, "interval", this.interval);
             return json;
         }
         return (JSONObject) invokeV.objValue;

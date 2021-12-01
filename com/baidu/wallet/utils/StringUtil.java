@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,19 +17,17 @@ import java.lang.ref.WeakReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AcceptUrlPat;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f61846a;
+    public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f61847b;
+    public static Pattern f54235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f61848c;
+    public static WeakReference<Paint> f54236c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +43,10 @@ public class StringUtil {
                 return;
             }
         }
-        f61846a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
-        f61847b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
-        f61848c = new WeakReference<>(null);
+        f54235b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+        f54236c = new WeakReference<>(null);
     }
 
     public StringUtil() {
@@ -78,8 +75,8 @@ public class StringUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(f61846a[(b2 >> 4) & 15]);
-            sb.append(f61846a[b2 & 15]);
+            sb.append(a[(b2 >> 4) & 15]);
+            sb.append(a[b2 & 15]);
             return sb.toString();
         }
         return (String) invokeB.objValue;
@@ -110,7 +107,7 @@ public class StringUtil {
     public static String getHexColorStr(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             return "#" + Integer.toHexString((i2 & 255) | ((-16777216) & i2) | (16711680 & i2) | (65280 & i2));
         }
         return (String) invokeI.objValue;
@@ -119,14 +116,14 @@ public class StringUtil {
     public static float getStringWidth(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.BAIDU_LOGO_ID, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, str, f2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0.0f;
             }
-            Paint paint = f61848c.get();
+            Paint paint = f54236c.get();
             if (paint == null) {
                 paint = new Paint();
-                f61848c = new WeakReference<>(paint);
+                f54236c = new WeakReference<>(paint);
             }
             paint.setTextSize(f2);
             return paint.measureText(str);
@@ -141,7 +138,7 @@ public class StringUtil {
             if (charSequence == null) {
                 return null;
             }
-            Matcher matcher = f61847b.matcher(charSequence);
+            Matcher matcher = f54235b.matcher(charSequence);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (matcher.matches()) {
                 spannableStringBuilder.append((CharSequence) matcher.group(1));

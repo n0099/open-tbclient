@@ -17,9 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class SqlDownloadCacheService extends Service {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f70165a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +33,7 @@ public class SqlDownloadCacheService extends Service {
                 return;
             }
         }
-        f70165a = SqlDownloadCacheService.class.getSimpleName();
+        a = SqlDownloadCacheService.class.getSimpleName();
     }
 
     public SqlDownloadCacheService() {

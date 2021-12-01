@@ -19,13 +19,11 @@ import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.cmic.sso.sdk.a f62866a;
+    public com.cmic.sso.sdk.a a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -77,26 +75,26 @@ public class b {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
             String str2 = "";
             try {
-                a a2 = aVar.a();
+                a a = aVar.a();
                 String b2 = f.b(context);
-                a2.e(str);
-                a2.y(aVar.b("loginMethod", ""));
+                a.e(str);
+                a.y(aVar.b("loginMethod", ""));
                 if (aVar.b("isCacheScrip", false)) {
-                    a2.s("scrip");
+                    a.s("scrip");
                 } else {
-                    a2.s("pgw");
+                    a.s("pgw");
                 }
-                a2.k(f.a(context));
+                a.k(f.a(context));
                 if (!TextUtils.isEmpty(b2)) {
                     str2 = b2;
                 }
-                a2.l(str2);
-                a2.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
-                a(a2, aVar);
+                a.l(str2);
+                a.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
+                a(a, aVar);
                 JSONArray jSONArray = null;
-                if (a2.f62857a.size() > 0) {
+                if (a.a.size() > 0) {
                     jSONArray = new JSONArray();
-                    Iterator<Throwable> it = a2.f62857a.iterator();
+                    Iterator<Throwable> it = a.a.iterator();
                     while (it.hasNext()) {
                         Throwable next = it.next();
                         StringBuffer stringBuffer = new StringBuffer();
@@ -109,13 +107,13 @@ public class b {
                         jSONObject.put("stack", stringBuffer.toString());
                         jSONArray.put(jSONObject);
                     }
-                    a2.f62857a.clear();
+                    a.a.clear();
                 }
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    a2.a(jSONArray);
+                    a.a(jSONArray);
                 }
                 c.a("SendLog", "登录日志");
-                a(a2.b(), aVar);
+                a(a.b(), aVar);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -125,7 +123,7 @@ public class b {
     private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, jSONObject, aVar) == null) {
-            this.f62866a = aVar;
+            this.a = aVar;
             a(jSONObject);
         }
     }
@@ -134,12 +132,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
             if (q.o() == 0 || q.n() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.o()) {
-                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f62866a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
+                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f62867a;
+                    public final /* synthetic */ b a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -156,7 +152,7 @@ public class b {
                                 return;
                             }
                         }
-                        this.f62867a = this;
+                        this.a = this;
                     }
 
                     @Override // com.cmic.sso.sdk.b.c.d
@@ -165,15 +161,15 @@ public class b {
                         if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject2) == null) {
                             if (!str.equals("103000")) {
                                 if (q.o() != 0 && q.n() != 0) {
-                                    int a2 = k.a("logFailTimes", 0) + 1;
-                                    k.a a3 = k.a();
-                                    if (a2 >= q.n()) {
-                                        a3.a("logFailTimes", 0);
-                                        a3.a("logCloseTime", System.currentTimeMillis());
+                                    int a = k.a("logFailTimes", 0) + 1;
+                                    k.a a2 = k.a();
+                                    if (a >= q.n()) {
+                                        a2.a("logFailTimes", 0);
+                                        a2.a("logCloseTime", System.currentTimeMillis());
                                     } else {
-                                        a3.a("logFailTimes", a2);
+                                        a2.a("logFailTimes", a);
                                     }
-                                    a3.b();
+                                    a2.b();
                                 }
                                 c.a("SendLog", "request failed , url : " + q.i() + ">>>>>errorMsg : " + jSONObject2.toString());
                                 return;

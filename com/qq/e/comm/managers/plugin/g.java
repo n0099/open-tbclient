@@ -15,18 +15,16 @@ import java.io.File;
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final File f68922a;
+    public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f68923b;
+    public final File f60830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68924c;
+    public String f60831c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68925d;
+    public int f60832d;
 
     public g(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -43,8 +41,8 @@ public class g {
                 return;
             }
         }
-        this.f68922a = file;
-        this.f68923b = file2;
+        this.a = file;
+        this.f60830b = file2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x004b A[Catch: all -> 0x0054, TryCatch #0 {all -> 0x0054, blocks: (B:5:0x0005, B:7:0x000d, B:9:0x0015, B:11:0x0025, B:14:0x0038, B:17:0x003f, B:20:0x004b, B:24:0x0052), top: B:32:0x0005 }] */
@@ -58,21 +56,21 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f68923b.exists() && this.f68922a.exists()) {
-                    String[] split = StringUtil.readAll(this.f68923b).split("#####");
+                if (this.f60830b.exists() && this.a.exists()) {
+                    String[] split = StringUtil.readAll(this.f60830b).split("#####");
                     if (split.length == 2) {
                         String str = split[1];
                         int parseInteger = StringUtil.parseInteger(split[0], 0);
-                        com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                        File file = this.f68922a;
-                        if (a2 != null) {
+                        com.qq.e.comm.util.a a = com.qq.e.comm.util.a.a();
+                        File file = this.a;
+                        if (a != null) {
                             if (file != null && file.exists()) {
-                                z = a2.a(str, Md5Util.encode(file));
+                                z = a.a(str, Md5Util.encode(file));
                                 if (z) {
                                     return false;
                                 }
-                                this.f68924c = str;
-                                this.f68925d = parseInteger;
+                                this.f60831c = str;
+                                this.f60832d = parseInteger;
                                 return true;
                             }
                             z = false;
@@ -95,18 +93,18 @@ public class g {
     public boolean a(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.f68922a) || FileUtil.renameTo(this.f68922a, file)) && (file2.equals(this.f68923b) || FileUtil.renameTo(this.f68923b, file2)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.f60830b) || FileUtil.renameTo(this.f60830b, file2)) : invokeLL.booleanValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68924c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60831c : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68925d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60832d : invokeV.intValue;
     }
 }

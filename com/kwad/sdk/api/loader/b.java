@@ -1,8 +1,9 @@
 package com.kwad.sdk.api.loader;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,46 +84,48 @@ public class b {
     }
 
     public static void b(Context context, String str, String str2) {
-        ZipFile zipFile;
-        String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) {
-            String str3 = s.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
-            ZipFile zipFile2 = null;
+        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) != null) {
+            return;
+        }
+        String str3 = s.a() ? "lib/arm64-v8a/" : "lib/armeabi-v7a/";
+        ZipFile zipFile = null;
+        try {
+            ZipFile zipFile2 = new ZipFile(str);
             try {
-                zipFile = new ZipFile(str);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                Enumeration<? extends ZipEntry> entries = zipFile2.entries();
                 while (entries.hasMoreElements()) {
                     ZipEntry nextElement = entries.nextElement();
-                    if (!nextElement.isDirectory() && (name = nextElement.getName()) != null && name.endsWith(".so") && name.startsWith(str3)) {
-                        b(zipFile.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
+                    if (!nextElement.isDirectory()) {
+                        String name = nextElement.getName();
+                        if (!TextUtils.isEmpty(name) && !name.contains(Constants.PATH_PARENT) && name.endsWith(".so") && name.startsWith(str3)) {
+                            b(zipFile2.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
+                        }
                     }
                 }
                 try {
-                    zipFile.close();
+                    zipFile2.close();
                 } catch (Exception unused) {
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
+            } catch (Throwable th) {
+                th = th;
+                zipFile = zipFile2;
+                if (zipFile != null) {
                     try {
-                        zipFile2.close();
+                        zipFile.close();
                     } catch (Exception unused2) {
                     }
                 }
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
     public static void b(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, outputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, outputStream) == null) {
             try {
                 a(inputStream, outputStream);
                 if (outputStream != null) {

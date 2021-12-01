@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f70485a;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f70486b;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m f61947b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -35,23 +33,23 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z && com.ss.android.socialbase.downloader.downloader.c.S()) {
-                if (f70486b == null) {
+                if (f61947b == null) {
                     synchronized (l.class) {
-                        if (f70486b == null) {
-                            f70486b = com.ss.android.socialbase.downloader.downloader.c.T().b();
+                        if (f61947b == null) {
+                            f61947b = com.ss.android.socialbase.downloader.downloader.c.T().b();
                         }
                     }
                 }
-                return f70486b;
+                return f61947b;
             }
-            if (f70485a == null) {
+            if (a == null) {
                 synchronized (l.class) {
-                    if (f70485a == null) {
-                        f70485a = new p();
+                    if (a == null) {
+                        a = new p();
                     }
                 }
             }
-            return f70485a;
+            return a;
         }
         return (com.ss.android.socialbase.downloader.downloader.m) invokeZ.objValue;
     }

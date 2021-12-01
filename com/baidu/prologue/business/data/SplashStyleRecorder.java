@@ -3,7 +3,7 @@ package com.baidu.prologue.business.data;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.f0.a.c.j;
+import c.a.g0.a.c.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SplashStyleRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class SplashStyleRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String f2 = j.f("splash_style", "");
+            String f2 = i.f("splash_style", "");
             if (TextUtils.isEmpty(f2)) {
                 return null;
             }
@@ -125,11 +125,11 @@ public class SplashStyleRecorder {
         if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        String f2 = j.f("splash_style", "");
+        String f2 = i.f("splash_style", "");
         String jSONObject2 = jSONObject.toString();
         if (TextUtils.equals(f2, jSONObject2)) {
             return;
         }
-        j.j("splash_style", jSONObject2);
+        i.j("splash_style", jSONObject2);
     }
 }

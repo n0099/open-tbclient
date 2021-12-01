@@ -2,7 +2,6 @@ package org.apache.commons.lang3.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,10 +79,10 @@ public class ConcurrentUtils {
         }
 
         @Override // java.util.concurrent.Future
-        public T get(long j, TimeUnit timeUnit) {
+        public T get(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? this.value : (T) invokeJL.objValue;
+            return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit)) == null) ? this.value : (T) invokeJL.objValue;
         }
     }
 
@@ -118,25 +117,25 @@ public class ConcurrentUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new ConstantFuture(t) : (Future) invokeL.objValue;
     }
 
-    public static <K, V> V createIfAbsent(ConcurrentMap<K, V> concurrentMap, K k, ConcurrentInitializer<V> concurrentInitializer) throws ConcurrentException {
+    public static <K, V> V createIfAbsent(ConcurrentMap<K, V> concurrentMap, K k2, ConcurrentInitializer<V> concurrentInitializer) throws ConcurrentException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, concurrentMap, k, concurrentInitializer)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, concurrentMap, k2, concurrentInitializer)) == null) {
             if (concurrentMap == null || concurrentInitializer == null) {
                 return null;
             }
-            V v = concurrentMap.get(k);
-            return v == null ? (V) putIfAbsent(concurrentMap, k, concurrentInitializer.get()) : v;
+            V v = concurrentMap.get(k2);
+            return v == null ? (V) putIfAbsent(concurrentMap, k2, concurrentInitializer.get()) : v;
         }
         return (V) invokeLLL.objValue;
     }
 
-    public static <K, V> V createIfAbsentUnchecked(ConcurrentMap<K, V> concurrentMap, K k, ConcurrentInitializer<V> concurrentInitializer) {
+    public static <K, V> V createIfAbsentUnchecked(ConcurrentMap<K, V> concurrentMap, K k2, ConcurrentInitializer<V> concurrentInitializer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, concurrentMap, k, concurrentInitializer)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, concurrentMap, k2, concurrentInitializer)) == null) {
             try {
-                return (V) createIfAbsent(concurrentMap, k, concurrentInitializer);
+                return (V) createIfAbsent(concurrentMap, k2, concurrentInitializer);
             } catch (ConcurrentException e2) {
                 throw new ConcurrentRuntimeException(e2.getCause());
             }
@@ -147,7 +146,7 @@ public class ConcurrentUtils {
     public static ConcurrentException extractCause(ExecutionException executionException) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, executionException)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, executionException)) == null) {
             if (executionException == null || executionException.getCause() == null) {
                 return null;
             }
@@ -160,7 +159,7 @@ public class ConcurrentUtils {
     public static ConcurrentRuntimeException extractCauseUnchecked(ExecutionException executionException) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, executionException)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, executionException)) == null) {
             if (executionException == null || executionException.getCause() == null) {
                 return null;
             }
@@ -211,14 +210,14 @@ public class ConcurrentUtils {
         return (T) invokeL.objValue;
     }
 
-    public static <K, V> V putIfAbsent(ConcurrentMap<K, V> concurrentMap, K k, V v) {
+    public static <K, V> V putIfAbsent(ConcurrentMap<K, V> concurrentMap, K k2, V v) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, concurrentMap, k, v)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, concurrentMap, k2, v)) == null) {
             if (concurrentMap == null) {
                 return null;
             }
-            V putIfAbsent = concurrentMap.putIfAbsent(k, v);
+            V putIfAbsent = concurrentMap.putIfAbsent(k2, v);
             return putIfAbsent != null ? putIfAbsent : v;
         }
         return (V) invokeLLL.objValue;

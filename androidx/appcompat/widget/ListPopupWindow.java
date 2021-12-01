@@ -30,7 +30,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.PopupWindowCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -356,7 +355,7 @@ public class ListPopupWindow implements ShowableListMenu {
         int makeMeasureSpec;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (this.mDropDownList == null) {
                 Context context = this.mContext;
                 this.mShowDropDownRunnable = new Runnable(this) { // from class: androidx.appcompat.widget.ListPopupWindow.2
@@ -426,10 +425,10 @@ public class ListPopupWindow implements ShowableListMenu {
                     }
 
                     @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j) {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
                         DropDownListView dropDownListView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
                             return;
                         }
                         dropDownListView.setListSelectionHidden(false);
@@ -529,7 +528,7 @@ public class ListPopupWindow implements ShowableListMenu {
     private int getMaxAvailableHeight(View view, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (Build.VERSION.SDK_INT <= 23) {
                 Method method = sGetMaxAvailableHeightMethod;
                 if (method != null) {

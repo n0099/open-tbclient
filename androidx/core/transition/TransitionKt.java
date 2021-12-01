@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -270,7 +269,7 @@ public final class TransitionKt {
     public static final Transition.TransitionListener doOnResume(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, transition, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, transition, function1)) == null) {
             Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnResume$$inlined$addListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -340,7 +339,7 @@ public final class TransitionKt {
     public static final Transition.TransitionListener doOnStart(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, transition, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, transition, function1)) == null) {
             Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnStart$$inlined$addListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

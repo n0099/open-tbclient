@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GlobalOnItemClickListenerManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DELETE_EMOTION = "[delete]";
@@ -94,7 +93,7 @@ public class GlobalOnItemClickListenerManager {
     public static GlobalOnItemClickListenerManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (mInstance == null) {
                 synchronized (GlobalOnItemClickListenerManager.class) {
                     if (mInstance == null) {
@@ -180,9 +179,9 @@ public class GlobalOnItemClickListenerManager {
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
                     Object adapter = adapterView.getAdapter();
                     if (adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) {
                         BDEmotionBagLayout.EmotionGridViewAdapter emotionGridViewAdapter = (BDEmotionBagLayout.EmotionGridViewAdapter) adapter;
@@ -240,10 +239,10 @@ public class GlobalOnItemClickListenerManager {
             }
 
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
                     Object adapter = adapterView.getAdapter();
                     if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i2 == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
                         this.this$0.performDelLongClick();

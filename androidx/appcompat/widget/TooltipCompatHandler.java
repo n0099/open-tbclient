@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,7 +159,7 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
 
     public static void setTooltipText(View view, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, view, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, view, charSequence) == null) {
             TooltipCompatHandler tooltipCompatHandler = sPendingHandler;
             if (tooltipCompatHandler != null && tooltipCompatHandler.mAnchor == view) {
                 setPendingHandler(null);
@@ -182,7 +181,7 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     private boolean updateAnchorPos(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, motionEvent)) == null) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
             if (Math.abs(x - this.mAnchorX) > this.mHoverSlop || Math.abs(y - this.mAnchorY) > this.mHoverSlop) {
@@ -270,9 +269,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     public void show(boolean z) {
-        long j;
-        int longPressTimeout;
         long j2;
+        int longPressTimeout;
+        long j3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && ViewCompat.isAttachedToWindow(this.mAnchor)) {
             setPendingHandler(null);
@@ -287,19 +286,19 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
             tooltipPopup.show(this.mAnchor, this.mAnchorX, this.mAnchorY, this.mFromTouch, this.mTooltipText);
             this.mAnchor.addOnAttachStateChangeListener(this);
             if (this.mFromTouch) {
-                j2 = LONG_CLICK_HIDE_TIMEOUT_MS;
+                j3 = LONG_CLICK_HIDE_TIMEOUT_MS;
             } else {
                 if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
-                    j = 3000;
+                    j2 = 3000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 } else {
-                    j = 15000;
+                    j2 = 15000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 }
-                j2 = j - longPressTimeout;
+                j3 = j2 - longPressTimeout;
             }
             this.mAnchor.removeCallbacks(this.mHideRunnable);
-            this.mAnchor.postDelayed(this.mHideRunnable, j2);
+            this.mAnchor.postDelayed(this.mHideRunnable, j3);
         }
     }
 }

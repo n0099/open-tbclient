@@ -1,68 +1,66 @@
 package com.kwad.sdk.core.network;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLConnection;
-import java.security.GeneralSecurityException;
-import java.security.KeyStore;
-import java.util.Arrays;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile l a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SSLSocketFactory a(X509TrustManager x509TrustManager) {
-        InterceptResult invokeL;
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<String, String> f57520b;
+
+    public l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, x509TrustManager)) == null) {
-            if (x509TrustManager == null) {
-                return null;
-            }
-            try {
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
-                return sSLContext.getSocketFactory();
-            } catch (GeneralSecurityException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (SSLSocketFactory) invokeL.objValue;
+        this.f57520b = new ConcurrentHashMap();
     }
 
-    public static X509TrustManager a() {
+    public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustManagerFactory.init((KeyStore) null);
-                TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
-                if (trustManagers.length == 1 && (trustManagers[0] instanceof X509TrustManager)) {
-                    return (X509TrustManager) trustManagers[0];
+            if (a == null) {
+                synchronized (l.class) {
+                    if (a == null) {
+                        a = new l();
+                    }
                 }
-                throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
-            } catch (GeneralSecurityException unused) {
-                return null;
             }
+            return a;
         }
-        return (X509TrustManager) invokeV.objValue;
+        return (l) invokeV.objValue;
     }
 
-    public static void a(URLConnection uRLConnection) {
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, uRLConnection) == null) && (uRLConnection instanceof HttpsURLConnection)) {
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) uRLConnection;
-            SSLSocketFactory a2 = a(a());
-            if (a2 != null) {
-                httpsURLConnection.setSSLSocketFactory(a2);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f57520b.get(str) : (String) invokeL.objValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
         }
+        this.f57520b.put(str, str2);
     }
 }

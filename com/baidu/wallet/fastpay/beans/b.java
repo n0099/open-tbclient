@@ -14,16 +14,14 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.WalletChargeResultBannerResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f59019a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59020b;
+    public boolean f52463b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -48,7 +46,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f59019a = str;
+            this.a = str;
         }
     }
 
@@ -66,9 +64,9 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("subBizType", this.f59020b ? "1003003" : "1003002"));
+            arrayList.add(new RestNameValuePair("subBizType", this.f52463b ? "1003003" : "1003002"));
             arrayList.add(new RestNameValuePair("returnType", "2"));
-            arrayList.add(new RestNameValuePair("orderNo", this.f59019a));
+            arrayList.add(new RestNameValuePair("orderNo", this.a));
             arrayList.add(new RestNameValuePair("ua", "WAP"));
             return arrayList;
         }
@@ -95,7 +93,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f59020b = z;
+            this.f52463b = z;
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadAchievementShareInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class ThreadAchievementShareInfo implements Serializable {
     public ParamBean params;
     public String title;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ParamBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +363,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ThreadListBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -459,10 +459,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setTid(long j) {
+        public void setTid(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                this.tid = j;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                this.tid = j2;
             }
         }
 
@@ -481,7 +481,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class UserBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -543,7 +543,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoDescBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -633,7 +633,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoDescCaeBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -723,7 +723,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoDescH265Bean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -813,7 +813,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VideoInfoBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1049,10 +1049,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_log_id(long j) {
+        public void setVideo_log_id(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-                this.video_log_id = j;
+            if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
+                this.video_log_id = j2;
             }
         }
 

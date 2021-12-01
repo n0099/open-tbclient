@@ -29,25 +29,23 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ImageView f60669a;
+    public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60670b;
+    public TextView f53501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60671c;
+    public int f53502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60672d;
+    public int f53503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60673e;
+    public String f53504e;
 
     public DxmCheckFingerprintActivity() {
         Interceptable interceptable = $ic;
@@ -62,13 +60,13 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                 return;
             }
         }
-        this.f60672d = 0;
-        this.f60673e = "";
+        this.f53503d = 0;
+        this.f53504e = "";
     }
 
     public static /* synthetic */ int a(DxmCheckFingerprintActivity dxmCheckFingerprintActivity) {
-        int i2 = dxmCheckFingerprintActivity.f60672d;
-        dxmCheckFingerprintActivity.f60672d = i2 + 1;
+        int i2 = dxmCheckFingerprintActivity.f53503d;
+        dxmCheckFingerprintActivity.f53503d = i2 + 1;
         return i2;
     }
 
@@ -121,7 +119,7 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.mLeftImg) {
                 onBackPressed();
-            } else if (view == this.f60669a) {
+            } else if (view == this.a) {
                 a();
             } else if (view == this.mRightTxt) {
                 com.baidu.wallet.newbindcard.c.a.a(PayStatServiceEvent.NEW_SWITCH_PWD, com.baidu.wallet.newbindcard.c.a.a(), com.baidu.wallet.newbindcard.c.a.b(), "1");
@@ -138,11 +136,11 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
             com.baidu.wallet.newbindcard.c.a.c("1");
             int intExtra = getIntent().getIntExtra("showSwitchPwd", 0);
             int intExtra2 = getIntent().getIntExtra("checkTimes", 3);
-            this.f60671c = intExtra2;
+            this.f53502c = intExtra2;
             if (intExtra2 < 1) {
-                this.f60671c = 3;
+                this.f53502c = 3;
             }
-            this.f60673e = getIntent().getStringExtra("session_id");
+            this.f53504e = getIntent().getStringExtra("session_id");
             a(intExtra);
             com.baidu.wallet.newbindcard.c.a.a(PayStatServiceEvent.NEW_ENTER_CHECK_PWD_PAGE, com.baidu.wallet.newbindcard.c.a.a(), com.baidu.wallet.newbindcard.c.a.b(), "1");
         }
@@ -154,9 +152,9 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             HashMap hashMap = new HashMap();
-            hashMap.put("count", Integer.valueOf(this.f60672d));
+            hashMap.put("count", Integer.valueOf(this.f53503d));
             com.baidu.wallet.newbindcard.c.a.a(PayStatServiceEvent.NEW_CHECK_PWD_COUNT, hashMap, com.baidu.wallet.newbindcard.c.a.a(), com.baidu.wallet.newbindcard.c.a.b(), "1");
-            this.f60672d = 0;
+            this.f53503d = 0;
             BeanManager.getInstance().removeAllBeans("NewCheckFingerprintActivity");
         }
     }
@@ -194,9 +192,9 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
             this.mRightTxt.setText("支付密码验证");
             this.mRightTxt.setTextSize(2, 15.0f);
             this.mRightTxt.setTextColor(ResUtils.getColor(this, "wallet_cashdesk_new_bind_card_7BE6"));
-            this.f60669a = (ImageView) findViewById(R.id.iv_fingerprint_icon);
+            this.a = (ImageView) findViewById(R.id.iv_fingerprint_icon);
             TextView textView = (TextView) findViewById(R.id.tv_fingerprint_error_tip);
-            this.f60670b = textView;
+            this.f53501b = textView;
             textView.setVisibility(8);
             if (i2 == 0) {
                 this.mRightTxt.setVisibility(8);
@@ -206,7 +204,7 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
             this.mLeftImg.setImageResource(R.drawable.wallet_base_halfscreen_new_bind_card_actionbar_close);
             this.mLeftImg.setOnClickListener(this);
             this.mRightTxt.setTypeface(Typeface.defaultFromStyle(1));
-            this.f60669a.setOnClickListener(this);
+            this.a.setOnClickListener(this);
             this.mRightTxt.setOnClickListener(this);
         }
     }
@@ -218,9 +216,7 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
             WalletFingerprint.getInstance(this).startListening(new b(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.DxmCheckFingerprintActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DxmCheckFingerprintActivity f60674a;
+                public final /* synthetic */ DxmCheckFingerprintActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -237,7 +233,7 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f60674a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
@@ -245,13 +241,13 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         com.baidu.wallet.newbindcard.c.a.a(PayStatServiceEvent.NEW_CHECK_PWD, com.baidu.wallet.newbindcard.c.a.a(), com.baidu.wallet.newbindcard.c.a.b(), "0");
-                        DxmCheckFingerprintActivity.a(this.f60674a);
+                        DxmCheckFingerprintActivity.a(this.a);
                         if (i2 == 0) {
-                            this.f60674a.a(str);
+                            this.a.a(str);
                             return;
                         }
                         com.baidu.wallet.newbindcard.c.a.a(PayStatServiceEvent.NEW_CHECK_PWD_RESULT, com.baidu.wallet.newbindcard.c.a.a(), com.baidu.wallet.newbindcard.c.a.b(), "1", i2 + "", str);
-                        this.f60674a.a(i2, "");
+                        this.a.a(i2, "");
                     }
                 }
             });
@@ -267,7 +263,7 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
             vVar.a(false);
             vVar.b(str);
             vVar.a("");
-            vVar.c(this.f60673e);
+            vVar.c(this.f53504e);
             vVar.setResponseCallback(this);
             vVar.execBean();
         }
@@ -281,15 +277,13 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                 runOnUiThread(new Runnable(this, str, i2) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.DxmCheckFingerprintActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f60675a;
+                    public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f60676b;
+                    public final /* synthetic */ int f53505b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ DxmCheckFingerprintActivity f60677c;
+                    public final /* synthetic */ DxmCheckFingerprintActivity f53506c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -306,28 +300,28 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f60677c = this;
-                        this.f60675a = str;
-                        this.f60676b = i2;
+                        this.f53506c = this;
+                        this.a = str;
+                        this.f53505b = i2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            String str2 = this.f60675a;
+                            String str2 = this.a;
                             if (TextUtils.isEmpty(str2)) {
-                                str2 = ResUtils.getString(this.f60677c, "wallet_fp_error_fp");
+                                str2 = ResUtils.getString(this.f53506c, "wallet_fp_error_fp");
                             }
-                            this.f60677c.f60670b.setVisibility(0);
-                            this.f60677c.f60670b.setText(str2);
+                            this.f53506c.f53501b.setVisibility(0);
+                            this.f53506c.f53501b.setText(str2);
                             TranslateAnimation translateAnimation = new TranslateAnimation(-50.0f, 50.0f, 0.0f, 0.0f);
                             translateAnimation.setDuration(50L);
                             translateAnimation.setRepeatCount(1);
                             translateAnimation.setRepeatMode(2);
-                            this.f60677c.f60670b.startAnimation(translateAnimation);
-                            if (this.f60677c.f60672d >= this.f60677c.f60671c) {
-                                int i3 = this.f60676b;
+                            this.f53506c.f53501b.startAnimation(translateAnimation);
+                            if (this.f53506c.f53503d >= this.f53506c.f53502c) {
+                                int i3 = this.f53505b;
                                 if (i3 == -5) {
                                     i3 = 3005;
                                 } else if (i3 == -3) {
@@ -335,10 +329,10 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                                 } else if (i3 == -4) {
                                     i3 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
                                 }
-                                com.baidu.wallet.paysdk.fingerprint.a.a.a().a(i3, this.f60675a);
-                                this.f60677c.finishWithoutAnim();
-                            } else if (this.f60676b == 3001) {
-                                this.f60677c.a();
+                                com.baidu.wallet.paysdk.fingerprint.a.a.a().a(i3, this.a);
+                                this.f53506c.finishWithoutAnim();
+                            } else if (this.f53505b == 3001) {
+                                this.f53506c.a();
                             }
                         }
                     }
@@ -346,13 +340,13 @@ public class DxmCheckFingerprintActivity extends HalfScreenBaseActivity implemen
                 return;
             }
             if (i2 == -1) {
-                i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_START_STAMP_KEY;
+                i2 = 3007;
             } else if (i2 == -6) {
                 i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
             } else if (i2 == -2 || i2 == -7) {
                 i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY;
             }
-            this.f60670b.setVisibility(8);
+            this.f53501b.setVisibility(8);
             com.baidu.wallet.paysdk.fingerprint.a.a.a().a(i2, str);
             finishWithoutAnim();
         }

@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.addownload.compliance;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.downloadlib.addownload.b.f;
@@ -11,29 +10,29 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j) {
+    public static void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
-            com.ss.android.downloadlib.addownload.b.e e2 = f.a().e(j);
+        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j2) == null) {
+            com.ss.android.downloadlib.addownload.b.e e2 = f.a().e(j2);
             if (e2.x()) {
                 return;
             }
-            e2.f69435c.setRefer(str);
+            e2.f61224c.setRefer(str);
             com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e2);
         }
     }
 
-    public static void b(String str, long j) {
+    public static void b(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, str, j) == null) {
-            a(str, null, j);
+        if (interceptable == null || interceptable.invokeLJ(65541, null, str, j2) == null) {
+            a(str, null, j2);
         }
     }
 
-    public static void a(String str, JSONObject jSONObject, long j) {
+    public static void a(String str, JSONObject jSONObject, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, jSONObject, Long.valueOf(j)}) == null) {
-            com.ss.android.downloadlib.d.a.a().b(str, jSONObject, f.a().e(j));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, jSONObject, Long.valueOf(j2)}) == null) {
+            com.ss.android.downloadlib.d.a.a().b(str, jSONObject, f.a().e(j2));
         }
     }
 
@@ -57,16 +56,16 @@ public class e {
         }
     }
 
-    public static void a(int i2, long j) {
+    public static void a(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("error_code", Integer.valueOf(i2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            com.ss.android.downloadlib.d.a.a().b("lp_compliance_error", jSONObject, f.a().e(j));
+            com.ss.android.downloadlib.d.a.a().b("lp_compliance_error", jSONObject, f.a().e(j2));
         }
     }
 }

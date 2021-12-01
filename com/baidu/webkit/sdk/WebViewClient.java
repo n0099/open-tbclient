@@ -23,7 +23,7 @@ import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_AUTHENTICATION = -4;
@@ -49,7 +49,7 @@ public class WebViewClient {
     public List<g> mUrlHandlers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class InteractionType {
         public static final /* synthetic */ InteractionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +112,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SecurityInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +163,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class SecurityLevel {
         public static final /* synthetic */ SecurityLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -234,7 +234,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class WebSiteInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class WebSiteType {
         public static final /* synthetic */ WebSiteType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -346,7 +346,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }
@@ -408,9 +408,9 @@ public class WebViewClient {
         }
     }
 
-    public void onAbortResourceRequest(WebView webView, String str, String str2, long j) {
+    public void onAbortResourceRequest(WebView webView, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -438,9 +438,9 @@ public class WebViewClient {
         }
     }
 
-    public void onDidAsyncWiseSearchStatusChanged(WebView webView, String str, int i2, long j) {
+    public void onDidAsyncWiseSearchStatusChanged(WebView webView, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -725,9 +725,9 @@ public class WebViewClient {
         }
     }
 
-    public void onPageLoadTime(WebView webView, String str, long j) {
+    public void onPageLoadTime(WebView webView, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{webView, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{webView, str, Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -851,9 +851,9 @@ public class WebViewClient {
         return invokeLL.booleanValue;
     }
 
-    public void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i2) {
+    public void onResourceLoaded(WebView webView, String str, long j2, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{webView, str, Long.valueOf(j2), str2, str3, Integer.valueOf(i2)}) == null) {
         }
     }
 
@@ -881,9 +881,9 @@ public class WebViewClient {
         }
     }
 
-    public void onSearchLandingPageClicked(WebView webView, String str, String str2, long j) {
+    public void onSearchLandingPageClicked(WebView webView, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{webView, str, str2, Long.valueOf(j2)}) == null) {
         }
     }
 

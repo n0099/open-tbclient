@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MediaStoreSignature implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class MediaStoreSignature implements Key {
     public final String mimeType;
     public final int orientation;
 
-    public MediaStoreSignature(@Nullable String str, long j, int i2) {
+    public MediaStoreSignature(@Nullable String str, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -36,7 +36,7 @@ public class MediaStoreSignature implements Key {
             }
         }
         this.mimeType = str == null ? "" : str;
-        this.dateModified = j;
+        this.dateModified = j2;
         this.orientation = i2;
     }
 
@@ -62,8 +62,8 @@ public class MediaStoreSignature implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.dateModified;
-            return (((this.mimeType.hashCode() * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.orientation;
+            long j2 = this.dateModified;
+            return (((this.mimeType.hashCode() * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.orientation;
         }
         return invokeV.intValue;
     }

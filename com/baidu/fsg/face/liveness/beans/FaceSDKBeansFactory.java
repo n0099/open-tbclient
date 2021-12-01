@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONFIG_URL = 4;
@@ -25,9 +25,7 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_FACEMATCH_BEAN = 10;
     public static final int VIDEO_GETPORTRAIT_BEAN = 9;
     public static final int VIDEO_UPLOAD_BEAN = 11;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static FaceSDKBeansFactory f38929a;
+    public static FaceSDKBeansFactory a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FaceSDKBeansFactory() {
@@ -48,10 +46,10 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f38929a == null) {
-                f38929a = new FaceSDKBeansFactory();
+            if (a == null) {
+                a = new FaceSDKBeansFactory();
             }
-            return f38929a;
+            return a;
         }
         return (FaceSDKBeansFactory) invokeV.objValue;
     }

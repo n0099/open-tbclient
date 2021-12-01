@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.math.LongMath;
 import com.google.common.util.concurrent.RateLimiter;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class SmoothRateLimiter extends RateLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,13 +19,13 @@ public abstract class SmoothRateLimiter extends RateLimiter {
     public double storedPermits;
 
     /* renamed from: com.google.common.util.concurrent.SmoothRateLimiter$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SmoothBursty extends SmoothRateLimiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public abstract class SmoothRateLimiter extends RateLimiter {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SmoothWarmingUp extends SmoothRateLimiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,13 +96,13 @@ public abstract class SmoothRateLimiter extends RateLimiter {
         public final long warmupPeriodMicros;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SmoothWarmingUp(RateLimiter.SleepingStopwatch sleepingStopwatch, long j, TimeUnit timeUnit, double d2) {
+        public SmoothWarmingUp(RateLimiter.SleepingStopwatch sleepingStopwatch, long j2, TimeUnit timeUnit, double d2) {
             super(sleepingStopwatch, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sleepingStopwatch, Long.valueOf(j), timeUnit, Double.valueOf(d2)};
+                Object[] objArr = {sleepingStopwatch, Long.valueOf(j2), timeUnit, Double.valueOf(d2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -114,7 +114,7 @@ public abstract class SmoothRateLimiter extends RateLimiter {
                     return;
                 }
             }
-            this.warmupPeriodMicros = timeUnit.toMicros(j);
+            this.warmupPeriodMicros = timeUnit.toMicros(j2);
             this.coldFactor = d2;
         }
 
@@ -137,10 +137,10 @@ public abstract class SmoothRateLimiter extends RateLimiter {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)}) == null) {
                 double d4 = this.maxPermits;
                 double d5 = this.coldFactor * d3;
-                long j = this.warmupPeriodMicros;
-                double d6 = (j * 0.5d) / d3;
+                long j2 = this.warmupPeriodMicros;
+                double d6 = (j2 * 0.5d) / d3;
                 this.thresholdPermits = d6;
-                double d7 = ((j * 2.0d) / (d3 + d5)) + d6;
+                double d7 = ((j2 * 2.0d) / (d3 + d5)) + d6;
                 this.maxPermits = d7;
                 this.slope = (d5 - d3) / (d7 - d6);
                 if (d4 == Double.POSITIVE_INFINITY) {
@@ -157,18 +157,18 @@ public abstract class SmoothRateLimiter extends RateLimiter {
         @Override // com.google.common.util.concurrent.SmoothRateLimiter
         public long storedPermitsToWaitTime(double d2, double d3) {
             InterceptResult invokeCommon;
-            long j;
+            long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) {
                 double d4 = d2 - this.thresholdPermits;
                 if (d4 > 0.0d) {
                     double min = Math.min(d4, d3);
-                    j = (long) (((permitsToTime(d4) + permitsToTime(d4 - min)) * min) / 2.0d);
+                    j2 = (long) (((permitsToTime(d4) + permitsToTime(d4 - min)) * min) / 2.0d);
                     d3 -= min;
                 } else {
-                    j = 0;
+                    j2 = 0;
                 }
-                return j + ((long) (this.stableIntervalMicros * d3));
+                return j2 + ((long) (this.stableIntervalMicros * d3));
             }
             return invokeCommon.longValue;
         }
@@ -190,10 +190,10 @@ public abstract class SmoothRateLimiter extends RateLimiter {
     public abstract void doSetRate(double d2, double d3);
 
     @Override // com.google.common.util.concurrent.RateLimiter
-    public final void doSetRate(double d2, long j) {
+    public final void doSetRate(double d2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2), Long.valueOf(j)}) == null) {
-            resync(j);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2), Long.valueOf(j2)}) == null) {
+            resync(j2);
             double micros = TimeUnit.SECONDS.toMicros(1L) / d2;
             this.stableIntervalMicros = micros;
             doSetRate(d2, micros);
@@ -201,35 +201,35 @@ public abstract class SmoothRateLimiter extends RateLimiter {
     }
 
     @Override // com.google.common.util.concurrent.RateLimiter
-    public final long queryEarliestAvailable(long j) {
+    public final long queryEarliestAvailable(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? this.nextFreeTicketMicros : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? this.nextFreeTicketMicros : invokeJ.longValue;
     }
 
     @Override // com.google.common.util.concurrent.RateLimiter
-    public final long reserveEarliestAvailable(int i2, long j) {
+    public final long reserveEarliestAvailable(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            resync(j);
-            long j2 = this.nextFreeTicketMicros;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            resync(j2);
+            long j3 = this.nextFreeTicketMicros;
             double d2 = i2;
             double min = Math.min(d2, this.storedPermits);
             this.nextFreeTicketMicros = LongMath.b(this.nextFreeTicketMicros, storedPermitsToWaitTime(this.storedPermits, min) + ((long) ((d2 - min) * this.stableIntervalMicros)));
             this.storedPermits -= min;
-            return j2;
+            return j3;
         }
         return invokeCommon.longValue;
     }
 
-    public void resync(long j) {
+    public void resync(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            long j2 = this.nextFreeTicketMicros;
-            if (j > j2) {
-                this.storedPermits = Math.min(this.maxPermits, this.storedPermits + ((j - j2) / coolDownIntervalMicros()));
-                this.nextFreeTicketMicros = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            long j3 = this.nextFreeTicketMicros;
+            if (j2 > j3) {
+                this.storedPermits = Math.min(this.maxPermits, this.storedPermits + ((j2 - j3) / coolDownIntervalMicros()));
+                this.nextFreeTicketMicros = j2;
             }
         }
     }

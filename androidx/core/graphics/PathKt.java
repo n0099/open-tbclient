@@ -3,7 +3,6 @@ package androidx.core.graphics;
 import android.graphics.Path;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,7 +74,7 @@ public final class PathKt {
     public static final Path plus(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, path, path2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, path, path2)) == null) {
             Path path3 = new Path(path);
             path3.op(path2, Path.Op.UNION);
             return path3;
@@ -87,7 +86,7 @@ public final class PathKt {
     public static final Path xor(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, path, path2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, path, path2)) == null) {
             Path path3 = new Path(path);
             path3.op(path2, Path.Op.XOR);
             return path3;

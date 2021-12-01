@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk.api.a;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,15 +23,13 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f62480a;
+    public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f62481b;
+    public static final Pattern f54699b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +45,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f62480a = new a();
-        f62481b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        a = new a();
+        f54699b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -69,7 +66,7 @@ public final class a implements HostnameVerifier {
     private boolean a(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, x509Certificate)) == null) {
             if (a(str)) {
                 return b(str, x509Certificate);
             }
@@ -81,7 +78,7 @@ public final class a implements HostnameVerifier {
     private boolean b(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, x509Certificate)) == null) {
             List<String> a2 = a(x509Certificate, 7);
             int size = a2.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -136,7 +133,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f62481b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f54699b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate, int i2) {

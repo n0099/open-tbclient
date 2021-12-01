@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
     public final Flowable<T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchMapMaybeSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapMaybeObserver<Object> INNER_DISPOSED;
@@ -54,7 +54,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
         public final AtomicLong requested;
         public Subscription upstream;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class SwitchMapMaybeObserver<R> extends AtomicReference<Disposable> implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;
@@ -189,7 +189,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                 AtomicThrowable atomicThrowable = this.errors;
                 AtomicReference<SwitchMapMaybeObserver<R>> atomicReference = this.inner;
                 AtomicLong atomicLong = this.requested;
-                long j = this.emitted;
+                long j2 = this.emitted;
                 int i2 = 1;
                 while (!this.cancelled) {
                     if (atomicThrowable.get() != null && !this.delayErrors) {
@@ -208,12 +208,12 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                             subscriber.onComplete();
                             return;
                         }
-                    } else if (!z2 && switchMapMaybeObserver.item != null && j != atomicLong.get()) {
+                    } else if (!z2 && switchMapMaybeObserver.item != null && j2 != atomicLong.get()) {
                         atomicReference.compareAndSet(switchMapMaybeObserver, null);
                         subscriber.onNext((R) switchMapMaybeObserver.item);
-                        j++;
+                        j2++;
                     } else {
-                        this.emitted = j;
+                        this.emitted = j2;
                         i2 = addAndGet(-i2);
                         if (i2 == 0) {
                             return;
@@ -311,10 +311,10 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                BackpressureHelper.add(this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

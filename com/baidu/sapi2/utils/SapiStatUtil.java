@@ -6,13 +6,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.face.base.b.c;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStatKey;
 import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SapiStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
@@ -105,7 +105,7 @@ public class SapiStatUtil {
 
     public static void statOneKeyCheckAbility(int i2, int i3, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("code", i2 + "");
             hashMap.put("subCode", i3 + "");
@@ -117,7 +117,7 @@ public class SapiStatUtil {
 
     public static void statOneKeyLoginPassAction(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(65542, null, i2, str, str2) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("jsExecuteResult", i2 + "");
             hashMap.put("code", str);
@@ -276,9 +276,9 @@ public class SapiStatUtil {
                 hashMap.put("scene", str);
             }
             hashMap.put("device", Build.MODEL);
-            hashMap.put("account_size", list.size() + "");
-            hashMap.put("account_tpls", TextUtils.join(",", arrayList));
-            hashMap.put("account_apps", TextUtils.join(",", arrayList2));
+            hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, list.size() + "");
+            hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, TextUtils.join(",", arrayList));
+            hashMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, TextUtils.join(",", arrayList2));
             StatService.onEvent("share_account_open", hashMap);
         }
     }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceFeature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceFeature";
@@ -60,18 +60,18 @@ public class FaceFeature {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native float nativeFeature(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, byte[] bArr);
+    private native float nativeFeature(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, byte[] bArr);
 
-    private native float nativeFeatureCompare(long j, int i2, byte[] bArr, byte[] bArr2, int i3);
+    private native float nativeFeatureCompare(long j2, int i2, byte[] bArr, byte[] bArr2, int i3);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeFeatureModelInit(long j, byte[] bArr, int i2);
+    public native int nativeFeatureModelInit(long j2, byte[] bArr, int i2);
 
-    private native ArrayList<Feature> nativeFeatureSearch(long j, byte[] bArr, int i2, int i3, int i4);
+    private native ArrayList<Feature> nativeFeatureSearch(long j2, byte[] bArr, int i2, int i3, int i4);
 
-    private native float nativeRGBDFeature(long j, int i2, BDFaceImageInstance bDFaceImageInstance, BDFaceImageInstance bDFaceImageInstance2, float[] fArr, byte[] bArr);
+    private native float nativeRGBDFeature(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, BDFaceImageInstance bDFaceImageInstance2, float[] fArr, byte[] bArr);
 
-    private native int nativeUninitModel(long j);
+    private native int nativeUninitModel(long j2);
 
     private native int nativefeaturePush(List<? extends Feature> list);
 

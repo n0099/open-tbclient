@@ -2,7 +2,6 @@ package com.google.zxing.oned.rss;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] FINDER_PATTERNS;
@@ -272,7 +271,7 @@ public final class RSS14Reader extends AbstractRSSReader {
     public static Result constructResult(Pair pair, Pair pair2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, pair, pair2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, pair, pair2)) == null) {
             String valueOf = String.valueOf((pair.getValue() * 4537077) + pair2.getValue());
             StringBuilder sb = new StringBuilder(14);
             for (int length = 13 - valueOf.length(); length > 0; length--) {
@@ -302,7 +301,7 @@ public final class RSS14Reader extends AbstractRSSReader {
     private DataCharacter decodeDataCharacter(BitArray bitArray, FinderPattern finderPattern, boolean z) throws NotFoundException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, bitArray, finderPattern, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, bitArray, finderPattern, z)) == null) {
             int[] dataCharacterCounters = getDataCharacterCounters();
             dataCharacterCounters[0] = 0;
             dataCharacterCounters[1] = 0;

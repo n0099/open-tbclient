@@ -41,7 +41,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -61,14 +61,14 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public Boolean[] tag;
 
     /* renamed from: com.baidu.wallet.core.beans.NetworkBean$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class BizType {
         public static final /* synthetic */ BizType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -129,18 +129,16 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class SessionCache implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<Integer, BeanResponseBase.Session> mCache;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes11.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f58907a;
+            public static final SessionCache a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -156,7 +154,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f58907a = new SessionCache(null);
+                a = new SessionCache(null);
             }
 
             public a() {
@@ -181,7 +179,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58907a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -189,7 +187,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f58907a.mCache = sessionCache.mCache;
+                        a.a.mCache = sessionCache.mCache;
                     }
                 }
             }
@@ -462,9 +460,9 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, restResponseEntity) == null) {
-            String a2 = restResponseEntity.a("token");
-            if (!TextUtils.isEmpty(a2)) {
-                AccountManager.getInstance(this.mContext).setBfbToken(a2);
+            String a = restResponseEntity.a("token");
+            if (!TextUtils.isEmpty(a)) {
+                AccountManager.getInstance(this.mContext).setBfbToken(a);
             }
             List<String> headerValue = restResponseEntity.getHeaderValue("Set-Cookie");
             if (headerValue != null) {

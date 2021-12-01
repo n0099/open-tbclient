@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.background;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.o0.d;
-import b.a.r0.s3.e.j;
+import c.a.q0.p0.d;
+import c.a.r0.z3.e.j;
 import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,11 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public int mPropId;
     public j mView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements BackgroundPreviewModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f55465a;
+        public final /* synthetic */ BackgroundPreviewActivity a;
 
         public a(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -50,32 +48,30 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f55465a = backgroundPreviewActivity;
+            this.a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.b
         public void a(int i2, String str, DressItemData dressItemData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, dressItemData) == null) {
-                BackgroundPreviewActivity backgroundPreviewActivity = this.f55465a;
+                BackgroundPreviewActivity backgroundPreviewActivity = this.a;
                 backgroundPreviewActivity.hideLoadingView(backgroundPreviewActivity.mView.f());
                 if (i2 == 0) {
-                    this.f55465a.mView.l(dressItemData);
+                    this.a.mView.l(dressItemData);
                     return;
                 }
-                this.f55465a.showToast(str);
-                this.f55465a.mView.k();
+                this.a.showToast(str);
+                this.a.mView.k();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements BdExpandListView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundPreviewActivity f55466a;
+        public final /* synthetic */ BackgroundPreviewActivity a;
 
         public b(BackgroundPreviewActivity backgroundPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -92,7 +88,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
                     return;
                 }
             }
-            this.f55466a = backgroundPreviewActivity;
+            this.a = backgroundPreviewActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdExpandListView.b
@@ -133,7 +129,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,8 +149,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13529a = true;
-                pageStayDurationItem.f13537i = String.valueOf(this.mPropId);
+                pageStayDurationItem.a = true;
+                pageStayDurationItem.f12475i = String.valueOf(this.mPropId);
             }
             return pageStayDurationItem;
         }
@@ -242,7 +238,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                b.a.q0.a0.b.a().d();
+                c.a.q0.a0.b.a().d();
             }
         }
     }

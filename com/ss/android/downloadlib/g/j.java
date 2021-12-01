@@ -2,7 +2,6 @@ package com.ss.android.downloadlib.g;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +14,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, a> f69785a;
+    public static Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -40,7 +37,7 @@ public class j {
                 return;
             }
         }
-        f69785a = Collections.synchronizedMap(new HashMap());
+        a = Collections.synchronizedMap(new HashMap());
     }
 
     public static void a(String[] strArr, a aVar) {
@@ -56,17 +53,17 @@ public class j {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? com.ss.android.downloadlib.addownload.j.e().a(com.ss.android.downloadlib.addownload.j.getContext(), str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? com.ss.android.downloadlib.addownload.j.e().a(com.ss.android.downloadlib.addownload.j.getContext(), str) : invokeL.booleanValue;
     }
 
     public static a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f69785a.remove(str);
+            return a.remove(str);
         }
         return (a) invokeL.objValue;
     }
@@ -94,6 +91,6 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) || TextUtils.isEmpty(str) || aVar == null) {
             return;
         }
-        f69785a.put(str, aVar);
+        a.put(str, aVar);
     }
 }

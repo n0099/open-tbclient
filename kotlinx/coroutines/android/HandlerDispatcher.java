@@ -14,15 +14,15 @@ public abstract class HandlerDispatcher extends MainCoroutineDispatcher implemen
     }
 
     @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation<? super Unit> continuation) {
-        return Delay.DefaultImpls.delay(this, j, continuation);
+    public Object delay(long j2, Continuation<? super Unit> continuation) {
+        return Delay.DefaultImpls.delay(this, j2, continuation);
     }
 
     @Override // kotlinx.coroutines.MainCoroutineDispatcher
     public abstract HandlerDispatcher getImmediate();
 
-    public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-        return Delay.DefaultImpls.invokeOnTimeout(this, j, runnable);
+    public DisposableHandle invokeOnTimeout(long j2, Runnable runnable) {
+        return Delay.DefaultImpls.invokeOnTimeout(this, j2, runnable);
     }
 
     public /* synthetic */ HandlerDispatcher(DefaultConstructorMarker defaultConstructorMarker) {

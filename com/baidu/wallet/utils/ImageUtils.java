@@ -2,13 +2,12 @@ package com.baidu.wallet.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ImageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +45,9 @@ public class ImageUtils {
                     }
                     if ((i8 & 1) == 0) {
                         int i12 = i7 + 1;
-                        i10 = (bArr[i7] & 255) + a.f34957g;
+                        i10 = (bArr[i7] & 255) + a.f31350g;
                         i7 = i12 + 1;
-                        i9 = (bArr[i12] & 255) + a.f34957g;
+                        i9 = (bArr[i12] & 255) + a.f31350g;
                     }
                     int i13 = i11 * 1192;
                     int i14 = (i10 * 1634) + i13;
@@ -156,7 +155,7 @@ public class ImageUtils {
         InterceptResult invokeLII;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i2, i3)) == null) {
             int i5 = i2 * i3;
             byte[] bArr2 = new byte[(i5 * 3) / 2];
             if (i2 == 0 && i3 == 0) {
@@ -192,7 +191,7 @@ public class ImageUtils {
     public static byte[] rotateYUV420Degree90(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             int i4 = i2 * i3;
             int i5 = (i4 * 3) / 2;
             byte[] bArr2 = new byte[i5];

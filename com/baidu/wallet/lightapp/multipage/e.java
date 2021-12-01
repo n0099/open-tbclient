@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,30 +22,26 @@ import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class e implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONArray f60163a;
+    public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f60164b;
+    public Long f53195b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static e f60165a;
+        public static e a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,7 +57,7 @@ public class e implements i.b {
                     return;
                 }
             }
-            f60165a = new e(null);
+            a = new e(null);
         }
     }
 
@@ -73,7 +68,7 @@ public class e implements i.b {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60165a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (e) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x001f  */
@@ -86,7 +81,7 @@ public class e implements i.b {
         JSONArray jSONArray;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             String str = (String) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", "");
             if (!TextUtils.isEmpty(str)) {
                 try {
@@ -119,7 +114,7 @@ public class e implements i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
             JSONArray jSONArray = new JSONArray();
-            this.f60163a = jSONArray;
+            this.a = jSONArray;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
         }
     }
@@ -145,7 +140,7 @@ public class e implements i.b {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f60164b = valueOf;
+            this.f53195b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             i.a().c(context);
         }
@@ -164,7 +159,7 @@ public class e implements i.b {
                 return;
             }
         }
-        this.f60164b = -1L;
+        this.f53195b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -196,11 +191,11 @@ public class e implements i.b {
     private boolean b(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, context, i2)) == null) {
-            if (this.f60164b.longValue() == -1) {
-                this.f60164b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, context, i2)) == null) {
+            if (this.f53195b.longValue() == -1) {
+                this.f53195b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f60164b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f53195b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
@@ -211,11 +206,11 @@ public class e implements i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
             if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
-                LangbridgeSettings m46clone = langbridgeSettings.m46clone();
-                m46clone.MW_ON = false;
-                m46clone.MW_USE_OLD = true;
+                LangbridgeSettings m94clone = langbridgeSettings.m94clone();
+                m94clone.MW_ON = false;
+                m94clone.MW_USE_OLD = true;
                 LogUtil.d("LangbridgeSettings", "");
-                return m46clone;
+                return m94clone;
             }
             return langbridgeSettings;
         }
@@ -226,10 +221,10 @@ public class e implements i.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            if (this.f60163a == null) {
-                this.f60163a = b(context);
+            if (this.a == null) {
+                this.a = b(context);
             }
-            return this.f60163a;
+            return this.a;
         }
         return (JSONArray) invokeL.objValue;
     }

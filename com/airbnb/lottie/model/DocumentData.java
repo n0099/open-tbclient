@@ -3,7 +3,7 @@ package com.airbnb.lottie.model;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DocumentData {
     public final float baselineShift;
     @ColorInt
@@ -19,7 +19,7 @@ public class DocumentData {
     public final String text;
     public final int tracking;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum Justification {
         LEFT_ALIGN,
         RIGHT_ALIGN,

@@ -2,7 +2,6 @@ package com.baidu.wallet.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Collator COLLATOR;
@@ -27,7 +26,7 @@ public class HanziToPinyin {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;
@@ -170,7 +169,7 @@ public class HanziToPinyin {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c2)})) == null) {
             Token token = new Token();
             String ch = Character.toString(c2);
             token.source = ch;

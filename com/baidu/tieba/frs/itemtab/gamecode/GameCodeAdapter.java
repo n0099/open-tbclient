@@ -11,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.p.b;
-import b.a.q0.s.u.c;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.d1;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.i1;
-import b.a.r0.x0.m2.h.a;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.p.b;
+import c.a.q0.s.u.c;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.d1;
+import c.a.r0.d1.e1;
+import c.a.r0.d1.i1;
+import c.a.r0.d1.m2.h.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,47 +37,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GameCodeList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<GameCodeList> f49733a;
+    public List<GameCodeList> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f49734b;
+    public Context f44582b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class GameCodeViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public ImageView f49735a;
+        public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public EMTextView f49736b;
+        public EMTextView f44583b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EMTextView f49737c;
+        public EMTextView f44584c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TBSpecificationBtn f49738d;
+        public TBSpecificationBtn f44585d;
 
         /* renamed from: e  reason: collision with root package name */
-        public GameCodeList f49739e;
+        public GameCodeList f44586e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f49740f;
+        public int f44587f;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GameCodeViewHolder f49741e;
+            public final /* synthetic */ GameCodeViewHolder f44588e;
 
             public a(GameCodeViewHolder gameCodeViewHolder) {
                 Interceptable interceptable = $ic;
@@ -94,29 +90,29 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                         return;
                     }
                 }
-                this.f49741e = gameCodeViewHolder;
+                this.f44588e = gameCodeViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49741e.gameCodeClickLog(1);
-                    this.f49741e.sendGetGameCodeMessage();
+                    this.f44588e.gameCodeClickLog(1);
+                    this.f44588e.sendGetGameCodeMessage();
                 }
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GameCodeList f49742e;
+            public final /* synthetic */ GameCodeList f44589e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GameCodeViewHolder f49743f;
+            public final /* synthetic */ GameCodeViewHolder f44590f;
 
             public b(GameCodeViewHolder gameCodeViewHolder, GameCodeList gameCodeList) {
                 Interceptable interceptable = $ic;
@@ -133,17 +129,17 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                         return;
                     }
                 }
-                this.f49743f = gameCodeViewHolder;
-                this.f49742e = gameCodeList;
+                this.f44590f = gameCodeViewHolder;
+                this.f44589e = gameCodeList;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49743f.gameCodeClickLog(2);
-                    ((ClipboardManager) view.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText(null, this.f49742e.claimed_value));
-                    new BdTopToast(this.f49743f.f49738d.getContext()).setIcon(true).setContent(TbadkCoreApplication.getInst().getResources().getString(i1.copy_success)).show((ViewGroup) ((Activity) this.f49743f.f49738d.getContext()).findViewById(16908290));
+                    this.f44590f.gameCodeClickLog(2);
+                    ((ClipboardManager) view.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText(null, this.f44589e.claimed_value));
+                    new BdTopToast(this.f44590f.f44585d.getContext()).setIcon(true).setContent(TbadkCoreApplication.getInst().getResources().getString(i1.copy_success)).show((ViewGroup) ((Activity) this.f44590f.f44585d.getContext()).findViewById(16908290));
                 }
             }
         }
@@ -167,53 +163,53 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 }
             }
             RelativeLayout relativeLayout = (RelativeLayout) view;
-            this.f49738d = (TBSpecificationBtn) relativeLayout.getChildAt(0);
+            this.f44585d = (TBSpecificationBtn) relativeLayout.getChildAt(0);
             RelativeLayout relativeLayout2 = (RelativeLayout) relativeLayout.getChildAt(1);
-            this.f49735a = (ImageView) relativeLayout2.getChildAt(0);
-            this.f49736b = (EMTextView) relativeLayout2.getChildAt(1);
-            this.f49737c = (EMTextView) relativeLayout2.getChildAt(2);
+            this.a = (ImageView) relativeLayout2.getChildAt(0);
+            this.f44583b = (EMTextView) relativeLayout2.getChildAt(1);
+            this.f44584c = (EMTextView) relativeLayout2.getChildAt(2);
         }
 
         public void bindData(GameCodeList gameCodeList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gameCodeList) == null) {
-                this.f49739e = gameCodeList;
-                this.f49740f = getAdapterPosition();
-                this.f49736b.setText(gameCodeList.label);
+                this.f44586e = gameCodeList;
+                this.f44587f = getAdapterPosition();
+                this.f44583b.setText(gameCodeList.label);
                 if (gameCodeList.claimed_status.intValue() == 1) {
-                    this.f49737c.setVisibility(8);
-                    b.a.q0.s.g0.n.b bVar = new b.a.q0.s.g0.n.b();
+                    this.f44584c.setVisibility(8);
+                    c.a.q0.s.g0.n.b bVar = new c.a.q0.s.g0.n.b();
                     bVar.p(c1.CAM_X0302, c1.CAM_X0101);
-                    this.f49738d.setConfig(bVar);
-                    this.f49738d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.default_get_gift));
-                    this.f49738d.setClickState(true);
-                    this.f49738d.setClickable(true);
-                    this.f49738d.setOnClickListener(new a(this));
+                    this.f44585d.setConfig(bVar);
+                    this.f44585d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.default_get_gift));
+                    this.f44585d.setClickState(true);
+                    this.f44585d.setClickable(true);
+                    this.f44585d.setOnClickListener(new a(this));
                 } else if (gameCodeList.claimed_status.intValue() == 2) {
-                    this.f49737c.setVisibility(0);
-                    this.f49737c.setText(gameCodeList.claimed_value);
-                    b.a.q0.s.g0.n.b bVar2 = new b.a.q0.s.g0.n.b();
+                    this.f44584c.setVisibility(0);
+                    this.f44584c.setText(gameCodeList.claimed_value);
+                    c.a.q0.s.g0.n.b bVar2 = new c.a.q0.s.g0.n.b();
                     bVar2.p(c1.CAM_X0302, c1.CAM_X0101);
                     bVar2.i(e1.icon_pure_copy, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    this.f49738d.setConfig(bVar2);
-                    this.f49738d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.copy));
-                    this.f49738d.setClickState(true);
-                    this.f49738d.setClickable(true);
-                    this.f49738d.setOnClickListener(new b(this, gameCodeList));
+                    this.f44585d.setConfig(bVar2);
+                    this.f44585d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.copy));
+                    this.f44585d.setClickState(true);
+                    this.f44585d.setClickable(true);
+                    this.f44585d.setOnClickListener(new b(this, gameCodeList));
                 } else if (gameCodeList.claimed_status.intValue() == 3) {
-                    this.f49737c.setVisibility(8);
-                    b.a.q0.s.g0.n.b bVar3 = new b.a.q0.s.g0.n.b();
+                    this.f44584c.setVisibility(8);
+                    c.a.q0.s.g0.n.b bVar3 = new c.a.q0.s.g0.n.b();
                     bVar3.p(c1.CAM_X0201, c1.CAM_X0109);
-                    this.f49738d.setConfig(bVar3);
-                    this.f49738d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.game_code_finished));
-                    this.f49738d.setClickState(false);
-                    this.f49738d.setClickable(false);
-                    this.f49738d.setOnClickListener(null);
+                    this.f44585d.setConfig(bVar3);
+                    this.f44585d.setText(TbadkCoreApplication.getInst().getResources().getString(i1.game_code_finished));
+                    this.f44585d.setClickState(false);
+                    this.f44585d.setClickable(false);
+                    this.f44585d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.f49735a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (gameCodeList.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.f49735a, e1.icon_pure_giftcode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, e1.icon_pure_giftcode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
             }
         }
@@ -221,9 +217,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void gameCodeClickLog(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                b.a.q0.s.g0.p.b bVar = new b.a.q0.s.g0.p.b(16);
-                bVar.l(this.f49739e.list_id.intValue());
-                bVar.n(i2);
+                c.a.q0.s.g0.p.b bVar = new c.a.q0.s.g0.p.b(16);
+                bVar.m(this.f44586e.list_id.intValue());
+                bVar.o(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
             }
         }
@@ -231,18 +227,18 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void onChangSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f49739e.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.f49735a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
-                } else if (this.f49739e.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.f49735a, e1.icon_pure_giftcode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                if (this.f44586e.type.intValue() == 1) {
+                    WebPManager.setPureDrawable(this.a, e1.icon_pure_activacode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                } else if (this.f44586e.type.intValue() == 2) {
+                    WebPManager.setPureDrawable(this.a, e1.icon_pure_giftcode, c1.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
-                c d2 = c.d(this.f49736b);
+                c d2 = c.d(this.f44583b);
                 d2.v(c1.CAM_X0105);
                 d2.z(d1.T_X06);
-                c d3 = c.d(this.f49737c);
+                c d3 = c.d(this.f44584c);
                 d3.v(c1.CAM_X0109);
                 d3.z(d1.T_X09);
-                TBSpecificationBtn tBSpecificationBtn = this.f49738d;
+                TBSpecificationBtn tBSpecificationBtn = this.f44585d;
                 if (tBSpecificationBtn != null) {
                     tBSpecificationBtn.changeSkinType();
                 }
@@ -253,10 +249,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                int i2 = this.f49740f;
-                Integer num = this.f49739e.item_id;
+                int i2 = this.f44587f;
+                Integer num = this.f44586e.item_id;
                 int intValue = num == null ? 0 : num.intValue();
-                Integer num2 = this.f49739e.list_id;
+                Integer num2 = this.f44586e.list_id;
                 messageManager.sendMessage(new GameCodeGetMsg(i2, intValue, num2 != null ? num2.intValue() : 0));
             }
         }
@@ -277,40 +273,40 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 return;
             }
         }
-        this.f49733a = new ArrayList();
-        this.f49734b = context;
+        this.a = new ArrayList();
+        this.f44582b = context;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49733a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
     public void setGameCodeList(List<GameCodeList> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f49733a.clear();
-            this.f49733a.addAll(list);
+            this.a.clear();
+            this.a.addAll(list);
         }
     }
 
     public void updateAfterGetGameCodeSuccess(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            GameCodeList gameCodeList = this.f49733a.get(aVar.f27578a);
+            GameCodeList gameCodeList = this.a.get(aVar.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = aVar.f27579b;
+            builder.claimed_value = aVar.f15725b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.f49733a.set(aVar.f27578a, builder.build(false));
-            notifyItemChanged(aVar.f27578a);
+            this.a.set(aVar.a, builder.build(false));
+            notifyItemChanged(aVar.a);
         }
     }
 
@@ -320,7 +316,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, gameCodeViewHolder, i2) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b(15, i2 + 1)));
-            gameCodeViewHolder.bindData(this.f49733a.get(i2));
+            gameCodeViewHolder.bindData(this.a.get(i2));
             gameCodeViewHolder.onChangSkinType();
         }
     }
@@ -333,20 +329,20 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
             RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.g(viewGroup.getContext(), d1.tbds125)));
+            relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.f(viewGroup.getContext(), d1.tbds125)));
             View tBSpecificationBtn = new TBSpecificationBtn(viewGroup.getContext());
             tBSpecificationBtn.setId(3);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(viewGroup.getContext(), d1.tbds177), l.g(viewGroup.getContext(), d1.tbds75));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.f(viewGroup.getContext(), d1.tbds177), l.f(viewGroup.getContext(), d1.tbds75));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
-            layoutParams.rightMargin = l.g(viewGroup.getContext(), d1.M_W_X005);
+            layoutParams.rightMargin = l.f(viewGroup.getContext(), d1.M_W_X005);
             tBSpecificationBtn.setLayoutParams(layoutParams);
             relativeLayout.addView(tBSpecificationBtn);
             RelativeLayout relativeLayout2 = new RelativeLayout(viewGroup.getContext());
             ImageView imageView = new ImageView(viewGroup.getContext());
             imageView.setId(1);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(l.g(viewGroup.getContext(), d1.tbds42), l.g(viewGroup.getContext(), d1.tbds42));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(l.f(viewGroup.getContext(), d1.tbds42), l.f(viewGroup.getContext(), d1.tbds42));
             layoutParams2.addRule(9);
             layoutParams2.addRule(10);
             imageView.setLayoutParams(layoutParams2);
@@ -360,8 +356,8 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             layoutParams3.addRule(6, imageView.getId());
             layoutParams3.addRule(8, imageView.getId());
             layoutParams3.addRule(10);
-            layoutParams3.topMargin = l.g(viewGroup.getContext(), d1.tbds2);
-            layoutParams3.leftMargin = l.g(viewGroup.getContext(), d1.M_W_X003);
+            layoutParams3.topMargin = l.f(viewGroup.getContext(), d1.tbds2);
+            layoutParams3.leftMargin = l.f(viewGroup.getContext(), d1.M_W_X003);
             eMTextView.setLayoutParams(layoutParams3);
             relativeLayout2.addView(eMTextView);
             EMTextView eMTextView2 = new EMTextView(viewGroup.getContext());
@@ -370,7 +366,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams4.addRule(5, eMTextView.getId());
             layoutParams4.addRule(3, eMTextView.getId());
-            layoutParams4.topMargin = l.g(viewGroup.getContext(), d1.M_H_X002);
+            layoutParams4.topMargin = l.f(viewGroup.getContext(), d1.M_H_X002);
             eMTextView2.setLayoutParams(layoutParams4);
             eMTextView2.setVisibility(8);
             relativeLayout2.addView(eMTextView2);
@@ -378,7 +374,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             layoutParams5.addRule(9);
             layoutParams5.addRule(0, tBSpecificationBtn.getId());
             layoutParams5.addRule(15);
-            layoutParams5.leftMargin = l.g(viewGroup.getContext(), d1.M_W_X005);
+            layoutParams5.leftMargin = l.f(viewGroup.getContext(), d1.M_W_X005);
             relativeLayout2.setLayoutParams(layoutParams5);
             relativeLayout.addView(relativeLayout2);
             return new GameCodeViewHolder(relativeLayout);

@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ScrollView f58802a;
+    public ScrollView a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshScrollView(Context context, AttributeSet attributeSet) {
@@ -42,7 +40,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58802a.getScrollY() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getScrollY() == 0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -62,10 +60,10 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
             ScrollView scrollView = new ScrollView(context, attributeSet);
-            this.f58802a = scrollView;
+            this.a = scrollView;
             scrollView.setOverScrollMode(2);
-            this.f58802a.setVerticalScrollBarEnabled(false);
-            return this.f58802a;
+            this.a.setVerticalScrollBarEnabled(false);
+            return this.a;
         }
         return (ScrollView) invokeLL.objValue;
     }

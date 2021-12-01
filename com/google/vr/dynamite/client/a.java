@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,11 +40,11 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
         INativeLibraryLoader bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iObjectWrapper, iObjectWrapper2)) == null) {
-            Parcel a2 = a();
-            b.h.a.a.a.b(a2, iObjectWrapper);
-            b.h.a.a.a.b(a2, iObjectWrapper2);
-            Parcel a3 = a(1, a2);
-            IBinder readStrongBinder = a3.readStrongBinder();
+            Parcel a = a();
+            c.i.a.a.a.b(a, iObjectWrapper);
+            c.i.a.a.a.b(a, iObjectWrapper2);
+            Parcel a2 = a(1, a);
+            IBinder readStrongBinder = a2.readStrongBinder();
             if (readStrongBinder == null) {
                 bVar = null;
             } else {
@@ -55,7 +55,7 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
                     bVar = new b(readStrongBinder);
                 }
             }
-            a3.recycle();
+            a2.recycle();
             return bVar;
         }
         return (INativeLibraryLoader) invokeLL.objValue;

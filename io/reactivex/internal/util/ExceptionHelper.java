@@ -1,7 +1,6 @@
 package io.reactivex.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ExceptionHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final Throwable TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Termination extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4649703670690200604L;
@@ -137,7 +136,7 @@ public final class ExceptionHelper {
     public static <E extends Throwable> Exception throwIfThrowable(Throwable th) throws Throwable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, th)) == null) {
             if (th instanceof Exception) {
                 return (Exception) th;
             }
@@ -149,7 +148,7 @@ public final class ExceptionHelper {
     public static RuntimeException wrapOrThrow(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
             if (!(th instanceof Error)) {
                 if (th instanceof RuntimeException) {
                     return (RuntimeException) th;

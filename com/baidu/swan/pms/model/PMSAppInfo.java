@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.q.i.g;
-import b.a.p0.q.i.h;
+import c.a.p0.q.i.g;
+import c.a.p0.q.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PMSAppInfo> CREATOR;
@@ -70,7 +70,7 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,11 +171,11 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = gVar.f11774g;
-        this.versionCode = gVar.f11776i;
-        this.versionName = gVar.j;
+        this.appId = gVar.f10717g;
+        this.versionCode = gVar.f10719i;
+        this.versionName = gVar.f10720j;
         this.type = gVar.o;
-        this.pkgSize = gVar.k;
+        this.pkgSize = gVar.f10721k;
     }
 
     public void copySubPkgInfo(h hVar) {
@@ -184,19 +184,19 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = hVar.o;
-        this.versionCode = hVar.f11776i;
-        this.versionName = hVar.j;
+        this.versionCode = hVar.f10719i;
+        this.versionName = hVar.f10720j;
         this.type = hVar.q;
-        this.pkgSize = hVar.k;
+        this.pkgSize = hVar.f10721k;
     }
 
-    public void countLaunch(long j) {
+    public void countLaunch(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            if (0 >= j) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            if (0 >= j2) {
+                j2 = System.currentTimeMillis();
             }
-            updateLastLaunchTime(j);
+            updateLastLaunchTime(j2);
             this.launchCount++;
         }
     }
@@ -287,10 +287,10 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void updateLastLaunchTime(long j) {
+    public void updateLastLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.lastLaunchTime = Math.max(j2, this.lastLaunchTime);
         }
     }
 

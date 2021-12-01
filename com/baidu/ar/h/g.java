@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static UUID uuid;
@@ -41,7 +40,7 @@ public final class g {
                     if (string != null) {
                         uuid = UUID.fromString(string);
                     } else {
-                        String string2 = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                        String string2 = Settings.Secure.getString(context.getContentResolver(), "android_id");
                         try {
                             if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
                                 uuid = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));

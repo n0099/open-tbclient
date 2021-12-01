@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.http.HttpUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

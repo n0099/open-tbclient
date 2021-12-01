@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f38555a;
+    public final /* synthetic */ SafeKeyBoardEditText a;
 
     public c(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public class c implements View.OnLongClickListener {
                 return;
             }
         }
-        this.f38555a = safeKeyBoardEditText;
+        this.a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -38,9 +36,9 @@ public class c implements View.OnLongClickListener {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            z = this.f38555a.s;
+            z = this.a.s;
             if (z) {
-                this.f38555a.requestFocusFromTouch();
+                this.a.requestFocusFromTouch();
                 return true;
             }
             return false;

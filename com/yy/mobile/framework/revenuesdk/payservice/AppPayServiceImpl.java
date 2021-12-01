@@ -5,7 +5,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +79,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventTyp
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, IRevenueDataReceiver, IRevenueService.IRevenueServiceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -220,7 +219,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     /* JADX INFO: Access modifiers changed from: private */
     public void requestH5Pay(String str, ChargeCurrencyReqParams chargeCurrencyReqParams, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, str, chargeCurrencyReqParams, payCallBackBean) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, str, chargeCurrencyReqParams, payCallBackBean) == null) {
             H5PayParams h5PayParams = new H5PayParams();
             h5PayParams.orderId = str;
             h5PayParams.payBackBean = payCallBackBean;
@@ -288,11 +287,11 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.impl.IPayServiceCallback
-    public void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j) {
+    public void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j2) {
         IPayCallback iPayCallback;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{iResponse, chargeCurrencyReqParams, payOrderResult, iRequest, cReportResponse, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{iResponse, chargeCurrencyReqParams, payOrderResult, iRequest, cReportResponse, Long.valueOf(j2)}) == null) {
             if (iResponse.isSuccess() && chargeCurrencyReqParams != null && payOrderResult != null) {
                 RLog.info("AppPayServiceImpl", "payorder success! orderid=" + payOrderResult.getOrderId());
                 IEventReporter iEventReporter = this.mEventRepoter;
@@ -762,7 +761,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
 
     private void requestPay(String str, Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, PayType payType, String str2, String str3, boolean z, IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, activity, chargeCurrencyReqParams, payType, str2, str3, Boolean.valueOf(z), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{str, activity, chargeCurrencyReqParams, payType, str2, str3, Boolean.valueOf(z), iPayCallback}) == null) {
             RLog.info("AppPayServiceImpl", "payingaddpaymentrequest request sdk Pay orderId:" + str);
             PayMethodFactory.valueOf(payType).requestPay(activity, chargeCurrencyReqParams.getUid(), str2, str3, z, iPayCallback);
             IEventReporter iEventReporter = this.mEventRepoter;

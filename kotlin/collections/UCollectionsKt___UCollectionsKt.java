@@ -12,55 +12,56 @@ import kotlin.ULong;
 import kotlin.ULongArray;
 import kotlin.UShort;
 import kotlin.UShortArray;
+import kotlin.WasExperimental;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0010\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u001e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a\u001c\u0010\u0005\u001a\u00020\u0002*\b\u0012\u0004\u0012\u00020\u00010\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0003\u0010\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0002*\b\u0012\u0004\u0012\u00020\u00020\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0007*\b\u0012\u0004\u0012\u00020\u00070\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0005\u001a\u00020\u0002*\b\u0012\u0004\u0012\u00020\n0\u0000H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\u0004\u001a\u001c\u0010\u000e\u001a\u00020\r*\b\u0012\u0004\u0012\u00020\u00010\fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a\u001c\u0010\u0011\u001a\u00020\u0010*\b\u0012\u0004\u0012\u00020\u00020\fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0011\u0010\u0012\u001a\u001c\u0010\u0014\u001a\u00020\u0013*\b\u0012\u0004\u0012\u00020\u00070\fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0014\u0010\u0015\u001a\u001c\u0010\u0017\u001a\u00020\u0016*\b\u0012\u0004\u0012\u00020\n0\fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0019"}, d2 = {"", "Lkotlin/UByte;", "Lkotlin/UInt;", "sumOfUByte", "(Ljava/lang/Iterable;)I", "sum", "sumOfUInt", "Lkotlin/ULong;", "sumOfULong", "(Ljava/lang/Iterable;)J", "Lkotlin/UShort;", "sumOfUShort", "", "Lkotlin/UByteArray;", "toUByteArray", "(Ljava/util/Collection;)[B", "Lkotlin/UIntArray;", "toUIntArray", "(Ljava/util/Collection;)[I", "Lkotlin/ULongArray;", "toULongArray", "(Ljava/util/Collection;)[J", "Lkotlin/UShortArray;", "toUShortArray", "(Ljava/util/Collection;)[S", "kotlin-stdlib"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlin/collections/UCollectionsKt")
+@Metadata(d1 = {"\u0000F\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u001c\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u001e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0007*\b\u0012\u0004\u0012\u00020\u00070\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\n0\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\u0005\u001a\u001a\u0010\f\u001a\u00020\r*\b\u0012\u0004\u0012\u00020\u00030\u000eH\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u000f\u001a\u001a\u0010\u0010\u001a\u00020\u0011*\b\u0012\u0004\u0012\u00020\u00010\u000eH\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0012\u001a\u001a\u0010\u0013\u001a\u00020\u0014*\b\u0012\u0004\u0012\u00020\u00070\u000eH\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0015\u001a\u001a\u0010\u0016\u001a\u00020\u0017*\b\u0012\u0004\u0012\u00020\n0\u000eH\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0018\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0019"}, d2 = {"sum", "Lkotlin/UInt;", "", "Lkotlin/UByte;", "sumOfUByte", "(Ljava/lang/Iterable;)I", "sumOfUInt", "Lkotlin/ULong;", "sumOfULong", "(Ljava/lang/Iterable;)J", "Lkotlin/UShort;", "sumOfUShort", "toUByteArray", "Lkotlin/UByteArray;", "", "(Ljava/util/Collection;)[B", "toUIntArray", "Lkotlin/UIntArray;", "(Ljava/util/Collection;)[I", "toULongArray", "Lkotlin/ULongArray;", "(Ljava/util/Collection;)[J", "toUShortArray", "Lkotlin/UShortArray;", "(Ljava/util/Collection;)[S", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/collections/UCollectionsKt")
 /* loaded from: classes3.dex */
 public class UCollectionsKt___UCollectionsKt {
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @JvmName(name = "sumOfUByte")
     public static final int sumOfUByte(Iterable<UByte> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i2 = 0;
         for (UByte uByte : sum) {
-            i2 = UInt.m738constructorimpl(i2 + UInt.m738constructorimpl(uByte.m711unboximpl() & 255));
+            i2 = UInt.m796constructorimpl(i2 + UInt.m796constructorimpl(uByte.m769unboximpl() & 255));
         }
         return i2;
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @JvmName(name = "sumOfUInt")
     public static final int sumOfUInt(Iterable<UInt> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i2 = 0;
         for (UInt uInt : sum) {
-            i2 = UInt.m738constructorimpl(i2 + uInt.m781unboximpl());
+            i2 = UInt.m796constructorimpl(i2 + uInt.m847unboximpl());
         }
         return i2;
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @JvmName(name = "sumOfULong")
     public static final long sumOfULong(Iterable<ULong> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
-        long j = 0;
+        long j2 = 0;
         for (ULong uLong : sum) {
-            j = ULong.m808constructorimpl(j + uLong.m851unboximpl());
+            j2 = ULong.m874constructorimpl(j2 + uLong.m925unboximpl());
         }
-        return j;
+        return j2;
     }
 
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
+    @SinceKotlin(version = "1.5")
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @JvmName(name = "sumOfUShort")
     public static final int sumOfUShort(Iterable<UShort> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i2 = 0;
         for (UShort uShort : sum) {
-            i2 = UInt.m738constructorimpl(i2 + UInt.m738constructorimpl(uShort.m947unboximpl() & UShort.MAX_VALUE));
+            i2 = UInt.m796constructorimpl(i2 + UInt.m796constructorimpl(uShort.m1029unboximpl() & UShort.MAX_VALUE));
         }
         return i2;
     }
@@ -69,51 +70,51 @@ public class UCollectionsKt___UCollectionsKt {
     @ExperimentalUnsignedTypes
     public static final byte[] toUByteArray(Collection<UByte> toUByteArray) {
         Intrinsics.checkNotNullParameter(toUByteArray, "$this$toUByteArray");
-        byte[] m713constructorimpl = UByteArray.m713constructorimpl(toUByteArray.size());
+        byte[] m771constructorimpl = UByteArray.m771constructorimpl(toUByteArray.size());
         int i2 = 0;
         for (UByte uByte : toUByteArray) {
-            UByteArray.m724setVurrAj0(m713constructorimpl, i2, uByte.m711unboximpl());
+            UByteArray.m782setVurrAj0(m771constructorimpl, i2, uByte.m769unboximpl());
             i2++;
         }
-        return m713constructorimpl;
+        return m771constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final int[] toUIntArray(Collection<UInt> toUIntArray) {
         Intrinsics.checkNotNullParameter(toUIntArray, "$this$toUIntArray");
-        int[] m783constructorimpl = UIntArray.m783constructorimpl(toUIntArray.size());
+        int[] m849constructorimpl = UIntArray.m849constructorimpl(toUIntArray.size());
         int i2 = 0;
         for (UInt uInt : toUIntArray) {
-            UIntArray.m794setVXSXFK8(m783constructorimpl, i2, uInt.m781unboximpl());
+            UIntArray.m860setVXSXFK8(m849constructorimpl, i2, uInt.m847unboximpl());
             i2++;
         }
-        return m783constructorimpl;
+        return m849constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final long[] toULongArray(Collection<ULong> toULongArray) {
         Intrinsics.checkNotNullParameter(toULongArray, "$this$toULongArray");
-        long[] m853constructorimpl = ULongArray.m853constructorimpl(toULongArray.size());
+        long[] m927constructorimpl = ULongArray.m927constructorimpl(toULongArray.size());
         int i2 = 0;
         for (ULong uLong : toULongArray) {
-            ULongArray.m864setk8EXiF4(m853constructorimpl, i2, uLong.m851unboximpl());
+            ULongArray.m938setk8EXiF4(m927constructorimpl, i2, uLong.m925unboximpl());
             i2++;
         }
-        return m853constructorimpl;
+        return m927constructorimpl;
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     public static final short[] toUShortArray(Collection<UShort> toUShortArray) {
         Intrinsics.checkNotNullParameter(toUShortArray, "$this$toUShortArray");
-        short[] m949constructorimpl = UShortArray.m949constructorimpl(toUShortArray.size());
+        short[] m1031constructorimpl = UShortArray.m1031constructorimpl(toUShortArray.size());
         int i2 = 0;
         for (UShort uShort : toUShortArray) {
-            UShortArray.m960set01HTLdE(m949constructorimpl, i2, uShort.m947unboximpl());
+            UShortArray.m1042set01HTLdE(m1031constructorimpl, i2, uShort.m1029unboximpl());
             i2++;
         }
-        return m949constructorimpl;
+        return m1031constructorimpl;
     }
 }

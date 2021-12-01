@@ -16,15 +16,13 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f69111a = false;
+    public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f69112b = "";
+    public static String f60979b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f69113c = "";
+    public static String f60980c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +67,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             SInfo sInfo = new SInfo();
             sInfo.setN(BaseConfig.n);
-            sInfo.setC(BaseConfig.f69182c);
+            sInfo.setC(BaseConfig.f61024c);
             sInfo.setV(BaseConfig.v);
             sInfo.setCm(BaseConfig.cm);
             return sInfo;

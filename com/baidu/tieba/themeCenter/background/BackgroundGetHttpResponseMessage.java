@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetBackground.GetBackgroundResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BackgroundGetHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class BackgroundGetHttpResponseMessage extends TbHttpResponsedMessage {
             this.mBgItem.setPropsStateImg(getBackgroundResIdl.data.props_state_img);
             this.mBgItem.setActivityFinish(getBackgroundResIdl.data.is_finished.intValue());
             this.mBgItem.setActivityUrl(getBackgroundResIdl.data.activity_url);
-            this.mBgItem.setDailyPrevilegeStatus(getBackgroundResIdl.data.daily_previlege_status.intValue());
+            this.mBgItem.setDailyPrevilegeStatus(getBackgroundResIdl.data.daily_privilege_status.intValue());
         }
     }
 }

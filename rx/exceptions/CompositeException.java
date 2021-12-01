@@ -2,7 +2,6 @@ package rx.exceptions;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -84,9 +83,7 @@ public final class CompositeException extends RuntimeException {
     public static final class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f73505a;
+        public final PrintStream a;
 
         public b(PrintStream printStream) {
             Interceptable interceptable = $ic;
@@ -103,21 +100,21 @@ public final class CompositeException extends RuntimeException {
                     return;
                 }
             }
-            this.f73505a = printStream;
+            this.a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73505a : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f73505a.println(obj);
+                this.a.println(obj);
             }
         }
     }
@@ -126,9 +123,7 @@ public final class CompositeException extends RuntimeException {
     public static final class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f73506a;
+        public final PrintWriter a;
 
         public c(PrintWriter printWriter) {
             Interceptable interceptable = $ic;
@@ -145,21 +140,21 @@ public final class CompositeException extends RuntimeException {
                     return;
                 }
             }
-            this.f73506a = printWriter;
+            this.a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73506a : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f73506a.println(obj);
+                this.a.println(obj);
             }
         }
     }
@@ -243,7 +238,7 @@ public final class CompositeException extends RuntimeException {
     private Throwable getRootCause(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, th)) == null) {
             Throwable cause = th.getCause();
             if (cause == null || cause == th) {
                 return th;
@@ -339,7 +334,7 @@ public final class CompositeException extends RuntimeException {
     private void printStackTrace(a aVar) {
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
             StringBuilder sb = new StringBuilder(128);
             sb.append(this);
             sb.append('\n');

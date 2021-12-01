@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,21 +23,19 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f37004a;
+    public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f37005b;
+    public static final Pattern f33152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37006c = 2;
+    public static final int f33153c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37007d = 7;
+    public static final int f33154d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,8 +51,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f37004a = new a();
-        f37005b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        a = new a();
+        f33152b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -75,7 +72,7 @@ public final class a implements HostnameVerifier {
     private boolean b(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, x509Certificate)) == null) {
             List<String> a2 = a(x509Certificate, 7);
             int size = a2.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -134,7 +131,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f37005b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f33152b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {
@@ -179,7 +176,7 @@ public final class a implements HostnameVerifier {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
                     str = str + '.';

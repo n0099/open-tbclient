@@ -19,8 +19,6 @@ import com.alibaba.fastjson.util.TypeUtils;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -51,7 +48,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JSONPath implements JSONAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LENGTH = -1580386065683472715L;
@@ -65,7 +62,7 @@ public class JSONPath implements JSONAware {
     public SerializeConfig serializeConfig;
 
     /* renamed from: com.alibaba.fastjson.JSONPath$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$JSONPath$Operator;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +110,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ArrayAccessSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +162,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +190,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class DoubleOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,12 +251,12 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface Filter {
         boolean apply(JSONPath jSONPath, Object obj, Object obj2, Object obj3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class FilterGroup implements Filter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,7 +309,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class FilterSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -389,7 +386,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class FloorSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final FloorSegment instance;
@@ -479,7 +476,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class IntBetweenSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -488,13 +485,13 @@ public class JSONPath implements JSONAware {
         public final long startValue;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IntBetweenSegement(String str, boolean z, long j, long j2, boolean z2) {
+        public IntBetweenSegement(String str, boolean z, long j2, long j3, boolean z2) {
             super(str, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z2)};
+                Object[] objArr = {str, Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -506,8 +503,8 @@ public class JSONPath implements JSONAware {
                     return;
                 }
             }
-            this.startValue = j;
-            this.endValue = j2;
+            this.startValue = j2;
+            this.endValue = j3;
             this.not = z2;
         }
 
@@ -532,7 +529,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class IntInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -573,8 +570,8 @@ public class JSONPath implements JSONAware {
                 }
                 if (obj4 instanceof Number) {
                     long longExtractValue = TypeUtils.longExtractValue((Number) obj4);
-                    for (long j : this.values) {
-                        if (j == longExtractValue) {
+                    for (long j2 : this.values) {
+                        if (j2 == longExtractValue) {
                             return !this.not;
                         }
                     }
@@ -585,7 +582,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class IntObjInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -651,7 +648,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class IntOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -662,13 +659,13 @@ public class JSONPath implements JSONAware {
         public Float valueFloat;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IntOpSegement(String str, boolean z, long j, Operator operator) {
+        public IntOpSegement(String str, boolean z, long j2, Operator operator) {
             super(str, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Long.valueOf(j), operator};
+                Object[] objArr = {str, Boolean.valueOf(z), Long.valueOf(j2), operator};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -680,7 +677,7 @@ public class JSONPath implements JSONAware {
                     return;
                 }
             }
-            this.value = j;
+            this.value = j2;
             this.op = operator;
         }
 
@@ -780,7 +777,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class JSONPathParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Pattern strArrayPatternx;
@@ -1667,10 +1664,10 @@ public class JSONPath implements JSONAware {
             }
         }
 
-        public double readDoubleValue(long j) {
+        public double readDoubleValue(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
                 int i2 = this.pos - 1;
                 next();
                 while (true) {
@@ -1680,7 +1677,7 @@ public class JSONPath implements JSONAware {
                     }
                     next();
                 }
-                return Double.parseDouble(this.path.substring(i2, this.pos - 1)) + j;
+                return Double.parseDouble(this.path.substring(i2, this.pos - 1)) + j2;
             }
             return invokeJ.doubleValue;
         }
@@ -1760,7 +1757,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f34958h);
+                    accept(a.f31351h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();
@@ -1884,7 +1881,7 @@ public class JSONPath implements JSONAware {
                                     if (!isEOF()) {
                                         next();
                                     }
-                                    if (!"size".equals(readName) && !CloudStabilityUBCUtils.KEY_LENGTH.equals(readName)) {
+                                    if (!"size".equals(readName) && !"length".equals(readName)) {
                                         if ("max".equals(readName)) {
                                             return MaxSegment.instance;
                                         }
@@ -1978,7 +1975,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class KeySetSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final KeySetSegment instance;
@@ -2030,7 +2027,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MatchSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2115,7 +2112,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MaxSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final MaxSegment instance;
@@ -2179,7 +2176,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MinSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final MinSegment instance;
@@ -2243,7 +2240,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MultiIndexSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2314,7 +2311,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class MultiPropertySegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2409,7 +2406,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NotNullSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2443,7 +2440,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class NullSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2478,7 +2475,7 @@ public class JSONPath implements JSONAware {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Operator {
         public static final /* synthetic */ Operator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -2567,7 +2564,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class PropertyFilter implements Filter {
         public static /* synthetic */ Interceptable $ic;
         public static long TYPE;
@@ -2637,7 +2634,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class PropertySegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2851,7 +2848,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class RangeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2916,7 +2913,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class RefOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3002,7 +2999,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class RegMatchSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3047,7 +3044,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class RlikeSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3093,14 +3090,14 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface Segment {
         Object eval(JSONPath jSONPath, Object obj, Object obj2);
 
         void extract(JSONPath jSONPath, DefaultJSONParser defaultJSONParser, Context context);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SizeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final SizeSegment instance;
@@ -3153,7 +3150,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class StringInSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3204,7 +3201,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class StringOpSegement extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3258,7 +3255,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class TypeSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final TypeSegment instance;
@@ -3307,11 +3304,11 @@ public class JSONPath implements JSONAware {
         public String eval(JSONPath jSONPath, Object obj, Object obj2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONPath, obj, obj2)) == null) ? obj2 == null ? StringUtil.NULL_STRING : obj2 instanceof Collection ? "array" : obj2 instanceof Number ? IdCardActivity.KEY_NUMBER : obj2 instanceof Boolean ? "boolean" : ((obj2 instanceof String) || (obj2 instanceof UUID) || (obj2 instanceof Enum)) ? "string" : "object" : (String) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONPath, obj, obj2)) == null) ? obj2 == null ? StringUtil.NULL_STRING : obj2 instanceof Collection ? "array" : obj2 instanceof Number ? "number" : obj2 instanceof Boolean ? "boolean" : ((obj2 instanceof String) || (obj2 instanceof UUID) || (obj2 instanceof Enum)) ? "string" : "object" : (String) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ValueSegment extends PropertyFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3358,7 +3355,7 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class WildCardSegment implements Segment {
         public static /* synthetic */ Interceptable $ic;
         public static final WildCardSegment instance;
@@ -3568,7 +3565,7 @@ public class JSONPath implements JSONAware {
     public static JSONPath compile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (str != null) {
                 JSONPath jSONPath = pathCache.get(str);
                 if (jSONPath == null) {
@@ -3899,9 +3896,9 @@ public class JSONPath implements JSONAware {
         }
     }
 
-    public void deepSet(Object obj, String str, long j, Object obj2) {
+    public void deepSet(Object obj, String str, long j2, Object obj2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, str, Long.valueOf(j), obj2}) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, str, Long.valueOf(j2), obj2}) == null) || obj == null) {
             return;
         }
         if (obj instanceof Map) {
@@ -3912,7 +3909,7 @@ public class JSONPath implements JSONAware {
                 return;
             }
             for (Object obj3 : map.values()) {
-                deepSet(obj3, str, j, obj2);
+                deepSet(obj3, str, j2, obj2);
             }
             return;
         }
@@ -3926,7 +3923,7 @@ public class JSONPath implements JSONAware {
                     return;
                 }
                 for (Object obj4 : getJavaBeanSerializer(cls).getObjectFieldValues(obj)) {
-                    deepSet(obj4, str, j, obj2);
+                    deepSet(obj4, str, j2, obj2);
                 }
             } catch (Exception e2) {
                 throw new JSONPathException("jsonpath error, path " + this.path + ", segement " + str, e2);
@@ -3934,7 +3931,7 @@ public class JSONPath implements JSONAware {
         } else if (obj instanceof List) {
             List list = (List) obj;
             for (int i2 = 0; i2 < list.size(); i2++) {
-                deepSet(list.get(i2), str, j, obj2);
+                deepSet(list.get(i2), str, j2, obj2);
             }
         }
     }
@@ -4162,10 +4159,10 @@ public class JSONPath implements JSONAware {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.path : (String) invokeV.objValue;
     }
 
-    public Object getPropertyValue(Object obj, String str, long j) {
+    public Object getPropertyValue(Object obj, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{obj, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{obj, str, Long.valueOf(j2)})) == null) {
             JSONArray jSONArray = null;
             if (obj == null) {
                 return null;
@@ -4180,12 +4177,12 @@ public class JSONPath implements JSONAware {
             if (obj2 instanceof Map) {
                 Map map = (Map) obj2;
                 Object obj3 = map.get(str);
-                return obj3 == null ? (SIZE == j || LENGTH == j) ? Integer.valueOf(map.size()) : obj3 : obj3;
+                return obj3 == null ? (SIZE == j2 || LENGTH == j2) ? Integer.valueOf(map.size()) : obj3 : obj3;
             }
             JavaBeanSerializer javaBeanSerializer = getJavaBeanSerializer(obj2.getClass());
             if (javaBeanSerializer != null) {
                 try {
-                    return javaBeanSerializer.getFieldValue(obj2, str, j, false);
+                    return javaBeanSerializer.getFieldValue(obj2, str, j2, false);
                 } catch (Exception e2) {
                     throw new JSONPathException("jsonpath error, path " + this.path + ", segement " + str, e2);
                 }
@@ -4193,7 +4190,7 @@ public class JSONPath implements JSONAware {
             int i2 = 0;
             if (obj2 instanceof List) {
                 List list = (List) obj2;
-                if (SIZE != j && LENGTH != j) {
+                if (SIZE != j2 && LENGTH != j2) {
                     while (i2 < list.size()) {
                         Object obj4 = list.get(i2);
                         if (obj4 == list) {
@@ -4202,7 +4199,7 @@ public class JSONPath implements JSONAware {
                             }
                             jSONArray.add(obj4);
                         } else {
-                            Object propertyValue = getPropertyValue(obj4, str, j);
+                            Object propertyValue = getPropertyValue(obj4, str, j2);
                             if (propertyValue instanceof Collection) {
                                 Collection collection = (Collection) propertyValue;
                                 if (jSONArray == null) {
@@ -4223,14 +4220,14 @@ public class JSONPath implements JSONAware {
                 return Integer.valueOf(list.size());
             } else if (obj2 instanceof Object[]) {
                 Object[] objArr = (Object[]) obj2;
-                if (SIZE != j && LENGTH != j) {
+                if (SIZE != j2 && LENGTH != j2) {
                     JSONArray jSONArray2 = new JSONArray(objArr.length);
                     while (i2 < objArr.length) {
                         Object obj5 = objArr[i2];
                         if (obj5 == objArr) {
                             jSONArray2.add(obj5);
                         } else {
-                            Object propertyValue2 = getPropertyValue(obj5, str, j);
+                            Object propertyValue2 = getPropertyValue(obj5, str, j2);
                             if (propertyValue2 instanceof Collection) {
                                 jSONArray2.addAll((Collection) propertyValue2);
                             } else if (propertyValue2 != null) {
@@ -4245,31 +4242,31 @@ public class JSONPath implements JSONAware {
             } else {
                 if (obj2 instanceof Enum) {
                     Enum r8 = (Enum) obj2;
-                    if (-4270347329889690746L == j) {
+                    if (-4270347329889690746L == j2) {
                         return r8.name();
                     }
-                    if (-1014497654951707614L == j) {
+                    if (-1014497654951707614L == j2) {
                         return Integer.valueOf(r8.ordinal());
                     }
                 }
                 if (obj2 instanceof Calendar) {
                     Calendar calendar = (Calendar) obj2;
-                    if (8963398325558730460L == j) {
+                    if (8963398325558730460L == j2) {
                         return Integer.valueOf(calendar.get(1));
                     }
-                    if (-811277319855450459L == j) {
+                    if (-811277319855450459L == j2) {
                         return Integer.valueOf(calendar.get(2));
                     }
-                    if (-3851359326990528739L == j) {
+                    if (-3851359326990528739L == j2) {
                         return Integer.valueOf(calendar.get(5));
                     }
-                    if (4647432019745535567L == j) {
+                    if (4647432019745535567L == j2) {
                         return Integer.valueOf(calendar.get(11));
                     }
-                    if (6607618197526598121L == j) {
+                    if (6607618197526598121L == j2) {
                         return Integer.valueOf(calendar.get(12));
                     }
-                    if (-6586085717218287427L == j) {
+                    if (-6586085717218287427L == j2) {
                         return Integer.valueOf(calendar.get(13));
                     }
                 }
@@ -4602,17 +4599,17 @@ public class JSONPath implements JSONAware {
         return invokeLLIL.booleanValue;
     }
 
-    public boolean setPropertyValue(Object obj, String str, long j, Object obj2) {
+    public boolean setPropertyValue(Object obj, String str, long j2, Object obj2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{obj, str, Long.valueOf(j), obj2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{obj, str, Long.valueOf(j2), obj2})) == null) {
             if (obj instanceof Map) {
                 ((Map) obj).put(str, obj2);
                 return true;
             } else if (obj instanceof List) {
                 for (Object obj3 : (List) obj) {
                     if (obj3 != null) {
-                        setPropertyValue(obj3, str, j, obj2);
+                        setPropertyValue(obj3, str, j2, obj2);
                     }
                 }
                 return true;
@@ -4620,7 +4617,7 @@ public class JSONPath implements JSONAware {
                 ObjectDeserializer deserializer = this.parserConfig.getDeserializer(obj.getClass());
                 JavaBeanDeserializer javaBeanDeserializer = deserializer instanceof JavaBeanDeserializer ? (JavaBeanDeserializer) deserializer : null;
                 if (javaBeanDeserializer != null) {
-                    FieldDeserializer fieldDeserializer = javaBeanDeserializer.getFieldDeserializer(j);
+                    FieldDeserializer fieldDeserializer = javaBeanDeserializer.getFieldDeserializer(j2);
                     if (fieldDeserializer == null) {
                         return false;
                     }
@@ -4911,7 +4908,7 @@ public class JSONPath implements JSONAware {
     public static boolean contains(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
             if (obj == null) {
                 return false;
             }

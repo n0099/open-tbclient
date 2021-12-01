@@ -19,8 +19,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e0.g;
-import b.a.e0.h;
+import c.a.f0.g;
+import c.a.f0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PayWebActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCH_PAYMENT_DATA = "launch_payment_data";
@@ -46,13 +46,13 @@ public class PayWebActivity extends Activity {
     public Bundle mBundle;
     public WebView webView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f42987e;
+        public final /* synthetic */ PayWebActivity f38432e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f42987e = payWebActivity;
+            this.f38432e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42987e.setResult(0);
-                this.f42987e.finish();
+                this.f38432e.setResult(0);
+                this.f38432e.finish();
             }
         }
     }
@@ -105,7 +105,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith(URL_CLOSE_WINDOW)) {
-                b.a.e0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
+                c.a.f0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.e0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
+            c.a.f0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -206,13 +206,11 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f42988a;
+        public final /* synthetic */ PayWebActivity a;
 
         public b(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -229,7 +227,7 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f42988a = payWebActivity;
+            this.a = payWebActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -270,7 +268,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                return this.f42988a.handleRedirectUrl(str);
+                return this.a.handleRedirectUrl(str);
             }
             return invokeLL.booleanValue;
         }
@@ -287,7 +285,7 @@ public class PayWebActivity extends Activity {
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
-                    return this.f42988a.handleRedirectUrl(uri);
+                    return this.a.handleRedirectUrl(uri);
                 }
                 return true;
             }

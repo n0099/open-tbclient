@@ -1,8 +1,6 @@
 package com.baidu.rtc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SdpPrefer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_CODEC_PARAM_BITRATE = "maxaveragebitrate";
@@ -22,7 +20,7 @@ public class SdpPrefer {
     public static final String TAG = "SdpPrefer";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +98,7 @@ public class SdpPrefer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] split = str.split(Part.CRLF);
+            String[] split = str.split("\r\n");
             for (int i2 = 0; i2 < split.length; i2++) {
                 if (split[i2].contains("a=candidate:")) {
                     String handleCandidate = handleCandidate(split[i2]);
@@ -118,7 +116,7 @@ public class SdpPrefer {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, audioSdpAttribute)) == null) {
-            String[] split = str2.split(Part.CRLF);
+            String[] split = str2.split("\r\n");
             Pattern compile = Pattern.compile("^a=rtpmap:(\\d+) " + str + "(/\\d+)+[\r]?$");
             int i2 = 0;
             while (true) {
@@ -158,7 +156,7 @@ public class SdpPrefer {
             StringBuilder sb = new StringBuilder();
             for (int i4 = 0; i4 < split.length; i4++) {
                 sb.append(split[i4]);
-                sb.append(Part.CRLF);
+                sb.append("\r\n");
                 if (!z && i4 == i2) {
                     String audioFmptParam = setAudioFmptParam("a=fmtp:" + str3 + " ", audioSdpAttribute, true);
                     StringBuilder sb2 = new StringBuilder();
@@ -166,7 +164,7 @@ public class SdpPrefer {
                     sb2.append(audioFmptParam);
                     sb2.toString();
                     sb.append(audioFmptParam);
-                    sb.append(Part.CRLF);
+                    sb.append("\r\n");
                 }
             }
             return sb.toString();
@@ -178,7 +176,7 @@ public class SdpPrefer {
         InterceptResult invokeLLZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, str, audioSdpAttribute, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, audioSdpAttribute, z)) == null) {
             boolean z3 = false;
             String str2 = "";
             if (audioSdpAttribute.maxplaybackrate > 0) {

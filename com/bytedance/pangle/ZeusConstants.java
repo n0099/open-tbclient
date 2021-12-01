@@ -8,17 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZeusConstants {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static String BASE_LIB_NAME = "pangle";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f62127a;
+    public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62128b;
+    public static final String f54452b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +32,8 @@ public class ZeusConstants {
                 return;
             }
         }
-        f62127a = "." + BASE_LIB_NAME + ".servermanager.";
-        f62128b = "." + BASE_LIB_NAME + ".provider.proxy.";
+        a = "." + BASE_LIB_NAME + ".servermanager.";
+        f54452b = "." + BASE_LIB_NAME + ".provider.proxy.";
     }
 
     public ZeusConstants() {

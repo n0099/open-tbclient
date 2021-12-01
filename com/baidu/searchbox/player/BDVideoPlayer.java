@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager;
@@ -41,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
@@ -66,7 +65,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoSession mVideoSession;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +143,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void createEnv(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             this.mContainerLayoutParams = new ViewGroup.LayoutParams(-1, -1);
             this.mVideoTask = new VideoTask();
             this.mPluginManager = new PluginManager(this);
@@ -1237,7 +1236,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void bindSession(@NonNull VideoSession videoSession) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, videoSession) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, videoSession) == null) {
             this.mVideoSession = videoSession;
             videoSession.bind(this);
         }

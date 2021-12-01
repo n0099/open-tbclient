@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IntentUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -116,7 +115,7 @@ public class IntentUtils {
     public static boolean safeGetBooleanExtra(Intent intent, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, intent, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, intent, str, z)) == null) {
             try {
                 return intent.getBooleanExtra(str, z);
             } catch (Throwable unused) {
@@ -132,7 +131,7 @@ public class IntentUtils {
     public static Bundle safeGetBundle(Bundle bundle, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bundle, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bundle, str)) == null) {
             try {
                 return bundle.getBundle(str);
             } catch (Throwable unused) {
@@ -196,17 +195,17 @@ public class IntentUtils {
         return invokeLLI.intValue;
     }
 
-    public static long safeGetLongExtra(Intent intent, String str, long j) {
+    public static long safeGetLongExtra(Intent intent, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j2)})) == null) {
             try {
-                return intent.getLongExtra(str, j);
+                return intent.getLongExtra(str, j2);
             } catch (Throwable unused) {
                 if (DEBUG) {
                     String str2 = "getLongExtra failed on intent " + intent;
                 }
-                return j;
+                return j2;
             }
         }
         return invokeCommon.longValue;

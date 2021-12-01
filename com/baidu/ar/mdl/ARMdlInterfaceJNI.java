@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARMdlInterfaceJNI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,21 +88,21 @@ public class ARMdlInterfaceJNI {
 
     public static native int predictGesture(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
 
-    public static native int predictHairSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j);
+    public static native int predictHairSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j2);
 
     public static native float[] predictHandSkeleton(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z);
 
-    public static native int predictHandSkeletonByHandle(long j, int i2);
+    public static native int predictHandSkeletonByHandle(long j2, int i2);
 
-    public static native int predictHeadSeg(long j, boolean z);
+    public static native int predictHeadSeg(long j2, boolean z);
 
-    public static native int predictHumanSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, byte[] bArr, int[] iArr, long j);
+    public static native int predictHumanSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, byte[] bArr, int[] iArr, long j2);
 
     public static native int predictObjDetect(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
 
     public static native int predictPose(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
 
-    public static native int predictSkySeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j);
+    public static native int predictSkySeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j2);
 
     public static native int predictStyleConversation(ByteBuffer byteBuffer, int i2, int i3, byte[] bArr);
 
@@ -130,5 +130,5 @@ public class ARMdlInterfaceJNI {
 
     public static native int setCacheDir(String str);
 
-    public static native int updateLastFaceInfo(long j);
+    public static native int updateLastFaceInfo(long j2);
 }

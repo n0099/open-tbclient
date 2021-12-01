@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +85,7 @@ public class ResourceUtil {
         InterceptResult invokeLL;
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }
@@ -99,7 +98,7 @@ public class ResourceUtil {
         InterceptResult invokeLL;
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }

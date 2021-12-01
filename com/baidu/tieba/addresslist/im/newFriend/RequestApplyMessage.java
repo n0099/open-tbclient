@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ReplyFriend.ReplyFriendReqIdl;
 import tbclient.ReplyFriend.ReqData;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RequestApplyMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,10 +68,10 @@ public class RequestApplyMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.uid : invokeV.longValue;
     }
 
-    public void setFriendId(long j) {
+    public void setFriendId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.friendId = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.friendId = j2;
         }
     }
 
@@ -82,10 +82,10 @@ public class RequestApplyMessage extends TbSocketMessage {
         }
     }
 
-    public void setUid(long j) {
+    public void setUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.uid = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.uid = j2;
         }
     }
 }

@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.InputType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class e extends com.baidu.platform.base.d {
                 if (optJSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     poiInfo.setAddress(optJSONObject.optString(DuPaBInfoMsg.B_ADDR));
-                    poiInfo.setPhoneNum(optJSONObject.optString("tel"));
+                    poiInfo.setPhoneNum(optJSONObject.optString(InputType.TEL));
                     poiInfo.setUid(optJSONObject.optString("uid"));
                     poiInfo.setPostCode(optJSONObject.optString("zip"));
                     poiInfo.setName(optJSONObject.optString("name"));
@@ -156,19 +156,19 @@ public class e extends com.baidu.platform.base.d {
         JSONObject optJSONObject;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, reverseGeoCodeResult)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, reverseGeoCodeResult)) == null) {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null) {
                 return false;
             }
             reverseGeoCodeResult.setCityCode(optJSONObject.optInt("cityCode"));
             reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
             reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString(Constant.KEY_BUSINESS));
-            ReverseGeoCodeResult.AddressComponent a2 = a(optJSONObject, "addressComponent");
-            reverseGeoCodeResult.setAddressDetail(a2);
+            ReverseGeoCodeResult.AddressComponent a = a(optJSONObject, "addressComponent");
+            reverseGeoCodeResult.setAddressDetail(a);
             reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));
-            if (a2 != null) {
-                str = a2.city;
-                reverseGeoCodeResult.setAdcode(a2.adcode);
+            if (a != null) {
+                str = a.city;
+                reverseGeoCodeResult.setAdcode(a.adcode);
             } else {
                 str = "";
             }
@@ -185,7 +185,7 @@ public class e extends com.baidu.platform.base.d {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, jSONObject, str)) == null) {
             if (jSONObject == null || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
                 return null;
             }

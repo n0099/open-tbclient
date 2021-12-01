@@ -2,7 +2,6 @@ package io.flutter;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic = null;
+    public static int ASSERT = 7;
+    public static int DEBUG = 3;
+    public static int ERROR = 6;
+    public static int INFO = 4;
+    public static int VERBOSE = 2;
+    public static int WARN = 5;
     public static int logLevel = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,13 +70,13 @@ public class Log {
 
     public static void e(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
         }
     }
 
     public static void i(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
         }
     }
 
@@ -81,47 +86,53 @@ public class Log {
         }
     }
 
+    public static void println(@NonNull int i2, @NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65544, null, i2, str, str2) == null) {
+        }
+    }
+
     public static void setLogLevel(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65545, null, i2) == null) {
             logLevel = i2;
         }
     }
 
     public static void v(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
         }
     }
 
     public static void v(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) {
         }
     }
 
     public static void w(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) {
         }
     }
 
     public static void w(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65549, null, str, str2, th) == null) {
         }
     }
 
     public static void wtf(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             android.util.Log.wtf(str, str2);
         }
     }
 
     public static void wtf(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) {
             android.util.Log.wtf(str, str2, th);
         }
     }

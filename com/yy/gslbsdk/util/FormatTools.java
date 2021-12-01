@@ -2,7 +2,6 @@ package com.yy.gslbsdk.util;
 
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";
@@ -104,12 +103,12 @@ public class FormatTools {
         return invokeLL.intValue;
     }
 
-    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j) {
+    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j2)) == null) {
             try {
-                return simpleDateFormat.format(new Date(j));
+                return simpleDateFormat.format(new Date(j2));
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);
                 return null;
@@ -121,7 +120,7 @@ public class FormatTools {
     public static long getDateTimestamp(SimpleDateFormat simpleDateFormat, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, simpleDateFormat, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, simpleDateFormat, str)) == null) {
             try {
                 if (str == null) {
                     return new Date().getTime();
@@ -138,7 +137,7 @@ public class FormatTools {
     public static String getDayBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, simpleDateFormat, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, simpleDateFormat, str, i2)) == null) {
             try {
                 Calendar calendar = Calendar.getInstance();
                 if (str == null) {

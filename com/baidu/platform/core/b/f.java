@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,17 +41,17 @@ public class f extends com.baidu.platform.base.e {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     latLng = CoordTrans.gcjToBaidu(latLng);
                 }
-                com.baidu.platform.util.a aVar = this.f42889a;
+                com.baidu.platform.util.a aVar = this.a;
                 aVar.a("location", latLng.latitude + "," + latLng.longitude);
             }
-            this.f42889a.a("coordtype", "bd09ll");
-            this.f42889a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
-            this.f42889a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
-            this.f42889a.a("pois", "1");
-            this.f42889a.a("output", "jsonaes");
-            this.f42889a.a("from", "android_map_sdk");
-            this.f42889a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
-            this.f42889a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
+            this.a.a("coordtype", "bd09ll");
+            this.a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+            this.a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
+            this.a.a("pois", "1");
+            this.a.a("output", "jsonaes");
+            this.a.a("from", "android_map_sdk");
+            this.a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+            this.a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
         }
     }
 

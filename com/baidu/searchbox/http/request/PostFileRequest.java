@@ -13,7 +13,7 @@ import java.io.File;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_STREAM;
@@ -21,7 +21,7 @@ public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     public File file;
     public MediaType mediaType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

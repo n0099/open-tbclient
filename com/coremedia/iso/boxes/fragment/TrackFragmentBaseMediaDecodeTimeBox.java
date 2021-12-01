@@ -17,7 +17,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tfdt";
@@ -114,11 +114,11 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setBaseMediaDecodeTime(long j) {
+    public void setBaseMediaDecodeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
-            this.baseMediaDecodeTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
+            this.baseMediaDecodeTime = j2;
         }
     }
 

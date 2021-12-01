@@ -3,7 +3,6 @@ package com.baidu.android.bbalbs.common.util;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f35621b = null;
+    public static b f32052b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35622c = "";
+    public static String f32053c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f35623d = "";
+    public static volatile String f32054d = "";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Context f35624a;
+    public final Context a;
 
     static {
         InterceptResult invokeClinit;
@@ -58,17 +55,17 @@ public final class c {
                 return;
             }
         }
-        this.f35624a = context.getApplicationContext();
+        this.a = context.getApplicationContext();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f35622c)) {
-                f35622c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f32053c)) {
+                f32053c = "0newiqr3mini0";
             }
-            return f35622c;
+            return f32053c;
         }
         return (String) invokeV.objValue;
     }
@@ -86,8 +83,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f35623d)) {
-                    f35623d = str;
+                if (TextUtils.isEmpty(f32054d)) {
+                    f32054d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -95,7 +92,7 @@ public final class c {
                     for (int i2 = 0; i2 < length; i2++) {
                         stringBuffer.append("0");
                     }
-                    f35622c = stringBuffer.toString().trim();
+                    f32053c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -104,22 +101,22 @@ public final class c {
     private b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            b b2 = b.b(this.f35624a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            b b2 = b.b(this.a);
             boolean z = b2 == null;
             if (b2 == null) {
-                a b3 = a.b(this.f35624a);
+                a b3 = a.b(this.a);
                 if (b3 == null) {
-                    b2 = b.a(this.f35624a, a());
+                    b2 = b.a(this.a, a());
                 } else {
                     b3.c();
                     b2 = b.a(b3);
                 }
             }
             if (z) {
-                b2.a(this.f35624a);
+                b2.a(this.a);
             }
-            a.a(this.f35624a);
+            a.a(this.a);
             return b2;
         }
         return (b) invokeV.objValue;
@@ -128,15 +125,15 @@ public final class c {
     public static b b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f35621b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (f32052b == null) {
                 synchronized (b.class) {
-                    if (f35621b == null) {
-                        f35621b = new c(context).b();
+                    if (f32052b == null) {
+                        f32052b = new c(context).b();
                     }
                 }
             }
-            return f35621b;
+            return f32052b;
         }
         return (b) invokeL.objValue;
     }

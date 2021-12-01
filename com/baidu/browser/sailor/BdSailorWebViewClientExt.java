@@ -17,14 +17,14 @@ import com.baidu.webkit.sdk.FirstScreenImageInfomation;
 import com.baidu.webkit.sdk.JsCodeCacheResult;
 import com.baidu.webkit.sdk.VideoSniffingInfo;
 import com.baidu.webkit.sdk.WebViewClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final BdSailorWebViewClientExt DEFAULT;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ENativeViewType {
         public static final /* synthetic */ ENativeViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FirstScreenInfo implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,13 +117,13 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f37425e;
+        public final /* synthetic */ BdSailorWebView f33517e;
 
         public a(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -140,14 +140,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
                     return;
                 }
             }
-            this.f37425e = bdSailorWebView;
+            this.f33517e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37425e.showEmbeddedTitleBar(false);
+                this.f33517e.showEmbeddedTitleBar(false);
             }
         }
     }
@@ -200,9 +200,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    public void onAbortResourceRequest(BdSailorWebView bdSailorWebView, String str, String str2, long j) {
+    public void onAbortResourceRequest(BdSailorWebView bdSailorWebView, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -218,9 +218,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    public void onDidAsyncWiseSearchStatusChangedExt(BdSailorWebView bdSailorWebView, String str, int i2, long j) {
+    public void onDidAsyncWiseSearchStatusChangedExt(BdSailorWebView bdSailorWebView, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bdSailorWebView, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bdSailorWebView, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -460,9 +460,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void onPageLoadTimeExt(BdSailorWebView bdSailorWebView, String str, long j) {
+    public void onPageLoadTimeExt(BdSailorWebView bdSailorWebView, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{bdSailorWebView, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{bdSailorWebView, str, Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -538,9 +538,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    public void onSearchLandingPageClicked(BdSailorWebView bdSailorWebView, String str, String str2, long j) {
+    public void onSearchLandingPageClicked(BdSailorWebView bdSailorWebView, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j2)}) == null) {
         }
     }
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ArrayDrawable extends Drawable implements Drawable.Callback, TransformCallback, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -419,10 +419,10 @@ public class ArrayDrawable extends Drawable implements Drawable.Callback, Transf
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-            scheduleSelf(runnable, j);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
+            scheduleSelf(runnable, j2);
         }
     }
 

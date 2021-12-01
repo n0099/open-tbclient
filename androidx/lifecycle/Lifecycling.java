@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +121,7 @@ public class Lifecycling {
     public static GenericLifecycleObserver getCallback(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? new GenericLifecycleObserver(lifecycleEventObserver(obj)) { // from class: androidx.lifecycle.Lifecycling.1
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new GenericLifecycleObserver(lifecycleEventObserver(obj)) { // from class: androidx.lifecycle.Lifecycling.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LifecycleEventObserver val$observer;
@@ -158,7 +157,7 @@ public class Lifecycling {
     public static int getObserverConstructorType(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             Integer num = sCallbackCache.get(cls);
             if (num != null) {
                 return num.intValue();

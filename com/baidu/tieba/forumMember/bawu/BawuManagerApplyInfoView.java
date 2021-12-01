@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49015e;
+    public Context f43971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f49016f;
+    public View f43972f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49017g;
+    public TextView f43973g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49018h;
+    public TextView f43974h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49019i;
+    public TextView f43975i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BawuManagerApplyInfoView(Context context) {
@@ -53,39 +53,39 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f49015e = context;
+        this.f43971e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f49015e).inflate(R.layout.bawu_manager_apply_layout, this);
-            this.f49016f = inflate;
-            this.f49017g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
-            this.f49018h = (TextView) this.f49016f.findViewById(R.id.textview_manager_apply);
-            this.f49019i = (TextView) this.f49016f.findViewById(R.id.textview_manager_left_num);
+            View inflate = LayoutInflater.from(this.f43971e).inflate(R.layout.bawu_manager_apply_layout, this);
+            this.f43972f = inflate;
+            this.f43973g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
+            this.f43974h = (TextView) this.f43972f.findViewById(R.id.textview_manager_apply);
+            this.f43975i = (TextView) this.f43972f.findViewById(R.id.textview_manager_left_num);
         }
     }
 
     public void fillView(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            this.f49018h.setText(str);
-            this.f49017g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+            this.f43974h.setText(str);
+            this.f43973g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
             if (i2 > 0) {
-                this.f49019i.setText(String.format(this.f49015e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i2)));
-                this.f49017g.setEnabled(true);
-                this.f49017g.setClickable(true);
-                SkinManager.setViewTextColor(this.f49018h, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.f49019i, R.color.CAM_X0305, 1);
+                this.f43975i.setText(String.format(this.f43971e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i2)));
+                this.f43973g.setEnabled(true);
+                this.f43973g.setClickable(true);
+                SkinManager.setViewTextColor(this.f43974h, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.f43975i, R.color.CAM_X0305, 1);
                 return;
             }
-            this.f49019i.setText(this.f49015e.getResources().getString(R.string.apply_no_left_tip));
-            this.f49017g.setEnabled(false);
-            this.f49017g.setClickable(false);
-            SkinManager.setViewTextColor(this.f49018h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f49019i, R.color.CAM_X0109, 1);
+            this.f43975i.setText(this.f43971e.getResources().getString(R.string.apply_no_left_tip));
+            this.f43973g.setEnabled(false);
+            this.f43973g.setClickable(false);
+            SkinManager.setViewTextColor(this.f43974h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f43975i, R.color.CAM_X0109, 1);
         }
     }
 
@@ -93,7 +93,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f49017g.setOnClickListener(onClickListener);
+            this.f43973g.setOnClickListener(onClickListener);
         }
     }
 
@@ -116,7 +116,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f49015e = context;
+        this.f43971e = context;
         a();
     }
 
@@ -139,7 +139,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f49015e = context;
+        this.f43971e = context;
         a();
     }
 }

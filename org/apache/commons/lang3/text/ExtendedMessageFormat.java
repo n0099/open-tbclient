@@ -2,7 +2,6 @@ package org.apache.commons.lang3.text;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,7 +72,7 @@ public class ExtendedMessageFormat extends MessageFormat {
     private StringBuilder appendQuotedString(String str, ParsePosition parsePosition, StringBuilder sb) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, str, parsePosition, sb)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, str, parsePosition, sb)) == null) {
             if (sb != null) {
                 sb.append(QUOTE);
             }
@@ -100,7 +99,7 @@ public class ExtendedMessageFormat extends MessageFormat {
     private boolean containsElements(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, collection)) == null) {
             if (collection != null && !collection.isEmpty()) {
                 Iterator<?> it = collection.iterator();
                 while (it.hasNext()) {

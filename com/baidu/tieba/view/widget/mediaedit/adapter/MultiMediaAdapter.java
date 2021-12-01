@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.x0.t.h;
-import b.a.x0.t.t;
-import b.a.x0.t.w;
+import c.a.x0.t.h;
+import c.a.x0.t.t;
+import c.a.x0.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.widget.mediaedit.SimpleDraweeView;
@@ -25,36 +25,32 @@ import com.baidu.ugc.bean.LocalAlbumInfo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<b.a.r0.d4.l.c.c.a> f56565a;
+    public List<c.a.r0.k4.m.c.c.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.r0.d4.l.c.c.a> f56566b;
+    public List<c.a.r0.k4.m.c.c.a> f50634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f56567c;
+    public Context f50635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56568d;
+    public a f50636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56569e;
+    public boolean f50637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56570f;
+    public boolean f50638f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class MultiMediaHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public MultiMediaAdapter f56571a;
+        public MultiMediaAdapter a;
         public View mBottomDot;
         public int mIndex;
         public SimpleDraweeView mMediaCover;
@@ -64,16 +60,16 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public LinearLayout mMediaCoverWrap;
         public TextView mSelectedDuration;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f56572e;
+            public final /* synthetic */ a f50639e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ MultiMediaHolder f56573f;
+            public final /* synthetic */ MultiMediaHolder f50640f;
 
             public a(MultiMediaHolder multiMediaHolder, a aVar) {
                 Interceptable interceptable = $ic;
@@ -90,18 +86,18 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         return;
                     }
                 }
-                this.f56573f = multiMediaHolder;
-                this.f56572e = aVar;
+                this.f50640f = multiMediaHolder;
+                this.f50639e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.a.r0.d4.l.c.c.a aVar;
+                c.a.r0.k4.m.c.c.a aVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f56572e == null || this.f56573f.f56571a == null || h.e(this.f56573f.f56571a.getMultiMediaItems()) || (aVar = (b.a.r0.d4.l.c.c.a) h.c(this.f56573f.f56571a.getMultiMediaItems(), this.f56573f.getAdapterPosition())) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50639e == null || this.f50640f.a == null || h.e(this.f50640f.a.getMultiMediaItems()) || (aVar = (c.a.r0.k4.m.c.c.a) h.c(this.f50640f.a.getMultiMediaItems(), this.f50640f.getAdapterPosition())) == null) {
                     return;
                 }
-                this.f56572e.onMultiMediaItemClick(this.f56573f.getAdapterPosition(), view, aVar);
+                this.f50639e.onMultiMediaItemClick(this.f50640f.getAdapterPosition(), view, aVar);
             }
         }
 
@@ -140,14 +136,14 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         public void setMediaAdapter(MultiMediaAdapter multiMediaAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, multiMediaAdapter) == null) {
-                this.f56571a = multiMediaAdapter;
+                this.a = multiMediaAdapter;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void onMultiMediaItemClick(int i2, View view, b.a.r0.d4.l.c.c.a aVar);
+        void onMultiMediaItemClick(int i2, View view, c.a.r0.k4.m.c.c.a aVar);
     }
 
     public MultiMediaAdapter() {
@@ -163,15 +159,15 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 return;
             }
         }
-        this.f56569e = false;
-        this.f56570f = false;
+        this.f50637e = false;
+        this.f50638f = false;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? h.b(this.f56566b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? h.b(this.f50634b) : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -179,33 +175,33 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (h.e(this.f56566b)) {
+            if (h.e(this.f50634b)) {
                 return -1;
             }
-            return this.f56566b.get(i2).getType();
+            return this.f50634b.get(i2).getType();
         }
         return invokeI.intValue;
     }
 
-    public List<b.a.r0.d4.l.c.c.a> getList() {
+    public List<c.a.r0.k4.m.c.c.a> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<b.a.r0.d4.l.c.c.a> list = this.f56566b;
+            List<c.a.r0.k4.m.c.c.a> list = this.f50634b;
             return list == null ? new ArrayList() : list;
         }
         return (List) invokeV.objValue;
     }
 
-    public List<b.a.r0.d4.l.c.c.a> getMultiMediaItems() {
+    public List<c.a.r0.k4.m.c.c.a> getMultiMediaItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56566b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50634b : (List) invokeV.objValue;
     }
 
     public void notifyDataChanged() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f56570f) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f50638f) {
             return;
         }
         notifyDataSetChanged();
@@ -213,11 +209,11 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
-        b.a.r0.d4.l.c.c.a aVar;
+        c.a.r0.k4.m.c.c.a aVar;
         String str;
         ArrayList<SimpleDraweeView> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) && (aVar = (b.a.r0.d4.l.c.c.a) h.c(this.f56566b, i2)) != null && (viewHolder instanceof MultiMediaHolder)) {
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) && (aVar = (c.a.r0.k4.m.c.c.a) h.c(this.f50634b, i2)) != null && (viewHolder instanceof MultiMediaHolder)) {
             MultiMediaHolder multiMediaHolder = (MultiMediaHolder) viewHolder;
             LocalAlbumInfo a2 = aVar.a();
             if (a2 != null) {
@@ -239,7 +235,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
                 int size = arrayList.size();
                 int i4 = 1;
-                if (!this.f56569e && !this.f56570f) {
+                if (!this.f50637e && !this.f50638f) {
                     multiMediaHolder.mMediaCoverWrap.getLayoutParams().width = ((int) t.i(R.dimen.ds100)) * size;
                     while (i4 < size) {
                         multiMediaHolder.mMediaCoverList.get(i4).setVisibility(0);
@@ -261,9 +257,9 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) {
-            this.f56567c = viewGroup.getContext();
+            this.f50635c = viewGroup.getContext();
             if (i2 == 2) {
-                MultiMediaHolder multiMediaHolder = new MultiMediaHolder(LayoutInflater.from(this.f56567c).inflate(R.layout.item_multi_media_layout, viewGroup, false), this.f56568d);
+                MultiMediaHolder multiMediaHolder = new MultiMediaHolder(LayoutInflater.from(this.f50635c).inflate(R.layout.item_multi_media_layout, viewGroup, false), this.f50636d);
                 multiMediaHolder.setMediaAdapter(this);
                 return multiMediaHolder;
             }
@@ -275,7 +271,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void resetPlayIndex() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (b.a.r0.d4.l.c.c.a aVar : getMultiMediaItems()) {
+            for (c.a.r0.k4.m.c.c.a aVar : getMultiMediaItems()) {
                 aVar.c(false);
             }
         }
@@ -284,21 +280,21 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void setDragMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f56569e = z;
+            this.f50637e = z;
         }
     }
 
     public void setLongPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f56570f = z;
+            this.f50638f = z;
         }
     }
 
-    public void setMultiMediaItems(List<b.a.r0.d4.l.c.c.a> list) {
+    public void setMultiMediaItems(List<c.a.r0.k4.m.c.c.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f56565a = list;
+            this.a = list;
             updateAdapterList();
             notifyDataSetChanged();
         }
@@ -307,22 +303,22 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void setOnItemClickLitener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f56568d = aVar;
+            this.f50636d = aVar;
         }
     }
 
     public void updateAdapterList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            List<b.a.r0.d4.l.c.c.a> list = this.f56566b;
+            List<c.a.r0.k4.m.c.c.a> list = this.f50634b;
             if (list == null) {
-                this.f56566b = new ArrayList();
+                this.f50634b = new ArrayList();
             } else {
                 list.clear();
             }
-            for (b.a.r0.d4.l.c.c.a aVar : this.f56565a) {
+            for (c.a.r0.k4.m.c.c.a aVar : this.a) {
                 if (aVar.getType() == 1 || aVar.getType() == 2) {
-                    this.f56566b.add(aVar);
+                    this.f50634b.add(aVar);
                 }
             }
         }
@@ -333,7 +329,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048582, this, viewHolder, i2, list) == null) {
             if (!h.e(list)) {
-                b.a.r0.d4.l.c.c.a aVar = (b.a.r0.d4.l.c.c.a) h.c(this.f56566b, i2);
+                c.a.r0.k4.m.c.c.a aVar = (c.a.r0.k4.m.c.c.a) h.c(this.f50634b, i2);
                 if (viewHolder instanceof MultiMediaHolder) {
                     ((MultiMediaHolder) viewHolder).mBottomDot.setVisibility(aVar.b() ? 0 : 4);
                     return;

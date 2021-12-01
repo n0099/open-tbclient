@@ -3,7 +3,6 @@ package com.baidu.android.util.io;
 import android.text.TextUtils;
 import android.util.Xml;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class StreamUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -137,7 +136,7 @@ public class StreamUtils {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, file)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, inputStream, file)) == null) {
             boolean z = false;
             if (inputStream == null) {
                 return false;
@@ -198,7 +197,7 @@ public class StreamUtils {
     public static String streamToString(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) ? streamToString(inputStream, Xml.Encoding.UTF_8.toString()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? streamToString(inputStream, Xml.Encoding.UTF_8.toString()) : (String) invokeL.objValue;
     }
 
     public static boolean streamToZipFile(InputStream inputStream, ZipOutputStream zipOutputStream, String str) {

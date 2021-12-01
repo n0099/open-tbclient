@@ -9,7 +9,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,12 +22,10 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f64907a;
+    public static Map<String, Resources> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f64908b;
+    public static final Object f57035b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -266,8 +264,8 @@ public class o {
                 return;
             }
         }
-        f64907a = new HashMap();
-        f64908b = new Object();
+        a = new HashMap();
+        f57035b = new Object();
     }
 
     public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
@@ -286,14 +284,14 @@ public class o {
         Resources resources2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, str)) == null) {
-            synchronized (f64908b) {
-                resources2 = f64907a.get(str);
+            synchronized (f57035b) {
+                resources2 = a.get(str);
                 if (resources2 == null) {
                     resources2 = b(context, resources, str);
                     if (resources2 == null) {
                         throw new RuntimeException("Can not createResources for " + str);
                     }
-                    f64907a.put(str, resources);
+                    a.put(str, resources);
                 }
             }
             return resources2;
@@ -321,7 +319,7 @@ public class o {
     public static int b(AssetManager assetManager, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, assetManager, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, assetManager, str)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     Reflect.a(assetManager).a("addAssetPathAsSharedLibrary", new Class[]{String.class}, str);
@@ -340,7 +338,7 @@ public class o {
         InterceptResult invokeLLL;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, resources, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, resources, str)) == null) {
             AssetManager assetManager = (AssetManager) Reflect.a((Class<?>) AssetManager.class).b().a();
             Reflect.a(assetManager).a(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
             if (Build.VERSION.SDK_INT >= 21) {
@@ -363,7 +361,7 @@ public class o {
                 try {
                     if (applicationInfo.sharedLibraryFiles != null && applicationInfo.sharedLibraryFiles.length > 0) {
                         for (String str2 : applicationInfo.sharedLibraryFiles) {
-                            if (str2 != null && str2.endsWith(".apk")) {
+                            if (str2 != null && str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                                 b(assetManager, str2);
                             }
                         }

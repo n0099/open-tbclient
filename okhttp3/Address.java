@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.util.List;
@@ -127,7 +128,7 @@ public final class Address {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = (((((((((((527 + this.url.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31;
+            int hashCode = (((((((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.url.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.proxyAuthenticator.hashCode()) * 31) + this.protocols.hashCode()) * 31) + this.connectionSpecs.hashCode()) * 31) + this.proxySelector.hashCode()) * 31;
             Proxy proxy = this.proxy;
             int hashCode2 = (hashCode + (proxy != null ? proxy.hashCode() : 0)) * 31;
             SSLSocketFactory sSLSocketFactory = this.sslSocketFactory;

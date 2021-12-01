@@ -1,7 +1,7 @@
 package com.baidu.ala.gift;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IImageFramePlayerViewController {
     View getAnimView();
 

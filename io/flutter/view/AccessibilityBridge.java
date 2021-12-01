@@ -2,6 +2,7 @@ package io.flutter.view;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.graphics.Rect;
@@ -11,6 +12,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.LocaleSpan;
+import android.text.style.TtsSpan;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
@@ -21,6 +26,7 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -37,22 +43,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
-import f.a.d.b;
+import g.a.d.b;
+import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
 import io.flutter.plugin.platform.PlatformViewsAccessibilityDelegate;
 import io.flutter.util.Predicate;
+import io.flutter.util.ViewUtils;
 import io.flutter.view.AccessibilityBridge;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes3.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_SHOW_ON_SCREEN = 16908342;
@@ -89,6 +101,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     public SemanticsNode hoveredObject;
     @Nullable
     public SemanticsNode inputFocusedSemanticsNode;
+    public boolean isReleased;
     @Nullable
     public SemanticsNode lastInputFocusedSemanticsNode;
     @NonNull
@@ -104,8 +117,41 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     @TargetApi(19)
     public final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
 
+    /* renamed from: io.flutter.view.AccessibilityBridge$5  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass5 {
+        public static final /* synthetic */ int[] $SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1335162413, "Lio/flutter/view/AccessibilityBridge$5;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1335162413, "Lio/flutter/view/AccessibilityBridge$5;");
+                    return;
+                }
+            }
+            int[] iArr = new int[StringAttributeType.values().length];
+            $SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType = iArr;
+            try {
+                iArr[StringAttributeType.SPELLOUT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType[StringAttributeType.LOCALE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AccessibilityFeature {
         public static final /* synthetic */ AccessibilityFeature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -170,7 +216,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -193,6 +239,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public static final Action SCROLL_RIGHT;
         public static final Action SCROLL_UP;
         public static final Action SET_SELECTION;
+        public static final Action SET_TEXT;
         public static final Action SHOW_ON_SCREEN;
         public static final Action TAP;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,9 +278,10 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             CUSTOM_ACTION = new Action("CUSTOM_ACTION", 17, 131072);
             DISMISS = new Action("DISMISS", 18, 262144);
             MOVE_CURSOR_FORWARD_BY_WORD = new Action("MOVE_CURSOR_FORWARD_BY_WORD", 19, 524288);
-            Action action = new Action("MOVE_CURSOR_BACKWARD_BY_WORD", 20, 1048576);
-            MOVE_CURSOR_BACKWARD_BY_WORD = action;
-            $VALUES = new Action[]{TAP, LONG_PRESS, SCROLL_LEFT, SCROLL_RIGHT, SCROLL_UP, SCROLL_DOWN, INCREASE, DECREASE, SHOW_ON_SCREEN, MOVE_CURSOR_FORWARD_BY_CHARACTER, MOVE_CURSOR_BACKWARD_BY_CHARACTER, SET_SELECTION, COPY, CUT, PASTE, DID_GAIN_ACCESSIBILITY_FOCUS, DID_LOSE_ACCESSIBILITY_FOCUS, CUSTOM_ACTION, DISMISS, MOVE_CURSOR_FORWARD_BY_WORD, action};
+            MOVE_CURSOR_BACKWARD_BY_WORD = new Action("MOVE_CURSOR_BACKWARD_BY_WORD", 20, 1048576);
+            Action action = new Action("SET_TEXT", 21, 2097152);
+            SET_TEXT = action;
+            $VALUES = new Action[]{TAP, LONG_PRESS, SCROLL_LEFT, SCROLL_RIGHT, SCROLL_UP, SCROLL_DOWN, INCREASE, DECREASE, SHOW_ON_SCREEN, MOVE_CURSOR_FORWARD_BY_CHARACTER, MOVE_CURSOR_BACKWARD_BY_CHARACTER, SET_SELECTION, COPY, CUT, PASTE, DID_GAIN_ACCESSIBILITY_FOCUS, DID_LOSE_ACCESSIBILITY_FOCUS, CUSTOM_ACTION, DISMISS, MOVE_CURSOR_FORWARD_BY_WORD, MOVE_CURSOR_BACKWARD_BY_WORD, action};
         }
 
         public Action(String str, int i2, int i3) {
@@ -270,7 +318,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CustomAccessibilityAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +348,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Flag {
         public static final /* synthetic */ Flag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -317,11 +365,13 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public static final Flag IS_HIDDEN;
         public static final Flag IS_IMAGE;
         public static final Flag IS_IN_MUTUALLY_EXCLUSIVE_GROUP;
+        public static final Flag IS_KEYBOARD_KEY;
         public static final Flag IS_LINK;
         public static final Flag IS_LIVE_REGION;
         public static final Flag IS_OBSCURED;
         public static final Flag IS_READ_ONLY;
         public static final Flag IS_SELECTED;
+        public static final Flag IS_SLIDER;
         public static final Flag IS_TEXT_FIELD;
         public static final Flag IS_TOGGLED;
         public static final Flag NAMES_ROUTE;
@@ -363,9 +413,11 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             HAS_IMPLICIT_SCROLLING = new Flag("HAS_IMPLICIT_SCROLLING", 18, 262144);
             IS_READ_ONLY = new Flag("IS_READ_ONLY", 19, 1048576);
             IS_FOCUSABLE = new Flag("IS_FOCUSABLE", 20, 2097152);
-            Flag flag = new Flag("IS_LINK", 21, 4194304);
-            IS_LINK = flag;
-            $VALUES = new Flag[]{HAS_CHECKED_STATE, IS_CHECKED, IS_SELECTED, IS_BUTTON, IS_TEXT_FIELD, IS_FOCUSED, HAS_ENABLED_STATE, IS_ENABLED, IS_IN_MUTUALLY_EXCLUSIVE_GROUP, IS_HEADER, IS_OBSCURED, SCOPES_ROUTE, NAMES_ROUTE, IS_HIDDEN, IS_IMAGE, IS_LIVE_REGION, HAS_TOGGLED_STATE, IS_TOGGLED, HAS_IMPLICIT_SCROLLING, IS_READ_ONLY, IS_FOCUSABLE, flag};
+            IS_LINK = new Flag("IS_LINK", 21, 4194304);
+            IS_SLIDER = new Flag("IS_SLIDER", 22, 8388608);
+            Flag flag = new Flag("IS_KEYBOARD_KEY", 23, 16777216);
+            IS_KEYBOARD_KEY = flag;
+            $VALUES = new Flag[]{HAS_CHECKED_STATE, IS_CHECKED, IS_SELECTED, IS_BUTTON, IS_TEXT_FIELD, IS_FOCUSED, HAS_ENABLED_STATE, IS_ENABLED, IS_IN_MUTUALLY_EXCLUSIVE_GROUP, IS_HEADER, IS_OBSCURED, SCOPES_ROUTE, NAMES_ROUTE, IS_HIDDEN, IS_IMAGE, IS_LIVE_REGION, HAS_TOGGLED_STATE, IS_TOGGLED, HAS_IMPLICIT_SCROLLING, IS_READ_ONLY, IS_FOCUSABLE, IS_LINK, IS_SLIDER, flag};
         }
 
         public Flag(String str, int i2, int i3) {
@@ -402,12 +454,37 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public static class LocaleStringAttribute extends StringAttribute {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String locale;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LocaleStringAttribute() {
+            super();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SemanticsNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,17 +496,21 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public int currentValueLength;
         public List<CustomAccessibilityAction> customAccessibilityActions;
         public String decreasedValue;
+        public List<StringAttribute> decreasedValueAttributes;
         public int flags;
         public boolean globalGeometryDirty;
         public Rect globalRect;
         public float[] globalTransform;
         public boolean hadPreviousConfig;
         public String hint;
+        public List<StringAttribute> hintAttributes;
         public int id;
         public String increasedValue;
+        public List<StringAttribute> increasedValueAttributes;
         public float[] inverseTransform;
         public boolean inverseTransformDirty;
         public String label;
+        public List<StringAttribute> labelAttributes;
         public float left;
         public int maxValueLength;
         public CustomAccessibilityAction onLongPressOverride;
@@ -439,6 +520,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public int previousActions;
         public int previousFlags;
         public String previousLabel;
+        public int previousNodeId;
         public float previousScrollExtentMax;
         public float previousScrollExtentMin;
         public float previousScrollPosition;
@@ -457,6 +539,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public float top;
         public float[] transform;
         public String value;
+        public List<StringAttribute> valueAttributes;
 
         public SemanticsNode(@NonNull AccessibilityBridge accessibilityBridge) {
             Interceptable interceptable = $ic;
@@ -474,6 +557,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 }
             }
             this.id = -1;
+            this.previousNodeId = -1;
             this.hadPreviousConfig = false;
             this.childrenInTraversalOrder = new ArrayList();
             this.childrenInHitTestOrder = new ArrayList();
@@ -485,7 +569,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         /* JADX INFO: Access modifiers changed from: private */
         public void collectRoutes(List<SemanticsNode> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65582, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(65588, this, list) == null) {
                 if (hasFlag(Flag.SCOPES_ROUTE)) {
                     list.add(this);
                 }
@@ -495,12 +579,37 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             }
         }
 
+        @RequiresApi(21)
+        @TargetApi(21)
+        private SpannableString createSpannableString(String str, List<StringAttribute> list) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65589, this, str, list)) == null) {
+                if (str == null) {
+                    return null;
+                }
+                SpannableString spannableString = new SpannableString(str);
+                if (list != null) {
+                    for (StringAttribute stringAttribute : list) {
+                        int i2 = AnonymousClass5.$SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType[stringAttribute.type.ordinal()];
+                        if (i2 == 1) {
+                            spannableString.setSpan(new TtsSpan.Builder("android.type.verbatim").build(), stringAttribute.start, stringAttribute.end, 0);
+                        } else if (i2 == 2) {
+                            spannableString.setSpan(new LocaleSpan(Locale.forLanguageTag(((LocaleStringAttribute) stringAttribute).locale)), stringAttribute.start, stringAttribute.end, 0);
+                        }
+                    }
+                }
+                return spannableString;
+            }
+            return (SpannableString) invokeLL.objValue;
+        }
+
         /* JADX INFO: Access modifiers changed from: private */
         public boolean didChangeLabel() {
             InterceptResult invokeV;
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65583, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65590, this)) == null) {
                 if (this.label == null && this.previousLabel == null) {
                     return false;
                 }
@@ -514,12 +623,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public boolean didScroll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65584, this)) == null) ? (Float.isNaN(this.scrollPosition) || Float.isNaN(this.previousScrollPosition) || this.previousScrollPosition == this.scrollPosition) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65591, this)) == null) ? (Float.isNaN(this.scrollPosition) || Float.isNaN(this.previousScrollPosition) || this.previousScrollPosition == this.scrollPosition) ? false : true : invokeV.booleanValue;
         }
 
         private void ensureInverseTransform() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65585, this) == null) && this.inverseTransformDirty) {
+            if ((interceptable == null || interceptable.invokeV(65592, this) == null) && this.inverseTransformDirty) {
                 this.inverseTransformDirty = false;
                 if (this.inverseTransform == null) {
                     this.inverseTransform = new float[16];
@@ -534,7 +643,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         private SemanticsNode getAncestor(Predicate<SemanticsNode> predicate) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65586, this, predicate)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65593, this, predicate)) == null) {
                 for (SemanticsNode semanticsNode = this.parent; semanticsNode != null; semanticsNode = semanticsNode.parent) {
                     if (predicate.test(semanticsNode)) {
                         return semanticsNode;
@@ -549,7 +658,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         public Rect getGlobalRect() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65587, this)) == null) ? this.globalRect : (Rect) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65594, this)) == null) ? this.globalRect : (Rect) invokeV.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -557,7 +666,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             InterceptResult invokeV;
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65588, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65595, this)) == null) {
                 if (hasFlag(Flag.NAMES_ROUTE) && (str = this.label) != null && !str.isEmpty()) {
                     return this.label;
                 }
@@ -572,63 +681,92 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             return (String) invokeV.objValue;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public String getValueLabelHint() {
-            InterceptResult invokeV;
+        private List<StringAttribute> getStringAttributesFromBuffer(@NonNull ByteBuffer byteBuffer, @NonNull ByteBuffer[] byteBufferArr) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65589, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                String[] strArr = {this.value, this.label, this.hint};
-                for (int i2 = 0; i2 < 3; i2++) {
-                    String str = strArr[i2];
-                    if (str != null && str.length() > 0) {
-                        if (sb.length() > 0) {
-                            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                        }
-                        sb.append(str);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65596, this, byteBuffer, byteBufferArr)) == null) {
+                int i2 = byteBuffer.getInt();
+                if (i2 == -1) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList(i2);
+                for (int i3 = 0; i3 < i2; i3++) {
+                    int i4 = byteBuffer.getInt();
+                    int i5 = byteBuffer.getInt();
+                    StringAttributeType stringAttributeType = StringAttributeType.values()[byteBuffer.getInt()];
+                    int i6 = AnonymousClass5.$SwitchMap$io$flutter$view$AccessibilityBridge$StringAttributeType[stringAttributeType.ordinal()];
+                    if (i6 == 1) {
+                        byteBuffer.getInt();
+                        SpellOutStringAttribute spellOutStringAttribute = new SpellOutStringAttribute();
+                        spellOutStringAttribute.start = i4;
+                        spellOutStringAttribute.end = i5;
+                        spellOutStringAttribute.type = stringAttributeType;
+                        arrayList.add(spellOutStringAttribute);
+                    } else if (i6 == 2) {
+                        ByteBuffer byteBuffer2 = byteBufferArr[byteBuffer.getInt()];
+                        LocaleStringAttribute localeStringAttribute = new LocaleStringAttribute();
+                        localeStringAttribute.start = i4;
+                        localeStringAttribute.end = i5;
+                        localeStringAttribute.type = stringAttributeType;
+                        localeStringAttribute.locale = Charset.forName("UTF-8").decode(byteBuffer2).toString();
+                        arrayList.add(localeStringAttribute);
                     }
                 }
-                if (sb.length() > 0) {
-                    return sb.toString();
-                }
-                return null;
+                return arrayList;
             }
-            return (String) invokeV.objValue;
+            return (List) invokeLL.objValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public CharSequence getValueLabelHint() {
+            InterceptResult invokeV;
+            CharSequence[] charSequenceArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65597, this)) == null) {
+                CharSequence charSequence = null;
+                for (CharSequence charSequence2 : Build.VERSION.SDK_INT < 21 ? new CharSequence[]{this.value, this.label, this.hint} : new CharSequence[]{createSpannableString(this.value, this.valueAttributes), createSpannableString(this.label, this.labelAttributes), createSpannableString(this.hint, this.hintAttributes)}) {
+                    if (charSequence2 != null && charSequence2.length() > 0) {
+                        charSequence = (charSequence == null || charSequence.length() == 0) ? charSequence2 : TextUtils.concat(charSequence, StringUtil.ARRAY_ELEMENT_SEPARATOR, charSequence2);
+                    }
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeV.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean hadAction(@NonNull Action action) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65590, this, action)) == null) ? (action.value & this.previousActions) != 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65598, this, action)) == null) ? (action.value & this.previousActions) != 0 : invokeL.booleanValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean hadFlag(@NonNull Flag flag) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65591, this, flag)) == null) ? (flag.value & this.previousFlags) != 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65599, this, flag)) == null) ? (flag.value & this.previousFlags) != 0 : invokeL.booleanValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean hasAction(@NonNull Action action) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65592, this, action)) == null) ? (action.value & this.actions) != 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65600, this, action)) == null) ? (action.value & this.actions) != 0 : invokeL.booleanValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean hasFlag(@NonNull Flag flag) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65593, this, flag)) == null) ? (flag.value & this.flags) != 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65601, this, flag)) == null) ? (flag.value & this.flags) != 0 : invokeL.booleanValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public SemanticsNode hitTest(float[] fArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65594, this, fArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65602, this, fArr)) == null) {
                 float f2 = fArr[3];
                 float f3 = fArr[0] / f2;
                 float f4 = fArr[1] / f2;
@@ -646,7 +784,10 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                         }
                     }
                 }
-                return this;
+                if (isFocusable()) {
+                    return this;
+                }
+                return null;
             }
             return (SemanticsNode) invokeL.objValue;
         }
@@ -658,7 +799,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             String str2;
             String str3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65595, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65603, this)) == null) {
                 if (hasFlag(Flag.SCOPES_ROUTE)) {
                     return false;
                 }
@@ -672,31 +813,31 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
 
         private void log(@NonNull String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65596, this, str, z) == null) {
+            if (interceptable == null || interceptable.invokeLZ(65604, this, str, z) == null) {
             }
         }
 
         private float max(float f2, float f3, float f4, float f5) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? Math.max(f2, Math.max(f3, Math.max(f4, f5))) : invokeCommon.floatValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65605, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? Math.max(f2, Math.max(f3, Math.max(f4, f5))) : invokeCommon.floatValue;
         }
 
         private float min(float f2, float f3, float f4, float f5) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65598, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? Math.min(f2, Math.min(f3, Math.min(f4, f5))) : invokeCommon.floatValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65606, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? Math.min(f2, Math.min(f3, Math.min(f4, f5))) : invokeCommon.floatValue;
         }
 
         public static boolean nullableHasAncestor(SemanticsNode semanticsNode, Predicate<SemanticsNode> predicate) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65599, null, semanticsNode, predicate)) == null) ? (semanticsNode == null || semanticsNode.getAncestor(predicate) == null) ? false : true : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65607, null, semanticsNode, predicate)) == null) ? (semanticsNode == null || semanticsNode.getAncestor(predicate) == null) ? false : true : invokeLL.booleanValue;
         }
 
         private void transformPoint(float[] fArr, float[] fArr2, float[] fArr3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65600, this, fArr, fArr2, fArr3) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65608, this, fArr, fArr2, fArr3) == null) {
                 Matrix.multiplyMV(fArr, 0, fArr2, 0, fArr3, 0);
                 float f2 = fArr[3];
                 fArr[0] = fArr[0] / f2;
@@ -709,7 +850,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         /* JADX INFO: Access modifiers changed from: private */
         public void updateRecursively(float[] fArr, Set<SemanticsNode> set, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(65601, this, fArr, set, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(65609, this, fArr, set, z) == null) {
                 set.add(this);
                 if (this.globalGeometryDirty) {
                     z = true;
@@ -740,16 +881,19 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                     this.globalRect.set(Math.round(min(fArr3[0], fArr4[0], fArr5[0], fArr6[0])), Math.round(min(fArr3[1], fArr4[1], fArr5[1], fArr6[1])), Math.round(max(fArr3[0], fArr4[0], fArr5[0], fArr6[0])), Math.round(max(fArr3[1], fArr4[1], fArr5[1], fArr6[1])));
                     this.globalGeometryDirty = false;
                 }
+                int i2 = -1;
                 for (SemanticsNode semanticsNode : this.childrenInTraversalOrder) {
+                    semanticsNode.previousNodeId = i2;
+                    i2 = semanticsNode.id;
                     semanticsNode.updateRecursively(this.globalTransform, set, z);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void updateWith(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
+        public void updateWith(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr, @NonNull ByteBuffer[] byteBufferArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65602, this, byteBuffer, strArr) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65610, this, byteBuffer, strArr, byteBufferArr) == null) {
                 this.hadPreviousConfig = true;
                 this.previousValue = this.value;
                 this.previousLabel = this.label;
@@ -774,14 +918,19 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 this.scrollExtentMin = byteBuffer.getFloat();
                 int i2 = byteBuffer.getInt();
                 this.label = i2 == -1 ? null : strArr[i2];
+                this.labelAttributes = getStringAttributesFromBuffer(byteBuffer, byteBufferArr);
                 int i3 = byteBuffer.getInt();
                 this.value = i3 == -1 ? null : strArr[i3];
+                this.valueAttributes = getStringAttributesFromBuffer(byteBuffer, byteBufferArr);
                 int i4 = byteBuffer.getInt();
                 this.increasedValue = i4 == -1 ? null : strArr[i4];
+                this.increasedValueAttributes = getStringAttributesFromBuffer(byteBuffer, byteBufferArr);
                 int i5 = byteBuffer.getInt();
                 this.decreasedValue = i5 == -1 ? null : strArr[i5];
+                this.decreasedValueAttributes = getStringAttributesFromBuffer(byteBuffer, byteBufferArr);
                 int i6 = byteBuffer.getInt();
                 this.hint = i6 == -1 ? null : strArr[i6];
+                this.hintAttributes = getStringAttributesFromBuffer(byteBuffer, byteBufferArr);
                 this.textDirection = TextDirection.fromInt(byteBuffer.getInt());
                 this.left = byteBuffer.getFloat();
                 this.top = byteBuffer.getFloat();
@@ -836,8 +985,115 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
+    /* loaded from: classes3.dex */
+    public static class SpellOutStringAttribute extends StringAttribute {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SpellOutStringAttribute() {
+            super();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class StringAttribute {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int end;
+        public int start;
+        public StringAttributeType type;
+
+        public StringAttribute() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public static final class StringAttributeType {
+        public static final /* synthetic */ StringAttributeType[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final StringAttributeType LOCALE;
+        public static final StringAttributeType SPELLOUT;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-457496227, "Lio/flutter/view/AccessibilityBridge$StringAttributeType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-457496227, "Lio/flutter/view/AccessibilityBridge$StringAttributeType;");
+                    return;
+                }
+            }
+            SPELLOUT = new StringAttributeType("SPELLOUT", 0);
+            StringAttributeType stringAttributeType = new StringAttributeType("LOCALE", 1);
+            LOCALE = stringAttributeType;
+            $VALUES = new StringAttributeType[]{SPELLOUT, stringAttributeType};
+        }
+
+        public StringAttributeType(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static StringAttributeType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (StringAttributeType) Enum.valueOf(StringAttributeType.class, str) : (StringAttributeType) invokeL.objValue;
+        }
+
+        public static StringAttributeType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (StringAttributeType[]) $VALUES.clone() : (StringAttributeType[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
     public static final class TextDirection {
         public static final /* synthetic */ TextDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -928,7 +1184,9 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AccessibilityBridge(@NonNull View view, @NonNull AccessibilityChannel accessibilityChannel, @NonNull AccessibilityManager accessibilityManager, @NonNull ContentResolver contentResolver, PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate) {
+        this(view, accessibilityChannel, accessibilityManager, contentResolver, new AccessibilityViewEmbedder(view, 65536), platformViewsAccessibilityDelegate);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -938,8 +1196,1075 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((View) objArr2[0], (AccessibilityChannel) objArr2[1], (AccessibilityManager) objArr2[2], (ContentResolver) objArr2[3], (AccessibilityViewEmbedder) objArr2[4], (PlatformViewsAccessibilityDelegate) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static /* synthetic */ boolean a(SemanticsNode semanticsNode, SemanticsNode semanticsNode2) {
+        return semanticsNode2 == semanticsNode;
+    }
+
+    private AccessibilityEvent createTextChangedEvent(int i2, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65557, this, i2, str, str2)) == null) {
+            AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(i2, 16);
+            obtainAccessibilityEvent.setBeforeText(str);
+            obtainAccessibilityEvent.getText().add(str2);
+            int i3 = 0;
+            while (i3 < str.length() && i3 < str2.length() && str.charAt(i3) == str2.charAt(i3)) {
+                i3++;
+            }
+            if (i3 < str.length() || i3 < str2.length()) {
+                obtainAccessibilityEvent.setFromIndex(i3);
+                int length = str.length() - 1;
+                int length2 = str2.length() - 1;
+                while (length >= i3 && length2 >= i3 && str.charAt(length) == str2.charAt(length2)) {
+                    length--;
+                    length2--;
+                }
+                obtainAccessibilityEvent.setRemovedCount((length - i3) + 1);
+                obtainAccessibilityEvent.setAddedCount((length2 - i3) + 1);
+                return obtainAccessibilityEvent;
+            }
+            return null;
+        }
+        return (AccessibilityEvent) invokeILL.objValue;
+    }
+
+    @RequiresApi(28)
+    @TargetApi(28)
+    private boolean doesLayoutInDisplayCutoutModeRequireLeftInset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
+            Activity activity = ViewUtils.getActivity(this.rootAccessibilityView.getContext());
+            if (activity == null || activity.getWindow() == null) {
+                return false;
+            }
+            int i2 = activity.getWindow().getAttributes().layoutInDisplayCutoutMode;
+            return i2 == 2 || i2 == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private Rect getBoundsInScreen(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, rect)) == null) {
+            Rect rect2 = new Rect(rect);
+            int[] iArr = new int[2];
+            this.rootAccessibilityView.getLocationOnScreen(iArr);
+            rect2.offset(iArr[0], iArr[1]);
+            return rect2;
+        }
+        return (Rect) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public CustomAccessibilityAction getOrCreateAccessibilityAction(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, this, i2)) == null) {
+            CustomAccessibilityAction customAccessibilityAction = this.customAccessibilityActions.get(Integer.valueOf(i2));
+            if (customAccessibilityAction == null) {
+                CustomAccessibilityAction customAccessibilityAction2 = new CustomAccessibilityAction();
+                customAccessibilityAction2.id = i2;
+                customAccessibilityAction2.resourceId = FIRST_RESOURCE_ID + i2;
+                this.customAccessibilityActions.put(Integer.valueOf(i2), customAccessibilityAction2);
+                return customAccessibilityAction2;
+            }
+            return customAccessibilityAction;
+        }
+        return (CustomAccessibilityAction) invokeI.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public SemanticsNode getOrCreateSemanticsNode(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65561, this, i2)) == null) {
+            SemanticsNode semanticsNode = this.flutterSemanticsTree.get(Integer.valueOf(i2));
+            if (semanticsNode == null) {
+                SemanticsNode semanticsNode2 = new SemanticsNode(this);
+                semanticsNode2.id = i2;
+                this.flutterSemanticsTree.put(Integer.valueOf(i2), semanticsNode2);
+                return semanticsNode2;
+            }
+            return semanticsNode;
+        }
+        return (SemanticsNode) invokeI.objValue;
+    }
+
+    private SemanticsNode getRootSemanticsNode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) ? this.flutterSemanticsTree.get(0) : (SemanticsNode) invokeV.objValue;
+    }
+
+    private void handleTouchExploration(float f2, float f3) {
+        SemanticsNode hitTest;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65563, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.flutterSemanticsTree.isEmpty() || (hitTest = getRootSemanticsNode().hitTest(new float[]{f2, f3, 0.0f, 1.0f})) == this.hoveredObject) {
+            return;
+        }
+        if (hitTest != null) {
+            sendAccessibilityEvent(hitTest.id, 128);
+        }
+        SemanticsNode semanticsNode = this.hoveredObject;
+        if (semanticsNode != null) {
+            sendAccessibilityEvent(semanticsNode.id, 256);
+        }
+        this.hoveredObject = hitTest;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public AccessibilityEvent obtainAccessibilityEvent(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65564, this, i2, i3)) == null) {
+            AccessibilityEvent obtain = AccessibilityEvent.obtain(i3);
+            obtain.setPackageName(this.rootAccessibilityView.getContext().getPackageName());
+            obtain.setSource(this.rootAccessibilityView, i2);
+            return obtain;
+        }
+        return (AccessibilityEvent) invokeII.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onTouchExplorationExit() {
+        SemanticsNode semanticsNode;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || (semanticsNode = this.hoveredObject) == null) {
+            return;
+        }
+        sendAccessibilityEvent(semanticsNode.id, 256);
+        this.hoveredObject = null;
+    }
+
+    private void onWindowNameChange(@NonNull SemanticsNode semanticsNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, this, semanticsNode) == null) {
+            String routeName = semanticsNode.getRouteName();
+            if (routeName == null) {
+                routeName = " ";
+            }
+            if (Build.VERSION.SDK_INT < 28) {
+                AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(semanticsNode.id, 32);
+                obtainAccessibilityEvent.getText().add(routeName);
+                sendAccessibilityEvent(obtainAccessibilityEvent);
+                return;
+            }
+            setAccessibilityPaneTitle(routeName);
+        }
+    }
+
+    @RequiresApi(18)
+    @TargetApi(18)
+    private boolean performCursorMoveAction(@NonNull SemanticsNode semanticsNode, int i2, @NonNull Bundle bundle, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65567, this, new Object[]{semanticsNode, Integer.valueOf(i2), bundle, Boolean.valueOf(z)})) == null) {
+            int i3 = bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT);
+            boolean z2 = bundle.getBoolean(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN);
+            predictCursorMovement(semanticsNode, i3, z, z2);
+            if (i3 == 1) {
+                if (!z || !semanticsNode.hasAction(Action.MOVE_CURSOR_FORWARD_BY_CHARACTER)) {
+                    if (z || !semanticsNode.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER)) {
+                        return false;
+                    }
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER, Boolean.valueOf(z2));
+                    return true;
+                }
+                this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_FORWARD_BY_CHARACTER, Boolean.valueOf(z2));
+                return true;
+            } else if (i3 != 2) {
+                return i3 == 4 || i3 == 8 || i3 == 16;
+            } else if (!z || !semanticsNode.hasAction(Action.MOVE_CURSOR_FORWARD_BY_WORD)) {
+                if (z || !semanticsNode.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_WORD)) {
+                    return false;
+                }
+                this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_BACKWARD_BY_WORD, Boolean.valueOf(z2));
+                return true;
+            } else {
+                this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_FORWARD_BY_WORD, Boolean.valueOf(z2));
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @RequiresApi(21)
+    @TargetApi(21)
+    private boolean performSetText(SemanticsNode semanticsNode, int i2, @NonNull Bundle bundle) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65568, this, semanticsNode, i2, bundle)) == null) {
+            String string = (bundle == null || !bundle.containsKey(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE)) ? "" : bundle.getString(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE);
+            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SET_TEXT, string);
+            semanticsNode.value = string;
+            return true;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    private void predictCursorMovement(@NonNull SemanticsNode semanticsNode, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65569, this, new Object[]{semanticsNode, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || semanticsNode.textSelectionExtent < 0 || semanticsNode.textSelectionBase < 0) {
+            return;
+        }
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 4) {
+                    if (i2 == 8 || i2 == 16) {
+                        if (z) {
+                            semanticsNode.textSelectionExtent = semanticsNode.value.length();
+                        } else {
+                            semanticsNode.textSelectionExtent = 0;
+                        }
+                    }
+                } else if (!z || semanticsNode.textSelectionExtent >= semanticsNode.value.length()) {
+                    if (!z && semanticsNode.textSelectionExtent > 0) {
+                        Matcher matcher = Pattern.compile("(?s:.*)(\\n)").matcher(semanticsNode.value.substring(0, semanticsNode.textSelectionExtent));
+                        if (matcher.find()) {
+                            semanticsNode.textSelectionExtent = matcher.start(1);
+                        } else {
+                            semanticsNode.textSelectionExtent = 0;
+                        }
+                    }
+                } else {
+                    Matcher matcher2 = Pattern.compile("(?!^)(\\n)").matcher(semanticsNode.value.substring(semanticsNode.textSelectionExtent));
+                    if (matcher2.find()) {
+                        semanticsNode.textSelectionExtent += matcher2.start(1);
+                    } else {
+                        semanticsNode.textSelectionExtent = semanticsNode.value.length();
+                    }
+                }
+            } else if (!z || semanticsNode.textSelectionExtent >= semanticsNode.value.length()) {
+                if (!z && semanticsNode.textSelectionExtent > 0) {
+                    Matcher matcher3 = Pattern.compile("(?s:.*)(\\b)\\p{L}").matcher(semanticsNode.value.substring(0, semanticsNode.textSelectionExtent));
+                    if (matcher3.find()) {
+                        semanticsNode.textSelectionExtent = matcher3.start(1);
+                    }
+                }
+            } else {
+                Matcher matcher4 = Pattern.compile("\\p{L}(\\b)").matcher(semanticsNode.value.substring(semanticsNode.textSelectionExtent));
+                matcher4.find();
+                if (matcher4.find()) {
+                    semanticsNode.textSelectionExtent += matcher4.start(1);
+                } else {
+                    semanticsNode.textSelectionExtent = semanticsNode.value.length();
+                }
+            }
+        } else if (!z || semanticsNode.textSelectionExtent >= semanticsNode.value.length()) {
+            if (!z && semanticsNode.textSelectionExtent > 0) {
+                semanticsNode.textSelectionExtent--;
+            }
+        } else {
+            semanticsNode.textSelectionExtent++;
+        }
+        if (z2) {
+            return;
+        }
+        semanticsNode.textSelectionBase = semanticsNode.textSelectionExtent;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void sendAccessibilityEvent(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(65570, this, i2, i3) == null) && this.accessibilityManager.isEnabled()) {
+            sendAccessibilityEvent(obtainAccessibilityEvent(i2, i3));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void sendLatestAccessibilityFlagsToFlutter() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+            this.accessibilityChannel.setAccessibilityFeatures(this.accessibilityFeatureFlags);
+        }
+    }
+
+    private void sendWindowContentChangeEvent(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65573, this, i2) == null) {
+            AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(i2, 2048);
+            if (Build.VERSION.SDK_INT >= 19) {
+                obtainAccessibilityEvent.setContentChangeTypes(1);
+            }
+            sendAccessibilityEvent(obtainAccessibilityEvent);
+        }
+    }
+
+    @RequiresApi(28)
+    @TargetApi(28)
+    private void setAccessibilityPaneTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65574, this, str) == null) {
+            this.rootAccessibilityView.setAccessibilityPaneTitle(str);
+        }
+    }
+
+    private boolean shouldSetCollectionInfo(final SemanticsNode semanticsNode) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65575, this, semanticsNode)) == null) ? semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate() { // from class: g.a.d.a
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // io.flutter.util.Predicate
+            public final boolean test(Object obj) {
+                InterceptResult invokeL2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj)) == null) ? AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj) : invokeL2.booleanValue;
+            }
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.a)) : invokeL.booleanValue;
+    }
+
+    @RequiresApi(19)
+    @TargetApi(19)
+    private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {
+        View platformViewById;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65576, this, semanticsNode) == null) {
+            semanticsNode.parent = null;
+            if (semanticsNode.platformViewId != -1 && (num = this.embeddedAccessibilityFocusedNodeId) != null && this.accessibilityViewEmbedder.platformViewOfNode(num.intValue()) == this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(semanticsNode.platformViewId))) {
+                sendAccessibilityEvent(this.embeddedAccessibilityFocusedNodeId.intValue(), 65536);
+                this.embeddedAccessibilityFocusedNodeId = null;
+            }
+            if (semanticsNode.platformViewId != -1 && !this.platformViewsAccessibilityDelegate.usesVirtualDisplay(Integer.valueOf(semanticsNode.platformViewId)) && (platformViewById = this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(semanticsNode.platformViewId))) != null) {
+                platformViewById.setImportantForAccessibility(4);
+            }
+            SemanticsNode semanticsNode2 = this.accessibilityFocusedSemanticsNode;
+            if (semanticsNode2 == semanticsNode) {
+                sendAccessibilityEvent(semanticsNode2.id, 65536);
+                this.accessibilityFocusedSemanticsNode = null;
+            }
+            if (this.inputFocusedSemanticsNode == semanticsNode) {
+                this.inputFocusedSemanticsNode = null;
+            }
+            if (this.hoveredObject == semanticsNode) {
+                this.hoveredObject = null;
+            }
+        }
+    }
+
+    @Override // android.view.accessibility.AccessibilityNodeProvider
+    @SuppressLint({"NewApi"})
+    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i2) {
+        InterceptResult invokeI;
+        CharSequence valueLabelHint;
+        int i3;
+        SemanticsNode semanticsNode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (i2 >= 65536) {
+                return this.accessibilityViewEmbedder.createAccessibilityNodeInfo(i2);
+            }
+            boolean z = false;
+            if (i2 == -1) {
+                AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(this.rootAccessibilityView);
+                this.rootAccessibilityView.onInitializeAccessibilityNodeInfo(obtain);
+                if (this.flutterSemanticsTree.containsKey(0)) {
+                    obtain.addChild(this.rootAccessibilityView, 0);
+                }
+                return obtain;
+            }
+            SemanticsNode semanticsNode2 = this.flutterSemanticsTree.get(Integer.valueOf(i2));
+            if (semanticsNode2 == null) {
+                return null;
+            }
+            if (semanticsNode2.platformViewId != -1) {
+                View platformViewById = this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(semanticsNode2.platformViewId));
+                if (this.platformViewsAccessibilityDelegate.usesVirtualDisplay(Integer.valueOf(semanticsNode2.platformViewId))) {
+                    return this.accessibilityViewEmbedder.getRootNode(platformViewById, semanticsNode2.id, semanticsNode2.getGlobalRect());
+                }
+            }
+            AccessibilityNodeInfo obtainAccessibilityNodeInfo = obtainAccessibilityNodeInfo(this.rootAccessibilityView, i2);
+            if (Build.VERSION.SDK_INT >= 18) {
+                obtainAccessibilityNodeInfo.setViewIdResourceName("");
+            }
+            obtainAccessibilityNodeInfo.setPackageName(this.rootAccessibilityView.getContext().getPackageName());
+            obtainAccessibilityNodeInfo.setClassName("android.view.View");
+            obtainAccessibilityNodeInfo.setSource(this.rootAccessibilityView, i2);
+            obtainAccessibilityNodeInfo.setFocusable(semanticsNode2.isFocusable());
+            SemanticsNode semanticsNode3 = this.inputFocusedSemanticsNode;
+            if (semanticsNode3 != null) {
+                obtainAccessibilityNodeInfo.setFocused(semanticsNode3.id == i2);
+            }
+            SemanticsNode semanticsNode4 = this.accessibilityFocusedSemanticsNode;
+            if (semanticsNode4 != null) {
+                obtainAccessibilityNodeInfo.setAccessibilityFocused(semanticsNode4.id == i2);
+            }
+            if (semanticsNode2.hasFlag(Flag.IS_TEXT_FIELD)) {
+                obtainAccessibilityNodeInfo.setPassword(semanticsNode2.hasFlag(Flag.IS_OBSCURED));
+                if (!semanticsNode2.hasFlag(Flag.IS_READ_ONLY)) {
+                    obtainAccessibilityNodeInfo.setClassName("android.widget.EditText");
+                }
+                if (Build.VERSION.SDK_INT >= 18) {
+                    obtainAccessibilityNodeInfo.setEditable(!semanticsNode2.hasFlag(Flag.IS_READ_ONLY));
+                    if (semanticsNode2.textSelectionBase != -1 && semanticsNode2.textSelectionExtent != -1) {
+                        obtainAccessibilityNodeInfo.setTextSelection(semanticsNode2.textSelectionBase, semanticsNode2.textSelectionExtent);
+                    }
+                    if (Build.VERSION.SDK_INT > 18 && (semanticsNode = this.accessibilityFocusedSemanticsNode) != null && semanticsNode.id == i2) {
+                        obtainAccessibilityNodeInfo.setLiveRegion(1);
+                    }
+                }
+                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_FORWARD_BY_CHARACTER)) {
+                    obtainAccessibilityNodeInfo.addAction(256);
+                    i3 = 1;
+                } else {
+                    i3 = 0;
+                }
+                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER)) {
+                    obtainAccessibilityNodeInfo.addAction(512);
+                    i3 |= 1;
+                }
+                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_FORWARD_BY_WORD)) {
+                    obtainAccessibilityNodeInfo.addAction(256);
+                    i3 |= 2;
+                }
+                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_WORD)) {
+                    obtainAccessibilityNodeInfo.addAction(512);
+                    i3 |= 2;
+                }
+                obtainAccessibilityNodeInfo.setMovementGranularities(i3);
+                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.maxValueLength >= 0) {
+                    int length = semanticsNode2.value == null ? 0 : semanticsNode2.value.length();
+                    int unused = semanticsNode2.currentValueLength;
+                    int unused2 = semanticsNode2.maxValueLength;
+                    obtainAccessibilityNodeInfo.setMaxTextLength((length - semanticsNode2.currentValueLength) + semanticsNode2.maxValueLength);
+                }
+            }
+            if (Build.VERSION.SDK_INT > 18) {
+                if (semanticsNode2.hasAction(Action.SET_SELECTION)) {
+                    obtainAccessibilityNodeInfo.addAction(131072);
+                }
+                if (semanticsNode2.hasAction(Action.COPY)) {
+                    obtainAccessibilityNodeInfo.addAction(16384);
+                }
+                if (semanticsNode2.hasAction(Action.CUT)) {
+                    obtainAccessibilityNodeInfo.addAction(65536);
+                }
+                if (semanticsNode2.hasAction(Action.PASTE)) {
+                    obtainAccessibilityNodeInfo.addAction(32768);
+                }
+            }
+            if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.hasAction(Action.SET_TEXT)) {
+                obtainAccessibilityNodeInfo.addAction(2097152);
+            }
+            if (semanticsNode2.hasFlag(Flag.IS_BUTTON) || semanticsNode2.hasFlag(Flag.IS_LINK)) {
+                obtainAccessibilityNodeInfo.setClassName(Chip.BUTTON_ACCESSIBILITY_CLASS_NAME);
+            }
+            if (semanticsNode2.hasFlag(Flag.IS_IMAGE)) {
+                obtainAccessibilityNodeInfo.setClassName("android.widget.ImageView");
+            }
+            if (Build.VERSION.SDK_INT > 18 && semanticsNode2.hasAction(Action.DISMISS)) {
+                obtainAccessibilityNodeInfo.setDismissable(true);
+                obtainAccessibilityNodeInfo.addAction(1048576);
+            }
+            if (semanticsNode2.parent != null) {
+                obtainAccessibilityNodeInfo.setParent(this.rootAccessibilityView, semanticsNode2.parent.id);
+            } else {
+                obtainAccessibilityNodeInfo.setParent(this.rootAccessibilityView);
+            }
+            if (semanticsNode2.previousNodeId != -1 && Build.VERSION.SDK_INT >= 22) {
+                obtainAccessibilityNodeInfo.setTraversalAfter(this.rootAccessibilityView, semanticsNode2.previousNodeId);
+            }
+            Rect globalRect = semanticsNode2.getGlobalRect();
+            if (semanticsNode2.parent != null) {
+                Rect globalRect2 = semanticsNode2.parent.getGlobalRect();
+                Rect rect = new Rect(globalRect);
+                rect.offset(-globalRect2.left, -globalRect2.top);
+                obtainAccessibilityNodeInfo.setBoundsInParent(rect);
+            } else {
+                obtainAccessibilityNodeInfo.setBoundsInParent(globalRect);
+            }
+            obtainAccessibilityNodeInfo.setBoundsInScreen(getBoundsInScreen(globalRect));
+            obtainAccessibilityNodeInfo.setVisibleToUser(true);
+            obtainAccessibilityNodeInfo.setEnabled(!semanticsNode2.hasFlag(Flag.HAS_ENABLED_STATE) || semanticsNode2.hasFlag(Flag.IS_ENABLED));
+            if (semanticsNode2.hasAction(Action.TAP)) {
+                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.onTapOverride != null) {
+                    obtainAccessibilityNodeInfo.addAction(new AccessibilityNodeInfo.AccessibilityAction(16, semanticsNode2.onTapOverride.hint));
+                    obtainAccessibilityNodeInfo.setClickable(true);
+                } else {
+                    obtainAccessibilityNodeInfo.addAction(16);
+                    obtainAccessibilityNodeInfo.setClickable(true);
+                }
+            }
+            if (semanticsNode2.hasAction(Action.LONG_PRESS)) {
+                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.onLongPressOverride != null) {
+                    obtainAccessibilityNodeInfo.addAction(new AccessibilityNodeInfo.AccessibilityAction(32, semanticsNode2.onLongPressOverride.hint));
+                    obtainAccessibilityNodeInfo.setLongClickable(true);
+                } else {
+                    obtainAccessibilityNodeInfo.addAction(32);
+                    obtainAccessibilityNodeInfo.setLongClickable(true);
+                }
+            }
+            if (semanticsNode2.hasAction(Action.SCROLL_LEFT) || semanticsNode2.hasAction(Action.SCROLL_UP) || semanticsNode2.hasAction(Action.SCROLL_RIGHT) || semanticsNode2.hasAction(Action.SCROLL_DOWN)) {
+                obtainAccessibilityNodeInfo.setScrollable(true);
+                if (semanticsNode2.hasFlag(Flag.HAS_IMPLICIT_SCROLLING)) {
+                    if (!semanticsNode2.hasAction(Action.SCROLL_LEFT) && !semanticsNode2.hasAction(Action.SCROLL_RIGHT)) {
+                        if (Build.VERSION.SDK_INT > 18 && shouldSetCollectionInfo(semanticsNode2)) {
+                            obtainAccessibilityNodeInfo.setCollectionInfo(AccessibilityNodeInfo.CollectionInfo.obtain(semanticsNode2.scrollChildren, 0, false));
+                        } else {
+                            obtainAccessibilityNodeInfo.setClassName("android.widget.ScrollView");
+                        }
+                    } else if (Build.VERSION.SDK_INT > 19 && shouldSetCollectionInfo(semanticsNode2)) {
+                        obtainAccessibilityNodeInfo.setCollectionInfo(AccessibilityNodeInfo.CollectionInfo.obtain(0, semanticsNode2.scrollChildren, false));
+                    } else {
+                        obtainAccessibilityNodeInfo.setClassName("android.widget.HorizontalScrollView");
+                    }
+                }
+                if (semanticsNode2.hasAction(Action.SCROLL_LEFT) || semanticsNode2.hasAction(Action.SCROLL_UP)) {
+                    obtainAccessibilityNodeInfo.addAction(4096);
+                }
+                if (semanticsNode2.hasAction(Action.SCROLL_RIGHT) || semanticsNode2.hasAction(Action.SCROLL_DOWN)) {
+                    obtainAccessibilityNodeInfo.addAction(8192);
+                }
+            }
+            if (semanticsNode2.hasAction(Action.INCREASE) || semanticsNode2.hasAction(Action.DECREASE)) {
+                obtainAccessibilityNodeInfo.setClassName("android.widget.SeekBar");
+                if (semanticsNode2.hasAction(Action.INCREASE)) {
+                    obtainAccessibilityNodeInfo.addAction(4096);
+                }
+                if (semanticsNode2.hasAction(Action.DECREASE)) {
+                    obtainAccessibilityNodeInfo.addAction(8192);
+                }
+            }
+            if (semanticsNode2.hasFlag(Flag.IS_LIVE_REGION) && Build.VERSION.SDK_INT > 18) {
+                obtainAccessibilityNodeInfo.setLiveRegion(1);
+            }
+            if (semanticsNode2.hasFlag(Flag.IS_TEXT_FIELD)) {
+                obtainAccessibilityNodeInfo.setText(semanticsNode2.getValueLabelHint());
+            } else if (!semanticsNode2.hasFlag(Flag.SCOPES_ROUTE) && (valueLabelHint = semanticsNode2.getValueLabelHint()) != null) {
+                obtainAccessibilityNodeInfo.setContentDescription(valueLabelHint);
+            }
+            boolean hasFlag = semanticsNode2.hasFlag(Flag.HAS_CHECKED_STATE);
+            boolean hasFlag2 = semanticsNode2.hasFlag(Flag.HAS_TOGGLED_STATE);
+            obtainAccessibilityNodeInfo.setCheckable((hasFlag || hasFlag2) ? true : true);
+            if (hasFlag) {
+                obtainAccessibilityNodeInfo.setChecked(semanticsNode2.hasFlag(Flag.IS_CHECKED));
+                if (semanticsNode2.hasFlag(Flag.IS_IN_MUTUALLY_EXCLUSIVE_GROUP)) {
+                    obtainAccessibilityNodeInfo.setClassName("android.widget.RadioButton");
+                } else {
+                    obtainAccessibilityNodeInfo.setClassName("android.widget.CheckBox");
+                }
+            } else if (hasFlag2) {
+                obtainAccessibilityNodeInfo.setChecked(semanticsNode2.hasFlag(Flag.IS_TOGGLED));
+                obtainAccessibilityNodeInfo.setClassName(SwitchCompat.ACCESSIBILITY_EVENT_CLASS_NAME);
+            }
+            obtainAccessibilityNodeInfo.setSelected(semanticsNode2.hasFlag(Flag.IS_SELECTED));
+            if (Build.VERSION.SDK_INT >= 28) {
+                obtainAccessibilityNodeInfo.setHeading(semanticsNode2.hasFlag(Flag.IS_HEADER));
+            }
+            SemanticsNode semanticsNode5 = this.accessibilityFocusedSemanticsNode;
+            if (semanticsNode5 != null && semanticsNode5.id == i2) {
+                obtainAccessibilityNodeInfo.addAction(128);
+            } else {
+                obtainAccessibilityNodeInfo.addAction(64);
+            }
+            if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.customAccessibilityActions != null) {
+                for (CustomAccessibilityAction customAccessibilityAction : semanticsNode2.customAccessibilityActions) {
+                    obtainAccessibilityNodeInfo.addAction(new AccessibilityNodeInfo.AccessibilityAction(customAccessibilityAction.resourceId, customAccessibilityAction.label));
+                }
+            }
+            for (SemanticsNode semanticsNode6 : semanticsNode2.childrenInTraversalOrder) {
+                if (!semanticsNode6.hasFlag(Flag.IS_HIDDEN)) {
+                    if (semanticsNode6.platformViewId != -1) {
+                        View platformViewById2 = this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(semanticsNode6.platformViewId));
+                        if (!this.platformViewsAccessibilityDelegate.usesVirtualDisplay(Integer.valueOf(semanticsNode6.platformViewId))) {
+                            obtainAccessibilityNodeInfo.addChild(platformViewById2);
+                        }
+                    }
+                    obtainAccessibilityNodeInfo.addChild(this.rootAccessibilityView, semanticsNode6.id);
+                }
+            }
+            return obtainAccessibilityNodeInfo;
+        }
+        return (AccessibilityNodeInfo) invokeI.objValue;
+    }
+
+    public boolean externalViewRequestSendAccessibilityEvent(View view, View view2, AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeLLL;
+        Integer recordFlutterId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2, accessibilityEvent)) == null) {
+            if (this.accessibilityViewEmbedder.requestSendAccessibilityEvent(view, view2, accessibilityEvent) && (recordFlutterId = this.accessibilityViewEmbedder.getRecordFlutterId(view, accessibilityEvent)) != null) {
+                int eventType = accessibilityEvent.getEventType();
+                if (eventType == 8) {
+                    this.embeddedInputFocusedNodeId = recordFlutterId;
+                    this.inputFocusedSemanticsNode = null;
+                    return true;
+                } else if (eventType == 128) {
+                    this.hoveredObject = null;
+                    return true;
+                } else if (eventType == 32768) {
+                    this.embeddedAccessibilityFocusedNodeId = recordFlutterId;
+                    this.accessibilityFocusedSemanticsNode = null;
+                    return true;
+                } else if (eventType != 65536) {
+                    return true;
+                } else {
+                    this.embeddedInputFocusedNodeId = null;
+                    this.embeddedAccessibilityFocusedNodeId = null;
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // android.view.accessibility.AccessibilityNodeProvider
+    public AccessibilityNodeInfo findFocus(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (i2 == 1) {
+                SemanticsNode semanticsNode = this.inputFocusedSemanticsNode;
+                if (semanticsNode != null) {
+                    return createAccessibilityNodeInfo(semanticsNode.id);
+                }
+                Integer num = this.embeddedInputFocusedNodeId;
+                if (num != null) {
+                    return createAccessibilityNodeInfo(num.intValue());
+                }
+            } else if (i2 != 2) {
+                return null;
+            }
+            SemanticsNode semanticsNode2 = this.accessibilityFocusedSemanticsNode;
+            if (semanticsNode2 != null) {
+                return createAccessibilityNodeInfo(semanticsNode2.id);
+            }
+            Integer num2 = this.embeddedAccessibilityFocusedNodeId;
+            if (num2 != null) {
+                return createAccessibilityNodeInfo(num2.intValue());
+            }
+            return null;
+        }
+        return (AccessibilityNodeInfo) invokeI.objValue;
+    }
+
+    @VisibleForTesting
+    public int getHoveredObjectId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hoveredObject.id : invokeV.intValue;
+    }
+
+    public boolean isAccessibilityEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.accessibilityManager.isEnabled() : invokeV.booleanValue;
+    }
+
+    public boolean isTouchExplorationEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.accessibilityManager.isTouchExplorationEnabled() : invokeV.booleanValue;
+    }
+
+    @VisibleForTesting
+    public AccessibilityNodeInfo obtainAccessibilityNodeInfo(View view, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, view, i2)) == null) ? AccessibilityNodeInfo.obtain(view, i2) : (AccessibilityNodeInfo) invokeLI.objValue;
+    }
+
+    public boolean onAccessibilityHoverEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            if (this.accessibilityManager.isTouchExplorationEnabled() && !this.flutterSemanticsTree.isEmpty()) {
+                SemanticsNode hitTest = getRootSemanticsNode().hitTest(new float[]{motionEvent.getX(), motionEvent.getY(), 0.0f, 1.0f});
+                if (hitTest != null && hitTest.platformViewId != -1) {
+                    return this.accessibilityViewEmbedder.onAccessibilityHoverEvent(hitTest.id, motionEvent);
+                }
+                if (motionEvent.getAction() != 9 && motionEvent.getAction() != 7) {
+                    if (motionEvent.getAction() == 10) {
+                        onTouchExplorationExit();
+                    } else {
+                        Log.d("flutter", "unexpected accessibility hover event: " + motionEvent);
+                        return false;
+                    }
+                } else {
+                    handleTouchExploration(motionEvent.getX(), motionEvent.getY());
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.accessibility.AccessibilityNodeProvider
+    public boolean performAction(int i2, int i3, @Nullable Bundle bundle) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, bundle)) == null) {
+            if (i2 >= 65536) {
+                boolean performAction = this.accessibilityViewEmbedder.performAction(i2, i3, bundle);
+                if (performAction && i3 == 128) {
+                    this.embeddedAccessibilityFocusedNodeId = null;
+                }
+                return performAction;
+            }
+            SemanticsNode semanticsNode = this.flutterSemanticsTree.get(Integer.valueOf(i2));
+            boolean z = false;
+            if (semanticsNode == null) {
+                return false;
+            }
+            switch (i3) {
+                case 16:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.TAP);
+                    return true;
+                case 32:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.LONG_PRESS);
+                    return true;
+                case 64:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DID_GAIN_ACCESSIBILITY_FOCUS);
+                    sendAccessibilityEvent(i2, 32768);
+                    if (this.accessibilityFocusedSemanticsNode == null) {
+                        this.rootAccessibilityView.invalidate();
+                    }
+                    this.accessibilityFocusedSemanticsNode = semanticsNode;
+                    if (semanticsNode.hasAction(Action.INCREASE) || semanticsNode.hasAction(Action.DECREASE)) {
+                        sendAccessibilityEvent(i2, 4);
+                    }
+                    return true;
+                case 128:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DID_LOSE_ACCESSIBILITY_FOCUS);
+                    sendAccessibilityEvent(i2, 65536);
+                    this.accessibilityFocusedSemanticsNode = null;
+                    this.embeddedAccessibilityFocusedNodeId = null;
+                    return true;
+                case 256:
+                    if (Build.VERSION.SDK_INT < 18) {
+                        return false;
+                    }
+                    return performCursorMoveAction(semanticsNode, i2, bundle, true);
+                case 512:
+                    if (Build.VERSION.SDK_INT < 18) {
+                        return false;
+                    }
+                    return performCursorMoveAction(semanticsNode, i2, bundle, false);
+                case 4096:
+                    if (!semanticsNode.hasAction(Action.SCROLL_UP)) {
+                        if (!semanticsNode.hasAction(Action.SCROLL_LEFT)) {
+                            if (!semanticsNode.hasAction(Action.INCREASE)) {
+                                return false;
+                            }
+                            semanticsNode.value = semanticsNode.increasedValue;
+                            semanticsNode.valueAttributes = semanticsNode.increasedValueAttributes;
+                            sendAccessibilityEvent(i2, 4);
+                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.INCREASE);
+                        } else {
+                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_LEFT);
+                        }
+                    } else {
+                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_UP);
+                    }
+                    return true;
+                case 8192:
+                    if (!semanticsNode.hasAction(Action.SCROLL_DOWN)) {
+                        if (!semanticsNode.hasAction(Action.SCROLL_RIGHT)) {
+                            if (!semanticsNode.hasAction(Action.DECREASE)) {
+                                return false;
+                            }
+                            semanticsNode.value = semanticsNode.decreasedValue;
+                            semanticsNode.valueAttributes = semanticsNode.decreasedValueAttributes;
+                            sendAccessibilityEvent(i2, 4);
+                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DECREASE);
+                        } else {
+                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_RIGHT);
+                        }
+                    } else {
+                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_DOWN);
+                    }
+                    return true;
+                case 16384:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.COPY);
+                    return true;
+                case 32768:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.PASTE);
+                    return true;
+                case 65536:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.CUT);
+                    return true;
+                case 131072:
+                    if (Build.VERSION.SDK_INT < 18) {
+                        return false;
+                    }
+                    HashMap hashMap = new HashMap();
+                    if (bundle != null && bundle.containsKey(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT) && bundle.containsKey(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)) {
+                        z = true;
+                    }
+                    if (!z) {
+                        hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(semanticsNode.textSelectionExtent));
+                        hashMap.put("extent", Integer.valueOf(semanticsNode.textSelectionExtent));
+                    } else {
+                        hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT)));
+                        hashMap.put("extent", Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)));
+                    }
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SET_SELECTION, hashMap);
+                    SemanticsNode semanticsNode2 = this.flutterSemanticsTree.get(Integer.valueOf(i2));
+                    semanticsNode2.textSelectionBase = ((Integer) hashMap.get(SchemeCollecter.CLASSIFY_BASE)).intValue();
+                    semanticsNode2.textSelectionExtent = ((Integer) hashMap.get("extent")).intValue();
+                    return true;
+                case 1048576:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DISMISS);
+                    return true;
+                case 2097152:
+                    if (Build.VERSION.SDK_INT < 21) {
+                        return false;
+                    }
+                    return performSetText(semanticsNode, i2, bundle);
+                case ACTION_SHOW_ON_SCREEN /* 16908342 */:
+                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SHOW_ON_SCREEN);
+                    return true;
+                default:
+                    CustomAccessibilityAction customAccessibilityAction = this.customAccessibilityActions.get(Integer.valueOf(i3 - FIRST_RESOURCE_ID));
+                    if (customAccessibilityAction != null) {
+                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.CUSTOM_ACTION, Integer.valueOf(customAccessibilityAction.id));
+                        return true;
+                    }
+                    return false;
+            }
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.isReleased = true;
+            PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate = this.platformViewsAccessibilityDelegate;
+            if (platformViewsAccessibilityDelegate != null) {
+                platformViewsAccessibilityDelegate.detachAccessibiltyBridge();
+            }
+            setOnAccessibilityChangeListener(null);
+            this.accessibilityManager.removeAccessibilityStateChangeListener(this.accessibilityStateChangeListener);
+            if (Build.VERSION.SDK_INT >= 19) {
+                this.accessibilityManager.removeTouchExplorationStateChangeListener(this.touchExplorationStateChangeListener);
+            }
+            this.contentResolver.unregisterContentObserver(this.animationScaleObserver);
+            this.accessibilityChannel.setAccessibilityMessageHandler(null);
+        }
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.flutterSemanticsTree.clear();
+            SemanticsNode semanticsNode = this.accessibilityFocusedSemanticsNode;
+            if (semanticsNode != null) {
+                sendAccessibilityEvent(semanticsNode.id, 65536);
+            }
+            this.accessibilityFocusedSemanticsNode = null;
+            this.hoveredObject = null;
+            sendWindowContentChangeEvent(0);
+        }
+    }
+
+    public void setOnAccessibilityChangeListener(@Nullable OnAccessibilityChangeListener onAccessibilityChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onAccessibilityChangeListener) == null) {
+            this.onAccessibilityChangeListener = onAccessibilityChangeListener;
+        }
+    }
+
+    public void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, byteBuffer, strArr) == null) {
+            while (byteBuffer.hasRemaining()) {
+                CustomAccessibilityAction orCreateAccessibilityAction = getOrCreateAccessibilityAction(byteBuffer.getInt());
+                orCreateAccessibilityAction.overrideId = byteBuffer.getInt();
+                int i2 = byteBuffer.getInt();
+                String str = null;
+                orCreateAccessibilityAction.label = i2 == -1 ? null : strArr[i2];
+                int i3 = byteBuffer.getInt();
+                if (i3 != -1) {
+                    str = strArr[i3];
+                }
+                orCreateAccessibilityAction.hint = str;
+            }
+        }
+    }
+
+    public void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr, @NonNull ByteBuffer[] byteBufferArr) {
+        SemanticsNode semanticsNode;
+        SemanticsNode semanticsNode2;
+        float f2;
+        float f3;
+        WindowInsets rootWindowInsets;
+        Integer valueOf;
+        View platformViewById;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, byteBuffer, strArr, byteBufferArr) == null) {
+            ArrayList arrayList = new ArrayList();
+            while (byteBuffer.hasRemaining()) {
+                SemanticsNode orCreateSemanticsNode = getOrCreateSemanticsNode(byteBuffer.getInt());
+                orCreateSemanticsNode.updateWith(byteBuffer, strArr, byteBufferArr);
+                if (!orCreateSemanticsNode.hasFlag(Flag.IS_HIDDEN)) {
+                    if (orCreateSemanticsNode.hasFlag(Flag.IS_FOCUSED)) {
+                        this.inputFocusedSemanticsNode = orCreateSemanticsNode;
+                    }
+                    if (orCreateSemanticsNode.hadPreviousConfig) {
+                        arrayList.add(orCreateSemanticsNode);
+                    }
+                    if (orCreateSemanticsNode.platformViewId != -1 && !this.platformViewsAccessibilityDelegate.usesVirtualDisplay(Integer.valueOf(orCreateSemanticsNode.platformViewId)) && (platformViewById = this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(orCreateSemanticsNode.platformViewId))) != null) {
+                        platformViewById.setImportantForAccessibility(0);
+                    }
+                }
+            }
+            HashSet hashSet = new HashSet();
+            SemanticsNode rootSemanticsNode = getRootSemanticsNode();
+            ArrayList<SemanticsNode> arrayList2 = new ArrayList();
+            if (rootSemanticsNode != null) {
+                float[] fArr = new float[16];
+                Matrix.setIdentityM(fArr, 0);
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 >= 23) {
+                    if ((i2 >= 28 ? doesLayoutInDisplayCutoutModeRequireLeftInset() : true) && (rootWindowInsets = this.rootAccessibilityView.getRootWindowInsets()) != null) {
+                        if (!this.lastLeftFrameInset.equals(Integer.valueOf(rootWindowInsets.getSystemWindowInsetLeft()))) {
+                            rootSemanticsNode.globalGeometryDirty = true;
+                            rootSemanticsNode.inverseTransformDirty = true;
+                        }
+                        this.lastLeftFrameInset = Integer.valueOf(rootWindowInsets.getSystemWindowInsetLeft());
+                        Matrix.translateM(fArr, 0, valueOf.intValue(), 0.0f, 0.0f);
+                    }
+                }
+                rootSemanticsNode.updateRecursively(fArr, hashSet, false);
+                rootSemanticsNode.collectRoutes(arrayList2);
+            }
+            SemanticsNode semanticsNode3 = null;
+            for (SemanticsNode semanticsNode4 : arrayList2) {
+                if (!this.flutterNavigationStack.contains(Integer.valueOf(semanticsNode4.id))) {
+                    semanticsNode3 = semanticsNode4;
+                }
+            }
+            if (semanticsNode3 == null && arrayList2.size() > 0) {
+                semanticsNode3 = (SemanticsNode) arrayList2.get(arrayList2.size() - 1);
+            }
+            if (semanticsNode3 != null && (semanticsNode3.id != this.previousRouteId || arrayList2.size() != this.flutterNavigationStack.size())) {
+                this.previousRouteId = semanticsNode3.id;
+                onWindowNameChange(semanticsNode3);
+            }
+            this.flutterNavigationStack.clear();
+            for (SemanticsNode semanticsNode5 : arrayList2) {
+                this.flutterNavigationStack.add(Integer.valueOf(semanticsNode5.id));
+            }
+            Iterator<Map.Entry<Integer, SemanticsNode>> it = this.flutterSemanticsTree.entrySet().iterator();
+            while (it.hasNext()) {
+                SemanticsNode value = it.next().getValue();
+                if (!hashSet.contains(value)) {
+                    willRemoveSemanticsNode(value);
+                    it.remove();
+                }
+            }
+            sendWindowContentChangeEvent(0);
+            Iterator it2 = arrayList.iterator();
+            while (it2.hasNext()) {
+                SemanticsNode semanticsNode6 = (SemanticsNode) it2.next();
+                if (semanticsNode6.didScroll()) {
+                    AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(semanticsNode6.id, 4096);
+                    float f4 = semanticsNode6.scrollPosition;
+                    float f5 = semanticsNode6.scrollExtentMax;
+                    if (Float.isInfinite(semanticsNode6.scrollExtentMax)) {
+                        if (f4 > 70000.0f) {
+                            f4 = 70000.0f;
+                        }
+                        f5 = 100000.0f;
+                    }
+                    if (Float.isInfinite(semanticsNode6.scrollExtentMin)) {
+                        f2 = f5 + 100000.0f;
+                        if (f4 < -70000.0f) {
+                            f4 = -70000.0f;
+                        }
+                        f3 = f4 + 100000.0f;
+                    } else {
+                        f2 = f5 - semanticsNode6.scrollExtentMin;
+                        f3 = f4 - semanticsNode6.scrollExtentMin;
+                    }
+                    if (!semanticsNode6.hadAction(Action.SCROLL_UP) && !semanticsNode6.hadAction(Action.SCROLL_DOWN)) {
+                        if (semanticsNode6.hadAction(Action.SCROLL_LEFT) || semanticsNode6.hadAction(Action.SCROLL_RIGHT)) {
+                            obtainAccessibilityEvent.setScrollX((int) f3);
+                            obtainAccessibilityEvent.setMaxScrollX((int) f2);
+                        }
+                    } else {
+                        obtainAccessibilityEvent.setScrollY((int) f3);
+                        obtainAccessibilityEvent.setMaxScrollY((int) f2);
+                    }
+                    if (semanticsNode6.scrollChildren > 0) {
+                        obtainAccessibilityEvent.setItemCount(semanticsNode6.scrollChildren);
+                        obtainAccessibilityEvent.setFromIndex(semanticsNode6.scrollIndex);
+                        int i3 = 0;
+                        for (SemanticsNode semanticsNode7 : semanticsNode6.childrenInHitTestOrder) {
+                            if (!semanticsNode7.hasFlag(Flag.IS_HIDDEN)) {
+                                i3++;
+                            }
+                        }
+                        obtainAccessibilityEvent.setToIndex((semanticsNode6.scrollIndex + i3) - 1);
+                    }
+                    sendAccessibilityEvent(obtainAccessibilityEvent);
+                }
+                if (semanticsNode6.hasFlag(Flag.IS_LIVE_REGION) && semanticsNode6.didChangeLabel()) {
+                    sendWindowContentChangeEvent(semanticsNode6.id);
+                }
+                SemanticsNode semanticsNode8 = this.accessibilityFocusedSemanticsNode;
+                if (semanticsNode8 != null && semanticsNode8.id == semanticsNode6.id && !semanticsNode6.hadFlag(Flag.IS_SELECTED) && semanticsNode6.hasFlag(Flag.IS_SELECTED)) {
+                    AccessibilityEvent obtainAccessibilityEvent2 = obtainAccessibilityEvent(semanticsNode6.id, 4);
+                    obtainAccessibilityEvent2.getText().add(semanticsNode6.label);
+                    sendAccessibilityEvent(obtainAccessibilityEvent2);
+                }
+                SemanticsNode semanticsNode9 = this.inputFocusedSemanticsNode;
+                if (semanticsNode9 != null && semanticsNode9.id == semanticsNode6.id && ((semanticsNode2 = this.lastInputFocusedSemanticsNode) == null || semanticsNode2.id != this.inputFocusedSemanticsNode.id)) {
+                    this.lastInputFocusedSemanticsNode = this.inputFocusedSemanticsNode;
+                    sendAccessibilityEvent(obtainAccessibilityEvent(semanticsNode6.id, 8));
+                } else if (this.inputFocusedSemanticsNode == null) {
+                    this.lastInputFocusedSemanticsNode = null;
+                }
+                SemanticsNode semanticsNode10 = this.inputFocusedSemanticsNode;
+                if (semanticsNode10 != null && semanticsNode10.id == semanticsNode6.id && semanticsNode6.hadFlag(Flag.IS_TEXT_FIELD) && semanticsNode6.hasFlag(Flag.IS_TEXT_FIELD) && ((semanticsNode = this.accessibilityFocusedSemanticsNode) == null || semanticsNode.id == this.inputFocusedSemanticsNode.id)) {
+                    String str = semanticsNode6.previousValue != null ? semanticsNode6.previousValue : "";
+                    String str2 = semanticsNode6.value != null ? semanticsNode6.value : "";
+                    AccessibilityEvent createTextChangedEvent = createTextChangedEvent(semanticsNode6.id, str, str2);
+                    if (createTextChangedEvent != null) {
+                        sendAccessibilityEvent(createTextChangedEvent);
+                    }
+                    if (semanticsNode6.previousTextSelectionBase != semanticsNode6.textSelectionBase || semanticsNode6.previousTextSelectionExtent != semanticsNode6.textSelectionExtent) {
+                        AccessibilityEvent obtainAccessibilityEvent3 = obtainAccessibilityEvent(semanticsNode6.id, 8192);
+                        obtainAccessibilityEvent3.getText().add(str2);
+                        obtainAccessibilityEvent3.setFromIndex(semanticsNode6.textSelectionBase);
+                        obtainAccessibilityEvent3.setToIndex(semanticsNode6.textSelectionExtent);
+                        obtainAccessibilityEvent3.setItemCount(str2.length());
+                        sendAccessibilityEvent(obtainAccessibilityEvent3);
+                    }
+                }
+            }
+        }
+    }
+
+    @VisibleForTesting
+    public AccessibilityBridge(@NonNull View view, @NonNull AccessibilityChannel accessibilityChannel, @NonNull AccessibilityManager accessibilityManager, @NonNull ContentResolver contentResolver, @NonNull AccessibilityViewEmbedder accessibilityViewEmbedder, PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view, accessibilityChannel, accessibilityManager, contentResolver, accessibilityViewEmbedder, platformViewsAccessibilityDelegate};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -949,6 +2274,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         this.flutterNavigationStack = new ArrayList();
         this.previousRouteId = 0;
         this.lastLeftFrameInset = 0;
+        this.isReleased = false;
         this.accessibilityMessageHandler = new AccessibilityChannel.AccessibilityMessageHandler(this) { // from class: io.flutter.view.AccessibilityBridge.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1016,11 +2342,14 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             }
 
             @Override // io.flutter.embedding.engine.FlutterJNI.AccessibilityDelegate
-            public void updateSemantics(ByteBuffer byteBuffer, String[] strArr) {
+            public void updateSemantics(ByteBuffer byteBuffer, String[] strArr, ByteBuffer[] byteBufferArr) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048581, this, byteBuffer, strArr) == null) {
+                if (interceptable2 == null || interceptable2.invokeLLL(1048581, this, byteBuffer, strArr, byteBufferArr) == null) {
                     byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
-                    this.this$0.updateSemantics(byteBuffer, strArr);
+                    for (ByteBuffer byteBuffer2 : byteBufferArr) {
+                        byteBuffer2.order(ByteOrder.LITTLE_ENDIAN);
+                    }
+                    this.this$0.updateSemantics(byteBuffer, strArr, byteBufferArr);
                 }
             }
         };
@@ -1050,17 +2379,18 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             @Override // android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener
             public void onAccessibilityStateChanged(boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                    if (z) {
-                        this.this$0.accessibilityChannel.setAccessibilityMessageHandler(this.this$0.accessibilityMessageHandler);
-                        this.this$0.accessibilityChannel.onAndroidAccessibilityEnabled();
-                    } else {
-                        this.this$0.accessibilityChannel.setAccessibilityMessageHandler(null);
-                        this.this$0.accessibilityChannel.onAndroidAccessibilityDisabled();
-                    }
-                    if (this.this$0.onAccessibilityChangeListener != null) {
-                        this.this$0.onAccessibilityChangeListener.onAccessibilityChanged(z, this.this$0.accessibilityManager.isTouchExplorationEnabled());
-                    }
+                if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.this$0.isReleased) {
+                    return;
+                }
+                if (z) {
+                    this.this$0.accessibilityChannel.setAccessibilityMessageHandler(this.this$0.accessibilityMessageHandler);
+                    this.this$0.accessibilityChannel.onAndroidAccessibilityEnabled();
+                } else {
+                    this.this$0.accessibilityChannel.setAccessibilityMessageHandler(null);
+                    this.this$0.accessibilityChannel.onAndroidAccessibilityDisabled();
+                }
+                if (this.this$0.onAccessibilityChangeListener != null) {
+                    this.this$0.onAccessibilityChangeListener.onAccessibilityChanged(z, this.this$0.accessibilityManager.isTouchExplorationEnabled());
                 }
             }
         };
@@ -1101,21 +2431,23 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             @Override // android.database.ContentObserver
             public void onChange(boolean z, Uri uri) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, uri) == null) {
-                    String string = Build.VERSION.SDK_INT < 17 ? null : Settings.Global.getString(this.this$0.contentResolver, "transition_animation_scale");
-                    if (string != null && string.equals("0")) {
-                        this.this$0.accessibilityFeatureFlags |= AccessibilityFeature.DISABLE_ANIMATIONS.value;
-                    } else {
-                        this.this$0.accessibilityFeatureFlags &= ~AccessibilityFeature.DISABLE_ANIMATIONS.value;
-                    }
-                    this.this$0.sendLatestAccessibilityFlagsToFlutter();
+                if (!(interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, uri) == null) || this.this$0.isReleased) {
+                    return;
                 }
+                String string = Build.VERSION.SDK_INT < 17 ? null : Settings.Global.getString(this.this$0.contentResolver, "transition_animation_scale");
+                if (string != null && string.equals("0")) {
+                    this.this$0.accessibilityFeatureFlags |= AccessibilityFeature.DISABLE_ANIMATIONS.value;
+                } else {
+                    this.this$0.accessibilityFeatureFlags &= ~AccessibilityFeature.DISABLE_ANIMATIONS.value;
+                }
+                this.this$0.sendLatestAccessibilityFlagsToFlutter();
             }
         };
         this.rootAccessibilityView = view;
         this.accessibilityChannel = accessibilityChannel;
         this.accessibilityManager = accessibilityManager;
         this.contentResolver = contentResolver;
+        this.accessibilityViewEmbedder = accessibilityViewEmbedder;
         this.platformViewsAccessibilityDelegate = platformViewsAccessibilityDelegate;
         this.accessibilityStateChangeListener.onAccessibilityStateChanged(accessibilityManager.isEnabled());
         this.accessibilityManager.addAccessibilityStateChangeListener(this.accessibilityStateChangeListener);
@@ -1148,17 +2480,18 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 @Override // android.view.accessibility.AccessibilityManager.TouchExplorationStateChangeListener
                 public void onTouchExplorationStateChanged(boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        if (z) {
-                            this.this$0.accessibilityFeatureFlags |= AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
-                        } else {
-                            this.this$0.onTouchExplorationExit();
-                            this.this$0.accessibilityFeatureFlags &= ~AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
-                        }
-                        this.this$0.sendLatestAccessibilityFlagsToFlutter();
-                        if (this.this$0.onAccessibilityChangeListener != null) {
-                            this.this$0.onAccessibilityChangeListener.onAccessibilityChanged(this.val$accessibilityManager.isEnabled(), z);
-                        }
+                    if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.this$0.isReleased) {
+                        return;
+                    }
+                    if (!z) {
+                        this.this$0.onTouchExplorationExit();
+                        this.this$0.accessibilityFeatureFlags &= ~AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
+                    } else {
+                        this.this$0.accessibilityFeatureFlags |= AccessibilityFeature.ACCESSIBLE_NAVIGATION.value;
+                    }
+                    this.this$0.sendLatestAccessibilityFlagsToFlutter();
+                    if (this.this$0.onAccessibilityChangeListener != null) {
+                        this.this$0.onAccessibilityChangeListener.onAccessibilityChanged(this.val$accessibilityManager.isEnabled(), z);
                     }
                 }
             };
@@ -1175,878 +2508,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         if (platformViewsAccessibilityDelegate != null) {
             platformViewsAccessibilityDelegate.attachAccessibilityBridge(this);
         }
-        this.accessibilityViewEmbedder = new AccessibilityViewEmbedder(view, 65536);
-    }
-
-    public static /* synthetic */ boolean a(SemanticsNode semanticsNode, SemanticsNode semanticsNode2) {
-        return semanticsNode2 == semanticsNode;
-    }
-
-    private AccessibilityEvent createTextChangedEvent(int i2, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65555, this, i2, str, str2)) == null) {
-            AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(i2, 16);
-            obtainAccessibilityEvent.setBeforeText(str);
-            obtainAccessibilityEvent.getText().add(str2);
-            int i3 = 0;
-            while (i3 < str.length() && i3 < str2.length() && str.charAt(i3) == str2.charAt(i3)) {
-                i3++;
-            }
-            if (i3 < str.length() || i3 < str2.length()) {
-                obtainAccessibilityEvent.setFromIndex(i3);
-                int length = str.length() - 1;
-                int length2 = str2.length() - 1;
-                while (length >= i3 && length2 >= i3 && str.charAt(length) == str2.charAt(length2)) {
-                    length--;
-                    length2--;
-                }
-                obtainAccessibilityEvent.setRemovedCount((length - i3) + 1);
-                obtainAccessibilityEvent.setAddedCount((length2 - i3) + 1);
-                return obtainAccessibilityEvent;
-            }
-            return null;
-        }
-        return (AccessibilityEvent) invokeILL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public CustomAccessibilityAction getOrCreateAccessibilityAction(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65556, this, i2)) == null) {
-            CustomAccessibilityAction customAccessibilityAction = this.customAccessibilityActions.get(Integer.valueOf(i2));
-            if (customAccessibilityAction == null) {
-                CustomAccessibilityAction customAccessibilityAction2 = new CustomAccessibilityAction();
-                customAccessibilityAction2.id = i2;
-                customAccessibilityAction2.resourceId = FIRST_RESOURCE_ID + i2;
-                this.customAccessibilityActions.put(Integer.valueOf(i2), customAccessibilityAction2);
-                return customAccessibilityAction2;
-            }
-            return customAccessibilityAction;
-        }
-        return (CustomAccessibilityAction) invokeI.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public SemanticsNode getOrCreateSemanticsNode(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65557, this, i2)) == null) {
-            SemanticsNode semanticsNode = this.flutterSemanticsTree.get(Integer.valueOf(i2));
-            if (semanticsNode == null) {
-                SemanticsNode semanticsNode2 = new SemanticsNode(this);
-                semanticsNode2.id = i2;
-                this.flutterSemanticsTree.put(Integer.valueOf(i2), semanticsNode2);
-                return semanticsNode2;
-            }
-            return semanticsNode;
-        }
-        return (SemanticsNode) invokeI.objValue;
-    }
-
-    private SemanticsNode getRootSemanticsNode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? this.flutterSemanticsTree.get(0) : (SemanticsNode) invokeV.objValue;
-    }
-
-    private void handleTouchExploration(float f2, float f3) {
-        SemanticsNode hitTest;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.flutterSemanticsTree.isEmpty() || (hitTest = getRootSemanticsNode().hitTest(new float[]{f2, f3, 0.0f, 1.0f})) == this.hoveredObject) {
-            return;
-        }
-        if (hitTest != null) {
-            sendAccessibilityEvent(hitTest.id, 128);
-        }
-        SemanticsNode semanticsNode = this.hoveredObject;
-        if (semanticsNode != null) {
-            sendAccessibilityEvent(semanticsNode.id, 256);
-        }
-        this.hoveredObject = hitTest;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public AccessibilityEvent obtainAccessibilityEvent(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65560, this, i2, i3)) == null) {
-            AccessibilityEvent obtain = AccessibilityEvent.obtain(i3);
-            obtain.setPackageName(this.rootAccessibilityView.getContext().getPackageName());
-            obtain.setSource(this.rootAccessibilityView, i2);
-            return obtain;
-        }
-        return (AccessibilityEvent) invokeII.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onTouchExplorationExit() {
-        SemanticsNode semanticsNode;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || (semanticsNode = this.hoveredObject) == null) {
-            return;
-        }
-        sendAccessibilityEvent(semanticsNode.id, 256);
-        this.hoveredObject = null;
-    }
-
-    @RequiresApi(18)
-    @TargetApi(18)
-    private boolean performCursorMoveAction(@NonNull SemanticsNode semanticsNode, int i2, @NonNull Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, this, new Object[]{semanticsNode, Integer.valueOf(i2), bundle, Boolean.valueOf(z)})) == null) {
-            int i3 = bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT);
-            boolean z2 = bundle.getBoolean(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN);
-            if (i3 == 1) {
-                if (!z || !semanticsNode.hasAction(Action.MOVE_CURSOR_FORWARD_BY_CHARACTER)) {
-                    if (z || !semanticsNode.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER)) {
-                        return false;
-                    }
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER, Boolean.valueOf(z2));
-                    return true;
-                }
-                this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_FORWARD_BY_CHARACTER, Boolean.valueOf(z2));
-                return true;
-            } else if (i3 != 2) {
-                return false;
-            } else {
-                if (!z || !semanticsNode.hasAction(Action.MOVE_CURSOR_FORWARD_BY_WORD)) {
-                    if (z || !semanticsNode.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_WORD)) {
-                        return false;
-                    }
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_BACKWARD_BY_WORD, Boolean.valueOf(z2));
-                    return true;
-                }
-                this.accessibilityChannel.dispatchSemanticsAction(i2, Action.MOVE_CURSOR_FORWARD_BY_WORD, Boolean.valueOf(z2));
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void sendAccessibilityEvent(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(65563, this, i2, i3) == null) && this.accessibilityManager.isEnabled()) {
-            sendAccessibilityEvent(obtainAccessibilityEvent(i2, i3));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void sendLatestAccessibilityFlagsToFlutter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
-            this.accessibilityChannel.setAccessibilityFeatures(this.accessibilityFeatureFlags);
-        }
-    }
-
-    private void sendWindowChangeEvent(@NonNull SemanticsNode semanticsNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, this, semanticsNode) == null) {
-            AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(semanticsNode.id, 32);
-            obtainAccessibilityEvent.getText().add(semanticsNode.getRouteName());
-            sendAccessibilityEvent(obtainAccessibilityEvent);
-        }
-    }
-
-    private void sendWindowContentChangeEvent(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65567, this, i2) == null) {
-            AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(i2, 2048);
-            if (Build.VERSION.SDK_INT >= 19) {
-                obtainAccessibilityEvent.setContentChangeTypes(1);
-            }
-            sendAccessibilityEvent(obtainAccessibilityEvent);
-        }
-    }
-
-    private boolean shouldSetCollectionInfo(final SemanticsNode semanticsNode) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, this, semanticsNode)) == null) ? semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate() { // from class: f.a.d.a
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // io.flutter.util.Predicate
-            public final boolean test(Object obj) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj)) == null) ? AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj) : invokeL2.booleanValue;
-            }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f72612a)) : invokeL.booleanValue;
-    }
-
-    private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, semanticsNode) == null) {
-            semanticsNode.parent = null;
-            SemanticsNode semanticsNode2 = this.accessibilityFocusedSemanticsNode;
-            if (semanticsNode2 == semanticsNode) {
-                sendAccessibilityEvent(semanticsNode2.id, 65536);
-                this.accessibilityFocusedSemanticsNode = null;
-            }
-            if (this.inputFocusedSemanticsNode == semanticsNode) {
-                this.inputFocusedSemanticsNode = null;
-            }
-            if (this.hoveredObject == semanticsNode) {
-                this.hoveredObject = null;
-            }
-        }
-    }
-
-    @Override // android.view.accessibility.AccessibilityNodeProvider
-    @SuppressLint({"NewApi"})
-    public AccessibilityNodeInfo createAccessibilityNodeInfo(int i2) {
-        InterceptResult invokeI;
-        int i3;
-        SemanticsNode semanticsNode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= 65536) {
-                return this.accessibilityViewEmbedder.createAccessibilityNodeInfo(i2);
-            }
-            boolean z = false;
-            if (i2 == -1) {
-                AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(this.rootAccessibilityView);
-                this.rootAccessibilityView.onInitializeAccessibilityNodeInfo(obtain);
-                if (this.flutterSemanticsTree.containsKey(0)) {
-                    obtain.addChild(this.rootAccessibilityView, 0);
-                }
-                return obtain;
-            }
-            SemanticsNode semanticsNode2 = this.flutterSemanticsTree.get(Integer.valueOf(i2));
-            if (semanticsNode2 == null) {
-                return null;
-            }
-            if (semanticsNode2.platformViewId != -1) {
-                return this.accessibilityViewEmbedder.getRootNode(this.platformViewsAccessibilityDelegate.getPlatformViewById(Integer.valueOf(semanticsNode2.platformViewId)), semanticsNode2.id, semanticsNode2.getGlobalRect());
-            }
-            AccessibilityNodeInfo obtain2 = AccessibilityNodeInfo.obtain(this.rootAccessibilityView, i2);
-            if (Build.VERSION.SDK_INT >= 18) {
-                obtain2.setViewIdResourceName("");
-            }
-            obtain2.setPackageName(this.rootAccessibilityView.getContext().getPackageName());
-            obtain2.setClassName("android.view.View");
-            obtain2.setSource(this.rootAccessibilityView, i2);
-            obtain2.setFocusable(semanticsNode2.isFocusable());
-            SemanticsNode semanticsNode3 = this.inputFocusedSemanticsNode;
-            if (semanticsNode3 != null) {
-                obtain2.setFocused(semanticsNode3.id == i2);
-            }
-            SemanticsNode semanticsNode4 = this.accessibilityFocusedSemanticsNode;
-            if (semanticsNode4 != null) {
-                obtain2.setAccessibilityFocused(semanticsNode4.id == i2);
-            }
-            if (semanticsNode2.hasFlag(Flag.IS_TEXT_FIELD)) {
-                obtain2.setPassword(semanticsNode2.hasFlag(Flag.IS_OBSCURED));
-                if (!semanticsNode2.hasFlag(Flag.IS_READ_ONLY)) {
-                    obtain2.setClassName("android.widget.EditText");
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    obtain2.setEditable(!semanticsNode2.hasFlag(Flag.IS_READ_ONLY));
-                    if (semanticsNode2.textSelectionBase != -1 && semanticsNode2.textSelectionExtent != -1) {
-                        obtain2.setTextSelection(semanticsNode2.textSelectionBase, semanticsNode2.textSelectionExtent);
-                    }
-                    if (Build.VERSION.SDK_INT > 18 && (semanticsNode = this.accessibilityFocusedSemanticsNode) != null && semanticsNode.id == i2) {
-                        obtain2.setLiveRegion(1);
-                    }
-                }
-                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_FORWARD_BY_CHARACTER)) {
-                    obtain2.addAction(256);
-                    i3 = 1;
-                } else {
-                    i3 = 0;
-                }
-                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_CHARACTER)) {
-                    obtain2.addAction(512);
-                    i3 |= 1;
-                }
-                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_FORWARD_BY_WORD)) {
-                    obtain2.addAction(256);
-                    i3 |= 2;
-                }
-                if (semanticsNode2.hasAction(Action.MOVE_CURSOR_BACKWARD_BY_WORD)) {
-                    obtain2.addAction(512);
-                    i3 |= 2;
-                }
-                obtain2.setMovementGranularities(i3);
-                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.maxValueLength >= 0) {
-                    int length = semanticsNode2.value == null ? 0 : semanticsNode2.value.length();
-                    int unused = semanticsNode2.currentValueLength;
-                    int unused2 = semanticsNode2.maxValueLength;
-                    obtain2.setMaxTextLength((length - semanticsNode2.currentValueLength) + semanticsNode2.maxValueLength);
-                }
-            }
-            if (Build.VERSION.SDK_INT > 18) {
-                if (semanticsNode2.hasAction(Action.SET_SELECTION)) {
-                    obtain2.addAction(131072);
-                }
-                if (semanticsNode2.hasAction(Action.COPY)) {
-                    obtain2.addAction(16384);
-                }
-                if (semanticsNode2.hasAction(Action.CUT)) {
-                    obtain2.addAction(65536);
-                }
-                if (semanticsNode2.hasAction(Action.PASTE)) {
-                    obtain2.addAction(32768);
-                }
-            }
-            if (semanticsNode2.hasFlag(Flag.IS_BUTTON) || semanticsNode2.hasFlag(Flag.IS_LINK)) {
-                obtain2.setClassName(Chip.BUTTON_ACCESSIBILITY_CLASS_NAME);
-            }
-            if (semanticsNode2.hasFlag(Flag.IS_IMAGE)) {
-                obtain2.setClassName("android.widget.ImageView");
-            }
-            if (Build.VERSION.SDK_INT > 18 && semanticsNode2.hasAction(Action.DISMISS)) {
-                obtain2.setDismissable(true);
-                obtain2.addAction(1048576);
-            }
-            if (semanticsNode2.parent != null) {
-                obtain2.setParent(this.rootAccessibilityView, semanticsNode2.parent.id);
-            } else {
-                obtain2.setParent(this.rootAccessibilityView);
-            }
-            Rect globalRect = semanticsNode2.getGlobalRect();
-            if (semanticsNode2.parent != null) {
-                Rect globalRect2 = semanticsNode2.parent.getGlobalRect();
-                Rect rect = new Rect(globalRect);
-                rect.offset(-globalRect2.left, -globalRect2.top);
-                obtain2.setBoundsInParent(rect);
-            } else {
-                obtain2.setBoundsInParent(globalRect);
-            }
-            obtain2.setBoundsInScreen(globalRect);
-            obtain2.setVisibleToUser(true);
-            obtain2.setEnabled(!semanticsNode2.hasFlag(Flag.HAS_ENABLED_STATE) || semanticsNode2.hasFlag(Flag.IS_ENABLED));
-            if (semanticsNode2.hasAction(Action.TAP)) {
-                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.onTapOverride != null) {
-                    obtain2.addAction(new AccessibilityNodeInfo.AccessibilityAction(16, semanticsNode2.onTapOverride.hint));
-                    obtain2.setClickable(true);
-                } else {
-                    obtain2.addAction(16);
-                    obtain2.setClickable(true);
-                }
-            }
-            if (semanticsNode2.hasAction(Action.LONG_PRESS)) {
-                if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.onLongPressOverride != null) {
-                    obtain2.addAction(new AccessibilityNodeInfo.AccessibilityAction(32, semanticsNode2.onLongPressOverride.hint));
-                    obtain2.setLongClickable(true);
-                } else {
-                    obtain2.addAction(32);
-                    obtain2.setLongClickable(true);
-                }
-            }
-            if (semanticsNode2.hasAction(Action.SCROLL_LEFT) || semanticsNode2.hasAction(Action.SCROLL_UP) || semanticsNode2.hasAction(Action.SCROLL_RIGHT) || semanticsNode2.hasAction(Action.SCROLL_DOWN)) {
-                obtain2.setScrollable(true);
-                if (semanticsNode2.hasFlag(Flag.HAS_IMPLICIT_SCROLLING)) {
-                    if (!semanticsNode2.hasAction(Action.SCROLL_LEFT) && !semanticsNode2.hasAction(Action.SCROLL_RIGHT)) {
-                        if (Build.VERSION.SDK_INT > 18 && shouldSetCollectionInfo(semanticsNode2)) {
-                            obtain2.setCollectionInfo(AccessibilityNodeInfo.CollectionInfo.obtain(semanticsNode2.scrollChildren, 0, false));
-                        } else {
-                            obtain2.setClassName("android.widget.ScrollView");
-                        }
-                    } else if (Build.VERSION.SDK_INT > 19 && shouldSetCollectionInfo(semanticsNode2)) {
-                        obtain2.setCollectionInfo(AccessibilityNodeInfo.CollectionInfo.obtain(0, semanticsNode2.scrollChildren, false));
-                    } else {
-                        obtain2.setClassName("android.widget.HorizontalScrollView");
-                    }
-                }
-                if (semanticsNode2.hasAction(Action.SCROLL_LEFT) || semanticsNode2.hasAction(Action.SCROLL_UP)) {
-                    obtain2.addAction(4096);
-                }
-                if (semanticsNode2.hasAction(Action.SCROLL_RIGHT) || semanticsNode2.hasAction(Action.SCROLL_DOWN)) {
-                    obtain2.addAction(8192);
-                }
-            }
-            if (semanticsNode2.hasAction(Action.INCREASE) || semanticsNode2.hasAction(Action.DECREASE)) {
-                obtain2.setClassName("android.widget.SeekBar");
-                if (semanticsNode2.hasAction(Action.INCREASE)) {
-                    obtain2.addAction(4096);
-                }
-                if (semanticsNode2.hasAction(Action.DECREASE)) {
-                    obtain2.addAction(8192);
-                }
-            }
-            if (semanticsNode2.hasFlag(Flag.IS_LIVE_REGION) && Build.VERSION.SDK_INT > 18) {
-                obtain2.setLiveRegion(1);
-            }
-            boolean hasFlag = semanticsNode2.hasFlag(Flag.HAS_CHECKED_STATE);
-            boolean hasFlag2 = semanticsNode2.hasFlag(Flag.HAS_TOGGLED_STATE);
-            obtain2.setCheckable((hasFlag || hasFlag2) ? true : true);
-            if (hasFlag) {
-                obtain2.setChecked(semanticsNode2.hasFlag(Flag.IS_CHECKED));
-                obtain2.setContentDescription(semanticsNode2.getValueLabelHint());
-                if (semanticsNode2.hasFlag(Flag.IS_IN_MUTUALLY_EXCLUSIVE_GROUP)) {
-                    obtain2.setClassName("android.widget.RadioButton");
-                } else {
-                    obtain2.setClassName("android.widget.CheckBox");
-                }
-            } else if (hasFlag2) {
-                obtain2.setChecked(semanticsNode2.hasFlag(Flag.IS_TOGGLED));
-                obtain2.setClassName(SwitchCompat.ACCESSIBILITY_EVENT_CLASS_NAME);
-                obtain2.setContentDescription(semanticsNode2.getValueLabelHint());
-            } else if (!semanticsNode2.hasFlag(Flag.SCOPES_ROUTE)) {
-                obtain2.setText(semanticsNode2.getValueLabelHint());
-            }
-            obtain2.setSelected(semanticsNode2.hasFlag(Flag.IS_SELECTED));
-            if (Build.VERSION.SDK_INT >= 28) {
-                obtain2.setHeading(semanticsNode2.hasFlag(Flag.IS_HEADER));
-            }
-            SemanticsNode semanticsNode5 = this.accessibilityFocusedSemanticsNode;
-            if (semanticsNode5 != null && semanticsNode5.id == i2) {
-                obtain2.addAction(128);
-            } else {
-                obtain2.addAction(64);
-            }
-            if (Build.VERSION.SDK_INT >= 21 && semanticsNode2.customAccessibilityActions != null) {
-                for (CustomAccessibilityAction customAccessibilityAction : semanticsNode2.customAccessibilityActions) {
-                    obtain2.addAction(new AccessibilityNodeInfo.AccessibilityAction(customAccessibilityAction.resourceId, customAccessibilityAction.label));
-                }
-            }
-            for (SemanticsNode semanticsNode6 : semanticsNode2.childrenInTraversalOrder) {
-                if (!semanticsNode6.hasFlag(Flag.IS_HIDDEN)) {
-                    obtain2.addChild(this.rootAccessibilityView, semanticsNode6.id);
-                }
-            }
-            return obtain2;
-        }
-        return (AccessibilityNodeInfo) invokeI.objValue;
-    }
-
-    public boolean externalViewRequestSendAccessibilityEvent(View view, View view2, AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeLLL;
-        Integer recordFlutterId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2, accessibilityEvent)) == null) {
-            if (this.accessibilityViewEmbedder.requestSendAccessibilityEvent(view, view2, accessibilityEvent) && (recordFlutterId = this.accessibilityViewEmbedder.getRecordFlutterId(view, accessibilityEvent)) != null) {
-                int eventType = accessibilityEvent.getEventType();
-                if (eventType == 8) {
-                    this.embeddedInputFocusedNodeId = recordFlutterId;
-                    this.inputFocusedSemanticsNode = null;
-                    return true;
-                } else if (eventType == 128) {
-                    this.hoveredObject = null;
-                    return true;
-                } else if (eventType == 32768) {
-                    this.embeddedAccessibilityFocusedNodeId = recordFlutterId;
-                    this.accessibilityFocusedSemanticsNode = null;
-                    return true;
-                } else if (eventType != 65536) {
-                    return true;
-                } else {
-                    this.embeddedInputFocusedNodeId = null;
-                    this.embeddedAccessibilityFocusedNodeId = null;
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // android.view.accessibility.AccessibilityNodeProvider
-    public AccessibilityNodeInfo findFocus(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 == 1) {
-                SemanticsNode semanticsNode = this.inputFocusedSemanticsNode;
-                if (semanticsNode != null) {
-                    return createAccessibilityNodeInfo(semanticsNode.id);
-                }
-                Integer num = this.embeddedInputFocusedNodeId;
-                if (num != null) {
-                    return createAccessibilityNodeInfo(num.intValue());
-                }
-            } else if (i2 != 2) {
-                return null;
-            }
-            SemanticsNode semanticsNode2 = this.accessibilityFocusedSemanticsNode;
-            if (semanticsNode2 != null) {
-                return createAccessibilityNodeInfo(semanticsNode2.id);
-            }
-            Integer num2 = this.embeddedAccessibilityFocusedNodeId;
-            if (num2 != null) {
-                return createAccessibilityNodeInfo(num2.intValue());
-            }
-            return null;
-        }
-        return (AccessibilityNodeInfo) invokeI.objValue;
-    }
-
-    public boolean isAccessibilityEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.accessibilityManager.isEnabled() : invokeV.booleanValue;
-    }
-
-    public boolean isTouchExplorationEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.accessibilityManager.isTouchExplorationEnabled() : invokeV.booleanValue;
-    }
-
-    public boolean onAccessibilityHoverEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (this.accessibilityManager.isTouchExplorationEnabled() && !this.flutterSemanticsTree.isEmpty()) {
-                SemanticsNode hitTest = getRootSemanticsNode().hitTest(new float[]{motionEvent.getX(), motionEvent.getY(), 0.0f, 1.0f});
-                if (hitTest.platformViewId != -1) {
-                    return this.accessibilityViewEmbedder.onAccessibilityHoverEvent(hitTest.id, motionEvent);
-                }
-                if (motionEvent.getAction() != 9 && motionEvent.getAction() != 7) {
-                    if (motionEvent.getAction() == 10) {
-                        onTouchExplorationExit();
-                    } else {
-                        String str = "unexpected accessibility hover event: " + motionEvent;
-                        return false;
-                    }
-                } else {
-                    handleTouchExploration(motionEvent.getX(), motionEvent.getY());
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.accessibility.AccessibilityNodeProvider
-    public boolean performAction(int i2, int i3, @Nullable Bundle bundle) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i2, i3, bundle)) == null) {
-            if (i2 >= 65536) {
-                boolean performAction = this.accessibilityViewEmbedder.performAction(i2, i3, bundle);
-                if (performAction && i3 == 128) {
-                    this.embeddedAccessibilityFocusedNodeId = null;
-                }
-                return performAction;
-            }
-            SemanticsNode semanticsNode = this.flutterSemanticsTree.get(Integer.valueOf(i2));
-            boolean z = false;
-            if (semanticsNode == null) {
-                return false;
-            }
-            switch (i3) {
-                case 16:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.TAP);
-                    return true;
-                case 32:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.LONG_PRESS);
-                    return true;
-                case 64:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DID_GAIN_ACCESSIBILITY_FOCUS);
-                    sendAccessibilityEvent(i2, 32768);
-                    if (this.accessibilityFocusedSemanticsNode == null) {
-                        this.rootAccessibilityView.invalidate();
-                    }
-                    this.accessibilityFocusedSemanticsNode = semanticsNode;
-                    if (semanticsNode.hasAction(Action.INCREASE) || semanticsNode.hasAction(Action.DECREASE)) {
-                        sendAccessibilityEvent(i2, 4);
-                    }
-                    return true;
-                case 128:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DID_LOSE_ACCESSIBILITY_FOCUS);
-                    sendAccessibilityEvent(i2, 65536);
-                    this.accessibilityFocusedSemanticsNode = null;
-                    this.embeddedAccessibilityFocusedNodeId = null;
-                    return true;
-                case 256:
-                    if (Build.VERSION.SDK_INT < 18) {
-                        return false;
-                    }
-                    return performCursorMoveAction(semanticsNode, i2, bundle, true);
-                case 512:
-                    if (Build.VERSION.SDK_INT < 18) {
-                        return false;
-                    }
-                    return performCursorMoveAction(semanticsNode, i2, bundle, false);
-                case 4096:
-                    if (!semanticsNode.hasAction(Action.SCROLL_UP)) {
-                        if (!semanticsNode.hasAction(Action.SCROLL_LEFT)) {
-                            if (!semanticsNode.hasAction(Action.INCREASE)) {
-                                return false;
-                            }
-                            semanticsNode.value = semanticsNode.increasedValue;
-                            sendAccessibilityEvent(i2, 4);
-                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.INCREASE);
-                        } else {
-                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_LEFT);
-                        }
-                    } else {
-                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_UP);
-                    }
-                    return true;
-                case 8192:
-                    if (!semanticsNode.hasAction(Action.SCROLL_DOWN)) {
-                        if (!semanticsNode.hasAction(Action.SCROLL_RIGHT)) {
-                            if (!semanticsNode.hasAction(Action.DECREASE)) {
-                                return false;
-                            }
-                            semanticsNode.value = semanticsNode.decreasedValue;
-                            sendAccessibilityEvent(i2, 4);
-                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DECREASE);
-                        } else {
-                            this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_RIGHT);
-                        }
-                    } else {
-                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SCROLL_DOWN);
-                    }
-                    return true;
-                case 16384:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.COPY);
-                    return true;
-                case 32768:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.PASTE);
-                    return true;
-                case 65536:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.CUT);
-                    return true;
-                case 131072:
-                    if (Build.VERSION.SDK_INT < 18) {
-                        return false;
-                    }
-                    HashMap hashMap = new HashMap();
-                    if (bundle != null && bundle.containsKey(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT) && bundle.containsKey(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)) {
-                        z = true;
-                    }
-                    if (!z) {
-                        hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(semanticsNode.textSelectionExtent));
-                        hashMap.put("extent", Integer.valueOf(semanticsNode.textSelectionExtent));
-                    } else {
-                        hashMap.put(SchemeCollecter.CLASSIFY_BASE, Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT)));
-                        hashMap.put("extent", Integer.valueOf(bundle.getInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT)));
-                    }
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SET_SELECTION, hashMap);
-                    return true;
-                case 1048576:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.DISMISS);
-                    return true;
-                case ACTION_SHOW_ON_SCREEN /* 16908342 */:
-                    this.accessibilityChannel.dispatchSemanticsAction(i2, Action.SHOW_ON_SCREEN);
-                    return true;
-                default:
-                    CustomAccessibilityAction customAccessibilityAction = this.customAccessibilityActions.get(Integer.valueOf(i3 - FIRST_RESOURCE_ID));
-                    if (customAccessibilityAction != null) {
-                        this.accessibilityChannel.dispatchSemanticsAction(i2, Action.CUSTOM_ACTION, Integer.valueOf(customAccessibilityAction.id));
-                        return true;
-                    }
-                    return false;
-            }
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            PlatformViewsAccessibilityDelegate platformViewsAccessibilityDelegate = this.platformViewsAccessibilityDelegate;
-            if (platformViewsAccessibilityDelegate != null) {
-                platformViewsAccessibilityDelegate.detachAccessibiltyBridge();
-            }
-            setOnAccessibilityChangeListener(null);
-            this.accessibilityManager.removeAccessibilityStateChangeListener(this.accessibilityStateChangeListener);
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.accessibilityManager.removeTouchExplorationStateChangeListener(this.touchExplorationStateChangeListener);
-            }
-            this.contentResolver.unregisterContentObserver(this.animationScaleObserver);
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.flutterSemanticsTree.clear();
-            SemanticsNode semanticsNode = this.accessibilityFocusedSemanticsNode;
-            if (semanticsNode != null) {
-                sendAccessibilityEvent(semanticsNode.id, 65536);
-            }
-            this.accessibilityFocusedSemanticsNode = null;
-            this.hoveredObject = null;
-            sendWindowContentChangeEvent(0);
-        }
-    }
-
-    public void setOnAccessibilityChangeListener(@Nullable OnAccessibilityChangeListener onAccessibilityChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onAccessibilityChangeListener) == null) {
-            this.onAccessibilityChangeListener = onAccessibilityChangeListener;
-        }
-    }
-
-    public void updateCustomAccessibilityActions(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, byteBuffer, strArr) == null) {
-            while (byteBuffer.hasRemaining()) {
-                CustomAccessibilityAction orCreateAccessibilityAction = getOrCreateAccessibilityAction(byteBuffer.getInt());
-                orCreateAccessibilityAction.overrideId = byteBuffer.getInt();
-                int i2 = byteBuffer.getInt();
-                String str = null;
-                orCreateAccessibilityAction.label = i2 == -1 ? null : strArr[i2];
-                int i3 = byteBuffer.getInt();
-                if (i3 != -1) {
-                    str = strArr[i3];
-                }
-                orCreateAccessibilityAction.hint = str;
-            }
-        }
-    }
-
-    public void updateSemantics(@NonNull ByteBuffer byteBuffer, @NonNull String[] strArr) {
-        SemanticsNode semanticsNode;
-        SemanticsNode semanticsNode2;
-        float f2;
-        float f3;
-        WindowInsets rootWindowInsets;
-        Integer valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, byteBuffer, strArr) == null) {
-            ArrayList arrayList = new ArrayList();
-            while (byteBuffer.hasRemaining()) {
-                SemanticsNode orCreateSemanticsNode = getOrCreateSemanticsNode(byteBuffer.getInt());
-                orCreateSemanticsNode.updateWith(byteBuffer, strArr);
-                if (!orCreateSemanticsNode.hasFlag(Flag.IS_HIDDEN)) {
-                    if (orCreateSemanticsNode.hasFlag(Flag.IS_FOCUSED)) {
-                        this.inputFocusedSemanticsNode = orCreateSemanticsNode;
-                    }
-                    if (orCreateSemanticsNode.hadPreviousConfig) {
-                        arrayList.add(orCreateSemanticsNode);
-                    }
-                }
-            }
-            HashSet hashSet = new HashSet();
-            SemanticsNode rootSemanticsNode = getRootSemanticsNode();
-            ArrayList<SemanticsNode> arrayList2 = new ArrayList();
-            if (rootSemanticsNode != null) {
-                float[] fArr = new float[16];
-                Matrix.setIdentityM(fArr, 0);
-                if (Build.VERSION.SDK_INT >= 23 && (rootWindowInsets = this.rootAccessibilityView.getRootWindowInsets()) != null) {
-                    if (!this.lastLeftFrameInset.equals(Integer.valueOf(rootWindowInsets.getSystemWindowInsetLeft()))) {
-                        rootSemanticsNode.globalGeometryDirty = true;
-                        rootSemanticsNode.inverseTransformDirty = true;
-                    }
-                    this.lastLeftFrameInset = Integer.valueOf(rootWindowInsets.getSystemWindowInsetLeft());
-                    Matrix.translateM(fArr, 0, valueOf.intValue(), 0.0f, 0.0f);
-                }
-                rootSemanticsNode.updateRecursively(fArr, hashSet, false);
-                rootSemanticsNode.collectRoutes(arrayList2);
-            }
-            SemanticsNode semanticsNode3 = null;
-            for (SemanticsNode semanticsNode4 : arrayList2) {
-                if (!this.flutterNavigationStack.contains(Integer.valueOf(semanticsNode4.id))) {
-                    semanticsNode3 = semanticsNode4;
-                }
-            }
-            if (semanticsNode3 == null && arrayList2.size() > 0) {
-                semanticsNode3 = (SemanticsNode) arrayList2.get(arrayList2.size() - 1);
-            }
-            if (semanticsNode3 != null && semanticsNode3.id != this.previousRouteId) {
-                this.previousRouteId = semanticsNode3.id;
-                sendWindowChangeEvent(semanticsNode3);
-            }
-            this.flutterNavigationStack.clear();
-            for (SemanticsNode semanticsNode5 : arrayList2) {
-                this.flutterNavigationStack.add(Integer.valueOf(semanticsNode5.id));
-            }
-            Iterator<Map.Entry<Integer, SemanticsNode>> it = this.flutterSemanticsTree.entrySet().iterator();
-            while (it.hasNext()) {
-                SemanticsNode value = it.next().getValue();
-                if (!hashSet.contains(value)) {
-                    willRemoveSemanticsNode(value);
-                    it.remove();
-                }
-            }
-            sendWindowContentChangeEvent(0);
-            Iterator it2 = arrayList.iterator();
-            while (it2.hasNext()) {
-                SemanticsNode semanticsNode6 = (SemanticsNode) it2.next();
-                if (semanticsNode6.didScroll()) {
-                    AccessibilityEvent obtainAccessibilityEvent = obtainAccessibilityEvent(semanticsNode6.id, 4096);
-                    float f4 = semanticsNode6.scrollPosition;
-                    float f5 = semanticsNode6.scrollExtentMax;
-                    if (Float.isInfinite(semanticsNode6.scrollExtentMax)) {
-                        if (f4 > 70000.0f) {
-                            f4 = 70000.0f;
-                        }
-                        f5 = 100000.0f;
-                    }
-                    if (Float.isInfinite(semanticsNode6.scrollExtentMin)) {
-                        f2 = f5 + 100000.0f;
-                        if (f4 < -70000.0f) {
-                            f4 = -70000.0f;
-                        }
-                        f3 = f4 + 100000.0f;
-                    } else {
-                        f2 = f5 - semanticsNode6.scrollExtentMin;
-                        f3 = f4 - semanticsNode6.scrollExtentMin;
-                    }
-                    if (!semanticsNode6.hadAction(Action.SCROLL_UP) && !semanticsNode6.hadAction(Action.SCROLL_DOWN)) {
-                        if (semanticsNode6.hadAction(Action.SCROLL_LEFT) || semanticsNode6.hadAction(Action.SCROLL_RIGHT)) {
-                            obtainAccessibilityEvent.setScrollX((int) f3);
-                            obtainAccessibilityEvent.setMaxScrollX((int) f2);
-                        }
-                    } else {
-                        obtainAccessibilityEvent.setScrollY((int) f3);
-                        obtainAccessibilityEvent.setMaxScrollY((int) f2);
-                    }
-                    if (semanticsNode6.scrollChildren > 0) {
-                        obtainAccessibilityEvent.setItemCount(semanticsNode6.scrollChildren);
-                        obtainAccessibilityEvent.setFromIndex(semanticsNode6.scrollIndex);
-                        int i2 = 0;
-                        for (SemanticsNode semanticsNode7 : semanticsNode6.childrenInHitTestOrder) {
-                            if (!semanticsNode7.hasFlag(Flag.IS_HIDDEN)) {
-                                i2++;
-                            }
-                        }
-                        obtainAccessibilityEvent.setToIndex((semanticsNode6.scrollIndex + i2) - 1);
-                    }
-                    sendAccessibilityEvent(obtainAccessibilityEvent);
-                }
-                if (semanticsNode6.hasFlag(Flag.IS_LIVE_REGION) && semanticsNode6.didChangeLabel()) {
-                    sendWindowContentChangeEvent(semanticsNode6.id);
-                }
-                SemanticsNode semanticsNode8 = this.accessibilityFocusedSemanticsNode;
-                if (semanticsNode8 != null && semanticsNode8.id == semanticsNode6.id && !semanticsNode6.hadFlag(Flag.IS_SELECTED) && semanticsNode6.hasFlag(Flag.IS_SELECTED)) {
-                    AccessibilityEvent obtainAccessibilityEvent2 = obtainAccessibilityEvent(semanticsNode6.id, 4);
-                    obtainAccessibilityEvent2.getText().add(semanticsNode6.label);
-                    sendAccessibilityEvent(obtainAccessibilityEvent2);
-                }
-                SemanticsNode semanticsNode9 = this.inputFocusedSemanticsNode;
-                if (semanticsNode9 != null && semanticsNode9.id == semanticsNode6.id && ((semanticsNode2 = this.lastInputFocusedSemanticsNode) == null || semanticsNode2.id != this.inputFocusedSemanticsNode.id)) {
-                    this.lastInputFocusedSemanticsNode = this.inputFocusedSemanticsNode;
-                    sendAccessibilityEvent(obtainAccessibilityEvent(semanticsNode6.id, 8));
-                } else if (this.inputFocusedSemanticsNode == null) {
-                    this.lastInputFocusedSemanticsNode = null;
-                }
-                SemanticsNode semanticsNode10 = this.inputFocusedSemanticsNode;
-                if (semanticsNode10 != null && semanticsNode10.id == semanticsNode6.id && semanticsNode6.hadFlag(Flag.IS_TEXT_FIELD) && semanticsNode6.hasFlag(Flag.IS_TEXT_FIELD) && ((semanticsNode = this.accessibilityFocusedSemanticsNode) == null || semanticsNode.id == this.inputFocusedSemanticsNode.id)) {
-                    String str = semanticsNode6.previousValue != null ? semanticsNode6.previousValue : "";
-                    String str2 = semanticsNode6.value != null ? semanticsNode6.value : "";
-                    AccessibilityEvent createTextChangedEvent = createTextChangedEvent(semanticsNode6.id, str, str2);
-                    if (createTextChangedEvent != null) {
-                        sendAccessibilityEvent(createTextChangedEvent);
-                    }
-                    if (semanticsNode6.previousTextSelectionBase != semanticsNode6.textSelectionBase || semanticsNode6.previousTextSelectionExtent != semanticsNode6.textSelectionExtent) {
-                        AccessibilityEvent obtainAccessibilityEvent3 = obtainAccessibilityEvent(semanticsNode6.id, 8192);
-                        obtainAccessibilityEvent3.getText().add(str2);
-                        obtainAccessibilityEvent3.setFromIndex(semanticsNode6.textSelectionBase);
-                        obtainAccessibilityEvent3.setToIndex(semanticsNode6.textSelectionExtent);
-                        obtainAccessibilityEvent3.setItemCount(str2.length());
-                        sendAccessibilityEvent(obtainAccessibilityEvent3);
-                    }
-                }
-            }
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65564, this, accessibilityEvent) == null) && this.accessibilityManager.isEnabled()) {
+        if ((interceptable == null || interceptable.invokeL(65571, this, accessibilityEvent) == null) && this.accessibilityManager.isEnabled()) {
             this.rootAccessibilityView.getParent().requestSendAccessibilityEvent(this.rootAccessibilityView, accessibilityEvent);
         }
     }

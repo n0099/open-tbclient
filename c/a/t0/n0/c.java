@@ -1,0 +1,9 @@
+package c.a.t0.n0;
+
+import android.os.IBinder;
+/* loaded from: classes7.dex */
+public interface c {
+    IBinder a(String str);
+
+    void b();
+}

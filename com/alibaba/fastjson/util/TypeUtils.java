@@ -21,7 +21,6 @@ import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -86,7 +85,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TypeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern NUMBER_WITH_TRAILING_ZEROS_PATTERN;
@@ -252,7 +251,7 @@ public class TypeUtils {
     public static byte byteValue(BigDecimal bigDecimal) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bigDecimal)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bigDecimal)) == null) {
             if (bigDecimal == null) {
                 return (byte) 0;
             }
@@ -1195,11 +1194,11 @@ public class TypeUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
-            long j = -3750763034362895579L;
+            long j2 = -3750763034362895579L;
             for (int i2 = 0; i2 < str.length(); i2++) {
-                j = (j ^ str.charAt(i2)) * 1099511628211L;
+                j2 = (j2 ^ str.charAt(i2)) * 1099511628211L;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -1208,17 +1207,17 @@ public class TypeUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) {
-            long j = -3750763034362895579L;
+            long j2 = -3750763034362895579L;
             for (int i2 = 0; i2 < str.length(); i2++) {
                 char charAt = str.charAt(i2);
                 if (charAt != '_' && charAt != '-') {
                     if (charAt >= 'A' && charAt <= 'Z') {
                         charAt = (char) (charAt + ' ');
                     }
-                    j = (j ^ charAt) * 1099511628211L;
+                    j2 = (j2 ^ charAt) * 1099511628211L;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -1227,15 +1226,15 @@ public class TypeUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) {
-            long j = -3750763034362895579L;
+            long j2 = -3750763034362895579L;
             for (int i2 = 0; i2 < str.length(); i2++) {
                 char charAt = str.charAt(i2);
                 if (charAt >= 'A' && charAt <= 'Z') {
                     charAt = (char) (charAt + ' ');
                 }
-                j = (j ^ charAt) * 1099511628211L;
+                j2 = (j2 ^ charAt) * 1099511628211L;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -1259,34 +1258,34 @@ public class TypeUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65580, null, cls, cls2)) == null) {
-            A a2 = (A) cls.getAnnotation(cls2);
+            A a = (A) cls.getAnnotation(cls2);
             Type mixInAnnotations = JSON.getMixInAnnotations(cls);
             Class cls3 = mixInAnnotations instanceof Class ? (Class) mixInAnnotations : null;
             if (cls3 != null) {
-                A a3 = (A) cls3.getAnnotation(cls2);
+                A a2 = (A) cls3.getAnnotation(cls2);
                 Annotation[] annotations = cls3.getAnnotations();
-                if (a3 == null && annotations.length > 0) {
+                if (a2 == null && annotations.length > 0) {
                     for (Annotation annotation : annotations) {
-                        a3 = (A) annotation.annotationType().getAnnotation(cls2);
-                        if (a3 != null) {
+                        a2 = (A) annotation.annotationType().getAnnotation(cls2);
+                        if (a2 != null) {
                             break;
                         }
                     }
                 }
-                if (a3 != null) {
-                    return a3;
+                if (a2 != null) {
+                    return a2;
                 }
             }
             Annotation[] annotations2 = cls.getAnnotations();
-            if (a2 == null && annotations2.length > 0) {
+            if (a == null && annotations2.length > 0) {
                 for (Annotation annotation2 : annotations2) {
-                    a2 = (A) annotation2.annotationType().getAnnotation(cls2);
-                    if (a2 != null) {
+                    a = (A) annotation2.annotationType().getAnnotation(cls2);
+                    if (a != null) {
                         break;
                     }
                 }
             }
-            return a2;
+            return a;
         }
         return (A) invokeLL.objValue;
     }
@@ -2002,8 +2001,8 @@ public class TypeUtils {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0057 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0058  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0056 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0057  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2154,7 +2153,7 @@ public class TypeUtils {
             if (length > 10) {
                 return Double.parseDouble(str);
             }
-            long j = 0;
+            long j2 = 0;
             boolean z = false;
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
@@ -2169,49 +2168,49 @@ public class TypeUtils {
                 } else if (charAt < '0' || charAt > '9') {
                     return Double.parseDouble(str);
                 } else {
-                    j = (j * 10) + (charAt - '0');
+                    j2 = (j2 * 10) + (charAt - '0');
                 }
             }
             if (z) {
-                j = -j;
+                j2 = -j2;
             }
             switch (i2) {
                 case 0:
-                    return j;
+                    return j2;
                 case 1:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 10.0d;
                     break;
                 case 2:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 100.0d;
                     break;
                 case 3:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 1000.0d;
                     break;
                 case 4:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 10000.0d;
                     break;
                 case 5:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 100000.0d;
                     break;
                 case 6:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 1000000.0d;
                     break;
                 case 7:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 1.0E7d;
                     break;
                 case 8:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 1.0E8d;
                     break;
                 case 9:
-                    d2 = j;
+                    d2 = j2;
                     d3 = 1.0E9d;
                     break;
                 default:
@@ -2232,7 +2231,7 @@ public class TypeUtils {
             if (length >= 10) {
                 return Float.parseFloat(str);
             }
-            long j = 0;
+            long j2 = 0;
             boolean z = false;
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
@@ -2247,49 +2246,49 @@ public class TypeUtils {
                 } else if (charAt < '0' || charAt > '9') {
                     return Float.parseFloat(str);
                 } else {
-                    j = (j * 10) + (charAt - '0');
+                    j2 = (j2 * 10) + (charAt - '0');
                 }
             }
             if (z) {
-                j = -j;
+                j2 = -j2;
             }
             switch (i2) {
                 case 0:
-                    return (float) j;
+                    return (float) j2;
                 case 1:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 10.0f;
                     break;
                 case 2:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 100.0f;
                     break;
                 case 3:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 1000.0f;
                     break;
                 case 4:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 10000.0f;
                     break;
                 case 5:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 100000.0f;
                     break;
                 case 6:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 1000000.0f;
                     break;
                 case 7:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 1.0E7f;
                     break;
                 case 8:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 1.0E8f;
                     break;
                 case 9:
-                    f2 = (float) j;
+                    f2 = (float) j2;
                     f3 = 1.0E9f;
                     break;
                 default:
@@ -2376,7 +2375,7 @@ public class TypeUtils {
         List<FieldInfo> computeGetters;
         List<FieldInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{cls, map, propertyNamingStrategy, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{cls, map, propertyNamingStrategy, Boolean.valueOf(z)})) == null) {
             JSONType jSONType = (JSONType) getAnnotation(cls, JSONType.class);
             String str3 = null;
             if (jSONType != null) {
@@ -2452,7 +2451,7 @@ public class TypeUtils {
 
     public static Date castToDate(Object obj, String str) {
         InterceptResult invokeLL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, obj, str)) == null) {
             if (obj == null) {
@@ -2489,7 +2488,7 @@ public class TypeUtils {
                         if (str2.length() == 0) {
                             return null;
                         }
-                        j = Long.parseLong(str2);
+                        j2 = Long.parseLong(str2);
                     } else {
                         if (str == null) {
                             int length = str2.length();
@@ -2517,9 +2516,9 @@ public class TypeUtils {
                     jSONScanner.close();
                 }
             } else {
-                j = -1;
+                j2 = -1;
             }
-            if (j == -1) {
+            if (j2 == -1) {
                 Class<?> cls = obj.getClass();
                 if ("oracle.sql.TIMESTAMP".equals(cls.getName())) {
                     if (oracleTimestampMethod == null && !oracleTimestampMethodInited) {
@@ -2557,7 +2556,7 @@ public class TypeUtils {
                     throw new JSONException("can not cast to Date, value : " + obj);
                 }
             }
-            return new Date(j);
+            return new Date(j2);
         }
         return (Date) invokeLL.objValue;
     }
@@ -3429,10 +3428,10 @@ public class TypeUtils {
 
     public static <A extends Annotation> A getAnnotation(Field field, Class<A> cls) {
         InterceptResult invokeLL;
-        A a2;
+        A a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65581, null, field, cls)) == null) {
-            A a3 = (A) field.getAnnotation(cls);
+            A a2 = (A) field.getAnnotation(cls);
             Type mixInAnnotations = JSON.getMixInAnnotations(field.getDeclaringClass());
             Field field2 = null;
             Class cls2 = mixInAnnotations instanceof Class ? (Class) mixInAnnotations : null;
@@ -3446,21 +3445,21 @@ public class TypeUtils {
                         cls2 = cls2.getSuperclass();
                     }
                 }
-                if (field2 != null && (a2 = (A) field2.getAnnotation(cls)) != null) {
-                    return a2;
+                if (field2 != null && (a = (A) field2.getAnnotation(cls)) != null) {
+                    return a;
                 }
             }
-            return a3;
+            return a2;
         }
         return (A) invokeLL.objValue;
     }
 
     public static <A extends Annotation> A getAnnotation(Method method, Class<A> cls) {
         InterceptResult invokeLL;
-        A a2;
+        A a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65582, null, method, cls)) == null) {
-            A a3 = (A) method.getAnnotation(cls);
+            A a2 = (A) method.getAnnotation(cls);
             Type mixInAnnotations = JSON.getMixInAnnotations(method.getDeclaringClass());
             Method method2 = null;
             Class cls2 = mixInAnnotations instanceof Class ? (Class) mixInAnnotations : null;
@@ -3475,11 +3474,11 @@ public class TypeUtils {
                         cls2 = cls2.getSuperclass();
                     }
                 }
-                if (method2 != null && (a2 = (A) method2.getAnnotation(cls)) != null) {
-                    return a2;
+                if (method2 != null && (a = (A) method2.getAnnotation(cls)) != null) {
+                    return a;
                 }
             }
-            return a3;
+            return a2;
         }
         return (A) invokeLL.objValue;
     }

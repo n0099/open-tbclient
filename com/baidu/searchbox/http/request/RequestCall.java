@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.Cancelable;
 import com.baidu.searchbox.http.HttpRuntime;
@@ -35,7 +34,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RequestCall implements Cancelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestCall";
@@ -85,7 +84,7 @@ public class RequestCall implements Cancelable {
 
     private void beginRequest() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             HttpRequest httpRequest = this.httpRequest;
             NetworkStat<Request> networkStat = httpRequest.networkStat;

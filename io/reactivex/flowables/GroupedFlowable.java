@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.annotations.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class GroupedFlowable<K, T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final K key;
 
-    public GroupedFlowable(@Nullable K k) {
+    public GroupedFlowable(@Nullable K k2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k};
+            Object[] objArr = {k2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,7 +28,7 @@ public abstract class GroupedFlowable<K, T> extends Flowable<T> {
                 return;
             }
         }
-        this.key = k;
+        this.key = k2;
     }
 
     @Nullable

@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +57,7 @@ public final class Preconditions {
     public static int checkArgumentNonnegative(int i2, @Nullable String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, str)) == null) {
             if (i2 >= 0) {
                 return i2;
             }
@@ -71,7 +70,7 @@ public final class Preconditions {
     public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
             if (t != null) {
                 return t;
             }

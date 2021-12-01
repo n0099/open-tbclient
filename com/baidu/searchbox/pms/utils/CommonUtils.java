@@ -3,7 +3,6 @@ package com.baidu.searchbox.pms.utils;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsCommonUtils";
@@ -90,7 +89,7 @@ public class CommonUtils {
     public static String mergePath(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) ? pathCombine(str, str2, File.separator) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? pathCombine(str, str2, File.separator) : (String) invokeLL.objValue;
     }
 
     public static String pathCombine(String str, String str2, String str3) {
@@ -127,6 +126,6 @@ public class CommonUtils {
     public static boolean isEmpty(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, map)) == null) ? map == null || map.size() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) ? map == null || map.size() == 0 : invokeL.booleanValue;
     }
 }

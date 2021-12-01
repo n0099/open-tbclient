@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ResizeOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ROUNDUP_FRACTION = 0.6666667f;

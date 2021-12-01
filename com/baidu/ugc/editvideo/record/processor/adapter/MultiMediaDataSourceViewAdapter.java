@@ -6,16 +6,15 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.a0.b.a.e;
-import b.a.a0.b.a.j;
-import b.a.x0.b;
-import b.a.x0.t.c;
-import b.a.x0.t.h;
+import c.a.a0.b.a.e;
+import c.a.a0.b.a.j;
+import c.a.x0.b;
+import c.a.x0.t.c;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +59,7 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEventListener, EffectChangeObserver, MediaTrackChangeObserver, IMultiMediaDataSourceView, OnDrawUpdateTextureListener, OnPreRunnableTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +82,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public j mVlogEditCore;
     public OnMultiMediaDataTextureListener onMultiMediaDataTextureListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnMultiMediaDataTextureListener {
         void onFrameAvailable(SurfaceTexture surfaceTexture);
     }
@@ -151,7 +150,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     public static void buildDefault(List<IEffectProcessor> list, List<IMediaRenderer> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, list2) == null) {
             InputProcessor inputProcessor = new InputProcessor();
             SuperpositionProcessor superpositionProcessor = new SuperpositionProcessor();
             AREditProcessor aREditProcessor = new AREditProcessor();
@@ -182,7 +181,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     private boolean isStickerLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? TextUtils.equals(this.mEditTrackType, FaceItem.DIR_STICKER) || TextUtils.equals(this.mEditTrackType, SubtitleLog.TAG) || TextUtils.equals(this.mEditTrackType, "text") || TextUtils.equals(this.mEditTrackType, "cover_sticker") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? TextUtils.equals(this.mEditTrackType, FaceItem.DIR_STICKER) || TextUtils.equals(this.mEditTrackType, SubtitleLog.TAG) || TextUtils.equals(this.mEditTrackType, "text") || TextUtils.equals(this.mEditTrackType, "cover_sticker") : invokeV.booleanValue;
     }
 
     private void onSubtitleAndStickerChanged(List<IMediaRenderer> list) {
@@ -356,15 +355,15 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnMultiMediaCaptureCallback
-    public void capture(int i2, long j, int i3, int i4) {
+    public void capture(int i2, long j2, int i3, int i4) {
         MultiMediaPreGlRenderer multiMediaPreGlRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
             return;
         }
         try {
-            onDrawFrame(i2, j);
-            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i2, j);
+            onDrawFrame(i2, j2);
+            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i2, j2);
             int i5 = this.mUpdateTextureId;
             int i6 = this.mUpdateTextureMode;
             float[] fArr = this.mUpdateMatrix;
@@ -736,13 +735,13 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void onDrawFrame(int i2, long j) {
+    public void onDrawFrame(int i2, long j2) {
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
             return;
         }
-        onDrawUpdateTextureListener.onDrawFrame(i2, j);
+        onDrawUpdateTextureListener.onDrawFrame(i2, j2);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -973,9 +972,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public void seek(long j) {
+    public void seek(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
             this.mSeeking = true;
         }
     }

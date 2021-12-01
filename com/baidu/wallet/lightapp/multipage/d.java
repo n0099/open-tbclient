@@ -1,7 +1,7 @@
 package com.baidu.wallet.lightapp.multipage;
 
 import android.app.Activity;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface d {
     void backPressed();
 

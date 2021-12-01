@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import b.a.c0.a.f;
+import c.a.d0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ChildVerifyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_EXTERNAL_URL = "external_url";
@@ -60,9 +60,7 @@ public class ChildVerifyActivity extends BaseActivity {
             this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback(this) { // from class: com.baidu.sapi2.activity.ChildVerifyActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChildVerifyActivity f43338a;
+                public final /* synthetic */ ChildVerifyActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -79,7 +77,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43338a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
@@ -87,7 +85,7 @@ public class ChildVerifyActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Log.d(ChildVerifyActivity.u, "WebviewPageFinishCallback onFinish result=" + str);
-                        if (this.f43338a.t != null) {
+                        if (this.a.t != null) {
                             AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
                             JSONObject jSONObject = null;
                             try {
@@ -103,9 +101,9 @@ public class ChildVerifyActivity extends BaseActivity {
                                 accountRealNameResult.setResultCode(-202);
                                 accountRealNameResult.setResultMsg("网络连接失败，请检查网络设置");
                             }
-                            this.f43338a.t.onFinish(accountRealNameResult);
+                            this.a.t.onFinish(accountRealNameResult);
                         }
-                        this.f43338a.finish();
+                        this.a.finish();
                     }
                 }
             });

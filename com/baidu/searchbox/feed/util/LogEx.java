@@ -4,14 +4,13 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.IllegalFormatException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class LogEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_LOG = true;
@@ -65,7 +64,7 @@ public final class LogEx {
 
     public static void error(@NonNull String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
             println(6, str, Log.getStackTraceString(th));
         }
     }
@@ -174,7 +173,7 @@ public final class LogEx {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
             println(6, str, str2 + '\n' + Log.getStackTraceString(th));
         }
     }

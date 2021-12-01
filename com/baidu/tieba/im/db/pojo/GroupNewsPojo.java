@@ -3,7 +3,6 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.UpdatesItemData;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GroupNewsPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int hide = 3;
@@ -67,7 +66,7 @@ public class GroupNewsPojo implements Serializable {
     private void setSelfNewsRead() {
         UpdatesItemData convertToUpdatesItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || TextUtils.isEmpty(getCmd())) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || TextUtils.isEmpty(getCmd())) {
             return;
         }
         if ((!getCmd().equals("group_intro_change") && !getCmd().equals("group_name_change") && !getCmd().equals("group_notice_change")) || ModelHelper.getInstance().getUpdatasModel() == null || (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) == null) {
@@ -198,10 +197,10 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.time = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.time = j2;
         }
     }
 
@@ -231,7 +230,7 @@ public class GroupNewsPojo implements Serializable {
             str2 = "apply_join_success";
         } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
             str2 = "kick_out";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY)) {
+        } else if (str.equals("101")) {
             str2 = "group_name_change";
         } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)) {
             str2 = "group_notice_change";

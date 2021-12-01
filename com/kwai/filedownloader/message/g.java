@@ -14,26 +14,22 @@ import java.util.concurrent.Executor;
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final List<a> f67938a;
+    public final List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e.b f67939b;
+    public final e.b f60031b;
 
     /* loaded from: classes2.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f67940a;
+        public final /* synthetic */ g a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f67941b;
+        public final List<Integer> f60032b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Executor f67942c;
+        public final Executor f60033c;
 
         public a(g gVar, int i2) {
             Interceptable interceptable = $ic;
@@ -50,30 +46,28 @@ public class g {
                     return;
                 }
             }
-            this.f67940a = gVar;
-            this.f67941b = new ArrayList();
-            this.f67942c = com.kwai.filedownloader.f.b.a(1, "Flow-" + i2);
+            this.a = gVar;
+            this.f60032b = new ArrayList();
+            this.f60033c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i2);
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f67941b.add(Integer.valueOf(i2));
+                this.f60032b.add(Integer.valueOf(i2));
             }
         }
 
         public void a(MessageSnapshot messageSnapshot) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
-                this.f67942c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
+                this.f60033c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MessageSnapshot f67943a;
+                    public final /* synthetic */ MessageSnapshot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f67944b;
+                    public final /* synthetic */ a f60034b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -90,17 +84,17 @@ public class g {
                                 return;
                             }
                         }
-                        this.f67944b = this;
-                        this.f67943a = messageSnapshot;
+                        this.f60034b = this;
+                        this.a = messageSnapshot;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f67944b.f67940a.f67939b.a(this.f67943a);
+                            this.f60034b.a.f60031b.a(this.a);
                             try {
-                                this.f67944b.f67941b.remove(Integer.valueOf(this.f67943a.m()));
+                                this.f60034b.f60032b.remove(Integer.valueOf(this.a.m()));
                             } catch (Exception unused) {
                             }
                         }
@@ -125,10 +119,10 @@ public class g {
                 return;
             }
         }
-        this.f67939b = bVar;
-        this.f67938a = new ArrayList();
+        this.f60031b = bVar;
+        this.a = new ArrayList();
         for (int i5 = 0; i5 < i2; i5++) {
-            this.f67938a.add(new a(this, i5));
+            this.a.add(new a(this, i5));
         }
     }
 
@@ -137,32 +131,32 @@ public class g {
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             a aVar = null;
             try {
-                synchronized (this.f67938a) {
+                synchronized (this.a) {
                     int m = messageSnapshot.m();
-                    Iterator<a> it = this.f67938a.iterator();
+                    Iterator<a> it = this.a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         a next = it.next();
-                        if (next.f67941b.contains(Integer.valueOf(m))) {
+                        if (next.f60032b.contains(Integer.valueOf(m))) {
                             aVar = next;
                             break;
                         }
                     }
                     if (aVar == null) {
                         int i2 = 0;
-                        Iterator<a> it2 = this.f67938a.iterator();
+                        Iterator<a> it2 = this.a.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
                             a next2 = it2.next();
-                            if (next2.f67941b.size() <= 0) {
+                            if (next2.f60032b.size() <= 0) {
                                 aVar = next2;
                                 break;
-                            } else if (i2 == 0 || next2.f67941b.size() < i2) {
-                                i2 = next2.f67941b.size();
+                            } else if (i2 == 0 || next2.f60032b.size() < i2) {
+                                i2 = next2.f60032b.size();
                                 aVar = next2;
                             }
                         }

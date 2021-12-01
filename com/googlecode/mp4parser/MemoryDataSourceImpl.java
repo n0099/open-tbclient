@@ -42,10 +42,10 @@ public class MemoryDataSourceImpl implements DataSource {
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public ByteBuffer map(long j, long j2) throws IOException {
+    public ByteBuffer map(long j2, long j3) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (ByteBuffer) ((ByteBuffer) this.data.position(CastUtils.l2i(j))).slice().limit(CastUtils.l2i(j2)) : (ByteBuffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (ByteBuffer) ((ByteBuffer) this.data.position(CastUtils.l2i(j2))).slice().limit(CastUtils.l2i(j3)) : (ByteBuffer) invokeCommon.objValue;
     }
 
     @Override // com.googlecode.mp4parser.DataSource
@@ -77,17 +77,17 @@ public class MemoryDataSourceImpl implements DataSource {
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public long transferTo(long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
+    public long transferTo(long j2, long j3, WritableByteChannel writableByteChannel) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), writableByteChannel})) == null) ? writableByteChannel.write((ByteBuffer) ((ByteBuffer) this.data.position(CastUtils.l2i(j))).slice().limit(CastUtils.l2i(j2))) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), writableByteChannel})) == null) ? writableByteChannel.write((ByteBuffer) ((ByteBuffer) this.data.position(CastUtils.l2i(j2))).slice().limit(CastUtils.l2i(j3))) : invokeCommon.longValue;
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public void position(long j) throws IOException {
+    public void position(long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.data.position(CastUtils.l2i(j));
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.data.position(CastUtils.l2i(j2));
         }
     }
 

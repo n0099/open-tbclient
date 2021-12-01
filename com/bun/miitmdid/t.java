@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class t extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f62115i;
+    public Context f54441i;
 
     public t(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class t extends m {
                 return;
             }
         }
-        this.f62115i = context;
+        this.f54441i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -39,9 +39,9 @@ public class t extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a2 = a(this.f62115i);
-            this.f62115i = a2;
-            KeyguardManager keyguardManager = (KeyguardManager) a2.getSystemService("keyguard");
+            Context a = a(this.f54441i);
+            this.f54441i = a;
+            KeyguardManager keyguardManager = (KeyguardManager) a.getSystemService("keyguard");
             if (keyguardManager == null) {
                 e0.b("PrizeProvider", "getIdManagerInfo: ClassNotFound: android.app.KeyguardManager");
                 gVar.f();

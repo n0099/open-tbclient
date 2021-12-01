@@ -28,28 +28,26 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class DispatchableContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "DispProvider";
     public transient /* synthetic */ FieldHolder $fh;
     public String mAuthority;
-    public ArrayList<b.a.h0.b.a.i.a> mContentProviderDelegates;
+    public ArrayList<c.a.i0.b.a.i.a> mContentProviderDelegates;
     public final Object mInitLocker;
     public volatile boolean mIsInit;
     public a mUriMatcher;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends UriMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f43139a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43140b;
+        public int f38543b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -74,8 +72,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 < this.f43140b || i2 > this.f43139a) {
-                    throw new IllegalArgumentException("The minCode is : " + this.f43140b + "The maxCode is : " + this.f43139a + "The error code is : " + i2);
+                if (i2 < this.f38543b || i2 > this.a) {
+                    throw new IllegalArgumentException("The minCode is : " + this.f38543b + "The maxCode is : " + this.a + "The error code is : " + i2);
                 }
             }
         }
@@ -107,7 +105,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         this.mInitLocker = new Object();
     }
 
-    private b.a.h0.b.a.i.a findContentProviderDelegate(int i2) {
+    private c.a.i0.b.a.i.a findContentProviderDelegate(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
@@ -115,7 +113,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             int i3 = 0;
             while (i3 <= size) {
                 int i4 = (i3 + size) / 2;
-                b.a.h0.b.a.i.a aVar = this.mContentProviderDelegates.get(i4);
+                c.a.i0.b.a.i.a aVar = this.mContentProviderDelegates.get(i4);
                 if (i2 >= aVar.h() && i2 <= aVar.g()) {
                     return aVar;
                 }
@@ -127,7 +125,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (b.a.h0.b.a.i.a) invokeI.objValue;
+        return (c.a.i0.b.a.i.a) invokeI.objValue;
     }
 
     private void initIfNeed() {
@@ -145,16 +143,16 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             if (authority != null) {
                 this.mUriMatcher = new a(-1);
                 this.mContentProviderDelegates = new ArrayList<>();
-                List<b.a.h0.b.a.i.a> contentProviderDelegates = getContentProviderDelegates();
+                List<c.a.i0.b.a.i.a> contentProviderDelegates = getContentProviderDelegates();
                 if (contentProviderDelegates != null) {
-                    for (b.a.h0.b.a.i.a aVar : contentProviderDelegates) {
+                    for (c.a.i0.b.a.i.a aVar : contentProviderDelegates) {
                         insertContentProviderDelegate(aVar);
-                        this.mUriMatcher.f43140b = aVar.h();
-                        this.mUriMatcher.f43139a = aVar.g();
+                        this.mUriMatcher.f38543b = aVar.h();
+                        this.mUriMatcher.a = aVar.g();
                         aVar.f(this.mUriMatcher, this.mAuthority);
                     }
                 }
-                Iterator<b.a.h0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+                Iterator<c.a.i0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
                 while (it.hasNext()) {
                     it.next().j();
                 }
@@ -164,7 +162,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         }
     }
 
-    private void insertContentProviderDelegate(b.a.h0.b.a.i.a aVar) {
+    private void insertContentProviderDelegate(c.a.i0.b.a.i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
             if (aVar.h() <= aVar.g()) {
@@ -188,7 +186,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         InterceptResult invokeL;
-        b.a.h0.b.a.i.a findContentProviderDelegate;
+        c.a.i0.b.a.i.a findContentProviderDelegate;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
             initIfNeed();
@@ -212,7 +210,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             }
             ArrayList arrayList3 = new ArrayList();
             for (Map.Entry entry : hashMap.entrySet()) {
-                for (ContentProviderResult contentProviderResult : ((b.a.h0.b.a.i.a) entry.getKey()).a((ArrayList) entry.getValue())) {
+                for (ContentProviderResult contentProviderResult : ((c.a.i0.b.a.i.a) entry.getKey()).a((ArrayList) entry.getValue())) {
                     arrayList3.add(contentProviderResult);
                 }
             }
@@ -231,7 +229,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, providerInfo) == null) {
             initIfNeed();
-            Iterator<b.a.h0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+            Iterator<c.a.i0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
             while (it.hasNext()) {
                 it.next().b(this);
             }
@@ -246,7 +244,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValuesArr)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 6);
                 return findContentProviderDelegate.c(match, uri, contentValuesArr);
@@ -262,9 +260,9 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
             initIfNeed();
-            Iterator<b.a.h0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+            Iterator<c.a.i0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
             while (it.hasNext()) {
-                b.a.h0.b.a.i.a next = it.next();
+                c.a.i0.b.a.i.a next = it.next();
                 if (next.d(str, str2, bundle)) {
                     next.e(null, 3);
                     return next.call(str, str2, bundle);
@@ -282,7 +280,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 5);
                 return findContentProviderDelegate.delete(match, uri, str, strArr);
@@ -294,7 +292,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
 
     public abstract String getAuthority();
 
-    public abstract List<b.a.h0.b.a.i.a> getContentProviderDelegates();
+    public abstract List<c.a.i0.b.a.i.a> getContentProviderDelegates();
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
@@ -303,7 +301,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, uri)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 4);
                 return findContentProviderDelegate.getType(match, uri);
@@ -320,7 +318,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, contentValues)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 1);
                 return findContentProviderDelegate.insert(match, uri, contentValues);
@@ -336,7 +334,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
             initIfNeed();
             super.onConfigurationChanged(configuration);
-            Iterator<b.a.h0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
+            Iterator<c.a.i0.b.a.i.a> it = this.mContentProviderDelegates.iterator();
             while (it.hasNext()) {
                 it.next().i(configuration);
             }
@@ -360,7 +358,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, uri, str)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 7);
                 findContentProviderDelegate.k(match, uri, str);
@@ -378,7 +376,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, uri, str)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.m(match, uri, str);
                 throw null;
@@ -395,7 +393,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048590, this, uri, strArr, str, strArr2, str2)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 0);
                 return findContentProviderDelegate.query(match, uri, strArr, str, strArr2, str2);
@@ -412,7 +410,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048592, this, uri, contentValues, str, strArr)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 2);
                 return findContentProviderDelegate.update(match, uri, contentValues, str, strArr);
@@ -429,7 +427,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, uri, str, cancellationSignal)) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 7);
                 findContentProviderDelegate.l(match, uri, str, cancellationSignal);
@@ -447,7 +445,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
             initIfNeed();
             int match = this.mUriMatcher.match(uri);
-            b.a.h0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
+            c.a.i0.b.a.i.a findContentProviderDelegate = findContentProviderDelegate(match);
             if (findContentProviderDelegate != null) {
                 findContentProviderDelegate.e(uri, 0);
                 return findContentProviderDelegate.query(match, uri, strArr, str, strArr2, str2, cancellationSignal);

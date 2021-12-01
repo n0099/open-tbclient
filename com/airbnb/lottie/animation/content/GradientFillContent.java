@@ -26,9 +26,10 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GradientFillContent implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static final int CACHE_STEPS_MS = 32;
     public final int cacheSteps;
@@ -104,7 +105,7 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
         int round = Math.round(this.startPointAnimation.getProgress() * this.cacheSteps);
         int round2 = Math.round(this.endPointAnimation.getProgress() * this.cacheSteps);
         int round3 = Math.round(this.colorAnimation.getProgress() * this.cacheSteps);
-        int i2 = round != 0 ? 527 * round : 17;
+        int i2 = round != 0 ? PayBeanFactory.BEAN_ID_WIDTHDRAW * round : 17;
         if (round2 != 0) {
             i2 = i2 * 31 * round2;
         }

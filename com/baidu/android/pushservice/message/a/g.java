@@ -14,18 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.g$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36593a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,9 +40,9 @@ public class g extends d {
                 }
             }
             int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            f36593a = iArr;
+            a = iArr;
             try {
-                iArr[com.baidu.android.pushservice.a.c.f35801a.ordinal()] = 1;
+                iArr[com.baidu.android.pushservice.a.c.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
         }
@@ -80,19 +78,19 @@ public class g extends d {
             int g2 = kVar.g();
             byte[] i2 = kVar.i();
             String d2 = kVar.d();
-            int a2 = kVar.a();
+            int a = kVar.a();
             String str = new String(bArr);
-            com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f36585a, c2);
-            if (TextUtils.isEmpty(d2) || !m.b(this.f36585a, d2)) {
-                d2 = a3.a() == com.baidu.android.pushservice.a.c.f35801a ? a3.f35804a.b() : null;
+            com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.a, c2);
+            if (TextUtils.isEmpty(d2) || !m.b(this.a, d2)) {
+                d2 = a2.a() == com.baidu.android.pushservice.a.c.a ? a2.a.b() : null;
             }
             int i3 = 7;
-            if (AnonymousClass1.f36593a[a3.a().ordinal()] != 1) {
-                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.f36585a);
+            if (AnonymousClass1.a[a2.a().ordinal()] != 1) {
+                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.a);
             } else {
-                String a4 = a(d2);
+                String a3 = a(d2);
                 try {
-                    this.f36585a.getPackageManager().getPackageInfo(a4, 128);
+                    this.a.getPackageManager().getPackageInfo(a3, 128);
                     Intent intent = new Intent();
                     intent.putExtra("app_id", c2);
                     intent.putExtra("msg_id", f2);
@@ -102,13 +100,13 @@ public class g extends d {
                     intent.putExtra("baidu_message_type", g2);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", i2);
-                    intent.putExtra("notify_id", a2);
-                    int a5 = m.a(this.f36585a, intent, "com.baidu.android.pushservice.action.MESSAGE", a4);
-                    m.a(">>> Deliver message to client: " + a3.f35804a.b() + " result: " + a5, this.f36585a);
-                    i3 = a5;
+                    intent.putExtra("notify_id", a);
+                    int a4 = m.a(this.a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
+                    m.a(">>> Deliver message to client: " + a2.a.b() + " result: " + a4, this.a);
+                    i3 = a4;
                 } catch (PackageManager.NameNotFoundException e2) {
-                    m.a(">>> NOT deliver to app: " + a3.f35804a.b() + ", package has been uninstalled.", this.f36585a);
-                    new b.c(this.f36585a).a(Log.getStackTraceString(e2)).a();
+                    m.a(">>> NOT deliver to app: " + a2.a.b() + ", package has been uninstalled.", this.a);
+                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 }
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

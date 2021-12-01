@@ -1,209 +1,225 @@
 package com.kwad.sdk.utils;
 
-import android.app.AppOpsManager;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Binder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
-import android.os.Process;
-import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes2.dex */
 public class ad {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Integer> f67527a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f67528b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Method f67529c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734111, "Lcom/kwad/sdk/utils/ad;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(408734111, "Lcom/kwad/sdk/utils/ad;");
-                return;
-            }
-        }
-        HashSet hashSet = new HashSet();
-        f67528b = hashSet;
-        hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f67528b.add("android.permission.WRITE_SETTINGS");
-        f67528b.add("android.permission.SYSTEM_ALERT_WINDOW");
-    }
-
-    public static int a(Context context, String str) {
-        InterceptResult invokeLL;
-        int b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (f67527a == null) {
-                try {
-                    a(context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions);
-                } catch (PackageManager.NameNotFoundException unused) {
-                }
-            }
-            if (!f67528b.contains(str) || (b2 = b(context, str)) == -2) {
-                int c2 = c(context, str);
-                return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
-            }
-            return b2;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            int lastIndexOf = str.lastIndexOf(".");
-            if (lastIndexOf < 0) {
-                return str;
-            }
-            try {
-                return str.substring(lastIndexOf + 1);
-            } catch (Exception unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void a(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, strArr) == null) || Build.VERSION.SDK_INT < 19 || strArr == null) {
-            return;
-        }
-        f67527a = new HashMap();
-        for (String str : strArr) {
-            try {
-                Field declaredField = AppOpsManager.class.getDeclaredField("OP_" + a(str));
-                declaredField.setAccessible(true);
-                int intValue = ((Integer) declaredField.get(null)).intValue();
-                if (intValue >= 0) {
-                    f67527a.put(str, Integer.valueOf(intValue));
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
 
     public static boolean a(Context context) {
         InterceptResult invokeL;
-        int i2;
+        ConnectivityManager connectivityManager;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                i2 = Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled");
-            } catch (Throwable unused) {
-                i2 = 0;
+                if (!(ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0) || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                    return false;
+                }
+                return activeNetworkInfo.isConnected();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
             }
-            return i2 == 1;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004f A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static int b(Context context, String str) {
-        InterceptResult invokeLL;
-        char c2;
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -2078357533) {
-                if (str.equals("android.permission.WRITE_SETTINGS")) {
-                    c2 = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if ((ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0) && (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
+                    return 1 == activeNetworkInfo.getType();
                 }
-                c2 = 65535;
-            } else if (hashCode != -1561629405) {
-                if (hashCode == 1777263169 && str.equals("android.permission.REQUEST_INSTALL_PACKAGES")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals("android.permission.SYSTEM_ALERT_WINDOW")) {
-                    c2 = 2;
-                }
-                c2 = 65535;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            if (c2 == 0) {
-                if (Build.VERSION.SDK_INT >= 26) {
-                    if (context.getPackageManager().canRequestPackageInstalls()) {
-                        return 0;
-                    }
-                }
-                return -2;
-            } else if (c2 != 1) {
-                if (c2 == 2 && Build.VERSION.SDK_INT >= 23) {
-                    return Settings.canDrawOverlays(context) ? 0 : -1;
-                }
-                return -2;
-            } else {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    if (Settings.System.canWrite(context)) {
-                        return 0;
-                    }
-                }
-                return -2;
-            }
+            return false;
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static int c(Context context, String str) {
-        InterceptResult invokeLL;
+    public static int c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
-            if (str == null) {
-                return -2;
-            }
-            if (Build.VERSION.SDK_INT < 19) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? e(context) : invokeL.intValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int i2 = 0;
+            if (context == null) {
                 return 0;
             }
-            if (f67527a.containsKey(str)) {
-                int intValue = f67527a.get(str).intValue();
-                try {
-                    if (f67529c == null) {
-                        Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                        f67529c = declaredMethod;
-                        declaredMethod.setAccessible(true);
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
+            if (telephonyManager == null) {
+                return 0;
+            }
+            if (Build.VERSION.SDK_INT >= 22) {
+                String simOperator = telephonyManager.getSimOperator();
+                char c2 = 65535;
+                int hashCode = simOperator.hashCode();
+                if (hashCode != 49679502) {
+                    switch (hashCode) {
+                        case 49679470:
+                            if (simOperator.equals("46000")) {
+                                c2 = 0;
+                                break;
+                            }
+                            break;
+                        case 49679471:
+                            if (simOperator.equals("46001")) {
+                                c2 = 4;
+                                break;
+                            }
+                            break;
+                        case 49679472:
+                            if (simOperator.equals("46002")) {
+                                c2 = 1;
+                                break;
+                            }
+                            break;
+                        case 49679473:
+                            if (simOperator.equals("46003")) {
+                                c2 = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 49679475:
+                                    if (simOperator.equals("46005")) {
+                                        c2 = '\b';
+                                        break;
+                                    }
+                                    break;
+                                case 49679476:
+                                    if (simOperator.equals("46006")) {
+                                        c2 = 5;
+                                        break;
+                                    }
+                                    break;
+                                case 49679477:
+                                    if (simOperator.equals("46007")) {
+                                        c2 = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 49679478:
+                                    if (simOperator.equals("46008")) {
+                                        c2 = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 49679479:
+                                    if (simOperator.equals("46009")) {
+                                        c2 = 6;
+                                        break;
+                                    }
+                                    break;
+                            }
                     }
-                    return ((Integer) f67529c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    return 0;
+                } else if (simOperator.equals("46011")) {
+                    c2 = '\t';
+                }
+                switch (c2) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        i2 = 1;
+                        break;
+                    case 4:
+                    case 5:
+                    case 6:
+                        i2 = 3;
+                        break;
+                    case 7:
+                    case '\b':
+                    case '\t':
+                        i2 = 2;
+                        break;
                 }
             }
-            return -2;
+            if (i2 == 0) {
+                String h2 = av.h(context);
+                if (TextUtils.isEmpty(h2)) {
+                    return i2;
+                }
+                if (!h2.startsWith("46000") && !h2.startsWith("46002")) {
+                    if (h2.startsWith("46001")) {
+                        return 3;
+                    }
+                    if (h2.startsWith("46003")) {
+                        return 2;
+                    }
+                }
+                return 1;
+            }
+            return i2;
         }
-        return invokeLL.intValue;
+        return invokeL.intValue;
+    }
+
+    public static byte e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context != null && a(context)) {
+                if (b(context)) {
+                    return (byte) 100;
+                }
+                TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
+                if (telephonyManager != null) {
+                    switch (telephonyManager.getNetworkType()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                        case 16:
+                            return (byte) 2;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return (byte) 3;
+                        case 13:
+                            return (byte) 4;
+                        default:
+                            return (byte) 0;
+                    }
+                }
+                return (byte) 0;
+            }
+            return (byte) 0;
+        }
+        return invokeL.byteValue;
     }
 }

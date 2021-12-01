@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -127,7 +126,7 @@ public final class AccessibilityServiceInfoCompat {
     public static String loadDescription(@NonNull AccessibilityServiceInfo accessibilityServiceInfo, @NonNull PackageManager packageManager) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, accessibilityServiceInfo, packageManager)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, accessibilityServiceInfo, packageManager)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 return accessibilityServiceInfo.loadDescription(packageManager);
             }

@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f37723a;
+    public final /* synthetic */ ClientUpdater a;
 
     public b(ClientUpdater clientUpdater) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public class b extends BroadcastReceiver {
                 return;
             }
         }
-        this.f37723a = clientUpdater;
+        this.a = clientUpdater;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -39,7 +37,7 @@ public class b extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             LogUtil.logE("ClientUpdater", "receive:android.net.conn.CONNECTIVITY_CHANGE");
-            this.f37723a.a();
+            this.a.a();
         }
     }
 }

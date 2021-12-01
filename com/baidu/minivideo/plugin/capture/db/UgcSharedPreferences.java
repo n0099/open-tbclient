@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.PreferenceUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UgcSharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_ROINTS_LIST = "audio_points_list";
@@ -94,13 +93,13 @@ public class UgcSharedPreferences {
     public static String getFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sPref.getString(KEY_FILTER, null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sPref.getString(KEY_FILTER, null) : (String) invokeV.objValue;
     }
 
     public static long getLastCaptureConfigTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sPref.getLong(LAST_CAPTURE_CONFIG_TIME, 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sPref.getLong(LAST_CAPTURE_CONFIG_TIME, 0L) : invokeV.longValue;
     }
 
     public static int getSaveVideoLocalStatus() {
@@ -200,10 +199,10 @@ public class UgcSharedPreferences {
         }
     }
 
-    public static void setLastCaptureConfigTime(long j) {
+    public static void setLastCaptureConfigTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65555, null, j) == null) {
-            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j).apply();
+        if (interceptable == null || interceptable.invokeJ(65555, null, j2) == null) {
+            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j2).apply();
         }
     }
 

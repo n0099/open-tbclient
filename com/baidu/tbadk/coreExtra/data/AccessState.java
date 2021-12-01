@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AccessState implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2345844599685454996L;
@@ -20,7 +20,7 @@ public class AccessState implements Serializable {
     public String type;
     public UserInfo userInfo;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class UserInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

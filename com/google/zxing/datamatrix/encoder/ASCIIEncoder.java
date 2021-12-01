@@ -1,13 +1,12 @@
 package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class ASCIIEncoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +30,7 @@ public final class ASCIIEncoder implements Encoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) {
             if (HighLevelEncoder.isDigit(c2) && HighLevelEncoder.isDigit(c3)) {
-                return (char) (((c2 - '0') * 10) + (c3 - '0') + IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+                return (char) (((c2 - '0') * 10) + (c3 - '0') + 130);
             }
             throw new IllegalArgumentException("not digits: " + c2 + c3);
         }

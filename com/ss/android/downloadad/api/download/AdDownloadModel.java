@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -98,10 +97,10 @@ public class AdDownloadModel implements DownloadModel {
         }
 
         @Deprecated
-        public Builder setAdId(long j) {
+        public Builder setAdId(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? setId(j) : (Builder) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? setId(j2) : (Builder) invokeJ.objValue;
         }
 
         public Builder setAppIcon(String str) {
@@ -224,11 +223,11 @@ public class AdDownloadModel implements DownloadModel {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setExpectFileLength(long j) {
+        public Builder setExpectFileLength(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-                this.model.mExpectFileLength = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j2)) == null) {
+                this.model.mExpectFileLength = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -244,11 +243,11 @@ public class AdDownloadModel implements DownloadModel {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setExtraValue(long j) {
+        public Builder setExtraValue(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
-                this.model.mExtraValue = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
+                this.model.mExtraValue = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -294,11 +293,11 @@ public class AdDownloadModel implements DownloadModel {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setId(long j) {
+        public Builder setId(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
-                this.model.mId = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j2)) == null) {
+                this.model.mId = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -549,7 +548,7 @@ public class AdDownloadModel implements DownloadModel {
     public static void appendTrackUrlFromJson(JSONObject jSONObject, Builder builder) {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, builder) == null) || (optJSONArray = jSONObject.optJSONArray("click_track_urls")) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, jSONObject, builder) == null) || (optJSONArray = jSONObject.optJSONArray("click_track_urls")) == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -562,7 +561,7 @@ public class AdDownloadModel implements DownloadModel {
     public static AdDownloadModel fromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
@@ -888,10 +887,10 @@ public class AdDownloadModel implements DownloadModel {
     }
 
     @Deprecated
-    public AdDownloadModel setAdId(long j) {
+    public AdDownloadModel setAdId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) ? setId(j) : (AdDownloadModel) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) ? setId(j2) : (AdDownloadModel) invokeJ.objValue;
     }
 
     public AdDownloadModel setAppIcon(String str) {
@@ -961,10 +960,10 @@ public class AdDownloadModel implements DownloadModel {
         return (AdDownloadModel) invokeL.objValue;
     }
 
-    public void setExpectFileLength(long j) {
+    public void setExpectFileLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048626, this, j) == null) {
-            this.mExpectFileLength = j;
+        if (interceptable == null || interceptable.invokeJ(1048626, this, j2) == null) {
+            this.mExpectFileLength = j2;
         }
     }
 
@@ -975,10 +974,10 @@ public class AdDownloadModel implements DownloadModel {
         }
     }
 
-    public void setExtraValue(long j) {
+    public void setExtraValue(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
-            this.mExtraValue = j;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
+            this.mExtraValue = j2;
         }
     }
 
@@ -1022,11 +1021,11 @@ public class AdDownloadModel implements DownloadModel {
         return (AdDownloadModel) invokeL.objValue;
     }
 
-    public AdDownloadModel setId(long j) {
+    public AdDownloadModel setId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
-            this.mId = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) {
+            this.mId = j2;
             return this;
         }
         return (AdDownloadModel) invokeJ.objValue;

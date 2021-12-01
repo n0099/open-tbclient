@@ -6,13 +6,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.StateListDrawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +48,8 @@ public final class m {
                     try {
                         e2 = e2.getAssets().open("ufo_res/" + str);
                         try {
-                            byte[] a2 = i.a((InputStream) e2);
-                            bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
+                            byte[] a = i.a((InputStream) e2);
+                            bitmap = BitmapFactory.decodeByteArray(a, 0, a.length, null);
                         } catch (IOException e3) {
                             e = e3;
                             c.a("bmpProblemIcon fail", e);
@@ -270,8 +269,8 @@ public final class m {
         Throwable th;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            Bitmap bitmap = com.baidu.ufosdk.b.f57568g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            Bitmap bitmap = com.baidu.ufosdk.b.f51518g;
             if (bitmap != null) {
                 return bitmap;
             }
@@ -281,8 +280,8 @@ public final class m {
                     inputStream = context.getAssets().open("ufo_res/ufo_defult_me_icon.png");
                     try {
                         try {
-                            byte[] a2 = i.a(inputStream);
-                            bitmap2 = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
+                            byte[] a = i.a(inputStream);
+                            bitmap2 = BitmapFactory.decodeByteArray(a, 0, a.length, null);
                         } catch (IOException e2) {
                             e = e2;
                             c.a("bmpProblemIcon fail", e);

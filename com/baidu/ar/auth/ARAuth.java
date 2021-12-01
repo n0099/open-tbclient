@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.callback.ICallbackWith;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARAuth {
     public static /* synthetic */ Interceptable $ic;
     public static com.baidu.ar.h.h<j> iW;
@@ -86,7 +85,7 @@ public class ARAuth {
     public static boolean checkOfflineLicenseAuth(Context context, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, bArr)) == null) {
             j gA = iW.gA();
             if (gA != null) {
                 return gA.checkOfflineLicenseAuth(context, bArr);
@@ -99,7 +98,7 @@ public class ARAuth {
     public static Bitmap createTipBitmap(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             j gA = iW.gA();
             if (gA != null) {
                 return gA.createTipBitmap(context);

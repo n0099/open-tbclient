@@ -12,27 +12,26 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.o.a.a0;
-import b.o.a.a2;
-import b.o.a.c3;
-import b.o.a.g3;
-import b.o.a.h4;
-import b.o.a.j3;
-import b.o.a.k1;
-import b.o.a.l1;
-import b.o.a.m0;
-import b.o.a.m2;
-import b.o.a.n;
-import b.o.a.o0;
-import b.o.a.q0;
-import b.o.a.r0;
-import b.o.a.u0;
-import b.o.a.v;
-import b.o.a.w;
-import b.o.a.y2;
+import c.p.a.a0;
+import c.p.a.a2;
+import c.p.a.c3;
+import c.p.a.g3;
+import c.p.a.h4;
+import c.p.a.j3;
+import c.p.a.k1;
+import c.p.a.l1;
+import c.p.a.m0;
+import c.p.a.m2;
+import c.p.a.n;
+import c.p.a.o0;
+import c.p.a.q0;
+import c.p.a.r0;
+import c.p.a.u0;
+import c.p.a.v;
+import c.p.a.w;
+import c.p.a.y2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
-import com.baidu.pass.biometrics.face.liveness.activity.PassLivenessRecogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,37 +41,35 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.views.CloseParentView;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class H5Activity extends Activity implements o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71397a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f71398b;
+    public ViewGroup f62617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CloseParentView f71399c;
+    public CloseParentView f62618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n f71400d;
+    public n f62619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Info f71401e;
+    public Info f62620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f71402f;
+    public String f62621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71403g;
+    public String f62622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f71404h;
+    public long f62623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h4 f71405i;
+    public h4 f62624i;
 
     public H5Activity() {
         Interceptable interceptable = $ic;
@@ -87,7 +84,7 @@ public class H5Activity extends Activity implements o0 {
                 return;
             }
         }
-        this.f71404h = 0L;
+        this.f62623h = 0L;
     }
 
     public static void a(Context context, Info info, String str) {
@@ -117,7 +114,7 @@ public class H5Activity extends Activity implements o0 {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Info info = this.f71401e;
+            Info info = this.f62620e;
             if (info != null && info.getXn() > 0) {
                 int i3 = Build.VERSION.SDK_INT;
                 if (i3 > 11 && i3 < 19) {
@@ -129,10 +126,10 @@ public class H5Activity extends Activity implements o0 {
                 }
                 decorView.setSystemUiVisibility(i2);
             }
-            Info info2 = this.f71401e;
+            Info info2 = this.f62620e;
             int i4 = Build.VERSION.SDK_INT;
             if (i4 <= 25 || i4 >= 28) {
-                String str = this.f71402f;
+                String str = this.f62621f;
                 int i5 = 1;
                 if (!TextUtils.isEmpty(str) && str.length() > 3) {
                     String substring = str.substring(0, 3);
@@ -196,26 +193,26 @@ public class H5Activity extends Activity implements o0 {
                 i5 = 2;
                 setRequestedOrientation(i5);
             }
-            WebView webView = ((j3) this.f71400d).f34189c;
+            WebView webView = ((j3) this.f62619d).f30810c;
             webView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.f71398b.addView(webView, 0);
-            n nVar = this.f71400d;
+            this.f62617b.addView(webView, 0);
+            n nVar = this.f62619d;
             if (nVar instanceof j3) {
-                ((j3) nVar).a(this.f71401e.getLoad(), this.f71401e);
+                ((j3) nVar).a(this.f62620e.getLoad(), this.f62620e);
             }
-            ((j3) this.f71400d).f34188b = new w(this);
-            this.f71399c.setCollectVisible(false);
-            this.f71399c.setLocation(PassLivenessRecogActivity.S);
-            this.f71399c.setCountDown(this.f71401e.getCdt());
-            this.f71399c.setOnCloseListener(new a0(this));
-            y2 a2 = c3.a(this.f71397a);
-            a2.o(new g3(this.f71401e));
-            a2.m();
-            q0.c(this.f71401e.getId() + this.f71402f, "is_display", null);
-            if (this.f71401e != null) {
-                m2.g(this.f71397a, this.f71401e.getId() + ":" + System.currentTimeMillis(), false);
+            ((j3) this.f62619d).f30809b = new w(this);
+            this.f62618c.setCollectVisible(false);
+            this.f62618c.setLocation(220);
+            this.f62618c.setCountDown(this.f62620e.getCdt());
+            this.f62618c.setOnCloseListener(new a0(this));
+            y2 a = c3.a(this.a);
+            a.o(new g3(this.f62620e));
+            a.m();
+            q0.c(this.f62620e.getId() + this.f62621f, "is_display", null);
+            if (this.f62620e != null) {
+                m2.g(this.a, this.f62620e.getId() + ":" + System.currentTimeMillis(), false);
             }
-            r0.n(this.f71401e);
+            r0.n(this.f62620e);
         }
     }
 
@@ -223,7 +220,7 @@ public class H5Activity extends Activity implements o0 {
     public void onBackPressed() {
         Info info;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (info = this.f71401e) != null && info.getCb() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (info = this.f62620e) != null && info.getCb() == 0) {
             super.onBackPressed();
         }
     }
@@ -234,11 +231,11 @@ public class H5Activity extends Activity implements o0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(l1.win_layout_activity_h5);
-            this.f71397a = getApplicationContext();
-            this.f71398b = (ViewGroup) findViewById(k1.win_parent);
-            this.f71399c = (CloseParentView) findViewById(k1.win_close_parent);
-            this.f71404h = 0L;
-            this.f71405i = new h4(this);
+            this.a = getApplicationContext();
+            this.f62617b = (ViewGroup) findViewById(k1.win_parent);
+            this.f62618c = (CloseParentView) findViewById(k1.win_close_parent);
+            this.f62623h = 0L;
+            this.f62624i = new h4(this);
             q0.b("hcl", this);
             q0.b("onT", this);
             q0.b("onRewardedShowFail", this);
@@ -249,13 +246,13 @@ public class H5Activity extends Activity implements o0 {
             try {
                 Intent intent = getIntent();
                 String stringExtra = intent.getStringExtra("id");
-                this.f71402f = intent.getStringExtra("pid");
+                this.f62621f = intent.getStringExtra("pid");
                 String stringExtra2 = intent.getStringExtra("traceid");
-                this.f71401e = m0.a().b(v.c(stringExtra2, stringExtra, this.f71402f));
-                n a2 = v.b().a(v.c(stringExtra2, stringExtra, this.f71402f));
-                this.f71400d = a2;
-                if (a2 != null) {
-                    if (this.f71401e != null) {
+                this.f62620e = m0.a().b(v.c(stringExtra2, stringExtra, this.f62621f));
+                n a = v.b().a(v.c(stringExtra2, stringExtra, this.f62621f));
+                this.f62619d = a;
+                if (a != null) {
+                    if (this.f62620e != null) {
                         z = true;
                     }
                 }
@@ -279,29 +276,29 @@ public class H5Activity extends Activity implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            y2 a2 = c3.a(this.f71397a);
-            a2.b(new g3(this.f71401e));
-            a2.m();
-            n nVar = this.f71400d;
+            y2 a = c3.a(this.a);
+            a.b(new g3(this.f62620e));
+            a.m();
+            n nVar = this.f62619d;
             if (nVar != null) {
                 j3 j3Var = (j3) nVar;
-                WebView webView = j3Var.f34189c;
+                WebView webView = j3Var.f30810c;
                 if (webView != null) {
                     ViewGroup viewGroup = (ViewGroup) webView.getParent();
                     if (viewGroup != null) {
-                        viewGroup.removeView(j3Var.f34189c);
+                        viewGroup.removeView(j3Var.f30810c);
                     }
-                    j3Var.f34189c.removeAllViews();
-                    j3Var.f34189c.stopLoading();
-                    j3Var.f34189c.setWebChromeClient(null);
-                    j3Var.f34189c.setWebViewClient(null);
-                    j3Var.f34189c.destroy();
+                    j3Var.f30810c.removeAllViews();
+                    j3Var.f30810c.stopLoading();
+                    j3Var.f30810c.setWebChromeClient(null);
+                    j3Var.f30810c.setWebViewClient(null);
+                    j3Var.f30810c.destroy();
                 }
-                if (j3Var.f34188b != null) {
-                    j3Var.f34188b = null;
+                if (j3Var.f30809b != null) {
+                    j3Var.f30809b = null;
                 }
             }
-            CloseParentView closeParentView = this.f71399c;
+            CloseParentView closeParentView = this.f62618c;
             if (closeParentView != null) {
                 closeParentView.b();
             }
@@ -314,7 +311,7 @@ public class H5Activity extends Activity implements o0 {
         Info info;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
-            if (keyEvent.getKeyCode() != 4 || (info = this.f71401e) == null || info.getCb() > 0) {
+            if (keyEvent.getKeyCode() != 4 || (info = this.f62620e) == null || info.getCb() > 0) {
                 return super.onKeyDown(i2, keyEvent);
             }
             return true;
@@ -328,8 +325,8 @@ public class H5Activity extends Activity implements o0 {
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onRestoreInstanceState(bundle);
             try {
-                this.f71402f = bundle.getString("st_pid");
-                this.f71401e = (Info) bundle.getSerializable("st_info");
+                this.f62621f = bundle.getString("st_pid");
+                this.f62620e = (Info) bundle.getSerializable("st_info");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -341,20 +338,20 @@ public class H5Activity extends Activity implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString("st_pid", this.f71402f);
-            bundle.putSerializable("st_info", this.f71401e);
+            bundle.putString("st_pid", this.f62621f);
+            bundle.putSerializable("st_info", this.f62620e);
         }
     }
 
-    @Override // b.o.a.o0
+    @Override // c.p.a.o0
     public void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, obj) == null) {
             if (str.equals("hcl")) {
                 finish();
-                if (this.f71401e != null) {
-                    q0.c(this.f71401e.getId() + this.f71402f, "is_dismiss", null);
-                    q0.a(this.f71401e.getId() + this.f71402f);
+                if (this.f62620e != null) {
+                    q0.c(this.f62620e.getId() + this.f62621f, "is_dismiss", null);
+                    q0.a(this.f62620e.getId() + this.f62621f);
                 }
                 q0.a("hcl");
                 q0.a("onT");
@@ -366,32 +363,32 @@ public class H5Activity extends Activity implements o0 {
             }
             try {
                 if (str.equals("onRewardedShowFail")) {
-                    y2 a2 = c3.a(this.f71397a);
+                    y2 a = c3.a(this.a);
                     String str3 = (String) obj;
                     try {
-                        a2.f34413b = c3.d("vvsf", new g3(this.f71401e));
-                        a2.l("desc", str3);
+                        a.f31007b = c3.d("vvsf", new g3(this.f62620e));
+                        a.l("desc", str3);
                     } catch (JSONException unused) {
                     }
-                    a2.m();
-                    q0.c(this.f71401e.getId() + this.f71402f, "VIDEO_SHOW_FAIL", (String) obj);
+                    a.m();
+                    q0.c(this.f62620e.getId() + this.f62621f, "VIDEO_SHOW_FAIL", (String) obj);
                 } else if (str.equals("onRewardedAdFinish")) {
                     int intValue = ((Integer) obj).intValue();
-                    if (intValue < 0 || intValue < this.f71401e.getVvt() * 0.9d) {
-                        q0.c(this.f71401e.getId() + this.f71402f, "VIDEO_USER_EARNED_REWARD", null);
+                    if (intValue < 0 || intValue < this.f62620e.getVvt() * 0.9d) {
+                        q0.c(this.f62620e.getId() + this.f62621f, "VIDEO_USER_EARNED_REWARD", null);
                     } else {
-                        y2 a3 = c3.a(this.f71397a);
-                        g3 g3Var = new g3(this.f71401e);
-                        long vvamount = this.f71401e.getVvamount();
+                        y2 a2 = c3.a(this.a);
+                        g3 g3Var = new g3(this.f62620e);
+                        long vvamount = this.f62620e.getVvamount();
                         try {
-                            a3.f34413b = c3.d("vvss", g3Var);
-                            a3.k("desc", vvamount);
+                            a2.f31007b = c3.d("vvss", g3Var);
+                            a2.k("desc", vvamount);
                         } catch (JSONException unused2) {
                         }
-                        a3.m();
-                        q0.c(this.f71401e.getId() + this.f71402f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.f71401e.getVvamount()));
+                        a2.m();
+                        q0.c(this.f62620e.getId() + this.f62621f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.f62620e.getVvamount()));
                     }
-                    Info info = this.f71401e;
+                    Info info = this.f62620e;
                     try {
                         r0.o(info, 401, "");
                         if (info == null || TextUtils.isEmpty(info.getVv_finish_urls())) {
@@ -402,17 +399,17 @@ public class H5Activity extends Activity implements o0 {
                         e2.printStackTrace();
                     }
                 } else if (str.equals("onPlayProgress")) {
-                    y2 a4 = c3.a(this.f71397a);
-                    g3 g3Var2 = new g3(this.f71401e);
+                    y2 a3 = c3.a(this.a);
+                    g3 g3Var2 = new g3(this.f62620e);
                     int intValue2 = ((Integer) obj).intValue();
                     try {
-                        a4.f34413b = c3.d("vvst", g3Var2);
-                        a4.k("desc", intValue2);
+                        a3.f31007b = c3.d("vvst", g3Var2);
+                        a3.k("desc", intValue2);
                     } catch (JSONException unused3) {
                     }
-                    a4.m();
+                    a3.m();
                 } else if (str.equals("onRewardedAdStart")) {
-                    Info info2 = this.f71401e;
+                    Info info2 = this.f62620e;
                     if (info2 != null) {
                         try {
                             if (TextUtils.isEmpty(info2.getVv_start_urls())) {
@@ -424,13 +421,13 @@ public class H5Activity extends Activity implements o0 {
                             e3.printStackTrace();
                         }
                     }
-                } else if (str.equals("onT") && a2.d(this.f71401e, this.f71404h)) {
-                    this.f71404h = System.currentTimeMillis();
-                    if (TextUtils.isEmpty(this.f71403g)) {
-                        this.f71403g = "";
+                } else if (str.equals("onT") && a2.d(this.f62620e, this.f62623h)) {
+                    this.f62623h = System.currentTimeMillis();
+                    if (TextUtils.isEmpty(this.f62622g)) {
+                        this.f62622g = "";
                     }
                     try {
-                        a((String) obj, this.f71403g);
+                        a((String) obj, this.f62622g);
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -443,18 +440,18 @@ public class H5Activity extends Activity implements o0 {
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f71401e == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f62620e == null) {
             return;
         }
-        q0.c(this.f71401e.getId() + this.f71402f, "is_click", null);
-        if (u0.f34345d.f34348c && this.f71401e.getOpent() == 1) {
+        q0.c(this.f62620e.getId() + this.f62621f, "is_click", null);
+        if (u0.f30953d.f30955c && this.f62620e.getOpent() == 1) {
             return;
         }
-        a2.a(this.f71397a, str, this.f71401e, this.f71405i, str2);
-        y2 a2 = c3.a(this.f71397a);
-        a2.h(new g3(this.f71401e), str);
-        a2.l("desc", str2);
-        a2.m();
-        r0.p(this.f71401e, str2);
+        a2.a(this.a, str, this.f62620e, this.f62624i, str2);
+        y2 a = c3.a(this.a);
+        a.h(new g3(this.f62620e), str);
+        a.l("desc", str2);
+        a.m();
+        r0.p(this.f62620e, str2);
     }
 }

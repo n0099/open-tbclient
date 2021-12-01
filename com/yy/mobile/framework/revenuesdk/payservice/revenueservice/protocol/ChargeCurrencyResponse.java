@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import android.text.TextUtils;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChargeCurrencyResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public class ChargeCurrencyResponse implements IBaseJsonResponse {
                     if (this.cmd == optInt) {
                         this.appid = jSONObject.optInt("appid");
                         this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                        this.seq = jSONObject.optString("seq");
                         this.usedChannel = jSONObject.optInt("usedChannel");
                         this.result = jSONObject.optInt("result");
                         this.message = jSONObject.optString("message");

@@ -14,30 +14,26 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f68108a = "c";
+    public static final String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f68109b;
+    public HashMap<String, String> f60177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f68110c;
+    public HashMap<String, String> f60178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f68111d;
+    public HashMap<String, Object> f60179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Object> f68112e;
+    public HashMap<String, Object> f60180e;
 
     /* loaded from: classes2.dex */
     public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public Context f68113a = null;
+        public Context a = null;
 
         public a a(Context context) {
-            this.f68113a = context;
+            this.a = context;
             return this;
         }
 
@@ -47,47 +43,47 @@ public class c {
     }
 
     public c(a aVar) {
-        this.f68109b = new HashMap<>();
-        this.f68110c = new HashMap<>();
-        this.f68111d = new HashMap<>();
-        this.f68112e = new HashMap<>();
+        this.f60177b = new HashMap<>();
+        this.f60178c = new HashMap<>();
+        this.f60179d = new HashMap<>();
+        this.f60180e = new HashMap<>();
         e();
-        if (aVar.f68113a != null) {
-            a(aVar.f68113a);
+        if (aVar.a != null) {
+            a(aVar.a);
         }
-        b.j.a.a.a.d(f68108a, "Subject created successfully.");
+        c.k.a.a.a.d(a, "Subject created successfully.");
     }
 
-    private void a(Context context, long j) {
-        com.meizu.cloud.pushsdk.util.b.a(context, "mz_push_preference", "upload_app_list_time", j);
+    private void a(Context context, long j2) {
+        com.meizu.cloud.pushsdk.util.b.a(context, "mz_push_preference", "upload_app_list_time", j2);
     }
 
     private void a(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f68111d.put(str, obj);
+        this.f60179d.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f68109b.put(str, str2);
+        this.f60177b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f68112e.put(str, obj);
+        this.f60180e.put(str, obj);
     }
 
     private void b(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f68110c.put(str, str2);
+        this.f60178c.put(str, str2);
     }
 
     private long c(Context context) {
@@ -106,17 +102,17 @@ public class c {
     }
 
     private void e() {
-        b(b.f68105g, Build.BRAND);
-        b(b.f68106h, Build.MODEL);
-        b(b.j, Build.VERSION.RELEASE);
-        b(b.k, Build.DISPLAY);
+        b(b.f60172g, Build.BRAND);
+        b(b.f60173h, Build.MODEL);
+        b(b.f60175j, Build.VERSION.RELEASE);
+        b(b.f60176k, Build.DISPLAY);
         b(b.m, MzSystemUtils.getCurrentLanguage());
     }
 
     private void e(Context context) {
         Location c2 = e.c(context);
         if (c2 == null) {
-            b.j.a.a.a.b(f68108a, "Location information not available.");
+            c.k.a.a.a.b(a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c2.getLongitude()));
@@ -125,26 +121,26 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f68100b, MzSystemUtils.getDeviceId(context));
-        a(b.f68101c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
-        a(b.f68102d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
-        a(b.f68103e, MzSystemUtils.getLineNumber(context));
+        a(b.f60167b, MzSystemUtils.getDeviceId(context));
+        a(b.f60168c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
+        a(b.f60169d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
+        a(b.f60170e, MzSystemUtils.getLineNumber(context));
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
     private void g(Context context) {
-        b(b.f68107i, com.meizu.cloud.pushsdk.base.c.b(context));
+        b(b.f60174i, com.meizu.cloud.pushsdk.base.c.b(context));
         b(b.z, (Object) MzSystemUtils.getNetWorkType(context));
         b(b.A, (Object) MzSystemUtils.getBSSID(context));
         b(b.E, MzSystemUtils.getWifiList(context));
     }
 
     public Map<String, String> a() {
-        return this.f68109b;
+        return this.f60177b;
     }
 
     public void a(int i2, int i3) {
-        this.f68110c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
+        this.f60178c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
     }
 
     public void a(Context context) {
@@ -156,7 +152,7 @@ public class c {
     }
 
     public Map<String, String> b() {
-        return this.f68110c;
+        return this.f60178c;
     }
 
     @TargetApi(19)
@@ -169,20 +165,20 @@ public class c {
             display.getSize(point);
             a(point.x, point.y);
         } catch (Exception unused) {
-            b.j.a.a.a.b(f68108a, "Display.getSize isn't available on older devices.");
+            c.k.a.a.a.b(a, "Display.getSize isn't available on older devices.");
             if (display != null) {
                 a(display.getWidth(), display.getHeight());
             } else {
-                b.j.a.a.a.b(f68108a, "error get display");
+                c.k.a.a.a.b(a, "error get display");
             }
         }
     }
 
     public Map<String, Object> c() {
-        return this.f68111d;
+        return this.f60179d;
     }
 
     public Map<String, Object> d() {
-        return this.f68112e;
+        return this.f60180e;
     }
 }

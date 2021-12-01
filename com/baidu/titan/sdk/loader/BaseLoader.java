@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.loader;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseLoader {
     public abstract void apply();
 

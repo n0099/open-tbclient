@@ -8,7 +8,7 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
-import b.a.q0.s.u.e.a;
+import c.a.q0.s.u.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -22,33 +22,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45965e;
+    public int f40981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f45966f;
+    public IconType f40982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45967g;
+    public int f40983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45968h;
+    public int f40984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45969i;
-    public int j;
-    public int k;
+    public int f40985i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f40986j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f40987k;
     @Px
     public int l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -140,9 +144,9 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
                 return;
             }
         }
-        this.f45965e = i2;
-        this.f45966f = iconType;
-        this.f45967g = i3;
+        this.f40981e = i2;
+        this.f40982f = iconType;
+        this.f40983g = i3;
         c(m);
     }
 
@@ -156,22 +160,22 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45969i = i2;
+            this.f40985i = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f45969i = i2;
-            this.j = i2;
+            this.f40985i = i2;
+            this.f40986j = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.j = i2;
+            this.f40986j = i2;
         }
     }
 
@@ -181,22 +185,22 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         float dimenPixelSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
-            IconType iconType = this.f45966f;
+            IconType iconType = this.f40982f;
             if (iconType == IconType.WEBP) {
-                drawable = WebPManager.getPureDrawable(this.f45965e, SkinManager.getColor(this.f45967g), WebPManager.ResourceStateType.NORMAL_PRESS);
+                drawable = WebPManager.getPureDrawable(this.f40981e, SkinManager.getColor(this.f40983g), WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (iconType == IconType.SVG) {
-                drawable = SvgManager.getInstance().getPureDrawable(this.f45965e, this.f45967g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                drawable = SvgManager.getInstance().getPureDrawable(this.f40981e, this.f40983g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                drawable = SkinManager.getDrawable(this.f45965e);
+                drawable = SkinManager.getDrawable(this.f40981e);
             }
             if (drawable == null) {
                 return;
             }
-            int i7 = this.f45968h;
+            int i7 = this.f40984h;
             drawable.setBounds(0, 0, i7, i7);
             canvas.save();
-            float f3 = f2 + this.f45969i;
-            float f4 = this.k;
+            float f3 = f2 + this.f40985i;
+            float f4 = this.f40987k;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             if (a.b(charSequence)) {
                 a.a(fontMetricsInt, (int) paint.getTextSize());
@@ -213,14 +217,14 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.k = i2;
+            this.f40987k = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f45968h = i2;
+            this.f40984h = i2;
         }
     }
 
@@ -229,10 +233,10 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f45968h == 0) {
-                this.f45968h = (int) paint.getTextSize();
+            if (this.f40984h == 0) {
+                this.f40984h = (int) paint.getTextSize();
             }
-            return this.f45969i + this.j + this.f45968h;
+            return this.f40985i + this.f40986j + this.f40984h;
         }
         return invokeCommon.intValue;
     }

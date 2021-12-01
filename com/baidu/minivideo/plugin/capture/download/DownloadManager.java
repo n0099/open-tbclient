@@ -12,7 +12,6 @@ import com.baidu.minivideo.plugin.capture.download.core.DownloadResponseImpl;
 import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
 import com.baidu.minivideo.plugin.capture.download.core.DownloaderImpl;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DownloadManager implements Downloader.OnDownloaderDestroyedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadManager";
@@ -98,7 +97,7 @@ public class DownloadManager implements Downloader.OnDownloaderDestroyedListener
         InterceptResult invokeL;
         Downloader downloader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (!this.mDownloaderMap.containsKey(str) || (downloader = this.mDownloaderMap.get(str)) == null) {
                 return false;
             }

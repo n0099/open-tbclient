@@ -1,5 +1,5 @@
 package kotlin;
-@Metadata(bv = {1, 0, 3}, d1 = {"kotlin/NumbersKt__BigDecimalsKt", "kotlin/NumbersKt__BigIntegersKt", "kotlin/NumbersKt__NumbersJVMKt", "kotlin/NumbersKt__NumbersKt"}, d2 = {}, k = 4, mv = {1, 4, 0}, pn = "", xi = 1, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(d1 = {"kotlin/NumbersKt__BigDecimalsKt", "kotlin/NumbersKt__BigIntegersKt", "kotlin/NumbersKt__FloorDivModKt", "kotlin/NumbersKt__NumbersJVMKt", "kotlin/NumbersKt__NumbersKt"}, k = 4, mv = {1, 5, 1}, xi = 1)
+/* loaded from: classes3.dex */
 public final class NumbersKt extends NumbersKt__NumbersKt {
 }

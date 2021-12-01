@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DownloadInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,17 +90,17 @@ public class DownloadInfo {
         }
     }
 
-    public void setFinished(long j) {
+    public void setFinished(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.finished = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.finished = j2;
         }
     }
 
-    public void setLength(long j) {
+    public void setLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.length = j;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.length = j2;
         }
     }
 

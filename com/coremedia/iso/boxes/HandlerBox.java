@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HandlerBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "hdlr";
@@ -35,15 +35,13 @@ public class HandlerBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public static final Map<String, String> readableTypes;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f62904a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f62905b;
+    public long f54997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f62906c;
+    public long f54998c;
     public String handlerType;
     public String name;
     public long shouldBeZeroButAppleWritesHereSomeValue;
@@ -119,9 +117,9 @@ public class HandlerBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             this.shouldBeZeroButAppleWritesHereSomeValue = IsoTypeReader.readUInt32(byteBuffer);
             this.handlerType = IsoTypeReader.read4cc(byteBuffer);
-            this.f62904a = IsoTypeReader.readUInt32(byteBuffer);
-            this.f62905b = IsoTypeReader.readUInt32(byteBuffer);
-            this.f62906c = IsoTypeReader.readUInt32(byteBuffer);
+            this.a = IsoTypeReader.readUInt32(byteBuffer);
+            this.f54997b = IsoTypeReader.readUInt32(byteBuffer);
+            this.f54998c = IsoTypeReader.readUInt32(byteBuffer);
             if (byteBuffer.remaining() > 0) {
                 String readString = IsoTypeReader.readString(byteBuffer, byteBuffer.remaining());
                 this.name = readString;
@@ -145,9 +143,9 @@ public class HandlerBox extends AbstractFullBox {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.shouldBeZeroButAppleWritesHereSomeValue);
             byteBuffer.put(IsoFile.fourCCtoBytes(this.handlerType));
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f62904a);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f62905b);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f62906c);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.a);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f54997b);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f54998c);
             String str = this.name;
             if (str != null) {
                 byteBuffer.put(Utf8.convert(str));

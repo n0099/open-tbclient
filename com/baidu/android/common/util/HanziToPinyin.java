@@ -3,7 +3,6 @@ package com.baidu.android.common.util;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,7 +38,7 @@ public class HanziToPinyin {
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DIGIT = 3;
@@ -381,7 +380,7 @@ public class HanziToPinyin {
     public static HanziToPinyin getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (HanziToPinyin.class) {
                 if (sInstance != null) {
                     return sInstance;
@@ -397,7 +396,7 @@ public class HanziToPinyin {
     private Token getToken(char c2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
             Token token = new Token();
             String ch = Character.toString(c2);
             token.source = ch;

@@ -14,6 +14,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.common.PassSdkModel;
 import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "sapi_new_share_activity";
@@ -93,7 +94,7 @@ public class ShareActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.3");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.5");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                         intent.putExtras(bundle);
@@ -111,7 +112,7 @@ public class ShareActivity extends Activity {
                         if (sapiAccount != null) {
                             bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                         }
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.3");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.5");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         if (SapiContext.getInstance().shareLivingunameEnable()) {
                             intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());
@@ -130,7 +131,7 @@ public class ShareActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("from_tpl", this.fromTpl);
+            hashMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, this.fromTpl);
             hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, this.callType);
             return hashMap;
         }
@@ -182,8 +183,8 @@ public class ShareActivity extends Activity {
             String callingPackage = getCallingPackage();
             if (!PassSdkModel.getInstance().checkPkgSign(this, callingPackage)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("from_tpl", this.fromTpl);
-                hashMap.put("from_pkg", callingPackage);
+                hashMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, this.fromTpl);
+                hashMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, callingPackage);
                 hashMap.put("tpl", SapiAccountManager.getInstance().getTpl());
                 StatService.onEventAutoStat(ShareStatKey.SHARE_APP_PERM_ERROR_WARN, hashMap);
                 String str2 = TAG;

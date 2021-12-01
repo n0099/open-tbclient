@@ -13,31 +13,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46201e;
+    public View f41223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46202f;
+    public View f41224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f46203g;
+    public float f41225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46204h;
+    public int f41226h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f46205i;
-    public Rect j;
-    public boolean k;
+    public float f41227i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Rect f41228j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f41229k;
     public a l;
     public boolean m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(MotionEvent motionEvent);
     }
@@ -61,12 +65,12 @@ public class NoPressedRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f46203g = 0.0f;
-        this.f46204h = 0;
-        this.f46205i = 0.0f;
-        this.k = false;
+        this.f41225g = 0.0f;
+        this.f41226h = 0;
+        this.f41227i = 0.0f;
+        this.f41229k = false;
         this.m = false;
-        this.f46204h = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f41226h = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     private Rect getTopViewRect() {
@@ -75,13 +79,13 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (a()) {
                 int[] iArr = {0, 0};
-                View view = this.f46201e;
+                View view = this.f41223e;
                 if (view != null) {
                     view.getLocationOnScreen(iArr);
-                    this.j = new Rect(iArr[0], iArr[1], iArr[0] + this.f46201e.getWidth(), iArr[1] + this.f46201e.getHeight());
+                    this.f41228j = new Rect(iArr[0], iArr[1], iArr[0] + this.f41223e.getWidth(), iArr[1] + this.f41223e.getHeight());
                 }
             }
-            return this.j;
+            return this.f41228j;
         }
         return (Rect) invokeV.objValue;
     }
@@ -89,23 +93,23 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     private void setBottomViewClickEventEnabled(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (view = this.f46202f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (view = this.f41224f) == null) {
             return;
         }
         view.setEnabled(z);
-        this.f46202f.setClickable(z);
-        this.f46202f.setLongClickable(z);
+        this.f41224f.setClickable(z);
+        this.f41224f.setLongClickable(z);
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f46201e == null) {
+            if (this.f41223e == null) {
                 return false;
             }
-            Rect rect = this.j;
-            return rect == null || rect.width() <= 0 || this.j.height() <= 0;
+            Rect rect = this.f41228j;
+            return rect == null || rect.width() <= 0 || this.f41228j.height() <= 0;
         }
         return invokeV.booleanValue;
     }
@@ -132,14 +136,14 @@ public class NoPressedRelativeLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.a(motionEvent);
             }
-            if (this.f46201e != null) {
+            if (this.f41223e != null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float abs = this.f46205i > Math.abs(this.f46203g - motionEvent.getRawY()) ? this.f46205i : Math.abs(this.f46203g - motionEvent.getRawY());
-                            this.f46205i = abs;
-                            if (this.k && abs < this.f46204h) {
+                            float abs = this.f41227i > Math.abs(this.f41225g - motionEvent.getRawY()) ? this.f41227i : Math.abs(this.f41225g - motionEvent.getRawY());
+                            this.f41227i = abs;
+                            if (this.f41229k && abs < this.f41226h) {
                                 setBottomViewClickEventEnabled(false);
                             } else {
                                 setBottomViewClickEventEnabled(true);
@@ -147,25 +151,25 @@ public class NoPressedRelativeLayout extends RelativeLayout {
                             return super.dispatchTouchEvent(motionEvent);
                         }
                     }
-                    if (this.k) {
-                        float abs2 = Math.abs(this.f46203g - motionEvent.getRawY());
-                        int i2 = this.f46204h;
-                        if (abs2 < i2 && this.f46205i < i2 && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.f41229k) {
+                        float abs2 = Math.abs(this.f41225g - motionEvent.getRawY());
+                        int i2 = this.f41226h;
+                        if (abs2 < i2 && this.f41227i < i2 && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                             setBottomViewClickEventEnabled(false);
-                            if (this.f46201e.isClickable()) {
-                                this.f46201e.performClick();
+                            if (this.f41223e.isClickable()) {
+                                this.f41223e.performClick();
                             }
                             return true;
                         }
                     }
                 } else {
-                    this.f46203g = motionEvent.getRawY();
-                    this.f46205i = 0.0f;
+                    this.f41225g = motionEvent.getRawY();
+                    this.f41227i = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.k = true;
+                        this.f41229k = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.k = false;
+                        this.f41229k = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
@@ -192,7 +196,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     public void setBottomOrderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            this.f46202f = view;
+            this.f41224f = view;
         }
     }
 
@@ -213,7 +217,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     public void setTopOrderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
-            this.f46201e = view;
+            this.f41223e = view;
         }
     }
 }

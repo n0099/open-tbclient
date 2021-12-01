@@ -48,16 +48,16 @@ public class CallSessionFileRotatingLogSink {
 
     public static native long nativeAddSink(String str, int i2, int i3);
 
-    public static native void nativeDeleteSink(long j);
+    public static native void nativeDeleteSink(long j2);
 
     public static native byte[] nativeGetLogData(String str);
 
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.nativeSink;
-            if (j != 0) {
-                nativeDeleteSink(j);
+            long j2 = this.nativeSink;
+            if (j2 != 0) {
+                nativeDeleteSink(j2);
                 this.nativeSink = 0L;
             }
         }

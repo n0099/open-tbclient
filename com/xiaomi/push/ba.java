@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ay;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ba implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IBinder f71621a;
+    public final /* synthetic */ IBinder a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ay.b f152a;
@@ -34,7 +32,7 @@ public class ba implements Runnable {
             }
         }
         this.f152a = bVar;
-        this.f71621a = iBinder;
+        this.a = iBinder;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -51,43 +49,43 @@ public class ba implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                context = this.f152a.f71611a.f145a;
+                context = this.f152a.a.f145a;
                 String packageName = context.getPackageName();
-                e2 = this.f152a.f71611a.e();
-                ay.a aVar = new ay.a(this.f152a.f71611a, null);
-                aVar.f149a = ay.c.a(this.f71621a, packageName, e2, "GUID");
-                aVar.f71608b = ay.c.a(this.f71621a, packageName, e2, "OUID");
-                aVar.f71609c = ay.c.a(this.f71621a, packageName, e2, "DUID");
-                aVar.f71610d = ay.c.a(this.f71621a, packageName, e2, "AUID");
-                this.f152a.f71611a.f147a = aVar;
-                this.f152a.f71611a.b();
-                this.f152a.f71611a.f144a = 2;
-                obj5 = this.f152a.f71611a.f148a;
+                e2 = this.f152a.a.e();
+                ay.a aVar = new ay.a(this.f152a.a, null);
+                aVar.f149a = ay.c.a(this.a, packageName, e2, "GUID");
+                aVar.f62728b = ay.c.a(this.a, packageName, e2, "OUID");
+                aVar.f62729c = ay.c.a(this.a, packageName, e2, "DUID");
+                aVar.f62730d = ay.c.a(this.a, packageName, e2, "AUID");
+                this.f152a.a.f147a = aVar;
+                this.f152a.a.b();
+                this.f152a.a.f144a = 2;
+                obj5 = this.f152a.a.f148a;
                 synchronized (obj5) {
                     try {
-                        obj6 = this.f152a.f71611a.f148a;
+                        obj6 = this.f152a.a.f148a;
                         obj6.notifyAll();
                     } catch (Exception unused) {
                     }
                 }
             } catch (Exception unused2) {
-                this.f152a.f71611a.b();
-                this.f152a.f71611a.f144a = 2;
-                obj3 = this.f152a.f71611a.f148a;
+                this.f152a.a.b();
+                this.f152a.a.f144a = 2;
+                obj3 = this.f152a.a.f148a;
                 synchronized (obj3) {
                     try {
-                        obj4 = this.f152a.f71611a.f148a;
+                        obj4 = this.f152a.a.f148a;
                         obj4.notifyAll();
                     } catch (Exception unused3) {
                     }
                 }
             } catch (Throwable th) {
-                this.f152a.f71611a.b();
-                this.f152a.f71611a.f144a = 2;
-                obj = this.f152a.f71611a.f148a;
+                this.f152a.a.b();
+                this.f152a.a.f144a = 2;
+                obj = this.f152a.a.f148a;
                 synchronized (obj) {
                     try {
-                        obj2 = this.f152a.f71611a.f148a;
+                        obj2 = this.f152a.a.f148a;
                         obj2.notifyAll();
                     } catch (Exception unused4) {
                     }

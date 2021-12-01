@@ -10,7 +10,7 @@ import com.baidu.wallet.lightapp.multipage.i;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LangbridgeOpenPollAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class LangbridgeOpenPollAction implements RouterAction {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) {
             HashMap hashMap2 = new HashMap();
-            LangbridgeSettings a2 = i.a().a(context);
-            if (a2 != null) {
-                hashMap2.put("openPoll", Boolean.valueOf(!a2.MW_USE_OLD || a2.MW_ON));
+            LangbridgeSettings a = i.a().a(context);
+            if (a != null) {
+                hashMap2.put("openPoll", Boolean.valueOf(!a.MW_USE_OLD || a.MW_ON));
             }
             routerCallback.onResult(0, hashMap2);
         }

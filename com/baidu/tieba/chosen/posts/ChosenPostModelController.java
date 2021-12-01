@@ -2,7 +2,7 @@ package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
+import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -36,35 +36,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes8.dex */
-public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<b.a.r0.c0.a.d.a, b.a.r0.c0.a.d.b> {
+/* loaded from: classes10.dex */
+public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<c.a.r0.h0.a.d.a, c.a.r0.h0.a.d.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ChosenPostActivity f48329e;
+    public ChosenPostActivity f43299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ChosenPostModel f48330f;
+    public ChosenPostModel f43300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ChosenPostCacheModel f48331g;
+    public ChosenPostCacheModel f43301g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.q0.k0.d.a f48332h;
+    public c.a.q0.l0.d.a f43302h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.c0.a.d.a f48333i;
-    public CacheModel.c<b.a.r0.c0.a.d.b> j;
-    public b.a.e.c.g.a k;
+    public c.a.r0.h0.a.d.a f43303i;
 
-    /* loaded from: classes8.dex */
-    public class a implements CacheModel.c<b.a.r0.c0.a.d.b> {
+    /* renamed from: j  reason: collision with root package name */
+    public CacheModel.c<c.a.r0.h0.a.d.b> f43304j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public c.a.d.c.g.a f43305k;
+
+    /* loaded from: classes10.dex */
+    public class a implements CacheModel.c<c.a.r0.h0.a.d.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChosenPostModelController f48334e;
+        public final /* synthetic */ ChosenPostModelController f43306e;
 
         public a(ChosenPostModelController chosenPostModelController) {
             Interceptable interceptable = $ic;
@@ -81,40 +85,38 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                     return;
                 }
             }
-            this.f48334e = chosenPostModelController;
+            this.f43306e = chosenPostModelController;
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<b.a.r0.c0.a.d.b>> readCacheRespMsg, ReadCacheMessage<b.a.r0.c0.a.d.b> readCacheMessage) {
-            b.a.r0.c0.a.d.b bVar;
+        public void onCacheDataGet(ReadCacheRespMsg<List<c.a.r0.h0.a.d.b>> readCacheRespMsg, ReadCacheMessage<c.a.r0.h0.a.d.b> readCacheMessage) {
+            c.a.r0.h0.a.d.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) {
-                List<b.a.r0.c0.a.d.b> data = readCacheRespMsg.getData();
+                List<c.a.r0.h0.a.d.b> data = readCacheRespMsg.getData();
                 if (data != null && !data.isEmpty() && (bVar = data.get(0)) != null) {
-                    b.a.q0.k0.c.b bVar2 = new b.a.q0.k0.c.b(4099, bVar, null, null);
-                    bVar2.i(this.f48334e.getUniqueId());
-                    this.f48334e.f48329e.getEventCenter().dispatchMvcEvent(bVar2);
+                    c.a.q0.l0.c.b bVar2 = new c.a.q0.l0.c.b(4099, bVar, null, null);
+                    bVar2.i(this.f43306e.getUniqueId());
+                    this.f43306e.f43299e.getEventCenter().dispatchMvcEvent(bVar2);
                 }
-                this.f48334e.f48333i.a();
-                this.f48334e.f48330f.loadData();
+                this.f43306e.f43303i.a();
+                this.f43306e.f43300f.loadData();
             }
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<b.a.r0.c0.a.d.b>> writeCacheRespMsg, WriteCacheMessage<b.a.r0.c0.a.d.b> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.r0.h0.a.d.b>> writeCacheRespMsg, WriteCacheMessage<c.a.r0.h0.a.d.b> writeCacheMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChosenPostModelController f48335a;
+        public final /* synthetic */ ChosenPostModelController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ChosenPostModelController chosenPostModelController, int i2, int i3) {
@@ -135,23 +137,23 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                     return;
                 }
             }
-            this.f48335a = chosenPostModelController;
+            this.a = chosenPostModelController;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                BdToast d2 = BdToast.d(this.f48335a.f48329e.getActivity(), responsedMessage.getErrorString(), 0);
+                BdToast d2 = BdToast.d(this.a.f43299e.getActivity(), responsedMessage.getErrorString(), 0);
                 d2.a();
                 d2.q();
             } else if (responsedMessage instanceof UnlikeHttpResponse) {
-                this.f48335a.J(((UnlikeHttpResponse) responsedMessage).getThreadId());
+                this.a.J(((UnlikeHttpResponse) responsedMessage).getThreadId());
             } else if (responsedMessage instanceof UnlikeSocketReponse) {
-                this.f48335a.J(((UnlikeSocketReponse) responsedMessage).getThreadId());
+                this.a.J(((UnlikeSocketReponse) responsedMessage).getThreadId());
             }
         }
     }
@@ -174,20 +176,20 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 return;
             }
         }
-        this.f48332h = new b.a.q0.k0.d.a();
-        this.j = new a(this);
-        this.k = new b(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
-        this.f48329e = chosenPostActivity;
+        this.f43302h = new c.a.q0.l0.d.a();
+        this.f43304j = new a(this);
+        this.f43305k = new b(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
+        this.f43299e = chosenPostActivity;
         G();
         H();
-        registerListener(this.k);
+        registerListener(this.f43305k);
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f48331g.L();
+            this.f43301g.L();
             return true;
         }
         return invokeV.booleanValue;
@@ -196,13 +198,13 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     public void B(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.f48333i = new b.a.r0.c0.a.d.a();
-            ChosenPostModel chosenPostModel = new ChosenPostModel(this.f48329e.getPageContext(), this.f48333i);
-            this.f48330f = chosenPostModel;
+            this.f43303i = new c.a.r0.h0.a.d.a();
+            ChosenPostModel chosenPostModel = new ChosenPostModel(this.f43299e.getPageContext(), this.f43303i);
+            this.f43300f = chosenPostModel;
             chosenPostModel.Y(this);
-            ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f48329e.getPageContext());
-            this.f48331g = chosenPostCacheModel;
-            chosenPostCacheModel.O(this.j);
+            ChosenPostCacheModel chosenPostCacheModel = new ChosenPostCacheModel(this.f43299e.getPageContext());
+            this.f43301g = chosenPostCacheModel;
+            chosenPostCacheModel.O(this.f43304j);
         }
     }
 
@@ -210,23 +212,23 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f48333i.a();
-            this.f48330f.loadData();
-            this.f48332h.f(true);
-            this.f48332h.h(true);
+            this.f43303i.a();
+            this.f43300f.loadData();
+            this.f43302h.f(true);
+            this.f43302h.h(true);
             I(false);
-            this.f48329e.getViewController().s(this.f48332h);
+            this.f43299e.getViewController().s(this.f43302h);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean D(b.a.q0.k0.c.b bVar) {
+    public boolean D(c.a.q0.l0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
             if (bVar.b() == 4100) {
-                this.f48330f.loadData();
+                this.f43300f.loadData();
                 return false;
             } else if (bVar.b() == 4101) {
                 Object c2 = bVar.c();
@@ -246,15 +248,15 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         return invokeL.booleanValue;
     }
 
-    public boolean E(b.a.r0.c0.a.d.a aVar, b.a.r0.c0.a.d.b bVar) {
+    public boolean E(c.a.r0.h0.a.d.a aVar, c.a.r0.h0.a.d.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, aVar, bVar)) == null) {
-            this.f48329e.getViewController().r(bVar);
+            this.f43299e.getViewController().r(bVar);
             if (bVar != null) {
-                this.f48332h.g(false);
-                this.f48332h.f(false);
-                this.f48329e.getViewController().s(this.f48332h);
+                this.f43302h.g(false);
+                this.f43302h.f(false);
+                this.f43299e.getViewController().s(this.f43302h);
                 return true;
             }
             return true;
@@ -266,11 +268,11 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f48332h.g(true);
-            this.f48329e.getViewController().s(this.f48332h);
+            this.f43302h.g(true);
+            this.f43299e.getViewController().s(this.f43302h);
             I(true);
-            this.f48333i.a();
-            this.f48330f.loadData();
+            this.f43303i.a();
+            this.f43300f.loadData();
             return true;
         }
         return invokeZ.booleanValue;
@@ -280,7 +282,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, b.a.r0.m3.f0.a.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, c.a.r0.t3.f0.a.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
             tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
             messageManager.registerTask(tbHttpMessageTask);
         }
@@ -298,26 +300,26 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     public final void I(boolean z) {
-        b.a.q0.k0.c.b bVar;
+        c.a.q0.l0.c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                bVar = new b.a.q0.k0.c.b(4097, null, null, null);
+                bVar = new c.a.q0.l0.c.b(4097, null, null, null);
             } else {
-                bVar = new b.a.q0.k0.c.b(4098, null, null, null);
+                bVar = new c.a.q0.l0.c.b(4098, null, null, null);
             }
             bVar.i(getUniqueId());
-            this.f48329e.getEventCenter().dispatchMvcEvent(bVar);
+            this.f43299e.getEventCenter().dispatchMvcEvent(bVar);
         }
     }
 
-    public final void J(long j) {
+    public final void J(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            b.a.q0.k0.c.b bVar = new b.a.q0.k0.c.b(4102, null, null, null);
-            bVar.g(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            c.a.q0.l0.c.b bVar = new c.a.q0.l0.c.b(4102, null, null, null);
+            bVar.g(Long.valueOf(j2));
             bVar.i(getUniqueId());
-            this.f48329e.getEventCenter().dispatchMvcEvent(bVar);
+            this.f43299e.getEventCenter().dispatchMvcEvent(bVar);
         }
     }
 
@@ -332,8 +334,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void k(MvcSocketResponsedMessage<b.a.r0.c0.a.d.b, ?> mvcSocketResponsedMessage, MvcSocketMessage<b.a.r0.c0.a.d.a, b.a.r0.c0.a.d.b> mvcSocketMessage, MvcNetMessage<b.a.r0.c0.a.d.a, b.a.r0.c0.a.d.b> mvcNetMessage) {
-        b.a.r0.c0.a.d.b bVar;
+    public void k(MvcSocketResponsedMessage<c.a.r0.h0.a.d.b, ?> mvcSocketResponsedMessage, MvcSocketMessage<c.a.r0.h0.a.d.a, c.a.r0.h0.a.d.b> mvcSocketMessage, MvcNetMessage<c.a.r0.h0.a.d.a, c.a.r0.h0.a.d.b> mvcNetMessage) {
+        c.a.r0.h0.a.d.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
@@ -353,8 +355,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.f48329e.onServerError(errorData);
-                this.f48329e.getViewController().onServerError(errorData);
+                this.f43299e.onServerError(errorData);
+                this.f43299e.getViewController().onServerError(errorData);
             }
         }
     }
@@ -370,8 +372,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void p(MvcHttpResponsedMessage<b.a.r0.c0.a.d.b> mvcHttpResponsedMessage, MvcHttpMessage<b.a.r0.c0.a.d.a, b.a.r0.c0.a.d.b> mvcHttpMessage, MvcNetMessage<b.a.r0.c0.a.d.a, b.a.r0.c0.a.d.b> mvcNetMessage) {
-        b.a.r0.c0.a.d.b bVar;
+    public void p(MvcHttpResponsedMessage<c.a.r0.h0.a.d.b> mvcHttpResponsedMessage, MvcHttpMessage<c.a.r0.h0.a.d.a, c.a.r0.h0.a.d.b> mvcHttpMessage, MvcNetMessage<c.a.r0.h0.a.d.a, c.a.r0.h0.a.d.b> mvcNetMessage) {
+        c.a.r0.h0.a.d.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
@@ -391,8 +393,8 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.f48329e.onServerError(errorData);
-                this.f48329e.getViewController().onServerError(errorData);
+                this.f43299e.onServerError(errorData);
+                this.f43299e.getViewController().onServerError(errorData);
             }
         }
     }

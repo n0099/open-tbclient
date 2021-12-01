@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.voiceroom;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import b.a.r0.x0.d3.e.d;
+import c.a.r0.d1.d3.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
@@ -14,27 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0017\u0010\u0018J)\u0010\b\u001a\u00020\u00072\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u0004¢\u0006\u0004\b\b\u0010\tR(\u0010\u000e\u001a\u0014\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\f0\u000b0\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R%\u0010\u0016\u001a\u0014\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\f0\u000b0\u00138F@\u0006¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0015¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/frs/voiceroom/VoiceRoomListViewModel;", "Landroidx/lifecycle/ViewModel;", "Lcom/baidu/tbadk/TbPageContext;", "tbPageContext", "", "callFrom", "fid", "", "requestRoomList", "(Lcom/baidu/tbadk/TbPageContext;JJ)V", "Landroidx/lifecycle/MutableLiveData;", "Lcom/baidu/tbadk/base/mvvm/vo/RequestResult;", "", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomWrapper;", "_roomList", "Landroidx/lifecycle/MutableLiveData;", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomRepository;", "repository", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomRepository;", "Landroidx/lifecycle/LiveData;", "getRoomList", "()Landroidx/lifecycle/LiveData;", "roomList", "<init>", "()V", "frs_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\"\u0010\u000e\u001a\u00020\u000f2\n\u0010\u0010\u001a\u0006\u0012\u0002\b\u00030\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0013R \u0010\u0003\u001a\u0014\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070\u00060\u00050\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R#\u0010\n\u001a\u0014\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070\u00060\u00050\u000b8F¢\u0006\u0006\u001a\u0004\b\f\u0010\r¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/frs/voiceroom/VoiceRoomListViewModel;", "Landroidx/lifecycle/ViewModel;", "()V", "_roomList", "Landroidx/lifecycle/MutableLiveData;", "Lcom/baidu/tbadk/base/mvvm/vo/RequestResult;", "", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomWrapper;", "repository", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomRepository;", "roomList", "Landroidx/lifecycle/LiveData;", "getRoomList", "()Landroidx/lifecycle/LiveData;", "requestRoomList", "", "tbPageContext", "Lcom/baidu/tbadk/TbPageContext;", "callFrom", "", "fid", "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes10.dex */
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final d f50090a;
+    public final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MutableLiveData<b.a.q0.h.b.b.a<List<VoiceRoomWrapper>>> f50091b;
+    public final MutableLiveData<c.a.q0.h.b.b.a<List<VoiceRoomWrapper>>> f44904b;
 
-    /* loaded from: classes9.dex */
-    public static final class a implements b.a.q0.h.b.a.a<List<? extends VoiceRoomWrapper>> {
+    /* loaded from: classes10.dex */
+    public static final class a implements c.a.q0.h.b.a.a<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ VoiceRoomListViewModel a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VoiceRoomListViewModel f50092a;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(VoiceRoomListViewModel voiceRoomListViewModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,15 +46,16 @@ public final class VoiceRoomListViewModel extends ViewModel {
                     return;
                 }
             }
-            this.f50092a = voiceRoomListViewModel;
+            this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [b.a.q0.h.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // b.a.q0.h.b.a.a
-        public void a(b.a.q0.h.b.b.a<? extends List<? extends VoiceRoomWrapper>> aVar) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [c.a.q0.h.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // c.a.q0.h.b.a.a
+        public void a(c.a.q0.h.b.b.a<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f50092a.f50091b.setValue(aVar);
+            if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                this.a.f44904b.setValue(result);
             }
         }
     }
@@ -76,20 +73,21 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.f50090a = new d();
-        this.f50091b = new MutableLiveData<>();
+        this.a = new d();
+        this.f44904b = new MutableLiveData<>();
     }
 
-    public final LiveData<b.a.q0.h.b.b.a<List<VoiceRoomWrapper>>> getRoomList() {
+    public final LiveData<c.a.q0.h.b.b.a<List<VoiceRoomWrapper>>> getRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50091b : (LiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44904b : (LiveData) invokeV.objValue;
     }
 
-    public final void requestRoomList(TbPageContext<?> tbPageContext, long j, long j2) {
+    public final void requestRoomList(TbPageContext<?> tbPageContext, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f50090a.a(tbPageContext, j, j2, new a(this));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            this.a.a(tbPageContext, j2, j3, new a(this));
         }
     }
 }

@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,24 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VMsg {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f41273a = "VMsg";
+    public static final String a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f41274b;
+    public static Handler f36701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f41275c;
+    public static HandlerThread f36702c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f41276d;
+    public static VMsg f36703d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +74,7 @@ public class VMsg {
                 return;
             }
         }
-        f41276d = new VMsg();
+        f36703d = new VMsg();
     }
 
     public VMsg() {
@@ -96,40 +93,40 @@ public class VMsg {
 
     public static native void InitClass(Object obj);
 
-    public static native void OnUserCommand1(int i2, int i3, int i4, long j);
+    public static native void OnUserCommand1(int i2, int i3, int i4, long j2);
 
     public static void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f41275c.quit();
-            f41275c = null;
-            f41274b.removeCallbacksAndMessages(null);
-            f41274b = null;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            f36702c.quit();
+            f36702c = null;
+            f36701b.removeCallbacksAndMessages(null);
+            f36701b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f41276d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f36703d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f41275c = handlerThread;
+            f36702c = handlerThread;
             handlerThread.start();
-            f41274b = new a(f41275c.getLooper());
+            f36701b = new a(f36702c.getLooper());
         }
     }
 
-    public static void postMessage(int i2, int i3, int i4, long j) {
+    public static void postMessage(int i2, int i3, int i4, long j2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (handler = f41274b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f36701b) == null) {
             return;
         }
-        Message.obtain(handler, i2, i3, i4, j == 0 ? null : Long.valueOf(j)).sendToTarget();
+        Message.obtain(handler, i2, i3, i4, j2 == 0 ? null : Long.valueOf(j2)).sendToTarget();
     }
 }

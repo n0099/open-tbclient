@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,24 +26,20 @@ import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public RouterCallback f60651a;
+    public RouterCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60652b;
+    public Context f53492b;
 
     /* renamed from: com.baidu.wallet.paysdk.fingerprint.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1856a {
+    /* loaded from: classes12.dex */
+    public static class C1928a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f60655a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,17 +55,17 @@ public class a {
                     return;
                 }
             }
-            f60655a = new a();
+            a = new a();
         }
     }
 
     private int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (WalletFingerprint.getInstance(this.f60652b).isDevicesSupport()) {
-                if (WalletFingerprint.getInstance(this.f60652b).hasEnrollFingerprint()) {
-                    return !WalletFingerprint.getInstance(this.f60652b).hasOTPToken() ? 3003 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (WalletFingerprint.getInstance(this.f53492b).isDevicesSupport()) {
+                if (WalletFingerprint.getInstance(this.f53492b).hasEnrollFingerprint()) {
+                    return !WalletFingerprint.getInstance(this.f53492b).hasOTPToken() ? 3003 : 0;
                 }
                 return 2111;
             }
@@ -82,8 +77,8 @@ public class a {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f60651a = null;
-            this.f60652b = null;
+            this.a = null;
+            this.f53492b = null;
         }
     }
 
@@ -104,25 +99,23 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1856a.f60655a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1928a.a : (a) invokeV.objValue;
     }
 
     public void a(Context context, String str, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, routerCallback) == null) {
             if (context != null && routerCallback != null) {
-                this.f60651a = routerCallback;
-                this.f60652b = context;
+                this.a = routerCallback;
+                this.f53492b = context;
                 WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
                 WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f60653a;
+                    public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f60654b;
+                    public final /* synthetic */ a f53493b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -139,15 +132,15 @@ public class a {
                                 return;
                             }
                         }
-                        this.f60654b = this;
-                        this.f60653a = str;
+                        this.f53493b = this;
+                        this.a = str;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                            this.f60654b.a(5003, str2);
+                            this.f53493b.a(5003, str2);
                         }
                     }
 
@@ -155,7 +148,7 @@ public class a {
                     public void onSuccess(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                            this.f60654b.a(this.f60653a);
+                            this.f53493b.a(this.a);
                         }
                     }
                 }));
@@ -170,7 +163,7 @@ public class a {
         JSONObject jSONObject;
         int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
             int b2 = b();
             String str2 = "";
             if (b2 != 0) {
@@ -211,11 +204,11 @@ public class a {
     private void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65539, this, i2, i3, str) == null) {
-            Intent intent = new Intent(this.f60652b, DxmCheckFingerprintActivity.class);
+            Intent intent = new Intent(this.f53492b, DxmCheckFingerprintActivity.class);
             intent.putExtra("showSwitchPwd", i2);
             intent.putExtra("checkTimes", i3);
             intent.putExtra("session_id", str);
-            this.f60652b.startActivity(intent);
+            this.f53492b.startActivity(intent);
         }
     }
 
@@ -223,7 +216,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(EnterWalletDxmPayServiceAction.CHECK_BIOMETRICS, i2 + "", str));
-            if (this.f60651a != null) {
+            if (this.a != null) {
                 HashMap hashMap = new HashMap();
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -236,7 +229,7 @@ public class a {
                 String assembleResult = EnterDxmPayServiceAction.assembleResult(hashMap, true);
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("result", assembleResult);
-                this.f60651a.onResult(0, hashMap2);
+                this.a.onResult(0, hashMap2);
                 c();
             }
         }

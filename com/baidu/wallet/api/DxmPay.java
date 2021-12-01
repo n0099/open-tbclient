@@ -12,24 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterProvider;
 import com.dxmpay.wallet.core.utils.ReflectUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DxmPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.api.DxmPay$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f58162a;
+        public static final DxmPay a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +43,7 @@ public class DxmPay {
                     return;
                 }
             }
-            f58162a = new DxmPay(null);
+            a = new DxmPay(null);
         }
     }
 
@@ -75,7 +73,7 @@ public class DxmPay {
     public static DxmPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f58162a : (DxmPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (DxmPay) invokeV.objValue;
     }
 
     public void initWallet(Context context) {

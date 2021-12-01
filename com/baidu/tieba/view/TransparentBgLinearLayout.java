@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.kuaishou.weapon.un.w0;
+/* loaded from: classes11.dex */
 public class TransparentBgLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public class TransparentBgLinearLayout extends LinearLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawColor(Color.argb(168, 0, 0, 0), PorterDuff.Mode.SRC);
+            canvas.drawColor(Color.argb((int) w0.d0, 0, 0, 0), PorterDuff.Mode.SRC);
             super.onDraw(canvas);
         }
     }

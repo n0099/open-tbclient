@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.e;
-import h.f;
-import h.j;
-import h.k;
-import h.o.a.a;
-import h.t.d;
+import i.d;
+import i.e;
+import i.f;
+import i.j;
+import i.k;
+import i.o.a.a;
+import i.t.d;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
@@ -25,7 +25,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f73630f;
+    public final PublishSubjectState<T> f64455f;
 
     /* loaded from: classes3.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
@@ -55,14 +55,14 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual = jVar;
         }
 
-        @Override // h.k
+        @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == Long.MIN_VALUE) {
@@ -71,7 +71,7 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onCompleted();
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || get() == Long.MIN_VALUE) {
@@ -80,15 +80,15 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j = get();
-                if (j != Long.MIN_VALUE) {
-                    long j2 = this.produced;
-                    if (j != j2) {
-                        this.produced = j2 + 1;
+                long j2 = get();
+                if (j2 != Long.MIN_VALUE) {
+                    long j3 = this.produced;
+                    if (j2 != j3) {
+                        this.produced = j3 + 1;
                         this.actual.onNext(t);
                         return;
                     }
@@ -98,21 +98,21 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // h.f
-        public void request(long j) {
-            long j2;
+        @Override // i.f
+        public void request(long j2) {
+            long j3;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && a.h(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && a.h(j2)) {
                 do {
-                    j2 = get();
-                    if (j2 == Long.MIN_VALUE) {
+                    j3 = get();
+                    if (j3 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, a.a(j2, j)));
+                } while (!compareAndSet(j3, a.a(j3, j2)));
             }
         }
 
-        @Override // h.k
+        @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
@@ -185,12 +185,12 @@ public final class PublishSubject<T> extends d<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // h.d.a, h.n.b
+        @Override // i.d.a, i.n.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
             call((j) ((j) obj));
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -200,7 +200,7 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -216,11 +216,11 @@ public final class PublishSubject<T> extends d<T, T> {
                         arrayList.add(th2);
                     }
                 }
-                h.m.a.d(arrayList);
+                i.m.a.d(arrayList);
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
@@ -309,7 +309,7 @@ public final class PublishSubject<T> extends d<T, T> {
                 return;
             }
         }
-        this.f73630f = publishSubjectState;
+        this.f64455f = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> F() {
@@ -318,27 +318,27 @@ public final class PublishSubject<T> extends d<T, T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new PublishSubject<>(new PublishSubjectState()) : (PublishSubject) invokeV.objValue;
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73630f.onCompleted();
+            this.f64455f.onCompleted();
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f73630f.onError(th);
+            this.f64455f.onError(th);
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f73630f.onNext(t);
+            this.f64455f.onNext(t);
         }
     }
 }

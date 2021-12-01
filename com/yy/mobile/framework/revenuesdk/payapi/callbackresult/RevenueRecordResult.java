@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.RevenueRecord;
 import java.util.List;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RevenueRecordResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

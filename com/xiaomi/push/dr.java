@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dr extends dq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class dr extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo187a() {
+    public hh mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.w : (hh) invokeV.objValue;
@@ -43,7 +43,7 @@ public class dr extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR : (String) invokeV.objValue;
@@ -54,7 +54,7 @@ public class dr extends dq {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ram:" + i.m438a() + ",rom:" + i.m442b() + "|ramOriginal:" + i.m444c() + ",romOriginal:" + i.d();
+            return "ram:" + i.m487a() + ",rom:" + i.m491b() + "|ramOriginal:" + i.m493c() + ",romOriginal:" + i.d();
         }
         return (String) invokeV.objValue;
     }

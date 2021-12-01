@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NestedNoScrollViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39658e;
+    public boolean f35377e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NestedNoScrollViewPager(@NonNull Context context) {
@@ -45,7 +45,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f39658e) {
+            if (this.f35377e) {
                 return super.canScrollHorizontally(i2);
             }
             return false;
@@ -58,7 +58,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f39658e) {
+            if (this.f35377e) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -71,7 +71,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (this.f39658e) {
+            if (this.f35377e) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -93,7 +93,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public void setCanScrollHorizontally(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f39658e = z;
+            this.f35377e = z;
         }
     }
 

@@ -2,7 +2,6 @@ package com.sdk.base.module.manager;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,22 +76,22 @@ public abstract class SDKManager {
     public static String getTestHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? testHost : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? testHost : (String) invokeV.objValue;
     }
 
     public static String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? userAgent : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? userAgent : (String) invokeV.objValue;
     }
 
     public static void init(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             mContext = context;
-            a a2 = a.a(context);
+            a a = a.a(context);
             com.sdk.base.framework.f.a.a.c();
-            a2.a(null, str);
+            a.a(null, str);
         }
     }
 
@@ -100,9 +99,9 @@ public abstract class SDKManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, context, str, str2) == null) {
             mContext = context;
-            a a2 = a.a(context);
+            a a = a.a(context);
             com.sdk.base.framework.f.a.a.c();
-            a2.a(str, str2);
+            a.a(str, str2);
         }
     }
 
@@ -127,14 +126,14 @@ public abstract class SDKManager {
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.f69125b = z;
+            f.f60988b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.f69127d = z;
+            f.f60990d = z;
         }
     }
 

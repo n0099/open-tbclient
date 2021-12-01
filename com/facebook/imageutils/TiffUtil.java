@@ -1,7 +1,6 @@
 package com.facebook.imageutils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TiffUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Class<?> TAG;
@@ -23,13 +22,13 @@ public class TiffUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.TiffUtil$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class TiffHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +149,7 @@ public class TiffUtil {
     public static int readOrientationFromTIFF(InputStream inputStream, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) == null) {
             TiffHeader tiffHeader = new TiffHeader(null);
             int readTiffHeader = readTiffHeader(inputStream, i2, tiffHeader);
             int i3 = tiffHeader.firstIfdOffset - 8;
@@ -166,7 +165,7 @@ public class TiffUtil {
     public static int readTiffHeader(InputStream inputStream, int i2, TiffHeader tiffHeader) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, i2, tiffHeader)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, inputStream, i2, tiffHeader)) == null) {
             if (i2 <= 8) {
                 return 0;
             }

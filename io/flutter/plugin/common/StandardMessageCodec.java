@@ -2,7 +2,6 @@ package io.flutter.plugin.common;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BIGINT = 5;
@@ -28,6 +27,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final byte DOUBLE = 6;
     public static final byte DOUBLE_ARRAY = 11;
     public static final byte FALSE = 2;
+    public static final byte FLOAT_ARRAY = 14;
     public static final StandardMessageCodec INSTANCE;
     public static final byte INT = 3;
     public static final byte INT_ARRAY = 9;
@@ -43,7 +43,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final Charset UTF8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final void writeAlignment(ByteArrayOutputStream byteArrayOutputStream, int i2) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, byteArrayOutputStream, i2) == null) || (size = byteArrayOutputStream.size() % i2) == 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, byteArrayOutputStream, i2) == null) || (size = byteArrayOutputStream.size() % i2) == 0) {
             return;
         }
         for (int i3 = 0; i3 < i2 - size; i3++) {
@@ -153,7 +153,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
 
     public static final void writeBytes(ByteArrayOutputStream byteArrayOutputStream, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, byteArrayOutputStream, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, byteArrayOutputStream, bArr) == null) {
             writeSize(byteArrayOutputStream, bArr.length);
             byteArrayOutputStream.write(bArr, 0, bArr.length);
         }
@@ -179,9 +179,16 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         }
     }
 
+    public static final void writeFloat(ByteArrayOutputStream byteArrayOutputStream, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(65545, null, byteArrayOutputStream, f2) == null) {
+            writeInt(byteArrayOutputStream, Float.floatToIntBits(f2));
+        }
+    }
+
     public static final void writeInt(ByteArrayOutputStream byteArrayOutputStream, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, byteArrayOutputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65546, null, byteArrayOutputStream, i2) == null) {
             if (LITTLE_ENDIAN) {
                 byteArrayOutputStream.write(i2);
                 byteArrayOutputStream.write(i2 >>> 8);
@@ -196,34 +203,34 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         }
     }
 
-    public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j) {
+    public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, byteArrayOutputStream, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65547, null, byteArrayOutputStream, j2) == null) {
             if (LITTLE_ENDIAN) {
-                byteArrayOutputStream.write((byte) j);
-                byteArrayOutputStream.write((byte) (j >>> 8));
-                byteArrayOutputStream.write((byte) (j >>> 16));
-                byteArrayOutputStream.write((byte) (j >>> 24));
-                byteArrayOutputStream.write((byte) (j >>> 32));
-                byteArrayOutputStream.write((byte) (j >>> 40));
-                byteArrayOutputStream.write((byte) (j >>> 48));
-                byteArrayOutputStream.write((byte) (j >>> 56));
+                byteArrayOutputStream.write((byte) j2);
+                byteArrayOutputStream.write((byte) (j2 >>> 8));
+                byteArrayOutputStream.write((byte) (j2 >>> 16));
+                byteArrayOutputStream.write((byte) (j2 >>> 24));
+                byteArrayOutputStream.write((byte) (j2 >>> 32));
+                byteArrayOutputStream.write((byte) (j2 >>> 40));
+                byteArrayOutputStream.write((byte) (j2 >>> 48));
+                byteArrayOutputStream.write((byte) (j2 >>> 56));
                 return;
             }
-            byteArrayOutputStream.write((byte) (j >>> 56));
-            byteArrayOutputStream.write((byte) (j >>> 48));
-            byteArrayOutputStream.write((byte) (j >>> 40));
-            byteArrayOutputStream.write((byte) (j >>> 32));
-            byteArrayOutputStream.write((byte) (j >>> 24));
-            byteArrayOutputStream.write((byte) (j >>> 16));
-            byteArrayOutputStream.write((byte) (j >>> 8));
-            byteArrayOutputStream.write((byte) j);
+            byteArrayOutputStream.write((byte) (j2 >>> 56));
+            byteArrayOutputStream.write((byte) (j2 >>> 48));
+            byteArrayOutputStream.write((byte) (j2 >>> 40));
+            byteArrayOutputStream.write((byte) (j2 >>> 32));
+            byteArrayOutputStream.write((byte) (j2 >>> 24));
+            byteArrayOutputStream.write((byte) (j2 >>> 16));
+            byteArrayOutputStream.write((byte) (j2 >>> 8));
+            byteArrayOutputStream.write((byte) j2);
         }
     }
 
     public static final void writeSize(ByteArrayOutputStream byteArrayOutputStream, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, byteArrayOutputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65548, null, byteArrayOutputStream, i2) == null) {
             if (i2 < 254) {
                 byteArrayOutputStream.write(i2);
             } else if (i2 <= 65535) {
@@ -283,9 +290,14 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         return invokeL.objValue;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x005d */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v12, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v13 */
+    /* JADX WARN: Type inference failed for: r1v14, types: [java.util.Map, java.util.HashMap] */
     public Object readValueOfType(byte b2, ByteBuffer byteBuffer) {
         InterceptResult invokeCommon;
-        long[] jArr;
+        ?? arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Byte.valueOf(b2), byteBuffer})) == null) {
             int i2 = 0;
@@ -318,40 +330,45 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                     return iArr;
                 case 10:
                     int readSize2 = readSize(byteBuffer);
-                    long[] jArr2 = new long[readSize2];
+                    long[] jArr = new long[readSize2];
                     readAlignment(byteBuffer, 8);
-                    byteBuffer.asLongBuffer().get(jArr2);
+                    byteBuffer.asLongBuffer().get(jArr);
                     byteBuffer.position(byteBuffer.position() + (readSize2 * 8));
-                    jArr = jArr2;
-                    break;
+                    return jArr;
                 case 11:
                     int readSize3 = readSize(byteBuffer);
                     double[] dArr = new double[readSize3];
                     readAlignment(byteBuffer, 8);
                     byteBuffer.asDoubleBuffer().get(dArr);
                     byteBuffer.position(byteBuffer.position() + (readSize3 * 8));
-                    jArr = dArr;
-                    break;
+                    return dArr;
                 case 12:
                     int readSize4 = readSize(byteBuffer);
-                    ArrayList arrayList = new ArrayList(readSize4);
+                    arrayList = new ArrayList(readSize4);
                     while (i2 < readSize4) {
                         arrayList.add(readValue(byteBuffer));
                         i2++;
                     }
-                    return arrayList;
+                    break;
                 case 13:
                     int readSize5 = readSize(byteBuffer);
-                    HashMap hashMap = new HashMap();
+                    arrayList = new HashMap();
                     while (i2 < readSize5) {
-                        hashMap.put(readValue(byteBuffer), readValue(byteBuffer));
+                        arrayList.put(readValue(byteBuffer), readValue(byteBuffer));
                         i2++;
                     }
-                    return hashMap;
+                    break;
+                case 14:
+                    int readSize6 = readSize(byteBuffer);
+                    float[] fArr = new float[readSize6];
+                    readAlignment(byteBuffer, 4);
+                    byteBuffer.asFloatBuffer().get(fArr);
+                    byteBuffer.position(byteBuffer.position() + (readSize6 * 4));
+                    return fArr;
                 default:
                     throw new IllegalArgumentException("Message corrupted");
             }
-            return jArr;
+            return arrayList;
         }
         return invokeCommon.objValue;
     }
@@ -361,11 +378,8 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         if (interceptable == null || interceptable.invokeLL(1048580, this, byteArrayOutputStream, obj) == null) {
             int i2 = 0;
             if (obj != null && !obj.equals(null)) {
-                if (obj == Boolean.TRUE) {
-                    byteArrayOutputStream.write(1);
-                    return;
-                } else if (obj == Boolean.FALSE) {
-                    byteArrayOutputStream.write(2);
+                if (obj instanceof Boolean) {
+                    byteArrayOutputStream.write(((Boolean) obj).booleanValue() ? 1 : 2);
                     return;
                 } else if (obj instanceof Number) {
                     if (!(obj instanceof Integer) && !(obj instanceof Short) && !(obj instanceof Byte)) {
@@ -390,9 +404,9 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                     byteArrayOutputStream.write(3);
                     writeInt(byteArrayOutputStream, ((Number) obj).intValue());
                     return;
-                } else if (obj instanceof String) {
+                } else if (obj instanceof CharSequence) {
                     byteArrayOutputStream.write(7);
-                    writeBytes(byteArrayOutputStream, ((String) obj).getBytes(UTF8));
+                    writeBytes(byteArrayOutputStream, obj.toString().getBytes(UTF8));
                     return;
                 } else if (obj instanceof byte[]) {
                     byteArrayOutputStream.write(8);
@@ -448,8 +462,19 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                         writeValue(byteArrayOutputStream, entry.getValue());
                     }
                     return;
+                } else if (obj instanceof float[]) {
+                    byteArrayOutputStream.write(14);
+                    float[] fArr = (float[]) obj;
+                    writeSize(byteArrayOutputStream, fArr.length);
+                    writeAlignment(byteArrayOutputStream, 4);
+                    int length4 = fArr.length;
+                    while (i2 < length4) {
+                        writeFloat(byteArrayOutputStream, fArr[i2]);
+                        i2++;
+                    }
+                    return;
                 } else {
-                    throw new IllegalArgumentException("Unsupported value: " + obj);
+                    throw new IllegalArgumentException("Unsupported value: '" + obj + "' of type '" + obj.getClass() + "'");
                 }
             }
             byteArrayOutputStream.write(0);

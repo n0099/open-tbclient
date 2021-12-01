@@ -17,21 +17,19 @@ import java.io.IOException;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f70561a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f70562b;
+    public final g f62010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f70563c;
+    public final int f62011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f70564d;
+    public long f62012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f70565e;
+    public long f62013e;
 
     public d(String str, g gVar) throws IOException {
         Interceptable interceptable = $ic;
@@ -48,47 +46,47 @@ public class d {
                 return;
             }
         }
-        this.f70561a = str;
-        this.f70563c = gVar.b();
-        this.f70562b = gVar;
+        this.a = str;
+        this.f62011c = gVar.b();
+        this.f62010b = gVar;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f.c(this.f70563c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f.c(this.f62011c) : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.a(this.f70563c, this.f70562b.a(Util.ACCEPT_RANGES)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.a(this.f62011c, this.f62010b.a(Util.ACCEPT_RANGES)) : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70562b.a(Util.ETAG) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62010b.a(Util.ETAG) : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70562b.a("Content-Type") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62010b.a("Content-Type") : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f.b(this.f70562b, "Content-Range") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f.b(this.f62010b, "Content-Range") : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String b2 = f.b(this.f70562b, Headers.LAST_MODIFIED);
-            return TextUtils.isEmpty(b2) ? f.b(this.f70562b, "Last-Modified") : b2;
+            String b2 = f.b(this.f62010b, Headers.LAST_MODIFIED);
+            return TextUtils.isEmpty(b2) ? f.b(this.f62010b, "Last-Modified") : b2;
         }
         return (String) invokeV.objValue;
     }
@@ -96,17 +94,17 @@ public class d {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f.b(this.f70562b, "Cache-Control") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f.b(this.f62010b, "Cache-Control") : (String) invokeV.objValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f70564d <= 0) {
-                this.f70564d = f.a(this.f70562b);
+            if (this.f62012d <= 0) {
+                this.f62012d = f.a(this.f62010b);
             }
-            return this.f70564d;
+            return this.f62012d;
         }
         return invokeV.longValue;
     }
@@ -116,7 +114,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (com.ss.android.socialbase.downloader.i.a.a(8)) {
-                return f.c(this.f70562b);
+                return f.c(this.f62010b);
             }
             return f.b(h());
         }
@@ -127,17 +125,17 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f70565e <= 0) {
+            if (this.f62013e <= 0) {
                 if (!i()) {
                     String e2 = e();
                     if (!TextUtils.isEmpty(e2)) {
-                        this.f70565e = f.b(e2);
+                        this.f62013e = f.b(e2);
                     }
                 } else {
-                    this.f70565e = -1L;
+                    this.f62013e = -1L;
                 }
             }
-            return this.f70565e;
+            return this.f62013e;
         }
         return invokeV.longValue;
     }

@@ -4,18 +4,15 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Context f72454a;
+    public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f990a;
@@ -54,10 +51,10 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m639a() {
+    public static Context m688a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f72454a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -77,7 +74,7 @@ public class t {
             try {
                 return Class.forName(str);
             } catch (ClassNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m122a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", e2);
             }
         }
@@ -85,7 +82,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m640a() {
+    public static synchronized String m689a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -117,8 +114,8 @@ public class t {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (l.m541b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (l.m590b()) {
                 return "";
             }
             String str = (String) bh.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -128,22 +125,22 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m641a(Context context) {
+    public static void m690a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            f72454a = context.getApplicationContext();
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            a = context.getApplicationContext();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m642a() {
+    public static boolean m691a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals((String) bh.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m643a(Context context) {
+    public static boolean m692a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -169,7 +166,7 @@ public class t {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m644b() {
+    public static boolean m693b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {

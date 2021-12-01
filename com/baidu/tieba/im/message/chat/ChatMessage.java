@@ -2,9 +2,9 @@ package com.baidu.tieba.im.message.chat;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.c.e.c.a;
-import b.a.e.f.m.b;
-import b.a.e.m.e.n;
+import c.a.d.c.e.c.a;
+import c.a.d.f.m.b;
+import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
@@ -318,9 +318,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            long j = this.statisticsTaskId;
-            if (j != -1) {
-                return j;
+            long j2 = this.statisticsTaskId;
+            if (j2 != -1) {
+                return j2;
             }
             if (!TextUtils.isEmpty(this.content)) {
                 try {
@@ -332,8 +332,8 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 }
             }
             if (this.statisticsTaskId <= 0) {
-                long j2 = this.taskId;
-                this.statisticsTaskId = j2 >= 0 ? j2 : 0L;
+                long j3 = this.taskId;
+                this.statisticsTaskId = j3 >= 0 ? j3 : 0L;
             }
             return this.statisticsTaskId;
         }
@@ -344,9 +344,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            long j = this.statisticsServiceId;
-            if (j != -1) {
-                return j;
+            long j2 = this.statisticsServiceId;
+            if (j2 != -1) {
+                return j2;
             }
             if (!TextUtils.isEmpty(this.content)) {
                 try {
@@ -358,8 +358,8 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 }
             }
             if (this.statisticsServiceId <= 0) {
-                long j2 = this.serviceId;
-                this.statisticsServiceId = j2 >= 0 ? j2 : 0L;
+                long j3 = this.serviceId;
+                this.statisticsServiceId = j3 >= 0 ? j3 : 0L;
             }
             return this.statisticsServiceId;
         }
@@ -396,7 +396,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // b.a.e.m.e.n
+    @Override // c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -467,7 +467,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.c.e.c.a
+    @Override // c.a.d.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -481,10 +481,10 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return invokeL.booleanValue;
     }
 
-    public void setBornTime(long j) {
+    public void setBornTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
-            this.bornTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048614, this, j2) == null) {
+            this.bornTime = j2;
         }
     }
 
@@ -579,17 +579,17 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         }
     }
 
-    public void setLogTime(long j) {
+    public void setLogTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
-            this.logTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
+            this.logTime = j2;
         }
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
-            this.msgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
+            this.msgId = j2;
         }
     }
 
@@ -621,24 +621,24 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         }
     }
 
-    public void setRecordId(long j) {
+    public void setRecordId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
-            this.recordId = j;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
+            this.recordId = j2;
         }
     }
 
-    public void setServiceId(long j) {
+    public void setServiceId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
-            this.serviceId = j;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
+            this.serviceId = j2;
         }
     }
 
-    public void setSid(long j) {
+    public void setSid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
-            this.sid = j;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j2) == null) {
+            this.sid = j2;
         }
     }
 
@@ -663,24 +663,24 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         }
     }
 
-    public void setTaskId(long j) {
+    public void setTaskId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048640, this, j) == null) {
-            this.taskId = j;
+        if (interceptable == null || interceptable.invokeJ(1048640, this, j2) == null) {
+            this.taskId = j2;
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
-            this.time = j;
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j2) == null) {
+            this.time = j2;
         }
     }
 
-    public void setToUserId(long j) {
+    public void setToUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048642, this, j) == null) {
-            this.mToUserId = j;
+        if (interceptable == null || interceptable.invokeJ(1048642, this, j2) == null) {
+            this.mToUserId = j2;
         }
     }
 
@@ -691,10 +691,10 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         }
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
-            this.userId = j;
+        if (interceptable == null || interceptable.invokeJ(1048644, this, j2) == null) {
+            this.userId = j2;
         }
     }
 

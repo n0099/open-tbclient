@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.plugin.PM;
 import com.qq.e.comm.managers.plugin.d;
@@ -33,22 +34,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f68872b;
+    public static final a f60793b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f68873a;
+    public volatile Boolean a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1999a implements NetworkCallBack {
+    public class C2090a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PM a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PM f68874a;
-
-        public C1999a(a aVar, PM pm) {
+        public C2090a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f68874a = pm;
+            this.a = pm;
         }
 
         @Override // com.qq.e.comm.net.NetworkCallBack
@@ -91,16 +88,16 @@ public class a {
                         JSONObject jSONObject = new JSONObject(stringContent);
                         int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
                         if (i2 == 0) {
-                            if (this.f68874a != null) {
+                            if (this.a != null) {
                                 try {
-                                    this.f68874a.getPOFactory().config(1, stringContent);
+                                    this.a.getPOFactory().config(1, stringContent);
                                 } catch (d e2) {
                                     e2.printStackTrace();
                                 }
-                                if (jSONObject.has("sig")) {
-                                    JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
+                                if (jSONObject.has(FunAdSdk.PLATFORM_SIG)) {
+                                    JSONObject jSONObject2 = jSONObject.getJSONObject(FunAdSdk.PLATFORM_SIG);
                                     if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                        this.f68874a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                        this.a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
                                         return;
                                     }
                                     return;
@@ -142,7 +139,7 @@ public class a {
                 return;
             }
         }
-        f68872b = new a();
+        f60793b = new a();
     }
 
     public a() {
@@ -158,13 +155,13 @@ public class a {
                 return;
             }
         }
-        this.f68873a = Boolean.FALSE;
+        this.a = Boolean.FALSE;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68872b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f60793b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -172,10 +169,10 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, Context context, long j) {
+    private void a(SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, Context context, long j2) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{sm, pm, deviceStatus, aPPStatus, context, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{sm, pm, deviceStatus, aPPStatus, context, Long.valueOf(j2)}) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject = new JSONObject();
@@ -193,14 +190,14 @@ public class a {
                         jSONObject3.putOpt("jar", pm.getLocalSig());
                         jSONObject3.putOpt("plugin_version", Integer.valueOf(pm.getPluginVersion()));
                     }
-                    jSONObject.put("sig", jSONObject3);
+                    jSONObject.put(FunAdSdk.PLATFORM_SIG, jSONObject3);
                     jSONObject.put(BdZeusUtil.URL_KEY_MACHINE, com.qq.e.comm.net.a.b(deviceStatus));
                     jSONObject.put("app", com.qq.e.comm.net.a.a(aPPStatus));
                     jSONObject.put("c", com.qq.e.comm.net.a.a(deviceStatus));
                     jSONObject.put("sdk", com.qq.e.comm.net.a.a(pm));
                     JSONObject jSONObject4 = new JSONObject();
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("sdk_init_time", (System.nanoTime() - j) / 1000000);
+                    jSONObject5.put("sdk_init_time", (System.nanoTime() - j2) / 1000000);
                     jSONObject4.put("performance", jSONObject5);
                     jSONObject.put("biz", jSONObject4);
                 } catch (JSONException unused) {
@@ -212,7 +209,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1999a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2090a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -220,21 +217,21 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1999a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2090a(this, pm));
         }
     }
 
-    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
+    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f68873a.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j2)}) == null) || this.a.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f68873a.booleanValue()) {
+            if (this.a.booleanValue()) {
                 return;
             }
-            a(sm, pm, deviceStatus, aPPStatus, context, j);
-            this.f68873a = Boolean.TRUE;
+            a(sm, pm, deviceStatus, aPPStatus, context, j2);
+            this.a = Boolean.TRUE;
         }
     }
 }

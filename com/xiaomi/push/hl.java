@@ -9,18 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class hl {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final hl f72029a;
+    public static final hl a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hl[] f499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hl f72030b;
+    public static final hl f63009b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -39,10 +37,10 @@ public final class hl {
                 return;
             }
         }
-        f72029a = new hl("MISC_CONFIG", 0, 1);
+        a = new hl("MISC_CONFIG", 0, 1);
         hl hlVar = new hl("PLUGIN_CONFIG", 1, 2);
-        f72030b = hlVar;
-        f499a = new hl[]{f72029a, hlVar};
+        f63009b = hlVar;
+        f499a = new hl[]{a, hlVar};
     }
 
     public hl(String str, int i2, int i3) {
@@ -74,9 +72,9 @@ public final class hl {
                 if (i2 != 2) {
                     return null;
                 }
-                return f72030b;
+                return f63009b;
             }
-            return f72029a;
+            return a;
         }
         return (hl) invokeI.objValue;
     }

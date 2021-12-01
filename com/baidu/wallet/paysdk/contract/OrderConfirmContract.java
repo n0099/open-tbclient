@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.presenter.BasePresenter;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface OrderConfirmContract {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface Presenter extends BasePresenter {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public static class OrderConfirmViewData implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

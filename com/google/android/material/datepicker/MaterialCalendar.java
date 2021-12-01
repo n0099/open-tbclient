@@ -37,7 +37,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.Calendar;
 import java.util.Iterator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class MaterialCalendar<S> extends PickerFragment<S> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -69,7 +69,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     public RecyclerView yearSelector;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class CalendarSelector {
         public static final /* synthetic */ CalendarSelector[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,9 +128,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface OnDayClickListener {
-        void onDayClick(long j);
+        void onDayClick(long j2);
     }
 
     static {
@@ -686,10 +686,10 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 }
 
                 @Override // com.google.android.material.datepicker.MaterialCalendar.OnDayClickListener
-                public void onDayClick(long j) {
+                public void onDayClick(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeJ(1048576, this, j) == null) && this.this$0.calendarConstraints.getDateValidator().isValid(j)) {
-                        this.this$0.dateSelector.select(j);
+                    if ((interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) && this.this$0.calendarConstraints.getDateValidator().isValid(j2)) {
+                        this.this$0.dateSelector.select(j2);
                         Iterator<OnSelectionChangedListener<S>> it = this.this$0.onSelectionChangedListeners.iterator();
                         while (it.hasNext()) {
                             it.next().onSelectionChanged((S) this.this$0.dateSelector.getSelection());

@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.ReturnKeyType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.webrtc.StatsReport;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;
@@ -180,7 +180,7 @@ public class HUDStatistics {
 
     private void parseAudioSendStatsReport(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, map) == null) {
             try {
                 this.mAudioSendBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesSent")));
                 this.mAudioSendBitrate = this.mAudioSendBitrateTracker.bitRateString();
@@ -192,7 +192,7 @@ public class HUDStatistics {
 
     private void parseBweStatsReport(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, map) == null) {
             try {
                 this.mTargetEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googTargetEncBitrate")));
                 this.mActualEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googActualEncBitrate")));
@@ -288,17 +288,17 @@ public class HUDStatistics {
         }
     }
 
-    public void addAudioStuckData(long j, long j2) {
+    public void addAudioStuckData(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.audioStuckList.add(Long.valueOf(j2 - j));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.audioStuckList.add(Long.valueOf(j3 - j2));
         }
     }
 
-    public void addVideoStuckData(long j, long j2) {
+    public void addVideoStuckData(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.videoStuckList.add(Long.valueOf(j2 - j));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.videoStuckList.add(Long.valueOf(j3 - j2));
         }
     }
 
@@ -430,17 +430,17 @@ public class HUDStatistics {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mHasVideo : invokeV.booleanValue;
     }
 
-    public void setFirstFrameTime(long j) {
+    public void setFirstFrameTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.firstFrameTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.firstFrameTime = j2;
         }
     }
 
-    public void setRequestSubscribeTime(long j) {
+    public void setRequestSubscribeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.requestSubscribeTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.requestSubscribeTime = j2;
         }
     }
 
@@ -554,7 +554,7 @@ public class HUDStatistics {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, statsReportArr) == null) {
             for (StatsReport statsReport : statsReportArr) {
-                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("send")) {
+                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains(ReturnKeyType.SEND)) {
                     Map<String, String> reportMap2 = getReportMap(statsReport);
                     String str = reportMap2.get("googTrackId");
                     if (str != null && str.contains(PeerConnectionClient.VIDEO_TRACK_ID)) {

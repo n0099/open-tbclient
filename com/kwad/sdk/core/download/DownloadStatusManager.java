@@ -4,11 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,29 +30,24 @@ public class DownloadStatusManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ksad.download.f f65325f;
+    public static com.ksad.download.f f57311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BroadcastReceiver f65326g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final BroadcastReceiver f65327h;
+    public static final BroadcastReceiver f57312g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final WeakHashMap<d, AdTemplate> f65328a;
+    public final WeakHashMap<c, AdTemplate> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<d, AdTemplate> f65329b;
+    public final Map<c, AdTemplate> f57313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f65330c;
+    public volatile boolean f57314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, AdTemplate> f65331d;
+    public final HashMap<String, AdTemplate> f57315d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, AdTemplate> f65332e;
+    public final Map<String, AdTemplate> f57316e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -115,14 +108,14 @@ public class DownloadStatusManager {
         public static Holder[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (Holder[]) $VALUES.clone() : (Holder[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (Holder[]) $VALUES.clone() : (Holder[]) invokeV.objValue;
         }
 
         public DownloadStatusManager getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.mInstance.f65330c) {
+                if (!this.mInstance.f57314c) {
                     synchronized (this.lock) {
                         this.mInstance.b();
                     }
@@ -146,7 +139,7 @@ public class DownloadStatusManager {
                 return;
             }
         }
-        f65326g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
+        f57312g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,32 +165,6 @@ public class DownloadStatusManager {
                 }
             }
         };
-        f65327h = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
-                    DownloadStatusManager.a().b(intent);
-                }
-            }
-        };
     }
 
     public DownloadStatusManager() {
@@ -213,13 +180,13 @@ public class DownloadStatusManager {
                 return;
             }
         }
-        WeakHashMap<d, AdTemplate> weakHashMap = new WeakHashMap<>();
-        this.f65328a = weakHashMap;
-        this.f65329b = Collections.synchronizedMap(weakHashMap);
-        this.f65330c = false;
+        WeakHashMap<c, AdTemplate> weakHashMap = new WeakHashMap<>();
+        this.a = weakHashMap;
+        this.f57313b = Collections.synchronizedMap(weakHashMap);
+        this.f57314c = false;
         HashMap<String, AdTemplate> hashMap = new HashMap<>();
-        this.f65331d = hashMap;
-        this.f65332e = Collections.synchronizedMap(hashMap);
+        this.f57315d = hashMap;
+        this.f57316e = Collections.synchronizedMap(hashMap);
         b();
     }
 
@@ -231,15 +198,14 @@ public class DownloadStatusManager {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f65330c) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && Holder.INSTANCE.mInstance.f57314c) {
             try {
                 synchronized (Holder.INSTANCE.lock) {
-                    if (Holder.INSTANCE.mInstance.f65330c) {
-                        context.unregisterReceiver(f65326g);
-                        context.unregisterReceiver(f65327h);
-                        Holder.INSTANCE.mInstance.f65329b.clear();
-                        Holder.INSTANCE.mInstance.f65332e.clear();
-                        Holder.INSTANCE.mInstance.f65330c = false;
+                    if (Holder.INSTANCE.mInstance.f57314c) {
+                        context.unregisterReceiver(f57312g);
+                        Holder.INSTANCE.mInstance.f57313b.clear();
+                        Holder.INSTANCE.mInstance.f57316e.clear();
+                        Holder.INSTANCE.mInstance.f57314c = false;
                     }
                 }
             } catch (Exception unused) {
@@ -249,252 +215,26 @@ public class DownloadStatusManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Intent intent) {
-        Bundle extras;
-        String str;
-        String str2;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        char c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, intent) == null) || (extras = intent.getExtras()) == null) {
-            return;
-        }
-        String string = extras.getString("RESULT_DOWNLOAD_ID");
-        String action = intent.getAction();
-        char c3 = 2;
-        if (TextUtils.equals(a.f65348b, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 1;
-        } else if (TextUtils.equals(a.f65349c, action)) {
-            i2 = extras.getInt("KEY_RESULT_PROGRESS", 0);
-            i5 = extras.getInt("KEY_RESULT_PROGRESS_SOFARBYTES", 0);
-            str2 = null;
-            c2 = 2;
-            i4 = extras.getInt("KEY_RESULT_PROGRESS_TOTALBYTES", 0);
-            str = "";
-            i3 = 0;
-        } else if (TextUtils.equals(a.f65350d, action)) {
-            String string2 = extras.getString("KEY_REUSLT_FILEPATH");
-            str = "";
-            str2 = string2;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 3;
-        } else if (TextUtils.equals(a.f65351e, action)) {
-            int i6 = extras.getInt("KEY_RESULT_ERROR_CODE", 0);
-            str = extras.getString("KEY_RESULT_ERROR_MSG", "");
-            str2 = null;
-            i4 = 0;
-            i5 = 0;
-            c2 = 4;
-            i3 = i6;
-            i2 = 0;
-        } else if (TextUtils.equals(a.f65352f, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 5;
-        } else if (TextUtils.equals(a.f65353g, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 6;
-        } else if (TextUtils.equals(a.f65354h, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 7;
-        } else if (TextUtils.equals(a.f65355i, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = '\b';
-        } else if (TextUtils.equals(a.j, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = '\t';
-        } else if (TextUtils.equals(a.k, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = '\n';
-        } else if (TextUtils.equals(a.l, action)) {
-            str = "";
-            str2 = null;
-            i2 = 0;
-            i3 = 0;
-            i4 = 0;
-            i5 = 0;
-            c2 = 11;
-        } else if (a.n.equals(action)) {
-            com.ksad.download.d.a().c(intent.getIntExtra("download.intent.action.EXTRA_TASK_ID", 0));
-            com.ksad.download.e.a().a(intent.getIntExtra("download.intent.action.EXTRA_TASK_ID", 0));
-            return;
-        } else {
-            str = "";
-            str2 = null;
-            if (TextUtils.equals(a.m, action)) {
-                i2 = 0;
-                i3 = 0;
-                i4 = 0;
-                i5 = 0;
-                c2 = '\f';
-            } else {
-                i2 = 0;
-                i3 = 0;
-                i4 = 0;
-                i5 = 0;
-                c2 = 0;
-            }
-        }
-        g gVar = new g();
-        Set<d> keySet = this.f65329b.keySet();
-        synchronized (this.f65329b) {
-            for (d dVar : keySet) {
-                if (dVar != null) {
-                    if (TextUtils.equals(dVar.a(), string)) {
-                        if (c2 == 1) {
-                            dVar.a(string, gVar);
-                        } else if (c2 == c3) {
-                            dVar.a(string, i2, i5, i4);
-                        } else if (c2 == 3) {
-                            dVar.a(string, str2, gVar);
-                        } else {
-                            if (c2 == 4) {
-                                dVar.a(string, i3, str, gVar);
-                            } else if (c2 == 5) {
-                                dVar.b(string, gVar);
-                            } else if (c2 == 6) {
-                                dVar.c(string, gVar);
-                            } else if (c2 == 7) {
-                                dVar.d(string, gVar);
-                            } else if (c2 == '\b') {
-                                dVar.e(string, gVar);
-                            } else if (c2 == '\t') {
-                                dVar.a(string);
-                            } else if (c2 == '\n') {
-                                dVar.a(string, 0, gVar);
-                            } else if (c2 == 11) {
-                                dVar.b(string);
-                            } else {
-                                if (c2 == '\f') {
-                                    dVar.f(string, gVar);
-                                }
-                                c3 = 2;
-                            }
-                            c3 = 2;
-                        }
-                    }
-                    c3 = 2;
-                }
-            }
-        }
-        if (c2 == 3) {
-            a(string, gVar);
-        }
-    }
-
-    private void a(String str, g gVar) {
-        AdTemplate value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, this, str, gVar) == null) {
-            for (Map.Entry<String, AdTemplate> entry : this.f65332e.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null) {
-                    AdInfo i2 = com.kwad.sdk.core.response.b.c.i(value);
-                    com.kwad.sdk.core.a.a().a(str, value);
-                    if (!TextUtils.isEmpty(str) && i2.downloadId.equals(str) && !value.mDownloadFinishReported) {
-                        if (gVar.b()) {
-                            com.kwad.sdk.core.report.a.e(value, (JSONObject) null);
-                            gVar.a();
-                        }
-                        value.mDownloadFinishReported = true;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            Context context = KsAdSDKImpl.get().getContext();
-            if (this.f65330c || context == null) {
-                return;
-            }
-            f65325f = new com.kwad.sdk.core.download.c.a(context);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(a.f65348b);
-            intentFilter.addAction(a.f65349c);
-            intentFilter.addAction(a.f65350d);
-            intentFilter.addAction(a.f65351e);
-            intentFilter.addAction(a.f65352f);
-            intentFilter.addAction(a.f65353g);
-            intentFilter.addAction(a.f65354h);
-            intentFilter.addAction(a.f65355i);
-            intentFilter.addAction(a.j);
-            intentFilter.addAction(a.k);
-            intentFilter.addAction(a.m);
-            intentFilter.addAction(a.l);
-            intentFilter.addAction(a.n);
-            context.registerReceiver(f65326g, intentFilter);
-            IntentFilter intentFilter2 = new IntentFilter();
-            intentFilter2.addAction(PackageChangedReceiver.ACTION_INSTALL);
-            intentFilter2.addDataScheme("package");
-            context.registerReceiver(f65327h, intentFilter2);
-            this.f65330c = true;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
             String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
+            if (KsAdSDKImpl.get().isDebugLogEnable()) {
+                com.kwad.sdk.core.d.a.a("DownloadStatusManager", "handleInstallApp(), pkgNameAdded=" + schemeSpecificPart);
+            }
             if (TextUtils.isEmpty(schemeSpecificPart)) {
                 return;
             }
-            g gVar = new g();
-            Set<d> keySet = this.f65329b.keySet();
-            synchronized (this.f65329b) {
-                for (d dVar : keySet) {
-                    if (dVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, dVar.b())) {
-                        dVar.a((String) null, 0, gVar);
+            f fVar = new f();
+            synchronized (this.f57313b) {
+                for (c cVar : this.f57313b.keySet()) {
+                    if (cVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, cVar.b())) {
+                        cVar.a((String) null, 0, fVar);
                     }
                 }
             }
-            f65325f.a(schemeSpecificPart);
-            Set<Map.Entry<String, AdTemplate>> entrySet = this.f65332e.entrySet();
-            synchronized (this.f65332e) {
-                Iterator<Map.Entry<String, AdTemplate>> it = entrySet.iterator();
+            f57311f.a(schemeSpecificPart);
+            synchronized (this.f57316e) {
+                Iterator<Map.Entry<String, AdTemplate>> it = this.f57316e.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, AdTemplate> next = it.next();
                     if (next != null) {
@@ -508,17 +248,72 @@ public class DownloadStatusManager {
         }
     }
 
-    public void a(d dVar) {
+    private void a(String str, com.kwad.sdk.b.a<c> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f65329b.remove(dVar);
+        if (interceptable == null || interceptable.invokeLL(65543, this, str, aVar) == null) {
+            Set<c> keySet = this.f57313b.keySet();
+            synchronized (this.f57313b) {
+                for (c cVar : keySet) {
+                    if (cVar != null && TextUtils.equals(cVar.a(), str)) {
+                        try {
+                            aVar.a(cVar);
+                        } catch (Exception e2) {
+                            com.kwad.sdk.core.d.a.a(e2);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public void a(d dVar, AdTemplate adTemplate) {
+    private void a(String str, f fVar) {
+        AdTemplate value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, adTemplate) == null) {
-            this.f65329b.put(dVar, adTemplate);
+        if (interceptable == null || interceptable.invokeLL(65544, this, str, fVar) == null) {
+            for (Map.Entry<String, AdTemplate> entry : this.f57316e.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null) {
+                    AdInfo j2 = com.kwad.sdk.core.response.a.d.j(value);
+                    com.kwad.sdk.core.a.a().a(str, value);
+                    if (!TextUtils.isEmpty(str) && j2.downloadId.equals(str) && !value.mDownloadFinishReported) {
+                        if (fVar.b()) {
+                            com.kwad.sdk.core.report.a.e(value, (JSONObject) null);
+                            fVar.a();
+                        }
+                        value.mDownloadFinishReported = true;
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            if (this.f57314c || context == null) {
+                return;
+            }
+            f57311f = new com.kwad.sdk.core.download.b.a(context);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+            intentFilter.addDataScheme("package");
+            context.registerReceiver(f57312g, intentFilter);
+            this.f57314c = true;
+        }
+    }
+
+    public void a(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.f57313b.remove(cVar);
+        }
+    }
+
+    public void a(c cVar, AdTemplate adTemplate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, adTemplate) == null) {
+            this.f57313b.put(cVar, adTemplate);
         }
     }
 
@@ -526,14 +321,404 @@ public class DownloadStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             try {
-                String q = com.kwad.sdk.core.response.b.a.q(com.kwad.sdk.core.response.b.c.i(adTemplate));
-                if (TextUtils.isEmpty(q)) {
+                String v = com.kwad.sdk.core.response.a.a.v(com.kwad.sdk.core.response.a.d.j(adTemplate));
+                if (TextUtils.isEmpty(v)) {
                     return;
                 }
-                this.f65332e.put(q, adTemplate);
+                this.f57316e.put(v, adTemplate);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ f f57317b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57318c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57318c = this;
+                    this.a = str;
+                    this.f57317b = r8;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.a(this.a, this.f57317b);
+                    }
+                }
+            });
+        }
+    }
+
+    public void a(String str, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048580, this, str, i2, i3, i4) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, i2, i3, i4) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f57321b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ int f57322c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ int f57323d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57324e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i5 = newInitContext.flag;
+                        if ((i5 & 1) != 0) {
+                            int i6 = i5 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57324e = this;
+                    this.a = str;
+                    this.f57321b = i2;
+                    this.f57322c = i3;
+                    this.f57323d = i4;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.a(this.a, this.f57321b, this.f57322c, this.f57323d);
+                    }
+                }
+            });
+        }
+    }
+
+    public void a(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048581, this, str, i2, str2) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, i2, str2, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f57328b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f57329c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ f f57330d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57331e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, r10};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57331e = this;
+                    this.a = str;
+                    this.f57328b = i2;
+                    this.f57329c = str2;
+                    this.f57330d = r10;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.a(this.a, this.f57328b, this.f57329c, this.f57330d);
+                    }
+                }
+            });
+        }
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            f fVar = new f();
+            a(str, new com.kwad.sdk.b.a<c>(this, str, str2, fVar) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ String f57325b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ f f57326c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57327d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, str2, fVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57327d = this;
+                    this.a = str;
+                    this.f57325b = str2;
+                    this.f57326c = fVar;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.a(this.a, this.f57325b, this.f57326c);
+                    }
+                }
+            });
+            a(str, fVar);
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ f f57332b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57333c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57333c = this;
+                    this.a = str;
+                    this.f57332b = r8;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.b(this.a, this.f57332b);
+                    }
+                }
+            });
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ f f57334b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57335c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57335c = this;
+                    this.a = str;
+                    this.f57334b = r8;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.c(this.a, this.f57334b);
+                    }
+                }
+            });
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ f f57336b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57337c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57337c = this;
+                    this.a = str;
+                    this.f57336b = r8;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.d(this.a, this.f57336b);
+                    }
+                }
+            });
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            a(str, new com.kwad.sdk.b.a<c>(this, str, new f()) { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ f f57319b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ DownloadStatusManager f57320c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57320c = this;
+                    this.a = str;
+                    this.f57319b = r8;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.kwad.sdk.b.a
+                public void a(c cVar) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
+                        cVar.e(this.a, this.f57319b);
+                    }
+                }
+            });
         }
     }
 }

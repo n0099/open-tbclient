@@ -3,8 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.x0.t.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.faceunity.gles.GeneratedTexture;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] HORI_FLIP_MATRIX;
@@ -96,7 +95,7 @@ public class GlUtil {
     public static int createFBOForTexture(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             int createFrameBufferObject = createFrameBufferObject();
             checkGlError("createFrameBufferObject");
             bindTextureToFBO(i2, i3, createFrameBufferObject);
@@ -108,7 +107,7 @@ public class GlUtil {
     public static FloatBuffer createFloatBuffer(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fArr)) == null) {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();

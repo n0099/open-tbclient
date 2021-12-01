@@ -12,19 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaRecentHistoryActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsTabPagerAdapter mAdapter;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends AbsTabActivity.CustomOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaRecentHistoryActivity f47839a;
+        public final /* synthetic */ AlaRecentHistoryActivity a;
 
         public a(AlaRecentHistoryActivity alaRecentHistoryActivity) {
             Interceptable interceptable = $ic;
@@ -41,7 +39,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
                     return;
                 }
             }
-            this.f47839a = alaRecentHistoryActivity;
+            this.a = alaRecentHistoryActivity;
         }
 
         @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener

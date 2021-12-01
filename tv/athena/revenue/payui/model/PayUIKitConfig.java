@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayUIKitConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class PayUIKitConfig {
     public ThemeColorConfig themeColorConfig;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PayUIKitConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

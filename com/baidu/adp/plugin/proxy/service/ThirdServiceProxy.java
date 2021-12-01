@@ -3,8 +3,8 @@ package com.baidu.adp.plugin.proxy.service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import b.a.e.i.d;
-import b.a.e.i.h.a;
+import c.a.d.i.d;
+import c.a.d.i.h.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ThirdServiceProxy extends ServiceProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +51,11 @@ public class ThirdServiceProxy extends ServiceProxy {
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     a b2 = a.b();
-                    b2.q("plugin_use", "plugin_third_service exception: " + e2.getMessage(), stringExtra);
+                    b2.o("plugin_use", "plugin_third_service exception: " + e2.getMessage(), stringExtra);
                     return null;
                 }
             }
-            a.b().q("plugin_use", "plugin_third_service_create_failed", stringExtra);
+            a.b().o("plugin_use", "plugin_third_service_create_failed", stringExtra);
             return null;
         }
         return invokeL.objValue;

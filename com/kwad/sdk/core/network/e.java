@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.utils.n;
+import com.kwad.sdk.utils.q;
 import java.io.File;
 import java.nio.charset.Charset;
 /* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile e f65712a;
+    public static volatile e a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,10 +56,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (e.class) {
-                if (f65712a == null) {
-                    f65712a = new e();
+                if (a == null) {
+                    a = new e();
                 }
-                eVar = f65712a;
+                eVar = a;
             }
             return eVar;
         }
@@ -74,7 +71,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
-                n.a(new File(d()), str, Charset.forName("UTF-8"), false);
+                q.a(new File(d()), str, Charset.forName("UTF-8"), false);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -88,7 +85,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                return n.a(new File(d()), Charset.forName("UTF-8"));
+                return q.a(new File(d()), Charset.forName("UTF-8"));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;
@@ -100,7 +97,7 @@ public class e {
     private String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             return com.kwad.sdk.e.a(KsAdSDK.getContext()).getPath() + "/cookie";
         }
         return (String) invokeV.objValue;

@@ -3,7 +3,6 @@ package androidx.core.util;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +62,7 @@ public final class SparseArrayKt {
     public static final <T> T getOrElse(SparseArray<T> sparseArray, int i2, Function0<? extends T> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, sparseArray, i2, function0)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseArray, i2, function0)) == null) {
             T t = sparseArray.get(i2);
             return t != null ? t : function0.invoke();
         }
@@ -73,7 +72,7 @@ public final class SparseArrayKt {
     public static final <T> int getSize(SparseArray<T> sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sparseArray)) == null) ? sparseArray.size() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseArray)) == null) ? sparseArray.size() : invokeL.intValue;
     }
 
     public static final <T> boolean isEmpty(SparseArray<T> sparseArray) {

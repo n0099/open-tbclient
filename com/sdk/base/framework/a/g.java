@@ -12,24 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final g f69072a;
+    public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f69073b;
+    public static final g f60944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f69074c;
+    public static final g f60945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f69075d;
+    public static final g f60946d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f69076e;
+    public static final g f60947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f69077f;
+    public static final g f60948f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +43,12 @@ public final class g {
                 return;
             }
         }
-        f69072a = new g("WAITING", 0, 0);
-        f69073b = new g("STARTED", 1, 1);
-        f69074c = new g("LOADING", 2, 2);
-        f69075d = new g("FAILURE", 3, 3);
-        f69076e = new g("CANCELLED", 4, 4);
-        f69077f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+        a = new g("WAITING", 0, 0);
+        f60944b = new g("STARTED", 1, 1);
+        f60945c = new g("LOADING", 2, 2);
+        f60946d = new g("FAILURE", 3, 3);
+        f60947e = new g("CANCELLED", 4, 4);
+        f60948f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

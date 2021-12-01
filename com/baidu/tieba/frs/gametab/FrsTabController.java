@@ -19,14 +19,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.d1;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.g1;
-import b.a.r0.x0.i1;
-import b.a.r0.x0.j0;
-import b.a.r0.x0.r0;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.d1;
+import c.a.r0.d1.e1;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.g1;
+import c.a.r0.d1.i1;
+import c.a.r0.d1.j0;
+import c.a.r0.d1.r0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -107,17 +107,17 @@ import tbclient.FrsTabInfo;
 import tbclient.PopInfo;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes9.dex */
-public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommonImageLayout.e {
+/* loaded from: classes10.dex */
+public class FrsTabController implements c.a.r0.h.e.b, VoiceManager.j, FrsCommonImageLayout.e {
     public static /* synthetic */ Interceptable $ic;
-    public static final String n0;
-    public static final String o0;
+    public static final String i0;
+    public static final String k0;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBarCoverTip A;
     public boolean B;
     public boolean C;
-    public b.a.r0.f0.g D;
-    public b.a.r0.x0.y2.e E;
+    public c.a.r0.k0.g D;
+    public c.a.r0.d1.y2.e E;
     public Runnable F;
     public boolean G;
     public boolean H;
@@ -126,7 +126,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public boolean K;
     public HttpMessageListener L;
     public CustomMessageListener M;
-    public b.a.e.c.g.a N;
+    public c.a.d.c.g.a N;
     public CustomMessageListener O;
     public CustomMessageListener P;
     public CustomMessageListener Q;
@@ -142,30 +142,34 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public CustomMessageListener a0;
     public CustomMessageListener b0;
     public CustomMessageListener c0;
+    public ViewPager.OnPageChangeListener d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsActivity f49532e;
+    public FrsActivity f44414e;
+    public FrsBaseViewPager.a e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrsFragment f49533f;
+    public FrsFragment f44415f;
+    public CustomMessageListener f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsTabHostFragment f49534g;
+    public FrsTabHostFragment f44416g;
+    public final ItemCardHelper.c g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.m3.m f49535h;
+    public c.a.r0.t3.m f44417h;
+    public Runnable h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public j0 f49536i;
-    public ViewPager.OnPageChangeListener i0;
-    public boolean j;
-    public FrsBaseViewPager.a j0;
-    public final Handler k;
-    public CustomMessageListener k0;
+    public j0 f44418i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f44419j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public final Handler f44420k;
     public String l;
-    public final ItemCardHelper.c l0;
     public String m;
-    public Runnable m0;
     public int n;
     public String o;
     public int p;
@@ -180,13 +184,11 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class FragmentAdapter extends FragmentStatePagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public List<BaseFragment> f49537a;
+        public List<BaseFragment> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FragmentAdapter(FrsTabController frsTabController, FragmentManager fragmentManager) {
@@ -206,23 +208,23 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49537a = new ArrayList(2);
+            this.a = new ArrayList(2);
         }
 
         public boolean add(BaseFragment baseFragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragment)) == null) ? ListUtils.add(this.f49537a, baseFragment) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragment)) == null) ? ListUtils.add(this.a, baseFragment) : invokeL.booleanValue;
         }
 
         public BaseFragment findFragmentByTag(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (b.a.e.f.p.k.isEmpty(str)) {
+                if (c.a.d.f.p.k.isEmpty(str)) {
                     return null;
                 }
-                for (BaseFragment baseFragment : this.f49537a) {
+                for (BaseFragment baseFragment : this.a) {
                     if (baseFragment != null && str.equals(baseFragment.getBaseTag())) {
                         return baseFragment;
                     }
@@ -236,7 +238,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49537a.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -264,17 +266,17 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public BaseFragment remove(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? (BaseFragment) ListUtils.remove(this.f49537a, i2) : (BaseFragment) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? (BaseFragment) ListUtils.remove(this.a, i2) : (BaseFragment) invokeI.objValue;
         }
 
         public BaseFragment removeFragmentByTag(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                if (b.a.e.f.p.k.isEmpty(str)) {
+                if (c.a.d.f.p.k.isEmpty(str)) {
                     return null;
                 }
-                Iterator<BaseFragment> it = this.f49537a.iterator();
+                Iterator<BaseFragment> it = this.a.iterator();
                 while (it.hasNext()) {
                     BaseFragment next = it.next();
                     if (next != null && str.equals(next)) {
@@ -290,7 +292,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public boolean add(int i2, BaseFragment baseFragment) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, baseFragment)) == null) ? ListUtils.add(this.f49537a, i2, baseFragment) : invokeIL.booleanValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, baseFragment)) == null) ? ListUtils.add(this.a, i2, baseFragment) : invokeIL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -298,28 +300,26 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public BaseFragment getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (BaseFragment) ListUtils.getItem(this.f49537a, i2) : (BaseFragment) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (BaseFragment) ListUtils.getItem(this.a, i2) : (BaseFragment) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49538a;
+        public final /* synthetic */ FrsTabController a;
 
         /* renamed from: com.baidu.tieba.frs.gametab.FrsTabController$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class View$OnClickListenerC1759a implements View.OnClickListener {
+        /* loaded from: classes10.dex */
+        public class View$OnClickListenerC1830a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f49539e;
+            public final /* synthetic */ a f44421e;
 
-            public View$OnClickListenerC1759a(a aVar) {
+            public View$OnClickListenerC1830a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,7 +334,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                         return;
                     }
                 }
-                this.f49539e = aVar;
+                this.f44421e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -342,8 +342,8 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("_forumId", this.f49539e.f49538a.f49535h.getForum().getId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(this.f49539e.f49538a.f49532e, "RecommendHistoryPage", hashMap)));
+                    hashMap.put("_forumId", this.f44421e.a.f44417h.getForum().getId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.t3.j0.n(this.f44421e.a.f44414e, "RecommendHistoryPage", hashMap)));
                 }
             }
         }
@@ -366,7 +366,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49538a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -375,28 +375,26 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof FrsRecommendResMsg)) {
                 if (httpResponsedMessage.getError() != 0) {
-                    new BdTopToast(this.f49538a.f49532e).setIcon(false).setContent(httpResponsedMessage.getErrorString()).show((ViewGroup) this.f49538a.f49532e.findViewById(f1.frs));
+                    new BdTopToast(this.a.f44414e).setIcon(false).setContent(httpResponsedMessage.getErrorString()).show((ViewGroup) this.a.f44414e.findViewById(f1.frs));
                     return;
                 }
                 FrsRecommendResMsg frsRecommendResMsg = (FrsRecommendResMsg) httpResponsedMessage;
                 int pushStatus = frsRecommendResMsg.getPushStatus();
                 String pushMsg = frsRecommendResMsg.getPushMsg();
                 if (pushStatus == 1) {
-                    new ScreenTopToast(this.f49538a.f49532e).setTitle(this.f49538a.f49532e.getString(i1.frs_recommend_suc_tip_title)).setContent(this.f49538a.f49532e.getString(i1.frs_recommend_suc_tip_content)).setBtnText(this.f49538a.f49532e.getString(i1.dialog_confirm_see)).setBtnClickListener(new View$OnClickListenerC1759a(this)).show((ViewGroup) this.f49538a.f49532e.findViewById(f1.frs));
+                    new ScreenTopToast(this.a.f44414e).setTitle(this.a.f44414e.getString(i1.frs_recommend_suc_tip_title)).setContent(this.a.f44414e.getString(i1.frs_recommend_suc_tip_content)).setBtnText(this.a.f44414e.getString(i1.dialog_confirm_see)).setBtnClickListener(new View$OnClickListenerC1830a(this)).show((ViewGroup) this.a.f44414e.findViewById(f1.frs));
                 } else {
-                    new BdTopToast(this.f49538a.f49532e).setIcon(false).setContent(pushMsg).show((ViewGroup) this.f49538a.f49532e.findViewById(f1.frs));
+                    new BdTopToast(this.a.f44414e).setIcon(false).setContent(pushMsg).show((ViewGroup) this.a.f44414e.findViewById(f1.frs));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class a0 extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class a0 extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49540a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a0(FrsTabController frsTabController, int i2, int i3) {
@@ -417,15 +415,15 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49540a = frsTabController;
+            this.a = frsTabController;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            b.a.r0.m3.m mVar;
+            c.a.r0.t3.m mVar;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f49540a.j || responsedMessage.hasError() || responsedMessage.getError() != 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f44419j || responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 return;
             }
             if (responsedMessage instanceof FrsPageHttpResponseMessage) {
@@ -441,29 +439,29 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 i2 = -1;
             }
             if (mVar != null) {
-                this.f49540a.j = true;
-                this.f49540a.p0(mVar, true, i2);
+                this.a.f44419j = true;
+                this.a.p0(mVar, true, i2);
                 if (mVar != null && mVar.getForum() != null && !StringUtils.isNull(mVar.getForum().getId())) {
-                    b.a.q0.s.o.a.b().l("2", mVar.getForum().getId());
+                    c.a.q0.s.o.a.b().l("2", mVar.getForum().getId());
                 }
             }
             if (mVar == null || mVar.getUserData() == null || mVar.getUserData().getNewGodData() == null) {
                 return;
             }
             if (mVar.getForum() != null) {
-                b.a.q0.c1.b0.g().j(mVar.getForum().getId());
+                c.a.q0.d1.b0.g().j(mVar.getForum().getId());
             }
-            b.a.q0.c1.b0.g().k(2, mVar.getUserData().getNewGodData());
+            c.a.q0.d1.b0.g().k(2, mVar.getUserData().getNewGodData());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49541e;
+        public final /* synthetic */ FrsTabController f44422e;
 
         public b(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -480,27 +478,25 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49541e = frsTabController;
+            this.f44422e = frsTabController;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.e.f.m.e.a().removeCallbacks(this);
-                this.f49541e.d0();
-                b.a.e.f.m.e.a().postDelayed(this, 30000L);
+                c.a.d.f.m.e.a().removeCallbacks(this);
+                this.f44422e.d0();
+                c.a.d.f.m.e.a().postDelayed(this, 30000L);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49542a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b0(FrsTabController frsTabController, int i2) {
@@ -520,30 +516,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49542a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !this.f49542a.j && this.f49542a.f49535h == null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.r0.m3.m)) {
-                b.a.r0.m3.m mVar = (b.a.r0.m3.m) customResponsedMessage.getData();
-                if (mVar.getForum() == null || this.f49542a.l == null || !this.f49542a.l.equals(mVar.getForum().getName())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !this.a.f44419j && this.a.f44417h == null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.t3.m)) {
+                c.a.r0.t3.m mVar = (c.a.r0.t3.m) customResponsedMessage.getData();
+                if (mVar.getForum() == null || this.a.l == null || !this.a.l.equals(mVar.getForum().getName())) {
                     return;
                 }
-                this.f49542a.p0(mVar, false, -1);
+                this.a.p0(mVar, false, -1);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49543a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsTabController frsTabController, int i2) {
@@ -563,7 +557,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49543a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -571,18 +565,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.f49543a.r = true;
+                this.a.r = true;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49544a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c0(FrsTabController frsTabController, int i2) {
@@ -602,7 +594,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49544a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -610,18 +602,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f49544a.K();
+                this.a.K();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49545a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(FrsTabController frsTabController, int i2) {
@@ -641,29 +631,27 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49545a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f49545a.s == null || this.f49545a.t == null || !(customResponsedMessage.getData() instanceof FrsTabViewPager.a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.s == null || this.a.t == null || !(customResponsedMessage.getData() instanceof FrsTabViewPager.a)) {
                 return;
             }
             FrsTabViewPager.a aVar = (FrsTabViewPager.a) customResponsedMessage.getData();
-            this.f49545a.y = aVar.a();
-            this.f49545a.z = aVar.b();
+            this.a.y = aVar.a();
+            this.a.z = aVar.b();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49546a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d0(FrsTabController frsTabController, int i2) {
@@ -683,7 +671,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49546a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -696,30 +684,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             }
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
             if (10001 == intValue) {
-                S = this.f49546a.S(9);
+                S = this.a.S(9);
                 if (S == -1) {
-                    S = this.f49546a.S(2);
+                    S = this.a.S(2);
                 }
             } else {
-                S = this.f49546a.S(intValue);
+                S = this.a.S(intValue);
             }
-            if (S == -1 || !this.f49546a.b0() || this.f49546a.f49534g == null) {
+            if (S == -1 || !this.a.b0() || this.a.f44416g == null) {
                 return;
             }
-            this.f49546a.f49534g.setCurrentTab(S);
-            if (this.f49546a.R(S) != 1) {
-                this.f49546a.f49533f.setCanShowSpeedTipView(false);
+            this.a.f44416g.setCurrentTab(S);
+            if (this.a.R(S) != 1) {
+                this.a.f44415f.setCanShowSpeedTipView(false);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49547a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(FrsTabController frsTabController, int i2) {
@@ -739,27 +725,25 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49547a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f49547a.s == null || this.f49547a.t == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.s == null || this.a.t == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.f49547a.s.setForceIntercept(((Boolean) customResponsedMessage.getData()).booleanValue());
+            this.a.s.setForceIntercept(((Boolean) customResponsedMessage.getData()).booleanValue());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e0 extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49548a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e0(FrsTabController frsTabController, int i2) {
@@ -779,7 +763,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49548a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -788,16 +772,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             int i2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && 1021074 == httpResponsedMessage.getCmd() && (httpResponsedMessage instanceof AlaGameTabGetNewNotifyResponsedMessage)) {
-                List<b.a.r0.x0.i2.a> newNotifyData = ((AlaGameTabGetNewNotifyResponsedMessage) httpResponsedMessage).getNewNotifyData();
-                if (ListUtils.isEmpty(newNotifyData) || this.f49548a.f49534g == null) {
+                List<c.a.r0.d1.i2.a> newNotifyData = ((AlaGameTabGetNewNotifyResponsedMessage) httpResponsedMessage).getNewNotifyData();
+                if (ListUtils.isEmpty(newNotifyData) || this.a.f44416g == null) {
                     return;
                 }
-                for (b.a.r0.x0.i2.a aVar : newNotifyData) {
+                for (c.a.r0.d1.i2.a aVar : newNotifyData) {
                     if (aVar != null) {
-                        for (int i3 = 0; i3 < this.f49548a.f49536i.f().size(); i3++) {
-                            FragmentTabHost.b tabSpec = this.f49548a.f49534g.getTabSpec(i3);
-                            if (tabSpec != null && (i2 = tabSpec.f46033a) != 1 && i2 != this.f49548a.f49534g.getCurrentTabType() && tabSpec.f46033a == aVar.a() && aVar.b() && tabSpec.f46034b.getTip(String.valueOf(tabSpec.f46033a)) != null) {
-                                tabSpec.f46034b.getTip(String.valueOf(tabSpec.f46033a)).f46823a.setVisibility(0);
+                        for (int i3 = 0; i3 < this.a.f44418i.f().size(); i3++) {
+                            FragmentTabHost.b tabSpec = this.a.f44416g.getTabSpec(i3);
+                            if (tabSpec != null && (i2 = tabSpec.a) != 1 && i2 != this.a.f44416g.getCurrentTabType() && tabSpec.a == aVar.a() && aVar.b() && tabSpec.f41049b.getTip(String.valueOf(tabSpec.a)) != null) {
+                                tabSpec.f41049b.getTip(String.valueOf(tabSpec.a)).a.setVisibility(0);
                             }
                         }
                     }
@@ -806,13 +790,11 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49549a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(FrsTabController frsTabController, int i2) {
@@ -832,7 +814,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49549a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -840,18 +822,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f49549a.N(null);
+                this.a.N(null);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49550a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f0(FrsTabController frsTabController, int i2) {
@@ -871,7 +851,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49550a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -879,18 +859,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                new BdTopToast(this.f49550a.f49532e, 2000).setIcon(false).setContent(this.f49550a.f49532e.getString(i1.frs_top_forum_rules_click_toast)).show((ViewGroup) this.f49550a.f49532e.findViewById(f1.frs));
+                new BdTopToast(this.a.f44414e, 2000).setIcon(false).setContent(this.a.f44414e.getString(i1.frs_top_forum_rules_click_toast)).show((ViewGroup) this.a.f44414e.findViewById(f1.frs));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49551a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(FrsTabController frsTabController, int i2) {
@@ -910,35 +888,33 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49551a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f49551a.E == null || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.E == null || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
             if (customResponsedMessage.getData() instanceof ForumData) {
-                this.f49551a.N((ForumData) customResponsedMessage.getData());
+                this.a.N((ForumData) customResponsedMessage.getData());
             } else if (customResponsedMessage.getData() instanceof Long) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.f49551a.c0(longValue) && this.f49551a.E.a(longValue) >= 3) {
-                    this.f49551a.E.b(longValue);
-                    this.f49551a.H = true;
+                if (this.a.c0(longValue) && this.a.E.a(longValue) >= 3) {
+                    this.a.E.b(longValue);
+                    this.a.H = true;
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class g0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49552a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g0(FrsTabController frsTabController, int i2) {
@@ -958,7 +934,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49552a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -966,18 +942,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921641) {
-                this.f49552a.K = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                this.a.K = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49553a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(FrsTabController frsTabController, int i2) {
@@ -997,30 +971,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49553a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a.r0.m3.s0.k)) {
-                b.a.r0.m3.s0.k kVar = (b.a.r0.m3.s0.k) customResponsedMessage.getData();
-                if (this.f49553a.E == null || kVar == null || !TbadkCoreApplication.isLogin()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.t3.s0.k)) {
+                c.a.r0.t3.s0.k kVar = (c.a.r0.t3.s0.k) customResponsedMessage.getData();
+                if (this.a.E == null || kVar == null || !TbadkCoreApplication.isLogin()) {
                     return;
                 }
-                this.f49553a.E.c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(kVar.f22724a));
+                this.a.E.c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(kVar.a));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49554a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(FrsTabController frsTabController, int i2) {
@@ -1040,7 +1012,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49554a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1049,23 +1021,21 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-                this.f49554a.J = booleanValue;
+                this.a.J = booleanValue;
                 if (booleanValue) {
-                    this.f49554a.u.setVisibility(8);
+                    this.a.u.setVisibility(8);
                 } else {
-                    this.f49554a.u.setVisibility(0);
+                    this.a.u.setVisibility(0);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49555a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(FrsTabController frsTabController, int i2) {
@@ -1085,7 +1055,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49555a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1095,33 +1065,33 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!(customResponsedMessage.getData() instanceof b.a.r0.x0.w2.a) || ((b.a.r0.x0.w2.a) customResponsedMessage.getData()).f28048a == null) {
-                this.f49555a.w.removeAllViews();
-                this.f49555a.w.setVisibility(8);
+            if (!(customResponsedMessage.getData() instanceof c.a.r0.d1.w2.a) || ((c.a.r0.d1.w2.a) customResponsedMessage.getData()).a == null) {
+                this.a.w.removeAllViews();
+                this.a.w.setVisibility(8);
                 return;
             }
-            View view = ((b.a.r0.x0.w2.a) customResponsedMessage.getData()).f28048a;
+            View view = ((c.a.r0.d1.w2.a) customResponsedMessage.getData()).a;
             if (view.getParent() != null) {
-                if (((ViewGroup) view.getParent()) != this.f49555a.w) {
+                if (((ViewGroup) view.getParent()) != this.a.w) {
                     ((ViewGroup) view.getParent()).removeView(view);
-                    this.f49555a.w.removeAllViews();
-                    this.f49555a.w.addView(view);
+                    this.a.w.removeAllViews();
+                    this.a.w.addView(view);
                 }
             } else {
-                this.f49555a.w.removeAllViews();
-                this.f49555a.w.addView(view);
+                this.a.w.removeAllViews();
+                this.a.w.addView(view);
             }
-            this.f49555a.w.setVisibility(0);
+            this.a.w.setVisibility(0);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class k implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49556e;
+        public final /* synthetic */ FrsTabController f44423e;
 
         public k(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1138,15 +1108,15 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49556e = frsTabController;
+            this.f44423e = frsTabController;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && i2 == 0) {
-                this.f49556e.z = false;
-                this.f49556e.s.setForceIntercept(false);
+                this.f44423e.z = false;
+                this.f44423e.s.setForceIntercept(false);
             }
         }
 
@@ -1163,29 +1133,27 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == 1) {
                 return;
             }
-            this.f49556e.u.setVisibility(0);
-            if (this.f49556e.P() != null) {
-                this.f49556e.P().setLiteProgramListFragmentSelect(false);
+            this.f44423e.u.setVisibility(0);
+            if (this.f44423e.P() != null) {
+                this.f44423e.P().setLiteProgramListFragmentSelect(false);
             }
-            this.f49556e.f49533f.showRefreshIcon();
+            this.f44423e.f44415f.showRefreshIcon();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class l extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabController a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49557a;
-
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ l f49558e;
+            public final /* synthetic */ l f44424e;
 
             public a(l lVar) {
                 Interceptable interceptable = $ic;
@@ -1202,7 +1170,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                         return;
                     }
                 }
-                this.f49558e = lVar;
+                this.f44424e = lVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -1210,8 +1178,8 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("_forumId", this.f49558e.f49557a.f49535h.getForum().getId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(this.f49558e.f49557a.f49532e, "ForumGradePage", hashMap)));
+                    hashMap.put("_forumId", this.f44424e.a.f44417h.getForum().getId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.t3.j0.n(this.f44424e.a.f44414e, "ForumGradePage", hashMap)));
                 }
             }
         }
@@ -1234,7 +1202,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49557a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1242,18 +1210,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                new ScreenTopToast(this.f49557a.f49532e).setTitle(this.f49557a.f49532e.getString(i1.frs_recommend_fail_month_tip)).setBtnText(this.f49557a.f49532e.getString(i1.frs_recommend_fail_tip_btn)).setBtnClickListener(new a(this)).show((ViewGroup) this.f49557a.f49532e.findViewById(f1.frs));
+                new ScreenTopToast(this.a.f44414e).setTitle(this.a.f44414e.getString(i1.frs_recommend_fail_month_tip)).setBtnText(this.a.f44414e.getString(i1.frs_recommend_fail_tip_btn)).setBtnClickListener(new a(this)).show((ViewGroup) this.a.f44414e.findViewById(f1.frs));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class m implements FrsBaseViewPager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49559a;
+        public final /* synthetic */ FrsTabController a;
 
         public m(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1270,19 +1236,19 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49559a = frsTabController;
+            this.a = frsTabController;
         }
 
         @Override // com.baidu.tieba.frs.FrsBaseViewPager.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49559a.s == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.s == null) {
                 return;
             }
-            if (this.f49559a.s.getCurrentItem() == 0) {
-                this.f49559a.s.setmDisallowSlip(true);
+            if (this.a.s.getCurrentItem() == 0) {
+                this.a.s.setmDisallowSlip(true);
             } else {
-                this.f49559a.s.setmDisallowSlip(false);
+                this.a.s.setmDisallowSlip(false);
             }
         }
 
@@ -1291,16 +1257,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f49559a.s.getCurrentItem() == 0) {
-                    if (this.f49559a.y && this.f49559a.z) {
-                        this.f49559a.s.setmDisallowSlip(false);
+                if (this.a.s.getCurrentItem() == 0) {
+                    if (this.a.y && this.a.z) {
+                        this.a.s.setmDisallowSlip(false);
                     }
-                    if (!this.f49559a.z) {
-                        this.f49559a.s.setmDisallowSlip(true);
+                    if (!this.a.z) {
+                        this.a.s.setmDisallowSlip(true);
                     }
-                    this.f49559a.s.setmDisallowSlip(true);
+                    this.a.s.setmDisallowSlip(true);
                 } else {
-                    this.f49559a.s.setmDisallowSlip(true);
+                    this.a.s.setmDisallowSlip(true);
                 }
                 return true;
             }
@@ -1308,13 +1274,13 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49560e;
+        public final /* synthetic */ FrsTabController f44425e;
 
         public n(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1331,25 +1297,25 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49560e = frsTabController;
+            this.f44425e = frsTabController;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49560e.v0();
+                this.f44425e.v0();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class o implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49561e;
+        public final /* synthetic */ FrsTabController f44426e;
 
         public o(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1366,36 +1332,36 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49561e = frsTabController;
+            this.f44426e = frsTabController;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FrsTabController frsTabController = this.f49561e;
-                boolean L = frsTabController.L(frsTabController.f49535h.getGameTabInfo());
+                FrsTabController frsTabController = this.f44426e;
+                boolean L = frsTabController.L(frsTabController.f44417h.getGameTabInfo());
                 if (L) {
-                    this.f49561e.t.notifyDataSetChanged();
-                    if (L && this.f49561e.f49534g != null) {
-                        this.f49561e.f49534g.setFrsMainFragment(this.f49561e.f49533f);
-                        this.f49561e.f49534g.processAddTabResponse(this.f49561e.f49535h, this.f49561e.f49536i);
+                    this.f44426e.t.notifyDataSetChanged();
+                    if (L && this.f44426e.f44416g != null) {
+                        this.f44426e.f44416g.setFrsMainFragment(this.f44426e.f44415f);
+                        this.f44426e.f44416g.processAddTabResponse(this.f44426e.f44417h, this.f44426e.f44418i);
                     }
                 }
-                if (this.f49561e.f49532e.isLoadingViewAttached()) {
-                    this.f49561e.f49532e.hideLoadingView(this.f49561e.f49532e.findViewById(16908290));
+                if (this.f44426e.f44414e.isLoadingViewAttached()) {
+                    this.f44426e.f44414e.hideLoadingView(this.f44426e.f44414e.findViewById(16908290));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class p implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49562e;
+        public final /* synthetic */ FrsTabController f44427e;
 
         public p(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1412,35 +1378,35 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49562e = frsTabController;
+            this.f44427e = frsTabController;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49562e.f49533f.isPageStayDurationClose = true;
-                this.f49562e.Y(this.f49562e.f49533f != null ? this.f49562e.f49533f.getArguments() : null);
-                this.f49562e.t.notifyDataSetChanged();
-                if (this.f49562e.f49532e.isLoadingViewAttached()) {
-                    this.f49562e.f49532e.hideLoadingView(this.f49562e.f49532e.findViewById(16908290));
+                this.f44427e.f44415f.isPageStayDurationClose = true;
+                this.f44427e.Y(this.f44427e.f44415f != null ? this.f44427e.f44415f.getArguments() : null);
+                this.f44427e.t.notifyDataSetChanged();
+                if (this.f44427e.f44414e.isLoadingViewAttached()) {
+                    this.f44427e.f44414e.hideLoadingView(this.f44427e.f44414e.findViewById(16908290));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class q implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f49563e;
+        public final /* synthetic */ AlertDialog f44428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.m3.m f49564f;
+        public final /* synthetic */ c.a.r0.t3.m f44429f;
 
-        public q(FrsTabController frsTabController, AlertDialog alertDialog, b.a.r0.m3.m mVar) {
+        public q(FrsTabController frsTabController, AlertDialog alertDialog, c.a.r0.t3.m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1455,37 +1421,37 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49563e = alertDialog;
-            this.f49564f = mVar;
+            this.f44428e = alertDialog;
+            this.f44429f = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f49563e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (alertDialog = this.f44428e) == null) {
                 return;
             }
             alertDialog.dismiss();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_CANCEL);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (this.f49564f.getForum() != null) {
-                statisticItem.param("fid", this.f49564f.getForum().getId());
-                statisticItem.param("fname", this.f49564f.getForum().getName());
+            if (this.f44429f.getForum() != null) {
+                statisticItem.param("fid", this.f44429f.getForum().getId());
+                statisticItem.param("fname", this.f44429f.getForum().getName());
             }
             TiebaStatic.log(statisticItem);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class r implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f49565e;
+        public final /* synthetic */ c.a.q0.s.s.a f44430e;
 
-        public r(FrsTabController frsTabController, b.a.q0.s.s.a aVar) {
+        public r(FrsTabController frsTabController, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1500,38 +1466,38 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49565e = aVar;
+            this.f44430e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.a.q0.s.s.a aVar;
+            c.a.q0.s.s.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f49565e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f44430e) == null) {
                 return;
             }
             aVar.dismiss();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class s implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.q0.s.s.a f49566e;
+        public final /* synthetic */ c.a.q0.s.s.a f44431e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f49567f;
+        public final /* synthetic */ int f44432f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f49568g;
+        public final /* synthetic */ String f44433g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49569h;
+        public final /* synthetic */ FrsTabController f44434h;
 
-        public s(FrsTabController frsTabController, b.a.q0.s.s.a aVar, int i2, String str) {
+        public s(FrsTabController frsTabController, c.a.q0.s.s.a aVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1546,50 +1512,46 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49569h = frsTabController;
-            this.f49566e = aVar;
-            this.f49567f = i2;
-            this.f49568g = str;
+            this.f44434h = frsTabController;
+            this.f44431e = aVar;
+            this.f44432f = i2;
+            this.f44433g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.s.s.a aVar = this.f49566e;
+                c.a.q0.s.s.a aVar = this.f44431e;
                 if (aVar != null) {
                     aVar.dismiss();
                 }
-                int i2 = this.f49567f;
+                int i2 = this.f44432f;
                 if (i2 == 1) {
-                    UrlManager.getInstance().dealOneLink(this.f49569h.f49532e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/bawuteam?fn=" + this.f49569h.P().getForumName() + "&fid=" + this.f49569h.P().getForumId()});
+                    UrlManager.getInstance().dealOneLink(this.f44434h.f44414e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/bawuteam?fn=" + this.f44434h.P().getForumName() + "&fid=" + this.f44434h.P().getForumId()});
                 } else if (i2 == 2) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("forum_id", this.f49569h.P().getForumId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(this.f49569h.f49532e, OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
-                } else if (i2 != 3 || TextUtils.isEmpty(this.f49568g)) {
+                    hashMap.put("forum_id", this.f44434h.P().getForumId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.t3.j0.n(this.f44434h.f44414e, OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
+                } else if (i2 != 3 || TextUtils.isEmpty(this.f44433g)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.f49569h.f49532e.getPageContext(), new String[]{this.f49568g});
+                    UrlManager.getInstance().dealOneLink(this.f44434h.f44414e.getPageContext(), new String[]{this.f44433g});
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class t extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabController a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49570a;
-
-        /* loaded from: classes9.dex */
-        public class a extends b.a.q0.h0.b {
+        /* loaded from: classes10.dex */
+        public class a extends c.a.q0.i0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ t f49571a;
+            public final /* synthetic */ t a;
 
             public a(t tVar) {
                 Interceptable interceptable = $ic;
@@ -1606,37 +1568,37 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                         return;
                     }
                 }
-                this.f49571a = tVar;
+                this.a = tVar;
             }
 
-            @Override // b.a.q0.h0.b
-            public b.a.q0.h0.c createFragmentTabStructure() {
+            @Override // c.a.q0.i0.b
+            public c.a.q0.i0.c createFragmentTabStructure() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     FrsSportsRecommendFragment frsSportsRecommendFragment = new FrsSportsRecommendFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", this.f49571a.f49570a.f49533f.getForumName());
-                    bundle.putString("from", this.f49571a.f49570a.f49533f.getFrom());
-                    bundle.putString("forum_id", this.f49571a.f49570a.f49533f.getForumId());
+                    bundle.putString("name", this.a.a.f44415f.getForumName());
+                    bundle.putString("from", this.a.a.f44415f.getFrom());
+                    bundle.putString("forum_id", this.a.a.f44415f.getForumId());
                     bundle.putInt("tab_id", 503);
-                    bundle.putBoolean(FrsCommonTabFragment.CAN_AUTO_PLAY_VIDEO, this.f49571a.f49570a.f49535h.isFrsVideoAutoPlay);
-                    bundle.putBoolean(FrsCommonTabFragment.NEED_LOG, this.f49571a.f49570a.f49535h.needLog == 1);
-                    bundle.putBoolean(FrsCommonTabFragment.IS_BRAND_FORUM, this.f49571a.f49570a.f49535h.isBrandForum);
+                    bundle.putBoolean(FrsCommonTabFragment.CAN_AUTO_PLAY_VIDEO, this.a.a.f44417h.isFrsVideoAutoPlay);
+                    bundle.putBoolean(FrsCommonTabFragment.NEED_LOG, this.a.a.f44417h.needLog == 1);
+                    bundle.putBoolean(FrsCommonTabFragment.IS_BRAND_FORUM, this.a.a.f44417h.isBrandForum);
                     FrsViewData frsViewData = new FrsViewData();
-                    frsViewData.receiveData(this.f49571a.f49570a.f49535h);
+                    frsViewData.receiveData(this.a.a.f44417h);
                     bundle.putSerializable(FrsCommonTabFragment.VIEW_DATA, frsViewData);
                     frsSportsRecommendFragment.setArguments(bundle);
-                    b.a.q0.h0.c cVar = new b.a.q0.h0.c();
-                    cVar.f13359a = frsSportsRecommendFragment;
-                    cVar.f13363e = 25;
-                    cVar.f13367i = b.a.q0.h0.c.k;
+                    c.a.q0.i0.c cVar = new c.a.q0.i0.c();
+                    cVar.a = frsSportsRecommendFragment;
+                    cVar.f12326e = 25;
+                    cVar.f12330i = c.a.q0.i0.c.f12322k;
                     return cVar;
                 }
-                return (b.a.q0.h0.c) invokeV.objValue;
+                return (c.a.q0.i0.c) invokeV.objValue;
             }
 
-            @Override // b.a.q0.h0.b
+            @Override // c.a.q0.i0.b
             public TbFragmentTabIndicator getTabIndicator(Context context) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -1649,7 +1611,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 return (TbFragmentTabIndicator) invokeL.objValue;
             }
 
-            @Override // b.a.q0.h0.b
+            @Override // c.a.q0.i0.b
             public boolean isAvailable() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -1678,7 +1640,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49570a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1686,22 +1648,20 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof j0)) {
-                if (!b.a.q0.s.e0.b.j().g(this.f49570a.o, true)) {
-                    b.a.e.f.m.e.a().post(this.f49570a.U);
+                if (!c.a.q0.s.e0.b.j().g(this.a.o, true)) {
+                    c.a.d.f.m.e.a().post(this.a.U);
                 }
                 ((j0) customResponsedMessage.getData()).a(new a(this));
-                this.f49570a.Z();
+                this.a.Z();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class u extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49572a;
+        public final /* synthetic */ FrsTabController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(FrsTabController frsTabController, int i2) {
@@ -1721,7 +1681,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49572a = frsTabController;
+            this.a = frsTabController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1729,18 +1689,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof View)) {
-                ItemCardHelper.l(this.f49572a.f49532e, this.f49572a.f49532e.getUniqueId(), (View) customResponsedMessage.getData(), (ViewGroup) this.f49572a.f49532e.findViewById(f1.frs));
+                ItemCardHelper.l(this.a.f44414e, this.a.f44414e.getUniqueId(), (View) customResponsedMessage.getData(), (ViewGroup) this.a.f44414e.findViewById(f1.frs));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class v implements ItemCardHelper.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49573a;
+        public final /* synthetic */ FrsTabController a;
 
         public v(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1757,14 +1715,14 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49573a = frsTabController;
+            this.a = frsTabController;
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
-        public void a(long j) {
+        public void a(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                ItemCardHelper.x(this.f49573a.f49532e, ItemCardHelper.OrderTipStatus.SUCCESS, (ViewGroup) this.f49573a.f49532e.findViewById(f1.frs), j);
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                ItemCardHelper.x(this.a.f44414e, ItemCardHelper.OrderTipStatus.SUCCESS, (ViewGroup) this.a.f44414e.findViewById(f1.frs), j2);
             }
         }
 
@@ -1772,18 +1730,18 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ItemCardHelper.x(this.f49573a.f49532e, ItemCardHelper.OrderTipStatus.FAIL, (ViewGroup) this.f49573a.f49532e.findViewById(f1.frs), 0L);
+                ItemCardHelper.x(this.a.f44414e, ItemCardHelper.OrderTipStatus.FAIL, (ViewGroup) this.a.f44414e.findViewById(f1.frs), 0L);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class w implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49574e;
+        public final /* synthetic */ FrsTabController f44435e;
 
         public w(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1800,7 +1758,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49574e = frsTabController;
+            this.f44435e = frsTabController;
         }
 
         @Override // java.lang.Runnable
@@ -1810,7 +1768,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 try {
                     Intent parseUri = Intent.parseUri(TbSingleton.getInstance().getSchemaForStartOtherAppAfterSwanApp(), 1);
                     parseUri.setFlags(268435456);
-                    this.f49574e.f49532e.startActivity(parseUri);
+                    this.f44435e.f44414e.startActivity(parseUri);
                     TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -1819,24 +1777,22 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class x implements ShareSuccessReplyToServerModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsTabController a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49575a;
-
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f49576e;
+            public final /* synthetic */ CustomDialogData f44436e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ x f49577f;
+            public final /* synthetic */ x f44437f;
 
             public a(x xVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -1853,17 +1809,17 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                         return;
                     }
                 }
-                this.f49577f = xVar;
-                this.f49576e = customDialogData;
+                this.f44437f = xVar;
+                this.f44436e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49577f.f49575a.f49532e == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44437f.a.f44414e == null) {
                     return;
                 }
-                b.a.r0.k2.t.c.a(this.f49577f.f49575a.f49532e.getPageContext(), this.f49576e).show();
+                c.a.r0.q2.t.c.a(this.f44437f.a.f44414e.getPageContext(), this.f44436e).show();
             }
         }
 
@@ -1882,7 +1838,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49575a = frsTabController;
+            this.a = frsTabController;
         }
 
         @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
@@ -1896,18 +1852,18 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                b.a.e.f.m.e.a().postDelayed(new a(this, customDialogData), 1000L);
+                c.a.d.f.m.e.a().postDelayed(new a(this, customDialogData), 1000L);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class y implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49578e;
+        public final /* synthetic */ FrsTabController f44438e;
 
         public y(FrsTabController frsTabController) {
             Interceptable interceptable = $ic;
@@ -1924,7 +1880,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49578e = frsTabController;
+            this.f44438e = frsTabController;
         }
 
         @Override // android.view.View.OnClickListener
@@ -1932,28 +1888,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 new StatisticItem("c13439").eventStat();
-                if (this.f49578e.P() == null || TextUtils.isEmpty(this.f49578e.P().getForumId()) || TextUtils.isEmpty(this.f49578e.l) || this.f49578e.f49532e == null) {
+                if (this.f44438e.P() == null || TextUtils.isEmpty(this.f44438e.P().getForumId()) || TextUtils.isEmpty(this.f44438e.l) || this.f44438e.f44414e == null) {
                     return;
                 }
-                if (this.f49578e.A != null) {
-                    this.f49578e.A.hideTip();
+                if (this.f44438e.A != null) {
+                    this.f44438e.A.hideTip();
                 }
-                int i2 = b.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0) == -1 ? 1 : 0;
-                UrlManager.getInstance().dealOneLink(this.f49578e.f49532e.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/bawutask?fid=" + this.f49578e.P().getForumId() + "&fn=" + this.f49578e.l + "&noread=" + i2});
+                int i2 = c.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0) == -1 ? 1 : 0;
+                UrlManager.getInstance().dealOneLink(this.f44438e.f44414e.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/bawutask?fid=" + this.f44438e.P().getForumId() + "&fn=" + this.f44438e.l + "&noread=" + i2});
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class z implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumData f49579e;
+        public final /* synthetic */ ForumData f44439e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsTabController f49580f;
+        public final /* synthetic */ FrsTabController f44440f;
 
         public z(FrsTabController frsTabController, ForumData forumData) {
             Interceptable interceptable = $ic;
@@ -1970,20 +1926,20 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     return;
                 }
             }
-            this.f49580f = frsTabController;
-            this.f49579e = forumData;
+            this.f44440f = frsTabController;
+            this.f44439e = forumData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49580f.E == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44440f.E == null) {
                 return;
             }
-            if (this.f49580f.I) {
-                this.f49580f.y0(this.f49579e.getName(), this.f49579e.getId(), this.f49579e.getImage_url(), true);
+            if (this.f44440f.I) {
+                this.f44440f.y0(this.f44439e.getName(), this.f44439e.getId(), this.f44439e.getImage_url(), true);
             } else {
-                this.f49580f.H = true;
+                this.f44440f.H = true;
             }
         }
     }
@@ -2001,8 +1957,8 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 return;
             }
         }
-        n0 = FrsFragment.class.getSimpleName();
-        o0 = FrsTabHostFragment.class.getSimpleName();
+        i0 = FrsFragment.class.getSimpleName();
+        k0 = FrsTabHostFragment.class.getSimpleName();
     }
 
     public FrsTabController(FrsActivity frsActivity) {
@@ -2020,8 +1976,8 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 return;
             }
         }
-        this.j = false;
-        this.k = new Handler();
+        this.f44419j = false;
+        this.f44420k = new Handler();
         this.n = 0;
         this.r = false;
         this.B = false;
@@ -2046,28 +2002,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         this.a0 = new h(this, 2001437);
         this.b0 = new i(this, 2921586);
         this.c0 = new j(this, 2921590);
-        this.i0 = new k(this);
-        this.j0 = new m(this);
-        this.k0 = new u(this, 2001440);
-        this.l0 = new v(this);
-        this.m0 = new w(this);
-        this.f49532e = frsActivity;
-        this.o = b.a.q0.s.e0.b.n("show_game_forem_tab_hot_point");
+        this.d0 = new k(this);
+        this.e0 = new m(this);
+        this.f0 = new u(this, 2001440);
+        this.g0 = new v(this);
+        this.h0 = new w(this);
+        this.f44414e = frsActivity;
+        this.o = c.a.q0.s.e0.b.n("show_game_forem_tab_hot_point");
     }
 
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.p != this.n && b0()) {
-                this.f49534g.setCurrentTab(this.n);
+                this.f44416g.setCurrentTab(this.n);
                 if (R(this.n) != 1) {
-                    this.f49533f.setCanShowSpeedTipView(false);
+                    this.f44415f.setCanShowSpeedTipView(false);
                 }
                 this.p = this.n;
-                u0(this.f49534g.getCurrentFragment(), this.n);
+                u0(this.f44416g.getCurrentFragment(), this.n);
                 return;
             }
-            this.f49533f.closeActivity();
+            this.f44415f.closeActivity();
         }
     }
 
@@ -2075,22 +2031,22 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (this.f49532e.isLoadingViewAttached()) {
-                FrsActivity frsActivity = this.f49532e;
+            if (this.f44414e.isLoadingViewAttached()) {
+                FrsActivity frsActivity = this.f44414e;
                 frsActivity.hideLoadingView(frsActivity.findViewById(16908290));
             }
             if (b0()) {
                 return false;
             }
-            this.f49533f.isPageStayDurationClose = true;
+            this.f44415f.isPageStayDurationClose = true;
             r0();
-            if (b.a.q0.s.e0.b.j().g("frs_game_login_tip", true)) {
-                b.a.q0.s.e0.b.j().t("frs_login_tip", true);
-                b.a.q0.s.e0.b.j().t("frs_game_login_tip", false);
+            if (c.a.q0.s.e0.b.j().g("frs_game_login_tip", true)) {
+                c.a.q0.s.e0.b.j().t("frs_login_tip", true);
+                c.a.q0.s.e0.b.j().t("frs_game_login_tip", false);
             }
             a0(list);
-            if (this.f49533f.getTabController() != null) {
-                this.f49533f.getTabController().S(true);
+            if (this.f44415f.getTabController() != null) {
+                this.f44415f.getTabController().S(true);
             }
             return true;
         }
@@ -2103,7 +2059,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             boolean z2 = false;
             if (y0(forumData.getName(), forumData.getId(), forumData.getImage_url(), false)) {
                 if (this.F != null) {
-                    b.a.e.f.m.e.a().removeCallbacks(this.F);
+                    c.a.d.f.m.e.a().removeCallbacks(this.F);
                 }
                 z2 = true;
             }
@@ -2119,17 +2075,17 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 runnable = new z(this, forumData);
             }
             this.F = runnable;
-            b.a.e.f.m.e.a().postDelayed(this.F, 60000L);
+            c.a.d.f.m.e.a().postDelayed(this.F, 60000L);
         }
     }
 
     public final void N(ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, forumData) == null) || this.f49533f.getHeaderVC() == null || this.E == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, forumData) == null) || this.f44415f.getHeaderVC() == null || this.E == null) {
             return;
         }
         if (forumData == null) {
-            forumData = this.f49535h.getForum();
+            forumData = this.f44417h.getForum();
         }
         if (forumData == null || forumData.isLike() == 1) {
             return;
@@ -2138,7 +2094,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             this.H = true;
         } else if (!y0(forumData.getName(), forumData.getId(), forumData.getImage_url(), false) || this.F == null) {
         } else {
-            b.a.e.f.m.e.a().removeCallbacks(this.F);
+            c.a.d.f.m.e.a().removeCallbacks(this.F);
         }
     }
 
@@ -2146,7 +2102,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            FrsActivity frsActivity = this.f49532e;
+            FrsActivity frsActivity = this.f44414e;
             if (frsActivity != null) {
                 return frsActivity.getSupportFragmentManager();
             }
@@ -2158,14 +2114,14 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public FrsFragment P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f49533f : (FrsFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44415f : (FrsFragment) invokeV.objValue;
     }
 
     public FragmentTabHost Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            FrsTabHostFragment frsTabHostFragment = this.f49534g;
+            FrsTabHostFragment frsTabHostFragment = this.f44416g;
             if (frsTabHostFragment == null) {
                 return null;
             }
@@ -2178,9 +2134,9 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            j0 j0Var = this.f49536i;
+            j0 j0Var = this.f44418i;
             if (j0Var != null && i2 < ListUtils.getCount(j0Var.f())) {
-                return this.f49536i.f().get(i2).tab_id.intValue();
+                return this.f44418i.f().get(i2).tab_id.intValue();
             }
             return -1;
         }
@@ -2191,13 +2147,13 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            j0 j0Var = this.f49536i;
+            j0 j0Var = this.f44418i;
             if (j0Var == null) {
                 return -1;
             }
             int count = ListUtils.getCount(j0Var.f());
             for (int i3 = 0; i3 < count; i3++) {
-                if (this.f49536i.f().get(i3).tab_id.intValue() == i2) {
+                if (this.f44418i.f().get(i3).tab_id.intValue() == i2) {
                     return i3;
                 }
             }
@@ -2211,14 +2167,14 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (!b0()) {
-                return this.f49533f.getTbPageTag();
+                return this.f44415f.getTbPageTag();
             }
-            FrsTabHostFragment frsTabHostFragment = this.f49534g;
+            FrsTabHostFragment frsTabHostFragment = this.f44416g;
             if (frsTabHostFragment != null) {
                 if (1 == frsTabHostFragment.getCurrentTabType()) {
-                    return this.f49533f.getTbPageTag();
+                    return this.f44415f.getTbPageTag();
                 }
-                Fragment currentFragment = this.f49534g.getCurrentFragment();
+                Fragment currentFragment = this.f44416g.getCurrentFragment();
                 if (currentFragment instanceof BaseFragment) {
                     return ((BaseFragment) currentFragment).getTbPageTag();
                 }
@@ -2228,26 +2184,26 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         return (TbPageTag) invokeV.objValue;
     }
 
-    public b.a.r0.m3.m U() {
+    public c.a.r0.t3.m U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49535h : (b.a.r0.m3.m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44417h : (c.a.r0.t3.m) invokeV.objValue;
     }
 
-    public final boolean V(b.a.r0.m3.m mVar) {
+    public final boolean V(c.a.r0.t3.m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mVar)) == null) {
             if (mVar != null && mVar.getUserData() != null) {
                 int is_manager = mVar.getUserData().getIs_manager();
-                boolean g2 = b.a.q0.s.e0.b.j().g("key_forum_tool_find_dialog_show", false);
+                boolean g2 = c.a.q0.s.e0.b.j().g("key_forum_tool_find_dialog_show", false);
                 if (is_manager == 1 && !g2) {
-                    x0(1, this.f49532e.getString(i1.forum_tool_first_bazhu_content), String.valueOf(e1.pic_mask_update), "");
-                    b.a.q0.s.e0.b.j().t("key_forum_tool_find_dialog_show", true);
+                    x0(1, this.f44414e.getString(i1.forum_tool_first_bazhu_content), String.valueOf(e1.pic_mask_update), "");
+                    c.a.q0.s.e0.b.j().t("key_forum_tool_find_dialog_show", true);
                     return true;
                 } else if (!g2 && is_manager == 2) {
-                    x0(2, this.f49532e.getString(i1.forum_tool_first_bawu_content), String.valueOf(e1.pic_mask_update), "");
-                    b.a.q0.s.e0.b.j().t("key_forum_tool_find_dialog_show", true);
+                    x0(2, this.f44414e.getString(i1.forum_tool_first_bawu_content), String.valueOf(e1.pic_mask_update), "");
+                    c.a.q0.s.e0.b.j().t("key_forum_tool_find_dialog_show", true);
                     return true;
                 } else {
                     AddBawuPopInfo addBawuPopInfo = mVar.bawuPopInfo;
@@ -2274,40 +2230,40 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public void X(Bundle bundle) {
         FrsActivity frsActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) || (frsActivity = this.f49532e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) || (frsActivity = this.f44414e) == null) {
             return;
         }
         frsActivity.setContentView(g1.frs_base_layout);
-        this.s = (FrsBaseViewPager) this.f49532e.findViewById(f1.frs_base_viewpager);
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, this.f49532e.getSupportFragmentManager());
+        this.s = (FrsBaseViewPager) this.f44414e.findViewById(f1.frs_base_viewpager);
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, this.f44414e.getSupportFragmentManager());
         this.t = fragmentAdapter;
         this.s.setAdapter(fragmentAdapter);
         this.s.setPageTransformer(true, new CubeOutViewPagerTransformer());
-        this.s.addOnPageChangeListener(this.i0);
+        this.s.addOnPageChangeListener(this.d0);
         this.s.setmDisallowSlip(true);
-        this.s.setOnTouchEventListener(this.j0);
-        b.a.q0.s.u.c.d(this.s).f(c1.CAM_X0201);
-        OvalActionButton ovalActionButton = (OvalActionButton) this.f49532e.findViewById(f1.frs_post_forum_button);
+        this.s.setOnTouchEventListener(this.e0);
+        c.a.q0.s.u.c.d(this.s).f(c1.CAM_X0201);
+        OvalActionButton ovalActionButton = (OvalActionButton) this.f44414e.findViewById(f1.frs_post_forum_button);
         this.u = ovalActionButton;
         ovalActionButton.setIsCircle(true);
         this.u.setHasShadow(false);
-        this.w = (FrameLayout) this.f49532e.findViewById(f1.frs_bottom_extra);
-        this.v = (FRSRefreshButton) this.f49532e.findViewById(f1.frs_refresh_forum_button);
-        this.x = (LinearLayout) this.f49532e.findViewById(f1.frs_ll_redpack);
-        this.f49532e.registerListener(this.W);
-        this.f49532e.registerListener(this.X);
+        this.w = (FrameLayout) this.f44414e.findViewById(f1.frs_bottom_extra);
+        this.v = (FRSRefreshButton) this.f44414e.findViewById(f1.frs_refresh_forum_button);
+        this.x = (LinearLayout) this.f44414e.findViewById(f1.frs_ll_redpack);
+        this.f44414e.registerListener(this.W);
+        this.f44414e.registerListener(this.X);
         this.N.getHttpMessageListener().setPriority(-1);
         this.N.getSocketMessageListener().setPriority(-1);
-        this.f49532e.registerListener(this.O);
+        this.f44414e.registerListener(this.O);
         this.Q.setSelfListener(true);
-        this.f49532e.registerListener(this.Q);
+        this.f44414e.registerListener(this.Q);
         this.P.setSelfListener(true);
-        this.f49532e.registerListener(this.P);
-        this.f49532e.registerListener(this.V);
+        this.f44414e.registerListener(this.P);
+        this.f44414e.registerListener(this.V);
         if (bundle == null) {
-            this.l = this.f49532e.getIntent().getStringExtra("name");
-            this.m = this.f49532e.getIntent().getStringExtra("from");
-            this.n = this.f49532e.getIntent().getIntExtra(FrsActivityConfig.FRS_GAME_DEFAULT_TAB_ID, 0);
+            this.l = this.f44414e.getIntent().getStringExtra("name");
+            this.m = this.f44414e.getIntent().getStringExtra("from");
+            this.n = this.f44414e.getIntent().getIntExtra(FrsActivityConfig.FRS_GAME_DEFAULT_TAB_ID, 0);
         } else {
             this.l = bundle.getString("name");
             this.m = bundle.getString("from");
@@ -2316,15 +2272,15 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Y(bundle);
         this.t.notifyDataSetChanged();
         this.q = new ShareSuccessReplyToServerModel();
-        this.f49532e.registerListener(this.N);
-        this.f49532e.registerListener(this.L);
-        this.f49532e.registerListener(this.M);
-        this.f49532e.registerListener(this.S);
-        this.f49532e.registerListener(this.b0);
-        this.f49532e.registerListener(this.T);
+        this.f44414e.registerListener(this.N);
+        this.f44414e.registerListener(this.L);
+        this.f44414e.registerListener(this.M);
+        this.f44414e.registerListener(this.S);
+        this.f44414e.registerListener(this.b0);
+        this.f44414e.registerListener(this.T);
         this.c0.setPriority(Integer.MAX_VALUE);
         this.c0.setSelfListener(true);
-        this.f49532e.registerListener(this.c0);
+        this.f44414e.registerListener(this.c0);
     }
 
     public final void Y(Bundle bundle) {
@@ -2335,17 +2291,17 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             return;
         }
         try {
-            FrsFragment frsFragment = (FrsFragment) fragmentAdapter.findFragmentByTag(n0);
+            FrsFragment frsFragment = (FrsFragment) fragmentAdapter.findFragmentByTag(i0);
             if (frsFragment == null) {
                 frsFragment = e0(bundle);
             }
             frsFragment.setWriteIcon(this.u);
             frsFragment.setmRefreshIcon(this.v);
             frsFragment.setmFrsllRedpack(this.x);
-            if (n0.equals(this.t.getItemTag(0))) {
+            if (i0.equals(this.t.getItemTag(0))) {
                 return;
             }
-            if (o0.equals(this.t.getItemTag(0))) {
+            if (k0.equals(this.t.getItemTag(0))) {
                 this.t.remove(0);
             }
             this.t.add(0, frsFragment);
@@ -2362,16 +2318,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             return;
         }
         try {
-            FrsTabHostFragment frsTabHostFragment = (FrsTabHostFragment) fragmentAdapter.findFragmentByTag(o0);
+            FrsTabHostFragment frsTabHostFragment = (FrsTabHostFragment) fragmentAdapter.findFragmentByTag(k0);
             if (frsTabHostFragment == null) {
                 frsTabHostFragment = f0();
             }
             frsTabHostFragment.setWriteIcon(this.u);
             frsTabHostFragment.setRefreshIcon(this.v);
-            if (o0.equals(this.t.getItemTag(0))) {
+            if (k0.equals(this.t.getItemTag(0))) {
                 return;
             }
-            if (n0.equals(this.t.getItemTag(0))) {
+            if (i0.equals(this.t.getItemTag(0))) {
                 this.t.remove(0);
             }
             this.t.add(0, frsTabHostFragment);
@@ -2388,7 +2344,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         t tVar = new t(this, 2001616);
         tVar.setPriority(Integer.MAX_VALUE);
         tVar.setSelfListener(true);
-        this.f49532e.registerListener(tVar);
+        this.f44414e.registerListener(tVar);
         ArrayList arrayList = new ArrayList();
         Iterator<FrsTabInfo> it = list.iterator();
         while (true) {
@@ -2414,22 +2370,22 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 }
             }
         }
-        this.f49536i = new j0(this.f49532e.getActivity(), arrayList);
+        this.f44418i = new j0(this.f44414e.getActivity(), arrayList);
         if (P() != null) {
-            this.f49536i.j(P().getForumId());
-            this.f49536i.k(P().getForumName());
+            this.f44418i.j(P().getForumId());
+            this.f44418i.k(P().getForumName());
             if (P().getFrsViewData() != null && P().getFrsViewData().getForum() != null) {
                 ForumData forum = P().getFrsViewData().getForum();
-                this.f49536i.i(forum.getForumGameLabel());
-                this.f49536i.l(forum.getSpecialForumType());
+                this.f44418i.i(forum.getForumGameLabel());
+                this.f44418i.l(forum.getSpecialForumType());
             }
         }
-        FrsFragment frsFragment = this.f49533f;
+        FrsFragment frsFragment = this.f44415f;
         frsFragment.isPageStayDurationClose = false;
-        new b.a.r0.x0.i2.e(frsFragment).a(this.f49536i);
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001616, this.f49536i);
+        new c.a.r0.d1.i2.e(frsFragment).a(this.f44418i);
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001616, this.f44418i);
         CustomMessage customMessage = new CustomMessage(2001616);
-        customMessage.setTag(this.f49532e.getUniqueId());
+        customMessage.setTag(this.f44414e.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -2452,8 +2408,8 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         ForumData forum;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j2)) == null) {
-            b.a.r0.m3.m mVar = this.f49535h;
-            return (mVar == null || j2 == 0 || (forum = mVar.getForum()) == null || b.a.e.f.m.b.g(forum.getId(), 0L) != j2) ? false : true;
+            c.a.r0.t3.m mVar = this.f44417h;
+            return (mVar == null || j2 == 0 || (forum = mVar.getForum()) == null || c.a.d.f.m.b.g(forum.getId(), 0L) != j2) ? false : true;
         }
         return invokeJ.booleanValue;
     }
@@ -2461,20 +2417,20 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public final void d0() {
         j0 j0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (j0Var = this.f49536i) == null || TextUtils.isEmpty(j0Var.c())) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (j0Var = this.f44418i) == null || TextUtils.isEmpty(j0Var.c())) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(1021074);
-        httpMessage.addParam("forum_id", this.f49535h.getForum().getId());
+        httpMessage.addParam("forum_id", this.f44417h.getForum().getId());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    @Override // b.a.r0.g.e.b
-    public void dispatchInjectPluginMessage(b.a.r0.g.d dVar) {
+    @Override // c.a.r0.h.e.b
+    public void dispatchInjectPluginMessage(c.a.r0.h.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            FrsFragment frsFragment = this.f49533f;
-            if (frsFragment instanceof b.a.r0.g.e.b) {
+            FrsFragment frsFragment = this.f44415f;
+            if (frsFragment instanceof c.a.r0.h.e.b) {
                 frsFragment.dispatchInjectPluginMessage(dVar);
             }
         }
@@ -2484,13 +2440,13 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, bundle)) == null) {
-            if (this.f49533f == null) {
+            if (this.f44415f == null) {
                 FrsFragment frsFragment = new FrsFragment();
-                this.f49533f = frsFragment;
+                this.f44415f = frsFragment;
                 frsFragment.setArguments(bundle);
-                this.f49533f.setBaseTag(n0);
+                this.f44415f.setBaseTag(i0);
             }
-            FrsFragment frsFragment2 = this.f49533f;
+            FrsFragment frsFragment2 = this.f44415f;
             frsFragment2.isPageStayDurationClose = false;
             return frsFragment2;
         }
@@ -2501,13 +2457,13 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.f49534g == null) {
+            if (this.f44416g == null) {
                 FrsTabHostFragment frsTabHostFragment = new FrsTabHostFragment(this);
-                this.f49534g = frsTabHostFragment;
-                frsTabHostFragment.setBaseTag(o0);
-                this.f49534g.setDefaultTabId(this.n);
+                this.f44416g = frsTabHostFragment;
+                frsTabHostFragment.setBaseTag(k0);
+                this.f44416g.setDefaultTabId(this.n);
             }
-            return this.f49534g;
+            return this.f44416g;
         }
         return (FrsTabHostFragment) invokeV.objValue;
     }
@@ -2518,14 +2474,14 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048599, this, i2, i3, intent) == null) {
             if (!b0()) {
-                this.f49533f.onActivityResult(i2, i3, intent);
+                this.f44415f.onActivityResult(i2, i3, intent);
             } else {
-                FrsTabHostFragment frsTabHostFragment = this.f49534g;
+                FrsTabHostFragment frsTabHostFragment = this.f44416g;
                 if (frsTabHostFragment != null) {
                     if (1 == frsTabHostFragment.getCurrentTabType()) {
-                        this.f49533f.onActivityResult(i2, i3, intent);
+                        this.f44415f.onActivityResult(i2, i3, intent);
                     } else {
-                        Fragment currentFragment = this.f49534g.getCurrentFragment();
+                        Fragment currentFragment = this.f44416g.getCurrentFragment();
                         if (currentFragment != null) {
                             currentFragment.onActivityResult(i2, i3, intent);
                         }
@@ -2537,7 +2493,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     int intExtra = intent.getIntExtra("extra_share_status", 2);
                     int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
                     if (intExtra == 1) {
-                        b.a.r0.z2.a.g().m(this.f49532e.getPageContext());
+                        c.a.r0.g3.a.g().m(this.f44414e.getPageContext());
                         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                         if (shareItem == null || (str = shareItem.t) == null || (shareSuccessReplyToServerModel = this.q) == null) {
                             return;
@@ -2545,35 +2501,35 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                         shareSuccessReplyToServerModel.w(str, intExtra2, new x(this));
                     }
                 } else if (i2 == 13011) {
-                    b.a.r0.z2.a.g().m(this.f49532e.getPageContext());
+                    c.a.r0.g3.a.g().m(this.f44414e.getPageContext());
                 } else if (i2 == 25064) {
-                    FrsTabHostFragment frsTabHostFragment2 = this.f49534g;
+                    FrsTabHostFragment frsTabHostFragment2 = this.f44416g;
                     if (frsTabHostFragment2 != null && frsTabHostFragment2.getWriteTab() != null) {
-                        this.f49534g.getWriteTab().p(this.f49532e.getPageContext());
+                        this.f44416g.getWriteTab().p(this.f44414e.getPageContext());
                         return;
                     }
-                    FrsFragment frsFragment = this.f49533f;
-                    if (frsFragment == null || frsFragment.getFrsView() == null || this.f49533f.getFrsView().X() == null || this.f49533f.getFrsView().X().f28443g == null) {
+                    FrsFragment frsFragment = this.f44415f;
+                    if (frsFragment == null || frsFragment.getFrsView() == null || this.f44415f.getFrsView().X() == null || this.f44415f.getFrsView().X().f16475g == null) {
                         return;
                     }
-                    this.f49533f.getFrsView().X().f28443g.p(this.f49532e.getPageContext());
+                    this.f44415f.getFrsView().X().f16475g.p(this.f44414e.getPageContext());
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
-    public b.a.e.f.k.b<TbImageView> getFrsCommonImageLayoutPool() {
+    public c.a.d.f.k.b<TbImageView> getFrsCommonImageLayoutPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (!b0()) {
-                FrsFragment frsFragment = this.f49533f;
+                FrsFragment frsFragment = this.f44415f;
                 if (frsFragment instanceof FrsCommonImageLayout.e) {
                     return ((FrsCommonImageLayout.e) frsFragment).getFrsCommonImageLayoutPool();
                 }
             } else {
-                FrsTabHostFragment frsTabHostFragment = this.f49534g;
+                FrsTabHostFragment frsTabHostFragment = this.f44416g;
                 if (frsTabHostFragment == null) {
                     return null;
                 }
@@ -2584,21 +2540,21 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             }
             return null;
         }
-        return (b.a.e.f.k.b) invokeV.objValue;
+        return (c.a.d.f.k.b) invokeV.objValue;
     }
 
-    @Override // b.a.r0.g.e.b
-    public b.a.r0.g.e.a getInjectPlugin(int i2) {
+    @Override // c.a.r0.h.e.b
+    public c.a.r0.h.e.a getInjectPlugin(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            FrsFragment frsFragment = this.f49533f;
-            if (frsFragment instanceof b.a.r0.g.e.b) {
+            FrsFragment frsFragment = this.f44415f;
+            if (frsFragment instanceof c.a.r0.h.e.b) {
                 return frsFragment.getInjectPlugin(i2);
             }
             return null;
         }
-        return (b.a.r0.g.e.a) invokeI.objValue;
+        return (c.a.r0.h.e.a) invokeI.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
@@ -2617,9 +2573,9 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             if (!b0()) {
-                return this.f49533f.getVoiceManager();
+                return this.f44415f.getVoiceManager();
             }
-            FrsTabHostFragment frsTabHostFragment = this.f49534g;
+            FrsTabHostFragment frsTabHostFragment = this.f44416g;
             if (frsTabHostFragment == null) {
                 return null;
             }
@@ -2637,15 +2593,15 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != 1 && skinType != 4) {
-                UtilHelper.changeStatusBarIconAndTextColor(false, this.f49532e);
+                UtilHelper.changeStatusBarIconAndTextColor(false, this.f44414e);
             } else {
-                UtilHelper.changeStatusBarIconAndTextColor(true, this.f49532e);
+                UtilHelper.changeStatusBarIconAndTextColor(true, this.f44414e);
             }
-            FrsFragment frsFragment = this.f49533f;
+            FrsFragment frsFragment = this.f44415f;
             if (frsFragment != null) {
                 frsFragment.onChangeSkinType(i2);
             }
-            FrsTabHostFragment frsTabHostFragment = this.f49534g;
+            FrsTabHostFragment frsTabHostFragment = this.f44416g;
             if (frsTabHostFragment != null) {
                 frsTabHostFragment.onChangeSkinType(i2);
             }
@@ -2654,26 +2610,26 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     }
 
     public void i0() {
-        b.a.r0.x0.y2.e eVar;
+        c.a.r0.d1.y2.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             MessageManager.getInstance().unRegisterListener(FrsNoListItemViewHolder.SCROLL_LISTENER_TAG);
-            this.k.removeCallbacksAndMessages(null);
-            if (this.f49532e.isLoadingViewAttached()) {
-                FrsActivity frsActivity = this.f49532e;
+            this.f44420k.removeCallbacksAndMessages(null);
+            if (this.f44414e.isLoadingViewAttached()) {
+                FrsActivity frsActivity = this.f44414e;
                 frsActivity.hideLoadingView(frsActivity.findViewById(16908290));
             }
             if (this.U != null) {
-                b.a.e.f.m.e.a().removeCallbacks(this.U);
+                c.a.d.f.m.e.a().removeCallbacks(this.U);
             }
-            b.a.q0.s.e0.b.j().t(this.o, false);
+            c.a.q0.s.e0.b.j().t(this.o, false);
             ShareSuccessReplyToServerModel shareSuccessReplyToServerModel = this.q;
             if (shareSuccessReplyToServerModel != null) {
                 shareSuccessReplyToServerModel.cancelLoadData();
             }
-            FrsFragment frsFragment = this.f49533f;
+            FrsFragment frsFragment = this.f44415f;
             if (frsFragment != null && frsFragment.getModelController() != null) {
-                this.f49533f.getModelController().D0();
+                this.f44415f.getModelController().D0();
             }
             NavigationBarCoverTip navigationBarCoverTip = this.A;
             if (navigationBarCoverTip != null) {
@@ -2683,16 +2639,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 new ForumBroadcastHelper(TbadkCoreApplication.getInst()).sendClipBoardMessage();
             }
             if (FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT.equals(this.m)) {
-                b.a.q0.y.d.h().i(false);
+                c.a.q0.y.d.h().i(false);
             }
             if (this.F != null) {
-                b.a.e.f.m.e.a().removeCallbacks(this.F);
+                c.a.d.f.m.e.a().removeCallbacks(this.F);
             }
-            b.a.r0.m3.m mVar = this.f49535h;
+            c.a.r0.t3.m mVar = this.f44417h;
             if (mVar != null && mVar.getForum() != null && (eVar = this.E) != null) {
-                eVar.b(b.a.e.f.m.b.g(this.f49535h.getForum().getId(), 0L));
+                eVar.b(c.a.d.f.m.b.g(this.f44417h.getForum().getId(), 0L));
             }
-            b.a.e.f.m.e.a().removeCallbacks(this.m0);
+            c.a.d.f.m.e.a().removeCallbacks(this.h0);
         }
     }
 
@@ -2703,33 +2659,33 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, keyEvent)) == null) {
             if (i2 != 4) {
                 if (i2 == 24) {
-                    FrsFragment frsFragment = this.f49533f;
+                    FrsFragment frsFragment = this.f44415f;
                     if (frsFragment == null || !frsFragment.isAdded()) {
                         return false;
                     }
-                    return this.f49533f.onKeyDown(i2, keyEvent);
+                    return this.f44415f.onKeyDown(i2, keyEvent);
                 }
-                return this.f49532e.onSuperKeyDown(i2, keyEvent);
+                return this.f44414e.onSuperKeyDown(i2, keyEvent);
             } else if (this.J) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921587));
                 return false;
             } else if (this.K) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921642));
                 return true;
-            } else if (b0() && (frsTabHostFragment = this.f49534g) != null && frsTabHostFragment.isWriteTabShowing()) {
-                this.f49534g.hideWriteTab();
-                UtilHelper.setNavigationBarBackground(this.f49532e, this.f49534g.getBottomNavigationBarColor());
+            } else if (b0() && (frsTabHostFragment = this.f44416g) != null && frsTabHostFragment.isWriteTabShowing()) {
+                this.f44416g.hideWriteTab();
+                UtilHelper.setNavigationBarBackground(this.f44414e, this.f44416g.getBottomNavigationBarColor());
                 return false;
             } else {
-                FrsFragment frsFragment2 = this.f49533f;
+                FrsFragment frsFragment2 = this.f44415f;
                 if (frsFragment2 != null && frsFragment2.isAdded()) {
-                    if (this.f49533f.onKeyDown(i2, keyEvent)) {
+                    if (this.f44415f.onKeyDown(i2, keyEvent)) {
                         return true;
                     }
                     K();
                     return false;
                 }
-                return this.f49532e.onSuperKeyDown(i2, keyEvent);
+                return this.f44414e.onSuperKeyDown(i2, keyEvent);
             }
         }
         return invokeIL.booleanValue;
@@ -2738,7 +2694,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public void k0(Intent intent) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, intent) == null) || (frsFragment = this.f49533f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048607, this, intent) == null) || (frsFragment = this.f44415f) == null) {
             return;
         }
         frsFragment.onNewIntent(intent);
@@ -2748,14 +2704,14 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             this.I = false;
-            b.a.r0.x0.y2.e eVar = this.E;
+            c.a.r0.d1.y2.e eVar = this.E;
             if (eVar != null) {
                 eVar.d();
             }
             if (!b0()) {
-                this.f49533f.setPrimary(false);
+                this.f44415f.setPrimary(false);
             } else {
-                FrsTabHostFragment frsTabHostFragment = this.f49534g;
+                FrsTabHostFragment frsTabHostFragment = this.f44416g;
                 if (frsTabHostFragment != null) {
                     Fragment currentFragment = frsTabHostFragment.getCurrentFragment();
                     if (currentFragment instanceof BaseFragment) {
@@ -2763,11 +2719,11 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                     }
                 }
             }
-            b.a.q0.c1.b0.g().i();
+            c.a.q0.d1.b0.g().i();
             if (TbSingleton.getInstance().getSchemaForStartOtherAppAfterSwanApp() != null) {
-                b.a.e.f.m.e.a().postDelayed(this.m0, 1000L);
+                c.a.d.f.m.e.a().postDelayed(this.h0, 1000L);
             }
-            MessageManager.getInstance().unRegisterListener(this.k0);
+            MessageManager.getInstance().unRegisterListener(this.f0);
         }
     }
 
@@ -2775,9 +2731,9 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             if (!b0()) {
-                this.f49533f.setPrimary(true);
+                this.f44415f.setPrimary(true);
             } else {
-                FrsTabHostFragment frsTabHostFragment = this.f49534g;
+                FrsTabHostFragment frsTabHostFragment = this.f44416g;
                 if (frsTabHostFragment != null) {
                     Fragment currentFragment = frsTabHostFragment.getCurrentFragment();
                     if (currentFragment instanceof BaseFragment) {
@@ -2787,28 +2743,28 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             }
             if (this.r) {
                 this.r = false;
-                FrsFragment frsFragment = this.f49533f;
+                FrsFragment frsFragment = this.f44415f;
                 if (frsFragment != null) {
                     frsFragment.refresh();
                 }
             }
-            b.a.r0.m3.m mVar = this.f49535h;
-            if (mVar != null && mVar.getUserData() != null && this.f49535h.getUserData().getNewGodData() != null) {
-                if (this.f49535h.getForum() != null) {
-                    b.a.q0.c1.b0.g().j(this.f49535h.getForum().getId());
+            c.a.r0.t3.m mVar = this.f44417h;
+            if (mVar != null && mVar.getUserData() != null && this.f44417h.getUserData().getNewGodData() != null) {
+                if (this.f44417h.getForum() != null) {
+                    c.a.q0.d1.b0.g().j(this.f44417h.getForum().getId());
                 }
-                b.a.q0.c1.b0.g().k(2, this.f49535h.getUserData().getNewGodData());
+                c.a.q0.d1.b0.g().k(2, this.f44417h.getUserData().getNewGodData());
             }
             this.I = true;
             if (this.H) {
                 N(null);
             }
-            ItemCardHelper.v(this.l0);
-            MessageManager.getInstance().registerListener(this.k0);
+            ItemCardHelper.v(this.g0);
+            MessageManager.getInstance().registerListener(this.f0);
             if (MessageManager.getInstance().hasListener(2001118)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setStatus(21);
-                b.a.q0.w.c.q().w(downloadData);
+                c.a.q0.w.c.q().w(downloadData);
             }
         }
     }
@@ -2823,27 +2779,27 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     }
 
     public void o0(String str) {
-        b.a.r0.m3.m mVar;
+        c.a.r0.t3.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048611, this, str) == null) || (mVar = this.f49535h) == null || mVar.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048611, this, str) == null) || (mVar = this.f44417h) == null || mVar.getForum() == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f49535h.getForum().getId()).param("obj_type", 2));
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f44417h.getForum().getId()).param("obj_type", 2));
     }
 
-    public final void p0(b.a.r0.m3.m mVar, boolean z2, int i2) {
+    public final void p0(c.a.r0.t3.m mVar, boolean z2, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{mVar, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || mVar == null || mVar.getForum() == null) {
             return;
         }
-        this.f49535h = mVar;
+        this.f44417h = mVar;
         ForumData forum = mVar.getForum();
         if (z2 && forum != null && !TextUtils.isEmpty(forum.getId())) {
             FrsVideoTabPlayActivityConfig.addFrsPageCount(forum.getId());
         }
         if (!V(mVar) && z2) {
             boolean W = W(forum, mVar.getAnti());
-            FrsFragment frsFragment = this.f49533f;
+            FrsFragment frsFragment = this.f44415f;
             if (frsFragment != null) {
                 frsFragment.setYoungsterDialogShown(W);
             }
@@ -2851,38 +2807,38 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
             }
         }
-        if (forum.getIsShowBawuTask() && b.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0) == 0 && !this.B) {
+        if (forum.getIsShowBawuTask() && c.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0) == 0 && !this.B) {
             this.B = true;
-            b.a.e.f.m.e.a().postDelayed(new n(this), 30000L);
+            c.a.d.f.m.e.a().postDelayed(new n(this), 30000L);
         }
         if (mVar.bazhuExam != null && !this.C && z2) {
-            b.a.r0.x0.m.a(this.f49532e.getPageContext(), mVar.bazhuExam, forum.getId(), forum.getName());
+            c.a.r0.d1.m.a(this.f44414e.getPageContext(), mVar.bazhuExam, forum.getId(), forum.getName());
             this.C = true;
         }
         if (ListUtils.getCount(mVar.getGameTabInfo()) > 0) {
-            this.k.post(new o(this));
+            this.f44420k.post(new o(this));
         } else if (b0()) {
-            this.k.post(new p(this));
+            this.f44420k.post(new p(this));
         }
         q0();
         w0();
         if (z2) {
-            if ((!this.G || i2 == 4) && forum.isLike() == 0 && b.a.q0.b.d.n0() && TbadkCoreApplication.isLogin()) {
-                this.E = new b.a.r0.x0.y2.e();
-                this.f49532e.registerListener(this.Z);
-                this.f49532e.registerListener(this.Y);
-                this.f49532e.registerListener(this.a0);
+            if ((!this.G || i2 == 4) && forum.isLike() == 0 && c.a.q0.b.d.s0() && TbadkCoreApplication.isLogin()) {
+                this.E = new c.a.r0.d1.y2.e();
+                this.f44414e.registerListener(this.Z);
+                this.f44414e.registerListener(this.Y);
+                this.f44414e.registerListener(this.a0);
                 M(forum);
             }
         }
     }
 
     public final void q0() {
-        b.a.r0.m3.m mVar;
+        c.a.r0.t3.m mVar;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (mVar = this.f49535h) == null || (themeColorInfo = mVar.getForum().getThemeColorInfo()) == null || themeColorInfo.day == null || themeColorInfo.night == null || themeColorInfo.dark == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (mVar = this.f44417h) == null || (themeColorInfo = mVar.getForum().getThemeColorInfo()) == null || themeColorInfo.day == null || themeColorInfo.night == null || themeColorInfo.dark == null) {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -2903,7 +2859,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021074, TbConfig.SERVER_ADDRESS + "game/forum/getNewNotify");
             tbHttpMessageTask.setResponsedClass(AlaGameTabGetNewNotifyResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.f49532e.registerListener(1021074, this.R);
+            this.f44414e.registerListener(1021074, this.R);
         }
     }
 
@@ -2914,12 +2870,12 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         }
     }
 
-    @Override // b.a.r0.g.e.b
-    public void setInjectPlugin(int i2, b.a.r0.g.e.a aVar) {
+    @Override // c.a.r0.h.e.b
+    public void setInjectPlugin(int i2, c.a.r0.h.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048616, this, i2, aVar) == null) {
-            FrsFragment frsFragment = this.f49533f;
-            if (frsFragment instanceof b.a.r0.g.e.b) {
+            FrsFragment frsFragment = this.f44415f;
+            if (frsFragment instanceof c.a.r0.h.e.b) {
                 frsFragment.setInjectPlugin(i2, aVar);
             }
         }
@@ -2933,21 +2889,21 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     }
 
     public final void u0(Fragment fragment, int i2) {
-        b.a.r0.m3.m mVar;
+        c.a.r0.t3.m mVar;
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048618, this, fragment, i2) == null) || !(fragment instanceof r0) || (mVar = this.f49535h) == null || mVar.getForum() == null || (navigationBar = ((r0) fragment).getNavigationBar()) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048618, this, fragment, i2) == null) || !(fragment instanceof r0) || (mVar = this.f44417h) == null || mVar.getForum() == null || (navigationBar = ((r0) fragment).getNavigationBar()) == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.f49535h.getForum().getName(), 5, true, true) + this.f49532e.getActivity().getString(i1.forum));
+        sb.append(UtilHelper.getFixedBarText(this.f44417h.getForum().getName(), 5, true, true) + this.f44414e.getActivity().getString(i1.forum));
         navigationBar.setCenterTextTitle(sb.toString());
     }
 
     public final void v0() {
         FrsActivity frsActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || (frsActivity = this.f49532e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || (frsActivity = this.f44414e) == null) {
             return;
         }
         if (this.A == null) {
@@ -2956,7 +2912,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         if (this.A == null) {
             return;
         }
-        View inflate = View.inflate(this.f49532e, g1.write_thread_share_guide, null);
+        View inflate = View.inflate(this.f44414e, g1.write_thread_share_guide, null);
         TextView textView = (TextView) inflate.findViewById(f1.write_thread_success_tips);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(f1.share_icon);
         if (TextUtils.isEmpty(this.l)) {
@@ -2966,30 +2922,30 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         }
         tBSpecificationBtn.setTextSize(d1.tbds34);
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(i1.check_immediately));
-        b.a.q0.s.g0.n.c cVar = new b.a.q0.s.g0.n.c();
+        c.a.q0.s.g0.n.c cVar = new c.a.q0.s.g0.n.c();
         cVar.s();
         tBSpecificationBtn.setConfig(cVar);
         tBSpecificationBtn.changeSkinType();
         SkinManager.setViewTextColor(textView, c1.CAM_X0101);
         SkinManager.setBackgroundColor(this.A, c1.cp_link_tip_a_alpha95);
         tBSpecificationBtn.setOnClickListener(new y(this));
-        this.A.showTip(this.f49532e, inflate, 30000);
+        this.A.showTip(this.f44414e, inflate, 30000);
         new StatisticItem("c13438").eventStat();
-        int k2 = b.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0);
+        int k2 = c.a.q0.s.e0.b.j().k("key_bawu_task_toast", 0);
         if (k2 >= 0) {
-            b.a.q0.s.e0.b.j().v("key_bawu_task_toast", k2 + 1);
+            c.a.q0.s.e0.b.j().v("key_bawu_task_toast", k2 + 1);
         }
     }
 
     public final void w0() {
-        b.a.r0.m3.m mVar;
+        c.a.r0.t3.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (mVar = this.f49535h) == null || mVar.getEntelechyTabInfo() == null || this.f49535h.getEntelechyTabInfo().f22587a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (mVar = this.f44417h) == null || mVar.getEntelechyTabInfo() == null || this.f44417h.getEntelechyTabInfo().a == null) {
             return;
         }
-        if (this.f49532e.getIntent() == null || !FrsActivityConfig.FRS_FROM_ITEM.equals(this.f49532e.getIntent().getStringExtra("from"))) {
+        if (this.f44414e.getIntent() == null || !FrsActivityConfig.FRS_FROM_ITEM.equals(this.f44414e.getIntent().getStringExtra("from"))) {
             boolean z2 = false;
-            Iterator<FrsTabInfo> it = this.f49535h.getEntelechyTabInfo().f22587a.iterator();
+            Iterator<FrsTabInfo> it = this.f44417h.getEntelechyTabInfo().a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -3000,18 +2956,18 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             }
             if (z2) {
                 if (this.D == null) {
-                    b.a.r0.f0.g gVar = new b.a.r0.f0.g(this.f49532e.getPageContext(), this.u);
+                    c.a.r0.k0.g gVar = new c.a.r0.k0.g(this.f44414e.getPageContext(), this.u);
                     this.D = gVar;
                     gVar.g0(e1.pic_sign_tip_down);
                     this.D.L(2);
                     this.D.h0(true);
-                    this.D.j0(-b.a.e.f.p.l.g(this.f49532e, d1.tbds20));
-                    this.D.k0(-b.a.e.f.p.l.g(this.f49532e, d1.tbds20));
+                    this.D.j0(-c.a.d.f.p.l.f(this.f44414e, d1.tbds20));
+                    this.D.k0(-c.a.d.f.p.l.f(this.f44414e, d1.tbds20));
                     this.D.X(c1.CAM_X0101);
                     this.D.P(d1.tbds54);
-                    this.D.a0(b.a.e.f.p.l.g(this.f49532e, d1.tbds44));
+                    this.D.a0(c.a.d.f.p.l.f(this.f44414e, d1.tbds44));
                 }
-                this.D.m0(this.f49532e.getString(i1.frs_evaluate_tip), "first_into_frs_with_evaluate_tab");
+                this.D.m0(this.f44414e.getString(i1.frs_evaluate_tip), "first_into_frs_with_evaluate_tab");
             }
         }
     }
@@ -3019,16 +2975,16 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
     public final void x0(int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
-            b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f49532e);
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f44414e);
             aVar.setContentViewSize(2);
             aVar.setCanceledOnTouchOutside(false);
-            FrsForumToolDialogView frsForumToolDialogView = new FrsForumToolDialogView(this.f49532e);
+            FrsForumToolDialogView frsForumToolDialogView = new FrsForumToolDialogView(this.f44414e);
             frsForumToolDialogView.setStartLoadUrl(i2, str2);
             frsForumToolDialogView.setContent(str);
             frsForumToolDialogView.setCancleButtonListener(new r(this, aVar));
             frsForumToolDialogView.setConfirmButtonListener(new s(this, aVar, i2, str3));
             aVar.setContentView(frsForumToolDialogView);
-            aVar.create(this.f49532e.getPageContext()).show();
+            aVar.create(this.f44414e.getPageContext()).show();
         }
     }
 
@@ -3037,29 +2993,29 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{str, str2, str3, Boolean.valueOf(z2)})) == null) {
-            if (!this.E.g(TbadkCoreApplication.getCurrentAccount(), str2) || (frsFragment = this.f49533f) == null || frsFragment.getHeaderVC() == null) {
+            if (!this.E.g(TbadkCoreApplication.getCurrentAccount(), str2) || (frsFragment = this.f44415f) == null || frsFragment.getHeaderVC() == null) {
                 return false;
             }
             this.H = false;
-            this.E.h(this.f49532e, str, str2, str3, this.f49533f.getHeaderVC().v());
+            this.E.h(this.f44414e, str, str2, str3, this.f44415f.getHeaderVC().v());
             this.E.e().g(TbadkCoreApplication.getCurrentAccount(), str2, System.currentTimeMillis(), z2);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final boolean z0(b.a.r0.m3.m mVar) {
+    public final boolean z0(c.a.r0.t3.m mVar) {
         InterceptResult invokeL;
         PopInfo popInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, mVar)) == null) {
-            if (b.a.q0.s.e0.b.j().g(b.a.q0.s.e0.b.n("key_frs_shield_thread_dialog"), false) || mVar.getUserData() == null || mVar.getUserData().getIs_manager() <= 0 || (popInfo = mVar.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
+            if (c.a.q0.s.e0.b.j().g(c.a.q0.s.e0.b.n("key_frs_shield_thread_dialog"), false) || mVar.getUserData() == null || mVar.getUserData().getIs_manager() <= 0 || (popInfo = mVar.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
                 return false;
             }
-            ImageView imageView = new ImageView(this.f49532e);
+            ImageView imageView = new ImageView(this.f44414e);
             imageView.setImageResource(SkinManager.getResourceId(e1.pic_frs_popup_shield));
             TBAlertConfig.a aVar = new TBAlertConfig.a(i1.comment_tab_dialog_botton_text, TBAlertConfig.OperateBtnStyle.MAIN);
-            b.a.q0.s.s.l lVar = new b.a.q0.s.s.l(this.f49532e);
+            c.a.q0.s.s.l lVar = new c.a.q0.s.s.l(this.f44414e);
             lVar.r(mVar.frsMaskPopInfo.title);
             lVar.n(mVar.frsMaskPopInfo.v_title);
             lVar.l(true);
@@ -3067,7 +3023,7 @@ public class FrsTabController implements b.a.r0.g.e.b, VoiceManager.j, FrsCommon
             lVar.p(aVar);
             lVar.g(false);
             aVar.a(new q(this, lVar.t(), mVar));
-            b.a.q0.s.e0.b.j().t(b.a.q0.s.e0.b.n("key_frs_shield_thread_dialog"), true);
+            c.a.q0.s.e0.b.j().t(c.a.q0.s.e0.b.n("key_frs_shield_thread_dialog"), true);
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_SHOW);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             if (mVar.getForum() != null) {

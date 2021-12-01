@@ -27,7 +27,6 @@ import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -36,11 +35,13 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.BufferedReader;
@@ -66,38 +67,40 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f44108a = false;
+    public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f44109b = null;
+    public static String f39187b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44110c = null;
+    public static String f39188c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f44111d = 0;
+    public static int f39189d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f44112e = "3";
+    public static String f39190e = "3";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f44113f = "925fc15df8a49bed0b3eca8d2b44cb7b";
+    public static String f39191f = "925fc15df8a49bed0b3eca8d2b44cb7b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static MyReceiver f44114g = null;
+    public static MyReceiver f39192g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<Integer, ApkInfo> f44115h = null;
+    public static HashMap<Integer, ApkInfo> f39193h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static JSONObject f44116i = null;
-    public static long j = 0;
-    public static int k = -1;
+    public static JSONObject f39194i = null;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static long f39195j = 0;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static int f39196k = -1;
     public static String l = "";
     public static String m = "";
     public static int n = -1;
@@ -222,8 +225,8 @@ public final class c {
         String[] split2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
-            String str = f44109b;
-            String str2 = f44110c;
+            String str = f39187b;
+            String str2 = f39188c;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     String a2 = com.baidu.sofire.h.a.a(context).a();
@@ -232,14 +235,14 @@ public final class c {
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    String string = com.baidu.sofire.h.a.a(context).f44016a.getString("svi", "");
+                    String string = com.baidu.sofire.h.a.a(context).a.getString("svi", "");
                     if (!TextUtils.isEmpty(string) && (split2 = string.split("-")) != null && split2.length == 2) {
                         return split2;
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    str = f44112e;
-                    str2 = f44113f;
+                    str = f39190e;
+                    str2 = f39191f;
                 }
                 return new String[]{str, str2};
             }
@@ -253,7 +256,7 @@ public final class c {
         if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = a2.f44016a.getLong("se_ae_fd", 0L);
+            long j2 = a2.a.getLong("se_ae_fd", 0L);
             if (j2 == 0) {
                 j2 = System.currentTimeMillis();
                 a2.g();
@@ -564,7 +567,7 @@ public final class c {
                         str = "5";
                     }
                     jSONObject3.put("8", packageInfo.versionName);
-                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).f44016a.getInt("opi", 0)));
+                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).a.getInt("opi", 0)));
                     jSONObject3.put("14", u.i(context));
                     jSONObject3.put("15", u.j(context));
                     jSONObject2.put("1", jSONObject3);
@@ -575,26 +578,26 @@ public final class c {
                     JSONObject jSONObject4 = new JSONObject(a4);
                     try {
                         a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f44109b) || TextUtils.isEmpty(f44110c)) {
+                        if (TextUtils.isEmpty(f39187b) || TextUtils.isEmpty(f39188c)) {
                             String a5 = com.baidu.sofire.h.a.a(context).a();
                             if (TextUtils.isEmpty(a5)) {
                                 strArr = new String[0];
                             } else {
                                 strArr2 = a5.split("-");
                                 if (strArr2 != null && strArr2.length == 2) {
-                                    f44109b = strArr2[0];
-                                    f44110c = strArr2[1];
+                                    f39187b = strArr2[0];
+                                    f39188c = strArr2[1];
                                 }
                                 strArr = new String[0];
                             }
                             strArr2 = strArr;
                         } else {
-                            strArr2 = new String[]{f44109b, f44110c};
+                            strArr2 = new String[]{f39187b, f39188c};
                         }
                     } catch (Throwable unused) {
                         str2 = "9";
                     }
-                    if ((a2.f44016a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
+                    if ((a2.a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
                         String optString2 = optJSONObject2.optString("0");
                         String optString3 = optJSONObject2.optString("1");
                         if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -603,14 +606,14 @@ public final class c {
                             } catch (Throwable unused2) {
                                 str2 = "9";
                             }
-                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f44112e.equals(optString2) || !f44113f.equals(optString3))) {
-                                f44109b = optString2;
-                                f44110c = optString3;
-                                com.baidu.sofire.h.a aVar = a6.f43934a;
+                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f39190e.equals(optString2) || !f39191f.equals(optString3))) {
+                                f39187b = optString2;
+                                f39188c = optString3;
+                                com.baidu.sofire.h.a aVar = a6.a;
                                 str2 = "9";
                                 try {
-                                    aVar.f44017b.putString("svi_n", optString2 + "-" + optString3);
-                                    aVar.f44017b.commit();
+                                    aVar.f39120b.putString("svi_n", optString2 + "-" + optString3);
+                                    aVar.f39120b.commit();
                                 } catch (Throwable unused3) {
                                     try {
                                         com.baidu.sofire.b.c();
@@ -694,64 +697,64 @@ public final class c {
                                 com.baidu.sofire.h.a a722 = com.baidu.sofire.h.a.a(context);
                                 optInt = jSONObject.optInt("n");
                                 if (optInt > 0) {
-                                    a722.f44021f.putInt("re_net_ty", optInt);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_ty", optInt);
+                                    a722.f39124f.commit();
                                 }
                                 optInt2 = jSONObject.optInt("i");
                                 if (optInt2 > 0) {
-                                    a722.f44021f.putInt("re_net_hr", optInt2);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_hr", optInt2);
+                                    a722.f39124f.commit();
                                 }
                                 optInt3 = jSONObject.optInt("i2");
                                 if (optInt3 > 0) {
-                                    a722.f44021f.putInt("re_net_hr_bc", optInt3);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_hr_bc", optInt3);
+                                    a722.f39124f.commit();
                                 }
                                 optInt4 = jSONObject.optInt("w");
                                 if (optInt4 > 0) {
-                                    a722.f44021f.putInt("re_net_wt", optInt4);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_wt", optInt4);
+                                    a722.f39124f.commit();
                                 }
                                 if (jSONObject.optInt("s1") > 0) {
-                                    a722.f44021f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
+                                    a722.f39124f.commit();
                                 }
                                 optInt5 = jSONObject.optInt("s2");
                                 if (optInt5 > 0) {
-                                    a722.f44021f.putInt("re_net_dy_lt", optInt5);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_dy_lt", optInt5);
+                                    a722.f39124f.commit();
                                 }
                                 optInt6 = jSONObject.optInt("t");
                                 if (optInt6 > 0) {
-                                    a722.f44021f.putInt("re_net_over", optInt6);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("re_net_over", optInt6);
+                                    a722.f39124f.commit();
                                 }
                                 optInt7 = jSONObject.optInt("l1");
                                 if (optInt7 > 0) {
-                                    a722.f44021f.putInt("up_nu_co", optInt7);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("up_nu_co", optInt7);
+                                    a722.f39124f.commit();
                                 }
                                 optInt8 = jSONObject.optInt("l2");
                                 if (optInt8 > 0) {
-                                    a722.f44021f.putInt("up_nu_li", optInt8);
-                                    a722.f44021f.commit();
+                                    a722.f39124f.putInt("up_nu_li", optInt8);
+                                    a722.f39124f.commit();
                                 }
                                 com.baidu.sofire.h.a a822 = com.baidu.sofire.h.a.a(context);
                                 optString = jSONObject4.optString("0");
                                 if (!TextUtils.isEmpty(optString)) {
-                                    a822.f44019d.putString("gli", new String(Base64.encode(h.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a822.f44019d.commit();
+                                    a822.f39122d.putString("gli", new String(Base64.encode(h.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                    a822.f39122d.commit();
                                 }
                                 optJSONObject = jSONObject4.optJSONObject("4");
                                 if (optJSONObject == null) {
-                                    a822.f44017b.putInt("appinv_t", optJSONObject.optInt("app"));
-                                    a822.f44017b.commit();
-                                    a822.f44017b.putInt("appinv_js", optJSONObject.optInt("js"));
-                                    a822.f44017b.commit();
-                                    a822.f44017b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
-                                    a822.f44017b.commit();
-                                    a822.f44017b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
-                                    a822.f44017b.commit();
+                                    a822.f39120b.putInt("appinv_t", optJSONObject.optInt("app"));
+                                    a822.f39120b.commit();
+                                    a822.f39120b.putInt("appinv_js", optJSONObject.optInt("js"));
+                                    a822.f39120b.commit();
+                                    a822.f39120b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
+                                    a822.f39120b.commit();
+                                    a822.f39120b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
+                                    a822.f39120b.commit();
                                     int optInt9 = optJSONObject.optInt("ti", 1);
                                     if (optInt9 > 0) {
                                         str3 = "4";
@@ -779,7 +782,7 @@ public final class c {
                                     }
                                     if (optJSONObject.optInt("1", -1) == z) {
                                         i2 = 0;
-                                        a822.f44016a.getBoolean("se_fg_s", false);
+                                        a822.a.getBoolean("se_fg_s", false);
                                         a822.b(z);
                                     } else {
                                         i2 = 0;
@@ -788,8 +791,8 @@ public final class c {
                                     a(context, "ampf", optJSONObject.optInt("mp", i2));
                                     int optInt11 = optJSONObject.optInt("tc", -1);
                                     if (optInt11 > 0 && optInt11 <= 20 && optInt11 <= 20) {
-                                        a822.f44017b.putInt("s_t_p_c_s", optInt11);
-                                        a822.f44017b.commit();
+                                        a822.f39120b.putInt("s_t_p_c_s", optInt11);
+                                        a822.f39120b.commit();
                                     }
                                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("pc");
                                     if (optJSONObject3 != null) {
@@ -799,28 +802,28 @@ public final class c {
                                     if (optJSONObject4 != null && context != null) {
                                         com.baidu.sofire.b.b a9 = com.baidu.sofire.b.b.a(context);
                                         if (optJSONObject4 != null) {
-                                            y a10 = y.a(a9.f43876a);
+                                            y a10 = y.a(a9.a);
                                             try {
-                                                a10.f44162b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused5) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused6) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused7) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused8) {
                                                 com.baidu.sofire.b.c();
                                             }
@@ -836,26 +839,26 @@ public final class c {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putLong("lt_sfii", optJSONObject4.getLong("7"));
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putLong("lt_sfii", optJSONObject4.getLong("7"));
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused11) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused12) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused13) {
                                                 com.baidu.sofire.b.c();
                                             }
                                             try {
-                                                a10.f44162b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
-                                                a10.f44162b.commit();
+                                                a10.f39226b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
+                                                a10.f39226b.commit();
                                             } catch (JSONException unused14) {
                                                 com.baidu.sofire.b.c();
                                             }
@@ -904,7 +907,7 @@ public final class c {
                     }
                     return jSONObject4;
                 }
-                f44111d = 6;
+                f39189d = 6;
                 return null;
             } catch (Throwable unused15) {
                 com.baidu.sofire.b.c();
@@ -1001,15 +1004,15 @@ public final class c {
             synchronized (c.class) {
                 try {
                     com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
-                    String b2 = b(context, "sofire_local.cfg", "local");
+                    String b2 = b(context, "sofire_local.cfg", MainTabActivity.TAB_CODE_LOCAL);
                     if (TextUtils.isEmpty(b2)) {
                         return null;
                     }
                     JSONArray jSONArray = new JSONArray(b2);
-                    if (f44115h == null) {
-                        f44115h = new HashMap<>();
+                    if (f39193h == null) {
+                        f39193h = new HashMap<>();
                     } else {
-                        f44115h.clear();
+                        f39193h.clear();
                     }
                     ArrayList<ApkInfo> arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
@@ -1023,7 +1026,7 @@ public final class c {
                         }
                         String optString3 = optJSONObject.optString(PackageTable.MD5);
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && optInt > 0) {
-                            SharedPreferences sharedPreferences = a3.f44016a;
+                            SharedPreferences sharedPreferences = a3.a;
                             String string = sharedPreferences.getString("g_l_l_p_v_" + optInt, "");
                             boolean z = true;
                             boolean z2 = (TextUtils.isEmpty(string) || b(optString2, string)) ? false : true;
@@ -1039,16 +1042,16 @@ public final class c {
                             if (z) {
                                 arrayList.add(apkInfo);
                             } else {
-                                f44115h.put(Integer.valueOf(optInt), apkInfo);
+                                f39193h.put(Integer.valueOf(optInt), apkInfo);
                             }
                         }
                     }
                     a3.a(arrayList2);
-                    if (f44115h.size() > 0 || arrayList.size() > 0) {
+                    if (f39193h.size() > 0 || arrayList.size() > 0) {
                         JSONArray jSONArray2 = new JSONArray();
-                        for (ApkInfo apkInfo2 : f44115h.values()) {
+                        for (ApkInfo apkInfo2 : f39193h.values()) {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("pk", apkInfo2.packageName);
+                            jSONObject.put(PushConstants.URI_PACKAGE_NAME, apkInfo2.packageName);
                             jSONObject.put("m", apkInfo2.apkMD5);
                             jSONObject.put("l", apkInfo2.key);
                             jSONObject.put("v", apkInfo2.versionName);
@@ -1056,7 +1059,7 @@ public final class c {
                         }
                         for (ApkInfo apkInfo3 : arrayList) {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("pk", apkInfo3.packageName);
+                            jSONObject2.put(PushConstants.URI_PACKAGE_NAME, apkInfo3.packageName);
                             jSONObject2.put("m", apkInfo3.apkMD5);
                             jSONObject2.put("l", apkInfo3.key);
                             jSONObject2.put("v", apkInfo3.versionName);
@@ -1105,7 +1108,7 @@ public final class c {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             String m2 = a2.m();
             if (TextUtils.isEmpty(m2)) {
-                String string = a2.f44018c.getString("xygls", "");
+                String string = a2.f39121c.getString("xygls", "");
                 if (TextUtils.isEmpty(string)) {
                     try {
                         str = l.a(context);
@@ -1133,11 +1136,11 @@ public final class c {
                 }
                 try {
                     if (!TextUtils.isEmpty(string)) {
-                        a2.f44019d.putString("xyglsn", "");
-                        a2.f44019d.commit();
+                        a2.f39122d.putString("xyglsn", "");
+                        a2.f39122d.commit();
                     } else {
-                        a2.f44019d.putString("xyglsn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        a2.f44019d.commit();
+                        a2.f39122d.putString("xyglsn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.f39122d.commit();
                     }
                     return string;
                 } catch (Throwable unused4) {
@@ -1343,7 +1346,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(p.f44142a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(p.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -1573,11 +1576,11 @@ public final class c {
                 return true;
             }
             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-            if (f44114g == null) {
-                f44114g = new MyReceiver().a();
+            if (f39192g == null) {
+                f39192g = new MyReceiver().a();
             }
-            a(context, f44114g, intentFilter);
-            f44108a = true;
+            a(context, f39192g, intentFilter);
+            a = true;
             return false;
         }
         return invokeLI.booleanValue;
@@ -1657,14 +1660,14 @@ public final class c {
                 if (MyProvider.a()) {
                     return 1;
                 }
-                if (k == -1) {
+                if (f39196k == -1) {
                     int q = q(context);
                     if (q != 1 && (q == 2 || !MyProvider.a())) {
                         i2 = 0;
                     }
-                    k = i2;
+                    f39196k = i2;
                 }
-                return k;
+                return f39196k;
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
                 return -1;
@@ -1738,9 +1741,9 @@ public final class c {
                 }
                 byte[] a2 = h.a("30212102dicudiab".getBytes(), (r(context) + hexString).toString().getBytes(), false);
                 com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
-                int i3 = a3.f44016a.getInt("tk_sa_pu_cl", 0) + 1;
-                a3.f44017b.putInt("tk_sa_pu_cl", i3);
-                a3.f44017b.commit();
+                int i3 = a3.a.getInt("tk_sa_pu_cl", 0) + 1;
+                a3.f39120b.putInt("tk_sa_pu_cl", i3);
+                a3.f39120b.commit();
                 String a4 = a(a2, i3);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(a4);
@@ -1785,10 +1788,10 @@ public final class c {
         return invokeLZ.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004f A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x008f, blocks: (B:13:0x0039, B:16:0x0047, B:18:0x004f, B:20:0x005b, B:24:0x0067, B:28:0x0071, B:32:0x0084, B:33:0x0089, B:30:0x007b), top: B:46:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0079  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0084 A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x008f, blocks: (B:13:0x0039, B:16:0x0047, B:18:0x004f, B:20:0x005b, B:24:0x0067, B:28:0x0071, B:32:0x0084, B:33:0x0089, B:30:0x007b), top: B:46:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004e A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x008e, blocks: (B:13:0x0039, B:16:0x0046, B:18:0x004e, B:20:0x005a, B:24:0x0066, B:28:0x0070, B:32:0x0083, B:33:0x0088, B:30:0x007a), top: B:46:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0078  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0083 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x008e, blocks: (B:13:0x0039, B:16:0x0046, B:18:0x004e, B:20:0x005a, B:24:0x0066, B:28:0x0070, B:32:0x0083, B:33:0x0088, B:30:0x007a), top: B:46:0x0039 }] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x0039 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1872,7 +1875,7 @@ public final class c {
         String str3;
         String canonicalName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
             try {
                 XmlResourceParser openXmlResourceParser = context.createPackageContext(context.getPackageName(), 3).getAssets().openXmlResourceParser("AndroidManifest.xml");
                 if (openXmlResourceParser != null) {
@@ -2125,7 +2128,7 @@ public final class c {
     public static void a(Context context, String str, Map<String, Object> map, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f43930c) {
+        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f39055c) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
@@ -2136,7 +2139,7 @@ public final class c {
                 if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                     str2 = g2[0];
                 } else {
-                    str2 = f44112e;
+                    str2 = f39190e;
                 }
                 jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
@@ -2175,7 +2178,7 @@ public final class c {
             if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                 str2 = g2[0];
             } else {
-                str2 = f44112e;
+                str2 = f39190e;
             }
             jSONObject2.put("3", str2);
             jSONObject2.put("4", 0);
@@ -2220,7 +2223,7 @@ public final class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, aVar, str, Boolean.valueOf(z)})) == null) {
-            return a(context, aVar.f43908a, aVar.f43910c, z ? aVar.f43911d : aVar.f43912e, str);
+            return a(context, aVar.a, aVar.f39036c, z ? aVar.f39037d : aVar.f39038e, str);
         }
         return (JSONObject) invokeCommon.objValue;
     }
@@ -2228,7 +2231,7 @@ public final class c {
     public static String a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, inputStream)) != null) {
             return (String) invokeL.objValue;
         }
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
@@ -2296,8 +2299,8 @@ public final class c {
                 jSONObject3.put("9", str5);
                 jSONObject3.put("10", str3);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                jSONObject3.put("11", a2.f44020e.getString("re_a_cv", ""));
-                jSONObject3.put("12", a2.f44020e.getString("re_a_lc", ""));
+                jSONObject3.put("11", a2.f39123e.getString("re_a_cv", ""));
+                jSONObject3.put("12", a2.f39123e.getString("re_a_lc", ""));
                 jSONObject3.put("13", 1);
                 if (k(context) == 4) {
                     jSONObject3.put("14", 1);
@@ -2340,13 +2343,13 @@ public final class c {
             d a2 = d.a(context);
             Message message = new Message();
             message.what = 8;
-            a2.f44119b.a(message);
+            a2.f39198b.a(message);
             com.baidu.sofire.c.a aVar2 = new com.baidu.sofire.c.a();
-            aVar2.f43908a = str;
-            aVar2.f43909b = str2;
-            aVar2.f43910c = str3;
-            aVar2.f43911d = str4;
-            aVar2.f43912e = str5;
+            aVar2.a = str;
+            aVar2.f39035b = str2;
+            aVar2.f39036c = str3;
+            aVar2.f39037d = str4;
+            aVar2.f39038e = str5;
             if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str5)) {
                 return;
             }
@@ -2358,32 +2361,32 @@ public final class c {
                 a3.a(aVar2);
             } else {
                 if (t != null && (indexOf = t.indexOf(aVar2)) != -1 && (aVar = t.get(indexOf)) != null) {
-                    a3.f44021f.putString("re_con", a3.f44020e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
-                    a3.f44021f.commit();
+                    a3.f39124f.putString("re_con", a3.f39123e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
+                    a3.f39124f.commit();
                 }
                 d.a(context).b();
                 return;
             }
-            String str6 = aVar2.f43912e;
-            SharedPreferences sharedPreferences = a3.f44020e;
+            String str6 = aVar2.f39038e;
+            SharedPreferences sharedPreferences = a3.f39123e;
             if (!sharedPreferences.getBoolean("re_net_ins_" + str6, false)) {
                 d a4 = d.a(context);
-                com.baidu.sofire.g.a aVar3 = a4.f44119b;
-                String e2 = aVar3.f44008a.e(aVar2.f43912e);
+                com.baidu.sofire.g.a aVar3 = a4.f39198b;
+                String e2 = aVar3.a.e(aVar2.f39038e);
                 com.baidu.sofire.e.a aVar4 = new com.baidu.sofire.e.a();
-                aVar4.f43995b = aVar2.f43912e;
-                aVar4.f44000g = 0;
-                aVar4.f43996c = 1;
-                aVar4.f43998e = System.currentTimeMillis();
-                aVar4.f43999f = 1;
-                aVar4.f43997d = a(aVar3.f44009b, aVar2, e2, false).toString();
-                com.baidu.sofire.d.a.a(aVar3.f44009b).a(aVar4);
-                com.baidu.sofire.h.a aVar5 = aVar3.f44008a;
-                String str7 = aVar2.f43912e;
-                SharedPreferences.Editor editor = aVar5.f44021f;
+                aVar4.f39102b = aVar2.f39038e;
+                aVar4.f39107g = 0;
+                aVar4.f39103c = 1;
+                aVar4.f39105e = System.currentTimeMillis();
+                aVar4.f39106f = 1;
+                aVar4.f39104d = a(aVar3.f39114b, aVar2, e2, false).toString();
+                com.baidu.sofire.d.a.a(aVar3.f39114b).a(aVar4);
+                com.baidu.sofire.h.a aVar5 = aVar3.a;
+                String str7 = aVar2.f39038e;
+                SharedPreferences.Editor editor = aVar5.f39124f;
                 editor.putBoolean("re_net_ins_" + str7, true);
-                aVar5.f44021f.commit();
-                a4.f44119b.a(aVar2);
+                aVar5.f39124f.commit();
+                a4.f39198b.a(aVar2);
             }
             d.a(context).b();
             d.a(context).c();
@@ -2397,7 +2400,7 @@ public final class c {
                 JSONObject jSONObject = new JSONObject(str);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 System.currentTimeMillis();
-                a2.f44020e.getInt("re_net_ty", 2);
+                a2.f39123e.getInt("re_net_ty", 2);
                 JSONObject optJSONObject = jSONObject.optJSONObject("Common_section");
                 long optLong = optJSONObject.optLong("0");
                 String optString = optJSONObject.optString("10");
@@ -2409,25 +2412,25 @@ public final class c {
                     optInt2 = 1;
                 }
                 com.baidu.sofire.e.a aVar = new com.baidu.sofire.e.a();
-                aVar.f43997d = str;
-                aVar.f43995b = optString;
-                aVar.f44000g = optInt;
-                aVar.f43996c = 3;
-                aVar.f43998e = optLong;
-                aVar.f43999f = optInt2;
-                aVar.f44001h = optInt3;
-                aVar.f44002i = optInt4;
-                aVar.j = "";
+                aVar.f39104d = str;
+                aVar.f39102b = optString;
+                aVar.f39107g = optInt;
+                aVar.f39103c = 3;
+                aVar.f39105e = optLong;
+                aVar.f39106f = optInt2;
+                aVar.f39108h = optInt3;
+                aVar.f39109i = optInt4;
+                aVar.f39110j = "";
                 d a3 = d.a(context);
                 Message message = new Message();
                 if (!z && !e()) {
-                    com.baidu.sofire.d.a.a(a3.f44118a).a(aVar);
+                    com.baidu.sofire.d.a.a(a3.a).a(aVar);
                     message.what = 10;
-                    a3.f44119b.a(message);
+                    a3.f39198b.a(message);
                 }
                 message.what = 1;
                 message.obj = aVar;
-                a3.f44119b.a(message);
+                a3.f39198b.a(message);
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
             }
@@ -2453,9 +2456,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             String optString = optJSONObject.optString(str3);
-                            SharedPreferences.Editor editor = a2.f44021f;
+                            SharedPreferences.Editor editor = a2.f39124f;
                             editor.putString("al_da" + str3, optString);
-                            a2.f44021f.commit();
+                            a2.f39124f.commit();
                         }
                     }
                 } catch (Throwable unused) {
@@ -2472,9 +2475,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str2)) {
                             String optString2 = optJSONObject2.optString(str2);
-                            SharedPreferences.Editor editor2 = a2.f44021f;
+                            SharedPreferences.Editor editor2 = a2.f39124f;
                             editor2.putString("in_da" + str2, optString2);
-                            a2.f44021f.commit();
+                            a2.f39124f.commit();
                         }
                     }
                 } catch (Throwable unused2) {
@@ -2483,8 +2486,8 @@ public final class c {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("2");
                     if (optJSONArray != null) {
-                        a2.f44021f.putString("li_pk_s", optJSONArray.toString());
-                        a2.f44021f.commit();
+                        a2.f39124f.putString("li_pk_s", optJSONArray.toString());
+                        a2.f39124f.commit();
                     }
                 } catch (Throwable unused3) {
                     com.baidu.sofire.b.c();
@@ -2509,7 +2512,7 @@ public final class c {
                 if (g2 != null && g2.length == 2) {
                     jSONObject2.put("3", g2[0]);
                 } else {
-                    jSONObject2.put("3", f44112e);
+                    jSONObject2.put("3", f39190e);
                 }
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
@@ -2658,7 +2661,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f43836d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38996d;
                 if (aVar == null || (a2 = aVar.a(i2)) == null || a2.initStatus != 1 || (a3 = com.baidu.sofire.core.f.a()) == null) {
                     return false;
                 }

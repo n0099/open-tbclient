@@ -2,7 +2,6 @@ package com.yy.hiidostatis.config;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ABTestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 1;
@@ -79,7 +78,7 @@ public final class ABTestHandler {
     public static int getAbInteger(ABNameDefine aBNameDefine) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aBNameDefine)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aBNameDefine)) == null) {
             Integer num = getInstance().map.get(aBNameDefine.getName());
             return num == null ? aBNameDefine.getDefaultValue() : num.intValue();
         }
@@ -89,7 +88,7 @@ public final class ABTestHandler {
     public static ABTestHandler getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? instance : (ABTestHandler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? instance : (ABTestHandler) invokeV.objValue;
     }
 
     public static void initInstance(Context context) {

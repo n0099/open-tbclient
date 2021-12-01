@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +50,7 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.seq = jSONObject.optString(IAdRequestParam.SEQ, "");
+                this.seq = jSONObject.optString("seq", "");
                 this.uid = jSONObject.optLong("uid", 0L);
                 this.result = jSONObject.optInt("result", 0);
                 this.message = jSONObject.optString("message", "");

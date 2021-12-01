@@ -3,7 +3,6 @@ package com.baidu.searchbox.http.request;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,14 +20,14 @@ import okhttp3.MultipartBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.internal.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<PostBytes> bytes;
     public List<PostFile> files;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PostBytes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +83,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PostFile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +116,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         public static String guessMimeType(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
                 String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str);
                 return TextUtils.isEmpty(contentTypeFor) ? "application/octet-stream" : contentTypeFor;
             }
@@ -150,7 +149,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PostMultiPartFormRequestBuilder extends HttpRequestParasBuilder<PostMultiPartFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

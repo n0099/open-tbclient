@@ -1,7 +1,6 @@
 package com.baidu.searchbox.elasticthread.statistic;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.executor.BaseDredgeExecutorCell;
 import com.baidu.searchbox.elasticthread.executor.BaseExecutorCell;
 import com.baidu.searchbox.elasticthread.queue.ElasticQueue;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RealTimeStatusPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -104,7 +103,7 @@ public class RealTimeStatusPrinter {
     private JSONObject loadSingleQueueData(ElasticQueue elasticQueue) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, elasticQueue)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, elasticQueue)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("TaskNum", elasticQueue.getTaskNum());
             jSONObject.put("WaitingTime", elasticQueue.getCurrentWaitingTime());

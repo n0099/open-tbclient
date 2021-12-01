@@ -15,13 +15,14 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusParam;
 import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.plugin.PluginManager;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +31,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ZeusParam zeusParam = com.bytedance.pangle.i.a().f62337b;
+            ZeusParam zeusParam = com.bytedance.pangle.i.a().f54604b;
             String host = zeusParam.getHost();
             if (TextUtils.isEmpty(host)) {
                 host = "https://plugin-patch-api.bytedance.com/api/plugin/config/v2/";
@@ -46,9 +47,9 @@ public final class e {
             a(sb, "update_version_code", String.valueOf(zeusParam.getHostVersionCode()));
             a(sb, "version_name", zeusParam.getHostVersionName());
             a(sb, "device_platform", "android");
-            String a2 = i.a(Zeus.getAppApplication());
-            if (!TextUtils.isEmpty(a2)) {
-                a(sb, "resolution", a2);
+            String a = i.a(Zeus.getAppApplication());
+            if (!TextUtils.isEmpty(a)) {
+                a(sb, "resolution", a);
             }
             int b2 = i.b(Zeus.getAppApplication());
             if (b2 > 0) {
@@ -67,7 +68,7 @@ public final class e {
             } catch (Exception unused) {
             }
             a(sb, "host_abi", com.bytedance.pangle.helper.b.a());
-            a(sb, "ts", String.valueOf(System.currentTimeMillis()));
+            a(sb, TimeDisplaySetting.TIME_DISPLAY_SETTING, String.valueOf(System.currentTimeMillis()));
             sb.deleteCharAt(sb.length() - 1);
             return sb.toString();
         }

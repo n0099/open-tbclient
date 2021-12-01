@@ -4,38 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f43994a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43995b;
+    public String f39102b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43996c;
+    public int f39103c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43997d;
+    public String f39104d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43998e;
+    public long f39105e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43999f;
+    public int f39106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44000g;
+    public int f39107g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44001h;
+    public int f39108h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44002i;
-    public String j;
+    public int f39109i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f39110j;
 
     public a() {
         Interceptable interceptable = $ic;

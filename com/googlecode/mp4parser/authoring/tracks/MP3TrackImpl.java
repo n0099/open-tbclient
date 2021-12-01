@@ -3,7 +3,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -144,11 +143,11 @@ public class MP3TrackImpl extends AbstractTrack {
         double size = this.samples.size() / d2;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
-        long j = 0;
+        long j2 = 0;
         while (true) {
             int i2 = 0;
             if (!it.hasNext()) {
-                this.avgBitRate = (int) ((j * 8) / size);
+                this.avgBitRate = (int) ((j2 * 8) / size);
                 this.sampleDescriptionBox = new SampleDescriptionBox();
                 AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
                 audioSampleEntry.setChannelCount(this.firstHeader.channelCount);
@@ -181,7 +180,7 @@ public class MP3TrackImpl extends AbstractTrack {
                 return;
             }
             int size2 = (int) it.next().getSize();
-            j += size2;
+            j2 += size2;
             linkedList.add(Integer.valueOf(size2));
             while (linkedList.size() > d2) {
                 linkedList.pop();
@@ -252,7 +251,7 @@ public class MP3TrackImpl extends AbstractTrack {
     private MP3Header readSamples(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, dataSource)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, dataSource)) != null) {
             return (MP3Header) invokeL.objValue;
         }
         MP3Header mP3Header = null;

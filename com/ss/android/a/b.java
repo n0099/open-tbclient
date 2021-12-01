@@ -7,7 +7,7 @@ public interface b {
 
     long a() throws IOException;
 
-    void a(long j, long j2) throws IOException;
+    void a(long j2, long j3) throws IOException;
 
     void b() throws IOException;
 }

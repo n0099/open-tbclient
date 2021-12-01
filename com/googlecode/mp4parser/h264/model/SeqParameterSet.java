@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.h264.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -274,7 +273,7 @@ public class SeqParameterSet extends BitstreamElement {
 
     private void writeHRDParameters(HRDParameters hRDParameters, CAVLCWriter cAVLCWriter) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, hRDParameters, cAVLCWriter) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, hRDParameters, cAVLCWriter) == null) {
             cAVLCWriter.writeUE(hRDParameters.cpb_cnt_minus1, "HRD: cpb_cnt_minus1");
             cAVLCWriter.writeNBit(hRDParameters.bit_rate_scale, 4, "HRD: bit_rate_scale");
             cAVLCWriter.writeNBit(hRDParameters.cpb_size_scale, 4, "HRD: cpb_size_scale");
@@ -292,7 +291,7 @@ public class SeqParameterSet extends BitstreamElement {
 
     private void writeVUIParameters(VUIParameters vUIParameters, CAVLCWriter cAVLCWriter) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, vUIParameters, cAVLCWriter) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, vUIParameters, cAVLCWriter) == null) {
             cAVLCWriter.writeBool(vUIParameters.aspect_ratio_info_present_flag, "VUI: aspect_ratio_info_present_flag");
             if (vUIParameters.aspect_ratio_info_present_flag) {
                 cAVLCWriter.writeNBit(vUIParameters.aspect_ratio.getValue(), 8, "VUI: aspect_ratio");

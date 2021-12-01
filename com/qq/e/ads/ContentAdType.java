@@ -14,9 +14,7 @@ public final class ContentAdType {
     public static /* synthetic */ Interceptable $ic;
     public static final ContentAdType AD;
     public static final ContentAdType INFORMATION;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ContentAdType[] f68733a;
+    public static final /* synthetic */ ContentAdType[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +33,7 @@ public final class ContentAdType {
         AD = new ContentAdType("AD", 0);
         ContentAdType contentAdType = new ContentAdType("INFORMATION", 1);
         INFORMATION = contentAdType;
-        f68733a = new ContentAdType[]{AD, contentAdType};
+        a = new ContentAdType[]{AD, contentAdType};
     }
 
     public ContentAdType(String str, int i2) {
@@ -81,6 +79,6 @@ public final class ContentAdType {
     public static ContentAdType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ContentAdType[]) f68733a.clone() : (ContentAdType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ContentAdType[]) a.clone() : (ContentAdType[]) invokeV.objValue;
     }
 }

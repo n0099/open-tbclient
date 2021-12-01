@@ -11,7 +11,7 @@ import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EnterWalletDoRnAuthAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,10 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
             BaiduPayDelegate.getInstance().doRNAuth(context, hashMap, new RNAuthCallBack(this, routerCallback) { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletDoRnAuthAction.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f60600a;
+                public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f60601b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f53460b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,20 +56,20 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f60601b = this;
-                    this.f60600a = routerCallback;
+                    this.f53460b = this;
+                    this.a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                 public void onRNAuthResult(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.f60600a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2));
                     hashMap2.put("authDesc", str);
-                    this.f60600a.onResult(0, hashMap2);
+                    this.a.onResult(0, hashMap2);
                 }
             });
         }

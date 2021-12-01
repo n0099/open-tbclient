@@ -216,10 +216,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setAvgBitRate(long j) {
+    public void setAvgBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.avgBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.avgBitRate = j2;
         }
     }
 
@@ -230,10 +230,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setMaxBitRate(long j) {
+    public void setMaxBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.maxBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.maxBitRate = j2;
         }
     }
 

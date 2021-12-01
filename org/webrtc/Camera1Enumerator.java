@@ -5,7 +5,6 @@ import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +125,7 @@ public class Camera1Enumerator implements CameraEnumerator {
     public static int getCameraIndex(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             Logging.d(TAG, "getCameraIndex: " + str);
             for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
                 if (str.equals(getDeviceName(i2))) {
@@ -142,7 +141,7 @@ public class Camera1Enumerator implements CameraEnumerator {
     public static Camera.CameraInfo getCameraInfo(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             try {
                 Camera.getCameraInfo(i2, cameraInfo);

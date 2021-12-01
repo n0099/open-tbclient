@@ -2,7 +2,6 @@ package com.alipay.android.phone.mrpc.core;
 
 import android.text.format.Time;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,30 +12,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f34695a;
+    public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f34696b;
+    public static final Pattern f31134b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f34697a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f34698b;
+        public int f31135b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34699c;
+        public int f31136c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -53,9 +48,9 @@ public final class k {
                     return;
                 }
             }
-            this.f34697a = i2;
-            this.f34698b = i3;
-            this.f34699c = i4;
+            this.a = i2;
+            this.f31135b = i3;
+            this.f31136c = i4;
         }
     }
 
@@ -72,8 +67,8 @@ public final class k {
                 return;
             }
         }
-        f34695a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f34696b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f31134b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -87,14 +82,14 @@ public final class k {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Matcher matcher = f34695a.matcher(str);
+            Matcher matcher = a.matcher(str);
             if (matcher.find()) {
                 i2 = b(matcher.group(1));
                 c2 = c(matcher.group(2));
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f34696b.matcher(str);
+                Matcher matcher2 = f31134b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -115,7 +110,7 @@ public final class k {
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f34699c, aVar.f34698b, aVar.f34697a, i3, i4, i5);
+            time.set(aVar.f31136c, aVar.f31135b, aVar.a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;
@@ -198,7 +193,7 @@ public final class k {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             int charAt = str.charAt(0) - '0';
             if (str.charAt(1) != ':') {
                 i2 = 2;

@@ -2,8 +2,8 @@ package io.flutter.embedding.android;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -14,11 +14,11 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,8 +29,8 @@ import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
-import io.flutter.view.FlutterMain;
-/* loaded from: classes2.dex */
+import io.flutter.embedding.engine.plugins.util.GeneratedPluginRegister;
+/* loaded from: classes3.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAGMENT_CONTAINER_ID = 609893468;
@@ -40,7 +40,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Nullable
     public FlutterFragment flutterFragment;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,23 +201,23 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this);
-            frameLayout.setId(FRAGMENT_CONTAINER_ID);
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
+            FrameLayout provideRootLayout = provideRootLayout(this);
+            provideRootLayout.setId(FRAGMENT_CONTAINER_ID);
+            provideRootLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return provideRootLayout;
         }
         return (View) invokeV.objValue;
     }
 
     private void ensureFlutterFragmentCreated() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            FragmentManager supportFragmentManager = getSupportFragmentManager();
-            FlutterFragment flutterFragment = (FlutterFragment) supportFragmentManager.findFragmentByTag(TAG_FLUTTER_FRAGMENT);
-            this.flutterFragment = flutterFragment;
-            if (flutterFragment == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            if (this.flutterFragment == null) {
+                this.flutterFragment = retrieveExistingFlutterFragmentIfPossible();
+            }
+            if (this.flutterFragment == null) {
                 this.flutterFragment = createFlutterFragment();
-                supportFragmentManager.beginTransaction().add(FRAGMENT_CONTAINER_ID, this.flutterFragment, TAG_FLUTTER_FRAGMENT).commit();
+                getSupportFragmentManager().beginTransaction().add(FRAGMENT_CONTAINER_ID, this.flutterFragment, TAG_FLUTTER_FRAGMENT).commit();
             }
         }
     }
@@ -226,19 +226,19 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     private Drawable getSplashScreenFromManifest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
-                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-                Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
-                if (valueOf != null) {
-                    if (Build.VERSION.SDK_INT > 21) {
-                        return getResources().getDrawable(valueOf.intValue(), getTheme());
-                    }
-                    return getResources().getDrawable(valueOf.intValue());
+                Bundle metaData = getMetaData();
+                int i2 = metaData != null ? metaData.getInt("io.flutter.embedding.android.SplashScreenDrawable") : 0;
+                if (i2 != 0) {
+                    return ResourcesCompat.getDrawable(getResources(), i2, getTheme());
                 }
                 return null;
             } catch (PackageManager.NameNotFoundException unused) {
                 return null;
+            } catch (Resources.NotFoundException e2) {
+                Log.e(TAG, "Splash screen not found. Ensure the drawable exists and that it's valid.");
+                throw e2;
             }
         }
         return (Drawable) invokeV.objValue;
@@ -254,9 +254,9 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             try {
-                ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
-                if (activityInfo.metaData != null) {
-                    int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
+                Bundle metaData = getMetaData();
+                if (metaData != null) {
+                    int i2 = metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
                     if (i2 != -1) {
                         setTheme(i2);
                     }
@@ -294,6 +294,10 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterEngine) == null) {
+            FlutterFragment flutterFragment = this.flutterFragment;
+            if (flutterFragment == null || !flutterFragment.isFlutterEngineInjected()) {
+                GeneratedPluginRegister.registerGeneratedPlugins(flutterEngine);
+            }
         }
     }
 
@@ -303,14 +307,15 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             FlutterActivityLaunchConfigs.BackgroundMode backgroundMode = getBackgroundMode();
-            RenderMode renderMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture;
+            RenderMode renderMode = getRenderMode();
             TransparencyMode transparencyMode = backgroundMode == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? TransparencyMode.opaque : TransparencyMode.transparent;
+            boolean z = renderMode == RenderMode.surface;
             if (getCachedEngineId() != null) {
                 Log.v(TAG, "Creating FlutterFragment with cached engine:\nCached engine ID: " + getCachedEngineId() + "\nWill destroy engine when Activity is destroyed: " + shouldDestroyEngineWithHost() + "\nBackground transparency mode: " + backgroundMode + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
-                return FlutterFragment.withCachedEngine(getCachedEngineId()).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).destroyEngineWithFragment(shouldDestroyEngineWithHost()).build();
+                return FlutterFragment.withCachedEngine(getCachedEngineId()).renderMode(renderMode).transparencyMode(transparencyMode).handleDeeplinking(Boolean.valueOf(shouldHandleDeeplinking())).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).destroyEngineWithFragment(shouldDestroyEngineWithHost()).shouldDelayFirstAndroidViewDraw(z).build();
             }
             Log.v(TAG, "Creating FlutterFragment with new engine:\nBackground transparency mode: " + backgroundMode + "\nDart entrypoint: " + getDartEntrypointFunctionName() + "\nInitial route: " + getInitialRoute() + "\nApp bundle path: " + getAppBundlePath() + "\nWill attach FlutterEngine to Activity: " + shouldAttachEngineToActivity());
-            return FlutterFragment.withNewEngine().dartEntrypoint(getDartEntrypointFunctionName()).initialRoute(getInitialRoute()).appBundlePath(getAppBundlePath()).flutterShellArgs(FlutterShellArgs.fromIntent(getIntent())).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).build();
+            return FlutterFragment.withNewEngine().dartEntrypoint(getDartEntrypointFunctionName()).initialRoute(getInitialRoute()).appBundlePath(getAppBundlePath()).flutterShellArgs(FlutterShellArgs.fromIntent(getIntent())).handleDeeplinking(Boolean.valueOf(shouldHandleDeeplinking())).renderMode(renderMode).transparencyMode(transparencyMode).shouldAttachEngineToActivity(shouldAttachEngineToActivity()).shouldDelayFirstAndroidViewDraw(z).build();
         }
         return (FlutterFragment) invokeV.objValue;
     }
@@ -320,7 +325,13 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         InterceptResult invokeV;
         String dataString;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) ? dataString : FlutterMain.findAppBundlePath() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (isDebuggable() && "android.intent.action.RUN".equals(getIntent().getAction()) && (dataString = getIntent().getDataString()) != null) {
+                return dataString;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @NonNull
@@ -349,8 +360,8 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-                String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.DART_ENTRYPOINT_META_DATA_KEY) : null;
+                Bundle metaData = getMetaData();
+                String string = metaData != null ? metaData.getString(FlutterActivityLaunchConfigs.DART_ENTRYPOINT_META_DATA_KEY) : null;
                 return string != null ? string : FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
             } catch (PackageManager.NameNotFoundException unused) {
                 return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
@@ -366,7 +377,6 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.flutterFragment.getFlutterEngine() : (FlutterEngine) invokeV.objValue;
     }
 
-    @NonNull
     public String getInitialRoute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -375,20 +385,36 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
                 return getIntent().getStringExtra(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
             }
             try {
-                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-                String string = bundle != null ? bundle.getString(FlutterActivityLaunchConfigs.INITIAL_ROUTE_META_DATA_KEY) : null;
-                return string != null ? string : "/";
+                Bundle metaData = getMetaData();
+                if (metaData != null) {
+                    return metaData.getString(FlutterActivityLaunchConfigs.INITIAL_ROUTE_META_DATA_KEY);
+                }
+                return null;
             } catch (PackageManager.NameNotFoundException unused) {
-                return "/";
+                return null;
             }
         }
         return (String) invokeV.objValue;
     }
 
+    @Nullable
+    public Bundle getMetaData() throws PackageManager.NameNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getPackageManager().getActivityInfo(getComponentName(), 128).metaData : (Bundle) invokeV.objValue;
+    }
+
+    @NonNull
+    public RenderMode getRenderMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getBackgroundMode() == FlutterActivityLaunchConfigs.BackgroundMode.opaque ? RenderMode.surface : RenderMode.texture : (RenderMode) invokeV.objValue;
+    }
+
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048587, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             this.flutterFragment.onActivityResult(i2, i3, intent);
         }
@@ -397,7 +423,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.flutterFragment.onBackPressed();
         }
     }
@@ -405,8 +431,9 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             switchLaunchThemeForNormalTheme();
+            this.flutterFragment = retrieveExistingFlutterFragmentIfPossible();
             super.onCreate(bundle);
             configureWindowForTransparency();
             setContentView(createFragmentContainer());
@@ -419,7 +446,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(@NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
             this.flutterFragment.onNewIntent(intent);
             super.onNewIntent(intent);
         }
@@ -428,7 +455,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPostResume();
             this.flutterFragment.onPostResume();
         }
@@ -437,7 +464,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048590, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048592, this, i2, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             this.flutterFragment.onRequestPermissionsResult(i2, strArr, iArr);
         }
@@ -446,7 +473,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             super.onTrimMemory(i2);
             this.flutterFragment.onTrimMemory(i2);
         }
@@ -455,7 +482,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Override // android.app.Activity
     public void onUserLeaveHint() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.flutterFragment.onUserLeaveHint();
         }
     }
@@ -465,10 +492,17 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
             return null;
         }
         return (FlutterEngine) invokeL.objValue;
+    }
+
+    @NonNull
+    public FrameLayout provideRootLayout(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) ? new FrameLayout(context) : (FrameLayout) invokeL.objValue;
     }
 
     @Override // io.flutter.embedding.android.SplashScreenProvider
@@ -476,7 +510,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     public SplashScreen provideSplashScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             Drawable splashScreenFromManifest = getSplashScreenFromManifest();
             if (splashScreenFromManifest != null) {
                 return new DrawableSplashScreen(splashScreenFromManifest);
@@ -486,10 +520,17 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         return (SplashScreen) invokeV.objValue;
     }
 
+    @VisibleForTesting
+    public FlutterFragment retrieveExistingFlutterFragmentIfPossible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (FlutterFragment) getSupportFragmentManager().findFragmentByTag(TAG_FLUTTER_FRAGMENT) : (FlutterFragment) invokeV.objValue;
+    }
+
     public boolean shouldAttachEngineToActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -498,6 +539,24 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     public boolean shouldDestroyEngineWithHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? getIntent().getBooleanExtra("destroy_engine_with_activity", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? getIntent().getBooleanExtra("destroy_engine_with_activity", false) : invokeV.booleanValue;
+    }
+
+    @VisibleForTesting
+    public boolean shouldHandleDeeplinking() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            try {
+                Bundle metaData = getMetaData();
+                if (metaData != null) {
+                    return metaData.getBoolean(FlutterActivityLaunchConfigs.HANDLE_DEEPLINKING_META_DATA_KEY);
+                }
+                return false;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

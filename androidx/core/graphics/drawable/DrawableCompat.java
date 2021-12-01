@@ -13,7 +13,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +109,7 @@ public final class DrawableCompat {
     public static ColorFilter getColorFilter(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawable)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return drawable.getColorFilter();
             }
@@ -122,7 +121,7 @@ public final class DrawableCompat {
     public static int getLayoutDirection(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, drawable)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 23) {
                 return drawable.getLayoutDirection();

@@ -6,9 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -116,7 +114,7 @@ public final class BdZeusUtil implements INoProGuard {
 
     public static void deleteCookieFile(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) || context == null || context.getApplicationContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, context) == null) || context == null || context.getApplicationContext() == null) {
             return;
         }
         String parent = context.getApplicationContext().getDatabasePath(BitmapPoolType.DUMMY).getParent();
@@ -130,7 +128,7 @@ public final class BdZeusUtil implements INoProGuard {
     public static boolean deleteFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) {
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -189,12 +187,12 @@ public final class BdZeusUtil implements INoProGuard {
         return invokeV.booleanValue;
     }
 
-    public static String formatdetailTime(long j) {
+    public static String formatdetailTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
+            calendar.setTimeInMillis(j2);
             return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + " " + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
         }
         return (String) invokeJ.objValue;
@@ -364,7 +362,7 @@ public final class BdZeusUtil implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
             String str2 = TAG;
-            Log.i(str2, "printKernelLog: " + formatdetailTime(System.currentTimeMillis()) + " " + str + Part.CRLF);
+            Log.i(str2, "printKernelLog: " + formatdetailTime(System.currentTimeMillis()) + " " + str + "\r\n");
         }
     }
 

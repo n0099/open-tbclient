@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.b;
-import h.c;
-import h.k;
-import h.u.d;
-import h.u.e;
+import i.b;
+import i.c;
+import i.k;
+import i.u.d;
+import i.u.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
@@ -18,7 +18,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends b> f73515e;
+    public final Iterable<? extends b> f64324e;
 
     /* loaded from: classes3.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -81,7 +81,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -89,7 +89,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -97,7 +97,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
@@ -121,16 +121,16 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
                 return;
             }
         }
-        this.f73515e = iterable;
+        this.f64324e = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // h.b.f, h.n.b
+    @Override // i.b.f, i.n.b
     public void call(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             try {
-                Iterator<? extends b> it = this.f73515e.iterator();
+                Iterator<? extends b> it = this.f64324e.iterator();
                 if (it == null) {
                     cVar.onSubscribe(e.c());
                     cVar.onError(new NullPointerException("The iterator returned is null"));

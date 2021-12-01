@@ -10,13 +10,11 @@ import com.xiaomi.push.di;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r implements di {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71558a;
+    public Context a;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -33,21 +31,21 @@ public class r implements di {
                 return;
             }
         }
-        this.f71558a = context;
+        this.a = context;
     }
 
     @Override // com.xiaomi.push.di
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m114a(this.f71558a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m163a(this.a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.di
     public void a(ie ieVar, hf hfVar, hs hsVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ieVar, hfVar, hsVar) == null) {
-            an.a(this.f71558a).a((an) ieVar, hfVar, hsVar);
+            an.a(this.a).a((an) ieVar, hfVar, hsVar);
         }
     }
 }

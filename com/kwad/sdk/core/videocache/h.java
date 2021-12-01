@@ -3,7 +3,6 @@ package com.kwad.sdk.core.videocache;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,21 +19,19 @@ import java.util.Map;
 public class h implements m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.d.b f66091a;
+    public final com.kwad.sdk.core.videocache.c.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.b.b f66092b;
+    public final com.kwad.sdk.core.videocache.a.b f57917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public n f66093c;
+    public n f57918c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpURLConnection f66094d;
+    public HttpURLConnection f57919d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f66095e;
+    public InputStream f57920e;
 
     public h(h hVar) {
         Interceptable interceptable = $ic;
@@ -51,12 +48,12 @@ public class h implements m {
                 return;
             }
         }
-        this.f66093c = hVar.f66093c;
-        this.f66091a = hVar.f66091a;
-        this.f66092b = hVar.f66092b;
+        this.f57918c = hVar.f57918c;
+        this.a = hVar.a;
+        this.f57917b = hVar.f57917b;
     }
 
-    public h(String str, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
+    public h(String str, com.kwad.sdk.core.videocache.c.b bVar, com.kwad.sdk.core.videocache.a.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,10 +68,10 @@ public class h implements m {
                 return;
             }
         }
-        this.f66091a = (com.kwad.sdk.core.videocache.d.b) j.a(bVar);
-        this.f66092b = (com.kwad.sdk.core.videocache.b.b) j.a(bVar2);
-        n a2 = bVar.a(str);
-        this.f66093c = a2 == null ? new n(str, -2147483648L, l.a(str)) : a2;
+        this.a = (com.kwad.sdk.core.videocache.c.b) j.a(bVar);
+        this.f57917b = (com.kwad.sdk.core.videocache.a.b) j.a(bVar2);
+        n a = bVar.a(str);
+        this.f57918c = a == null ? new n(str, -2147483648L, l.a(str)) : a;
     }
 
     private long a(HttpURLConnection httpURLConnection) {
@@ -90,31 +87,31 @@ public class h implements m {
         return invokeL.longValue;
     }
 
-    private long a(HttpURLConnection httpURLConnection, long j, int i2) {
+    private long a(HttpURLConnection httpURLConnection, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{httpURLConnection, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            long a2 = a(httpURLConnection);
-            return i2 == 200 ? a2 : i2 == 206 ? a2 + j : this.f66093c.f66110b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{httpURLConnection, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+            long a = a(httpURLConnection);
+            return i2 == 200 ? a : i2 == 206 ? a + j2 : this.f57918c.f57934b;
         }
         return invokeCommon.longValue;
     }
 
-    private HttpURLConnection a(long j, int i2) {
+    private HttpURLConnection a(long j2, int i2) {
         InterceptResult invokeCommon;
         String str;
         HttpURLConnection httpURLConnection;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            String str2 = this.f66093c.f66109a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+            String str2 = this.f57918c.a;
             int i3 = 0;
             do {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Open connection ");
-                int i4 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                int i4 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i4 > 0) {
-                    str = " with offset " + j;
+                    str = " with offset " + j2;
                 } else {
                     str = "";
                 }
@@ -123,16 +120,18 @@ public class h implements m {
                 sb.append(str2);
                 com.kwad.sdk.core.d.a.a("HttpUrlSource", sb.toString());
                 httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
-                com.kwad.sdk.core.network.l.a(httpURLConnection);
+                com.kwad.sdk.core.network.m.a(httpURLConnection);
                 a(httpURLConnection, str2);
                 if (i4 > 0) {
-                    httpURLConnection.setRequestProperty("Range", "bytes=" + j + "-");
+                    httpURLConnection.setRequestProperty("Range", "bytes=" + j2 + "-");
                 }
                 if (i2 > 0) {
                     httpURLConnection.setConnectTimeout(i2);
                     httpURLConnection.setReadTimeout(i2);
                 }
-                httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
+                httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.c());
+                httpURLConnection.setRequestProperty("BrowserUa", com.kwad.sdk.core.network.k.d());
+                httpURLConnection.setRequestProperty("SystemUa", com.kwad.sdk.core.network.k.a());
                 int responseCode = httpURLConnection.getResponseCode();
                 z = responseCode == 301 || responseCode == 302 || responseCode == 303;
                 if (z) {
@@ -151,8 +150,8 @@ public class h implements m {
 
     private void a(HttpURLConnection httpURLConnection, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, httpURLConnection, str) == null) {
-            for (Map.Entry<String, String> entry : this.f66092b.a(str).entrySet()) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, httpURLConnection, str) == null) {
+            for (Map.Entry<String, String> entry : this.f57917b.a(str).entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -177,28 +176,28 @@ public class h implements m {
     private void e() {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.f66093c.f66109a);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            com.kwad.sdk.core.d.a.a("HttpUrlSource", "Read content info from " + this.f57918c.a);
             ?? r0 = 10000;
             InputStream inputStream = null;
             try {
                 try {
                     httpURLConnection = a(0L, 10000);
                     try {
-                        long a2 = a(httpURLConnection);
+                        long a = a(httpURLConnection);
                         String contentType = httpURLConnection.getContentType();
                         inputStream = httpURLConnection.getInputStream();
-                        n nVar = new n(this.f66093c.f66109a, a2, contentType);
-                        this.f66093c = nVar;
-                        this.f66091a.a(nVar.f66109a, nVar);
-                        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Source info fetched: " + this.f66093c);
+                        n nVar = new n(this.f57918c.a, a, contentType);
+                        this.f57918c = nVar;
+                        this.a.a(nVar.a, nVar);
+                        com.kwad.sdk.core.d.a.a("HttpUrlSource", "Source info fetched: " + this.f57918c);
                         l.a(inputStream);
                         r0 = httpURLConnection;
                         if (httpURLConnection == null) {
                             return;
                         }
                     } catch (IOException unused) {
-                        com.kwad.sdk.core.d.a.e("HttpUrlSource", "Error fetching info from " + this.f66093c.f66109a);
+                        com.kwad.sdk.core.d.a.e("HttpUrlSource", "Error fetching info from " + this.f57918c.a);
                         l.a(inputStream);
                         r0 = httpURLConnection;
                         if (httpURLConnection == null) {
@@ -233,16 +232,16 @@ public class h implements m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            InputStream inputStream = this.f66095e;
+            InputStream inputStream = this.f57920e;
             if (inputStream == null) {
-                throw new ProxyCacheException("Error reading data from " + this.f66093c.f66109a + ": connection is absent!");
+                throw new ProxyCacheException("Error reading data from " + this.f57918c.a + ": connection is absent!");
             }
             try {
                 return inputStream.read(bArr, 0, bArr.length);
             } catch (InterruptedIOException e2) {
-                throw new InterruptedProxyCacheException("Reading source " + this.f66093c.f66109a + " is interrupted", e2);
+                throw new InterruptedProxyCacheException("Reading source " + this.f57918c.a + " is interrupted", e2);
             } catch (IOException e3) {
-                throw new ProxyCacheException("Error reading data from " + this.f66093c.f66109a, e3);
+                throw new ProxyCacheException("Error reading data from " + this.f57918c.a, e3);
             }
         }
         return invokeL.intValue;
@@ -251,34 +250,34 @@ public class h implements m {
     @Override // com.kwad.sdk.core.videocache.m
     public synchronized long a() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f66093c.f66110b == -2147483648L) {
+                if (this.f57918c.f57934b == -2147483648L) {
                     e();
                 }
-                j = this.f66093c.f66110b;
+                j2 = this.f57918c.f57934b;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
 
     @Override // com.kwad.sdk.core.videocache.m
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             try {
-                HttpURLConnection a2 = a(j, -1);
-                this.f66094d = a2;
-                String contentType = a2.getContentType();
-                this.f66095e = new BufferedInputStream(this.f66094d.getInputStream(), 8192);
-                n nVar = new n(this.f66093c.f66109a, a(this.f66094d, j, this.f66094d.getResponseCode()), contentType);
-                this.f66093c = nVar;
-                this.f66091a.a(nVar.f66109a, nVar);
+                HttpURLConnection a = a(j2, -1);
+                this.f57919d = a;
+                String contentType = a.getContentType();
+                this.f57920e = new BufferedInputStream(this.f57919d.getInputStream(), 8192);
+                n nVar = new n(this.f57918c.a, a(this.f57919d, j2, this.f57919d.getResponseCode()), contentType);
+                this.f57918c = nVar;
+                this.a.a(nVar.a, nVar);
             } catch (IOException e2) {
-                throw new ProxyCacheException("Error opening connection for " + this.f66093c.f66109a + " with offset " + j, e2);
+                throw new ProxyCacheException("Error opening connection for " + this.f57918c.a + " with offset " + j2, e2);
             }
         }
     }
@@ -287,7 +286,7 @@ public class h implements m {
     public void b() {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.f66094d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (httpURLConnection = this.f57919d) == null) {
             return;
         }
         try {
@@ -309,10 +308,10 @@ public class h implements m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.f66093c.f66111c)) {
+                if (TextUtils.isEmpty(this.f57918c.f57935c)) {
                     e();
                 }
-                str = this.f66093c.f66111c;
+                str = this.f57918c.f57935c;
             }
             return str;
         }
@@ -322,14 +321,14 @@ public class h implements m {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66093c.f66109a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57918c.a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "HttpUrlSource{sourceInfo='" + this.f66093c + "}";
+            return "HttpUrlSource{sourceInfo='" + this.f57918c + "}";
         }
         return (String) invokeV.objValue;
     }

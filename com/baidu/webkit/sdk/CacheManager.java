@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +15,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CacheManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class CacheResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,10 +134,10 @@ public class CacheManager {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.outStream : (OutputStream) invokeV.objValue;
         }
 
-        public void setContentLength(long j) {
+        public void setContentLength(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.contentLength = j;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.contentLength = j2;
             }
         }
 
@@ -220,15 +219,15 @@ public class CacheManager {
     public static File getCacheFileBaseDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             return null;
         }
         return (File) invokeV.objValue;
     }
 
-    public static void saveCacheFile(String str, long j, CacheResult cacheResult) {
+    public static void saveCacheFile(String str, long j2, CacheResult cacheResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Long.valueOf(j), cacheResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j2), cacheResult}) == null) {
             try {
                 cacheResult.outStream.close();
             } catch (IOException unused) {

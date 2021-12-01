@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GroupActivityData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8275677249213550974L;
@@ -126,10 +126,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 
@@ -154,10 +154,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.userId = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.userId = j2;
         }
     }
 
@@ -182,10 +182,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setgActivityTime(long j) {
+    public void setgActivityTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            this.gActivityTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+            this.gActivityTime = j2;
         }
     }
 

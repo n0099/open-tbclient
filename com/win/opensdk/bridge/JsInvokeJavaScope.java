@@ -3,15 +3,14 @@ package com.win.opensdk.bridge;
 import android.webkit.WebView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import b.o.a.q0;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.p.a.q0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.bridge.core.JsCallback;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JsInvokeJavaScope {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,14 +59,14 @@ public class JsInvokeJavaScope {
 
     public static void onRewardedShowFail(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, webView, jSONObject, jsCallback) == null) {
             q0.c("onRewardedShowFail", "onRewardedShowFail", jSONObject.optString("message"));
         }
     }
 
     public static void onT(WebView webView, JSONObject jSONObject, JsCallback jsCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, webView, jSONObject, jsCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, webView, jSONObject, jsCallback) == null) {
             q0.c("onT", "onT", jSONObject.optString("message"));
         }
     }

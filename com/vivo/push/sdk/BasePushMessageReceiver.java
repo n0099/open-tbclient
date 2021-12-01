@@ -7,7 +7,6 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PushMessageReceiver";
@@ -113,7 +112,7 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
             com.vivo.push.p.a().a(applicationContext);
             try {
                 int intExtra = intent.getIntExtra("method", -1);
-                String stringExtra = intent.getStringExtra(IAdRequestParam.REQ_ID);
+                String stringExtra = intent.getStringExtra("req_id");
                 p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + stringExtra);
                 try {
                     com.vivo.push.p.a().a(intent, this);

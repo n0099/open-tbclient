@@ -66,8 +66,8 @@ public final class FlowKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m1987catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m1992catch(flow, function3);
+    public static final <T> Flow<T> m2102catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m2107catch(flow, function3);
     }
 
     public static final <T> Object catchImpl(Flow<? extends T> flow, FlowCollector<? super T> flowCollector, Continuation<? super Throwable> continuation) {
@@ -129,25 +129,25 @@ public final class FlowKt {
     }
 
     @FlowPreview
-    public static final <T> Flow<T> debounce(Flow<? extends T> flow, long j) {
-        return FlowKt__DelayKt.debounce(flow, j);
+    public static final <T> Flow<T> debounce(Flow<? extends T> flow, long j2) {
+        return FlowKt__DelayKt.debounce(flow, j2);
     }
 
     @FlowPreview
     @ExperimentalTime
     /* renamed from: debounce-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m1988debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m1990debounce8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m2103debounce8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt__DelayKt.m2105debounce8GFy2Ro(flow, d2);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
-    public static final <T> Flow<T> delayEach(Flow<? extends T> flow, long j) {
-        return FlowKt__MigrationKt.delayEach(flow, j);
+    public static final <T> Flow<T> delayEach(Flow<? extends T> flow, long j2) {
+        return FlowKt__MigrationKt.delayEach(flow, j2);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onStart { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onStart { delay(timeMillis) }", imports = {}))
-    public static final <T> Flow<T> delayFlow(Flow<? extends T> flow, long j) {
-        return FlowKt__MigrationKt.delayFlow(flow, j);
+    public static final <T> Flow<T> delayFlow(Flow<? extends T> flow, long j2) {
+        return FlowKt__MigrationKt.delayFlow(flow, j2);
     }
 
     @ExperimentalCoroutinesApi
@@ -199,8 +199,8 @@ public final class FlowKt {
         return FlowKt__ReduceKt.firstOrNull(flow, continuation);
     }
 
-    public static final ReceiveChannel<Unit> fixedPeriodTicker(CoroutineScope coroutineScope, long j, long j2) {
-        return FlowKt__DelayKt.fixedPeriodTicker(coroutineScope, j, j2);
+    public static final ReceiveChannel<Unit> fixedPeriodTicker(CoroutineScope coroutineScope, long j2, long j3) {
+        return FlowKt__DelayKt.fixedPeriodTicker(coroutineScope, j2, j3);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue is named flatMapConcat", replaceWith = @ReplaceWith(expression = "flatMapConcat(mapper)", imports = {}))
@@ -372,15 +372,15 @@ public final class FlowKt {
     }
 
     @FlowPreview
-    public static final <T> Flow<T> sample(Flow<? extends T> flow, long j) {
-        return FlowKt__DelayKt.sample(flow, j);
+    public static final <T> Flow<T> sample(Flow<? extends T> flow, long j2) {
+        return FlowKt__DelayKt.sample(flow, j2);
     }
 
     @FlowPreview
     @ExperimentalTime
     /* renamed from: sample-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m1989sample8GFy2Ro(Flow<? extends T> flow, double d2) {
-        return FlowKt__DelayKt.m1991sample8GFy2Ro(flow, d2);
+    public static final <T> Flow<T> m2104sample8GFy2Ro(Flow<? extends T> flow, double d2) {
+        return FlowKt__DelayKt.m2106sample8GFy2Ro(flow, d2);
     }
 
     @ExperimentalCoroutinesApi
@@ -550,8 +550,8 @@ public final class FlowKt {
     }
 
     @ExperimentalCoroutinesApi
-    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
-        return FlowKt__ErrorsKt.retry(flow, j, function2);
+    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j2, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
+        return FlowKt__ErrorsKt.retry(flow, j2, function2);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'startWith' is 'onStart'. Use 'onStart { emitAll(other) }'", replaceWith = @ReplaceWith(expression = "onStart { emitAll(other) }", imports = {}))

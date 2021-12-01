@@ -2,7 +2,6 @@ package com.squareup.wire;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,10 +102,10 @@ public final class WireInput {
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
     }
 
-    public static long decodeZigZag64(long j) {
+    public static long decodeZigZag64(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? (-(j2 & 1)) ^ (j2 >>> 1) : invokeJ.longValue;
     }
 
     public static WireInput newInstance(byte[] bArr) {
@@ -363,12 +362,12 @@ public final class WireInput {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < 64; i2 += 7) {
                 byte readRawByte = readRawByte();
-                j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
+                j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
                 if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
-                    return j;
+                    return j2;
                 }
             }
             throw new IOException(ENCOUNTERED_A_MALFORMED_VARINT);
@@ -398,7 +397,7 @@ public final class WireInput {
     public static WireInput newInstance(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) ? new WireInput(inputStream) : (WireInput) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? new WireInput(inputStream) : (WireInput) invokeL.objValue;
     }
 
     public ByteString readBytes(int i2) throws IOException {

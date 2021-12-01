@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.data.PerfClientReport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PerfClientReport f71479a;
+    public final /* synthetic */ PerfClientReport a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ a f44a;
@@ -32,14 +30,14 @@ public class c implements Runnable {
             }
         }
         this.f44a = aVar;
-        this.f71479a = perfClientReport;
+        this.a = perfClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44a.b(this.f71479a);
+            this.f44a.b(this.a);
         }
     }
 }

@@ -1,135 +1,143 @@
 package com.kwai.filedownloader.c;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.content.ContentValues;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.filedownloader.message.MessageSnapshot;
+import com.kwai.filedownloader.e.f;
+import java.util.List;
 /* loaded from: classes2.dex */
-public interface a extends IInterface {
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: com.kwai.filedownloader.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC1981a extends Binder implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: b  reason: collision with root package name */
+    public int f59884b;
 
-        /* renamed from: com.kwai.filedownloader.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C1982a implements a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: c  reason: collision with root package name */
+    public long f59885c;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f67760a;
+    /* renamed from: d  reason: collision with root package name */
+    public long f59886d;
 
-            public C1982a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f67760a = iBinder;
+    /* renamed from: e  reason: collision with root package name */
+    public long f59887e;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-
-            @Override // com.kwai.filedownloader.c.a
-            public void a(MessageSnapshot messageSnapshot) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                        if (messageSnapshot != null) {
-                            obtain.writeInt(1);
-                            messageSnapshot.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        this.f67760a.transact(1, obtain, null, 1);
-                    } finally {
-                        obtain.recycle();
-                    }
-                }
-            }
-
-            @Override // android.os.IInterface
-            public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67760a : (IBinder) invokeV.objValue;
-            }
-        }
-
-        public AbstractBinderC1981a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-        }
-
-        public static a a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1982a(iBinder) : (a) queryLocalInterface;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
-                    parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                    a(parcel.readInt() != 0 ? MessageSnapshot.CREATOR.createFromParcel(parcel) : null);
-                    return true;
-                } else if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
-                } else {
-                    parcel2.writeString("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-                    return true;
-                }
-            }
-            return invokeCommon.booleanValue;
         }
     }
 
-    void a(MessageSnapshot messageSnapshot);
+    public static long a(List<a> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            long j2 = 0;
+            for (a aVar : list) {
+                j2 += aVar.d() - aVar.c();
+            }
+            return j2;
+        }
+        return invokeL.longValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.a = i2;
+        }
+    }
+
+    public void a(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.f59885c = j2;
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59884b : invokeV.intValue;
+    }
+
+    public void b(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f59884b = i2;
+        }
+    }
+
+    public void b(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.f59886d = j2;
+        }
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59885c : invokeV.longValue;
+    }
+
+    public void c(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.f59887e = j2;
+        }
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59886d : invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59887e : invokeV.longValue;
+    }
+
+    public ContentValues f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("id", Integer.valueOf(this.a));
+            contentValues.put("connectionIndex", Integer.valueOf(this.f59884b));
+            contentValues.put("startOffset", Long.valueOf(this.f59885c));
+            contentValues.put("currentOffset", Long.valueOf(this.f59886d));
+            contentValues.put("endOffset", Long.valueOf(this.f59887e));
+            return contentValues;
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.a), Integer.valueOf(this.f59884b), Long.valueOf(this.f59885c), Long.valueOf(this.f59887e), Long.valueOf(this.f59886d)) : (String) invokeV.objValue;
+    }
 }

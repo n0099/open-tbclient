@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f42884a;
+    public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f42885b;
+    public final /* synthetic */ SearchResult f38350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f42886c;
+    public final /* synthetic */ Object f38351c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f42887d;
+    public final /* synthetic */ a f38352d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
@@ -37,23 +35,23 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f42887d = aVar;
-        this.f42884a = dVar;
-        this.f42885b = searchResult;
-        this.f42886c = obj;
+        this.f38352d = aVar;
+        this.a = dVar;
+        this.f38350b = searchResult;
+        this.f38351c = obj;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42884a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        this.f42887d.f42875a.lock();
+        this.f38352d.a.lock();
         try {
-            this.f42884a.a(this.f42885b, this.f42886c);
+            this.a.a(this.f38350b, this.f38351c);
         } finally {
-            this.f42887d.f42875a.unlock();
+            this.f38352d.a.unlock();
         }
     }
 }

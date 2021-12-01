@@ -3,7 +3,6 @@ package com.baidu.searchbox.pms.db;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PackageManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +75,7 @@ public class PackageManager {
     public static PackageInfo getLastPackageFile(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
             List<PackageInfo> finishedPackageFiles = getFinishedPackageFiles(str, str2, str3);
             if (finishedPackageFiles == null || finishedPackageFiles.size() <= 0) {
                 return null;
@@ -89,7 +88,7 @@ public class PackageManager {
     public static int resetUpdateVersion(String str, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, list)) == null) ? PackageControl.getInstance().resetFinishedUpdateVersion(str, list) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) ? PackageControl.getInstance().resetFinishedUpdateVersion(str, list) : invokeLL.intValue;
     }
 
     @NonNull

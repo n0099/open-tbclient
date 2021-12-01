@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.m.e.n;
+import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GroupInfoData extends AbstractImageProvider implements n, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FRS_GROUP;
@@ -194,7 +194,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.m.e.n
+    @Override // c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,10 +207,10 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.isMemGroup : invokeV.booleanValue;
     }
 
-    public void setAuthorId(long j) {
+    public void setAuthorId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.authorId = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.authorId = j2;
         }
     }
 
@@ -263,10 +263,10 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         }
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 

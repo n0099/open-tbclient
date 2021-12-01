@@ -2,7 +2,6 @@ package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +98,7 @@ public class EqualsBuilder implements Builder<Boolean> {
     public static boolean isRegistered(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
             Set<Pair<IDKey, IDKey>> registry = getRegistry();
             Pair<IDKey, IDKey> registerPair = getRegisterPair(obj, obj2);
             return registry != null && (registry.contains(registerPair) || registry.contains(Pair.of(registerPair.getLeft(), registerPair.getRight())));
@@ -109,7 +108,7 @@ public class EqualsBuilder implements Builder<Boolean> {
 
     public static void reflectionAppend(Object obj, Object obj2, Class<?> cls, EqualsBuilder equalsBuilder, boolean z, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{obj, obj2, cls, equalsBuilder, Boolean.valueOf(z), strArr}) == null) || isRegistered(obj, obj2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{obj, obj2, cls, equalsBuilder, Boolean.valueOf(z), strArr}) == null) || isRegistered(obj, obj2)) {
             return;
         }
         try {
@@ -282,12 +281,12 @@ public class EqualsBuilder implements Builder<Boolean> {
         return invokeCommon.booleanValue;
     }
 
-    public EqualsBuilder append(long j, long j2) {
+    public EqualsBuilder append(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (this.isEquals) {
-                this.isEquals = j == j2;
+                this.isEquals = j2 == j3;
                 return this;
             }
             return this;

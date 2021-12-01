@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceSDKManager;
@@ -33,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FaceDetectStrategyExtModule implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule";
@@ -59,7 +58,7 @@ public class FaceDetectStrategyExtModule implements a {
     public final SoundPoolHelper mSoundPlayHelper;
     public Map<FaceStatusNewEnum, String> mTipsMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FaceProcessRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +172,7 @@ public class FaceDetectStrategyExtModule implements a {
         InterceptResult invokeL;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, faceStatusNewEnum)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, faceStatusNewEnum)) == null) {
             if (this.mTipsMap.containsKey(faceStatusNewEnum)) {
                 return this.mTipsMap.get(faceStatusNewEnum);
             }
@@ -190,7 +189,7 @@ public class FaceDetectStrategyExtModule implements a {
 
     private void process(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bArr) == null) || mProcessCount > 0) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, bArr) == null) || mProcessCount > 0) {
             return;
         }
         mProcessCount++;

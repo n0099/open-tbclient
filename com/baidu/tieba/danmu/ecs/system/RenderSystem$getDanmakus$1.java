@@ -1,0 +1,57 @@
+package com.baidu.tieba.danmu.ecs.system;
+
+import android.graphics.Point;
+import android.graphics.RectF;
+import c.a.r0.m0.i.b;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import kotlin.Metadata;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Lambda;
+@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/render/RenderObject;"}, k = 3, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes10.dex */
+public final class RenderSystem$getDanmakus$1 extends Lambda implements Function1<b, Boolean> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Point $point;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RenderSystem$getDanmakus$1(Point point) {
+        super(1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {point};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.$point = point;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.jvm.functions.Function1
+    public final Boolean invoke(b it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, it)) == null) {
+            Intrinsics.checkNotNullParameter(it, "it");
+            RectF f2 = it.f();
+            Point point = this.$point;
+            return Boolean.valueOf(f2.contains(point.x, point.y));
+        }
+        return (Boolean) invokeL.objValue;
+    }
+}

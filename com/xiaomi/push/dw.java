@@ -4,11 +4,10 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.pose.PoseAR;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,21 +20,21 @@ public class dw {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m286a;
+        ee m335a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m335a = ea.a(context).m335a()) == null) {
             return;
         }
-        m286a.a(context, hashMap);
+        m335a.a(context, hashMap);
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m286a;
+        ee m335a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m335a = ea.a(context).m335a()) == null) {
             return;
         }
-        m286a.c(context, hashMap);
+        m335a.c(context, hashMap);
     }
 
     public static void c(Context context, String str, int i2, String str2) {
@@ -48,10 +47,10 @@ public class dw {
             hashMap.put("awake_info", str);
             hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i2));
             hashMap.put("description", str2);
-            int a2 = ea.a(context).a();
-            if (a2 != 1) {
-                if (a2 != 2) {
-                    if (a2 == 3) {
+            int a = ea.a(context).a();
+            if (a != 1) {
+                if (a != 2) {
+                    if (a == 3) {
                         a(context, hashMap);
                     }
                 }
@@ -66,11 +65,11 @@ public class dw {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m286a;
+        ee m335a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m335a = ea.a(context).m335a()) == null) {
             return;
         }
-        m286a.b(context, hashMap);
+        m335a.b(context, hashMap);
     }
 }

@@ -2,14 +2,13 @@ package com.baidu.android.util.concurrent;
 
 import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UiThreadUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Handler sMainHandler;
@@ -50,15 +49,15 @@ public class UiThreadUtil {
 
     public static void runOnUiThreadAtFrontOfQueue(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
             UiThreadUtils.runOnUiThreadAtFrontOfQueue(runnable);
         }
     }
 
-    public static void runOnUiThread(Runnable runnable, long j) {
+    public static void runOnUiThread(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            UiThreadUtils.runOnUiThread(runnable, j);
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j2) == null) {
+            UiThreadUtils.runOnUiThread(runnable, j2);
         }
     }
 }

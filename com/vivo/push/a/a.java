@@ -13,7 +13,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import com.vivo.push.y;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,15 +22,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, yVar) == null) {
             boolean c2 = yVar.c();
-            b a2 = b.a(context, c2 ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
-            boolean a3 = a2.a();
+            b a = b.a(context, c2 ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
+            boolean a2 = a.a();
             if (TextUtils.isEmpty(yVar.a())) {
                 yVar.a(context.getPackageName());
             }
-            if (a3 && !"com.vivo.pushservice".equals(context.getPackageName())) {
+            if (a2 && !"com.vivo.pushservice".equals(context.getPackageName())) {
                 com.vivo.push.a aVar = new com.vivo.push.a(yVar.a(), str, new Bundle());
                 yVar.a(aVar);
-                if (a2.a(aVar.b())) {
+                if (a.a(aVar.b())) {
                     return;
                 }
                 p.b("CommandBridge", "send command error by aidl");

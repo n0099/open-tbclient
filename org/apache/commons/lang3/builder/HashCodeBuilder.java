@@ -2,7 +2,6 @@ package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +95,7 @@ public class HashCodeBuilder implements Builder<Integer> {
     public static boolean isRegistered(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
             Set<IDKey> registry = getRegistry();
             return registry != null && registry.contains(new IDKey(obj));
         }
@@ -105,7 +104,7 @@ public class HashCodeBuilder implements Builder<Integer> {
 
     public static void reflectionAppend(Object obj, Class<?> cls, HashCodeBuilder hashCodeBuilder, boolean z, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{obj, cls, hashCodeBuilder, Boolean.valueOf(z), strArr}) == null) || isRegistered(obj)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{obj, cls, hashCodeBuilder, Boolean.valueOf(z), strArr}) == null) || isRegistered(obj)) {
             return;
         }
         try {
@@ -404,11 +403,11 @@ public class HashCodeBuilder implements Builder<Integer> {
         return (HashCodeBuilder) invokeL.objValue;
     }
 
-    public HashCodeBuilder append(long j) {
+    public HashCodeBuilder append(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            this.iTotal = (this.iTotal * this.iConstant) + ((int) (j ^ (j >> 32)));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            this.iTotal = (this.iTotal * this.iConstant) + ((int) (j2 ^ (j2 >> 32)));
             return this;
         }
         return (HashCodeBuilder) invokeJ.objValue;
@@ -421,8 +420,8 @@ public class HashCodeBuilder implements Builder<Integer> {
             if (jArr == null) {
                 this.iTotal *= this.iConstant;
             } else {
-                for (long j : jArr) {
-                    append(j);
+                for (long j2 : jArr) {
+                    append(j2);
                 }
             }
             return this;

@@ -3,7 +3,6 @@ package com.google.protobuf;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class RopeByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] minLengthByDepth;
@@ -36,13 +35,13 @@ public class RopeByteString extends ByteString {
     public final int treeDepth;
 
     /* renamed from: com.google.protobuf.RopeByteString$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +133,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -252,7 +251,7 @@ public class RopeByteString extends ByteString {
     public static ByteString concatenate(ByteString byteString, ByteString byteString2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, byteString, byteString2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, byteString, byteString2)) == null) {
             RopeByteString ropeByteString = byteString instanceof RopeByteString ? (RopeByteString) byteString : null;
             if (byteString2.size() == 0) {
                 return byteString;
@@ -597,7 +596,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Balancer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -653,7 +652,7 @@ public class RopeByteString extends ByteString {
         private int getDepthBinForLength(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
                 int binarySearch = Arrays.binarySearch(RopeByteString.minLengthByDepth, i2);
                 return binarySearch < 0 ? (-(binarySearch + 1)) - 1 : binarySearch;
             }
@@ -662,7 +661,7 @@ public class RopeByteString extends ByteString {
 
         private void insert(ByteString byteString) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, byteString) == null) {
+            if (interceptable == null || interceptable.invokeL(65542, this, byteString) == null) {
                 int depthBinForLength = getDepthBinForLength(byteString.size());
                 int i2 = RopeByteString.minLengthByDepth[depthBinForLength + 1];
                 if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
@@ -724,7 +723,7 @@ public class RopeByteString extends ByteString {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new RopeByteIterator(this, null) : (ByteString.ByteIterator) invokeV.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class RopeInputStream extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -869,15 +868,15 @@ public class RopeByteString extends ByteString {
         }
 
         @Override // java.io.InputStream
-        public long skip(long j) {
+        public long skip(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                if (j >= 0) {
-                    if (j > 2147483647L) {
-                        j = 2147483647L;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+                if (j2 >= 0) {
+                    if (j2 > 2147483647L) {
+                        j2 = 2147483647L;
                     }
-                    return readSkipInternal(null, 0, (int) j);
+                    return readSkipInternal(null, 0, (int) j2);
                 }
                 throw new IndexOutOfBoundsException();
             }

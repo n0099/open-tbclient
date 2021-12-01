@@ -18,18 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.h$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36594a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,9 +44,9 @@ public class h extends d {
                 }
             }
             int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            f36594a = iArr;
+            a = iArr;
             try {
-                iArr[com.baidu.android.pushservice.a.c.f35801a.ordinal()] = 1;
+                iArr[com.baidu.android.pushservice.a.c.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
         }
@@ -80,14 +78,14 @@ public class h extends d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), str, str2, bArr, bArr2})) == null) {
             if (m.a(context, bArr, str2, bArr2)) {
                 String[] strArr = new String[2];
-                if (i2 == l.f36598b.b() || i2 == l.f36599c.b()) {
+                if (i2 == l.f32821b.b() || i2 == l.f32822c.b()) {
                     strArr[0] = new String(bArr2);
                     strArr[1] = null;
-                } else if (i2 == l.f36603g.b()) {
-                    PublicMsg a2 = j.a(context, str2, str, bArr2);
-                    strArr[0] = a2.mDescription;
-                    strArr[1] = a2.mCustomContent;
-                } else if (i2 == l.j.b()) {
+                } else if (i2 == l.f32826g.b()) {
+                    PublicMsg a = j.a(context, str2, str, bArr2);
+                    strArr[0] = a.mDescription;
+                    strArr[1] = a.mCustomContent;
+                } else if (i2 == l.f32829j.b()) {
                     strArr[0] = new String(bArr2);
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -117,47 +115,47 @@ public class h extends d {
             int g2 = kVar.g();
             byte[] i3 = kVar.i();
             String d2 = kVar.d();
-            int a2 = kVar.a();
-            com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.f36585a, c2);
-            if (TextUtils.isEmpty(d2) || !m.b(this.f36585a, d2)) {
-                d2 = a3.a() == com.baidu.android.pushservice.a.c.f35801a ? a3.f35804a.b() : null;
+            int a = kVar.a();
+            com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.a, c2);
+            if (TextUtils.isEmpty(d2) || !m.b(this.a, d2)) {
+                d2 = a2.a() == com.baidu.android.pushservice.a.c.a ? a2.a.b() : null;
             }
-            if (AnonymousClass1.f36594a[a3.a().ordinal()] == 1) {
-                String a4 = a(d2);
+            if (AnonymousClass1.a[a2.a().ordinal()] == 1) {
+                String a3 = a(d2);
                 try {
-                    this.f36585a.getPackageManager().getPackageInfo(a4, 128);
-                    PublicMsg a5 = j.a(this.f36585a, f2, c2, bArr);
-                    boolean a6 = a(bArr);
-                    if (a5 != null) {
+                    this.a.getPackageManager().getPackageInfo(a3, 128);
+                    PublicMsg a4 = j.a(this.a, f2, c2, bArr);
+                    boolean a5 = a(bArr);
+                    if (a4 != null) {
                         Intent intent = new Intent();
-                        if (a6) {
+                        if (a5) {
                             str = "com.baidu.android.pushservice.action.FB_MESSAGE";
                         } else {
                             str = "com.baidu.android.pushservice.action.MESSAGE";
                             intent.putExtra("msg_id", f2);
                         }
-                        intent.putExtra("message_string", a5.mDescription);
+                        intent.putExtra("message_string", a4.mDescription);
                         intent.putExtra("message_id", f2);
                         intent.putExtra("baidu_message_type", g2);
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra("app_id", c2);
                         intent.putExtra("baidu_message_secur_info", i3);
-                        intent.putExtra("notify_id", a2);
-                        if (!TextUtils.isEmpty(a5.mCustomContent)) {
+                        intent.putExtra("notify_id", a);
+                        if (!TextUtils.isEmpty(a4.mCustomContent)) {
                             try {
-                                JSONObject jSONObject = new JSONObject(a5.mCustomContent);
+                                JSONObject jSONObject = new JSONObject(a4.mCustomContent);
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
                                     intent.putExtra(next, jSONObject.getString(next));
                                 }
-                                intent.putExtra("extra_extra_custom_content", a5.mCustomContent);
+                                intent.putExtra("extra_extra_custom_content", a4.mCustomContent);
                             } catch (JSONException e2) {
-                                new b.c(this.f36585a).a(Log.getStackTraceString(e2)).a();
+                                new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                             }
                         }
-                        i2 = m.a(this.f36585a, intent, str, a4);
-                        m.a(">>> Deliver message to client: " + a4 + " msg: " + a5.mDescription + " result: " + i2, this.f36585a);
+                        i2 = m.a(this.a, intent, str, a3);
+                        m.a(">>> Deliver message to client: " + a3 + " msg: " + a4.mDescription + " result: " + i2, this.a);
                     } else {
                         i2 = 0;
                     }
@@ -165,7 +163,7 @@ public class h extends d {
                     i2 = 8;
                     sb = new StringBuilder();
                     sb.append(">>> NOT deliver to app: ");
-                    c2 = a3.f35804a.b();
+                    c2 = a2.a.b();
                 }
                 com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
                 gVar.a(i2);
@@ -175,7 +173,7 @@ public class h extends d {
             sb = new StringBuilder();
             sb.append(">>> NOT found client for privateMessageHandler appid ");
             sb.append(c2);
-            m.a(sb.toString(), this.f36585a);
+            m.a(sb.toString(), this.a);
             com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
             gVar2.a(i2);
             return gVar2;

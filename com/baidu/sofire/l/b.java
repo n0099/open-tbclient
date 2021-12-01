@@ -12,13 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f44061a;
+    public a a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,13 +37,11 @@ public final class b implements com.baidu.sofire.k.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             a aVar = new a(context, cVar);
-            this.f44061a = aVar;
-            aVar.f44057c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.l.a.1
+            this.a = aVar;
+            aVar.f39152c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.l.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a */
-                public final /* synthetic */ a f44060a;
+                public final /* synthetic */ a a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,7 +58,7 @@ public final class b implements com.baidu.sofire.k.b {
                             return;
                         }
                     }
-                    this.f44060a = aVar;
+                    this.a = aVar;
                 }
 
                 @Override // android.content.ServiceConnection
@@ -70,7 +66,7 @@ public final class b implements com.baidu.sofire.k.b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                         synchronized (this) {
-                            this.f44060a.f44056b = c.a.a(iBinder);
+                            this.a.f39151b = c.a.a(iBinder);
                         }
                     }
                 }
@@ -79,13 +75,13 @@ public final class b implements com.baidu.sofire.k.b {
                 public final void onServiceDisconnected(ComponentName componentName) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                        this.f44060a.f44056b = null;
+                        this.a.f39151b = null;
                     }
                 }
             };
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            aVar.f44055a.bindService(intent, aVar.f44057c, 1);
+            aVar.a.bindService(intent, aVar.f39152c, 1);
         }
     }
 
@@ -93,6 +89,6 @@ public final class b implements com.baidu.sofire.k.b {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44061a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (String) invokeV.objValue;
     }
 }

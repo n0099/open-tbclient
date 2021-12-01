@@ -8,25 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f44055a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f44056b;
+    public c f39151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f44057c;
+    public ServiceConnection f39152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.sofire.k.c f44058d;
+    public com.baidu.sofire.k.c f39153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44059e;
+    public String f39154e;
 
     public a(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -43,9 +41,9 @@ public final class a {
                 return;
             }
         }
-        this.f44055a = null;
-        this.f44055a = context;
-        this.f44058d = cVar;
+        this.a = null;
+        this.a = context;
+        this.f39153d = cVar;
     }
 
     public final String a() {
@@ -56,13 +54,13 @@ public final class a {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f44059e)) {
-                if (this.f44056b != null) {
-                    this.f44059e = this.f44056b.a();
+            if (TextUtils.isEmpty(this.f39154e)) {
+                if (this.f39151b != null) {
+                    this.f39154e = this.f39151b.a();
                 }
-                return this.f44059e;
+                return this.f39154e;
             }
-            return this.f44059e;
+            return this.f39154e;
         }
         return (String) invokeV.objValue;
     }

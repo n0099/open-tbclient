@@ -14,9 +14,13 @@ import com.kwad.sdk.api.KsCustomController;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class FunAdConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int DOWNLOAD_TYPE_NO_POPUP = 0;
+    public static final int DOWNLOAD_TYPE_POPUP = 1;
+    public static final int SPLASH_BUTTON_TYPE_DOWNLOADER_BAR = 2;
+    public static final int SPLASH_BUTTON_TYPE_FULL_SCREEN = 1;
     public static final int TITLE_BAR_THEME_DARK = 1;
     public static final int TITLE_BAR_THEME_LIGHT = 0;
     public static final int TITLE_BAR_THEME_NO_TITLE_BAR = -1;
@@ -24,6 +28,7 @@ public final class FunAdConfig {
     public final Context appContext;
     public final String appId;
     public final String appName;
+    public final int downLoadType;
     public final Set<String> forbiddenPlatforms;
     public final boolean isFilterDeepLinkAd;
     public final boolean isUseCloudAdConfiguration;
@@ -35,56 +40,61 @@ public final class FunAdConfig {
     public final boolean ksCanReadNearbyWifiList;
     public final KsCustomController ksCustomCtr;
     public final boolean logEnabled;
+    public final int splashButtonType;
     public final int titleBarTheme;
     public final TTCustomController ttCustomCtr;
     public final String userId;
 
     /* renamed from: com.fun.ad.sdk.FunAdConfig$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Context f63614a;
+        public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63615b;
+        public String f55608b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f63616c;
+        public String f55609c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f63617d;
+        public boolean f55610d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f63618e;
+        public int f55611e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f63619f;
+        public int f55612f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f63620g;
+        public int f55613g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f63621h;
+        public boolean f55614h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f63622i;
-        public boolean j;
-        public TTCustomController k;
-        public KsCustomController l;
-        public String m;
-        public Set<String> n;
-        public boolean o;
-        public boolean p;
+        public boolean f55615i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public boolean f55616j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public boolean f55617k;
+        public boolean l;
+        public TTCustomController m;
+        public KsCustomController n;
+        public String o;
+        public Set<String> p;
         public boolean q;
+        public boolean r;
+        public boolean s;
 
         public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
@@ -101,20 +111,22 @@ public final class FunAdConfig {
                     return;
                 }
             }
-            this.f63617d = false;
-            this.f63618e = -1;
-            this.f63619f = false;
-            this.f63620g = false;
-            this.f63621h = false;
-            this.f63622i = true;
-            this.j = false;
-            this.k = null;
-            this.l = null;
-            this.n = new HashSet();
-            this.o = true;
-            this.p = true;
+            this.f55610d = false;
+            this.f55611e = -1;
+            this.f55612f = 1;
+            this.f55613g = 0;
+            this.f55614h = false;
+            this.f55615i = false;
+            this.f55616j = false;
+            this.f55617k = true;
+            this.l = false;
+            this.m = null;
+            this.n = null;
+            this.p = new HashSet();
             this.q = true;
-            this.f63614a = context.getApplicationContext();
+            this.r = true;
+            this.s = true;
+            this.a = context.getApplicationContext();
         }
 
         public FunAdConfig build() {
@@ -127,7 +139,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.n.add(str);
+                this.p.add(str);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -137,7 +149,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f63616c = str;
+                this.f55609c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -147,33 +159,33 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f63615b = str;
+                this.f55608b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
+        public Builder setDownLoadType(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+                this.f55613g = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
         public Builder setFilterDeepLinkAd(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.j = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.l = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
         public Builder setKsCanReadICCID(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.o = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setKsCanReadMacAddress(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
@@ -183,11 +195,21 @@ public final class FunAdConfig {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setKsCanReadNearbyWifiList(boolean z) {
+        public Builder setKsCanReadMacAddress(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.p = z;
+                this.s = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setKsCanReadNearbyWifiList(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+                this.r = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -196,8 +218,8 @@ public final class FunAdConfig {
         public Builder setKsCustomController(KsCustomController ksCustomController) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ksCustomController)) == null) {
-                this.l = ksCustomController;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ksCustomController)) == null) {
+                this.n = ksCustomController;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -206,18 +228,28 @@ public final class FunAdConfig {
         public Builder setLogEnabled(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.f63621h = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+                this.f55616j = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
+        public Builder setSplashButtonType(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+                this.f55612f = i2;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
         public Builder setTTCustomController(TTCustomController tTCustomController) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, tTCustomController)) == null) {
-                this.k = tTCustomController;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tTCustomController)) == null) {
+                this.m = tTCustomController;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -226,8 +258,8 @@ public final class FunAdConfig {
         public Builder setTitleBarTheme(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f63618e = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+                this.f55611e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -236,8 +268,8 @@ public final class FunAdConfig {
         public Builder setUseCloudAdConfiguration(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-                this.f63622i = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+                this.f55617k = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -246,8 +278,8 @@ public final class FunAdConfig {
         public Builder setUseTextureView(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-                this.f63617d = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+                this.f55610d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -256,8 +288,8 @@ public final class FunAdConfig {
         public Builder setUserId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-                this.m = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+                this.o = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -266,8 +298,8 @@ public final class FunAdConfig {
         public Builder setVideoDataFlowAutoStart(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.f63620g = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+                this.f55615i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -276,8 +308,8 @@ public final class FunAdConfig {
         public Builder setVideoSoundEnable(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-                this.f63619f = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+                this.f55614h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -299,22 +331,24 @@ public final class FunAdConfig {
                 return;
             }
         }
-        this.appContext = builder.f63614a;
-        this.appName = builder.f63615b;
-        this.appId = builder.f63616c;
-        this.isUseTextureView = builder.f63617d;
-        this.titleBarTheme = builder.f63618e;
-        this.isVideoSoundEnable = builder.f63619f;
-        this.isVideoDataFlowAutoStart = builder.f63620g;
-        this.logEnabled = builder.f63621h;
-        this.isUseCloudAdConfiguration = builder.f63622i;
-        this.isFilterDeepLinkAd = builder.j;
-        this.userId = builder.m;
-        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.n);
-        this.ttCustomCtr = builder.k;
-        this.ksCustomCtr = builder.l;
-        this.ksCanReadICCID = builder.o;
-        this.ksCanReadNearbyWifiList = builder.p;
-        this.ksCanReadMacAddress = builder.q;
+        this.appContext = builder.a;
+        this.appName = builder.f55608b;
+        this.appId = builder.f55609c;
+        this.isUseTextureView = builder.f55610d;
+        this.titleBarTheme = builder.f55611e;
+        this.splashButtonType = builder.f55612f;
+        this.downLoadType = builder.f55613g;
+        this.isVideoSoundEnable = builder.f55614h;
+        this.isVideoDataFlowAutoStart = builder.f55615i;
+        this.logEnabled = builder.f55616j;
+        this.isUseCloudAdConfiguration = builder.f55617k;
+        this.isFilterDeepLinkAd = builder.l;
+        this.userId = builder.o;
+        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.p);
+        this.ttCustomCtr = builder.m;
+        this.ksCustomCtr = builder.n;
+        this.ksCanReadICCID = builder.q;
+        this.ksCanReadNearbyWifiList = builder.r;
+        this.ksCanReadMacAddress = builder.s;
     }
 }

@@ -1,7 +1,6 @@
 package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class ITFReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] DEFAULT_ALLOWED_LENGTHS;
@@ -132,7 +131,7 @@ public final class ITFReader extends OneDReader {
     private int[] decodeStart(BitArray bitArray) throws NotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bitArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitArray)) == null) {
             int[] findGuardPattern = findGuardPattern(bitArray, skipWhiteSpace(bitArray), START_PATTERN);
             this.narrowLineWidth = (findGuardPattern[1] - findGuardPattern[0]) / 4;
             validateQuietZone(bitArray, findGuardPattern[0]);
@@ -144,7 +143,7 @@ public final class ITFReader extends OneDReader {
     public static int[] findGuardPattern(BitArray bitArray, int i2, int[] iArr) throws NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, bitArray, i2, iArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, bitArray, i2, iArr)) == null) {
             int length = iArr.length;
             int[] iArr2 = new int[length];
             int size = bitArray.getSize();

@@ -1,72 +1,73 @@
 package com.kwad.sdk.core.f.a;
 
-import android.content.ContentProviderClient;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.samsung.android.deviceidservice.IDeviceIdService;
 /* loaded from: classes2.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e extends IInterface {
 
-    /* renamed from: a  reason: collision with root package name */
-    public Context f65465a;
+    /* loaded from: classes2.dex */
+    public static class a implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public IBinder a;
 
-    public e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a(IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iBinder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = iBinder;
         }
-        this.f65465a = context;
-    }
 
-    public String a() {
-        InterceptResult invokeV;
-        String str;
-        Bundle call;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            str = "";
-            try {
-                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
-                if (Build.VERSION.SDK_INT > 17) {
-                    ContentProviderClient acquireContentProviderClient = this.f65465a.getContentResolver().acquireContentProviderClient(parse);
-                    call = acquireContentProviderClient.call("getOAID", null, null);
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        acquireContentProviderClient.close();
-                    } else {
-                        acquireContentProviderClient.release();
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    try {
+                        obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
+                        this.a.transact(1, obtain, obtain2, 0);
+                        obtain2.readException();
+                        return obtain2.readString();
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        obtain2.recycle();
+                        obtain.recycle();
+                        return null;
                     }
-                } else {
-                    call = this.f65465a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                if (call != null) {
-                    str = call.getInt("code", -1) == 0 ? call.getString("id") : "";
-                    String string = call.getString("message");
-                    com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID oaid:" + str + "faledMsg:" + string);
-                }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.c("NubiaDeviceIDHelper", "getOAID fail");
-                com.kwad.sdk.core.d.a.b(e2);
             }
-            return str;
+            return (String) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
+        }
     }
 }

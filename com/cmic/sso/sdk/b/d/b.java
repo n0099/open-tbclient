@@ -9,19 +9,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f62852a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f62853b;
+    public Map<String, List<String>> f54965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62854c;
+    public String f54966c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
         Interceptable interceptable = $ic;
@@ -38,22 +36,22 @@ public class b {
                 return;
             }
         }
-        this.f62852a = i2;
-        this.f62853b = map;
-        this.f62854c = str;
+        this.a = i2;
+        this.f54965b = map;
+        this.f54966c = str;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62852a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, List<String>> map = this.f62853b;
+            Map<String, List<String>> map = this.f54965b;
             return map == null ? new HashMap() : map;
         }
         return (Map) invokeV.objValue;
@@ -63,7 +61,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f62854c;
+            String str = this.f54966c;
             return str == null ? "" : str;
         }
         return (String) invokeV.objValue;
@@ -73,7 +71,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f62852a;
+            int i2 = this.a;
             return i2 == 302 || i2 == 301;
         }
         return invokeV.booleanValue;

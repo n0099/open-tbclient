@@ -7,20 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImageLoaderAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface HostImageLoader {
         void cancel(ImageLoaderCancelParam imageLoaderCancelParam);
 
         void loadImage(RequestParam requestParam, Result<ImageResult> result);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ImageLoaderCancelParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class ImageLoaderAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ImageResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +252,7 @@ public class ImageLoaderAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class NativeImageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +281,7 @@ public class ImageLoaderAuto {
                 NativeImageInfo nativeImageInfo = new NativeImageInfo();
                 nativeImageInfo.width = (Double) hashMap.get("width");
                 nativeImageInfo.height = (Double) hashMap.get("height");
-                nativeImageInfo.scale = (Double) hashMap.get("scale");
+                nativeImageInfo.scale = (Double) hashMap.get(AnimationProperty.SCALE);
                 return nativeImageInfo;
             }
             return (NativeImageInfo) invokeL.objValue;
@@ -332,14 +333,14 @@ public class ImageLoaderAuto {
                 HashMap hashMap = new HashMap();
                 hashMap.put("width", this.width);
                 hashMap.put("height", this.height);
-                hashMap.put("scale", this.scale);
+                hashMap.put(AnimationProperty.SCALE, this.scale);
                 return hashMap;
             }
             return (HashMap) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class RequestParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -503,7 +504,7 @@ public class ImageLoaderAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Result<T> {
         void success(T t);
     }

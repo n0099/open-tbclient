@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LogInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "http";
@@ -39,7 +39,7 @@ public class LogInterceptor implements Interceptor {
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class LogInterceptor implements Interceptor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class LogInterceptor implements Interceptor {
                     return;
                 }
             }
-            NONE = new Level("NONE", 0);
+            NONE = new Level(PolyActivity.NONE_PANEL_TYPE, 0);
             BASIC = new Level("BASIC", 1);
             HEADERS = new Level("HEADERS", 2);
             Level level = new Level("BODY", 3);
@@ -140,7 +140,7 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Logger {
         void log(String str);
     }
@@ -195,7 +195,7 @@ public class LogInterceptor implements Interceptor {
     public static boolean isPlaintext(Buffer buffer) throws EOFException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, buffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, buffer)) == null) {
             try {
                 Buffer buffer2 = new Buffer();
                 buffer.copyTo(buffer2, 0L, buffer.size() < 64 ? buffer.size() : 64L);

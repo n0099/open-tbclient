@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f69444a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69445b;
+    public int f61230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69446c;
+    public String f61231c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(int i2) {
@@ -44,19 +42,19 @@ public class g {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69445b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61230b : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69446c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61231c : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69444a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -116,8 +114,8 @@ public class g {
                 return;
             }
         }
-        this.f69444a = i2;
-        this.f69445b = i3;
-        this.f69446c = str;
+        this.a = i2;
+        this.f61230b = i3;
+        this.f61231c = str;
     }
 }

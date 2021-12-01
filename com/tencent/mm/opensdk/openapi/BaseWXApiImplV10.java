@@ -12,7 +12,6 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +59,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -151,7 +150,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private String getTokenFromWX(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/genTokenForOpenSdk"), null, null, new String[]{this.appId, "637928448"}, null);
             if (query == null || !query.moveToFirst()) {
                 return null;
@@ -169,7 +168,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
         Uri parse;
         String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, iWXAPIEventHandler)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, iWXAPIEventHandler)) == null) {
             Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, extInfo = ".concat(String.valueOf(str)));
             try {
                 parse = Uri.parse(str);
@@ -874,10 +873,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
-    public boolean registerApp(String str, long j) {
+    public boolean registerApp(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
             if (this.detached) {
                 throw new IllegalStateException("registerApp fail, WXMsgImpl has been detached");
             }
@@ -894,12 +893,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C2056a c2056a = new a.C2056a();
-            c2056a.f70876a = "com.tencent.mm";
-            c2056a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c2056a.content = "weixin://registerapp?appid=" + this.appId;
-            c2056a.f70877b = j;
-            return a.a(this.context, c2056a);
+            a.C2163a c2163a = new a.C2163a();
+            c2163a.a = "com.tencent.mm";
+            c2163a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c2163a.content = "weixin://registerapp?appid=" + this.appId;
+            c2163a.f62244b = j2;
+            return a.a(this.context, c2163a);
         }
         return invokeLJ.booleanValue;
     }
@@ -1102,11 +1101,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C2056a c2056a = new a.C2056a();
-            c2056a.f70876a = "com.tencent.mm";
-            c2056a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c2056a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c2056a);
+            a.C2163a c2163a = new a.C2163a();
+            c2163a.a = "com.tencent.mm";
+            c2163a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c2163a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c2163a);
         }
     }
 }

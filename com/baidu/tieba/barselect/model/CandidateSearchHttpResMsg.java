@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import b.a.r0.y.b.a;
+import c.a.r0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }
-                this.candidateData.f28661a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                this.candidateData.a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
             }
         }
     }

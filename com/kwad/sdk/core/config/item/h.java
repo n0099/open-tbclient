@@ -16,15 +16,13 @@ public class h extends b<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class a extends com.kwad.sdk.core.response.a.a {
+    public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f65250a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65251b;
+        public String f57256b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -39,8 +37,8 @@ public class h extends b<a> {
                     return;
                 }
             }
-            this.f65250a = "";
-            this.f65251b = "";
+            this.a = "";
+            this.f57256b = "";
         }
     }
 
@@ -117,7 +115,7 @@ public class h extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a a2 = a();
-            return (a2 == null || TextUtils.isEmpty(a2.f65250a)) ? "" : a2.f65250a;
+            return (a2 == null || TextUtils.isEmpty(a2.a)) ? "" : a2.a;
         }
         return (String) invokeV.objValue;
     }
@@ -127,7 +125,7 @@ public class h extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a a2 = a();
-            return (a2 == null || TextUtils.isEmpty(a2.f65251b)) ? "" : a2.f65251b;
+            return (a2 == null || TextUtils.isEmpty(a2.f57256b)) ? "" : a2.f57256b;
         }
         return (String) invokeV.objValue;
     }

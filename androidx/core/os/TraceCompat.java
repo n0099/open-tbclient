@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Trace;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +104,7 @@ public final class TraceCompat {
 
     public static void endSection() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
         Trace.endSection();
@@ -114,7 +113,7 @@ public final class TraceCompat {
     public static boolean isEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 29) {
                 return Trace.isEnabled();

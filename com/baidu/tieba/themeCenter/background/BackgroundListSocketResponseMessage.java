@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.background;
 
-import b.a.r0.s3.h.e;
+import c.a.r0.z3.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import tbclient.Error;
 import tbclient.GetBgList.DataRes;
 import tbclient.GetBgList.GetBgListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class BackgroundListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChangeTextViewSpace extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f45204e;
+    public float f40232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f45205f;
+    public CharSequence f40233f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChangeTextViewSpace(Context context) {
@@ -40,8 +40,8 @@ public class ChangeTextViewSpace extends TextView {
                 return;
             }
         }
-        this.f45204e = 0.0f;
-        this.f45205f = "";
+        this.f40232e = 0.0f;
+        this.f40233f = "";
     }
 
     public static boolean isEnglish(String str) {
@@ -52,17 +52,17 @@ public class ChangeTextViewSpace extends TextView {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45205f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40233f == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         int i2 = 0;
-        while (i2 < this.f45205f.length()) {
-            sb.append(this.f45205f.charAt(i2));
+        while (i2 < this.f40233f.length()) {
+            sb.append(this.f40233f.charAt(i2));
             int i3 = i2 + 1;
-            if (i3 < this.f45205f.length()) {
-                if (isEnglish(this.f45205f.charAt(i2) + "")) {
-                    if (isEnglish(this.f45205f.charAt(i3) + "")) {
+            if (i3 < this.f40233f.length()) {
+                if (isEnglish(this.f40233f.charAt(i2) + "")) {
+                    if (isEnglish(this.f40233f.charAt(i3) + "")) {
                     }
                 }
                 sb.append(" ");
@@ -72,7 +72,7 @@ public class ChangeTextViewSpace extends TextView {
         SpannableString spannableString = new SpannableString(sb.toString());
         if (sb.toString().length() > 1) {
             for (int i4 = 1; i4 < sb.toString().length(); i4 += 2) {
-                spannableString.setSpan(new ScaleXSpan((this.f45204e + 1.0f) / 10.0f), i4, i4 + 1, 33);
+                spannableString.setSpan(new ScaleXSpan((this.f40232e + 1.0f) / 10.0f), i4, i4 + 1, 33);
             }
         }
         super.setText(spannableString, TextView.BufferType.SPANNABLE);
@@ -81,20 +81,20 @@ public class ChangeTextViewSpace extends TextView {
     public float getSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45204e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40232e : invokeV.floatValue;
     }
 
     @Override // android.widget.TextView
     public CharSequence getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45205f : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40233f : (CharSequence) invokeV.objValue;
     }
 
     public void setSpacing(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f45204e = f2;
+            this.f40232e = f2;
             a();
         }
     }
@@ -103,7 +103,7 @@ public class ChangeTextViewSpace extends TextView {
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, charSequence, bufferType) == null) {
-            this.f45205f = charSequence;
+            this.f40233f = charSequence;
             a();
         }
     }
@@ -127,8 +127,8 @@ public class ChangeTextViewSpace extends TextView {
                 return;
             }
         }
-        this.f45204e = 0.0f;
-        this.f45205f = "";
+        this.f40232e = 0.0f;
+        this.f40233f = "";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class ChangeTextViewSpace extends TextView {
                 return;
             }
         }
-        this.f45204e = 0.0f;
-        this.f45205f = "";
+        this.f40232e = 0.0f;
+        this.f40233f = "";
     }
 }

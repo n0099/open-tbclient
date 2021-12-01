@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,16 +19,14 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class IdentifyCodeGetFailDialog extends PromptDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public VerifyCodeType f61375a;
+    public VerifyCodeType a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class VerifyCodeType {
         public static final /* synthetic */ VerifyCodeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,13 +109,13 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f61375a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.a == VerifyCodeType.VOICE ? "ebpay_get_voice_code_error_title" : "ebpay_get_sms_error_dialog_title" : (String) invokeV.objValue;
     }
 
     private SpannableStringBuilder c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             String string = ResUtils.getString(this.mContext, "ebpay_operation_tip1");
             String string2 = ResUtils.getString(this.mContext, "ebpay_operation_tip2");
             String string3 = ResUtils.getString(this.mContext, "ebpay_operation_tip3");
@@ -139,7 +136,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
     private SpannableStringBuilder d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             String string = ResUtils.getString(this.mContext, "ebpay_operation_tip1");
             String string2 = ResUtils.getString(this.mContext, "ebpay_operation_voice_verify_tip2");
             String string3 = ResUtils.getString(this.mContext, "ebpay_operation_voice_verify_tip3");
@@ -166,9 +163,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
             setNegativeBtn(ResUtils.getString(this.mContext, "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IdentifyCodeGetFailDialog f61376a;
+                public final /* synthetic */ IdentifyCodeGetFailDialog a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -185,7 +180,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                             return;
                         }
                     }
-                    this.f61376a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -193,19 +188,17 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.SMS_INFO_CONFIRM);
-                        this.f61376a.dismiss();
+                        this.a.dismiss();
                     }
                 }
             });
             setPositiveBtn(ResUtils.getString(this.mContext, "ebpay_contact_kefu"), new View.OnClickListener(this, BdWalletUtils.getKefuPhoneNum(this.mContext)) { // from class: com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61377a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdentifyCodeGetFailDialog f61378b;
+                public final /* synthetic */ IdentifyCodeGetFailDialog f53930b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -222,8 +215,8 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                             return;
                         }
                     }
-                    this.f61378b = this;
-                    this.f61377a = r7;
+                    this.f53930b = this;
+                    this.a = r7;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -232,7 +225,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.SMS_INFO_KEFU);
                         try {
-                            this.f61378b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.f61377a)));
+                            this.f53930b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.a)));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -260,14 +253,14 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                 return;
             }
         }
-        this.f61375a = verifyCodeType;
+        this.a = verifyCodeType;
     }
 
     private SpannableStringBuilder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f61375a == VerifyCodeType.VOICE ? d() : c();
+            return this.a == VerifyCodeType.VOICE ? d() : c();
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }

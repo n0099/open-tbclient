@@ -217,8 +217,8 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
             }
         }
 
-        public final void setSubHead(long j) {
-            this._subHead = j;
+        public final void setSubHead(long j2) {
+            this._subHead = j2;
         }
     }
 
@@ -263,16 +263,16 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
     }
 
     private final long computeMinHead() {
-        long j = Long.MAX_VALUE;
+        long j2 = Long.MAX_VALUE;
         for (Subscriber<E> subscriber : this.subscribers) {
-            j = RangesKt___RangesKt.coerceAtMost(j, subscriber.getSubHead());
+            j2 = RangesKt___RangesKt.coerceAtMost(j2, subscriber.getSubHead());
         }
-        return j;
+        return j2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final E elementAt(long j) {
-        return (E) this.buffer[(int) (j % this.capacity)];
+    public final E elementAt(long j2) {
+        return (E) this.buffer[(int) (j2 % this.capacity)];
     }
 
     private final long getHead() {
@@ -288,8 +288,8 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         return this._tail;
     }
 
-    private final void setHead(long j) {
-        this._head = j;
+    private final void setHead(long j2) {
+        this._head = j2;
     }
 
     private final void setSize(int i2) {
@@ -297,8 +297,8 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void setTail(long j) {
-        this._tail = j;
+    public final void setTail(long j2) {
+        this._tail = j2;
     }
 
     private final void updateHead(Subscriber<E> subscriber, Subscriber<E> subscriber2) {

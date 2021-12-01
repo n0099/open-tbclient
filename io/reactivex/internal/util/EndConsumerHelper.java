@@ -1,7 +1,6 @@
 package io.reactivex.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EndConsumerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public final class EndConsumerHelper {
     public static boolean validate(Disposable disposable, Disposable disposable2, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, disposable, disposable2, cls)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, disposable, disposable2, cls)) == null) {
             ObjectHelper.requireNonNull(disposable2, "next is null");
             if (disposable != null) {
                 disposable2.dispose();
@@ -91,7 +90,7 @@ public final class EndConsumerHelper {
     public static boolean validate(Subscription subscription, Subscription subscription2, Class<?> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, subscription, subscription2, cls)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, subscription, subscription2, cls)) == null) {
             ObjectHelper.requireNonNull(subscription2, "next is null");
             if (subscription != null) {
                 subscription2.cancel();

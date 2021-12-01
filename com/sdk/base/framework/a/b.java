@@ -13,12 +13,10 @@ import java.net.URL;
 public final class b extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ URL f69014a;
+    public /* synthetic */ URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f69015b;
+    public /* synthetic */ a f60899b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -35,8 +33,8 @@ public final class b extends ConnectivityManager.NetworkCallback {
                 return;
             }
         }
-        this.f69015b = aVar;
-        this.f69014a = url;
+        this.f60899b = aVar;
+        this.a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
@@ -45,7 +43,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f69015b.f69007c = (HttpURLConnection) network.openConnection(this.f69014a);
+                this.f60899b.f60894c = (HttpURLConnection) network.openConnection(this.a);
             } catch (IOException unused) {
             }
         }

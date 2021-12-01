@@ -2,13 +2,13 @@ package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.restnet.http.b;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
 import com.yy.gslbsdk.db.ResultTB;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -75,16 +75,16 @@ public class HttpDNSProtocolMgr {
                 if (str != null && resInfo != null) {
                     JSONObject jSONObject = new JSONObject(str);
                     resInfo.setStatus(translateErrCode(jSONObject.getInt("s")));
-                    resInfo.setUserIp(jSONObject.getString("u"));
+                    resInfo.setUserIp(jSONObject.getString(x.o));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f36974b);
+                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f33122b);
                     int i3 = 0;
                     while (i3 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         DnsInfo dnsInfo = new DnsInfo();
                         dnsInfo.setView(jSONObject.getString("v"));
-                        dnsInfo.setUip(jSONObject.getString("u"));
+                        dnsInfo.setUip(jSONObject.getString(x.o));
                         dnsInfo.setHost(jSONObject2.getString("name"));
                         dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
                         LinkedList<String> linkedList = new LinkedList<>();
@@ -122,7 +122,7 @@ public class HttpDNSProtocolMgr {
                         for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i5);
                             HashMap hashMap = new HashMap();
-                            hashMap.put("dm", optJSONObject.optString("dm", ""));
+                            hashMap.put(x.B, optJSONObject.optString(x.B, ""));
                             hashMap.put("ut", optJSONObject.optString("ut", "0"));
                             resInfo.addRefresh(hashMap);
                         }
@@ -144,7 +144,7 @@ public class HttpDNSProtocolMgr {
     public static int translateErrCode(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 4) {
@@ -162,14 +162,14 @@ public class HttpDNSProtocolMgr {
         return invokeI.intValue;
     }
 
-    public static String udpRequestProtocolV2(String[] strArr, long j, boolean z) {
+    public static String udpRequestProtocolV2(String[] strArr, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{strArr, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{strArr, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (strArr != null && strArr.length > 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("seq_id", j);
+                    jSONObject.put("seq_id", j2);
                     jSONObject.put("version", "v2");
                     JSONArray jSONArray = new JSONArray();
                     for (String str : strArr) {

@@ -26,12 +26,12 @@ import okhttp3.Response;
 import okhttp3.Route;
 import org.apache.http.auth.AUTH;
 import org.apache.http.client.params.AuthPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class NTLMAuthenticator implements Authenticator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

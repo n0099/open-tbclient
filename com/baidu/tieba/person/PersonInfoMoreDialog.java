@@ -14,30 +14,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonInfoMoreDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f53904e;
+    public Context f48165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f53905f;
+    public View f48166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f53906g;
+    public LinearLayout f48167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f53907h;
+    public float f48168h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonInfoMoreDialog f53908e;
+        public final /* synthetic */ PersonInfoMoreDialog f48169e;
 
         public a(PersonInfoMoreDialog personInfoMoreDialog) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class PersonInfoMoreDialog extends Dialog {
                     return;
                 }
             }
-            this.f53908e = personInfoMoreDialog;
+            this.f48169e = personInfoMoreDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53908e.dismiss();
+                this.f48169e.dismiss();
             }
         }
     }
@@ -85,8 +85,8 @@ public class PersonInfoMoreDialog extends Dialog {
                 return;
             }
         }
-        this.f53907h = 0.33f;
-        this.f53904e = context;
+        this.f48168h = 0.33f;
+        this.f48165e = context;
     }
 
     @Override // android.app.Dialog
@@ -96,32 +96,32 @@ public class PersonInfoMoreDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.person_info_more_dialog);
-            Display defaultDisplay = ((WindowManager) this.f53904e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f48165e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f53907h);
+            getWindow().setDimAmount(this.f48168h);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(R.style.pb_more_pop_anim);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-            this.f53906g = linearLayout;
+            this.f48167g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            if (this.f53905f == null) {
+            if (this.f48166f == null) {
                 return;
             }
-            this.f53906g.removeAllViews();
-            if (this.f53905f.getParent() != null) {
-                if (this.f53905f.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f53905f.getParent()).removeView(this.f53905f);
-                    this.f53906g.addView(this.f53905f);
+            this.f48167g.removeAllViews();
+            if (this.f48166f.getParent() != null) {
+                if (this.f48166f.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f48166f.getParent()).removeView(this.f48166f);
+                    this.f48167g.addView(this.f48166f);
                     return;
                 }
                 return;
             }
-            this.f53906g.addView(this.f53905f);
+            this.f48167g.addView(this.f48166f);
         }
     }
 
@@ -129,19 +129,19 @@ public class PersonInfoMoreDialog extends Dialog {
     public void setContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f53905f = view;
-            LinearLayout linearLayout = this.f53906g;
+            this.f48166f = view;
+            LinearLayout linearLayout = this.f48167g;
             if (linearLayout != null) {
                 linearLayout.removeAllViews();
-                if (this.f53905f.getParent() != null) {
-                    if (this.f53905f.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.f53905f.getParent()).removeView(this.f53905f);
-                        this.f53906g.addView(this.f53905f);
+                if (this.f48166f.getParent() != null) {
+                    if (this.f48166f.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.f48166f.getParent()).removeView(this.f48166f);
+                        this.f48167g.addView(this.f48166f);
                         return;
                     }
                     return;
                 }
-                this.f53906g.addView(this.f53905f);
+                this.f48167g.addView(this.f48166f);
             }
         }
     }
@@ -149,7 +149,7 @@ public class PersonInfoMoreDialog extends Dialog {
     public void setWindowDimAmount(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f53907h = f2;
+            this.f48168h = f2;
         }
     }
 
@@ -172,8 +172,8 @@ public class PersonInfoMoreDialog extends Dialog {
                 return;
             }
         }
-        this.f53907h = 0.33f;
-        this.f53904e = context;
-        this.f53905f = view;
+        this.f48168h = 0.33f;
+        this.f48165e = context;
+        this.f48166f = view;
     }
 }

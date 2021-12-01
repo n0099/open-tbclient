@@ -2,7 +2,6 @@ package com.dxmpay.wallet.statistics.impl;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SensorsSyncHttpImpl implements ISyncHttpImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +119,7 @@ public class SensorsSyncHttpImpl implements ISyncHttpImpl {
                     } else {
                         throw new Exception("not support http method:" + i2);
                     }
-                    httpURLConnection.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                     httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     String c2 = c(map);
                     httpURLConnection.setFixedLengthStreamingMode(c2.length());
@@ -140,10 +139,10 @@ public class SensorsSyncHttpImpl implements ISyncHttpImpl {
                         }
                     }
                     if (httpURLConnection != null) {
-                        InputStream a2 = a(httpURLConnection);
-                        if (a2 != null) {
+                        InputStream a = a(httpURLConnection);
+                        if (a != null) {
                             try {
-                                a2.close();
+                                a.close();
                             } catch (IOException e3) {
                                 e3.printStackTrace();
                             }
@@ -154,10 +153,10 @@ public class SensorsSyncHttpImpl implements ISyncHttpImpl {
                     outputStream2 = null;
                     httpURLConnection3 = httpURLConnection;
                     if (httpURLConnection3 != null) {
-                        InputStream a3 = a(httpURLConnection3);
-                        if (a3 != null) {
+                        InputStream a2 = a(httpURLConnection3);
+                        if (a2 != null) {
                             try {
-                                a3.close();
+                                a2.close();
                             } catch (IOException e4) {
                                 e4.printStackTrace();
                             }
@@ -173,10 +172,10 @@ public class SensorsSyncHttpImpl implements ISyncHttpImpl {
                     outputStream = null;
                     httpURLConnection2 = httpURLConnection;
                     if (httpURLConnection2 != null) {
-                        InputStream a4 = a(httpURLConnection2);
-                        if (a4 != null) {
+                        InputStream a3 = a(httpURLConnection2);
+                        if (a3 != null) {
                             try {
-                                a4.close();
+                                a3.close();
                             } catch (IOException e5) {
                                 e5.printStackTrace();
                             }

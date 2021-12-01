@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.i0;
-import b.h.d.c.o0;
+import c.i.d.a.n;
+import c.i.d.c.i0;
+import c.i.d.c.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Queue;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class EvictingQueue<E> extends i0<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -48,7 +48,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? new EvictingQueue<>(i2) : (EvictingQueue) invokeI.objValue;
     }
 
-    @Override // b.h.d.c.y, java.util.Collection, java.util.List
+    @Override // c.i.d.c.y, java.util.Collection, java.util.List
     public boolean add(E e2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
         return invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.y, java.util.Collection, java.util.List
+    @Override // c.i.d.c.y, java.util.Collection, java.util.List
     public boolean addAll(Collection<? extends E> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
         return invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.y, java.util.Collection
+    @Override // c.i.d.c.y, java.util.Collection
     public boolean contains(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
         return invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.i0, java.util.Queue
+    @Override // c.i.d.c.i0, java.util.Queue
     public boolean offer(E e2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.maxSize - size() : invokeV.intValue;
     }
 
-    @Override // b.h.d.c.y, java.util.Collection
+    @Override // c.i.d.c.y, java.util.Collection
     public boolean remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public final class EvictingQueue<E> extends i0<E> implements Serializable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i0, b.h.d.c.y, b.h.d.c.h0
+    @Override // c.i.d.c.i0, c.i.d.c.y, c.i.d.c.h0
     public Queue<E> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

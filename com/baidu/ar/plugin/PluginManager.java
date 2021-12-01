@@ -13,7 +13,6 @@ import com.baidu.ar.plugin.helper.Utils;
 import com.baidu.ar.plugin.reflect.FieldUtils;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, ClassLoader> sPluginClassLoaderCache;
@@ -112,7 +111,7 @@ public class PluginManager {
 
     private void preLoadAPK(String str, ApplicationInfo applicationInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, applicationInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, applicationInfo) == null) {
             synchronized (sPluginLoadedApkCache) {
                 Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
                 if (currentActivityThread != null) {
@@ -157,7 +156,7 @@ public class PluginManager {
     private void saveSignatures(PackageInfo packageInfo) {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, packageInfo) == null) || packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, packageInfo) == null) || packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
             return;
         }
         int i2 = 0;

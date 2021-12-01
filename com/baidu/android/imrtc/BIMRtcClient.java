@@ -15,13 +15,12 @@ import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.android.imrtc.utils.RtcConstants;
 import com.baidu.android.imrtc.utils.RtcUtility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,22 +69,22 @@ public class BIMRtcClient {
 
     public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, bIMCloseRoomRtcInfo, iStatusListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, bIMCloseRoomRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
         }
     }
 
     public static void createRoom(@NonNull Context context, String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, bIMRtcTokenListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, bIMRtcTokenListener) == null) {
             BIMRtcManager.getInstance(context).createRoom(str, bIMRtcTokenListener);
         }
     }
 
-    public static void generateToken(@NonNull Context context, String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public static void generateToken(@NonNull Context context, String str, String str2, long j2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
-            BIMRtcManager.getInstance(context).generateToken(str, str2, j, bIMRtcTokenListener);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j2), bIMRtcTokenListener}) == null) {
+            BIMRtcManager.getInstance(context).generateToken(str, str2, j2, bIMRtcTokenListener);
         }
     }
 

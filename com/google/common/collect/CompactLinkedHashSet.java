@@ -1,9 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.c.u0;
+import c.i.d.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENDPOINT = -2;
@@ -45,13 +44,13 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     public static <E> CompactLinkedHashSet<E> createWithExpectedSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new CompactLinkedHashSet<>(i2) : (CompactLinkedHashSet) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new CompactLinkedHashSet<>(i2) : (CompactLinkedHashSet) invokeI.objValue;
     }
 
     private int getPredecessor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) ? this.predecessor[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) ? this.predecessor[i2] : invokeI.intValue;
     }
 
     private void setPredecessor(int i2, int i3) {

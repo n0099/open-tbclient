@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.utils.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static d f70938a;
+    public static d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -36,10 +34,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (d.class) {
-                if (f70938a == null) {
-                    f70938a = new d();
+                if (a == null) {
+                    a = new d();
                 }
-                dVar = f70938a;
+                dVar = a;
             }
             return dVar;
         }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.param.launch;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ILaunchType {
     String getLaunchType();
 }

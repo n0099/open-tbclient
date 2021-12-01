@@ -41,7 +41,6 @@ import androidx.customview.widget.Openable;
 import androidx.customview.widget.ViewDragHelper;
 import androidx.drawerlayout.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -637,7 +636,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     private MotionEvent getTransformedMotionEvent(MotionEvent motionEvent, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, motionEvent, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, motionEvent, view)) == null) {
             MotionEvent obtain = MotionEvent.obtain(motionEvent);
             obtain.offsetLocation(getScrollX() - view.getLeft(), getScrollY() - view.getTop());
             Matrix matrix = view.getMatrix();
@@ -656,7 +655,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     public static String gravityToString(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? (i2 & 3) == 3 ? "LEFT" : (i2 & 5) == 5 ? "RIGHT" : Integer.toHexString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? (i2 & 3) == 3 ? "LEFT" : (i2 & 5) == 5 ? "RIGHT" : Integer.toHexString(i2) : (String) invokeI.objValue;
     }
 
     public static boolean hasOpaqueBackground(View view) {
@@ -1006,10 +1005,10 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             int height = getHeight();
             boolean isContentView = isContentView(view);
             int width = getWidth();
@@ -1037,7 +1036,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
                 canvas.clipRect(i3, 0, width, getHeight());
                 i2 = i3;
             }
-            boolean drawChild = super.drawChild(canvas, view, j);
+            boolean drawChild = super.drawChild(canvas, view, j2);
             canvas.restoreToCount(save);
             float f2 = this.mScrimOpacity;
             if (f2 > 0.0f && isContentView) {
@@ -2269,13 +2268,13 @@ public class DrawerLayout extends ViewGroup implements Openable {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }

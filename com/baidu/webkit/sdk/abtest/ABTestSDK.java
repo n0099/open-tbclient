@@ -1,7 +1,6 @@
 package com.baidu.webkit.sdk.abtest;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ABTestSDK implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "ABTestSDK";
@@ -111,7 +110,7 @@ public class ABTestSDK implements INoProGuard {
     public static boolean isEnableUseQuicPreconnectEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             IABTestInterface iABTestInterface = sABTest;
             if (iABTestInterface == null) {
                 Log.v(LOG_TAG, "[zeus-abtest] ABTest is not ready, enable_use_quic_preconnect default value: false");
@@ -127,7 +126,7 @@ public class ABTestSDK implements INoProGuard {
     public static boolean isIpv6HttpdnsEnvEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             IABTestInterface iABTestInterface = sABTest;
             if (iABTestInterface == null) {
                 Log.v(LOG_TAG, "[zeus-abtest] ABTest is not ready, ipv6_httpdns_env default value: false");

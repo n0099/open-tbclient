@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.perf.taskexecutor.IYYTaskExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExecutorProvider {
     public static /* synthetic */ Interceptable $ic;
     public static IYYTaskExecutor iyyTaskExecutor;

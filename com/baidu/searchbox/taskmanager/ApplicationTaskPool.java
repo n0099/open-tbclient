@@ -1,6 +1,6 @@
 package com.baidu.searchbox.taskmanager;
 
-import b.a.e.e.a;
+import c.a.d.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,68 +113,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
                     }
                 }
             });
-            a.f().d("InitDimenAdaptTask", new Runnable(this) { // from class: com.baidu.searchbox.taskmanager.ApplicationTaskPool.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ApplicationTaskPool this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new InitDimenAdaptTask().execute();
-                    }
-                }
-            });
-            a.f().d("InitArTask", new Runnable(this) { // from class: com.baidu.searchbox.taskmanager.ApplicationTaskPool.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ApplicationTaskPool this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new InitArTask().execute();
-                    }
-                }
-            });
         }
     }
 
@@ -203,13 +141,13 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAllTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitMessageTask());
+                arrayList.add(new InitDimenAdaptTask());
+                arrayList.add(new InitArTask());
                 if (LaunchDelayHandlerSwitch.getIsOn()) {
                     addTbLaunchStatsTask();
                 } else {
                     arrayList.add(new InitAccountChangeTask());
                     arrayList.add(new PermissionUtilTask());
-                    arrayList.add(new InitDimenAdaptTask());
-                    arrayList.add(new InitArTask());
                 }
             }
             return arrayList;

@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
@@ -25,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -139,7 +138,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static void setDataList(JSONArray jSONArray, List<String> list) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONArray, list) == null) || jSONArray == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, jSONArray, list) == null) || jSONArray == null) {
             return;
         }
         list.clear();

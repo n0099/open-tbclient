@@ -37,10 +37,10 @@ public class Pair<F, S> {
     }
 
     @NonNull
-    public static <A, B> Pair<A, B> create(@Nullable A a2, @Nullable B b2) {
+    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a2, b2)) == null) ? new Pair<>(a2, b2) : (Pair) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b2)) == null) ? new Pair<>(a, b2) : (Pair) invokeLL.objValue;
     }
 
     public boolean equals(Object obj) {

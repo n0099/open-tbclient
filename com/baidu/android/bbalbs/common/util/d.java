@@ -5,15 +5,13 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +19,7 @@ public final class d {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), "android_id") : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
@@ -128,7 +126,7 @@ public final class d {
     public static boolean a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
             if (TextUtils.isEmpty(str) || i2 == 0) {
                 return false;
             }
@@ -140,7 +138,7 @@ public final class d {
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? b(context, "android.permission.WRITE_SETTINGS") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? b(context, "android.permission.WRITE_SETTINGS") : invokeL.booleanValue;
     }
 
     public static boolean b(Context context, String str) {

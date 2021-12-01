@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CAMERA_RECORD_CODE = 1003;
@@ -38,9 +38,9 @@ public class PermissionActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int a2 = a.a(this);
+            int a = a.a(this);
             super.onCreate(bundle);
-            if (a2 != -1 && Build.VERSION.SDK_INT == 26 && getApplicationInfo().targetSdkVersion > 26 && a.c(this) && !a.b(this)) {
+            if (a != -1 && Build.VERSION.SDK_INT == 26 && getApplicationInfo().targetSdkVersion > 26 && a.c(this) && !a.b(this)) {
                 try {
                     Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
                     declaredField.setAccessible(true);
@@ -48,7 +48,7 @@ public class PermissionActivity extends Activity {
                     Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
                     declaredField2.setAccessible(true);
                     if (declaredField2.getInt(obj) == -1) {
-                        declaredField2.setInt(obj, a2);
+                        declaredField2.setInt(obj, a);
                     }
                     LogUtil.logActivity(this, "onCreate");
                     return;

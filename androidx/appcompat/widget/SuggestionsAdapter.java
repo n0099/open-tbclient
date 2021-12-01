@@ -26,7 +26,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.cursoradapter.widget.ResourceCursorAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -208,13 +207,13 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public static String getColumnString(Cursor cursor, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cursor, str)) == null) ? getStringOrNull(cursor, cursor.getColumnIndex(str)) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cursor, str)) == null) ? getStringOrNull(cursor, cursor.getColumnIndex(str)) : (String) invokeLL.objValue;
     }
 
     private Drawable getDefaultIcon1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             Drawable activityIconWithCache = getActivityIconWithCache(this.mSearchable.getSearchActivity());
             return activityIconWithCache != null ? activityIconWithCache : this.mContext.getPackageManager().getDefaultActivityIcon();
         }

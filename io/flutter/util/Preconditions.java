@@ -1,11 +1,12 @@
 package io.flutter.util;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,5 +35,19 @@ public final class Preconditions {
             throw null;
         }
         return (T) invokeL.objValue;
+    }
+
+    public static void checkState(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65538, null, z) == null) && !z) {
+            throw new IllegalStateException();
+        }
+    }
+
+    public static void checkState(boolean z, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65539, null, z, obj) == null) && !z) {
+            throw new IllegalStateException(String.valueOf(obj));
+        }
     }
 }

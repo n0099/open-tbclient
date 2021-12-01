@@ -20,7 +20,6 @@ import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -503,14 +502,14 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
     private void setRotation(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(AdIconUtil.AD_TEXT_ID, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65541, this, f2) == null) {
             this.mRotation = f2;
         }
     }
 
     private void setSizeParameters(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             Ring ring = this.mRing;
             float f6 = this.mResources.getDisplayMetrics().density;
             ring.setStrokeWidth(f3 * f6);

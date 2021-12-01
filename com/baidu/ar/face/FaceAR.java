@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceAR";
@@ -58,7 +58,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1630a nz;
+    public a.C1707a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -277,7 +277,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m14do() {
+    private j m34do() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
@@ -299,21 +299,21 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1630a a2 = this.nx.a(this.ny);
-            if (a2 != null) {
-                this.nz = a2;
-                this.nw = c.a(a2.pO, str, str2, str3);
+            a.C1707a a = this.nx.a(this.ny);
+            if (a != null) {
+                this.nz = a;
+                this.nw = c.a(a.pO, str, str2, str3);
                 String str5 = TAG;
                 com.baidu.ar.h.b.c(str5, "createFaceParams() mDeviceModelLevel = " + this.nw);
-                jVar.ae(a2.pN);
+                jVar.ae(a.pN);
                 jVar.af(str);
                 jVar.ag(str2);
                 jVar.ah(str3);
-                jVar.ai(a2.pP);
-                jVar.aj(a2.pQ);
-                jVar.setTrackingSmoothAlpha(Float.parseFloat(a2.pR));
-                jVar.setTrackingSmoothThreshold(Float.parseFloat(a2.pS));
-                jVar.setTrackingMouthThreshold(Float.parseFloat(a2.pT));
+                jVar.ai(a.pP);
+                jVar.aj(a.pQ);
+                jVar.setTrackingSmoothAlpha(Float.parseFloat(a.pR));
+                jVar.setTrackingSmoothThreshold(Float.parseFloat(a.pS));
+                jVar.setTrackingMouthThreshold(Float.parseFloat(a.pT));
             }
             return jVar;
         }
@@ -347,36 +347,36 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(long j) {
+    public void o(long j2) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65560, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65560, this, j2) == null) {
             l r = r();
-            if (j <= 0 || r == null || q() == null) {
+            if (j2 <= 0 || r == null || q() == null) {
                 return;
             }
             try {
                 if (q().size() > 0) {
-                    r.a(j, q().get(0));
+                    r.a(j2, q().get(0));
                 }
             } catch (IndexOutOfBoundsException unused) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle IndexOutOfBoundsException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j);
+                a(j2);
             } catch (NullPointerException unused2) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle NullPointerException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j);
+                a(j2);
             }
-            a(j);
+            a(j2);
         }
     }
 
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s;
@@ -391,26 +391,26 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j) {
+    public void a(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            super.a(j2);
+            if (j2 <= 0 || (algoHandleController = this.cb) == null) {
                 return;
             }
             try {
-                if (algoHandleController.getHandleType(j) != 10 || this.np == null) {
+                if (algoHandleController.getHandleType(j2) != 10 || this.np == null) {
                     return;
                 }
-                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j);
+                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j2);
                 if (handleFaceHandle > 0) {
-                    AlgoHandleAdapter.setHandleFaceHandle(j, 0L);
+                    AlgoHandleAdapter.setHandleFaceHandle(j2, 0L);
                     if (this.np != null) {
                         this.np.b(handleFaceHandle);
                     }
                 }
-                this.np.q(j);
+                this.np.q(j2);
             } catch (Exception e2) {
                 String str = "Destory algoHandle failed.  " + e2.getMessage();
             }
@@ -574,7 +574,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
 
     @Override // com.baidu.ar.c
     public void setup(HashMap<String, Object> hashMap) {
-        a.b a2;
+        a.b a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) {
             com.baidu.ar.h.b.c(TAG, "detect_frame setup");
@@ -595,13 +595,13 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 com.baidu.ar.face.a.a aVar = new com.baidu.ar.face.a.a();
                 if (t == null || t.toString().trim().equals(StringUtil.EMPTY_ARRAY)) {
                     com.baidu.ar.h.b.k(TAG, "abilityScheme is null, use default config!");
-                    a2 = aVar.a(getFaceModelPath(), (JSONObject) null);
+                    a = aVar.a(getFaceModelPath(), (JSONObject) null);
                 } else {
                     String str = TAG;
                     com.baidu.ar.h.b.c(str, "start parse abilityScheme config: " + t.toString());
-                    a2 = aVar.a(getFaceModelPath(), t);
+                    a = aVar.a(getFaceModelPath(), t);
                 }
-                this.ny = a2;
+                this.ny = a;
                 if (r() != null) {
                     this.nt = r().bx();
                 }
@@ -687,11 +687,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                     }
                 };
                 this.np.p(getContext());
-                j m14do = m14do();
+                j m34do = m34do();
                 this.nx.z(this.nw);
                 configSyncStatus(dm());
                 this.np.E(u());
-                this.np.b(m14do);
+                this.np.b(m34do);
                 a(this.np, this.mv);
                 com.baidu.ar.face.attributes.a aVar2 = new com.baidu.ar.face.attributes.a(r());
                 this.nA = aVar2;
@@ -735,12 +735,12 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
 
                         @Override // com.baidu.ar.lua.LuaMsgListener
                         public void onLuaMessage(HashMap<String, Object> hashMap2) {
-                            int a3;
+                            int a2;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap2) == null) || (a3 = c.a(hashMap2, this.nC.np.em())) < 0) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap2) == null) || (a2 = c.a(hashMap2, this.nC.np.em())) < 0) {
                                 return;
                             }
-                            this.nC.configSyncStatus(a3 == 2);
+                            this.nC.configSyncStatus(a2 == 2);
                         }
                     };
                 }

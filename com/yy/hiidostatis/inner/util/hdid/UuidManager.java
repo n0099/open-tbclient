@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.provider.Settings;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UuidManager {
     public static /* synthetic */ Interceptable $ic;
     public static Object LOCK_KEY;
@@ -137,7 +136,7 @@ public class UuidManager {
     public static String readUUid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return Coder.decryptDES(FileUtil.readFile(str), MAGIC_KEY);
             } catch (Throwable th) {
@@ -151,7 +150,7 @@ public class UuidManager {
 
     public static void saveSetting(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) && ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS")) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) && ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS")) {
             try {
                 if (!(context instanceof Application)) {
                     context = context.getApplicationContext();

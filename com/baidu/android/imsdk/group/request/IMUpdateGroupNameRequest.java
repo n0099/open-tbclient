@@ -25,7 +25,7 @@ import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMUpdateGroupNameRequest";
@@ -35,7 +35,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     public String mGroupName;
     public String mKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,12 +107,12 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMUpdateGroupNameRequest(Context context, String str, long j, String str2, String str3) {
+    public IMUpdateGroupNameRequest(Context context, String str, long j2, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2, str3};
+            Object[] objArr = {context, str, Long.valueOf(j2), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -123,7 +123,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
         this.mGroupId = str2;
         this.mGroupName = str3;

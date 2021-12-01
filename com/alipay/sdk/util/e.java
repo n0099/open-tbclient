@@ -2,6 +2,7 @@ package com.alipay.sdk.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,32 +12,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f35027c;
+    public static final e f31408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f35028d;
+    public static final e f31409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final e f35029e;
+    public static final e f31410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final e f35030f;
+    public static final e f31411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final e f35031g;
+    public static final e f31412g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final e f35032h;
+    public static final e f31413h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final e f35033i;
-    public static final e j;
-    public static final e k;
+    public static final e f31414i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final e f31415j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final e f31416k;
     public static final e l;
     public static final e m;
     public static final e n;
@@ -46,12 +51,10 @@ public final class e {
     public static final e r;
     public static final /* synthetic */ e[] s;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f35034a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35035b;
+    public String f31417b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,24 +69,24 @@ public final class e {
                 return;
             }
         }
-        f35027c = new e(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-        f35028d = new e("NETWORK_TYPE_1", 1, 1, "unicom2G");
-        f35029e = new e("NETWORK_TYPE_2", 2, 2, "mobile2G");
-        f35030f = new e("NETWORK_TYPE_4", 3, 4, "telecom2G");
-        f35031g = new e("NETWORK_TYPE_5", 4, 5, "telecom3G");
-        f35032h = new e("NETWORK_TYPE_6", 5, 6, "telecom3G");
-        f35033i = new e("NETWORK_TYPE_12", 6, 12, "telecom3G");
-        j = new e("NETWORK_TYPE_8", 7, 8, "unicom3G");
-        k = new e("NETWORK_TYPE_3", 8, 3, "unicom3G");
+        f31408c = new e(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+        f31409d = new e("NETWORK_TYPE_1", 1, 1, "unicom2G");
+        f31410e = new e("NETWORK_TYPE_2", 2, 2, "mobile2G");
+        f31411f = new e("NETWORK_TYPE_4", 3, 4, "telecom2G");
+        f31412g = new e("NETWORK_TYPE_5", 4, 5, "telecom3G");
+        f31413h = new e("NETWORK_TYPE_6", 5, 6, "telecom3G");
+        f31414i = new e("NETWORK_TYPE_12", 6, 12, "telecom3G");
+        f31415j = new e("NETWORK_TYPE_8", 7, 8, "unicom3G");
+        f31416k = new e("NETWORK_TYPE_3", 8, 3, "unicom3G");
         l = new e("NETWORK_TYPE_13", 9, 13, "LTE");
         m = new e("NETWORK_TYPE_11", 10, 11, "IDEN");
         n = new e("NETWORK_TYPE_9", 11, 9, "HSUPA");
         o = new e("NETWORK_TYPE_10", 12, 10, "HSPA");
         p = new e("NETWORK_TYPE_15", 13, 15, "HSPAP");
         q = new e("NETWORK_TYPE_20", 14, 20, "5G");
-        e eVar = new e("NONE", 15, -1, "none");
+        e eVar = new e(PolyActivity.NONE_PANEL_TYPE, 15, -1, "none");
         r = eVar;
-        s = new e[]{f35027c, f35028d, f35029e, f35030f, f35031g, f35032h, f35033i, j, k, l, m, n, o, p, q, eVar};
+        s = new e[]{f31408c, f31409d, f31410e, f31411f, f31412g, f31413h, f31414i, f31415j, f31416k, l, m, n, o, p, q, eVar};
     }
 
     public e(String str, int i2, int i3, String str2) {
@@ -104,8 +107,8 @@ public final class e {
                 return;
             }
         }
-        this.f35034a = i3;
-        this.f35035b = str2;
+        this.a = i3;
+        this.f31417b = str2;
     }
 
     public static e valueOf(String str) {
@@ -123,13 +126,13 @@ public final class e {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35034a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35035b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31417b : (String) invokeV.objValue;
     }
 
     public static e a(int i2) {

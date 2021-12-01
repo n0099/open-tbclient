@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMClientReportInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMClientReportInfo> CREATOR;
@@ -135,10 +135,10 @@ public class BIMClientReportInfo extends BIMRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUk : (String) invokeV.objValue;
     }
 
-    public void setEvent(long j) {
+    public void setEvent(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.mEvent = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.mEvent = j2;
         }
     }
 

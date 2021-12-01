@@ -9,16 +9,16 @@ import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -29,9 +29,7 @@ public final class NetworkUtils {
     public static final int NETWORK_TYPE_TD_SCDMA = 17;
     public static final int NETWORK_UNKNOW = 0;
     public static final int NETWORK_WIFI = 1;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f37149a = "NetworkUtils";
+    public static final String a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {
@@ -97,7 +95,7 @@ public final class NetworkUtils {
             if (isWifiNetworkAvailable(context)) {
                 return 1;
             }
-            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, "android.permission.READ_PHONE_STATE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, s.f56838c)) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 switch (telephonyManager.getNetworkType()) {
                     case 1:
                     case 2:
@@ -132,7 +130,7 @@ public final class NetworkUtils {
     public static boolean isNetworkAvailable(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context == null) {
                 if (ApollonConstants.DEBUG) {
                     LogUtil.d("NetworkUtils", "context is null!");
@@ -165,7 +163,7 @@ public final class NetworkUtils {
     public static boolean isNetworkConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
                 boolean z = ApollonConstants.DEBUG;

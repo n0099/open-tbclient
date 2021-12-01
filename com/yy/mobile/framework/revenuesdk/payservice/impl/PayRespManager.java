@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.impl;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +37,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PayRespManager";
@@ -150,7 +149,7 @@ public class PayRespManager {
     private void onConsumeConfirmMessage(IResponse iResponse) {
         ConsumeConfirmMessage consumeConfirmMessage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, iResponse) == null) || (consumeConfirmMessage = (ConsumeConfirmMessage) getResponseData(ConsumeConfirmMessage.class, iResponse)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, iResponse) == null) || (consumeConfirmMessage = (ConsumeConfirmMessage) getResponseData(ConsumeConfirmMessage.class, iResponse)) == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -195,7 +194,7 @@ public class PayRespManager {
     private void onCurrencyChargeMessage(IResponse iResponse) {
         CurrencyChargeMessage currencyChargeMessage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, iResponse) == null) || (currencyChargeMessage = (CurrencyChargeMessage) getResponseData(CurrencyChargeMessage.class, iResponse)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, iResponse) == null) || (currencyChargeMessage = (CurrencyChargeMessage) getResponseData(CurrencyChargeMessage.class, iResponse)) == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -401,17 +400,17 @@ public class PayRespManager {
             if (request != null) {
                 ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) request.getExtParam();
                 HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-                long j = 0;
+                long j2 = 0;
                 if (chargeCurrencyReqParams != null) {
                     cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
                     cReportResponse.mUid = chargeCurrencyReqParams.getUid();
-                    j = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
-                    cReportResponse.mDelay = j + "";
+                    j2 = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
+                    cReportResponse.mDelay = j2 + "";
                     cReportResponse.mCmd = i2;
                     cReportResponse.mServiceName = this.mDefalutServiceName;
                     cReportResponse.mFunctionName = this.mDefalutFunctionName;
                 }
-                long j2 = j;
+                long j3 = j2;
                 RLog.info("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.mDefalutServiceName + "---mDefalutFunctionName:" + this.mDefalutFunctionName + "---mRealFunctionName:" + cReportResponse.mServiceName + "---mRealFunctionName:" + cReportResponse.mFunctionName);
                 if (payOrderResult != null) {
                     cReportResponse.mOrderId = payOrderResult.getOrderId();
@@ -423,11 +422,11 @@ public class PayRespManager {
                             this.mPayServiceCallback.showVerifyViewWithInfoString(challengeExtension, chargeCurrencyReqParams, iResponse, request);
                             return;
                         } else {
-                            this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j2);
+                            this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j3);
                             return;
                         }
                     }
-                    this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j2);
+                    this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j3);
                 }
             }
         }

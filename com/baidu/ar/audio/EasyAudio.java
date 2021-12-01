@@ -2,7 +2,6 @@ package com.baidu.ar.audio;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class EasyAudio implements IEasyAudio, VolumeListener, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "EasyAudio";
@@ -109,21 +108,21 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
 
     public static void releaseInstance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             iV = null;
         }
     }
 
     @Override // com.baidu.ar.audio.a
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             this.iT.lock();
             try {
                 if (this.iR != null) {
                     Iterator<EasyAudioCallback> it = this.iR.iterator();
                     while (it.hasNext()) {
-                        it.next().onAudioFrameAvailable(byteBuffer, i2, j);
+                        it.next().onAudioFrameAvailable(byteBuffer, i2, j2);
                     }
                 }
             } finally {

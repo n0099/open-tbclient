@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AudioMsg extends RichMediaMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AudioMsg> CREATOR;
@@ -81,7 +80,7 @@ public class AudioMsg extends RichMediaMsg {
     private String getAudioContent(String str, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i2, i3)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -101,7 +100,7 @@ public class AudioMsg extends RichMediaMsg {
 
     private void transCodeUrl(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, jSONObject) == null) {
             try {
                 String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
                 LogUtils.d(ChatMsg.TAG, decode);

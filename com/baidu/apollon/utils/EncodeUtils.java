@@ -2,7 +2,6 @@ package com.baidu.apollon.utils;
 
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Character;
 import java.net.URLEncoder;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class EncodeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +80,7 @@ public final class EncodeUtils {
     public static String unicode2GBK(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             int length = str.length();
             int i2 = 0;
@@ -104,7 +103,7 @@ public final class EncodeUtils {
     public static String unicodeToUtf8(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             int length = str.length();
             StringBuffer stringBuffer = new StringBuffer(length);
             int i2 = 0;

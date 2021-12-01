@@ -2,7 +2,6 @@ package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -137,9 +136,9 @@ public class HttpUtils {
                     CheckUtils.isNotNull(key, "parameter key should not be null");
                     String value = entry.getValue();
                     if (value != null) {
-                        arrayList.add(normalize(key) + a.f34958h + normalize(value));
+                        arrayList.add(normalize(key) + a.f31351h + normalize(value));
                     } else if (z) {
-                        arrayList.add(normalize(key) + a.f34958h);
+                        arrayList.add(normalize(key) + a.f31351h);
                     } else {
                         arrayList.add(normalize(key));
                     }
@@ -154,7 +153,7 @@ public class HttpUtils {
     public static boolean isUsingNonDefaultPort(URI uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
             String lowerCase = uri.getScheme().toLowerCase();
             int port = uri.getPort();
             if (port <= 0) {
@@ -169,7 +168,7 @@ public class HttpUtils {
         InterceptResult invokeL;
         byte[] bytes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (StringUtils.isEmpty(str)) {
                 return "";
             }

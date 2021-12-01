@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class STSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long RETRY_TIME_LIMIT_HOUR;
@@ -157,7 +156,7 @@ public class STSManager {
     public static STSInfo retryGetStsInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             STSInfo bosStsInfo = BOSTokenRequest.getBosStsInfo(str);
             if (bosStsInfo != null) {
                 synchronized (infoMap) {
@@ -173,7 +172,7 @@ public class STSManager {
 
     public static void writeStsInfoToFile(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
             File file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
             if (!file.exists()) {
                 file.mkdirs();

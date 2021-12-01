@@ -13,12 +13,13 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WebLoginDTO extends SapiWebDTO {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT = "extra_join_login_without_third_account";
     public static final String EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT = "extra_join_login_with_third_account";
     public static final String EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL = "extra_login_with_name_phone_email";
+    public static final String EXTRA_LOGIN_WITH_PRE_LOGIN_NAME = "extra_login_with_pre_Login_Name";
     public static final String EXTRA_LOGIN_WITH_SMS = "extra_login_with_sms";
     public static final String EXTRA_LOGIN_WITH_USERNAME = "extra_login_with_username";
     public static final String EXTRA_STAT_EXTRA = "extrajson";
@@ -34,13 +35,14 @@ public class WebLoginDTO extends SapiWebDTO {
     public boolean isAcceptBrowseModeAgreement;
     public boolean isWithYouthStyle;
     public String loginType;
+    public String preLoginName;
     public String preSetUname;
     public int screenType;
     public boolean shareV2Disable;
     public String statExtra;
     public String uid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -3,7 +3,6 @@ package com.baidu.ar.arplay.representation;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Number3D {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int M00 = 0;
@@ -37,7 +36,7 @@ public class Number3D {
     public float z;
 
     /* renamed from: com.baidu.ar.arplay.representation.Number3D$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis;
         public static /* synthetic */ Interceptable $ic;
@@ -74,7 +73,7 @@ public class Number3D {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Axis {
         public static final /* synthetic */ Axis[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -235,12 +234,12 @@ public class Number3D {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -257,7 +256,7 @@ public class Number3D {
     public static Number3D add(Number3D number3D, Number3D number3D2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, number3D, number3D2)) == null) ? new Number3D(number3D.x + number3D2.x, number3D.y + number3D2.y, number3D.z + number3D2.z) : (Number3D) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, number3D, number3D2)) == null) ? new Number3D(number3D.x + number3D2.x, number3D.y + number3D2.y, number3D.z + number3D2.z) : (Number3D) invokeLL.objValue;
     }
 
     public static Number3D cross(Number3D number3D, Number3D number3D2) {
@@ -365,7 +364,7 @@ public class Number3D {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Number3D m12clone() {
+    public Number3D m32clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Number3D(this.x, this.y, this.z) : (Number3D) invokeV.objValue;

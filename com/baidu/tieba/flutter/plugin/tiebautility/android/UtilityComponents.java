@@ -6,14 +6,14 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.l.b0;
-import b.a.q0.j0.h;
-import b.a.q0.s.e0.b;
-import b.a.q0.s.q.d2;
-import b.a.q0.s.q.x0;
-import b.a.r0.m3.j0.e;
-import b.a.r0.z2.a;
+import c.a.d.f.p.l;
+import c.a.k.b0;
+import c.a.q0.k0.h;
+import c.a.q0.s.e0.b;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.x0;
+import c.a.r0.g3.a;
+import c.a.r0.t3.j0.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtilityComponents {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
             d2 d2Var = new d2();
-            d2Var.Z2(jSONObject);
+            d2Var.b3(jSONObject);
             AgreeData B = d2Var.B();
             int i2 = 1;
             if (z) {
@@ -141,7 +141,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 sendMesage(i2, B);
             }
             e eVar = new e();
-            eVar.f22452b = B;
+            eVar.f23811b = B;
             if (d2Var.L() != null) {
                 B.nid = d2Var.L().oriUgcNid;
             }
@@ -198,7 +198,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             boolean[] zArr = {false};
             if (currentActivity instanceof TbPageContextSupport) {
                 PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-                pbHistoryCacheModel.O(new CacheModel.c<b.a.r0.d2.h.a>(this, zArr, result) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.1
+                pbHistoryCacheModel.O(new CacheModel.c<c.a.r0.j2.h.a>(this, zArr, result) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UtilityComponents this$0;
@@ -226,12 +226,12 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
 
                     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                    public void onCacheDataGet(ReadCacheRespMsg<List<b.a.r0.d2.h.a>> readCacheRespMsg, ReadCacheMessage<b.a.r0.d2.h.a> readCacheMessage) {
+                    public void onCacheDataGet(ReadCacheRespMsg<List<c.a.r0.j2.h.a>> readCacheRespMsg, ReadCacheMessage<c.a.r0.j2.h.a> readCacheMessage) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) || readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                             return;
                         }
-                        List<b.a.r0.d2.h.a> data = readCacheRespMsg.getData();
+                        List<c.a.r0.j2.h.a> data = readCacheRespMsg.getData();
                         if (this.val$issubmitted[0] || this.val$result == null) {
                             return;
                         }
@@ -242,7 +242,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
 
                     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                    public void onCacheDataWrite(WriteCacheRespMsg<List<b.a.r0.d2.h.a>> writeCacheRespMsg, WriteCacheMessage<b.a.r0.d2.h.a> writeCacheMessage) {
+                    public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.r0.j2.h.a>> writeCacheRespMsg, WriteCacheMessage<c.a.r0.j2.h.a> writeCacheMessage) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
                         }
@@ -267,8 +267,8 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     public void getRecnbarShow(TiebaUtilityComponentsAuto.Result<TiebaUtilityComponentsAuto.ComponentsBoolResult> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, result) == null) {
-            b j = b.j();
-            boolean g2 = j.g("recnbar" + TbadkCoreApplication.getCurrentAccount(), false);
+            b j2 = b.j();
+            boolean g2 = j2.g("recnbar" + TbadkCoreApplication.getCurrentAccount(), false);
             TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
             componentsBoolResult.setResult(Boolean.valueOf(g2));
             result.success(componentsBoolResult);
@@ -300,7 +300,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             d2 d2Var = new d2();
-            d2Var.Z2(optJSONObject);
+            d2Var.b3(optJSONObject);
             x0 negFeedBackData = d2Var.getNegFeedBackData();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
@@ -366,14 +366,14 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
                 });
                 this.mNegFeedBackItem.onBindDataToView(negFeedBackData);
-                int k = l.k(tbPageContextSupport.getPageContext().getPageActivity());
+                int k2 = l.k(tbPageContextSupport.getPageContext().getPageActivity());
                 if (Build.VERSION.SDK_INT >= 11) {
-                    this.mNegFeedBackItem.a().setY(round - l.e(tbPageContextSupport.getPageContext().getPageActivity(), 16.0f));
-                    this.mNegFeedBackItem.a().setX((k - round2) - l.e(tbPageContextSupport.getPageContext().getPageActivity(), 20.0f));
+                    this.mNegFeedBackItem.a().setY(round - l.d(tbPageContextSupport.getPageContext().getPageActivity(), 16.0f));
+                    this.mNegFeedBackItem.a().setX((k2 - round2) - l.d(tbPageContextSupport.getPageContext().getPageActivity(), 20.0f));
                 }
                 viewGroup.addView(this.mNegFeedBackItem.a(), this.mNegFeedBackItem.b());
                 this.mNegFeedBackItem.a().setVisibility(4);
-                b.a.e.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.3
+                c.a.d.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UtilityComponents this$0;
@@ -455,7 +455,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, result) == null) {
             TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-            componentsBoolResult.setResult(Boolean.valueOf(b.a.r0.b3.a.v().z()));
+            componentsBoolResult.setResult(Boolean.valueOf(c.a.r0.i3.a.v().z()));
             result.success(componentsBoolResult);
         }
     }

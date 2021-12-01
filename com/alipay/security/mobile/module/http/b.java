@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ DataReportRequest f35154a;
+    public final /* synthetic */ DataReportRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c f35155b;
+    public final /* synthetic */ c f31500b;
 
     public b(c cVar, DataReportRequest dataReportRequest) {
         Interceptable interceptable = $ic;
@@ -33,8 +31,8 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f35155b = cVar;
-        this.f35154a = dataReportRequest;
+        this.f31500b = cVar;
+        this.a = dataReportRequest;
     }
 
     @Override // java.lang.Runnable
@@ -45,13 +43,13 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                dataReportService = this.f35155b.f35160c;
-                DataReportResult unused = c.f35157e = dataReportService.reportData(this.f35154a);
+                dataReportService = this.f31500b.f31504c;
+                DataReportResult unused = c.f31502e = dataReportService.reportData(this.a);
             } catch (Throwable th) {
-                DataReportResult unused2 = c.f35157e = new DataReportResult();
-                dataReportResult = c.f35157e;
+                DataReportResult unused2 = c.f31502e = new DataReportResult();
+                dataReportResult = c.f31502e;
                 dataReportResult.success = false;
-                dataReportResult2 = c.f35157e;
+                dataReportResult2 = c.f31502e;
                 dataReportResult2.resultCode = "static data rpc upload error, " + com.alipay.security.mobile.module.a.a.a(th);
                 new StringBuilder("rpc failed:").append(com.alipay.security.mobile.module.a.a.a(th));
             }

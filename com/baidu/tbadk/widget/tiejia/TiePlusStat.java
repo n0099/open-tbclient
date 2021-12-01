@@ -3,11 +3,10 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.c1.c0;
-import b.a.q0.c1.e0;
-import b.a.q0.d.a;
-import b.a.q0.s.q.d2;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.q0.d.a;
+import c.a.q0.d1.c0;
+import c.a.q0.d1.e0;
+import c.a.q0.s.q.d2;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -20,19 +19,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final e0<Integer> f47343a;
+    public static final e0<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e0<Integer> f47344b;
+    public static final e0<Integer> f42405b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CardBtnType {
         public static final /* synthetic */ CardBtnType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -116,18 +113,19 @@ public final class TiePlusStat {
         public static CardBtnType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (CardBtnType[]) $VALUES.clone() : (CardBtnType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (CardBtnType[]) $VALUES.clone() : (CardBtnType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final LandingType APPOINT;
         public static final LandingType DIALOG_DOWNLOAD;
         public static final LandingType H5;
+        public static final LandingType MESSAGE;
         public static final String STAT_KEY = "l_type";
         public static final LandingType WECHAT;
         public static final LandingType WECHAT_MINIAPP;
@@ -151,9 +149,10 @@ public final class TiePlusStat {
             DIALOG_DOWNLOAD = new LandingType("DIALOG_DOWNLOAD", 1, 2);
             WECHAT = new LandingType("WECHAT", 2, 3);
             WECHAT_MINIAPP = new LandingType("WECHAT_MINIAPP", 3, 4);
-            LandingType landingType = new LandingType("APPOINT", 4, 6);
+            MESSAGE = new LandingType("MESSAGE", 4, 5);
+            LandingType landingType = new LandingType("APPOINT", 5, 6);
             APPOINT = landingType;
-            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, landingType};
+            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, MESSAGE, landingType};
         }
 
         public LandingType(String str, int i2, int i3) {
@@ -183,16 +182,28 @@ public final class TiePlusStat {
             LandingType landingType;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 == 1) {
-                    landingType = H5;
-                } else if (i2 == 2) {
-                    landingType = DIALOG_DOWNLOAD;
-                } else if (i2 == 3) {
-                    landingType = WECHAT;
-                } else if (i2 != 4) {
-                    landingType = i2 != 6 ? null : APPOINT;
-                } else {
-                    landingType = WECHAT_MINIAPP;
+                switch (i2) {
+                    case 1:
+                        landingType = H5;
+                        break;
+                    case 2:
+                        landingType = DIALOG_DOWNLOAD;
+                        break;
+                    case 3:
+                        landingType = WECHAT;
+                        break;
+                    case 4:
+                        landingType = WECHAT_MINIAPP;
+                        break;
+                    case 5:
+                        landingType = MESSAGE;
+                        break;
+                    case 6:
+                        landingType = APPOINT;
+                        break;
+                    default:
+                        landingType = null;
+                        break;
                 }
                 c0.b(landingType);
                 return landingType;
@@ -209,12 +220,12 @@ public final class TiePlusStat {
         public static LandingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (LandingType[]) $VALUES.clone() : (LandingType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LandingType[]) $VALUES.clone() : (LandingType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -288,12 +299,13 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RichTextType {
         public static final /* synthetic */ RichTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final RichTextType CARD;
         public static final RichTextType LINK;
+        public static final RichTextType MESSAGE;
         public static final String STAT_KEY = "c_type";
         public transient /* synthetic */ FieldHolder $fh;
         public final int statValue;
@@ -312,9 +324,10 @@ public final class TiePlusStat {
                 }
             }
             LINK = new RichTextType("LINK", 0, 1);
-            RichTextType richTextType = new RichTextType("CARD", 1, 2);
-            CARD = richTextType;
-            $VALUES = new RichTextType[]{LINK, richTextType};
+            CARD = new RichTextType("CARD", 1, 2);
+            RichTextType richTextType = new RichTextType("MESSAGE", 2, 3);
+            MESSAGE = richTextType;
+            $VALUES = new RichTextType[]{LINK, CARD, richTextType};
         }
 
         public RichTextType(String str, int i2, int i3) {
@@ -362,12 +375,12 @@ public final class TiePlusStat {
         public static RichTextType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (RichTextType[]) $VALUES.clone() : (RichTextType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (RichTextType[]) $VALUES.clone() : (RichTextType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -393,8 +406,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12877h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12878i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f11805h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f11806i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             StatType statType = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -433,12 +446,12 @@ public final class TiePlusStat {
         public static StatType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (StatType[]) $VALUES.clone() : (StatType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (StatType[]) $VALUES.clone() : (StatType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ThreadType {
         public static final /* synthetic */ ThreadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -494,10 +507,10 @@ public final class TiePlusStat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d2Var)) == null) {
-                if (d2Var.H2()) {
+                if (d2Var.I2()) {
                     return VIDEO_WORK;
                 }
-                if (d2Var.G2()) {
+                if (d2Var.H2()) {
                     return VIDEO_NORMAL;
                 }
                 return IMAGE_TEXT;
@@ -514,7 +527,7 @@ public final class TiePlusStat {
         public static ThreadType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ThreadType[]) $VALUES.clone() : (ThreadType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ThreadType[]) $VALUES.clone() : (ThreadType[]) invokeV.objValue;
         }
     }
 
@@ -531,8 +544,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        f47343a = new e0<>(3000, TimeUnit.MILLISECONDS);
-        f47344b = new e0<>(3000, TimeUnit.MILLISECONDS);
+        a = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f42405b = new e0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -565,7 +578,7 @@ public final class TiePlusStat {
     public static void b(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i3, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), statType, locate, threadType, richTextType, Integer.valueOf(i3), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || f47343a.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || a.a(Integer.valueOf(i2))) {
                 StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i3).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
                 if (cardBtnType != null) {
                     addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
@@ -578,7 +591,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f47344b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f42405b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }
@@ -593,7 +606,7 @@ public final class TiePlusStat {
 
     public static void e(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, statType, richTextType, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, statType, richTextType, str, str2) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.wallet.api.IPrecashierCallback;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class EnterWalletPreOrderPayAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,10 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
             BaiduPayDelegate.getInstance().preOrderPay(context, str, new IPrecashierCallback(this, routerCallback) { // from class: com.baidu.wallet.paysdk.entrance.EnterWalletPreOrderPayAction.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f60616a;
+                public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletPreOrderPayAction f60617b;
+                public final /* synthetic */ EnterWalletPreOrderPayAction f53470b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -57,19 +55,19 @@ public class EnterWalletPreOrderPayAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f60617b = this;
-                    this.f60616a = routerCallback;
+                    this.f53470b = this;
+                    this.a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.api.IPrecashierCallback
                 public void onResult(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f60616a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("result", str2);
-                    this.f60616a.onResult(0, hashMap);
+                    this.a.onResult(0, hashMap);
                 }
             });
         }

@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.g;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +24,7 @@ public class e {
     public static com.ss.android.socialbase.downloader.g.a b(DownloadModel downloadModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, downloadModel)) == null) ? com.ss.android.socialbase.downloader.g.a.a(a(downloadModel)) : (com.ss.android.socialbase.downloader.g.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, downloadModel)) == null) ? com.ss.android.socialbase.downloader.g.a.a(a(downloadModel)) : (com.ss.android.socialbase.downloader.g.a) invokeL.objValue;
     }
 
     public static int c(@NonNull DownloadModel downloadModel) {
@@ -114,7 +113,7 @@ public class e {
     public static long b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? com.ss.android.socialbase.downloader.g.a.a(i2).a("storage_min_size", 0L) : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? com.ss.android.socialbase.downloader.g.a.a(i2).a("storage_min_size", 0L) : invokeI.longValue;
     }
 
     public static boolean c() {

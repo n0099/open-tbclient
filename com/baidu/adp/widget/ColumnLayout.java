@@ -20,28 +20,32 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ColumnLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<View> f35336e;
+    public final List<View> f31765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<View> f35337f;
+    public final List<View> f31766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<View> f35338g;
+    public final List<View> f31767g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f35339h;
+    public int[] f31768h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35340i;
-    public int j;
-    public final int[] k;
+    public int f31769i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f31770j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public final int[] f31771k;
 
     static {
         InterceptResult invokeClinit;
@@ -84,17 +88,17 @@ public class ColumnLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             if (i2 == 1) {
-                if (this.f35336e.contains(view)) {
+                if (this.f31765e.contains(view)) {
                     return;
                 }
-                this.f35336e.add(view);
+                this.f31765e.add(view);
             } else if (i2 != 2) {
-                if (i2 == 3 && !this.f35338g.contains(view)) {
-                    this.f35338g.add(view);
+                if (i2 == 3 && !this.f31767g.contains(view)) {
+                    this.f31767g.add(view);
                 }
-            } else if (this.f35337f.contains(view)) {
+            } else if (this.f31766f.contains(view)) {
             } else {
-                this.f35337f.add(view);
+                this.f31766f.add(view);
             }
         }
     }
@@ -108,7 +112,7 @@ public class ColumnLayout extends ViewGroup {
             if (layoutParams2 == null) {
                 layoutParams2 = generateDefaultLayoutParams();
             }
-            a(view, layoutParams2.f35341a);
+            a(view, layoutParams2.a);
         }
     }
 
@@ -121,7 +125,7 @@ public class ColumnLayout extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || i2 < 1 || i2 > 3) {
             return;
         }
-        int i8 = this.f35339h[i2 - 1];
+        int i8 = this.f31768h[i2 - 1];
         int measuredHeight2 = getMeasuredHeight();
         for (View view : list) {
             if (view.getVisibility() != 8) {
@@ -193,13 +197,13 @@ public class ColumnLayout extends ViewGroup {
                 string = VerticalTranslateLayout.VERTICAL;
             }
             if (l.matcher(string).matches()) {
-                this.f35339h = new int[3];
+                this.f31768h = new int[3];
                 String[] split = string.split("\\|");
                 if (split.length == 1) {
                     int c2 = c(split[0]);
                     int i2 = 0;
                     while (true) {
-                        int[] iArr = this.f35339h;
+                        int[] iArr = this.f31768h;
                         if (i2 >= iArr.length) {
                             break;
                         }
@@ -207,12 +211,12 @@ public class ColumnLayout extends ViewGroup {
                         i2++;
                     }
                 } else if (split.length > 1) {
-                    if (this.f35339h.length != split.length) {
+                    if (this.f31768h.length != split.length) {
                         throw new RuntimeException("Column number doesn't equal orientation definition number.");
                     }
                     int i3 = 0;
                     while (true) {
-                        int[] iArr2 = this.f35339h;
+                        int[] iArr2 = this.f31768h;
                         if (i3 >= iArr2.length) {
                             break;
                         }
@@ -221,8 +225,8 @@ public class ColumnLayout extends ViewGroup {
                     }
                 }
             }
-            this.f35340i = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ColumnLayout_spacingLeft, 0);
-            this.j = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ColumnLayout_spacingRight, 0);
+            this.f31769i = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ColumnLayout_spacingLeft, 0);
+            this.f31770j = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ColumnLayout_spacingRight, 0);
             obtainStyledAttributes.recycle();
         }
     }
@@ -261,12 +265,12 @@ public class ColumnLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view, i2) == null) {
             if (i2 == 1) {
-                this.f35336e.remove(view);
+                this.f31765e.remove(view);
             } else if (i2 == 2) {
-                this.f35337f.remove(view);
+                this.f31766f.remove(view);
             } else if (i2 != 3) {
             } else {
-                this.f35338g.remove(view);
+                this.f31767g.remove(view);
             }
         }
     }
@@ -291,29 +295,29 @@ public class ColumnLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int[] iArr = this.k;
+            int[] iArr = this.f31771k;
             if (iArr[0] == -1) {
                 return;
             }
-            b(1, this.f35336e, paddingLeft, paddingTop, iArr[0]);
-            int[] iArr2 = this.k;
-            int i6 = paddingLeft + iArr2[0] + this.f35340i;
+            b(1, this.f31765e, paddingLeft, paddingTop, iArr[0]);
+            int[] iArr2 = this.f31771k;
+            int i6 = paddingLeft + iArr2[0] + this.f31769i;
             if (iArr2[1] == -1) {
                 return;
             }
-            b(2, this.f35337f, i6, paddingTop, iArr2[1]);
-            int[] iArr3 = this.k;
-            int i7 = i6 + iArr3[1] + this.j;
+            b(2, this.f31766f, i6, paddingTop, iArr2[1]);
+            int[] iArr3 = this.f31771k;
+            int i7 = i6 + iArr3[1] + this.f31770j;
             if (iArr3[2] == -1) {
                 return;
             }
-            b(3, this.f35338g, i7, paddingTop, iArr3[2]);
+            b(3, this.f31767g, i7, paddingTop, iArr3[2]);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x008b, code lost:
-        setMeasuredDimension(r25.f35340i + r15, r5);
-        r0 = r25.k;
+        setMeasuredDimension(r25.f31769i + r15, r5);
+        r0 = r25.f31771k;
         r0[0] = r15;
         r0[1] = -1;
         r0[2] = -1;
@@ -339,8 +343,8 @@ public class ColumnLayout extends ViewGroup {
         int i8 = i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
         int i9 = i3 & (-1073741824);
         int i10 = i6 + i7;
-        int i11 = this.f35340i + this.j;
-        Iterator<View> it = this.f35336e.iterator();
+        int i11 = this.f31769i + this.f31770j;
+        Iterator<View> it = this.f31765e.iterator();
         int i12 = 0;
         int i13 = 0;
         while (true) {
@@ -356,15 +360,15 @@ public class ColumnLayout extends ViewGroup {
                     measureChildWithMargins(next, i10, i13 + i11, i3, i12);
                     int measuredWidth = next.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams2).leftMargin + ((FrameLayout.LayoutParams) layoutParams2).rightMargin;
                     int measuredHeight = next.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams2).topMargin + ((FrameLayout.LayoutParams) layoutParams2).bottomMargin;
-                    i13 = f(i13, measuredWidth, this.f35339h[0]);
-                    i12 = e(i12, measuredHeight, this.f35339h[0]);
+                    i13 = f(i13, measuredWidth, this.f31768h[0]);
+                    i12 = e(i12, measuredHeight, this.f31768h[0]);
                     if ((i7 == 0 || i13 < i6) && (i9 == 0 || i12 < i8)) {
                     }
                 }
             } else {
                 int i15 = i12;
-                this.k[0] = i13;
-                Iterator<View> it2 = this.f35338g.iterator();
+                this.f31771k[0] = i13;
+                Iterator<View> it2 = this.f31767g.iterator();
                 int i16 = 0;
                 int i17 = 0;
                 while (it2.hasNext()) {
@@ -381,11 +385,11 @@ public class ColumnLayout extends ViewGroup {
                         measureChildWithMargins(next2, i10, i13 + i17 + i11, i3, i18);
                         int measuredWidth2 = next2.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams4).leftMargin + ((FrameLayout.LayoutParams) layoutParams4).rightMargin;
                         int measuredHeight2 = next2.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams4).topMargin + ((FrameLayout.LayoutParams) layoutParams4).bottomMargin;
-                        i17 = f(i17, measuredWidth2, this.f35339h[2]);
-                        i16 = e(i18, measuredHeight2, this.f35339h[2]);
+                        i17 = f(i17, measuredWidth2, this.f31768h[2]);
+                        i16 = e(i18, measuredHeight2, this.f31768h[2]);
                         if ((i7 != 0 && i17 > i6 - i13) || (i9 != 0 && i16 > i8)) {
-                            setMeasuredDimension(i13 + i17 + this.f35340i + this.j, Math.max(i15, i16));
-                            int[] iArr = this.k;
+                            setMeasuredDimension(i13 + i17 + this.f31769i + this.f31770j, Math.max(i15, i16));
+                            int[] iArr = this.f31771k;
                             iArr[2] = i17;
                             iArr[1] = -1;
                             return;
@@ -398,12 +402,12 @@ public class ColumnLayout extends ViewGroup {
                 int i20 = i16;
                 int i21 = i10;
                 int i22 = i17;
-                this.k[2] = i22;
+                this.f31771k[2] = i22;
                 if (i7 != Integer.MIN_VALUE) {
                     if (i7 == 0) {
                         i5 = 0;
                         min = 0;
-                        for (View view : this.f35337f) {
+                        for (View view : this.f31766f) {
                             LayoutParams layoutParams5 = (LayoutParams) view.getLayoutParams();
                             if (layoutParams5 == null) {
                                 layoutParams5 = generateDefaultLayoutParams();
@@ -411,8 +415,8 @@ public class ColumnLayout extends ViewGroup {
                             measureChild(view, i6, i8);
                             int measuredWidth3 = view.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams5).leftMargin + ((FrameLayout.LayoutParams) layoutParams5).rightMargin;
                             int measuredHeight3 = view.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams5).topMargin + ((FrameLayout.LayoutParams) layoutParams5).bottomMargin;
-                            min = f(min, measuredWidth3, this.f35339h[1]);
-                            i5 = e(i5, measuredHeight3, this.f35339h[1]);
+                            min = f(min, measuredWidth3, this.f31768h[1]);
+                            i5 = e(i5, measuredHeight3, this.f31768h[1]);
                         }
                     } else if (i7 != 1073741824) {
                         i4 = i8;
@@ -420,7 +424,7 @@ public class ColumnLayout extends ViewGroup {
                         min = 0;
                     } else {
                         int paddingLeft = ((((i6 - i13) - i22) - i11) - getPaddingLeft()) - getPaddingRight();
-                        Iterator<View> it4 = this.f35337f.iterator();
+                        Iterator<View> it4 = this.f31766f.iterator();
                         int i23 = 0;
                         while (it4.hasNext()) {
                             View next3 = it4.next();
@@ -431,7 +435,7 @@ public class ColumnLayout extends ViewGroup {
                                 }
                                 LayoutParams layoutParams7 = layoutParams6;
                                 measureChildWithMargins(next3, i21, i13 + i22 + i11, i3, 0);
-                                i23 = e(i23, next3.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams7).topMargin + ((FrameLayout.LayoutParams) layoutParams7).bottomMargin, this.f35339h[1]);
+                                i23 = e(i23, next3.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams7).topMargin + ((FrameLayout.LayoutParams) layoutParams7).bottomMargin, this.f31768h[1]);
                                 it4 = it4;
                             }
                         }
@@ -440,10 +444,10 @@ public class ColumnLayout extends ViewGroup {
                     }
                     i4 = i8;
                 } else {
-                    int i24 = (((i6 - i13) - i22) - this.f35340i) - this.j;
+                    int i24 = (((i6 - i13) - i22) - this.f31769i) - this.f31770j;
                     int i25 = 0;
                     int i26 = 0;
-                    for (View view2 : this.f35337f) {
+                    for (View view2 : this.f31766f) {
                         if (view2.getVisibility() != 8) {
                             LayoutParams layoutParams8 = (LayoutParams) view2.getLayoutParams();
                             if (layoutParams8 == null) {
@@ -453,8 +457,8 @@ public class ColumnLayout extends ViewGroup {
                             measureChildWithMargins(view2, i21, i26 + i13 + i22 + i11, i3, 0);
                             int measuredWidth4 = view2.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams9).leftMargin + ((FrameLayout.LayoutParams) layoutParams9).rightMargin;
                             int measuredHeight4 = view2.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams9).topMargin + ((FrameLayout.LayoutParams) layoutParams9).bottomMargin;
-                            i26 = f(i26, measuredWidth4, this.f35339h[1]);
-                            i25 = e(i25, measuredHeight4, this.f35339h[1]);
+                            i26 = f(i26, measuredWidth4, this.f31768h[1]);
+                            i25 = e(i25, measuredHeight4, this.f31768h[1]);
                             i8 = i8;
                             i11 = i11;
                         }
@@ -463,13 +467,13 @@ public class ColumnLayout extends ViewGroup {
                     min = Math.min(i26, i24);
                     i5 = i25;
                 }
-                this.k[1] = min;
+                this.f31771k[1] = min;
                 if (i9 == Integer.MIN_VALUE || i9 == 0) {
                     max = Math.max(Math.max(i15, i5), i20) + getPaddingTop() + getPaddingBottom();
                 } else {
                     max = i9 != 1073741824 ? 0 : i4;
                 }
-                setMeasuredDimension(i13 + min + i22 + this.f35340i + this.j + getPaddingLeft() + getPaddingRight(), max);
+                setMeasuredDimension(i13 + min + i22 + this.f31769i + this.f31770j + getPaddingLeft() + getPaddingRight(), max);
                 return;
             }
         }
@@ -480,9 +484,9 @@ public class ColumnLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.removeAllViews();
-            this.f35336e.clear();
-            this.f35337f.clear();
-            this.f35338g.clear();
+            this.f31765e.clear();
+            this.f31766f.clear();
+            this.f31767g.clear();
         }
     }
 
@@ -491,7 +495,7 @@ public class ColumnLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, view) == null) {
             super.removeView(view);
-            g(view, ((LayoutParams) view.getLayoutParams()).f35341a);
+            g(view, ((LayoutParams) view.getLayoutParams()).a);
         }
     }
 
@@ -514,7 +518,7 @@ public class ColumnLayout extends ViewGroup {
     public void setSpacingRight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.j = i2;
+            this.f31770j = i2;
         }
     }
 
@@ -573,11 +577,11 @@ public class ColumnLayout extends ViewGroup {
                 return;
             }
         }
-        this.f35336e = new ArrayList();
-        this.f35337f = new ArrayList();
-        this.f35338g = new ArrayList();
-        this.f35339h = new int[]{0, 0, 0};
-        this.k = new int[3];
+        this.f31765e = new ArrayList();
+        this.f31766f = new ArrayList();
+        this.f31767g = new ArrayList();
+        this.f31768h = new int[]{0, 0, 0};
+        this.f31771k = new int[3];
         d(context, attributeSet);
     }
 
@@ -588,13 +592,11 @@ public class ColumnLayout extends ViewGroup {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f35341a;
+        public int a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -615,9 +617,9 @@ public class ColumnLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f35341a = 1;
+            this.a = 1;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ColumnLayout_Layout);
-            this.f35341a = obtainStyledAttributes.getInt(R.styleable.ColumnLayout_Layout_layout_column, 1);
+            this.a = obtainStyledAttributes.getInt(R.styleable.ColumnLayout_Layout_layout_column, 1);
             obtainStyledAttributes.recycle();
             if (((FrameLayout.LayoutParams) this).gravity == -1) {
                 ((FrameLayout.LayoutParams) this).gravity = 51;
@@ -643,8 +645,8 @@ public class ColumnLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f35341a = 1;
-            this.f35341a = i5;
+            this.a = 1;
+            this.a = i5;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -665,7 +667,7 @@ public class ColumnLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f35341a = 1;
+            this.a = 1;
         }
     }
 }

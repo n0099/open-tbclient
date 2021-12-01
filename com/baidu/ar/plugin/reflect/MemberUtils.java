@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCESS_TEST = 7;
@@ -145,7 +144,7 @@ public class MemberUtils {
     public static float getTotalTransformationCost(Class<?>[] clsArr, Class<?>[] clsArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, clsArr, clsArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, clsArr, clsArr2)) == null) {
             float f2 = 0.0f;
             for (int i2 = 0; i2 < clsArr.length; i2++) {
                 f2 += getObjectTransformationCost(clsArr[i2], clsArr2[i2]);
@@ -158,7 +157,7 @@ public class MemberUtils {
     public static boolean isAccessible(Member member) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, member)) == null) ? (member == null || !Modifier.isPublic(member.getModifiers()) || member.isSynthetic()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, member)) == null) ? (member == null || !Modifier.isPublic(member.getModifiers()) || member.isSynthetic()) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isAssignable(Class<?> cls, Class<?> cls2) {

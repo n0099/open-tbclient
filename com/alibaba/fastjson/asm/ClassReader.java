@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.asm;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ClassReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f34656b;
+    public final byte[] f31112b;
     public final int header;
     public final int[] items;
     public final int maxStringLength;
@@ -52,7 +51,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f34656b = byteArrayOutputStream.toByteArray();
+        this.f31112b = byteArrayOutputStream.toByteArray();
         int[] iArr = new int[readUnsignedShort(8)];
         this.items = iArr;
         int length = iArr.length;
@@ -62,7 +61,7 @@ public class ClassReader {
         while (i6 < length) {
             int i7 = i5 + 1;
             this.items[i6] = i7;
-            byte b2 = this.f34656b[i5];
+            byte b2 = this.f31112b[i5];
             int i8 = 5;
             if (b2 == 1) {
                 i8 = readUnsignedShort(i7) + 3;
@@ -123,7 +122,7 @@ public class ClassReader {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            byte[] bArr = this.f34656b;
+            byte[] bArr = this.f31112b;
             return (bArr[i2 + 3] & 255) | ((bArr[i2] & 255) << 24) | ((bArr[i2 + 1] & 255) << 16) | ((bArr[i2 + 2] & 255) << 8);
         }
         return invokeI.intValue;
@@ -199,7 +198,7 @@ public class ClassReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, cArr)) == null) {
             int i5 = i3 + i2;
-            byte[] bArr = this.f34656b;
+            byte[] bArr = this.f31112b;
             int i6 = 0;
             char c2 = 0;
             char c3 = 0;
@@ -241,7 +240,7 @@ public class ClassReader {
     private String readUTF8(int i2, char[] cArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, cArr)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, cArr)) == null) {
             int readUnsignedShort = readUnsignedShort(i2);
             String[] strArr = this.strings;
             String str = strArr[readUnsignedShort];
@@ -259,8 +258,8 @@ public class ClassReader {
     private int readUnsignedShort(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
-            byte[] bArr = this.f34656b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
+            byte[] bArr = this.f31112b;
             return (bArr[i2 + 1] & 255) | ((bArr[i2] & 255) << 8);
         }
         return invokeI.intValue;

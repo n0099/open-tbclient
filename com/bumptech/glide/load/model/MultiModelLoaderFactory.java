@@ -6,7 +6,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MultiModelLoaderFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Factory DEFAULT_FACTORY;
@@ -34,7 +33,7 @@ public class MultiModelLoaderFactory {
     public final Factory factory;
     public final Pools.Pool<List<Throwable>> throwableListPool;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +74,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Entry<Model, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +115,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,14 +193,14 @@ public class MultiModelLoaderFactory {
     public static <Model, Data> ModelLoader<Model, Data> emptyModelLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER : (ModelLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ModelLoader<Model, Data>) EMPTY_MODEL_LOADER : (ModelLoader) invokeV.objValue;
     }
 
     @NonNull
     private <Model, Data> ModelLoaderFactory<Model, Data> getFactory(@NonNull Entry<?, ?> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, entry)) == null) ? (ModelLoaderFactory<Model, Data>) entry.factory : (ModelLoaderFactory) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, entry)) == null) ? (ModelLoaderFactory<Model, Data>) entry.factory : (ModelLoaderFactory) invokeL.objValue;
     }
 
     public synchronized <Model, Data> void append(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {

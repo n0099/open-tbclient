@@ -210,9 +210,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bArr)) == null) {
             int length = bArr.length;
             int i2 = this.unencodedBlockSize;
-            long j = (((length + i2) - 1) / i2) * this.encodedBlockSize;
+            long j2 = (((length + i2) - 1) / i2) * this.encodedBlockSize;
             int i3 = this.lineLength;
-            return i3 > 0 ? j + ((((i3 + j) - 1) / i3) * this.chunkSeparatorLength) : j;
+            return i3 > 0 ? j2 + ((((i3 + j2) - 1) / i3) * this.chunkSeparatorLength) : j2;
         }
         return invokeL.longValue;
     }

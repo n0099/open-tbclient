@@ -20,7 +20,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CompositionLayer extends BaseLayer {
     @Nullable
     public Boolean hasMasks;
@@ -34,7 +34,7 @@ public class CompositionLayer extends BaseLayer {
     public BaseKeyframeAnimation<Float, Float> timeRemapping;
 
     /* renamed from: com.airbnb.lottie.model.layer.CompositionLayer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 

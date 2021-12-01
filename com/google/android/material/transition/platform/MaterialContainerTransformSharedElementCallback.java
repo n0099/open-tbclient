@@ -17,7 +17,6 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +30,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(21)
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -45,13 +44,13 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public boolean sharedElementReenterTransitionEnabled;
     public boolean transparentWindowBackgroundEnabled;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface ShapeProvider {
         @Nullable
         ShapeAppearanceModel provideShape(@NonNull View view);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class ShapeableViewShapeProvider implements ShapeProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,14 +105,14 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
     public static void removeWindowBackground(Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, window) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, window) == null) {
             window.getDecorView().getBackground().mutate().setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(0, BlendModeCompat.CLEAR));
         }
     }
 
     public static void restoreWindowBackground(Window window) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, window) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, window) == null) {
             window.getDecorView().getBackground().mutate().clearColorFilter();
         }
     }

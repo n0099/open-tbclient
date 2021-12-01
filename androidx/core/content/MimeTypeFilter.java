@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +64,7 @@ public final class MimeTypeFilter {
     public static boolean mimeTypeAgainstFilter(@NonNull String[] strArr, @NonNull String[] strArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, strArr, strArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strArr, strArr2)) == null) {
             if (strArr2.length == 2) {
                 if (!strArr2[0].isEmpty() && !strArr2[1].isEmpty()) {
                     if (strArr.length != 2) {

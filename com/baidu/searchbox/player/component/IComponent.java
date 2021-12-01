@@ -7,7 +7,7 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ComponentLayer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IComponent {
     View getContentView();
 

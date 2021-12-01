@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class MediaDataBox implements Box {
     public static /* synthetic */ Interceptable $ic = null;
     public static Logger LOG = null;
@@ -61,12 +61,12 @@ public final class MediaDataBox implements Box {
         this.largeBox = false;
     }
 
-    public static void transfer(DataSource dataSource, long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
+    public static void transfer(DataSource dataSource, long j2, long j3, WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dataSource, Long.valueOf(j), Long.valueOf(j2), writableByteChannel}) == null) {
-            long j3 = 0;
-            while (j3 < j2) {
-                j3 += dataSource.transferTo(j + j3, Math.min(67076096L, j2 - j3), writableByteChannel);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dataSource, Long.valueOf(j2), Long.valueOf(j3), writableByteChannel}) == null) {
+            long j4 = 0;
+            while (j4 < j3) {
+                j4 += dataSource.transferTo(j2 + j4, Math.min(67076096L, j3 - j4), writableByteChannel);
             }
         }
     }
@@ -108,13 +108,13 @@ public final class MediaDataBox implements Box {
     }
 
     @Override // com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
             this.dataSource = dataSource;
-            this.size = byteBuffer.remaining() + j;
-            dataSource.position(dataSource.position() + j);
+            this.size = byteBuffer.remaining() + j2;
+            dataSource.position(dataSource.position() + j2);
         }
     }
 

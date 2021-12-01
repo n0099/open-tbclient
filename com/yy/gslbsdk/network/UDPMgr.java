@@ -18,7 +18,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UDPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UDPMgr";

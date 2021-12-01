@@ -11,7 +11,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MetricsValue implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class MetricsValue implements IJsonSerialize {
         }
     }
 
-    public void setVal(long j) {
+    public void setVal(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.val = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.val = j2;
         }
     }
 
@@ -129,12 +129,12 @@ public class MetricsValue implements IJsonSerialize {
         return (JSONObject) invokeV.objValue;
     }
 
-    public MetricsValue(int i2, String str, String str2, long j, Map<String, String> map) {
+    public MetricsValue(int i2, String str, String str2, long j2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j), map};
+            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -147,7 +147,7 @@ public class MetricsValue implements IJsonSerialize {
         this.scode = i2;
         this.uri = str;
         this.topic = str2;
-        this.val = j;
+        this.val = j2;
         this.extra = map;
     }
 }

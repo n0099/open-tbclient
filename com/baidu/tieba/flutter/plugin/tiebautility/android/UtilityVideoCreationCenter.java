@@ -1,7 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import b.a.q0.s.m.b;
-import b.a.r0.e4.i;
+import c.a.q0.s.e0.b;
+import c.a.q0.s.m.c;
+import c.a.q0.s.m.d;
+import c.a.r0.l4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto;
@@ -9,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCenterAuto.HostUtilityVideoCreationCenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +34,7 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void sendThread(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterSendParams videoCreationCenterSendParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCreationCenterSendParams) == null) {
-            b.e(videoCreationCenterSendParams.getObjLocate(), videoCreationCenterSendParams.getPageId(), videoCreationCenterSendParams.getTopicName(), videoCreationCenterSendParams.getTopicId());
+            c.e(videoCreationCenterSendParams.getObjLocate(), videoCreationCenterSendParams.getPageId(), videoCreationCenterSendParams.getTopicName(), videoCreationCenterSendParams.getTopicId());
         }
     }
 
@@ -40,9 +42,9 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void showGuide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int b2 = i.b();
-            if (i.d(b2)) {
-                i.f(TbadkApplication.getInst().getCurrentActivity(), b2, 6);
+            int a = i.a();
+            if (i.c(a)) {
+                i.e(TbadkApplication.getInst().getCurrentActivity(), a, d.f12803g);
             }
         }
     }
@@ -51,7 +53,7 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void updateStatus(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterBoolValue videoCreationCenterBoolValue) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoCreationCenterBoolValue) == null) && videoCreationCenterBoolValue.getResult().booleanValue()) {
-            b.a.q0.s.e0.b.j().v("key_work_video_guide_pop", 0);
+            b.j().v("key_work_video_guide_pop", 0);
         }
     }
 }

@@ -2,23 +2,23 @@ package com.baidu.common.param;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.n.c.a;
-import b.a.n.c.b;
-import b.a.n.c.c;
-import b.a.n.c.d;
-import b.a.n.c.f;
-import b.a.n.c.h;
-import b.a.n.c.i;
+import c.a.m.c.a;
+import c.a.m.c.b;
+import c.a.m.c.c;
+import c.a.m.c.d;
+import c.a.m.c.f;
+import c.a.m.c.h;
+import c.a.m.c.i;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.common.config.AppIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -111,7 +111,7 @@ public final class CommonUrlParamManager {
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mNetworkParam = new f();
             this.mDeviceInfoParam = new b();
             this.mUaParam = new h();
@@ -122,10 +122,10 @@ public final class CommonUrlParamManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            c a2 = a.a();
+            c a = a.a();
             String enuid = getEnuid();
             String c3Aid = getC3Aid();
-            String zid = a2.getZid();
+            String zid = a.getZid();
             d b2 = a.b();
             String b3 = b2.b();
             if (b2.d()) {
@@ -145,29 +145,29 @@ public final class CommonUrlParamManager {
     private String processUrl(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2, str3, str4, str5)) == null) {
-            c a2 = a.a();
-            String a3 = this.mUaParam.a();
-            String a4 = b.a.n.b.a.b().a();
-            String sid = a2.getSid();
-            String bDVCInfo = a2.getBDVCInfo();
-            String a5 = this.mDeviceInfoParam.a();
-            String from = a2.getFrom();
-            String cfrom = a2.getCfrom();
-            String schemeHeader = a2.getSchemeHeader();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, this, str, str2, str3, str4, str5)) == null) {
+            c a = a.a();
+            String a2 = this.mUaParam.a();
+            String appName = AppIdentityManager.getInstance().getAppName();
+            String sid = a.getSid();
+            String bDVCInfo = a.getBDVCInfo();
+            String a3 = this.mDeviceInfoParam.a();
+            String from = a.getFrom();
+            String cfrom = a.getCfrom();
+            String schemeHeader = a.getSchemeHeader();
             String c2 = a.b().c();
-            String a6 = a.b().a();
+            String a4 = a.b().a();
             if (TextUtils.isEmpty(from)) {
-                from = b.a.n.a.a.b().a();
+                from = c.a.m.a.a.b().a();
             }
             if (TextUtils.isEmpty(cfrom)) {
-                cfrom = b.a.n.a.a.b().c();
+                cfrom = c.a.m.a.a.b().c();
             }
-            String addParam = addParam(addParam(this.mNetworkParam.a(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", a4), "sid", sid), "ut", a5), "ua", a3), "bdvc", bDVCInfo), "zid", str2), "uid", str), "iid", str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), true), "c3_aid", str3), PARAM_MATRIXSTYLE, c2);
-            if (!TextUtils.isEmpty(a6)) {
-                addParam = addParam(addParam, PARAM_CMODE, a6);
+            String addParam = addParam(addParam(this.mNetworkParam.a(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", appName), "sid", sid), "ut", a3), "ua", a2), "bdvc", bDVCInfo), "zid", str2), "uid", str), "iid", str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), true), "c3_aid", str3), PARAM_MATRIXSTYLE, c2);
+            if (!TextUtils.isEmpty(a4)) {
+                addParam = addParam(addParam, PARAM_CMODE, a4);
             }
-            a2.a(addParam, true);
+            a.a(addParam, true);
             return addParam;
         }
         return (String) invokeLLLLL.objValue;

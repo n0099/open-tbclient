@@ -16,13 +16,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class en extends Notification.Builder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71805a;
+    public Context a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public en(Context context) {
@@ -42,7 +40,7 @@ public class en extends Notification.Builder {
                 return;
             }
         }
-        this.f71805a = context;
+        this.a = context;
     }
 
     public int a(Resources resources, String str, String str2, String str3) {
@@ -60,7 +58,7 @@ public class en extends Notification.Builder {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71805a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +100,7 @@ public class en extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m292a() {
+    public void m341a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -113,7 +111,7 @@ public class en extends Notification.Builder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m292a();
+            m341a();
             return super.build();
         }
         return (Notification) invokeV.objValue;

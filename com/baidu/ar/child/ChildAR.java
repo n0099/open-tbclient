@@ -12,7 +12,6 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +187,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
 
     private void a(String str, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(AdIconUtil.BAIDU_LOGO_ID, this, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(65542, this, str, f2) == null) {
             d dVar = new d();
             dVar.v(str);
             cO();
@@ -198,20 +197,20 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(byte[] bArr, long j) {
+    public void a(byte[] bArr, long j2) {
         a aVar;
         int i2;
         com.baidu.ar.arrender.l r;
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65543, this, bArr, j) == null) || (aVar = this.lz) == null || this.lC || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(65543, this, bArr, j2) == null) || (aVar = this.lz) == null || this.lC || j2 <= 0) {
             return;
         }
-        aVar.a(j, bArr);
+        aVar.a(j2, bArr);
         if (TextUtils.isEmpty(this.bD) || (r = r()) == null || i2 <= 0 || (algoHandleController = this.cb) == null) {
             return;
         }
-        algoHandleController.sendHandleToRenderer(j, r, "ability_face_child");
+        algoHandleController.sendHandleToRenderer(j2, r, "ability_face_child");
     }
 
     private void b(float f2) {
@@ -351,15 +350,15 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j) {
+    public void a(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 20) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            super.a(j2);
+            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 20) {
                 return;
             }
-            this.cb.destroyHandle(j);
+            this.cb.destroyHandle(j2);
         }
     }
 
@@ -416,7 +415,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             }
             a aVar = this.lz;
             if (aVar != null && !this.lC) {
-                aVar.a((a.InterfaceC1628a) null);
+                aVar.a((a.InterfaceC1705a) null);
                 this.lz.cQ();
                 this.lz = null;
             }
@@ -445,7 +444,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.bD = (String) hashMap.get("ability_name");
             this.lz = new a(this.mInputWidth, this.mInputHeight);
             this.lB = new com.baidu.ar.child.b.b();
-            this.lz.a(new a.InterfaceC1628a(this) { // from class: com.baidu.ar.child.ChildAR.2
+            this.lz.a(new a.InterfaceC1705a(this) { // from class: com.baidu.ar.child.ChildAR.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -468,13 +467,13 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     this.lF = this;
                 }
 
-                @Override // com.baidu.ar.child.a.InterfaceC1628a
-                public void a(long j, byte[] bArr, int i2) {
+                @Override // com.baidu.ar.child.a.InterfaceC1705a
+                public void a(long j2, byte[] bArr, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2)}) == null) || bArr == null || bArr.length <= 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2)}) == null) || bArr == null || bArr.length <= 0) {
                         return;
                     }
-                    this.lF.lB.a(bArr, i2, new b.a(this, j) { // from class: com.baidu.ar.child.ChildAR.2.1
+                    this.lF.lB.a(bArr, i2, new b.a(this, j2) { // from class: com.baidu.ar.child.ChildAR.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ long lG;
@@ -485,7 +484,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                             if (interceptable3 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Long.valueOf(j)};
+                                Object[] objArr = {this, Long.valueOf(j2)};
                                 interceptable3.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -496,7 +495,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                                 }
                             }
                             this.lH = this;
-                            this.lG = j;
+                            this.lG = j2;
                         }
 
                         @Override // com.baidu.ar.child.b.b.a

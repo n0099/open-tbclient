@@ -48,13 +48,14 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANIMATION_DURATION = 300;
@@ -88,14 +89,14 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public final boolean paddingRightSystemWindowInsets;
     public int rightInset;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
         void onAnimationStart(BottomAppBar bottomAppBar);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,16 +283,16 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface FabAlignmentMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface FabAnimationMode {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -513,7 +514,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     private void createFabTranslationXAnimation(int i2, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65571, this, i2, list) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), "translationX", getFabTranslationX(i2));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), AnimationProperty.TRANSLATE_X, getFabTranslationX(i2));
             ofFloat.setDuration(300L);
             list.add(ofFloat);
         }
@@ -525,9 +526,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         if (!(interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) || (actionMenuView = getActionMenuView()) == null) {
             return;
         }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, "alpha", 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, AnimationProperty.OPACITY, 1.0f);
         if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i2, z)) > 1.0f) {
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, "alpha", 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, AnimationProperty.OPACITY, 0.0f);
             ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i2, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

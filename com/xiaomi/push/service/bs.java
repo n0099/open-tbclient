@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bs extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f72396a;
+    public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f948a;
@@ -40,7 +38,7 @@ public class bs extends XMPushService.i {
                 return;
             }
         }
-        this.f72396a = xMPushService;
+        this.a = xMPushService;
         this.f948a = str;
         this.f949a = bArr;
     }
@@ -57,10 +55,10 @@ public class bs extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                y.a(this.f72396a, this.f948a, this.f949a);
+                y.a(this.a, this.f948a, this.f949a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f72396a.a(10, e2);
+                this.a.a(10, e2);
             }
         }
     }

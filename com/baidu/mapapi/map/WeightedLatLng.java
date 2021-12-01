@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WeightedLatLng extends o.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double DEFAULT_INTENSITY = 1.0d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Point f40396a;
+    public Point a;
     public final double intensity;
     public final LatLng latLng;
 
@@ -62,7 +60,7 @@ public class WeightedLatLng extends o.a {
         }
         this.latLng = latLng;
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        this.f40396a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
+        this.a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
         if (d2 > 0.0d) {
             this.intensity = d2;
         } else {
@@ -74,6 +72,6 @@ public class WeightedLatLng extends o.a {
     public Point a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40396a : (Point) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Point) invokeV.objValue;
     }
 }

@@ -2,7 +2,6 @@ package com.coremedia.iso;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +23,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -86,7 +85,7 @@ public class IsoFile extends BasicContainer implements Closeable {
     public static byte[] fourCCtoBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             byte[] bArr = new byte[4];
             if (str != null) {
                 for (int i2 = 0; i2 < Math.min(4, str.length()); i2++) {

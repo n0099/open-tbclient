@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.z2.n0;
-import b.a.p0.a.z2.o0;
-import b.a.p0.a.z2.u;
-import b.a.p0.g.d;
+import c.a.p0.a.z2.n0;
+import c.a.p0.a.z2.o0;
+import c.a.p0.a.z2.u;
+import c.a.p0.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
@@ -33,7 +33,7 @@ import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PictureView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_ZOOM = 3.0f;
@@ -41,31 +41,33 @@ public class PictureView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45306e;
+    public String f40339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45307f;
+    public String f40340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f45308g;
+    public String f40341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ZoomImageView f45309h;
+    public ZoomImageView f40342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f45310i;
-    public View j;
-    public View k;
+    public View f40343i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f40344j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public View f40345k;
     public boolean l;
     public c m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements BdImageViewTouch.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PictureView f45311a;
+        public final /* synthetic */ PictureView a;
 
         public a(PictureView pictureView) {
             Interceptable interceptable = $ic;
@@ -82,31 +84,31 @@ public class PictureView extends FrameLayout {
                     return;
                 }
             }
-            this.f45311a = pictureView;
+            this.a = pictureView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouch.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f45311a.hasSetBitmap()) {
-                    if (this.f45311a.l) {
-                        this.f45311a.loadImageByUrl();
+                if (!this.a.hasSetBitmap()) {
+                    if (this.a.l) {
+                        this.a.loadImageByUrl();
                     }
-                } else if (this.f45311a.getContext() instanceof View.OnClickListener) {
-                    ((View.OnClickListener) this.f45311a.getContext()).onClick(this.f45311a.f45309h);
+                } else if (this.a.getContext() instanceof View.OnClickListener) {
+                    ((View.OnClickListener) this.a.getContext()).onClick(this.a.f40342h);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureView f45312e;
+        public final /* synthetic */ PictureView f40346e;
 
         public b(PictureView pictureView) {
             Interceptable interceptable = $ic;
@@ -123,7 +125,7 @@ public class PictureView extends FrameLayout {
                     return;
                 }
             }
-            this.f45312e = pictureView;
+            this.f40346e = pictureView;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
@@ -138,7 +140,7 @@ public class PictureView extends FrameLayout {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.f45312e.g();
+                this.f40346e.g();
             }
         }
 
@@ -154,10 +156,10 @@ public class PictureView extends FrameLayout {
                         } else {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
-                        this.f45312e.f45309h.setImageBitmap(copy);
-                        this.f45312e.h();
-                        if (this.f45312e.m != null) {
-                            this.f45312e.m.b();
+                        this.f40346e.f40342h.setImageBitmap(copy);
+                        this.f40346e.h();
+                        if (this.f40346e.m != null) {
+                            this.f40346e.m.b();
                             return;
                         }
                         return;
@@ -165,15 +167,15 @@ public class PictureView extends FrameLayout {
                         System.gc();
                     }
                 }
-                if (this.f45312e.m != null) {
-                    this.f45312e.m.a();
+                if (this.f40346e.m != null) {
+                    this.f40346e.m.a();
                 }
-                this.f45312e.g();
+                this.f40346e.g();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a();
 
@@ -205,23 +207,23 @@ public class PictureView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(d.swan_app_picture_view, this);
-            this.f45309h = (ZoomImageView) inflate.findViewById(b.a.p0.g.c.zoom_imageview);
-            this.f45310i = inflate.findViewById(b.a.p0.g.c.picture_load_progressbar);
-            this.j = inflate.findViewById(b.a.p0.g.c.reload_textview);
-            this.k = inflate.findViewById(b.a.p0.g.c.picture_loading_layout);
-            this.f45309h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
-            this.f45309h.setZoomRange(1.0f, 3.0f);
-            this.f45309h.setDoubleTapEnabled(true);
-            this.f45309h.setSingleTapListener(new a(this));
+            this.f40342h = (ZoomImageView) inflate.findViewById(c.a.p0.g.c.zoom_imageview);
+            this.f40343i = inflate.findViewById(c.a.p0.g.c.picture_load_progressbar);
+            this.f40344j = inflate.findViewById(c.a.p0.g.c.reload_textview);
+            this.f40345k = inflate.findViewById(c.a.p0.g.c.picture_loading_layout);
+            this.f40342h.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
+            this.f40342h.setZoomRange(1.0f, 3.0f);
+            this.f40342h.setDoubleTapEnabled(true);
+            this.f40342h.setSingleTapListener(new a(this));
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j.setVisibility(0);
-            this.f45310i.setVisibility(4);
-            this.k.setVisibility(0);
+            this.f40344j.setVisibility(0);
+            this.f40343i.setVisibility(4);
+            this.f40345k.setVisibility(0);
             this.l = true;
         }
     }
@@ -229,14 +231,14 @@ public class PictureView extends FrameLayout {
     public View getImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45309h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40342h : (View) invokeV.objValue;
     }
 
     public Bitmap getImageViewBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ZoomImageView zoomImageView = this.f45309h;
+            ZoomImageView zoomImageView = this.f40342h;
             if (zoomImageView != null) {
                 Drawable drawable = zoomImageView.getDrawable();
                 if (drawable instanceof BitmapDrawable) {
@@ -252,9 +254,9 @@ public class PictureView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j.setVisibility(4);
-            this.f45310i.setVisibility(4);
-            this.k.setVisibility(4);
+            this.f40344j.setVisibility(4);
+            this.f40343i.setVisibility(4);
+            this.f40345k.setVisibility(4);
             this.l = false;
         }
     }
@@ -263,7 +265,7 @@ public class PictureView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ZoomImageView zoomImageView = this.f45309h;
+            ZoomImageView zoomImageView = this.f40342h;
             return zoomImageView != null && zoomImageView.hasSetBitmap();
         }
         return invokeV.booleanValue;
@@ -273,14 +275,14 @@ public class PictureView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.f45306e;
-            String str2 = this.f45307f;
-            String str3 = this.f45308g;
+            String str = this.f40339e;
+            String str2 = this.f40340f;
+            String str3 = this.f40341g;
             Uri p = o0.p(str);
             boolean z = p == null;
-            this.f45310i.setVisibility(z ? 4 : 0);
-            this.j.setVisibility(z ? 0 : 4);
-            this.k.setVisibility(0);
+            this.f40343i.setVisibility(z ? 4 : 0);
+            this.f40344j.setVisibility(z ? 0 : 4);
+            this.f40345k.setVisibility(0);
             if (!z) {
                 this.l = false;
                 HashMap hashMap = new HashMap();
@@ -291,7 +293,7 @@ public class PictureView extends FrameLayout {
                     hashMap.put("User-Agent", str3);
                 }
                 ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(n0.o(getContext()), n0.o(getContext())));
-                b.a.p0.a.c1.a.C().e(resizeOptions, hashMap);
+                c.a.p0.a.c1.a.C().e(resizeOptions, hashMap);
                 Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(this), UiThreadImmediateExecutorService.getInstance());
             }
             return !z;
@@ -302,8 +304,8 @@ public class PictureView extends FrameLayout {
     public void setData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f45306e = str;
-            this.f45307f = null;
+            this.f40339e = str;
+            this.f40340f = null;
             loadImageByUrl();
         }
     }
@@ -311,14 +313,14 @@ public class PictureView extends FrameLayout {
     public void setUA(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f45308g = str;
+            this.f40341g = str;
         }
     }
 
     public void zoomTo(float f2, float f3) {
         ZoomImageView zoomImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (zoomImageView = this.f45309h) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (zoomImageView = this.f40342h) == null) {
             return;
         }
         zoomImageView.zoomTo(f2, f3);
@@ -364,21 +366,21 @@ public class PictureView extends FrameLayout {
                 return;
             }
         }
-        this.f45306e = null;
-        this.f45307f = null;
-        this.f45308g = null;
-        this.f45309h = null;
-        this.f45310i = null;
-        this.j = null;
-        this.k = null;
+        this.f40339e = null;
+        this.f40340f = null;
+        this.f40341g = null;
+        this.f40342h = null;
+        this.f40343i = null;
+        this.f40344j = null;
+        this.f40345k = null;
         this.l = false;
-        this.f45306e = null;
-        this.f45307f = null;
-        this.f45308g = null;
-        this.f45309h = null;
-        this.f45310i = null;
-        this.j = null;
-        this.k = null;
+        this.f40339e = null;
+        this.f40340f = null;
+        this.f40341g = null;
+        this.f40342h = null;
+        this.f40343i = null;
+        this.f40344j = null;
+        this.f40345k = null;
         this.l = false;
         f(context);
     }
@@ -387,8 +389,8 @@ public class PictureView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, cVar) == null) {
             this.m = cVar;
-            this.f45306e = str;
-            this.f45307f = str2;
+            this.f40339e = str;
+            this.f40340f = str2;
             loadImageByUrl();
         }
     }

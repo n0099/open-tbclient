@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class FactoryPools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
@@ -23,12 +22,12 @@ public final class FactoryPools {
     public static final String TAG = "FactoryPools";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Factory<T> {
         T create();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,13 +90,13 @@ public final class FactoryPools {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Poolable {
         @NonNull
         StateVerifier getVerifier();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Resetter<T> {
         void reset(@NonNull T t);
     }
@@ -174,14 +173,14 @@ public final class FactoryPools {
     public static <T extends Poolable> Pools.Pool<T> simple(int i2, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, factory)) == null) ? build(new Pools.SimplePool(i2), factory) : (Pools.Pool) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, factory)) == null) ? build(new Pools.SimplePool(i2), factory) : (Pools.Pool) invokeIL.objValue;
     }
 
     @NonNull
     public static <T extends Poolable> Pools.Pool<T> threadSafe(int i2, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, factory)) == null) ? build(new Pools.SynchronizedPool(i2), factory) : (Pools.Pool) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, factory)) == null) ? build(new Pools.SynchronizedPool(i2), factory) : (Pools.Pool) invokeIL.objValue;
     }
 
     @NonNull

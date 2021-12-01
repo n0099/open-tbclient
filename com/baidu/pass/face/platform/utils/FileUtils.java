@@ -4,7 +4,6 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +31,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;
@@ -93,8 +92,8 @@ public final class FileUtils {
         InterceptResult invokeL;
         long computeFolderSize;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            long j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            long j2 = 0;
             if (file == null) {
                 return 0L;
             }
@@ -104,20 +103,20 @@ public final class FileUtils {
                     if (file2.isFile()) {
                         computeFolderSize = file2.length();
                     } else if (file2.isDirectory()) {
-                        j += file2.length();
+                        j2 += file2.length();
                         computeFolderSize = computeFolderSize(file2);
                     }
-                    j += computeFolderSize;
+                    j2 += computeFolderSize;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
 
     public static void copyDirectory(File file, File file2) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, file2) == null) && file.exists()) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, file, file2) == null) && file.exists()) {
             file2.mkdirs();
             File[] listFiles = file.listFiles();
             if (listFiles == null) {

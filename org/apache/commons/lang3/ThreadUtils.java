@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,12 +123,12 @@ public class ThreadUtils {
         public transient /* synthetic */ FieldHolder $fh;
         public final long threadId;
 
-        public ThreadIdPredicate(long j) {
+        public ThreadIdPredicate(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -139,8 +138,8 @@ public class ThreadUtils {
                     return;
                 }
             }
-            if (j > 0) {
-                this.threadId = j;
+            if (j2 > 0) {
+                this.threadId = j2;
                 return;
             }
             throw new IllegalArgumentException("The thread id must be greater than zero");
@@ -189,12 +188,12 @@ public class ThreadUtils {
         }
     }
 
-    public static Thread findThreadById(long j, ThreadGroup threadGroup) {
+    public static Thread findThreadById(long j2, ThreadGroup threadGroup) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, threadGroup)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j2, threadGroup)) == null) {
             if (threadGroup != null) {
-                Thread findThreadById = findThreadById(j);
+                Thread findThreadById = findThreadById(j2);
                 if (findThreadById == null || !threadGroup.equals(findThreadById.getThreadGroup())) {
                     return null;
                 }
@@ -208,7 +207,7 @@ public class ThreadUtils {
     public static Collection<ThreadGroup> findThreadGroups(ThreadGroupPredicate threadGroupPredicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, threadGroupPredicate)) == null) ? findThreadGroups(getSystemThreadGroup(), true, threadGroupPredicate) : (Collection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, threadGroupPredicate)) == null) ? findThreadGroups(getSystemThreadGroup(), true, threadGroupPredicate) : (Collection) invokeL.objValue;
     }
 
     public static Collection<ThreadGroup> findThreadGroupsByName(String str) {
@@ -259,7 +258,7 @@ public class ThreadUtils {
         ThreadGroup[] threadGroupArr;
         int enumerate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{threadGroup, Boolean.valueOf(z), threadGroupPredicate})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{threadGroup, Boolean.valueOf(z), threadGroupPredicate})) == null) {
             if (threadGroup != null) {
                 if (threadGroupPredicate != null) {
                     int activeGroupCount = threadGroup.activeGroupCount();
@@ -344,12 +343,12 @@ public class ThreadUtils {
         return (Collection) invokeLL.objValue;
     }
 
-    public static Thread findThreadById(long j, String str) {
+    public static Thread findThreadById(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j2, str)) == null) {
             if (str != null) {
-                Thread findThreadById = findThreadById(j);
+                Thread findThreadById = findThreadById(j2);
                 if (findThreadById == null || findThreadById.getThreadGroup() == null || !findThreadById.getThreadGroup().getName().equals(str)) {
                     return null;
                 }
@@ -360,11 +359,11 @@ public class ThreadUtils {
         return (Thread) invokeJL.objValue;
     }
 
-    public static Thread findThreadById(long j) {
+    public static Thread findThreadById(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            Collection<Thread> findThreads = findThreads(new ThreadIdPredicate(j));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            Collection<Thread> findThreads = findThreads(new ThreadIdPredicate(j2));
             if (findThreads.isEmpty()) {
                 return null;
             }

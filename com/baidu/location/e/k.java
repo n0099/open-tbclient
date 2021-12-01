@@ -12,12 +12,12 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -33,7 +33,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.2f;
@@ -62,9 +62,7 @@ public class k {
     public static int X = 0;
     public static int Y = 0;
     public static int Z = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f40047a = false;
+    public static boolean a = false;
     public static String aA = "http://loc.map.baidu.com/oqur.php";
     public static String aB = "http://loc.map.baidu.com/tcu.php";
     public static String aC = "http://loc.map.baidu.com/rtbu.php";
@@ -98,30 +96,34 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40048b = false;
+    public static boolean f35713b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f40049c = false;
+    public static boolean f35714c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f40050d = 0;
+    public static int f35715d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40051e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f35716e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40052f = "https://loc.map.baidu.com/sdk.php";
+    public static String f35717f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40053g = "no";
+    public static String f35718g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f40054h = false;
+    public static boolean f35719h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f40055i = false;
-    public static boolean j = false;
-    public static boolean k = false;
+    public static boolean f35720i = false;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static boolean f35721j = false;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static boolean f35722k = false;
     public static boolean l = false;
     public static boolean m = false;
     public static String n = "gcj02";
@@ -220,7 +222,7 @@ public class k {
     public static String a(com.baidu.location.c.a aVar, com.baidu.location.c.h hVar, Location location, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2)})) == null) ? a(aVar, hVar, location, str, i2, false) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2)})) == null) ? a(aVar, hVar, location, str, i2, false) : (String) invokeCommon.objValue;
     }
 
     public static String a(com.baidu.location.c.a aVar, com.baidu.location.c.h hVar, Location location, String str, int i2, boolean z2) {
@@ -228,7 +230,7 @@ public class k {
         String a2;
         String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{aVar, hVar, location, str, Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) {
             StringBuffer stringBuffer = new StringBuffer(1024);
             if (aVar != null && (b2 = com.baidu.location.c.b.a().b(aVar)) != null) {
                 stringBuffer.append(b2);
@@ -240,7 +242,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f40050d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f35715d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -259,7 +261,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f40050d;
+                    int i3 = f35715d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();
@@ -404,9 +406,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
-            int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
-            int a4 = a(context, "android.permission.READ_PHONE_STATE");
+            int a2 = a(context, s.f56843h);
+            int a3 = a(context, s.f56842g);
+            int a4 = a(context, s.f56838c);
             return "&per=" + a2 + "|" + a3 + "|" + a4;
         }
         return (String) invokeL.objValue;

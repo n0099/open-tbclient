@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DeferredReleaser {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -26,7 +25,7 @@ public class DeferredReleaser {
     public final Handler mUiHandler;
     public final Runnable releaseRunnable;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Releasable {
         void release();
     }
@@ -109,7 +108,7 @@ public class DeferredReleaser {
         InterceptResult invokeV;
         DeferredReleaser deferredReleaser;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (DeferredReleaser.class) {
                 if (sInstance == null) {
                     sInstance = new DeferredReleaser();

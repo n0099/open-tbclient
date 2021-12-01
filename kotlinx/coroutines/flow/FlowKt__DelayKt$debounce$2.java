@@ -32,10 +32,10 @@ public final class FlowKt__DelayKt$debounce$2 extends SuspendLambda implements F
     public FlowCollector p$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__DelayKt$debounce$2(Flow flow, long j, Continuation continuation) {
+    public FlowKt__DelayKt$debounce$2(Flow flow, long j2, Continuation continuation) {
         super(3, continuation);
         this.$this_debounce = flow;
-        this.$timeoutMillis = j;
+        this.$timeoutMillis = j2;
     }
 
     public final Continuation<Unit> create(CoroutineScope coroutineScope, FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {

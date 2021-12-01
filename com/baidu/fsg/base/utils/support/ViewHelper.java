@@ -3,19 +3,18 @@ package com.baidu.fsg.base.utils.support;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Honeycomb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,14 +61,14 @@ public final class ViewHelper {
 
         public static void b(View view, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, view, f2) == null) {
+            if (interceptable == null || interceptable.invokeLF(65541, null, view, f2) == null) {
                 view.setPivotX(f2);
             }
         }
 
         public static void b(View view, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, view, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(65542, null, view, i2) == null) {
                 view.setScrollY(i2);
             }
         }
@@ -259,9 +258,9 @@ public final class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLZ(65538, null, arrayList, view, z) == null) || arrayList == null || arrayList.size() <= 0 || view == null) {
             return;
         }
-        ArrayList<View> a2 = a(view);
-        for (int i2 = 1; i2 < a2.size(); i2++) {
-            View view2 = a2.get(i2);
+        ArrayList<View> a = a(view);
+        for (int i2 = 1; i2 < a.size(); i2++) {
+            View view2 = a.get(i2);
             if (view2 != null && arrayList.contains(view2)) {
                 arrayList.remove(view2);
             }
@@ -295,13 +294,13 @@ public final class ViewHelper {
     public static float getPivotX(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotX() : Honeycomb.b(view) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotX() : Honeycomb.b(view) : invokeL.floatValue;
     }
 
     public static float getPivotY(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotY() : Honeycomb.c(view) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotY() : Honeycomb.c(view) : invokeL.floatValue;
     }
 
     public static float getRotation(View view) {
@@ -390,22 +389,22 @@ public final class ViewHelper {
             setAlpha(view, f2);
             return;
         }
-        ArrayList<View> a2 = a(view);
-        if (a2 == null || a2.size() <= 0) {
+        ArrayList<View> a = a(view);
+        if (a == null || a.size() <= 0) {
             setAlpha(view, f2);
             return;
         }
         for (View view2 : viewArr) {
-            b(a2, view2, true);
+            b(a, view2, true);
         }
-        for (int i2 = 0; i2 < a2.size(); i2++) {
-            View view3 = a2.get(i2);
+        for (int i2 = 0; i2 < a.size(); i2++) {
+            View view3 = a.get(i2);
             if ((view3 instanceof ViewGroup) && ((ViewGroup) view3).getChildCount() > 0) {
-                a(a2, view3, false);
+                a(a, view3, false);
             }
         }
-        for (int i3 = 0; i3 < a2.size(); i3++) {
-            View view4 = a2.get(i3);
+        for (int i3 = 0; i3 < a.size(); i3++) {
+            View view4 = a.get(i3);
             if (view4 != null) {
                 setAlpha(view4, f2);
             }

@@ -3,7 +3,6 @@ package com.google.gson.internal;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,14 +25,14 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class C$Gson$Types {
     public static /* synthetic */ Interceptable $ic;
     public static final Type[] EMPTY_TYPE_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -88,7 +87,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -191,7 +190,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -351,7 +350,7 @@ public final class C$Gson$Types {
     public static Class<?> declaringClassOf(TypeVariable<?> typeVariable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, typeVariable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, typeVariable)) == null) {
             Object genericDeclaration = typeVariable.getGenericDeclaration();
             if (genericDeclaration instanceof Class) {
                 return (Class) genericDeclaration;
@@ -364,7 +363,7 @@ public final class C$Gson$Types {
     public static boolean equal(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
     }
 
     public static boolean equals(Type type, Type type2) {

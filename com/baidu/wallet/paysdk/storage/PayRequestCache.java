@@ -24,23 +24,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class PayRequestCache implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, BeanRequestBase> f60891a;
+    public final HashMap<String, BeanRequestBase> a;
 
     /* renamed from: com.baidu.wallet.paysdk.storage.PayRequestCache$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class BindCategory {
         public static final /* synthetic */ BindCategory[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,12 +123,10 @@ public final class PayRequestCache implements NoProguard {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static PayRequestCache f60892a;
+        public static PayRequestCache a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,7 +142,7 @@ public final class PayRequestCache implements NoProguard {
                     return;
                 }
             }
-            f60892a = new PayRequestCache(null);
+            a = new PayRequestCache(null);
         }
     }
 
@@ -170,7 +166,7 @@ public final class PayRequestCache implements NoProguard {
     public static PayRequestCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60892a : (PayRequestCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (PayRequestCache) invokeV.objValue;
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
@@ -178,17 +174,17 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, beanRequestBase) == null) || str == null || str.equals("") || beanRequestBase == null) {
             return;
         }
-        this.f60891a.put(str, beanRequestBase);
+        this.a.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogUtil.e(PayRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
-            Set<String> keySet = this.f60891a.keySet();
+            Set<String> keySet = this.a.keySet();
             HashSet<String> hashSet = new HashSet();
             for (String str : keySet) {
-                if (this.f60891a.get(str) != null && this.f60891a.get(str).mBelongPaySdk) {
+                if (this.a.get(str) != null && this.a.get(str).mBelongPaySdk) {
                     hashSet.add(str);
                 }
             }
@@ -201,7 +197,7 @@ public final class PayRequestCache implements NoProguard {
     public void clearRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f60891a.clear();
+            this.a.clear();
         }
     }
 
@@ -212,7 +208,7 @@ public final class PayRequestCache implements NoProguard {
             if (str == null || str.equals("")) {
                 return null;
             }
-            return this.f60891a.get(str);
+            return this.a.get(str);
         }
         return (BeanRequestBase) invokeL.objValue;
     }
@@ -320,7 +316,7 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60891a.remove(str);
+        this.a.remove(str);
     }
 
     public PayRequestCache() {
@@ -336,6 +332,6 @@ public final class PayRequestCache implements NoProguard {
                 return;
             }
         }
-        this.f60891a = new HashMap<>();
+        this.a = new HashMap<>();
     }
 }

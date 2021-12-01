@@ -10,12 +10,16 @@ public class j extends s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66849h;
+    public int f58740h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66850i;
-    public int j;
-    public int k;
+    public int f58741i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58742j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f58743k;
     public int l;
     public int m;
     public int n;
@@ -47,14 +51,14 @@ public class j extends s {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f66849h = com.kwad.sdk.pngencrypt.n.c(dVar.f66832d, 0);
-            this.f66850i = com.kwad.sdk.pngencrypt.n.c(dVar.f66832d, 4);
-            this.j = com.kwad.sdk.pngencrypt.n.c(dVar.f66832d, 8);
-            this.k = com.kwad.sdk.pngencrypt.n.c(dVar.f66832d, 12);
-            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f66832d, 16);
-            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 20);
-            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 22);
-            byte[] bArr = dVar.f66832d;
+            this.f58740h = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 0);
+            this.f58741i = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 4);
+            this.f58742j = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 8);
+            this.f58743k = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 12);
+            this.l = com.kwad.sdk.pngencrypt.n.c(dVar.f58722d, 16);
+            this.m = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 20);
+            this.n = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 22);
+            byte[] bArr = dVar.f58722d;
             this.o = bArr[24];
             this.p = bArr[25];
         }

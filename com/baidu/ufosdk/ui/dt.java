@@ -5,25 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class dt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f57857a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f57858b;
+    public TextView f51685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57859c;
+    public TextView f51686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f57860d;
+    public TextView f51687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f57861e;
+    public final /* synthetic */ FeedbackListActivity f51688e;
 
     public dt(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -40,6 +38,6 @@ public final class dt {
                 return;
             }
         }
-        this.f57861e = feedbackListActivity;
+        this.f51688e = feedbackListActivity;
     }
 }

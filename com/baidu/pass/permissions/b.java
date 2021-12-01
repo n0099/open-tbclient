@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f42833a;
+    public final /* synthetic */ PermissionsHelperActivity a;
 
     public b(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f42833a = permissionsHelperActivity;
+        this.a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,11 +36,11 @@ public class b implements View.OnClickListener {
         PermissionsDTO permissionsDTO;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            sb = this.f42833a.f42830e;
+            sb = this.a.f38313e;
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
-            PermissionsHelperActivity permissionsHelperActivity = this.f42833a;
-            permissionsDTO = permissionsHelperActivity.f42828c;
-            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, PermissionsHelperActivity.f42827b);
+            PermissionsHelperActivity permissionsHelperActivity = this.a;
+            permissionsDTO = permissionsHelperActivity.f38311c;
+            permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
         }
     }
 }

@@ -13,15 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final g f69160a;
+    public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f69161b;
+    public static final g f61013b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f69162c;
+    public static g f61014c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +35,7 @@ public abstract class g {
                 return;
             }
         }
-        f69162c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
+        f61014c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,7 +67,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE : (String) invokeV.objValue;
             }
         };
-        f69160a = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM, 1) { // from class: com.sdk.base.framework.f.g.i
+        a = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM, 1) { // from class: com.sdk.base.framework.f.g.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +99,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM : (String) invokeV.objValue;
             }
         };
-        f69161b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
+        f61013b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

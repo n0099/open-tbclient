@@ -186,10 +186,10 @@ public class ViewInfoStore {
         }
     }
 
-    public void addToOldChangeHolders(long j, RecyclerView.ViewHolder viewHolder) {
+    public void addToOldChangeHolders(long j2, RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, viewHolder) == null) {
-            this.mOldChangedHolders.put(j, viewHolder);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, viewHolder) == null) {
+            this.mOldChangedHolders.put(j2, viewHolder);
         }
     }
 
@@ -227,10 +227,10 @@ public class ViewInfoStore {
         }
     }
 
-    public RecyclerView.ViewHolder getFromOldChangeHolders(long j) {
+    public RecyclerView.ViewHolder getFromOldChangeHolders(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? this.mOldChangedHolders.get(j) : (RecyclerView.ViewHolder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) ? this.mOldChangedHolders.get(j2) : (RecyclerView.ViewHolder) invokeJ.objValue;
     }
 
     public boolean isDisappearing(RecyclerView.ViewHolder viewHolder) {

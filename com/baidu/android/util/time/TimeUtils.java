@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MD = "MM-dd";
@@ -50,15 +50,15 @@ public class TimeUtils {
         }
     }
 
-    public static String getFormatTeletextTime(Context context, long j) {
+    public static String getFormatTeletextTime(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) ? getFormatTeletextTime(context, j2, true) : (String) invokeLJ.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j, boolean z) {
+    public static String getFormatTeletextTime(Context context, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j2, z) : (String) invokeCommon.objValue;
     }
 }

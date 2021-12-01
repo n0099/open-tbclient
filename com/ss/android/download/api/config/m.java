@@ -3,9 +3,9 @@ package com.ss.android.download.api.config;
 public interface m {
     long a();
 
-    void a(long j);
+    void a(long j2);
 
-    boolean a(int i2, String str, boolean z, long j);
+    boolean a(int i2, String str, boolean z, long j2);
 
     boolean b();
 

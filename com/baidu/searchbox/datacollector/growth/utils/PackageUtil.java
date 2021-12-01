@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PackageUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -49,36 +49,36 @@ public class PackageUtil {
 
     public static String getFirstInstallTime(Context context) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                j = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).firstInstallTime;
+                j2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).firstInstallTime;
             } catch (PackageManager.NameNotFoundException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
-                j = 0;
+                j2 = 0;
             }
-            return Base64.encodeToString(Long.toString(j).getBytes(), 0);
+            return Base64.encodeToString(Long.toString(j2).getBytes(), 0);
         }
         return (String) invokeL.objValue;
     }
 
     public static String getLastUpdateTime(Context context) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                j = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).lastUpdateTime;
+                j2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).lastUpdateTime;
             } catch (PackageManager.NameNotFoundException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
-                j = 0;
+                j2 = 0;
             }
-            return Base64.encodeToString(Long.toString(j).getBytes(), 0);
+            return Base64.encodeToString(Long.toString(j2).getBytes(), 0);
         }
         return (String) invokeL.objValue;
     }

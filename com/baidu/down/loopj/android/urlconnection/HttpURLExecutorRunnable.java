@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.NameValuePair;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,7 +38,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnWebRequestListener {
         void onFailed();
 
@@ -90,7 +89,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     private boolean isGzip(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains(AsyncHttpClient.ENCODING_GZIP) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains("gzip") : invokeL.booleanValue;
     }
 
     public void execute() {

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ExifOrientationStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] EXIF_SEGMENT;
@@ -118,11 +118,11 @@ public final class ExifOrientationStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            long skip = super.skip(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            long skip = super.skip(j2);
             if (skip > 0) {
                 this.position = (int) (this.position + skip);
             }

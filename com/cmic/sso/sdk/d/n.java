@@ -7,13 +7,12 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +39,12 @@ public class n {
                     return 0;
                 }
                 c.b("TelephonyUtils", CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-                boolean a2 = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
+                boolean a = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
                 StringBuilder sb = new StringBuilder();
                 sb.append("CHANGE_NETWORK_STATE=");
-                sb.append(a2);
+                sb.append(a);
                 c.a("TelephonyUtils", sb.toString());
-                if (a2 && !TextUtils.isEmpty(str) && a(context, connectivityManager)) {
+                if (a && !TextUtils.isEmpty(str) && a(context, connectivityManager)) {
                     c.b("TelephonyUtils", "流量数据 WIFI 同开");
                     return 3;
                 }
@@ -65,7 +64,7 @@ public class n {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             return "android" + Build.VERSION.RELEASE;
         }
         return (String) invokeV.objValue;
@@ -74,7 +73,7 @@ public class n {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.VERSION.SDK_INT <= 28 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT <= 28 : invokeV.booleanValue;
     }
 
     public static boolean e() {

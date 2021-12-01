@@ -4,8 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,10 +14,11 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
+import com.kuaishou.weapon.un.w0;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +104,7 @@ public final class GeneralAppIdDecoder {
                     return new DecodedChar(i2 + 7, (char) (extractNumericValueFromBitArray2 + 7));
                 }
                 switch (extractNumericValueFromBitArray(i2, 8)) {
-                    case 232:
+                    case w0.c1 /* 232 */:
                         c2 = '!';
                         break;
                     case WriteActivity.CONTENT_MAX_COUNT /* 233 */:
@@ -114,7 +113,7 @@ public final class GeneralAppIdDecoder {
                     case 234:
                         c2 = '%';
                         break;
-                    case 235:
+                    case w0.k0 /* 235 */:
                         c2 = Typography.amp;
                         break;
                     case 236:
@@ -132,10 +131,10 @@ public final class GeneralAppIdDecoder {
                     case 240:
                         c2 = '+';
                         break;
-                    case BaseActivity.DIALOG_PROMPT /* 241 */:
+                    case 241:
                         c2 = ',';
                         break;
-                    case BaseActivity.DIALOG_LOADING /* 242 */:
+                    case 242:
                         c2 = SignatureImpl.SEP;
                         break;
                     case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
@@ -153,8 +152,8 @@ public final class GeneralAppIdDecoder {
                     case GDiffPatcher.DATA_USHORT /* 247 */:
                         c2 = Typography.less;
                         break;
-                    case GDiffPatcher.DATA_INT /* 248 */:
-                        c2 = a.f34958h;
+                    case 248:
+                        c2 = a.f31351h;
                         break;
                     case 249:
                         c2 = Typography.greater;
@@ -165,7 +164,7 @@ public final class GeneralAppIdDecoder {
                     case GDiffPatcher.COPY_USHORT_INT /* 251 */:
                         c2 = '_';
                         break;
-                    case GDiffPatcher.COPY_INT_UBYTE /* 252 */:
+                    case 252:
                         c2 = ' ';
                         break;
                     default:
@@ -199,7 +198,7 @@ public final class GeneralAppIdDecoder {
     private boolean isAlphaOr646ToNumericLatch(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             int i3 = i2 + 3;
             if (i3 > this.information.getSize()) {
                 return false;
@@ -219,7 +218,7 @@ public final class GeneralAppIdDecoder {
         InterceptResult invokeI;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
             if (i2 + 1 > this.information.getSize()) {
                 return false;
             }

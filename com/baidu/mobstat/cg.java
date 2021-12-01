@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cg extends RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f42080a;
+    public int a;
 
     public cg(int i2) {
         Interceptable interceptable = $ic;
@@ -28,13 +26,13 @@ public class cg extends RuntimeException {
                 return;
             }
         }
-        this.f42080a = i2;
+        this.a = i2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42080a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public cg() {
@@ -50,6 +48,6 @@ public class cg extends RuntimeException {
                 return;
             }
         }
-        this.f42080a = 0;
+        this.a = 0;
     }
 }

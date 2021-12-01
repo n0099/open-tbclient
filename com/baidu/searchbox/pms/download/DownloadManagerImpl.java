@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -38,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +45,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public Map<String, DownloadTaskExt> mTasks;
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
@@ -90,7 +89,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class DownloadTaskExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,25 +162,25 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void connected(@NonNull DownloadTask downloadTask, int i4, long j, long j2) {
+            public void connected(@NonNull DownloadTask downloadTask, int i4, long j2, long j3) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
                     return;
                 }
                 PackageInfo packageInfo = downloadTaskExt.info;
-                packageInfo.currentSize = j;
-                packageInfo.totalSize = j2;
+                packageInfo.currentSize = j2;
+                packageInfo.totalSize = j3;
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void progress(@NonNull DownloadTask downloadTask, long j, long j2) {
+            public void progress(@NonNull DownloadTask downloadTask, long j2, long j3) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j2), Long.valueOf(j3)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
                     return;
                 }
-                downloadTaskExt.mergeCallback.onProgress(j, j2);
+                downloadTaskExt.mergeCallback.onProgress(j2, j3);
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
@@ -286,7 +285,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void innerStart(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @NonNull InnerCallback innerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, list, downloadOptions, innerCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, list, downloadOptions, innerCallback) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -310,7 +309,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     private boolean prepareDownload(PackageInfo packageInfo, DownloadOptions downloadOptions, InnerCallback innerCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, packageInfo, downloadOptions, innerCallback)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, packageInfo, downloadOptions, innerCallback)) == null) {
             if (downloadOptions == null) {
                 downloadOptions = new DownloadOptions();
             }

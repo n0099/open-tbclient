@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PerformanceTracker {
     public boolean enabled = false;
     public final Set<FrameListener> frameListeners = new ArraySet();
@@ -28,7 +28,7 @@ public class PerformanceTracker {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface FrameListener {
         void onFrameRendered(float f2);
     }

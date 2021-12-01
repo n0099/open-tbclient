@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.h.r;
 import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.ar.statistic.StatisticApi;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AuthJni {
     public static /* synthetic */ Interceptable $ic;
     public static volatile AuthJni jC;
@@ -51,7 +50,7 @@ public class AuthJni {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
             String name = Thread.currentThread().getName();
             HashMap hashMap = new HashMap();
             hashMap.put("event_param", name + "_" + str + "_" + str2);

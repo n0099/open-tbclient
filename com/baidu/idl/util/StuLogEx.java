@@ -2,7 +2,6 @@ package com.baidu.idl.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StuLogEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_ENABLE;
@@ -63,14 +62,14 @@ public class StuLogEx {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && DEBUG_ENABLE) {
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && DEBUG_ENABLE) {
             String str3 = str + str2;
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && DEBUG_ENABLE) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && DEBUG_ENABLE) {
             String str3 = str + str2;
         }
     }

@@ -7,7 +7,6 @@ import android.os.StatFs;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
@@ -44,7 +43,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -180,7 +179,7 @@ public class StatFsHelper {
 
     private void maybeUpdateStats() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.lock.tryLock()) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.lock.tryLock()) {
             try {
                 if (SystemClock.uptimeMillis() - this.mLastRestatTime > RESTAT_INTERVAL_MS) {
                     updateStats();
@@ -194,7 +193,7 @@ public class StatFsHelper {
     @GuardedBy("lock")
     private void updateStats() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mInternalStatFs = updateStatsHelper(this.mInternalStatFs, this.mInternalPath);
             this.mExternalStatFs = updateStatsHelper(this.mExternalStatFs, this.mExternalPath);
             this.mLastRestatTime = SystemClock.uptimeMillis();
@@ -314,13 +313,13 @@ public class StatFsHelper {
         }
     }
 
-    public boolean testLowDiskSpace(StorageType storageType, long j) {
+    public boolean testLowDiskSpace(StorageType storageType, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j2)) == null) {
             ensureInitialized();
             long availableStorageSpace = getAvailableStorageSpace(storageType);
-            return availableStorageSpace <= 0 || availableStorageSpace < j;
+            return availableStorageSpace <= 0 || availableStorageSpace < j2;
         }
         return invokeLJ.booleanValue;
     }

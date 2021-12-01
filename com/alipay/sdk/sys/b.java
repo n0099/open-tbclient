@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ta.utdid2.device.UTDevice;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f35010b;
+    public static b f31394b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f35011a;
+    public Context a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,10 +37,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f35010b == null) {
-                f35010b = new b();
+            if (f31394b == null) {
+                f31394b = new b();
             }
-            return f35010b;
+            return f31394b;
         }
         return (b) invokeV.objValue;
     }
@@ -66,14 +64,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             com.alipay.sdk.data.b.b();
-            this.f35011a = context.getApplicationContext();
+            this.a = context.getApplicationContext();
         }
     }
 
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35011a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 
     public String c() {
@@ -81,7 +79,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return UTDevice.getUtdid(this.f35011a);
+                return UTDevice.getUtdid(this.a);
             } catch (Throwable th) {
                 c.a(th);
                 return "getUtdidEx";

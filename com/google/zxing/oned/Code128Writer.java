@@ -1,7 +1,6 @@
 package com.google.zxing.oned;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_CODE_B = 100;
@@ -35,7 +34,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class CType {
         public static final /* synthetic */ CType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -205,8 +204,8 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     char charAt = str.charAt(i3);
                     if (charAt < ' ' || charAt > '~') {
                         switch (charAt) {
-                            case BaseActivity.DIALOG_PROMPT /* 241 */:
-                            case BaseActivity.DIALOG_LOADING /* 242 */:
+                            case 241:
+                            case 242:
                             case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
                             case 244:
                                 break;
@@ -225,10 +224,10 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     int i8 = 100;
                     if (chooseCode == i6) {
                         switch (str.charAt(i4)) {
-                            case BaseActivity.DIALOG_PROMPT /* 241 */:
+                            case 241:
                                 i8 = 102;
                                 break;
-                            case BaseActivity.DIALOG_LOADING /* 242 */:
+                            case 242:
                                 i8 = 97;
                                 break;
                             case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:

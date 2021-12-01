@@ -5,7 +5,6 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +153,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private int getForcedKeyFrameIntervalMs(VideoCodecType videoCodecType, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, videoCodecType, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, videoCodecType, str)) == null) {
             if (videoCodecType == VideoCodecType.VP8 && str.startsWith("OMX.qcom.")) {
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 != 21 && i2 != 22) {
@@ -175,7 +174,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private int getKeyFrameIntervalSec(VideoCodecType videoCodecType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, videoCodecType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, videoCodecType)) == null) {
             int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
             if (i2 == 1 || i2 == 2) {
                 return 100;

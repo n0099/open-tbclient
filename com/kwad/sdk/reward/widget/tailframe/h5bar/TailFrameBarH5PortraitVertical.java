@@ -10,29 +10,26 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-import com.kwad.sdk.core.response.b.a;
-import com.kwad.sdk.core.response.b.c;
+import com.kwad.sdk.core.response.a.a;
+import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes2.dex */
 public class TailFrameBarH5PortraitVertical extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f67392a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f67393b;
+    public TextView f59446b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f67394c;
+    public ValueAnimator f59447c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TailFrameBarH5PortraitVertical(Context context) {
@@ -102,29 +99,27 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LinearLayout.inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_vertical, this);
-            this.f67392a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-            this.f67393b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+            this.a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+            this.f59446b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f67394c != null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            if (this.f59447c != null) {
                 a();
-                this.f67394c.start();
+                this.f59447c.start();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f67394c = ofFloat;
+            this.f59447c = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f67394c.setRepeatCount(-1);
-            this.f67394c.setRepeatMode(1);
-            this.f67394c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitVertical.1
+            this.f59447c.setRepeatCount(-1);
+            this.f59447c.setRepeatMode(1);
+            this.f59447c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitVertical.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TailFrameBarH5PortraitVertical f67395a;
+                public final /* synthetic */ TailFrameBarH5PortraitVertical a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -141,7 +136,7 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
                             return;
                         }
                     }
-                    this.f67395a = this;
+                    this.a = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -149,30 +144,30 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        this.f67395a.f67393b.setScaleY(floatValue);
-                        this.f67395a.f67393b.setScaleX(floatValue);
+                        this.a.f59446b.setScaleY(floatValue);
+                        this.a.f59446b.setScaleX(floatValue);
                     }
                 }
             });
-            this.f67394c.start();
+            this.f59447c.start();
         }
     }
 
     public void a() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f67394c) != null && valueAnimator.isRunning()) {
-            this.f67394c.cancel();
-            this.f67394c.end();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f59447c) != null && valueAnimator.isRunning()) {
+            this.f59447c.cancel();
+            this.f59447c.end();
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            AdInfo i2 = c.i(adTemplate);
-            this.f67392a.setText(a.m(i2));
-            this.f67393b.setText(a.u(i2));
+            AdInfo j2 = d.j(adTemplate);
+            this.a.setText(a.s(j2));
+            this.f59446b.setText(a.A(j2));
             b();
         }
     }

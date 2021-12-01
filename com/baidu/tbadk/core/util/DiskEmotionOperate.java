@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public DiskPicHeader mDiskPicHeader;
     public BitmapFactory.Options mOptions;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
@@ -160,8 +160,8 @@ public class DiskEmotionOperate extends DiskFileOperate {
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
             }
             boolean paserFromByte = this.mDiskPicHeader.paserFromByte(bArr);
-            long j = this.mDiskPicHeader.mValidTime;
-            if (j == 0 || j >= System.currentTimeMillis()) {
+            long j2 = this.mDiskPicHeader.mValidTime;
+            if (j2 == 0 || j2 >= System.currentTimeMillis()) {
                 int headerSize = DiskPicHeader.getHeaderSize();
                 if (!paserFromByte) {
                     headerSize = 0;
@@ -207,7 +207,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (isGif() || !l.B(bArr)) {
+            if (isGif() || !l.A(bArr)) {
                 return;
             }
             setGif(true);
@@ -228,10 +228,10 @@ public class DiskEmotionOperate extends DiskFileOperate {
         }
     }
 
-    public void setValidTime(long j) {
+    public void setValidTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mDiskPicHeader.mValidTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mDiskPicHeader.mValidTime = j2;
         }
     }
 }

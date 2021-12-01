@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class gr extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f71968a;
+    public final /* synthetic */ Context a;
 
     public gr(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class gr extends al.b {
                 return;
             }
         }
-        this.f71968a = context;
+        this.a = context;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -49,7 +47,7 @@ public final class gr extends al.b {
                 list2 = gq.f450a;
                 list2.clear();
             }
-            gq.b(this.f71968a, arrayList);
+            gq.b(this.a, arrayList);
         }
     }
 }

@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DuPaEvaluationMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<DuPaEvaluationMsg> CREATOR;
@@ -29,7 +28,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
     public List<EvaluationItem> mItems;
     public String mText;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class EvaluationItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<EvaluationItem> CREATOR;
@@ -214,7 +213,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
     private String getEvaluationContentJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(DuPaBManualMsg.B_CALLBACK_KEY, this.mCallbackKey);

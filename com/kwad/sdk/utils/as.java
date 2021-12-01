@@ -1,98 +1,168 @@
 package com.kwad.sdk.utils;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class as {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile as l;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f67559a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f67560b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f67561c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f67562d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f67563e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f67564f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile long f67565g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public volatile long f67566h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public volatile long f67567i;
-    public volatile long j;
-    public volatile boolean k;
-
-    public as() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(408734576, "Lcom/kwad/sdk/utils/as;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(408734576, "Lcom/kwad/sdk/utils/as;");
+        }
+    }
+
+    public static long a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? context.getSharedPreferences("ksadsdk_pref", 0).getLong(str, 0L) : invokeLL.longValue;
+    }
+
+    public static String a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getSharedPreferences("ksadsdk_egid", 0).getString("KEY_SDK_EGID", "") : (String) invokeL.objValue;
+    }
+
+    public static void a(@NonNull Context context, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, str, i2) == null) {
+            context.getSharedPreferences("ksadsdk_data_flow_auto_start", 0).edit().putInt(str, i2).apply();
+        }
+    }
+
+    public static void a(Context context, String str, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j2).apply();
+        }
+    }
+
+    public static void a(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
+            context.getSharedPreferences("ksadsdk_download_package_md5", 0).edit().putString(str, str2).apply();
+        }
+    }
+
+    public static long b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getSharedPreferences("ksadsdk_download_package_length", 0).getLong(str, 0L) : invokeLL.longValue;
+    }
+
+    public static String b(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context.getSharedPreferences("ksadsdk_model", 0).getString("KEY_SDK_MODEL", "") : (String) invokeL.objValue;
+    }
+
+    public static void b(Context context, String str, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j2).apply();
+        }
+    }
+
+    public static String c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? context.getSharedPreferences("ksadsdk_device_sig", 0).getString("KEY_SDK_DEVICE_SIG", "") : (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? context.getSharedPreferences("ksadsdk_download_package_md5", 0).getString(str, "") : (String) invokeLL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? !TextUtils.isEmpty(a) ? a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "") : (String) invokeL.objValue;
+    }
+
+    public static void d(@NonNull Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            context.getSharedPreferences("ksadsdk_egid", 0).edit().putString("KEY_SDK_EGID", str).apply();
+        }
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("oaid", "") : (String) invokeL.objValue;
+    }
+
+    public static void e(@NonNull Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) {
+            context.getSharedPreferences("ksadsdk_model", 0).edit().putString("KEY_SDK_MODEL", str).apply();
+        }
+    }
+
+    public static int f(@NonNull Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, str)) == null) ? context.getSharedPreferences("ksadsdk_data_flow_auto_start", 0).getInt(str, -1) : invokeLL.intValue;
+    }
+
+    public static String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("webview_ua", "") : (String) invokeL.objValue;
+    }
+
+    public static void g(@NonNull Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) {
+            context.getSharedPreferences("ksadsdk_device_sig", 0).edit().putString("KEY_SDK_DEVICE_SIG", str).apply();
+        }
+    }
+
+    public static void h(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
+            a = str;
+            if (context == null) {
                 return;
             }
-        }
-        this.f67559a = false;
-        this.f67560b = false;
-        this.f67561c = false;
-        this.f67562d = false;
-        this.f67563e = false;
-        this.f67564f = false;
-        this.f67565g = 0L;
-        this.f67566h = 0L;
-        this.f67567i = 0L;
-        this.j = -1L;
-        this.k = false;
-    }
-
-    public static as a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (l == null) {
-                synchronized (as.class) {
-                    if (l == null) {
-                        l = new as();
-                    }
-                }
-            }
-            return l;
-        }
-        return (as) invokeV.objValue;
-    }
-
-    public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.j = j;
+            context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("appTag", str).apply();
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67564f : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLL(65555, null, context, str) == null) || context == null) {
+            return;
+        }
+        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("oaid", str).apply();
+    }
+
+    public static void j(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65556, null, context, str) == null) || context == null) {
+            return;
+        }
+        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("webview_ua", str).apply();
     }
 }

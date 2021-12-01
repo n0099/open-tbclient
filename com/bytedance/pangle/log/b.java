@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.framwork.core.sdkmonitor.SDKMonitor;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b implements SDKMonitor.ICallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62342a;
+    public String a;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -28,13 +26,13 @@ public final class b implements SDKMonitor.ICallback {
                 return;
             }
         }
-        this.f62342a = str;
+        this.a = str;
     }
 
     public final void callback(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ZeusLogger.d("FlushBufferCallback", this.f62342a + z);
+            ZeusLogger.d("FlushBufferCallback", this.a + z);
         }
     }
 }

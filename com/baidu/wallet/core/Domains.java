@@ -13,7 +13,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Domains implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_JSIPC = "{\".baidu.com\": 15, \".dxmbaoxian.com\":15, \".nuomi.com\": 15, \".baifubao.com\": 15, \".duxiaoman.com\": 15, \".baiyingfund.com\": 15, \".duxiaomanfund.com\": 15, \".dxmpay.com\": 15, \"bdtrust.gt-trust.com\": 10, \"bdtrust.mintrust.com\": 10, \"bdtrust.ebtrust.com\": 10, \"bdtrust.cfitc.com\":10}";
@@ -22,18 +22,16 @@ public class Domains implements NoProguard {
     public Map<String, EnumSet<Permission>> mDomainsPermissionConfig;
 
     /* renamed from: com.baidu.wallet.core.Domains$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final Domains f58879a;
+        public static final Domains a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +47,7 @@ public class Domains implements NoProguard {
                     return;
                 }
             }
-            f58879a = new Domains(null);
+            a = new Domains(null);
         }
 
         public a() {
@@ -74,7 +72,7 @@ public class Domains implements NoProguard {
     public static final Domains getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58879a : (Domains) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (Domains) invokeV.objValue;
     }
 
     public Map<String, EnumSet<Permission>> getDomainsPermissionConfig() {

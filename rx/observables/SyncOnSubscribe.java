@@ -2,19 +2,18 @@ package rx.observables;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.e;
-import h.f;
-import h.j;
-import h.k;
-import h.m.a;
-import h.r.c;
+import i.d;
+import i.e;
+import i.f;
+import i.j;
+import i.k;
+import i.m.a;
+import i.r.c;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
@@ -101,13 +100,13 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        private void slowPath(long j) {
+        private void slowPath(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(65541, this, j2) == null) {
                 SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
                 j<? super T> jVar = this.actualSubscriber;
                 do {
-                    long j2 = j;
+                    long j3 = j2;
                     do {
                         try {
                             this.onNextCalled = false;
@@ -116,15 +115,15 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                                 return;
                             }
                             if (this.onNextCalled) {
-                                j2--;
+                                j3--;
                             }
                         } catch (Throwable th) {
                             handleThrownError(jVar, th);
                             return;
                         }
-                    } while (j2 != 0);
-                    j = addAndGet(-j);
-                } while (j > 0);
+                    } while (j3 != 0);
+                    j2 = addAndGet(-j2);
+                } while (j2 > 0);
                 tryUnsubscribe();
             }
         }
@@ -132,7 +131,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
         private boolean tryUnsubscribe() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
                 if (this.hasTerminated || get() < -1) {
                     set(-1L);
                     doUnsubscribe();
@@ -143,14 +142,14 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             return invokeV.booleanValue;
         }
 
-        @Override // h.k
+        @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -166,7 +165,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -182,7 +181,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -195,30 +194,30 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             }
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j > 0 && h.o.a.a.b(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && j2 > 0 && i.o.a.a.b(this, j2) == 0) {
+                if (j2 == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j);
+                    slowPath(j2);
                 }
             }
         }
 
-        @Override // h.k
+        @Override // i.k
         public void unsubscribe() {
-            long j;
+            long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 do {
-                    j = get();
+                    j2 = get();
                     if (compareAndSet(0L, -1L)) {
                         doUnsubscribe();
                         return;
                     }
-                } while (!compareAndSet(j, -2L));
+                } while (!compareAndSet(j2, -2L));
             }
         }
     }
@@ -247,7 +246,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
         }
     }
 
-    @Override // h.d.a, h.n.b
+    @Override // i.d.a, i.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }

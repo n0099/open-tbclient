@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.commonsync;
 
 import androidx.annotation.Nullable;
-import b.a.p0.a.e0.d;
+import c.a.p0.a.e0.d;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,14 +14,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int count;
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MetaItemInfo implements NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

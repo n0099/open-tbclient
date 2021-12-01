@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
@@ -120,7 +119,7 @@ public class ZwCrashpad {
         String str;
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, strArr) == null) || !mIsEnabled || context == null || mIsInitialized) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, strArr) == null) || !mIsEnabled || context == null || mIsInitialized) {
             return;
         }
         String str2 = strArr[10];
@@ -238,7 +237,7 @@ public class ZwCrashpad {
     public static synchronized String getEncryptKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (ZwCrashpad.class) {
                 return (mIsEnabled && mNativeIsInitialized) ? nativeGetEncryptKey() : "";
             }

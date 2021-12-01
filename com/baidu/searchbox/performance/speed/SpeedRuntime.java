@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 @Autowired
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SpeedRuntime {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
@@ -143,9 +143,9 @@ public class SpeedRuntime {
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-            public void launchTime(boolean z, long j) {
+            public void launchTime(boolean z, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
                 }
             }
         } : (ISpeedContext) invokeV.objValue;

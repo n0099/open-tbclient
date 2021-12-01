@@ -26,7 +26,6 @@ import androidx.core.view.ActionProvider;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -191,7 +190,7 @@ public class MenuBuilder implements SupportMenu {
     private void dispatchSaveInstanceState(Bundle bundle) {
         Parcelable onSaveInstanceState;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bundle) == null) || this.mPresenters.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, bundle) == null) || this.mPresenters.isEmpty()) {
             return;
         }
         SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
@@ -214,7 +213,7 @@ public class MenuBuilder implements SupportMenu {
     private boolean dispatchSubMenuSelected(SubMenuBuilder subMenuBuilder, MenuPresenter menuPresenter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, subMenuBuilder, menuPresenter)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, subMenuBuilder, menuPresenter)) == null) {
             if (this.mPresenters.isEmpty()) {
                 return false;
             }

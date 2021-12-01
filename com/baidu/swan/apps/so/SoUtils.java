@@ -5,9 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
-import b.a.p0.a.k2.c;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.p0.a.k;
+import c.a.p0.a.k2.c;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -39,7 +38,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -57,7 +56,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f6863a;
+        DEBUG = k.a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -83,15 +82,15 @@ public final class SoUtils {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[i2 * 1024];
-                    long j = 0;
+                    long j2 = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j += read;
+                            j2 += read;
                         } else {
                             outputStream.flush();
-                            return j;
+                            return j2;
                         }
                     }
                 } catch (IOException e2) {
@@ -124,7 +123,7 @@ public final class SoUtils {
     public static String getSimpleName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
@@ -141,7 +140,7 @@ public final class SoUtils {
     public static String getUriName(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
             return uris[i2] + File.separator + str;
         }
         return (String) invokeLI.objValue;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.f.f.a;
-import b.a.q0.s.e0.b;
+import c.a.d.f.f.a;
+import c.a.q0.s.e0.b;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FunAdSdkSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "bear_wxb_download";
@@ -43,14 +43,14 @@ public class FunAdSdkSwitch extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.j().k("pref_key_fun_ad_sdk_enable", 1) == 1 : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class FunAdSdkSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class FunAdSdkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class FunAdSdkSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

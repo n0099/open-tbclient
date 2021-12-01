@@ -2,7 +2,6 @@ package org.apache.http.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +81,7 @@ public class BasicHeaderValueParser implements HeaderValueParser {
     public static final NameValuePair[] parseParameters(String str, HeaderValueParser headerValueParser) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, headerValueParser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, headerValueParser)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (NameValuePair[]) invokeLL.objValue;

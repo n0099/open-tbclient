@@ -1,10 +1,10 @@
 package kotlin;
-@Metadata(bv = {1, 0, 3}, d1 = {"kotlin/LazyKt__LazyJVMKt", "kotlin/LazyKt__LazyKt"}, d2 = {}, k = 4, mv = {1, 4, 0}, pn = "", xi = 1, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(d1 = {"kotlin/LazyKt__LazyJVMKt", "kotlin/LazyKt__LazyKt"}, k = 4, mv = {1, 5, 1}, xi = 1)
+/* loaded from: classes3.dex */
 public final class LazyKt extends LazyKt__LazyKt {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    @Metadata(k = 3, mv = {1, 5, 1})
+    /* loaded from: classes3.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

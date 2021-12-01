@@ -2,7 +2,6 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LcmPb$Common extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_ID_FIELD_NUMBER = 6;
@@ -55,7 +54,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public Object romVersion_;
     public Object sdkVersion_;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends AbstractParser<LcmPb$Common> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,27 +83,31 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$Common, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39440e;
+        public int f35162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object f39441f;
+        public Object f35163f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f39442g;
+        public Object f35164g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f39443h;
+        public Object f35165h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Object f39444i;
-        public Object j;
-        public Object k;
+        public Object f35166i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public Object f35167j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public Object f35168k;
         public Object l;
         public Object m;
         public Object n;
@@ -123,12 +126,12 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                     return;
                 }
             }
-            this.f39441f = "";
-            this.f39442g = "";
-            this.f39443h = "";
-            this.f39444i = "";
-            this.j = "";
-            this.k = "";
+            this.f35163f = "";
+            this.f35164g = "";
+            this.f35165h = "";
+            this.f35166i = "";
+            this.f35167j = "";
+            this.f35168k = "";
             this.l = "";
             this.m = "";
             this.n = "";
@@ -147,7 +150,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 256;
+                    this.f35162e |= 256;
                     this.n = str;
                     return this;
                 }
@@ -161,8 +164,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 4;
-                    this.f39443h = str;
+                    this.f35162e |= 4;
+                    this.f35165h = str;
                     return this;
                 }
                 throw null;
@@ -175,7 +178,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 512;
+                    this.f35162e |= 512;
                     this.o = str;
                     return this;
                 }
@@ -189,7 +192,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 128;
+                    this.f35162e |= 128;
                     this.m = str;
                     return this;
                 }
@@ -249,30 +252,30 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (b.a.u.a.e.a) null);
-                int i2 = this.f39440e;
+                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (c.a.t.a.e.a) null);
+                int i2 = this.f35162e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                lcmPb$Common.cuid_ = this.f39441f;
+                lcmPb$Common.cuid_ = this.f35163f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                lcmPb$Common.deviceType_ = this.f39442g;
+                lcmPb$Common.deviceType_ = this.f35164g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                lcmPb$Common.osVersion_ = this.f39443h;
+                lcmPb$Common.osVersion_ = this.f35165h;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                lcmPb$Common.manufacture_ = this.f39444i;
+                lcmPb$Common.manufacture_ = this.f35166i;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                lcmPb$Common.modelType_ = this.j;
+                lcmPb$Common.modelType_ = this.f35167j;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                lcmPb$Common.appId_ = this.k;
+                lcmPb$Common.appId_ = this.f35168k;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
@@ -300,35 +303,35 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 super.clear();
-                this.f39441f = "";
-                int i2 = this.f39440e & (-2);
-                this.f39440e = i2;
-                this.f39442g = "";
+                this.f35163f = "";
+                int i2 = this.f35162e & (-2);
+                this.f35162e = i2;
+                this.f35164g = "";
                 int i3 = i2 & (-3);
-                this.f39440e = i3;
-                this.f39443h = "";
+                this.f35162e = i3;
+                this.f35165h = "";
                 int i4 = i3 & (-5);
-                this.f39440e = i4;
-                this.f39444i = "";
+                this.f35162e = i4;
+                this.f35166i = "";
                 int i5 = i4 & (-9);
-                this.f39440e = i5;
-                this.j = "";
+                this.f35162e = i5;
+                this.f35167j = "";
                 int i6 = i5 & (-17);
-                this.f39440e = i6;
-                this.k = "";
+                this.f35162e = i6;
+                this.f35168k = "";
                 int i7 = i6 & (-33);
-                this.f39440e = i7;
+                this.f35162e = i7;
                 this.l = "";
                 int i8 = i7 & (-65);
-                this.f39440e = i8;
+                this.f35162e = i8;
                 this.m = "";
                 int i9 = i8 & (-129);
-                this.f39440e = i9;
+                this.f35162e = i9;
                 this.n = "";
                 int i10 = i9 & (-257);
-                this.f39440e = i10;
+                this.f35162e = i10;
                 this.o = "";
-                this.f39440e = i10 & (-513);
+                this.f35162e = i10 & (-513);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -365,43 +368,43 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                     return this;
                 }
                 if (lcmPb$Common.hasCuid()) {
-                    this.f39440e |= 1;
-                    this.f39441f = lcmPb$Common.cuid_;
+                    this.f35162e |= 1;
+                    this.f35163f = lcmPb$Common.cuid_;
                 }
                 if (lcmPb$Common.hasDeviceType()) {
-                    this.f39440e |= 2;
-                    this.f39442g = lcmPb$Common.deviceType_;
+                    this.f35162e |= 2;
+                    this.f35164g = lcmPb$Common.deviceType_;
                 }
                 if (lcmPb$Common.hasOsVersion()) {
-                    this.f39440e |= 4;
-                    this.f39443h = lcmPb$Common.osVersion_;
+                    this.f35162e |= 4;
+                    this.f35165h = lcmPb$Common.osVersion_;
                 }
                 if (lcmPb$Common.hasManufacture()) {
-                    this.f39440e |= 8;
-                    this.f39444i = lcmPb$Common.manufacture_;
+                    this.f35162e |= 8;
+                    this.f35166i = lcmPb$Common.manufacture_;
                 }
                 if (lcmPb$Common.hasModelType()) {
-                    this.f39440e |= 16;
-                    this.j = lcmPb$Common.modelType_;
+                    this.f35162e |= 16;
+                    this.f35167j = lcmPb$Common.modelType_;
                 }
                 if (lcmPb$Common.hasAppId()) {
-                    this.f39440e |= 32;
-                    this.k = lcmPb$Common.appId_;
+                    this.f35162e |= 32;
+                    this.f35168k = lcmPb$Common.appId_;
                 }
                 if (lcmPb$Common.hasAppVersion()) {
-                    this.f39440e |= 64;
+                    this.f35162e |= 64;
                     this.l = lcmPb$Common.appVersion_;
                 }
                 if (lcmPb$Common.hasSdkVersion()) {
-                    this.f39440e |= 128;
+                    this.f35162e |= 128;
                     this.m = lcmPb$Common.sdkVersion_;
                 }
                 if (lcmPb$Common.hasNetwork()) {
-                    this.f39440e |= 256;
+                    this.f35162e |= 256;
                     this.n = lcmPb$Common.network_;
                 }
                 if (lcmPb$Common.hasRomVersion()) {
-                    this.f39440e |= 512;
+                    this.f35162e |= 512;
                     this.o = lcmPb$Common.romVersion_;
                 }
                 return this;
@@ -453,8 +456,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 32;
-                    this.k = str;
+                    this.f35162e |= 32;
+                    this.f35168k = str;
                     return this;
                 }
                 throw null;
@@ -467,7 +470,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 64;
+                    this.f35162e |= 64;
                     this.l = str;
                     return this;
                 }
@@ -481,8 +484,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 1;
-                    this.f39441f = str;
+                    this.f35162e |= 1;
+                    this.f35163f = str;
                     return this;
                 }
                 throw null;
@@ -495,8 +498,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 2;
-                    this.f39442g = str;
+                    this.f35162e |= 2;
+                    this.f35164g = str;
                     return this;
                 }
                 throw null;
@@ -509,8 +512,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 8;
-                    this.f39444i = str;
+                    this.f35162e |= 8;
+                    this.f35166i = str;
                     return this;
                 }
                 throw null;
@@ -523,8 +526,8 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
                 if (str != null) {
-                    this.f39440e |= 16;
-                    this.j = str;
+                    this.f35162e |= 16;
+                    this.f35167j = str;
                     return this;
                 }
                 throw null;
@@ -572,7 +575,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         lcmPb$Common.initFields();
     }
 
-    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b.a.u.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1116,7 +1119,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, b.a.u.a.e.a aVar) {
+    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
         this(builder);
     }
 
@@ -1213,12 +1216,12 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }

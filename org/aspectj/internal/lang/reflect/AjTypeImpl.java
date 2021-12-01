@@ -2,7 +2,6 @@ package org.aspectj.internal.lang.reflect;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -176,7 +175,7 @@ public class AjTypeImpl<T> implements AjType<T> {
         InterceptResult invokeL;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, method)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, method)) == null) {
             org.aspectj.lang.annotation.Pointcut pointcut = (org.aspectj.lang.annotation.Pointcut) method.getAnnotation(org.aspectj.lang.annotation.Pointcut.class);
             if (pointcut != null) {
                 String name = method.getName();
@@ -1296,7 +1295,7 @@ public class AjTypeImpl<T> implements AjType<T> {
         InterceptResult invokeL;
         Advice[] adviceArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, set)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, set)) == null) {
             if (this.advice == null) {
                 initAdvice();
             }

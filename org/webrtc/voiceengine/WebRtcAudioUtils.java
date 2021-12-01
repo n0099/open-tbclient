@@ -5,7 +5,6 @@ import android.media.AudioManager;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -137,14 +136,14 @@ public final class WebRtcAudioUtils {
     public static List<String> getBlackListedModelsForNsUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Arrays.asList(BLACKLISTED_NS_MODELS) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Arrays.asList(BLACKLISTED_NS_MODELS) : (List) invokeV.objValue;
     }
 
     public static synchronized int getDefaultSampleRateHz() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (WebRtcAudioUtils.class) {
                 i2 = defaultSampleRateHz;
             }

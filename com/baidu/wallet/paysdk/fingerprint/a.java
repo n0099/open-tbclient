@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.kuaishou.weapon.un.i1;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -28,25 +29,23 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 @TargetApi(23)
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60646b = "wallet_fp_ks_alias";
+    public static String f53488b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60647c = null;
+    public static a f53489c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f60648d = "a";
+    public static final String f53490d = "a";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public KeyStore f60649a;
+    public KeyStore a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f60650e;
+    public Context f53491e;
 
     static {
         InterceptResult invokeClinit;
@@ -79,8 +78,8 @@ public class a {
             }
         }
         try {
-            this.f60650e = context.getApplicationContext();
-            this.f60649a = KeyStore.getInstance("AndroidKeyStore");
+            this.f53491e = context.getApplicationContext();
+            this.a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
             StatisticManager.onEvent("fprd_keystroed_exception_happends");
             e2.printStackTrace();
@@ -92,14 +91,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f60647c == null) {
+            if (f53489c == null) {
                 synchronized (a.class) {
-                    if (f60647c == null) {
-                        f60647c = new a(context);
+                    if (f53489c == null) {
+                        f53489c = new a(context);
                     }
                 }
             }
-            return f60647c;
+            return f53489c;
         }
         return (a) invokeL.objValue;
     }
@@ -118,7 +117,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-                this.f60649a.load(null);
+                this.a.load(null);
                 keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
                 keyGenerator.generateKey();
             } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
@@ -132,12 +131,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bArr)) == null) {
             try {
-                this.f60649a.load(null);
-                SecretKey secretKey = (SecretKey) this.f60649a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f60650e), null);
+                this.a.load(null);
+                SecretKey secretKey = (SecretKey) this.a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f53491e), null);
                 if (secretKey == null) {
                     return null;
                 }
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+                Cipher cipher = Cipher.getInstance(i1.f56661c);
                 if (i2 == 1) {
                     cipher.init(i2, secretKey, cipher.getParameters());
                 } else {

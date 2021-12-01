@@ -6,7 +6,6 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
 import androidx.annotation.NonNull;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,13 +104,13 @@ public final class ViewConfigurationCompat {
     public static int getScaledPagingTouchSlop(ViewConfiguration viewConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, viewConfiguration)) == null) ? viewConfiguration.getScaledPagingTouchSlop() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewConfiguration)) == null) ? viewConfiguration.getScaledPagingTouchSlop() : invokeL.intValue;
     }
 
     public static float getScaledVerticalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, viewConfiguration, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, viewConfiguration, context)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return viewConfiguration.getScaledVerticalScrollFactor();
             }

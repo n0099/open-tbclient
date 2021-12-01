@@ -10,43 +10,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImmersiveVideoCardEx extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a videoInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f51999a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52000b;
+        public int f46543b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52001c;
+        public int f46544c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f52002d;
+        public String f46545d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52003e;
+        public int f46546e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f52004f;
+        public int f46547f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f52005g;
+        public int f46548g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f52006h;
+        public boolean f46549h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f52007i;
+        public boolean f46550i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -98,15 +96,15 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             if (optInt > 0 && !TextUtils.isEmpty(optString)) {
                 a aVar = new a();
                 this.videoInfo = aVar;
-                aVar.f51999a = optString;
-                aVar.f52000b = optInt2;
-                aVar.f52001c = optInt3;
-                aVar.f52002d = optString2;
-                aVar.f52003e = optInt4;
-                aVar.f52004f = optInt5;
-                aVar.f52005g = optInt6;
-                aVar.f52006h = z;
-                aVar.f52007i = z2;
+                aVar.a = optString;
+                aVar.f46543b = optInt2;
+                aVar.f46544c = optInt3;
+                aVar.f46545d = optString2;
+                aVar.f46546e = optInt4;
+                aVar.f46547f = optInt5;
+                aVar.f46548g = optInt6;
+                aVar.f46549h = z;
+                aVar.f46550i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -122,8 +120,8 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a aVar = this.videoInfo;
-            if (aVar != null && (i2 = aVar.f52000b) > 0) {
-                return aVar.f52001c / i2;
+            if (aVar != null && (i2 = aVar.f46543b) > 0) {
+                return aVar.f46544c / i2;
             }
             return super.getRatio();
         }

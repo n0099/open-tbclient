@@ -2,7 +2,6 @@ package org.apache.commons.base.binary4util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -131,7 +130,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
     public static byte[] decodeHex(char[] cArr) throws DecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cArr)) == null) {
             int length = cArr.length;
             if ((length & 1) == 0) {
                 byte[] bArr = new byte[length >> 1];
@@ -153,7 +152,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
     public static char[] encodeHex(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer)) == null) ? encodeHex(byteBuffer, true) : (char[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) ? encodeHex(byteBuffer, true) : (char[]) invokeL.objValue;
     }
 
     public static String encodeHexString(byte[] bArr, boolean z) {

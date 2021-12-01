@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,70 +27,70 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class r implements Handler.Callback, a.InterfaceC2021a {
+public class r implements Handler.Callback, a.InterfaceC2112a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile r f70503a;
+    public static volatile r a;
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f70504i;
+    public static b f61959i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f70505b;
+    public final Context f61960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f70506c;
+    public final Handler f61961c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<a> f70507d;
+    public final SparseArray<a> f61962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f70508e;
+    public final boolean f61963e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f70509f;
+    public long f61964f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f70510g;
+    public int f61965g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ConnectivityManager f70511h;
+    public ConnectivityManager f61966h;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final int f70519a;
+        public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f70520b;
+        public final int f61970b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f70521c;
+        public final int f61971c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f70522d;
+        public final int f61972d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f70523e;
+        public final int f61973e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f70524f;
+        public final boolean f61974f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int[] f70525g;
+        public final int[] f61975g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f70526h;
+        public int f61976h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f70527i;
-        public boolean j;
-        public long k;
+        public int f61977i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public boolean f61978j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public long f61979k;
         public boolean l;
 
         public a(int i2, int i3, int i4, int i5, int i6, boolean z, int[] iArr) {
@@ -111,39 +110,39 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             }
             i5 = i5 < 3000 ? 3000 : i5;
             i6 = i6 < 5000 ? 5000 : i6;
-            this.f70519a = i2;
-            this.f70520b = i3;
-            this.f70521c = i4;
-            this.f70522d = i5;
-            this.f70523e = i6;
-            this.f70524f = z;
-            this.f70525g = iArr;
-            this.f70526h = i5;
+            this.a = i2;
+            this.f61970b = i3;
+            this.f61971c = i4;
+            this.f61972d = i5;
+            this.f61973e = i6;
+            this.f61974f = z;
+            this.f61975g = iArr;
+            this.f61976h = i5;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f70526h = this.f70522d;
+                this.f61976h = this.f61972d;
             }
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f70526h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61976h : invokeV.intValue;
         }
 
-        public boolean a(long j, int i2, int i3, boolean z) {
+        public boolean a(long j2, int i2, int i3, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
                 if (!this.l) {
                     com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "canRetry: mIsWaitingRetry is false, return false!!!");
                     return false;
-                } else if (this.f70520b >= i2 && this.f70527i < this.f70521c) {
-                    if (!this.j || i3 == 2) {
-                        return z || j - this.k >= ((long) this.f70522d);
+                } else if (this.f61970b >= i2 && this.f61977i < this.f61971c) {
+                    if (!this.f61978j || i3 == 2) {
+                        return z || j2 - this.f61979k >= ((long) this.f61972d);
                     }
                     return false;
                 } else {
@@ -157,7 +156,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 synchronized (this) {
-                    this.f70527i++;
+                    this.f61977i++;
                 }
             }
         }
@@ -166,16 +165,16 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    this.f70526h += this.f70523e;
+                    this.f61976h += this.f61973e;
                 }
             }
         }
 
-        public synchronized void a(long j) {
+        public synchronized void a(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 synchronized (this) {
-                    this.k = j;
+                    this.f61979k = j2;
                 }
             }
         }
@@ -183,7 +182,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(DownloadInfo downloadInfo, long j, boolean z, int i2);
+        void a(DownloadInfo downloadInfo, long j2, boolean z, int i2);
     }
 
     public r() {
@@ -199,12 +198,12 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                 return;
             }
         }
-        this.f70506c = new Handler(Looper.getMainLooper(), this);
-        this.f70507d = new SparseArray<>();
-        this.f70510g = 0;
-        this.f70505b = com.ss.android.socialbase.downloader.downloader.c.N();
+        this.f61961c = new Handler(Looper.getMainLooper(), this);
+        this.f61962d = new SparseArray<>();
+        this.f61965g = 0;
+        this.f61960b = com.ss.android.socialbase.downloader.downloader.c.N();
         f();
-        this.f70508e = com.ss.android.socialbase.downloader.i.f.c();
+        this.f61963e = com.ss.android.socialbase.downloader.i.f.c();
         com.ss.android.socialbase.downloader.a.a.a().a(this);
     }
 
@@ -214,9 +213,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this) { // from class: com.ss.android.socialbase.downloader.impls.r.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ r f70512a;
+                public final /* synthetic */ r a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,7 +230,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                             return;
                         }
                     }
-                    this.f70512a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -241,16 +238,14 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f70512a.f70505b == null || Build.VERSION.SDK_INT < 21) {
+                            if (this.a.f61960b == null || Build.VERSION.SDK_INT < 21) {
                                 return;
                             }
-                            this.f70512a.f70511h = (ConnectivityManager) this.f70512a.f70505b.getApplicationContext().getSystemService("connectivity");
-                            this.f70512a.f70511h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback(this) { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
+                            this.a.f61966h = (ConnectivityManager) this.a.f61960b.getApplicationContext().getSystemService("connectivity");
+                            this.a.f61966h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback(this) { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass1 f70513a;
+                                public final /* synthetic */ AnonymousClass1 a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -267,7 +262,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                                             return;
                                         }
                                     }
-                                    this.f70513a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // android.net.ConnectivityManager.NetworkCallback
@@ -275,7 +270,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, network) == null) {
                                         com.ss.android.socialbase.downloader.c.a.b("RetryScheduler", "network onAvailable: ");
-                                        this.f70513a.f70512a.a(1, true);
+                                        this.a.a.a(1, true);
                                     }
                                 }
                             });
@@ -294,10 +289,10 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
             try {
-                if (this.f70511h == null) {
-                    this.f70511h = (ConnectivityManager) this.f70505b.getApplicationContext().getSystemService("connectivity");
+                if (this.f61966h == null) {
+                    this.f61966h = (ConnectivityManager) this.f61960b.getApplicationContext().getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = this.f70511h.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = this.f61966h.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     return activeNetworkInfo.getType() == 1 ? 2 : 1;
                 }
@@ -330,15 +325,13 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, i2, z) { // from class: com.ss.android.socialbase.downloader.impls.r.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f70514a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f70515b;
+                public final /* synthetic */ boolean f61967b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ r f70516c;
+                public final /* synthetic */ r f61968c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -355,9 +348,9 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                             return;
                         }
                     }
-                    this.f70516c = this;
-                    this.f70514a = i2;
-                    this.f70515b = z;
+                    this.f61968c = this;
+                    this.a = i2;
+                    this.f61967b = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -366,15 +359,15 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f70516c.f70510g > 0 && (g2 = this.f70516c.g()) != 0) {
-                                com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + this.f70516c.f70510g);
+                            if (this.f61968c.f61965g > 0 && (g2 = this.f61968c.g()) != 0) {
+                                com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + this.f61968c.f61965g);
                                 long currentTimeMillis = System.currentTimeMillis();
                                 ArrayList<a> arrayList = new ArrayList();
-                                synchronized (this.f70516c.f70507d) {
-                                    for (int i3 = 0; i3 < this.f70516c.f70507d.size(); i3++) {
-                                        a aVar = (a) this.f70516c.f70507d.valueAt(i3);
-                                        if (aVar != null && aVar.a(currentTimeMillis, this.f70514a, g2, this.f70515b)) {
-                                            if (this.f70515b) {
+                                synchronized (this.f61968c.f61962d) {
+                                    for (int i3 = 0; i3 < this.f61968c.f61962d.size(); i3++) {
+                                        a aVar = (a) this.f61968c.f61962d.valueAt(i3);
+                                        if (aVar != null && aVar.a(currentTimeMillis, this.a, g2, this.f61967b)) {
+                                            if (this.f61967b) {
                                                 aVar.c();
                                             }
                                             arrayList.add(aVar);
@@ -383,7 +376,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                                 }
                                 if (arrayList.size() > 0) {
                                     for (a aVar2 : arrayList) {
-                                        this.f70516c.a(aVar2.f70519a, g2, false);
+                                        this.f61968c.a(aVar2.a, g2, false);
                                     }
                                 }
                             }
@@ -398,8 +391,8 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
     private void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65553, this, i2) == null) {
-            synchronized (this.f70507d) {
-                this.f70507d.remove(i2);
+            synchronized (this.f61962d) {
+                this.f61962d.remove(i2);
             }
         }
     }
@@ -421,7 +414,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                 int optInt = d2.optInt("max_count", 60);
                 int optInt2 = d2.optInt("interval_sec", 60);
                 int optInt3 = d2.optInt("interval_sec_acceleration", 60);
-                if (Build.VERSION.SDK_INT >= 21 && f70504i != null && d2.optInt("use_job_scheduler", 0) == 1) {
+                if (Build.VERSION.SDK_INT >= 21 && f61959i != null && d2.optInt("use_job_scheduler", 0) == 1) {
                     z2 = true;
                 }
                 iArr = a(d2.optString("allow_error_code"));
@@ -451,14 +444,14 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i2)) == null) {
-            a aVar = this.f70507d.get(i2);
+            a aVar = this.f61962d.get(i2);
             if (aVar == null) {
-                synchronized (this.f70507d) {
-                    aVar = this.f70507d.get(i2);
+                synchronized (this.f61962d) {
+                    aVar = this.f61962d.get(i2);
                     if (aVar == null) {
                         aVar = d(i2);
                     }
-                    this.f70507d.put(i2, aVar);
+                    this.f61962d.put(i2, aVar);
                 }
             }
             return aVar;
@@ -470,19 +463,19 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f70503a == null) {
+            if (a == null) {
                 synchronized (r.class) {
-                    if (f70503a == null) {
-                        f70503a = new r();
+                    if (a == null) {
+                        a = new r();
                     }
                 }
             }
-            return f70503a;
+            return a;
         }
         return (r) invokeV.objValue;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -490,7 +483,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         }
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -500,14 +493,14 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
 
     public static void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar) == null) {
-            f70504i = bVar;
+        if (interceptable == null || interceptable.invokeL(65542, null, bVar) == null) {
+            f61959i = bVar;
         }
     }
 
     public void a(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) || downloadInfo == null || TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.f70096a) || !com.ss.android.socialbase.downloader.constants.e.f70096a.equals(downloadInfo.getMimeType())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) || downloadInfo == null || TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.a) || !com.ss.android.socialbase.downloader.constants.e.a.equals(downloadInfo.getMimeType())) {
             return;
         }
         a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
@@ -527,8 +520,8 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             return;
         }
         a b2 = b(downloadInfo.getId());
-        if (b2.f70527i > b2.f70521c) {
-            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.f70519a + ", mRetryCount = " + b2.f70527i + ", maxCount = " + b2.f70521c);
+        if (b2.f61977i > b2.f61971c) {
+            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.a + ", mRetryCount = " + b2.f61977i + ", maxCount = " + b2.f61971c);
             return;
         }
         int errorCode = failedException.getErrorCode();
@@ -536,33 +529,33 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             if (!a(b2, errorCode)) {
                 return;
             }
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "allow error code, id = " + b2.f70519a + ", error code = " + errorCode);
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "allow error code, id = " + b2.a + ", error code = " + errorCode);
         }
-        b2.j = z;
-        synchronized (this.f70507d) {
+        b2.f61978j = z;
+        synchronized (this.f61962d) {
             if (!b2.l) {
                 b2.l = true;
-                this.f70510g++;
+                this.f61965g++;
             }
         }
         int d2 = b2.d();
-        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.f70519a + ", delayTimeMills = " + d2 + ", mWaitingRetryTasks = " + this.f70510g);
-        if (!b2.f70524f) {
+        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.a + ", delayTimeMills = " + d2 + ", mWaitingRetryTasks = " + this.f61965g);
+        if (!b2.f61974f) {
             if (z) {
                 return;
             }
-            this.f70506c.removeMessages(downloadInfo.getId());
-            this.f70506c.sendEmptyMessageDelayed(downloadInfo.getId(), d2);
+            this.f61961c.removeMessages(downloadInfo.getId());
+            this.f61961c.sendEmptyMessageDelayed(downloadInfo.getId(), d2);
             return;
         }
         if (i2 == 0) {
             b2.c();
         }
-        b bVar = f70504i;
+        b bVar = f61959i;
         if (bVar != null) {
             bVar.a(downloadInfo, d2, z, i2);
         }
-        if (this.f70508e) {
+        if (this.f61963e) {
             b2.a(System.currentTimeMillis());
             b2.b();
             b2.a();
@@ -572,26 +565,26 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f70510g <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f61965g <= 0) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this) {
             if (!z) {
-                if (currentTimeMillis - this.f70509f < 10000) {
+                if (currentTimeMillis - this.f61964f < 10000) {
                     return;
                 }
             }
-            this.f70509f = currentTimeMillis;
+            this.f61964f = currentTimeMillis;
             com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "scheduleAllTaskRetry, level = [" + i2 + "], force = [" + z + PreferencesUtil.RIGHT_MOUNT);
             if (z) {
-                this.f70506c.removeMessages(0);
+                this.f61961c.removeMessages(0);
             }
             Message obtain = Message.obtain();
             obtain.what = 0;
             obtain.arg1 = i2;
             obtain.arg2 = z ? 1 : 0;
-            this.f70506c.sendMessageDelayed(obtain, 2000L);
+            this.f61961c.sendMessageDelayed(obtain, 2000L);
         }
     }
 
@@ -601,12 +594,10 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, i2) { // from class: com.ss.android.socialbase.downloader.impls.r.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f70517a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ r f70518b;
+                public final /* synthetic */ r f61969b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -623,8 +614,8 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                             return;
                         }
                     }
-                    this.f70518b = this;
-                    this.f70517a = i2;
+                    this.f61969b = this;
+                    this.a = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -632,7 +623,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f70518b.a(this.f70517a, this.f70518b.g(), true);
+                            this.f61969b.a(this.a, this.f61969b.g(), true);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -648,24 +639,24 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (context = this.f70505b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || (context = this.f61960b) == null) {
             return;
         }
-        synchronized (this.f70507d) {
-            a aVar = this.f70507d.get(i2);
+        synchronized (this.f61962d) {
+            a aVar = this.f61962d.get(i2);
             if (aVar == null) {
                 return;
             }
             boolean z3 = true;
             if (aVar.l) {
                 aVar.l = false;
-                int i4 = this.f70510g - 1;
-                this.f70510g = i4;
+                int i4 = this.f61965g - 1;
+                this.f61965g = i4;
                 if (i4 < 0) {
-                    this.f70510g = 0;
+                    this.f61965g = 0;
                 }
             }
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.f70527i + ", mWaitingRetryTasksCount = " + this.f70510g);
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.f61977i + ", mWaitingRetryTasksCount = " + this.f61965g);
             DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
             if (downloadInfo == null) {
                 c(i2);
@@ -689,7 +680,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                 } else {
                     if (i3 != 0) {
                         z2 = true;
-                    } else if (!aVar.f70524f) {
+                    } else if (!aVar.f61974f) {
                         return;
                     } else {
                         z2 = false;
@@ -700,12 +691,12 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
                     }
                     aVar.b();
                     if (z2) {
-                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + aVar.f70519a);
+                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetry: restart task, ****** id = " + aVar.a);
                         aVar.a(System.currentTimeMillis());
                         if (z) {
                             aVar.a();
                         }
-                        downloadInfo.setRetryScheduleCount(aVar.f70527i);
+                        downloadInfo.setRetryScheduleCount(aVar.f61977i);
                         if (downloadInfo.getStatus() == -1) {
                             Downloader.getInstance(context).restart(downloadInfo.getId());
                             return;
@@ -730,7 +721,7 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, this, aVar, i2)) == null) {
-            int[] iArr = aVar.f70525g;
+            int[] iArr = aVar.f61975g;
             if (iArr != null && iArr.length != 0) {
                 for (int i3 : iArr) {
                     if (i3 == i2) {
@@ -769,30 +760,30 @@ public class r implements Handler.Callback, a.InterfaceC2021a {
 
     private boolean a(DownloadInfo downloadInfo, BaseException baseException) {
         InterceptResult invokeLL;
-        long j;
+        long j2;
         long totalBytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, downloadInfo, baseException)) == null) {
             try {
-                j = com.ss.android.socialbase.downloader.i.f.d(downloadInfo.getTempPath());
+                j2 = com.ss.android.socialbase.downloader.i.f.d(downloadInfo.getTempPath());
             } catch (BaseException e2) {
                 e2.printStackTrace();
-                j = 0;
+                j2 = 0;
             }
             if (baseException instanceof com.ss.android.socialbase.downloader.exception.d) {
                 totalBytes = ((com.ss.android.socialbase.downloader.exception.d) baseException).b();
             } else {
                 totalBytes = downloadInfo.getTotalBytes() - downloadInfo.getCurBytes();
             }
-            if (j < totalBytes) {
+            if (j2 < totalBytes) {
                 com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
                 if (a2.a("space_fill_part_download", 0) == 1) {
-                    if (j > 0) {
+                    if (j2 > 0) {
                         int a3 = a2.a("space_fill_min_keep_mb", 100);
                         if (a3 > 0) {
-                            long j2 = j - (a3 * 1048576);
-                            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "retry schedule: available = " + com.ss.android.socialbase.downloader.i.f.a(j) + "MB, minKeep = " + a3 + "MB, canDownload = " + com.ss.android.socialbase.downloader.i.f.a(j2) + "MB");
-                            if (j2 <= 0) {
+                            long j3 = j2 - (a3 * 1048576);
+                            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "retry schedule: available = " + com.ss.android.socialbase.downloader.i.f.a(j2) + "MB, minKeep = " + a3 + "MB, canDownload = " + com.ss.android.socialbase.downloader.i.f.a(j3) + "MB");
+                            if (j3 <= 0) {
                                 com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "doSchedulerRetryInSubThread: canDownload <= 0 , canRetry = false !!!!");
                                 return false;
                             }

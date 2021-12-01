@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IDownloadManager {
     public static final IDownloadManager EMPTY = new IDownloadManager() { // from class: com.baidu.searchbox.pms.download.IDownloadManager.1
         public static /* synthetic */ Interceptable $ic;

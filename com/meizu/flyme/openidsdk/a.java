@@ -57,11 +57,11 @@ public class a extends BroadcastReceiver {
             }
         }
         if (z) {
-            OpenId a2 = b.a().a(intent.getStringExtra("openIdType"));
-            if (a2 == null) {
+            OpenId a = b.a().a(intent.getStringExtra("openIdType"));
+            if (a == null) {
                 return;
             }
-            a2.setDataExpired();
+            a.setDataExpired();
         }
     }
 }

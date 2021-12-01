@@ -15,7 +15,7 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b implements i, j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,13 +86,13 @@ public final class b implements i, j {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, type)) == null) {
             if (obj.getClass().equals(org.json.alipay.a.class)) {
                 org.json.alipay.a aVar = (org.json.alipay.a) obj;
-                Collection<Object> a2 = a(com.alipay.a.b.a.a(type), type);
+                Collection<Object> a = a(com.alipay.a.b.a.a(type), type);
                 if (type instanceof ParameterizedType) {
                     Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
                     for (int i2 = 0; i2 < aVar.a(); i2++) {
-                        a2.add(e.a(aVar.a(i2), type2));
+                        a.add(e.a(aVar.a(i2), type2));
                     }
-                    return a2;
+                    return a;
                 }
                 throw new IllegalArgumentException("Does not support the implement for generics.");
             }

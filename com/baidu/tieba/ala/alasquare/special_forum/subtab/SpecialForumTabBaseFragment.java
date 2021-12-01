@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f47920e;
+    public Handler f42908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f47921f;
+    public Runnable f42909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f47922g;
+    public CustomMessageListener f42910g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpecialForumTabBaseFragment f47923e;
+        public final /* synthetic */ SpecialForumTabBaseFragment f42911e;
 
         public a(SpecialForumTabBaseFragment specialForumTabBaseFragment) {
             Interceptable interceptable = $ic;
@@ -48,25 +48,23 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47923e = specialForumTabBaseFragment;
+            this.f42911e = specialForumTabBaseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47923e.notifyDataSetChanged();
+                this.f42911e.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpecialForumTabBaseFragment f47924a;
+        public final /* synthetic */ SpecialForumTabBaseFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SpecialForumTabBaseFragment specialForumTabBaseFragment, int i2) {
@@ -86,7 +84,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47924a = specialForumTabBaseFragment;
+            this.a = specialForumTabBaseFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,8 +92,8 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f47924a.f47920e.removeCallbacks(this.f47924a.f47921f);
-                this.f47924a.f47920e.postDelayed(this.f47924a.f47921f, 500L);
+                this.a.f42908e.removeCallbacks(this.a.f42909f);
+                this.a.f42908e.postDelayed(this.a.f42909f, 500L);
             }
         }
     }
@@ -113,9 +111,9 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                 return;
             }
         }
-        this.f47920e = new Handler();
-        this.f47921f = new a(this);
-        this.f47922g = new b(this, 2921414);
+        this.f42908e = new Handler();
+        this.f42909f = new a(this);
+        this.f42910g = new b(this, 2921414);
     }
 
     public void forceRefresh() {
@@ -131,7 +129,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            MessageManager.getInstance().registerListener(this.f47922g);
+            MessageManager.getInstance().registerListener(this.f42910g);
         }
     }
 
@@ -140,7 +138,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.f47922g);
+            MessageManager.getInstance().unRegisterListener(this.f42910g);
         }
     }
 }

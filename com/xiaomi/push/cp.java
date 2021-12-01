@@ -12,13 +12,11 @@ import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f71687a;
+    public String a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<co> f200a;
@@ -58,7 +56,7 @@ public class cp {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f71687a = str;
+        this.a = str;
     }
 
     public synchronized co a() {
@@ -68,8 +66,8 @@ public class cp {
             synchronized (this) {
                 for (int size = this.f200a.size() - 1; size >= 0; size--) {
                     co coVar = this.f200a.get(size);
-                    if (coVar.m225a()) {
-                        cs.a().m235a(coVar.a());
+                    if (coVar.m274a()) {
+                        cs.a().m284a(coVar.a());
                         return coVar;
                     }
                 }
@@ -84,10 +82,10 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f71687a = jSONObject.getString("host");
+                this.a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f200a.add(new co(this.f71687a).a(jSONArray.getJSONObject(i2)));
+                    this.f200a.add(new co(this.a).a(jSONArray.getJSONObject(i2)));
                 }
             }
             return this;
@@ -96,32 +94,32 @@ public class cp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m226a() {
+    public String m275a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71687a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<co> m227a() {
+    public ArrayList<co> m276a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f200a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m228a() {
+    public synchronized JSONObject m277a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 jSONObject = new JSONObject();
-                jSONObject.put("host", this.f71687a);
+                jSONObject.put("host", this.a);
                 JSONArray jSONArray = new JSONArray();
                 Iterator<co> it = this.f200a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m223a());
+                    jSONArray.put(it.next().m272a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }
@@ -178,7 +176,7 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f71687a);
+            sb.append(this.a);
             sb.append(StringUtils.LF);
             Iterator<co> it = this.f200a.iterator();
             while (it.hasNext()) {

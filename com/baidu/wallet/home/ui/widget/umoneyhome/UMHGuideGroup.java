@@ -19,7 +19,7 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UMHGuideGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LEAST_ITEM = 3;
@@ -75,9 +75,7 @@ public class UMHGuideGroup extends BaseItemLayout {
             this.mPicture.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.umoneyhome.UMHGuideGroup.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ UMHGuideGroup f59501a;
+                public final /* synthetic */ UMHGuideGroup a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,14 +92,14 @@ public class UMHGuideGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f59501a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f59501a.getWalletInterface().jump(this.f59501a.mConfigData.stat != null ? this.f59501a.mConfigData.stat.getName() : this.f59501a.mConfigData.getGroup_name(), this.f59501a.mConfigData.getGroup_type(), this.f59501a.mConfigData.getGroup_link(), this.f59501a.mConfigData.getGroup_prevlogin());
+                        this.a.getWalletInterface().jump(this.a.mConfigData.stat != null ? this.a.mConfigData.stat.getName() : this.a.mConfigData.getGroup_name(), this.a.mConfigData.getGroup_type(), this.a.mConfigData.getGroup_link(), this.a.mConfigData.getGroup_prevlogin());
                     }
                 }
             });

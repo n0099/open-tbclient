@@ -16,7 +16,6 @@ import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,7 +101,7 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
                 }
                 FontsContractCompat.FontInfo fontInfo = fontInfoArr[i3];
                 try {
-                    openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), r.f41000a, cancellationSignal);
+                    openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), "r", cancellationSignal);
                 } catch (IOException unused) {
                 }
                 if (openFileDescriptor == null) {

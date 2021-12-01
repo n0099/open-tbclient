@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.utils.BigEndianDataIutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MessageHandler extends IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final HostnameVerifier HOSTNAME_VERIFIER;
@@ -195,13 +194,13 @@ public class MessageHandler extends IMessageHandler {
     private Socket createSocketOnlineByTcp(String str, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
     }
 
     private Socket createSocketRD(String str, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
     }
 
     @TargetApi(17)

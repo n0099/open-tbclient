@@ -3,7 +3,6 @@ package com.squareup.wire;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,10 +85,10 @@ public abstract class Message {
             }
         }
 
-        public void addFixed64(int i2, long j) {
+        public void addFixed64(int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j));
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j2));
             }
         }
 
@@ -100,10 +99,10 @@ public abstract class Message {
             }
         }
 
-        public void addVarint(int i2, long j) {
+        public void addVarint(int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j));
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j2));
             }
         }
 
@@ -359,7 +358,7 @@ public abstract class Message {
         public static Datatype[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
                 Datatype[] datatypeArr = ENUM$VALUES;
                 int length = datatypeArr.length;
                 Datatype[] datatypeArr2 = new Datatype[length];
@@ -575,7 +574,7 @@ public abstract class Message {
     public static <T> List<T> copyOf(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             if (list == null) {
                 return null;
             }
@@ -587,7 +586,7 @@ public abstract class Message {
     public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, cls, i2)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2)) : (E) ((Enum) invokeLI.objValue);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i2)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2)) : (E) ((Enum) invokeLI.objValue);
     }
 
     public static <T> List<T> immutableCopyOf(List<T> list) {

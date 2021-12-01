@@ -11,7 +11,7 @@ import dalvik.system.DexClassLoader;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginClassLoader";

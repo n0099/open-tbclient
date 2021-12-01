@@ -12,18 +12,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends InputConnectionWrapper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f71095a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f71096b;
+    public static boolean f62411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f71097c;
+    public static boolean f62412c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,8 +65,8 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, charSequence, i2)) == null) {
-            f71097c = true;
-            f71095a = charSequence.toString();
+            f62412c = true;
+            a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
             return super.commitText(charSequence, i2);
         }
@@ -82,11 +80,11 @@ public class a extends InputConnectionWrapper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
             if (keyEvent.getAction() == 0) {
                 SLog.i("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
-                f71095a = String.valueOf((char) keyEvent.getUnicodeChar());
-                f71097c = true;
-                SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + f71095a);
+                a = String.valueOf((char) keyEvent.getUnicodeChar());
+                f62412c = true;
+                SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + a);
             }
-            SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f71095a);
+            SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + a);
             return super.sendKeyEvent(keyEvent);
         }
         return invokeL.booleanValue;
@@ -97,8 +95,8 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2)) == null) {
-            f71097c = true;
-            f71095a = charSequence.toString();
+            f62412c = true;
+            a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
             return super.setComposingText(charSequence, i2);
         }

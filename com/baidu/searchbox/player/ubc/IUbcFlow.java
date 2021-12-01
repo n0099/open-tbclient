@@ -6,7 +6,7 @@ import com.baidu.ubc.Flow;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IUbcFlow {
     public static final String TYPE_EMPTY_FLOW = "PlayerEmptyFlow";
     public static final String TYPE_LOADING_FLOW = "PlayerLoadingFlow";
@@ -14,7 +14,7 @@ public interface IUbcFlow {
     public static final String TYPE_SPEED_DURATION_FLOW = "PlayerSpeedDurationFlow";
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface FlowType {
     }
 

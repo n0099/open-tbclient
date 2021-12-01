@@ -5,7 +5,6 @@ import android.util.ArraySet;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,32 +20,30 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final o f62310a;
+    public static final o a;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Signature[] f62311b;
+    public final Signature[] f54591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f62312c;
+    public final int f54592c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArraySet<PublicKey> f62313d;
+    public final ArraySet<PublicKey> f54593d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final Signature[] f62314e;
+    public final Signature[] f54594e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f62315f;
+    public final int[] f54595f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +58,7 @@ public final class o {
                 return;
             }
         }
-        f62310a = new o(null, 0, null, null, null);
+        a = new o(null, 0, null, null, null);
     }
 
     public o(Signature[] signatureArr, int i2, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
@@ -79,17 +76,17 @@ public final class o {
                 return;
             }
         }
-        this.f62311b = signatureArr;
-        this.f62312c = i2;
-        this.f62313d = arraySet;
-        this.f62314e = signatureArr2;
-        this.f62315f = iArr;
+        this.f54591b = signatureArr;
+        this.f54592c = i2;
+        this.f54593d = arraySet;
+        this.f54594e = signatureArr2;
+        this.f54595f = iArr;
     }
 
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, signatureArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, signatureArr)) == null) {
             ArraySet<PublicKey> arraySet = new ArraySet<>(signatureArr.length);
             for (Signature signature : signatureArr) {
                 Method a2 = com.bytedance.pangle.a.a.a.a(Signature.class, "getPublicKey", new Class[0]);
@@ -137,16 +134,16 @@ public final class o {
             }
             if (obj instanceof o) {
                 o oVar = (o) obj;
-                if (this.f62312c == oVar.f62312c && a(this.f62311b, oVar.f62311b)) {
-                    ArraySet<PublicKey> arraySet = this.f62313d;
+                if (this.f54592c == oVar.f54592c && a(this.f54591b, oVar.f54591b)) {
+                    ArraySet<PublicKey> arraySet = this.f54593d;
                     if (arraySet != null) {
-                        if (!arraySet.equals(oVar.f62313d)) {
+                        if (!arraySet.equals(oVar.f54593d)) {
                             return false;
                         }
-                    } else if (oVar.f62313d != null) {
+                    } else if (oVar.f54593d != null) {
                         return false;
                     }
-                    return Arrays.equals(this.f62314e, oVar.f62314e) && Arrays.equals(this.f62315f, oVar.f62315f);
+                    return Arrays.equals(this.f54594e, oVar.f54594e) && Arrays.equals(this.f54595f, oVar.f54595f);
                 }
                 return false;
             }
@@ -159,9 +156,9 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.f62311b) * 31) + this.f62312c) * 31;
-            ArraySet<PublicKey> arraySet = this.f62313d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f62314e)) * 31) + Arrays.hashCode(this.f62315f);
+            int hashCode = ((Arrays.hashCode(this.f54591b) * 31) + this.f54592c) * 31;
+            ArraySet<PublicKey> arraySet = this.f54593d;
+            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f54594e)) * 31) + Arrays.hashCode(this.f54595f);
         }
         return invokeV.intValue;
     }
@@ -211,7 +208,7 @@ public final class o {
     public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
     }
 
     public static Signature a(CertificateFactory certificateFactory, Signature signature) {

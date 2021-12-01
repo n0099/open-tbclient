@@ -1,13 +1,13 @@
 package com.baidu.tieba.enterForum.model;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.d.l;
-import b.a.e.f.p.k;
-import b.a.q0.c1.i0;
-import b.a.q0.c1.l0;
-import b.a.q0.s.q.r1;
-import b.a.r0.o0.d.g;
-import b.a.r0.o0.d.j;
+import c.a.d.f.d.l;
+import c.a.d.f.p.k;
+import c.a.q0.d1.i0;
+import c.a.q0.d1.l0;
+import c.a.q0.s.q.r1;
+import c.a.r0.u0.d.g;
+import c.a.r0.u0.d.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -40,7 +40,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EnterForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY = "recently_visited_enter_forum";
@@ -54,31 +54,33 @@ public class EnterForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.o0.d.d f48555e;
+    public c.a.r0.u0.d.d f43558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecentlyVisitedForumData f48556f;
+    public RecentlyVisitedForumData f43559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f48557g;
+    public f f43560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.m3.l0.b f48558h;
+    public c.a.r0.t3.l0.b f43561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f48559i;
-    public long j;
-    public long k;
+    public long f43562i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f43563j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public long f43564k;
     public long l;
     public CustomMessageListener m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumModel f48560a;
+        public final /* synthetic */ EnterForumModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EnterForumModel enterForumModel, int i2) {
@@ -98,7 +100,7 @@ public class EnterForumModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48560a = enterForumModel;
+            this.a = enterForumModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,17 +110,15 @@ public class EnterForumModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            this.f48560a.L((VisitedForumData) customResponsedMessage.getData());
+            this.a.L((VisitedForumData) customResponsedMessage.getData());
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Void, Void, b.a.r0.o0.d.d> {
+    /* loaded from: classes10.dex */
+    public class b extends BdAsyncTask<Void, Void, c.a.r0.u0.d.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumModel f48561a;
+        public final /* synthetic */ EnterForumModel a;
 
         public b(EnterForumModel enterForumModel) {
             Interceptable interceptable = $ic;
@@ -135,19 +135,19 @@ public class EnterForumModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48561a = enterForumModel;
+            this.a = enterForumModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public b.a.r0.o0.d.d doInBackground(Void... voidArr) {
+        public c.a.r0.u0.d.d doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                b.a.q0.s.r.a.f();
-                l<byte[]> e2 = b.a.q0.s.r.a.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
-                b.a.r0.o0.d.d dVar = new b.a.r0.o0.d.d();
+                c.a.q0.s.r.a.f();
+                l<byte[]> e2 = c.a.q0.s.r.a.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+                c.a.r0.u0.d.d dVar = new c.a.r0.u0.d.d();
                 byte[] bArr = e2.get(EnterForumModel.FORUMRECOMMEND_CACHE_KEY);
                 if (bArr != null) {
                     dVar.m(true);
@@ -165,40 +165,38 @@ public class EnterForumModel extends BdBaseModel {
                 }
                 return dVar;
             }
-            return (b.a.r0.o0.d.d) invokeL.objValue;
+            return (c.a.r0.u0.d.d) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(b.a.r0.o0.d.d dVar) {
+        public void onPostExecute(c.a.r0.u0.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 super.onPostExecute(dVar);
-                e eVar = new e(this.f48561a);
-                eVar.f48567c = 0;
+                e eVar = new e(this.a);
+                eVar.f43567c = 0;
                 if (dVar != null && dVar.i()) {
-                    eVar.f48566b = true;
-                    eVar.f48568d = dVar;
+                    eVar.f43566b = true;
+                    eVar.f43568d = dVar;
                 } else {
-                    eVar.f48566b = false;
-                    eVar.f48568d = dVar;
+                    eVar.f43566b = false;
+                    eVar.f43568d = dVar;
                 }
-                this.f48561a.f48557g.a(eVar);
+                this.a.f43560g.a(eVar);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c extends BdAsyncTask<Void, Void, RecentlyVisitedForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f48562a;
+        public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EnterForumModel f48563b;
+        public final /* synthetic */ EnterForumModel f43565b;
 
         public c(EnterForumModel enterForumModel, boolean z) {
             Interceptable interceptable = $ic;
@@ -215,8 +213,8 @@ public class EnterForumModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48563b = enterForumModel;
-            this.f48562a = z;
+            this.f43565b = enterForumModel;
+            this.a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -226,8 +224,8 @@ public class EnterForumModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                b.a.q0.s.r.a.f();
-                l<String> h2 = b.a.q0.s.r.a.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
+                c.a.q0.s.r.a.f();
+                l<String> h2 = c.a.q0.s.r.a.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
                 if (h2 == null || StringUtils.isNull(h2.get(EnterForumModel.CACHE_KEY))) {
                     return null;
                 }
@@ -248,21 +246,19 @@ public class EnterForumModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentlyVisitedForumData) == null) {
                 if (recentlyVisitedForumData != null) {
-                    this.f48563b.f48556f.B(recentlyVisitedForumData.y());
-                    this.f48563b.f48556f.C(200);
+                    this.f43565b.f43559f.B(recentlyVisitedForumData.y());
+                    this.f43565b.f43559f.C(200);
                 }
-                this.f48563b.H(this.f48562a);
+                this.f43565b.H(this.a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d extends i0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EnterForumModel f48564a;
+        public final /* synthetic */ EnterForumModel a;
 
         public d(EnterForumModel enterForumModel) {
             Interceptable interceptable = $ic;
@@ -279,18 +275,18 @@ public class EnterForumModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48564a = enterForumModel;
+            this.a = enterForumModel;
         }
 
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         public Object doInBackground() {
             InterceptResult invokeV;
             RecentlyVisitedForumData recentlyVisitedForumData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.q0.s.r.a.f();
-                l<String> h2 = b.a.q0.s.r.a.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
-                if (h2 != null && (recentlyVisitedForumData = this.f48564a.f48556f) != null) {
+                c.a.q0.s.r.a.f();
+                l<String> h2 = c.a.q0.s.r.a.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
+                if (h2 != null && (recentlyVisitedForumData = this.a.f43559f) != null) {
                     h2.g(EnterForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(recentlyVisitedForumData));
                 }
                 return null;
@@ -299,22 +295,20 @@ public class EnterForumModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f48565a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f48566b;
+        public boolean f43566b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48567c;
+        public int f43567c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b.a.r0.o0.d.d f48568d;
+        public c.a.r0.u0.d.d f43568d;
 
         public e(EnterForumModel enterForumModel) {
             Interceptable interceptable = $ic;
@@ -331,14 +325,14 @@ public class EnterForumModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48565a = "";
-            this.f48566b = false;
-            this.f48567c = -1;
-            this.f48568d = null;
+            this.a = "";
+            this.f43566b = false;
+            this.f43567c = -1;
+            this.f43568d = null;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface f {
         void a(e eVar);
     }
@@ -370,29 +364,29 @@ public class EnterForumModel extends BdBaseModel {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((b.a.e.a.f) newInitContext.callArgs[0]);
+                super((c.a.d.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f48555e = null;
-        this.f48557g = null;
-        this.f48558h = null;
-        this.f48559i = 0L;
-        this.j = 0L;
-        this.k = 0L;
+        this.f43558e = null;
+        this.f43560g = null;
+        this.f43561h = null;
+        this.f43562i = 0L;
+        this.f43563j = 0L;
+        this.f43564k = 0L;
         this.l = 0L;
         this.m = new a(this, 2016564);
         setUniqueId(BdUniqueId.gen());
-        this.f48556f = new RecentlyVisitedForumData();
+        this.f43559f = new RecentlyVisitedForumData();
         MessageManager.getInstance().registerListener(this.m);
     }
 
-    public b.a.r0.o0.d.d A() {
+    public c.a.r0.u0.d.d A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48555e : (b.a.r0.o0.d.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43558e : (c.a.r0.u0.d.d) invokeV.objValue;
     }
 
     public long B() {
@@ -404,28 +398,28 @@ public class EnterForumModel extends BdBaseModel {
     public long C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48559i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43562i : invokeV.longValue;
     }
 
     public long D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43564k : invokeV.longValue;
     }
 
     public long E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43563j : invokeV.longValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
-        b.a.r0.o0.d.d dVar;
+        c.a.r0.u0.d.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && b.a.q0.s.e0.b.j().g("enter_forum_create_forum", true) && (dVar = this.f48555e) != null && dVar.b() != null) {
-                return this.f48555e.b().z();
+            if (TbadkCoreApplication.isLogin() && c.a.q0.s.e0.b.j().g("enter_forum_create_forum", true) && (dVar = this.f43558e) != null && dVar.b() != null) {
+                return this.f43558e.b().z();
             }
             return false;
         }
@@ -445,7 +439,7 @@ public class EnterForumModel extends BdBaseModel {
     public boolean H(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? I(z, b.a.q0.s.e0.b.j().k("key_LIKE_forum_sort_state", SORT_TYPE_LEVEL)) : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? I(z, c.a.q0.s.e0.b.j().k("key_LIKE_forum_sort_state", SORT_TYPE_LEVEL)) : invokeZ.booleanValue;
     }
 
     public boolean I(boolean z, int i2) {
@@ -458,10 +452,10 @@ public class EnterForumModel extends BdBaseModel {
             forumrecommendrequestmessage.set_topic(0);
             forumrecommendrequestmessage.set_recommend(1);
             forumrecommendrequestmessage.set_sortType(Integer.valueOf(i2));
-            forumrecommendrequestmessage.setForumData(this.f48556f.y());
-            this.f48559i = System.currentTimeMillis();
-            if (this.f48558h == null) {
-                this.f48558h = new b.a.r0.m3.l0.b("forumrecommendStat");
+            forumrecommendrequestmessage.setForumData(this.f43559f.y());
+            this.f43562i = System.currentTimeMillis();
+            if (this.f43561h == null) {
+                this.f43561h = new c.a.r0.t3.l0.b("forumrecommendStat");
             }
             sendMessage(forumrecommendrequestmessage);
             return true;
@@ -470,28 +464,28 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public final void J() {
-        b.a.r0.m3.l0.b bVar;
+        c.a.r0.t3.l0.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f48558h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f43561h) == null) {
             return;
         }
         bVar.a();
-        this.f48558h = null;
+        this.f43561h = null;
     }
 
-    public void K(b.a.r0.o0.d.f fVar) {
+    public void K(c.a.r0.u0.d.f fVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) || fVar == null) {
             return;
         }
-        int size = this.f48556f.y().size();
+        int size = this.f43559f.y().size();
         int i2 = -1;
         int i3 = 0;
         while (true) {
             if (i3 >= size) {
                 break;
             }
-            VisitedForumData visitedForumData = this.f48556f.y().get(i3);
+            VisitedForumData visitedForumData = this.f43559f.y().get(i3);
             if (!k.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(fVar.p())) {
                 i2 = i3;
                 break;
@@ -499,21 +493,21 @@ public class EnterForumModel extends BdBaseModel {
             i3++;
         }
         if (i2 >= 0) {
-            this.f48556f.y().remove(i2);
+            this.f43559f.y().remove(i2);
         }
     }
 
     public final void L(VisitedForumData visitedForumData) {
-        b.a.r0.o0.d.d dVar;
+        c.a.r0.u0.d.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, visitedForumData) == null) || visitedForumData == null || (dVar = this.f48555e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, visitedForumData) == null) || visitedForumData == null || (dVar = this.f43558e) == null) {
             return;
         }
         int size = dVar.e().b().size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.f48555e.e().b().get(i2).p().equals(visitedForumData.getForumId())) {
-                this.f48556f.w(visitedForumData);
-                this.f48556f.C(200);
+            if (this.f43558e.e().b().get(i2).p().equals(visitedForumData.getForumId())) {
+                this.f43559f.w(visitedForumData);
+                this.f43559f.C(200);
             }
         }
     }
@@ -548,11 +542,11 @@ public class EnterForumModel extends BdBaseModel {
         }
     }
 
-    public void O(ResponsedMessage<?> responsedMessage, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
+    public void O(ResponsedMessage<?> responsedMessage, boolean z, int i2, String str, boolean z2, int i3, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{responsedMessage, Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{responsedMessage, Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (z) {
-                this.f48555e = null;
+                this.f43558e = null;
             }
             if (responsedMessage != null) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
@@ -561,35 +555,35 @@ public class EnterForumModel extends BdBaseModel {
                     Q((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
-            P(z, i2, str, z2, i3, j, j2);
+            P(z, i2, str, z2, i3, j2, j3);
         }
     }
 
-    public void P(boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
+    public void P(boolean z, int i2, String str, boolean z2, int i3, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             e eVar = new e(this);
             boolean z3 = !z;
-            b.a.r0.m3.l0.b bVar = this.f48558h;
+            c.a.r0.t3.l0.b bVar = this.f43561h;
             if (bVar != null) {
-                bVar.b(z2, z3, i2, str, i3, j, j2);
-                this.f48558h = null;
+                bVar.b(z2, z3, i2, str, i3, j2, j3);
+                this.f43561h = null;
             }
-            if (!z && this.f48555e.i()) {
-                eVar.f48567c = 1;
-                eVar.f48566b = true;
-                eVar.f48568d = this.f48555e;
-                this.f48557g.a(eVar);
+            if (!z && this.f43558e.i()) {
+                eVar.f43567c = 1;
+                eVar.f43566b = true;
+                eVar.f43568d = this.f43558e;
+                this.f43560g.a(eVar);
                 return;
             }
             if (str != null && str.length() > 0) {
                 setErrorString(str);
-                eVar.f48565a = str;
+                eVar.a = str;
             }
-            eVar.f48567c = 1;
-            eVar.f48566b = false;
-            eVar.f48568d = this.f48555e;
-            this.f48557g.a(eVar);
+            eVar.f43567c = 1;
+            eVar.f43566b = false;
+            eVar.f43568d = this.f43558e;
+            this.f43560g.a(eVar);
         }
     }
 
@@ -599,31 +593,31 @@ public class EnterForumModel extends BdBaseModel {
             return;
         }
         try {
-            this.f48555e = new b.a.r0.o0.d.d();
-            b.a.r0.o0.f.a.a aVar = new b.a.r0.o0.f.a.a();
+            this.f43558e = new c.a.r0.u0.d.d();
+            c.a.r0.u0.f.a.a aVar = new c.a.r0.u0.f.a.a();
             aVar.f(forumrecommendhttpresponsemessage.getForumPopUpInfo());
-            this.f48555e.t(aVar);
-            this.f48555e.s(forumrecommendhttpresponsemessage.GetTime().intValue());
+            this.f43558e.t(aVar);
+            this.f43558e.s(forumrecommendhttpresponsemessage.GetTime().intValue());
             g gVar = new g();
             gVar.c(forumrecommendhttpresponsemessage.GetLikeForum());
-            this.f48555e.n(gVar);
+            this.f43558e.n(gVar);
             r1 r1Var = new r1();
             r1Var.o(forumrecommendhttpresponsemessage.GetRecommendForumInfoList());
-            this.f48555e.p(r1Var);
-            this.f48555e.m(true);
-            this.f48555e.l(forumrecommendhttpresponsemessage.getHotSearchInfoData());
-            this.f48555e.q(forumrecommendhttpresponsemessage.getSortType().intValue());
+            this.f43558e.p(r1Var);
+            this.f43558e.m(true);
+            this.f43558e.l(forumrecommendhttpresponsemessage.getHotSearchInfoData());
+            this.f43558e.q(forumrecommendhttpresponsemessage.getSortType().intValue());
             ForumCreateInfoData forumCreateInfoData = new ForumCreateInfoData();
             forumCreateInfoData.A(forumrecommendhttpresponsemessage.getForumCreateInfo());
-            this.f48555e.k(forumCreateInfoData);
+            this.f43558e.k(forumCreateInfoData);
             PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
             privateForumPopInfoData.A(forumrecommendhttpresponsemessage.getPrivatePopInfo());
-            this.f48555e.o(privateForumPopInfoData);
+            this.f43558e.o(privateForumPopInfoData);
             j jVar = new j();
             jVar.a(forumrecommendhttpresponsemessage.getTabFeedList());
-            this.f48555e.r(jVar);
+            this.f43558e.r(jVar);
         } catch (Exception e2) {
-            this.f48555e.m(false);
+            this.f43558e.m(false);
             BdLog.e(e2.getMessage());
         }
     }
@@ -634,46 +628,46 @@ public class EnterForumModel extends BdBaseModel {
             return;
         }
         try {
-            this.f48555e = new b.a.r0.o0.d.d();
-            b.a.r0.o0.f.a.a aVar = new b.a.r0.o0.f.a.a();
+            this.f43558e = new c.a.r0.u0.d.d();
+            c.a.r0.u0.f.a.a aVar = new c.a.r0.u0.f.a.a();
             aVar.f(forumrecommendsocketresponsemessage.getForumPopupInfo());
-            this.f48555e.t(aVar);
-            this.f48555e.s(forumrecommendsocketresponsemessage.GetTime().intValue());
+            this.f43558e.t(aVar);
+            this.f43558e.s(forumrecommendsocketresponsemessage.GetTime().intValue());
             g gVar = new g();
             gVar.c(forumrecommendsocketresponsemessage.GetLikeForum());
-            this.f48555e.n(gVar);
+            this.f43558e.n(gVar);
             r1 r1Var = new r1();
             r1Var.o(forumrecommendsocketresponsemessage.GetRecommendForumInfoList());
-            this.f48555e.p(r1Var);
-            this.f48555e.m(true);
-            this.f48555e.l(forumrecommendsocketresponsemessage.getHotSearchInfoData());
-            this.f48555e.q(forumrecommendsocketresponsemessage.getSortType().intValue());
+            this.f43558e.p(r1Var);
+            this.f43558e.m(true);
+            this.f43558e.l(forumrecommendsocketresponsemessage.getHotSearchInfoData());
+            this.f43558e.q(forumrecommendsocketresponsemessage.getSortType().intValue());
             ForumCreateInfoData forumCreateInfoData = new ForumCreateInfoData();
             forumCreateInfoData.A(forumrecommendsocketresponsemessage.getForumCreateInfo());
-            this.f48555e.k(forumCreateInfoData);
+            this.f43558e.k(forumCreateInfoData);
             PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
             privateForumPopInfoData.A(forumrecommendsocketresponsemessage.getPrivatePopInfo());
-            this.f48555e.o(privateForumPopInfoData);
+            this.f43558e.o(privateForumPopInfoData);
             j jVar = new j();
             jVar.a(forumrecommendsocketresponsemessage.getTabFeedList());
-            this.f48555e.r(jVar);
+            this.f43558e.r(jVar);
         } catch (Exception e2) {
-            this.f48555e.m(false);
+            this.f43558e.m(false);
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void S(b.a.r0.o0.d.d dVar) {
+    public void S(c.a.r0.u0.d.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, dVar) == null) {
-            this.f48555e = dVar;
+            this.f43558e = dVar;
         }
     }
 
     public void T(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, fVar) == null) {
-            this.f48557g = fVar;
+            this.f43560g = fVar;
         }
     }
 
@@ -683,7 +677,7 @@ public class EnterForumModel extends BdBaseModel {
         }
     }
 
-    public List<b.a.r0.o0.d.f> V(List<b.a.r0.o0.d.f> list, String[] strArr) {
+    public List<c.a.r0.u0.d.f> V(List<c.a.r0.u0.d.f> list, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, list, strArr)) == null) {
@@ -691,7 +685,7 @@ public class EnterForumModel extends BdBaseModel {
             if (list != null && !list.isEmpty()) {
                 if (strArr != null && strArr.length != 0) {
                     for (String str : strArr) {
-                        for (b.a.r0.o0.d.f fVar : list) {
+                        for (c.a.r0.u0.d.f fVar : list) {
                             if (fVar != null && fVar.w() != null && fVar.w().equals(str)) {
                                 arrayList.add(fVar);
                             }
@@ -699,7 +693,7 @@ public class EnterForumModel extends BdBaseModel {
                     }
                     int size = list.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        b.a.r0.o0.d.f fVar2 = list.get(i2);
+                        c.a.r0.u0.d.f fVar2 = list.get(i2);
                         if (!arrayList.contains(fVar2)) {
                             arrayList.add(fVar2);
                         }
@@ -769,11 +763,11 @@ public class EnterForumModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                b.a.r0.o0.d.d dVar = this.f48555e;
+                c.a.r0.u0.d.d dVar = this.f43558e;
                 if (dVar == null || dVar.b() == null) {
                     return true;
                 }
-                return this.f48555e.b().y();
+                return this.f43558e.b().y();
             }
             return false;
         }

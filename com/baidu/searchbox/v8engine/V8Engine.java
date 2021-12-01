@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import androidx.core.view.InputDeviceCompat;
-import b.a.k0.a.e.a;
+import c.a.l0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
@@ -40,7 +40,7 @@ import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class V8Engine implements JSRuntime {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
@@ -127,13 +127,13 @@ public class V8Engine implements JSRuntime {
     public long mV8ThreadId;
     public WorkerFactory mWorkerFactoryDelegate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
     @NotProguard
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MemoryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -198,7 +198,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -207,7 +207,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }
@@ -269,7 +269,7 @@ public class V8Engine implements JSRuntime {
         initialize(context, str, str2, v8ThreadDelegatePolicy, obj, obj2);
     }
 
-    private native void addJavascriptInterfaceImpl(long j, Object obj, String str, Class cls, boolean z);
+    private native void addJavascriptInterfaceImpl(long j2, Object obj, String str, Class cls, boolean z);
 
     private void addPossiblyUnsafeJavascriptInterface(Object obj, String str, Class<? extends Annotation> cls, boolean z) {
         Interceptable interceptable = $ic;
@@ -317,17 +317,17 @@ public class V8Engine implements JSRuntime {
         return invokeCommon.intValue;
     }
 
-    public static void checkValid(long j, long j2) {
+    public static void checkValid(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             long id = Thread.currentThread().getId();
-            if (j2 == 0 || j2 == id) {
-                if (j == 0) {
+            if (j3 == 0 || j3 == id) {
+                if (j2 == 0) {
                     throw new IllegalStateException("v8 engine has been destroyed!");
                 }
                 return;
             }
-            throw new IllegalStateException("javascript or v8 methods must run on v8 thread, current thread id = " + id + ", expect thread id = " + j2);
+            throw new IllegalStateException("javascript or v8 methods must run on v8 thread, current thread id = " + id + ", expect thread id = " + j3);
         }
     }
 
@@ -438,12 +438,12 @@ public class V8Engine implements JSRuntime {
         return (String) invokeV.objValue;
     }
 
-    public static V8Engine getInstance(long j) {
+    public static V8Engine getInstance(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j2)) == null) {
             synchronized (sEngines) {
-                V8Engine v8Engine = sEngines.get(Long.valueOf(j));
+                V8Engine v8Engine = sEngines.get(Long.valueOf(j2));
                 if (v8Engine == null || v8Engine.mIsDestroyed.get()) {
                     return null;
                 }
@@ -691,12 +691,12 @@ public class V8Engine implements JSRuntime {
         return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? APP_DEBUG : invokeV.booleanValue;
     }
 
-    public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
+    public static native void nativeDeleteJsReleaser(long j2, long j3, boolean z);
 
-    private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i2, boolean z);
+    private native JsSerializeValue nativeDeserialize(long j2, byte[] bArr, int i2, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDestroyOpenDataContext(long j);
+    public native void nativeDestroyOpenDataContext(long j2);
 
     public static native long nativeGetChannelFunctionTable();
 
@@ -705,30 +705,30 @@ public class V8Engine implements JSRuntime {
     public static native String nativeGetVersionName();
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeInitGlobalV8NetFunctionTable(long j, long j2);
+    public native void nativeInitGlobalV8NetFunctionTable(long j2, long j3);
 
-    private native void nativeOnReady(long j);
+    private native void nativeOnReady(long j2);
 
-    private native byte[] nativeSerialize(long j, JsSerializeValue jsSerializeValue, boolean z);
+    private native byte[] nativeSerialize(long j2, JsSerializeValue jsSerializeValue, boolean z);
 
-    private native void nativeSetBdFileRealPath(long j, String str);
+    private native void nativeSetBdFileRealPath(long j2, String str);
 
-    private native boolean nativeSetCodeCacheSetting(long j, String str, String str2, int i2, String[] strArr, int i3, long j2);
+    private native boolean nativeSetCodeCacheSetting(long j2, String str, String str2, int i2, String[] strArr, int i3, long j3);
 
-    private native int nativeSetCustomJsCodeCacheHandler(long j, Object obj);
+    private native int nativeSetCustomJsCodeCacheHandler(long j2, Object obj);
 
-    private native int nativeSetJavaNetRequest(long j, Object obj);
+    private native int nativeSetJavaNetRequest(long j2, Object obj);
 
-    private native void nativeSetMainPackageBasePath(long j, String str);
+    private native void nativeSetMainPackageBasePath(long j2, String str);
 
-    private native void nativeSetMemSetMemoryEnable(long j, boolean z);
+    private native void nativeSetMemSetMemoryEnable(long j2, boolean z);
 
-    private native void nativeSetUserAgent(long j, String str);
+    private native void nativeSetUserAgent(long j2, String str);
 
-    public static native void nativeSetV8GCPressureLevel(long j, int i2);
+    public static native void nativeSetV8GCPressureLevel(long j2, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeThrowJSException(long j, int i2, String str, boolean z);
+    public native void nativeThrowJSException(long j2, int i2, String str, boolean z);
 
     public static native String nativeToColorRGBA(String str);
 
@@ -837,7 +837,7 @@ public class V8Engine implements JSRuntime {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void pumpNativeMessageLoop(long j, long j2);
+    public native void pumpNativeMessageLoop(long j2, long j3);
 
     public static void regiestMessageChannelForT7() {
         Interceptable interceptable = $ic;
@@ -851,12 +851,12 @@ public class V8Engine implements JSRuntime {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void removeJavascriptInterfaceImpl(long j, String str, boolean z);
+    public native void removeJavascriptInterfaceImpl(long j2, String str, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void require(long j, String str, String str2, boolean z, boolean z2);
+    public native void require(long j2, String str, String str2, boolean z, boolean z2);
 
-    private native String runScript(long j, String str, String str2, boolean z);
+    private native String runScript(long j2, String str, String str2, boolean z);
 
     public static void setCrashKeyValue(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -879,7 +879,7 @@ public class V8Engine implements JSRuntime {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void v8EngineDestroy(long j);
+    public native void v8EngineDestroy(long j2);
 
     private native long v8EngineInit();
 
@@ -941,10 +941,10 @@ public class V8Engine implements JSRuntime {
         return invokeL.booleanValue;
     }
 
-    public long createWorkerV8Engine(long j) {
+    public long createWorkerV8Engine(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             Log.e("V8", "!!!!!createWorkerV8Engine, mWorkerFactoryDelegate =  " + this.mWorkerFactoryDelegate);
             WorkerFactory workerFactory = this.mWorkerFactoryDelegate;
             if (workerFactory != null) {
@@ -2080,13 +2080,13 @@ public class V8Engine implements JSRuntime {
     }
 
     @NotProguard
-    public void pumpMessageLoop(long j, long j2) {
+    public void pumpMessageLoop(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || j2 <= 0) {
             return;
         }
         try {
-            postOnJSThread(new Runnable(this, j) { // from class: com.baidu.searchbox.v8engine.V8Engine.5
+            postOnJSThread(new Runnable(this, j2) { // from class: com.baidu.searchbox.v8engine.V8Engine.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ V8Engine this$0;
@@ -2097,7 +2097,7 @@ public class V8Engine implements JSRuntime {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j)};
+                        Object[] objArr = {this, Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -2108,7 +2108,7 @@ public class V8Engine implements JSRuntime {
                         }
                     }
                     this.this$0 = this;
-                    this.val$id = j;
+                    this.val$id = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -2121,38 +2121,38 @@ public class V8Engine implements JSRuntime {
                     V8Engine v8Engine = this.this$0;
                     v8Engine.pumpNativeMessageLoop(v8Engine.mNativeV8Engine, this.val$id);
                 }
-            }, j2);
+            }, j3);
         } catch (Throwable unused) {
         }
     }
 
-    private void delegateRunnableAsync(Runnable runnable, long j) {
+    private void delegateRunnableAsync(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65569, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65569, this, runnable, j2) == null) {
             V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
             if (v8ThreadDelegatePolicy != null) {
-                v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j);
+                v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j2);
             } else {
                 Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
             }
         }
     }
 
-    public static void runOnJSThread(long j, Runnable runnable) {
+    public static void runOnJSThread(long j2, Runnable runnable) {
         V8Engine v8Engine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65613, null, j, runnable) == null) || (v8Engine = getInstance(j)) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(65613, null, j2, runnable) == null) || (v8Engine = getInstance(j2)) == null) {
             return;
         }
         v8Engine.runOnJSThread(runnable);
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
-    public void postOnJSThread(Runnable runnable, long j) {
+    public void postOnJSThread(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048611, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048611, this, runnable, j2) == null) {
             if (!this.mIsDestroyed.get()) {
-                delegateRunnableAsync(runnable, j);
+                delegateRunnableAsync(runnable, j2);
             } else {
                 Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
             }

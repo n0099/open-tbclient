@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FunAdServerRecordSwitch;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FunAdRecordHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLICK_AD_RECORD = "c14116";
@@ -69,7 +68,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     public static void uploadRequestRecord(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, str5) == null) && FunAdServerRecordSwitch.isOpen()) {
-            MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str, str2, str3, str4, str5));
+            MessageManager.getInstance().sendMessageFromBackground(new FunAdRecordHttpMessage(6, str, str2, str3, str4, str5));
         }
     }
 
@@ -82,7 +81,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
 
     public static void uploadSplashSkipRecord(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && FunAdServerRecordSwitch.isOpen()) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && FunAdServerRecordSwitch.isOpen()) {
             MessageManager.getInstance().sendMessage(new FunAdRecordHttpMessage(6, str));
         }
     }

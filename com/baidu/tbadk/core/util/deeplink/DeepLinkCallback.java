@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util.deeplink;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.TbadkApplication;
@@ -9,14 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface DeepLinkCallback {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DeepLinkResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mAppResultCode;
+        public int mInnerResultCode;
         public int mMarketResultCode;
         public String mOpenSource;
         public int mWebResultCode;
@@ -35,6 +37,7 @@ public interface DeepLinkCallback {
                 }
             }
             this.mOpenSource = "default";
+            this.mInnerResultCode = 0;
             this.mAppResultCode = 0;
             this.mMarketResultCode = 0;
             this.mWebResultCode = 0;
@@ -46,56 +49,81 @@ public interface DeepLinkCallback {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppResultCode : invokeV.intValue;
         }
 
+        public int getInnerResultCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInnerResultCode : invokeV.intValue;
+        }
+
         public int getMarketResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMarketResultCode : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMarketResultCode : invokeV.intValue;
         }
 
         public String getOpenSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mOpenSource : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOpenSource : (String) invokeV.objValue;
         }
 
         public int getWebResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mWebResultCode : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWebResultCode : invokeV.intValue;
         }
 
         public boolean isOpenSuccess() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppResultCode == 1 || this.mMarketResultCode == 1 || this.mWebResultCode == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mInnerResultCode == 1 || this.mAppResultCode == 1 || this.mMarketResultCode == 1 || this.mWebResultCode == 1 : invokeV.booleanValue;
         }
 
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public void onFailed(String str, int i2) {
             char c2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode == -1081306052) {
-                    if (str.equals("market")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else if (hashCode != 96801) {
-                    if (hashCode == 117588 && str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (str.equals("app")) {
-                        c2 = 0;
-                    }
-                    c2 = 65535;
+            if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
+                switch (str.hashCode()) {
+                    case -1081306052:
+                        if (str.equals("market")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 96801:
+                        if (str.equals("app")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 117588:
+                        if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 100355670:
+                        if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER)) {
+                            c2 = 0;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
                 }
                 if (c2 == 0) {
-                    this.mAppResultCode = i2;
+                    this.mInnerResultCode = i2;
                 } else if (c2 == 1) {
+                    this.mAppResultCode = i2;
+                } else if (c2 == 2) {
                     this.mMarketResultCode = i2;
-                } else if (c2 != 2) {
+                } else if (c2 != 3) {
                     if (TbadkApplication.getInst().isDebugMode()) {
                         throw new IllegalArgumentException("invalid source code");
                     }
@@ -106,33 +134,52 @@ public interface DeepLinkCallback {
             }
         }
 
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public void onSucceed(String str) {
             char c2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
                 this.mOpenSource = str;
-                int hashCode = str.hashCode();
-                if (hashCode == -1081306052) {
-                    if (str.equals("market")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else if (hashCode != 96801) {
-                    if (hashCode == 117588 && str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (str.equals("app")) {
-                        c2 = 0;
-                    }
-                    c2 = 65535;
+                switch (str.hashCode()) {
+                    case -1081306052:
+                        if (str.equals("market")) {
+                            c2 = 2;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 96801:
+                        if (str.equals("app")) {
+                            c2 = 1;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 117588:
+                        if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
+                            c2 = 3;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    case 100355670:
+                        if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER)) {
+                            c2 = 0;
+                            break;
+                        }
+                        c2 = 65535;
+                        break;
+                    default:
+                        c2 = 65535;
+                        break;
                 }
                 if (c2 == 0) {
-                    this.mAppResultCode = 1;
+                    this.mInnerResultCode = 1;
                 } else if (c2 == 1) {
+                    this.mAppResultCode = 1;
+                } else if (c2 == 2) {
                     this.mMarketResultCode = 1;
-                } else if (c2 != 2) {
+                } else if (c2 != 3) {
                     if (TbadkApplication.getInst().isDebugMode()) {
                         throw new IllegalArgumentException("invalid source code");
                     }
@@ -146,8 +193,8 @@ public interface DeepLinkCallback {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return "DeepLinkResponse:[OpenSource=" + this.mOpenSource + ",AppResultCode=" + this.mAppResultCode + ",MarketResultCode=" + this.mMarketResultCode + ",WebResultCode=" + this.mWebResultCode + PreferencesUtil.RIGHT_MOUNT;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return "DeepLinkResponse:[OpenSource=" + this.mOpenSource + ",InnerResultCode=" + this.mInnerResultCode + ",AppResultCode=" + this.mAppResultCode + ",MarketResultCode=" + this.mMarketResultCode + ",WebResultCode=" + this.mWebResultCode + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

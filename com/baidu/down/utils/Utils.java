@@ -14,7 +14,7 @@ import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -115,7 +115,7 @@ public class Utils {
         extMimeMap.put(".tif", "image/tiff");
         extMimeMap.put(".tiff", "image/tiff");
         extMimeMap.put(".wav", "audio/x-wav");
-        extMimeMap.put(".apk", "application/apk");
+        extMimeMap.put(Constant.FILE.SUFFIX.BUNDLE_SUFFIX, "application/apk");
         extMimeMap.put(".rtf", "text/rtf");
         extMimeMap.put(".rtx", "text/richtext");
         extMimeMap.put(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "text/plain");
@@ -143,8 +143,8 @@ public class Utils {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e4  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b0  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e1  */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -274,7 +274,7 @@ public class Utils {
         int port;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 14) {
                 str = System.getProperty("http.proxyHost");
                 String property = System.getProperty("http.proxyPort");
@@ -295,7 +295,7 @@ public class Utils {
     public static int extractPositiveInteger(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
             int length = str.length();
             for (int i3 = 0; i3 < length; i3++) {
                 char charAt = str.charAt(i3);

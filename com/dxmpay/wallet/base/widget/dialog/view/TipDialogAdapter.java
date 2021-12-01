@@ -13,15 +13,13 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.WalletDialog;
 import com.dxmpay.wallet.base.widget.dialog.binding.TipDialogBinding;
 import com.dxmpay.wallet.base.widget.dialog.model.TipDialogModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TipDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TipDialogModel a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public TipDialogModel f63430a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +62,7 @@ public class TipDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f63430a = tipDialogModel;
+        this.a = tipDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +70,7 @@ public class TipDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f63430a);
+            baseHolder.binding.setViewModel(this.a);
         }
     }
 

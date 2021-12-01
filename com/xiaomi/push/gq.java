@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +20,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class gq {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile int f71965a;
+    public static volatile int a;
 
     /* renamed from: a  reason: collision with other field name */
     public static long f445a;
@@ -47,13 +44,11 @@ public class gq {
     public static List<a> f450a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f71966a;
+        public int a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f451a;
@@ -62,7 +57,7 @@ public class gq {
         public String f452a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71967b;
+        public int f62961b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f453b;
@@ -70,12 +65,12 @@ public class gq {
         /* renamed from: b  reason: collision with other field name */
         public String f454b;
 
-        public a(String str, long j, int i2, int i3, String str2, long j2) {
+        public a(String str, long j2, int i2, int i3, String str2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str2, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), str2, Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
@@ -87,22 +82,22 @@ public class gq {
             }
             this.f452a = "";
             this.f451a = 0L;
-            this.f71966a = -1;
-            this.f71967b = -1;
+            this.a = -1;
+            this.f62961b = -1;
             this.f454b = "";
             this.f453b = 0L;
             this.f452a = str;
-            this.f451a = j;
-            this.f71966a = i2;
-            this.f71967b = i3;
+            this.f451a = j2;
+            this.a = i2;
+            this.f62961b = i3;
             this.f454b = str2;
-            this.f453b = j2;
+            this.f453b = j3;
         }
 
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.f71966a == this.f71966a && aVar.f71967b == this.f71967b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.f62961b == this.f62961b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -120,7 +115,7 @@ public class gq {
             }
         }
         f446a = new al(true);
-        f71965a = -1;
+        a = -1;
         f445a = System.currentTimeMillis();
         f448a = new Object();
         f450a = Collections.synchronizedList(new ArrayList());
@@ -132,10 +127,10 @@ public class gq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f71965a == -1) {
-                f71965a = b(context);
+            if (a == -1) {
+                a = b(context);
             }
-            return f71965a;
+            return a;
         }
         return invokeL.intValue;
     }
@@ -153,24 +148,24 @@ public class gq {
         return invokeL.intValue;
     }
 
-    public static long a(int i2, long j, boolean z, long j2, boolean z2) {
+    public static long a(int i2, long j2, boolean z, long j3, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Boolean.valueOf(z2)})) == null) {
             if (z && z2) {
-                long j3 = f445a;
-                f445a = j2;
-                if (j2 - j3 > 30000 && j > 1024) {
-                    return j * 2;
+                long j4 = f445a;
+                f445a = j3;
+                if (j3 - j4 > 30000 && j2 > 1024) {
+                    return j2 * 2;
                 }
             }
-            return (j * (i2 == 0 ? 13 : 11)) / 10;
+            return (j2 * (i2 == 0 ? 13 : 11)) / 10;
         }
         return invokeCommon.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m359a(Context context) {
+    public static com.xiaomi.push.providers.a m408a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -186,10 +181,10 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m360a(Context context) {
+    public static synchronized String m409a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             synchronized (gq.class) {
                 return !TextUtils.isEmpty(f449a) ? f449a : "";
             }
@@ -198,33 +193,33 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m362a(Context context) {
+    public static void m411a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            f71965a = b(context);
+            a = b(context);
         }
     }
 
-    public static void a(Context context, String str, long j, boolean z, long j2) {
+    public static void a(Context context, String str, long j2, boolean z, long j3) {
         int a2;
         boolean isEmpty;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3)}) == null) || context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
         synchronized (f448a) {
             isEmpty = f450a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m360a(context) : "", j));
+            a(new a(str, j3, a2, z ? 1 : 0, a2 == 0 ? m409a(context) : "", j2));
         }
         if (isEmpty) {
             f446a.a(new gr(context), 5000L);
         }
     }
 
-    public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
+    public static void a(Context context, String str, long j2, boolean z, boolean z2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2)}) == null) {
-            a(context, str, a(a(context), j, z, j2, z2), z, j2);
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j3)}) == null) {
+            a(context, str, a(a(context), j2, z, j3, z2), z, j3);
         }
     }
 
@@ -242,7 +237,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m363a(String str) {
+    public static synchronized void m412a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (gq.class) {
@@ -279,16 +274,16 @@ public class gq {
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f831a) {
-                    SQLiteDatabase writableDatabase = m359a(context).getWritableDatabase();
+                    SQLiteDatabase writableDatabase = m408a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     try {
                         for (a aVar : list) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("package_name", aVar.f452a);
                             contentValues.put("message_ts", Long.valueOf(aVar.f451a));
-                            contentValues.put("network_type", Integer.valueOf(aVar.f71966a));
+                            contentValues.put("network_type", Integer.valueOf(aVar.a));
                             contentValues.put("bytes", Long.valueOf(aVar.f453b));
-                            contentValues.put("rcv", Integer.valueOf(aVar.f71967b));
+                            contentValues.put("rcv", Integer.valueOf(aVar.f62961b));
                             contentValues.put(BaseStatisContent.IMSI, aVar.f454b);
                             writableDatabase.insert("traffic", null, contentValues);
                         }

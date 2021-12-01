@@ -18,13 +18,11 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class h extends BaseBean<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f60514a;
+    public PwdRequest a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(Context context) {
@@ -44,7 +42,7 @@ public class h extends BaseBean<Void> {
                 return;
             }
         }
-        this.f60514a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -61,14 +59,14 @@ public class h extends BaseBean<Void> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f60514a == null) {
+            if (this.a == null) {
                 return arrayList;
             }
             String seed = PasswordController.getSeed();
-            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f60514a.mPayPass, seed)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.a.mPayPass, seed)));
             arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
             arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            Map<String, String> map = this.f60514a.mExtData;
+            Map<String, String> map = this.a.mExtData;
             if (map == null) {
                 return arrayList;
             }
@@ -92,10 +90,7 @@ public class h extends BaseBean<Void> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 529;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_CHECK_PWD : invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean

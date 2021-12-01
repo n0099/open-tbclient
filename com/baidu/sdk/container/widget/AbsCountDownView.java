@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.j0.a.l.c;
+import c.a.k0.a.m.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsCountDownView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.j0.a.l.b f43739e;
+    public c.a.k0.a.m.b f38913e;
     public b mCountdownProgressListener;
     public long taskPeriod;
 
-    /* loaded from: classes7.dex */
-    public class a extends b.a.j0.a.l.b {
+    /* loaded from: classes9.dex */
+    public class a extends c.a.k0.a.m.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbsCountDownView f43740g;
+        public final /* synthetic */ AbsCountDownView f38914g;
 
         public a(AbsCountDownView absCountDownView) {
             Interceptable interceptable = $ic;
@@ -48,24 +48,24 @@ public abstract class AbsCountDownView extends TextView {
                     return;
                 }
             }
-            this.f43740g = absCountDownView;
+            this.f38914g = absCountDownView;
         }
 
-        @Override // b.a.j0.a.l.b
+        @Override // c.a.k0.a.m.b
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f43740g.updateProTask();
+                this.f38914g.updateProTask();
                 return null;
             }
             return invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void onEnd();
+        void a();
 
         void onProgress(int i2);
     }
@@ -94,8 +94,8 @@ public abstract class AbsCountDownView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43739e = new a(this);
-            c.a().d(this.f43739e, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            this.f38913e = new a(this);
+            c.a().d(this.f38913e, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -103,11 +103,11 @@ public abstract class AbsCountDownView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.taskPeriod;
-            if (j == 0) {
+            long j2 = this.taskPeriod;
+            if (j2 == 0) {
                 return 100L;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -119,14 +119,14 @@ public abstract class AbsCountDownView extends TextView {
         }
     }
 
-    public void setTaskPeriod(long j) {
+    public void setTaskPeriod(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.taskPeriod = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.taskPeriod = j2;
         }
     }
 
-    public abstract void setTimeMillis(long j);
+    public abstract void setTimeMillis(long j2);
 
     public void start() {
         Interceptable interceptable = $ic;
@@ -137,13 +137,13 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void stop() {
-        b.a.j0.a.l.b bVar;
+        c.a.k0.a.m.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f43739e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f38913e) == null) {
             return;
         }
         bVar.cancel();
-        this.f43739e = null;
+        this.f38913e = null;
     }
 
     public abstract void updateProTask();

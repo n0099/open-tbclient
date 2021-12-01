@@ -2,7 +2,6 @@ package com.google.zxing.client.result;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DATE_TIME;
@@ -139,7 +138,7 @@ public final class CalendarParsedResult extends ParsedResult {
     public static Date parseDate(String str) throws ParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (DATE_TIME.matcher(str).matches()) {
                 if (str.length() == 8) {
                     return buildDateFormat().parse(str);
@@ -161,23 +160,23 @@ public final class CalendarParsedResult extends ParsedResult {
     public static long parseDurationMS(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, charSequence)) == null) {
             if (charSequence == null) {
                 return -1L;
             }
             Matcher matcher = RFC2445_DURATION.matcher(charSequence);
             if (matcher.matches()) {
-                long j = 0;
+                long j2 = 0;
                 int i2 = 0;
                 while (i2 < RFC2445_DURATION_FIELD_UNITS.length) {
                     int i3 = i2 + 1;
                     String group = matcher.group(i3);
                     if (group != null) {
-                        j += RFC2445_DURATION_FIELD_UNITS[i2] * Integer.parseInt(group);
+                        j2 += RFC2445_DURATION_FIELD_UNITS[i2] * Integer.parseInt(group);
                     }
                     i2 = i3;
                 }
-                return j;
+                return j2;
             }
             return -1L;
         }

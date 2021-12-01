@@ -1,8 +1,7 @@
 package com.google.common.hash;
 
-import b.h.d.d.h;
+import c.i.d.d.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final /* synthetic */ LittleEndianByteArray$UnsafeByteArray[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +25,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,10 +111,10 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
             }
 
             @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-            public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            public void putLongLittleEndian(byte[] bArr, int i2, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j2);
                 }
             }
         };
@@ -152,10 +151,10 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
             }
 
             @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-            public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            public void putLongLittleEndian(byte[] bArr, int i2, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j));
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j2));
                 }
             }
         };
@@ -191,7 +190,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static Unsafe getUnsafe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
                 try {
                     return Unsafe.getUnsafe();
@@ -208,7 +207,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static LittleEndianByteArray$UnsafeByteArray valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (LittleEndianByteArray$UnsafeByteArray) Enum.valueOf(LittleEndianByteArray$UnsafeByteArray.class, str) : (LittleEndianByteArray$UnsafeByteArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (LittleEndianByteArray$UnsafeByteArray) Enum.valueOf(LittleEndianByteArray$UnsafeByteArray.class, str) : (LittleEndianByteArray$UnsafeByteArray) invokeL.objValue;
     }
 
     public static LittleEndianByteArray$UnsafeByteArray[] values() {
@@ -219,7 +218,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
 
     public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i2);
 
-    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j);
+    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j2);
 
     public /* synthetic */ LittleEndianByteArray$UnsafeByteArray(String str, int i2, h hVar) {
         this(str, i2);

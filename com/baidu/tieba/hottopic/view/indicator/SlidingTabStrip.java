@@ -7,34 +7,36 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import b.a.r0.j1.b;
-import b.a.r0.j1.c;
+import c.a.r0.p1.b;
+import c.a.r0.p1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SlidingTabStrip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f51032e;
+    public final int f45758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f51033f;
+    public final Paint f45759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f51034g;
+    public final Paint f45760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51035h;
+    public int f45761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51036i;
-    public int j;
+    public int f45762i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f45763j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SlidingTabStrip(Context context) {
@@ -64,18 +66,18 @@ public class SlidingTabStrip extends LinearLayout {
             int dimensionPixelSize = getResources().getDimensionPixelSize(c.ds64);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(c.ds14);
             if (i2 == 0) {
-                this.f51036i = childAt.getLeft();
+                this.f45762i = childAt.getLeft();
             } else {
-                this.f51036i = childAt.getLeft() + dimensionPixelSize2;
+                this.f45762i = childAt.getLeft() + dimensionPixelSize2;
             }
-            this.j = this.f51036i + dimensionPixelSize;
+            this.f45763j = this.f45762i + dimensionPixelSize;
             if (f2 < 0.0f || i2 >= getChildCount() - 1) {
                 return;
             }
             View childAt2 = getChildAt(i2 + 1);
             float f3 = 1.0f - f2;
-            this.f51036i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f51036i * f3));
-            this.j = (int) ((f2 * (childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize)) + (f3 * this.j));
+            this.f45762i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f45762i * f3));
+            this.f45763j = (int) ((f2 * (childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize)) + (f3 * this.f45763j));
         }
     }
 
@@ -83,10 +85,10 @@ public class SlidingTabStrip extends LinearLayout {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, i2) == null) {
-            if (this.j <= 0 && (i3 = this.f51035h) >= 0 && i3 < getChildCount()) {
-                this.j = getChildAt(this.f51035h).getRight() - getResources().getDimensionPixelSize(c.ds14);
+            if (this.f45763j <= 0 && (i3 = this.f45761h) >= 0 && i3 < getChildCount()) {
+                this.f45763j = getChildAt(this.f45761h).getRight() - getResources().getDimensionPixelSize(c.ds14);
             }
-            canvas.drawRoundRect(new RectF(this.f51036i, i2 - this.f51032e, this.j, i2), 10.0f, 10.0f, this.f51033f);
+            canvas.drawRoundRect(new RectF(this.f45762i, i2 - this.f45758e, this.f45763j, i2), 10.0f, 10.0f, this.f45759f);
         }
     }
 
@@ -101,8 +103,8 @@ public class SlidingTabStrip extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f51033f.setColor(SkinManager.getSkinColor(null, b.CAM_X0105));
-            this.f51034g.setColor(SkinManager.getColor(b.CAM_X0204));
+            this.f45759f.setColor(SkinManager.getSkinColor(null, b.CAM_X0105));
+            this.f45760g.setColor(SkinManager.getColor(b.CAM_X0204));
             invalidate();
             int childCount = getChildCount();
             if (childCount <= 0) {
@@ -113,7 +115,7 @@ public class SlidingTabStrip extends LinearLayout {
                 if (childAt instanceof TabItemView) {
                     TabItemView tabItemView = (TabItemView) childAt;
                     tabItemView.onChangeSkinType();
-                    if (i3 == this.f51035h) {
+                    if (i3 == this.f45761h) {
                         SkinManager.setViewTextColor(tabItemView.getTextView(), b.CAM_X0105, 1);
                     } else {
                         SkinManager.setViewTextColor(tabItemView.getTextView(), b.CAM_X0107, 1);
@@ -140,15 +142,15 @@ public class SlidingTabStrip extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(c.ds14);
             View childAt = getChildAt(i2);
-            View childAt2 = getChildAt(this.f51035h);
+            View childAt2 = getChildAt(this.f45761h);
             int left = childAt.getLeft();
             float left2 = (childAt2.getLeft() - left) * f2;
-            if (this.f51035h == 0) {
-                this.f51036i = (int) (left + left2);
+            if (this.f45761h == 0) {
+                this.f45762i = (int) (left + left2);
             } else {
-                this.f51036i = (int) (left + left2 + dimensionPixelSize);
+                this.f45762i = (int) (left + left2 + dimensionPixelSize);
             }
-            this.j = this.f51036i + getResources().getDimensionPixelSize(c.ds64);
+            this.f45763j = this.f45762i + getResources().getDimensionPixelSize(c.ds64);
             invalidate();
         }
     }
@@ -165,7 +167,7 @@ public class SlidingTabStrip extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) || i2 == i3) {
             return;
         }
-        this.f51035h = i2;
+        this.f45761h = i2;
         int childCount = getChildCount();
         if (i2 >= 0 && i2 < childCount) {
             View childAt = getChildAt(i2);
@@ -202,12 +204,12 @@ public class SlidingTabStrip extends LinearLayout {
             }
         }
         setWillNotDraw(false);
-        this.f51032e = getResources().getDimensionPixelSize(c.ds5);
+        this.f45758e = getResources().getDimensionPixelSize(c.ds5);
         Paint paint = new Paint();
-        this.f51033f = paint;
+        this.f45759f = paint;
         paint.setColor(SkinManager.getSkinColor(null, b.CAM_X0105));
         Paint paint2 = new Paint();
-        this.f51034g = paint2;
+        this.f45760g = paint2;
         paint2.setColor(SkinManager.getColor(b.CAM_X0204));
     }
 }

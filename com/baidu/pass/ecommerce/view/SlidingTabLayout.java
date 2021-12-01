@@ -23,7 +23,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.view.addressdialog.OnTabSelectListener;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STYLE_BLOCK = 2;
@@ -90,7 +89,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public ViewPager mViewPager;
     public float margin;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class InnerPagerAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +183,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
     private void addTab(int i2, String str, View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, this, i2, str, view) == null) {
+        if (interceptable == null || interceptable.invokeILL(65542, this, i2, str, view) == null) {
             TextView textView = (TextView) view.findViewById(R.id.tv_tab_title);
             if (textView != null && str != null) {
                 textView.setText(str);

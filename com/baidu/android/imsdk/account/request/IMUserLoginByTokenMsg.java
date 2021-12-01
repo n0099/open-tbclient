@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import b.a.t.a;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static int sRetrytimes;
@@ -129,7 +128,7 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
                 jSONObject.put("tail", this.mTail);
-                jSONObject.put("timeout", this.mTimeout);
+                jSONObject.put(a.O, this.mTimeout);
                 if (!TextUtils.isEmpty(Utility.getLoginCookie(this.mContext))) {
                     jSONObject.put("cookie", Utility.getLoginCookie(this.mContext));
                 }
@@ -191,7 +190,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             if (i3 < optJSONArray.length()) {
                                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
                                 if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501100) {
-                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0));
+                                    Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
                                     break;
                                 }
                                 i3++;
@@ -200,7 +199,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!a.f29542e) {
+                    if (!c.a.s.a.f26073e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e2) {
@@ -218,17 +217,17 @@ public class IMUserLoginByTokenMsg extends Message {
         }
     }
 
-    public void setTail(long j) {
+    public void setTail(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.mTail = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.mTail = j2;
         }
     }
 
-    public void setTimeout(long j) {
+    public void setTimeout(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mTimeout = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mTimeout = j2;
         }
     }
 }

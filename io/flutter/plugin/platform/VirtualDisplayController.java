@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.platform.SingleViewPresentation;
 import io.flutter.view.TextureRegistry;
 @TargetApi(20)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VirtualDisplayController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +34,7 @@ public class VirtualDisplayController {
     public VirtualDisplay virtualDisplay;
 
     @TargetApi(16)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,9 +152,18 @@ public class VirtualDisplayController {
         return (VirtualDisplayController) invokeCommon.objValue;
     }
 
+    public void dispatchTouchEvent(MotionEvent motionEvent) {
+        SingleViewPresentation singleViewPresentation;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (singleViewPresentation = this.presentation) == null) {
+            return;
+        }
+        singleViewPresentation.dispatchTouchEvent(motionEvent);
+    }
+
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             PlatformView view = this.presentation.getView();
             this.presentation.cancel();
             this.presentation.detachState();
@@ -166,7 +176,7 @@ public class VirtualDisplayController {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             SingleViewPresentation singleViewPresentation = this.presentation;
             if (singleViewPresentation == null) {
                 return null;
@@ -179,7 +189,7 @@ public class VirtualDisplayController {
     public void onFlutterViewAttached(@NonNull View view) {
         SingleViewPresentation singleViewPresentation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
             return;
         }
         this.presentation.getView().onFlutterViewAttached(view);
@@ -188,7 +198,7 @@ public class VirtualDisplayController {
     public void onFlutterViewDetached() {
         SingleViewPresentation singleViewPresentation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
             return;
         }
         this.presentation.getView().onFlutterViewDetached();
@@ -197,7 +207,7 @@ public class VirtualDisplayController {
     public void onInputConnectionLocked() {
         SingleViewPresentation singleViewPresentation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
             return;
         }
         this.presentation.getView().onInputConnectionLocked();
@@ -206,7 +216,7 @@ public class VirtualDisplayController {
     public void onInputConnectionUnlocked() {
         SingleViewPresentation singleViewPresentation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (singleViewPresentation = this.presentation) == null || singleViewPresentation.getView() == null) {
             return;
         }
         this.presentation.getView().onInputConnectionUnlocked();
@@ -214,7 +224,7 @@ public class VirtualDisplayController {
 
     public void resize(int i2, int i3, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, runnable) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, runnable) == null) {
             boolean isFocused = getView().isFocused();
             SingleViewPresentation.PresentationState detachState = this.presentation.detachState();
             this.virtualDisplay.setSurface(null);

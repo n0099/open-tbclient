@@ -18,7 +18,6 @@ import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.c;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,8 +59,8 @@ public class k {
             if (view == null || (parent = view.getParent()) == null || !(parent instanceof ViewGroup)) {
                 return "";
             }
-            String a2 = a(parent.getClass());
-            if ("android.widget".equals(a2) || "android.view".equals(a2)) {
+            String a = a(parent.getClass());
+            if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return "";
             }
             ViewGroup viewGroup = (ViewGroup) parent;
@@ -140,8 +139,8 @@ public class k {
             if (cls == null) {
                 return "";
             }
-            String a2 = a(cls);
-            if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
+            String a = a(cls);
+            if (!"android.widget".equals(a) && !"android.view".equals(a)) {
                 return c(cls.getSuperclass());
             }
             return d(cls);
@@ -225,8 +224,8 @@ public class k {
                 simpleName = view instanceof WebView ? WebView.class.getSimpleName() : "";
             }
             if (TextUtils.isEmpty(simpleName)) {
-                String a2 = a(view.getClass());
-                if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
+                String a = a(view.getClass());
+                if (!"android.widget".equals(a) && !"android.view".equals(a)) {
                     Class<?> cls = null;
                     try {
                         cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
@@ -314,7 +313,7 @@ public class k {
     public static String a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
             if (cls == null) {
                 return "";
             }
@@ -401,11 +400,11 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            String a2 = f.a().a(str);
-            if (TextUtils.isEmpty(a2)) {
-                a2 = c.a().a(str, c.a.f42386a);
+            String a = f.a().a(str);
+            if (TextUtils.isEmpty(a)) {
+                a = c.a().a(str, c.a.a);
             }
-            return a2 == null ? "" : a2;
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }
@@ -448,11 +447,11 @@ public class k {
             if (cls == null) {
                 return "";
             }
-            String a2 = a(cls, false);
-            if (!TextUtils.isEmpty(a2) && cls.isAnonymousClass()) {
-                a2 = a2 + "$";
+            String a = a(cls, false);
+            if (!TextUtils.isEmpty(a) && cls.isAnonymousClass()) {
+                a = a + "$";
             }
-            return a2 == null ? "" : a2;
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }
@@ -475,7 +474,7 @@ public class k {
         return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x008b */
     public static JSONArray a(Activity activity, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -559,8 +558,8 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            String a2 = c.a().a(str, c.a.f42387b);
-            return a2 == null ? "" : a2;
+            String a = c.a().a(str, c.a.f37442b);
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }
@@ -568,7 +567,7 @@ public class k {
     public static String a(Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, cls, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, cls, z)) == null) {
             if (!cls.isAnonymousClass()) {
                 return z ? cls.getSimpleName() : cls.getName();
             }

@@ -39,16 +39,16 @@ public class l extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String c2 = this.f69818b.c("s");
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f69818b.c(ag.f40928h), c2);
-            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f69818b.c("ah"), c2);
-            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f69818b.c("ai"), c2);
-            String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f69818b.c("aj"), c2);
+            String c2 = this.f61466b.c("s");
+            String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c(ag.f36415h), c2);
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("ah"), c2);
+            String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("ai"), c2);
+            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f61466b.c("aj"), c2);
             Intent intent = new Intent();
-            intent.putExtra(a2, this.f69819c);
-            intent.putExtra(a3, "*/*");
-            intent.putExtra(a4, true);
-            intent.setAction(a5);
+            intent.putExtra(a, this.f61467c);
+            intent.putExtra(a2, "*/*");
+            intent.putExtra(a3, true);
+            intent.setAction(a4);
             intent.addFlags(268435456);
             intent.addFlags(32768);
             return intent;

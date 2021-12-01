@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,21 +26,19 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static ScheduledExecutorService f62565a;
+    public static ScheduledExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f62566b;
+    public static SharedPreferences f54751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f62567c;
+    public static volatile boolean f54752c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f62568d;
+    public static Map<String, String> f54753d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,9 +54,9 @@ public final class e {
                 return;
             }
         }
-        f62565a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
-        f62567c = false;
-        f62568d = new HashMap();
+        a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
+        f54752c = false;
+        f54753d = new HashMap();
     }
 
     public static void c(String str, JSONObject jSONObject) {
@@ -74,17 +71,15 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f62567c) {
+        } else if (f54752c) {
         } else {
-            f62565a.execute(new Runnable(str, jSONObject) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
+            a.execute(new Runnable(str, jSONObject) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f62569a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f62570b;
+                public final /* synthetic */ JSONObject f54754b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,15 +96,15 @@ public final class e {
                             return;
                         }
                     }
-                    this.f62569a = str;
-                    this.f62570b = jSONObject;
+                    this.a = str;
+                    this.f54754b = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        e.b(e.d(this.f62569a, this.f62570b));
+                        e.b(e.d(this.a, this.f54754b));
                     }
                 }
             });
@@ -135,8 +130,8 @@ public final class e {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("model", Build.MODEL);
                 jSONObject4.put("vendor", Build.MANUFACTURER);
-                jSONObject4.put("imei", f62568d.get("imei"));
-                jSONObject4.put("oaid", f62568d.get("oaid"));
+                jSONObject4.put("imei", f54753d.get("imei"));
+                jSONObject4.put("oaid", f54753d.get("oaid"));
                 jSONObject3.put("device_info", jSONObject4);
                 jSONArray.put(jSONObject3);
                 jSONObject2.put("stats_list", jSONArray);
@@ -150,7 +145,7 @@ public final class e {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f62566b = context.getSharedPreferences("tt_sdk_settings", 0);
+            f54751b = context.getSharedPreferences("tt_sdk_settings", 0);
         }
     }
 
@@ -158,18 +153,18 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONObject)) == null) {
-            SharedPreferences sharedPreferences = f62566b;
+            SharedPreferences sharedPreferences = f54751b;
             return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
         }
         return (String) invokeL.objValue;
     }
 
-    public static final void a(int i2, String str, long j) {
+    public static final void a(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("duration", Long.valueOf(j));
+                jSONObject.putOpt("duration", Long.valueOf(j2));
                 jSONObject.putOpt("code", Integer.valueOf(i2));
                 jSONObject.putOpt("message", str);
             } catch (JSONException e2) {
@@ -201,27 +196,25 @@ public final class e {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f62567c) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f54752c) {
             return;
         }
         try {
-            f62567c = true;
-            f62565a.shutdown();
+            f54752c = true;
+            a.shutdown();
         } catch (Throwable unused) {
         }
     }
 
     public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundle) == null) || f62567c) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, bundle) == null) || f54752c) {
             return;
         }
-        f62565a.execute(new Runnable(bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
+        a.execute(new Runnable(bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Bundle f62571a;
+            public final /* synthetic */ Bundle a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -238,14 +231,14 @@ public final class e {
                         return;
                     }
                 }
-                this.f62571a = bundle;
+                this.a = bundle;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    e.b(this.f62571a);
+                    e.b(this.a);
                 }
             }
         });
@@ -253,15 +246,15 @@ public final class e {
 
     public static void a(AdConfig adConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, adConfig) == null) || adConfig == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, adConfig) == null) || adConfig == null) {
             return;
         }
-        f62568d.put("appid", adConfig.getAppId());
+        f54753d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f62568d.put("oaid", customController.getDevOaid());
-                f62568d.put("imei", customController.getDevImei());
+                f54753d.put("oaid", customController.getDevOaid());
+                f54753d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

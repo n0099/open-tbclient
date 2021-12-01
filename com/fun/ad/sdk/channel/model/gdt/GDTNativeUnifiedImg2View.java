@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.channel.gdt.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.gdt.x;
+import com.fun.module.gdt.w;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
-public class GDTNativeUnifiedImg2View extends x {
+/* loaded from: classes2.dex */
+public class GDTNativeUnifiedImg2View extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f63657d;
+    public ImageView f55645d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f63658e;
+    public ImageView f55646e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f63659f;
+    public float f55647f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GDTNativeUnifiedImg2View(Context context) {
@@ -94,44 +94,44 @@ public class GDTNativeUnifiedImg2View extends x {
                 return;
             }
         }
-        this.f63659f = 1.78f;
+        this.f55647f = 1.78f;
     }
 
-    @Override // com.fun.module.gdt.x
+    @Override // com.fun.module.gdt.w
     public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f63782c);
-            arrayList.add(((x) this).f63781b);
-            arrayList.add(((x) this).f63780a);
-            arrayList.add(this.f63658e);
-            arrayList.add(this.f63657d);
+            arrayList.add(this.f55754c);
+            arrayList.add(((w) this).f55753b);
+            arrayList.add(((w) this).a);
+            arrayList.add(this.f55646e);
+            arrayList.add(this.f55645d);
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.fun.module.gdt.x
+    @Override // com.fun.module.gdt.w
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f63657d);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f55645d);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f63659f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f63658e);
+            this.f55647f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f55646e);
         }
     }
 
-    @Override // com.fun.module.gdt.x, android.view.View
+    @Override // com.fun.module.gdt.w, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f63657d = (ImageView) findViewById(R.id.ad_icon);
-            this.f63658e = (ImageView) findViewById(R.id.ad_img);
+            this.f55645d = (ImageView) findViewById(R.id.ad_icon);
+            this.f55646e = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -140,12 +140,12 @@ public class GDTNativeUnifiedImg2View extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f63658e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55646e.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f63659f);
+            layoutParams.height = (int) (i6 / this.f55647f);
             LogPrinter.e("width:%d height:%d", Integer.valueOf(i6), Integer.valueOf(layoutParams.height));
-            this.f63658e.setLayoutParams(layoutParams);
+            this.f55646e.setLayoutParams(layoutParams);
         }
     }
 }

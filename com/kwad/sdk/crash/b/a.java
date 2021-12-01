@@ -1,109 +1,47 @@
 package com.kwad.sdk.crash.b;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.crash.d;
+import com.kwad.sdk.crash.model.message.CaughtExceptionMessage;
+import com.kwad.sdk.crash.model.message.ExceptionMessage;
+import com.kwad.sdk.crash.utils.f;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 /* loaded from: classes2.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@NonNull Throwable th) {
-        InterceptResult invokeL;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
-            ArrayList arrayList = new ArrayList(5);
-            for (int i2 = 0; i2 < 5; i2++) {
-                arrayList.add(th.getStackTrace());
-                th = th.getCause();
-                if (th == null) {
-                    break;
-                }
-            }
-            return a(arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return 2;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean a(@NonNull List<StackTraceElement[]> list) {
-        InterceptResult invokeL;
+    public static void a(ExceptionMessage exceptionMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            for (StackTraceElement[] stackTraceElementArr : list) {
-                if (a(stackTraceElementArr)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65537, null, exceptionMessage) == null) {
+            com.kwad.sdk.core.d.a.a("ExceptionCollector", "upload msg=" + exceptionMessage);
+            ArrayList arrayList = new ArrayList(1);
+            arrayList.add(com.kwad.sdk.crash.report.request.c.a(exceptionMessage));
+            new com.kwad.sdk.crash.report.request.b().a(arrayList);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean a(StackTraceElement[] stackTraceElementArr) {
-        InterceptResult invokeL;
+    public static void a(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, stackTraceElementArr)) == null) {
-            if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
-                return false;
-            }
-            String[] b2 = d.a().b();
-            if (b2 == null || b2.length == 0) {
-                return true;
-            }
-            boolean z = false;
-            for (String str : b2) {
-                z = a(stackTraceElementArr, str);
-                if (z) {
-                    break;
-                }
-            }
-            if (z) {
-                for (String str2 : d.a().c()) {
-                    if (b(stackTraceElementArr, str2)) {
-                        return false;
-                    }
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+            CaughtExceptionMessage caughtExceptionMessage = new CaughtExceptionMessage();
+            caughtExceptionMessage.mLogUUID = UUID.randomUUID().toString();
+            caughtExceptionMessage.mCrashDetail = th.toString();
+            f.a(th, caughtExceptionMessage, com.kwad.sdk.crash.d.a().f());
+            f.a(caughtExceptionMessage, a());
+            a(caughtExceptionMessage);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, stackTraceElementArr, str)) == null) {
-            for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-                String className = stackTraceElement.getClassName();
-                if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                    com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter filterTags element className=" + className + " filter tag=" + str);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, stackTraceElementArr, str)) == null) {
-            for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-                String className = stackTraceElement.getClassName();
-                if (!TextUtils.isEmpty(className) && className.contains(str)) {
-                    com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter excludeTags element className=" + className + " exclude tag=" + str);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

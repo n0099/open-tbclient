@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.Util;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PropertyPair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_FIELD = "=";

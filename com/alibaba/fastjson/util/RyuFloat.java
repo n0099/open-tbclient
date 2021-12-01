@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class RyuFloat {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] POW5_INV_SPLIT;
@@ -151,23 +151,23 @@ public final class RyuFloat {
                         int i41 = i6 == 0 ? 1 : (int) ((((i6 * 23219280) + 10000000) - 1) / 10000000);
                         int i42 = (-i40) + i6;
                         int[][] iArr = POW5_INV_SPLIT;
-                        long j = iArr[i6][0];
+                        long j2 = iArr[i6][0];
                         z = z6;
-                        long j2 = iArr[i6][1];
-                        long j3 = i37;
+                        long j3 = iArr[i6][1];
+                        long j4 = i37;
                         int i43 = (((i41 + 59) - 1) + i42) - 31;
-                        i7 = (int) (((j3 * j) + ((j3 * j2) >> 31)) >> i43);
-                        long j4 = i38;
-                        i8 = (int) (((j4 * j) + ((j4 * j2) >> 31)) >> i43);
-                        long j5 = i39;
-                        i9 = (int) (((j * j5) + ((j5 * j2) >> 31)) >> i43);
+                        i7 = (int) (((j4 * j2) + ((j4 * j3) >> 31)) >> i43);
+                        long j5 = i38;
+                        i8 = (int) (((j5 * j2) + ((j5 * j3) >> 31)) >> i43);
+                        long j6 = i39;
+                        i9 = (int) (((j2 * j6) + ((j6 * j3) >> 31)) >> i43);
                         if (i6 == 0 || (i8 - 1) / 10 > i9 / 10) {
                             i5 = 0;
                         } else {
                             int i44 = i6 - 1;
                             int i45 = (i42 - 1) + (((i44 == 0 ? 1 : (int) ((((i44 * 23219280) + 10000000) - 1) / 10000000)) + 59) - 1);
                             int[][] iArr2 = POW5_INV_SPLIT;
-                            i5 = (int) ((((iArr2[i44][0] * j3) + ((iArr2[i44][1] * j3) >> 31)) >> (i45 - 31)) % 10);
+                            i5 = (int) ((((iArr2[i44][0] * j4) + ((iArr2[i44][1] * j4) >> 31)) >> (i45 - 31)) % 10);
                         }
                         int i46 = 0;
                         while (i38 > 0 && i38 % 5 == 0) {
@@ -193,22 +193,22 @@ public final class RyuFloat {
                         int i50 = (int) ((i49 * 6989700) / 10000000);
                         int i51 = i49 - i50;
                         int[][] iArr3 = POW5_SPLIT;
-                        long j6 = iArr3[i51][0];
-                        long j7 = iArr3[i51][1];
+                        long j7 = iArr3[i51][0];
+                        long j8 = iArr3[i51][1];
                         int i52 = (i50 - ((i51 == 0 ? 1 : (int) ((((i51 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31;
-                        long j8 = i37;
-                        int i53 = (int) (((j8 * j6) + ((j8 * j7) >> 31)) >> i52);
-                        long j9 = i38;
-                        int i54 = (int) (((j9 * j6) + ((j9 * j7) >> 31)) >> i52);
-                        long j10 = i39;
-                        int i55 = (int) (((j10 * j6) + ((j10 * j7) >> 31)) >> i52);
+                        long j9 = i37;
+                        int i53 = (int) (((j9 * j7) + ((j9 * j8) >> 31)) >> i52);
+                        long j10 = i38;
+                        int i54 = (int) (((j10 * j7) + ((j10 * j8) >> 31)) >> i52);
+                        long j11 = i39;
+                        int i55 = (int) (((j11 * j7) + ((j11 * j8) >> 31)) >> i52);
                         if (i50 == 0 || (i54 - 1) / 10 > i55 / 10) {
                             i4 = i54;
                             i5 = 0;
                         } else {
                             int[][] iArr4 = POW5_SPLIT;
                             i4 = i54;
-                            i5 = (int) ((((iArr4[i10][0] * j8) + ((j8 * iArr4[i10][1]) >> 31)) >> (((i50 - 1) - ((i51 + 1 == 0 ? 1 : (int) ((((i10 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31)) % 10);
+                            i5 = (int) ((((iArr4[i10][0] * j9) + ((j9 * iArr4[i10][1]) >> 31)) >> (((i50 - 1) - ((i51 + 1 == 0 ? 1 : (int) ((((i10 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31)) % 10);
                         }
                         i6 = i50 + i40;
                         boolean z7 = 1 >= i50;

@@ -20,7 +20,6 @@ import com.baidu.mapapi.search.route.MassTransitRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +248,7 @@ public class h extends com.baidu.platform.base.d {
     private SuggestAddrInfo b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, jSONObject)) == null) {
             SuggestAddrInfo suggestAddrInfo = new SuggestAddrInfo();
             suggestAddrInfo.setSuggestStartNode(d(jSONObject.optJSONArray("origin_list")));
             suggestAddrInfo.setSuggestEndNode(d(jSONObject.optJSONArray("destination_list")));
@@ -261,7 +260,7 @@ public class h extends com.baidu.platform.base.d {
     private List<MassTransitRouteLine.TransitStep.TrafficCondition> b(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONArray)) == null) {
             if (jSONArray == null || jSONArray.length() < 0) {
                 return null;
             }
@@ -404,10 +403,10 @@ public class h extends com.baidu.platform.base.d {
                     if (optJSONObject != null) {
                         if (optInt2 != 1) {
                             if (optInt2 == 2) {
-                                TransitResultNode a2 = a(optInt2, optJSONObject.optJSONObject(FilterValue.DEFAULT_FILTER_VALUE));
-                                massTransitRouteResult.setOrigin(a2);
-                                TransitResultNode a3 = a(optInt2, optJSONObject.optJSONObject("destination"));
-                                massTransitRouteResult.setDestination(a3);
+                                TransitResultNode a = a(optInt2, optJSONObject.optJSONObject(FilterValue.DEFAULT_FILTER_VALUE));
+                                massTransitRouteResult.setOrigin(a);
+                                TransitResultNode a2 = a(optInt2, optJSONObject.optJSONObject("destination"));
+                                massTransitRouteResult.setDestination(a2);
                                 massTransitRouteResult.setTotal(optJSONObject.optInt("total"));
                                 massTransitRouteResult.setTaxiInfo(b(optJSONObject.optString("taxi")));
                                 JSONArray optJSONArray = optJSONObject.optJSONArray("routes");
@@ -424,14 +423,14 @@ public class h extends com.baidu.platform.base.d {
                                         massTransitRouteLine.setArriveTime(optJSONObject2.optString("arrive_time"));
                                         massTransitRouteLine.setPrice(optJSONObject2.optDouble("price"));
                                         massTransitRouteLine.setPriceInfo(c(optJSONObject2.optJSONArray("price_detail")));
-                                        if (a2 != null) {
+                                        if (a != null) {
                                             RouteNode routeNode = new RouteNode();
-                                            routeNode.setLocation(a2.getLocation());
+                                            routeNode.setLocation(a.getLocation());
                                             massTransitRouteLine.setStarting(routeNode);
                                         }
-                                        if (a3 != null) {
+                                        if (a2 != null) {
                                             RouteNode routeNode2 = new RouteNode();
-                                            routeNode2.setLocation(a3.getLocation());
+                                            routeNode2.setLocation(a2.getLocation());
                                             massTransitRouteLine.setTerminal(routeNode2);
                                         }
                                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("steps");

@@ -13,9 +13,7 @@ import com.qq.e.comm.util.SystemUtil;
 /* loaded from: classes2.dex */
 public class StubVisitor {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile StubVisitor f68869a;
+    public static volatile StubVisitor a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public StubVisitor() {
@@ -36,14 +34,14 @@ public class StubVisitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68869a == null) {
+            if (a == null) {
                 synchronized (StubVisitor.class) {
-                    if (f68869a == null) {
-                        f68869a = new StubVisitor();
+                    if (a == null) {
+                        a = new StubVisitor();
                     }
                 }
             }
-            return f68869a;
+            return a;
         }
         return (StubVisitor) invokeV.objValue;
     }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,15 +21,13 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f42419a;
+    public static final Proxy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f42420b;
+    public static final Proxy f37473b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +43,8 @@ public final class o {
                 return;
             }
         }
-        f42419a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f42420b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f37473b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
@@ -70,13 +67,13 @@ public final class o {
     public static boolean b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? context.deleteFile(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? context.deleteFile(str) : invokeLL.booleanValue;
     }
 
     public static boolean c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? context.getFileStreamPath(str).exists() : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getFileStreamPath(str).exists() : invokeLL.booleanValue;
     }
 
     public static HttpURLConnection d(Context context, String str) throws IOException {
@@ -160,10 +157,10 @@ public final class o {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f42420b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f37473b);
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f42419a);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(a);
                     }
                 }
                 httpURLConnection = null;

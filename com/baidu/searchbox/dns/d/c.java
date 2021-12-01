@@ -3,8 +3,6 @@ package com.baidu.searchbox.dns.d;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.statistics.HttpDNSStat;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -15,13 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.inner.FlushManager;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a.b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean L = false;
@@ -35,7 +34,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     public int H;
     public boolean O;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,23 +109,23 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         this.H = i2;
     }
 
-    public static void a(long j) {
+    public static void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            N = j;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
+            N = j2;
         }
     }
 
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
             P = z;
         }
     }
 
     public static void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             M = str;
         }
     }
@@ -140,7 +139,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     private void s() {
         com.baidu.searchbox.dns.d.a a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || !P || this.H != 2 || N <= 0 || System.currentTimeMillis() - N <= 1800000 || (a2 = b.o().a("httpsdns.baidu.com", false, 2)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || !P || this.H != 2 || N <= 0 || System.currentTimeMillis() - N <= FlushManager.ReportTimer.DEFAULT_INTERVAL || (a2 = b.o().a("httpsdns.baidu.com", false, 2)) == null) {
             return;
         }
         boolean z = DnsUtil.DEBUG;
@@ -275,7 +274,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpURLConnection) == null) {
             super.a(httpURLConnection);
-            httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
             httpURLConnection.setRequestProperty("Host", "httpsdns.baidu.com");
             if (v()) {
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(a.y());

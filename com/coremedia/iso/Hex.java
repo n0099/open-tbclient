@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] DIGITS;

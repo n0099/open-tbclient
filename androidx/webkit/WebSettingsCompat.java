@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebSettingsAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +118,7 @@ public class WebSettingsCompat {
     public static boolean getSafeBrowsingEnabled(@NonNull WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, webSettings)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webSettings)) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_ENABLE");
             if (feature.isSupportedByFramework()) {
                 return webSettings.getSafeBrowsingEnabled();
@@ -135,7 +134,7 @@ public class WebSettingsCompat {
     @SuppressLint({"NewApi"})
     public static void setDisabledActionModeMenuItems(@NonNull WebSettings webSettings, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, webSettings, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, null, webSettings, i2) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
             if (feature.isSupportedByFramework()) {
                 webSettings.setDisabledActionModeMenuItems(i2);

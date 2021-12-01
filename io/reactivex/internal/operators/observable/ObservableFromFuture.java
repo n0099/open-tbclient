@@ -11,7 +11,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFromFuture<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,12 @@ public final class ObservableFromFuture<T> extends Observable<T> {
     public final long timeout;
     public final TimeUnit unit;
 
-    public ObservableFromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
+    public ObservableFromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {future, Long.valueOf(j), timeUnit};
+            Object[] objArr = {future, Long.valueOf(j2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,7 +35,7 @@ public final class ObservableFromFuture<T> extends Observable<T> {
             }
         }
         this.future = future;
-        this.timeout = j;
+        this.timeout = j2;
         this.unit = timeUnit;
     }
 

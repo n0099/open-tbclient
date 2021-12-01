@@ -1,9 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Monitor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +19,7 @@ public final class Monitor {
     public final boolean fair;
     public final ReentrantLock lock;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,12 +88,12 @@ public final class Monitor {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private boolean awaitNanos(Guard guard, long j, boolean z) throws InterruptedException {
+    private boolean awaitNanos(Guard guard, long j2, boolean z) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{guard, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{guard, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             boolean z2 = true;
-            while (j > 0) {
+            while (j2 > 0) {
                 if (z2) {
                     if (z) {
                         try {
@@ -108,7 +107,7 @@ public final class Monitor {
                     beginWaitingFor(guard);
                     z2 = false;
                 }
-                j = guard.condition.awaitNanos(j);
+                j2 = guard.condition.awaitNanos(j2);
                 if (guard.isSatisfied()) {
                     if (!z2) {
                         endWaitingFor(guard);
@@ -123,7 +122,7 @@ public final class Monitor {
 
     private void awaitUninterruptibly(Guard guard, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, this, guard, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65541, this, guard, z) == null) {
             if (z) {
                 signalNextWaiter();
             }
@@ -140,7 +139,7 @@ public final class Monitor {
 
     private void beginWaitingFor(Guard guard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, guard) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, guard) == null) {
             int i2 = guard.waiterCount;
             guard.waiterCount = i2 + 1;
             if (i2 == 0) {
@@ -172,11 +171,11 @@ public final class Monitor {
         }
     }
 
-    public static long initNanoTime(long j) {
+    public static long initNanoTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
-            if (j <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j2)) == null) {
+            if (j2 <= 0) {
                 return 0L;
             }
             long nanoTime = System.nanoTime();
@@ -202,14 +201,14 @@ public final class Monitor {
         return invokeL.booleanValue;
     }
 
-    public static long remainingNanos(long j, long j2) {
+    public static long remainingNanos(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (j3 <= 0) {
                 return 0L;
             }
-            return j2 - (System.nanoTime() - j);
+            return j3 - (System.nanoTime() - j2);
         }
         return invokeCommon.longValue;
     }
@@ -235,11 +234,11 @@ public final class Monitor {
         }
     }
 
-    public static long toSafeNanos(long j, TimeUnit timeUnit) {
+    public static long toSafeNanos(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65549, null, j, timeUnit)) == null) {
-            long nanos = timeUnit.toNanos(j);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65549, null, j2, timeUnit)) == null) {
+            long nanos = timeUnit.toNanos(j2);
             if (nanos <= 0) {
                 return 0L;
             }
@@ -507,14 +506,14 @@ public final class Monitor {
         this.lock = new ReentrantLock(z);
     }
 
-    public boolean enter(long j, TimeUnit timeUnit) {
+    public boolean enter(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         boolean tryLock;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit)) != null) {
+        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit)) != null) {
             return invokeJL.booleanValue;
         }
-        long safeNanos = toSafeNanos(j, timeUnit);
+        long safeNanos = toSafeNanos(j2, timeUnit);
         ReentrantLock reentrantLock = this.lock;
         boolean z = true;
         if (!this.fair && reentrantLock.tryLock()) {
@@ -523,11 +522,11 @@ public final class Monitor {
         boolean interrupted = Thread.interrupted();
         try {
             long nanoTime = System.nanoTime();
-            long j2 = safeNanos;
+            long j3 = safeNanos;
             while (true) {
                 try {
                     try {
-                        tryLock = reentrantLock.tryLock(j2, TimeUnit.NANOSECONDS);
+                        tryLock = reentrantLock.tryLock(j3, TimeUnit.NANOSECONDS);
                         break;
                     } catch (Throwable th) {
                         th = th;
@@ -537,7 +536,7 @@ public final class Monitor {
                         throw th;
                     }
                 } catch (InterruptedException unused) {
-                    j2 = remainingNanos(nanoTime, safeNanos);
+                    j3 = remainingNanos(nanoTime, safeNanos);
                     interrupted = true;
                 }
             }
@@ -551,17 +550,17 @@ public final class Monitor {
         }
     }
 
-    public boolean enterInterruptibly(long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean enterInterruptibly(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j, timeUnit)) == null) ? this.lock.tryLock(j, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j2, timeUnit)) == null) ? this.lock.tryLock(j2, timeUnit) : invokeJL.booleanValue;
     }
 
-    public boolean waitFor(Guard guard, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean waitFor(Guard guard, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{guard, Long.valueOf(j), timeUnit})) == null) {
-            long safeNanos = toSafeNanos(j, timeUnit);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) == null) {
+            long safeNanos = toSafeNanos(j2, timeUnit);
             if ((guard.monitor == this) & this.lock.isHeldByCurrentThread()) {
                 if (guard.isSatisfied()) {
                     return true;
@@ -580,13 +579,13 @@ public final class Monitor {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean waitForUninterruptibly(Guard guard, long j, TimeUnit timeUnit) {
+    public boolean waitForUninterruptibly(Guard guard, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{guard, Long.valueOf(j), timeUnit})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) != null) {
             return invokeCommon.booleanValue;
         }
-        long safeNanos = toSafeNanos(j, timeUnit);
+        long safeNanos = toSafeNanos(j2, timeUnit);
         boolean z = true;
         if ((guard.monitor == this) & this.lock.isHeldByCurrentThread()) {
             if (guard.isSatisfied()) {
@@ -594,12 +593,12 @@ public final class Monitor {
             }
             long initNanoTime = initNanoTime(safeNanos);
             boolean interrupted = Thread.interrupted();
-            long j2 = safeNanos;
+            long j3 = safeNanos;
             boolean z2 = true;
             while (true) {
                 try {
                     try {
-                        boolean awaitNanos = awaitNanos(guard, j2, z2);
+                        boolean awaitNanos = awaitNanos(guard, j3, z2);
                         if (interrupted) {
                             Thread.currentThread().interrupt();
                         }
@@ -616,7 +615,7 @@ public final class Monitor {
                         Thread.currentThread().interrupt();
                         return true;
                     }
-                    j2 = remainingNanos(initNanoTime, safeNanos);
+                    j3 = remainingNanos(initNanoTime, safeNanos);
                     interrupted = true;
                     z2 = false;
                 } catch (Throwable th2) {
@@ -632,12 +631,12 @@ public final class Monitor {
         }
     }
 
-    public boolean enterIf(Guard guard, long j, TimeUnit timeUnit) {
+    public boolean enterIf(Guard guard, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{guard, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) == null) {
             if (guard.monitor == this) {
-                if (enter(j, timeUnit)) {
+                if (enter(j2, timeUnit)) {
                     try {
                         boolean isSatisfied = guard.isSatisfied();
                         if (!isSatisfied) {
@@ -654,13 +653,13 @@ public final class Monitor {
         return invokeCommon.booleanValue;
     }
 
-    public boolean enterIfInterruptibly(Guard guard, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean enterIfInterruptibly(Guard guard, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{guard, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) == null) {
             if (guard.monitor == this) {
                 ReentrantLock reentrantLock = this.lock;
-                if (reentrantLock.tryLock(j, timeUnit)) {
+                if (reentrantLock.tryLock(j2, timeUnit)) {
                     try {
                         boolean isSatisfied = guard.isSatisfied();
                         if (!isSatisfied) {
@@ -686,14 +685,14 @@ public final class Monitor {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean enterWhen(Guard guard, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean enterWhen(Guard guard, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         long initNanoTime;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{guard, Long.valueOf(j), timeUnit})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) != null) {
             return invokeCommon.booleanValue;
         }
-        long safeNanos = toSafeNanos(j, timeUnit);
+        long safeNanos = toSafeNanos(j2, timeUnit);
         if (guard.monitor == this) {
             ReentrantLock reentrantLock = this.lock;
             boolean isHeldByCurrentThread = reentrantLock.isHeldByCurrentThread();
@@ -734,7 +733,7 @@ public final class Monitor {
                 throw th;
             }
             initNanoTime = initNanoTime(safeNanos);
-            if (!reentrantLock.tryLock(j, timeUnit)) {
+            if (!reentrantLock.tryLock(j2, timeUnit)) {
                 return false;
             }
         } else {
@@ -748,15 +747,15 @@ public final class Monitor {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean enterWhenUninterruptibly(Guard guard, long j, TimeUnit timeUnit) {
+    public boolean enterWhenUninterruptibly(Guard guard, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         long initNanoTime;
         long remainingNanos;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{guard, Long.valueOf(j), timeUnit})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{guard, Long.valueOf(j2), timeUnit})) != null) {
             return invokeCommon.booleanValue;
         }
-        long safeNanos = toSafeNanos(j, timeUnit);
+        long safeNanos = toSafeNanos(j2, timeUnit);
         if (guard.monitor == this) {
             ReentrantLock reentrantLock = this.lock;
             boolean isHeldByCurrentThread = reentrantLock.isHeldByCurrentThread();
@@ -791,7 +790,7 @@ public final class Monitor {
                     return z;
                 }
                 initNanoTime = initNanoTime(safeNanos);
-                long j2 = safeNanos;
+                long j3 = safeNanos;
                 while (true) {
                     try {
                         try {
@@ -805,11 +804,11 @@ public final class Monitor {
                             throw th;
                         }
                     } catch (InterruptedException unused2) {
-                        j2 = remainingNanos(initNanoTime, safeNanos);
+                        j3 = remainingNanos(initNanoTime, safeNanos);
                         interrupted = true;
                     }
                 }
-                if (!reentrantLock.tryLock(j2, TimeUnit.NANOSECONDS)) {
+                if (!reentrantLock.tryLock(j3, TimeUnit.NANOSECONDS)) {
                     if (interrupted) {
                         Thread.currentThread().interrupt();
                     }

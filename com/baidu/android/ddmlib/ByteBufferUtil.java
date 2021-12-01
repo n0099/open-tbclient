@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,13 +47,13 @@ public class ByteBufferUtil {
     }
 
     @NonNull
-    public static ByteBuffer mapFile(@NonNull File file, long j, @NonNull ByteOrder byteOrder) throws IOException {
+    public static ByteBuffer mapFile(@NonNull File file, long j2, @NonNull ByteOrder byteOrder) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, Long.valueOf(j), byteOrder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, Long.valueOf(j2), byteOrder})) == null) {
             FileInputStream fileInputStream = new FileInputStream(file);
             try {
-                MappedByteBuffer map = fileInputStream.getChannel().map(FileChannel.MapMode.READ_ONLY, j, file.length() - j);
+                MappedByteBuffer map = fileInputStream.getChannel().map(FileChannel.MapMode.READ_ONLY, j2, file.length() - j2);
                 map.order(byteOrder);
                 return map;
             } finally {

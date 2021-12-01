@@ -2,7 +2,6 @@ package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +125,7 @@ public abstract class RequestBody {
     public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(AdIconUtil.AD_TEXT_ID, null, mediaType, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, mediaType, bArr, i2, i3)) == null) {
             if (bArr != null) {
                 Util.checkOffsetAndCount(bArr.length, i2, i3);
                 return new RequestBody(mediaType, i3, bArr, i2) { // from class: okhttp3.RequestBody.2

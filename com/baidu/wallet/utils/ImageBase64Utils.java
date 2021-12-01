@@ -10,8 +10,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.imagemanager.ImageProcessor;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int JPEG_QUALITY = 70;
@@ -32,13 +30,13 @@ public class ImageBase64Utils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.utils.ImageBase64Utils$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +81,7 @@ public class ImageBase64Utils {
                 Context context = this.mContext;
                 if (context != null && this.mImageUri != null) {
                     try {
-                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f41000a);
+                        return context.getContentResolver().openFileDescriptor(this.mImageUri, "r");
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
@@ -160,12 +158,12 @@ public class ImageBase64Utils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static ImageBase64Utils sInstance;
@@ -224,7 +222,7 @@ public class ImageBase64Utils {
     public static ImageBase64Utils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? SingletonHolder.sInstance : (ImageBase64Utils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? SingletonHolder.sInstance : (ImageBase64Utils) invokeV.objValue;
     }
 
     public static String getOriginImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i2) {
@@ -310,20 +308,20 @@ public class ImageBase64Utils {
     public static String getImageBase64(ParcelFileDescriptor parcelFileDescriptor, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, parcelFileDescriptor, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, parcelFileDescriptor, i2, i3)) == null) {
             if (parcelFileDescriptor != null) {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
-                    int a2 = ImageProcessor.a(options, i2, -1);
-                    options.inSampleSize = a2;
+                    int a = ImageProcessor.a(options, i2, -1);
+                    options.inSampleSize = a;
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFileDescriptor = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
                     if (decodeFileDescriptor != null) {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         decodeFileDescriptor.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a2 + "\twidth" + decodeFileDescriptor.getWidth());
+                        LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + a + "\twidth" + decodeFileDescriptor.getWidth());
                         decodeFileDescriptor.recycle();
                         byteArrayOutputStream.close();
                         byte[] encode = Base64.encode(byteArray, 0, byteArray.length, 2);

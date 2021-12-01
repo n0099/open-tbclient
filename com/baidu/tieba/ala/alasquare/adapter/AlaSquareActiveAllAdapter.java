@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import b.a.e.m.e.a;
-import b.a.r0.w.f.a.c;
-import b.a.r0.w.f.i.b;
-import b.a.r0.w.f.i.d;
+import c.a.d.m.e.a;
+import c.a.r0.a0.f.a.c;
+import c.a.r0.a0.f.i.b;
+import c.a.r0.a0.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     public int n;
     public d o;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SquareActiveAllViewHolder(AlaSquareActiveAllAdapter alaSquareActiveAllAdapter, b bVar) {
-            super(bVar.i());
+            super(bVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,33 +53,33 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: g0 */
-    public SquareActiveAllViewHolder T(ViewGroup viewGroup) {
+    public SquareActiveAllViewHolder S(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b bVar = new b(this.m);
-            bVar.q(this.o);
+            bVar.s(this.o);
             return new SquareActiveAllViewHolder(this, bVar);
         }
         return (SquareActiveAllViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, c cVar, SquareActiveAllViewHolder squareActiveAllViewHolder) {
         InterceptResult invokeCommon;
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, cVar, squareActiveAllViewHolder})) == null) {
-            if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.mView) == null || bVar.i() == null) {
+            if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.mView) == null || bVar.j() == null) {
                 return null;
             }
-            bVar.j(cVar);
+            bVar.k(cVar);
             if (i2 == this.n) {
-                bVar.i().setAnimation(AnimationUtils.loadAnimation(this.f2421e, R.anim.list_anim));
+                bVar.j().setAnimation(AnimationUtils.loadAnimation(this.f2907e, R.anim.list_anim));
             }
             return squareActiveAllViewHolder.getView();
         }

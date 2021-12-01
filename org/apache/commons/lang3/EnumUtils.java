@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,13 +66,13 @@ public class EnumUtils {
             checkBitVectorable(cls);
             Validate.notNull(iterable);
             Iterator<? extends E> it = iterable.iterator();
-            long j = 0;
+            long j2 = 0;
             while (it.hasNext()) {
                 E next = it.next();
                 Validate.isTrue(next != null, NULL_ELEMENTS_NOT_PERMITTED, new Object[0]);
-                j |= 1 << next.ordinal();
+                j2 |= 1 << next.ordinal();
             }
-            return j;
+            return j2;
         }
         return invokeLL.longValue;
     }
@@ -81,7 +80,7 @@ public class EnumUtils {
     public static <E extends Enum<E>> long[] generateBitVectors(Class<E> cls, Iterable<? extends E> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, iterable)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, iterable)) == null) {
             asEnum(cls);
             Validate.notNull(iterable);
             EnumSet noneOf = EnumSet.noneOf(cls);
@@ -164,12 +163,12 @@ public class EnumUtils {
         return invokeLL.booleanValue;
     }
 
-    public static <E extends Enum<E>> EnumSet<E> processBitVector(Class<E> cls, long j) {
+    public static <E extends Enum<E>> EnumSet<E> processBitVector(Class<E> cls, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, cls, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, cls, j2)) == null) {
             checkBitVectorable(cls).getEnumConstants();
-            return processBitVectors(cls, j);
+            return processBitVectors(cls, j2);
         }
         return (EnumSet) invokeLJ.objValue;
     }
@@ -206,7 +205,7 @@ public class EnumUtils {
     public static <E extends Enum<E>> long[] generateBitVectors(Class<E> cls, E... eArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, eArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, eArr)) == null) {
             asEnum(cls);
             Validate.noNullElements(eArr);
             EnumSet noneOf = EnumSet.noneOf(cls);

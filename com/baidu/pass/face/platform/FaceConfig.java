@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FaceConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -638,17 +638,17 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setTimeDetectModule(long j) {
+    public void setTimeDetectModule(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
-            this.timeDetectModule = j;
+        if (interceptable == null || interceptable.invokeJ(1048648, this, j2) == null) {
+            this.timeDetectModule = j2;
         }
     }
 
-    public void setTimeLivenessCourse(long j) {
+    public void setTimeLivenessCourse(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048649, this, j) == null) {
-            this.timeLivenessCourse = j;
+        if (interceptable == null || interceptable.invokeJ(1048649, this, j2) == null) {
+            this.timeLivenessCourse = j2;
         }
     }
 }

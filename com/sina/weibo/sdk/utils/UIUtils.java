@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class UIUtils {
 
     public static void showToastInCenter(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, context, i2, i3) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65542, null, context, i2, i3) == null) || context == null) {
             return;
         }
         Toast makeText = Toast.makeText(context, i2, i3);
@@ -63,7 +62,7 @@ public class UIUtils {
 
     public static void showToast(Context context, CharSequence charSequence, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, context, charSequence, i2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, context, charSequence, i2) == null) || context == null) {
             return;
         }
         Toast.makeText(context, charSequence, i2).show();

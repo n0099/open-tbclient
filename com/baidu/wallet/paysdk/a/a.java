@@ -1,4 +1,4 @@
 package com.baidu.wallet.paysdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface a {
 }

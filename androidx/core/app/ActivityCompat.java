@@ -27,7 +27,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -241,7 +240,7 @@ public class ActivityCompat extends ContextCompat {
     public static boolean invalidateOptionsMenu(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
             activity.invalidateOptionsMenu();
             return true;
         }
@@ -250,7 +249,7 @@ public class ActivityCompat extends ContextCompat {
 
     public static void postponeEnterTransition(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, activity) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, activity) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         activity.postponeEnterTransition();

@@ -1,7 +1,6 @@
 package com.baidu.sapi2.dto.loginhistory;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AccountLoginAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +92,7 @@ public class AccountLoginAction {
     public static List<AccountLoginAction> convertJson2ActionList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONArray)) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 ArrayList arrayList = new ArrayList();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -114,12 +113,12 @@ public class AccountLoginAction {
         return (List) invokeL.objValue;
     }
 
-    public AccountLoginAction(long j, SapiAccount sapiAccount) {
+    public AccountLoginAction(long j2, SapiAccount sapiAccount) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), sapiAccount};
+            Object[] objArr = {Long.valueOf(j2), sapiAccount};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -129,7 +128,7 @@ public class AccountLoginAction {
                 return;
             }
         }
-        this.loginTimeSecond = j;
+        this.loginTimeSecond = j2;
         this.sapiAccount = sapiAccount;
     }
 }

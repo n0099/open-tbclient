@@ -6,26 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f38076a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38077b;
+    public String f34094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38078c;
+    public String f34095c;
 
-    public e(int i2, String str, long j) {
+    public e(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -35,9 +33,9 @@ public class e {
                 return;
             }
         }
-        this.f38076a = i2;
-        this.f38077b = str;
-        this.f38078c = Long.toString(j);
+        this.a = i2;
+        this.f34094b = str;
+        this.f34095c = Long.toString(j2);
     }
 
     public e(int i2, String str, String str2) {
@@ -55,20 +53,20 @@ public class e {
                 return;
             }
         }
-        this.f38076a = i2;
-        this.f38077b = str;
-        this.f38078c = str2;
+        this.a = i2;
+        this.f34094b = str;
+        this.f34095c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38077b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34094b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38078c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34095c : (String) invokeV.objValue;
     }
 }

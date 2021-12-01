@@ -19,27 +19,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StickyAppBarLayout extends AppBarLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public StickyAppBarLayoutBehavior f50452e;
+    public StickyAppBarLayoutBehavior f45218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50453f;
+    public b f45219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f50454g;
+    public CustomMessageListener f45220g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickyAppBarLayout f50455a;
+        public final /* synthetic */ StickyAppBarLayout a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(StickyAppBarLayout stickyAppBarLayout, int i2) {
@@ -59,7 +57,7 @@ public class StickyAppBarLayout extends AppBarLayout {
                     return;
                 }
             }
-            this.f50455a = stickyAppBarLayout;
+            this.a = stickyAppBarLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,15 +69,15 @@ public class StickyAppBarLayout extends AppBarLayout {
                 return;
             }
             if (bool.booleanValue()) {
-                this.f50455a.showHeader();
-            } else if (this.f50455a.isSticky()) {
+                this.a.showHeader();
+            } else if (this.a.isSticky()) {
             } else {
-                this.f50455a.b();
+                this.a.b();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(boolean z);
     }
@@ -102,17 +100,17 @@ public class StickyAppBarLayout extends AppBarLayout {
                 return;
             }
         }
-        this.f50454g = new a(this, 2921441);
+        this.f45220g = new a(this, 2921441);
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f50452e == null) {
+            if (this.f45218e == null) {
                 c();
             }
-            StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f50452e;
+            StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f45218e;
             if (stickyAppBarLayoutBehavior != null) {
                 stickyAppBarLayoutBehavior.hideHeader();
                 return true;
@@ -127,7 +125,7 @@ public class StickyAppBarLayout extends AppBarLayout {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (getLayoutParams() instanceof CoordinatorLayout.LayoutParams)) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.f50452e = (StickyAppBarLayoutBehavior) behavior;
+                this.f45218e = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
@@ -147,17 +145,17 @@ public class StickyAppBarLayout extends AppBarLayout {
     public b getOnHeaderStickyListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50453f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45219f : (b) invokeV.objValue;
     }
 
     public boolean isSticky() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f50452e == null) {
+            if (this.f45218e == null) {
                 c();
             }
-            StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f50452e;
+            StickyAppBarLayoutBehavior stickyAppBarLayoutBehavior = this.f45218e;
             if (stickyAppBarLayoutBehavior != null) {
                 return stickyAppBarLayoutBehavior.isSticky();
             }
@@ -171,7 +169,7 @@ public class StickyAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.f50454g);
+            MessageManager.getInstance().registerListener(this.f45220g);
         }
     }
 
@@ -180,7 +178,7 @@ public class StickyAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.f50454g);
+            MessageManager.getInstance().unRegisterListener(this.f45220g);
         }
     }
 
@@ -196,7 +194,7 @@ public class StickyAppBarLayout extends AppBarLayout {
     public void setOnHeaderStickyListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f50453f = bVar;
+            this.f45219f = bVar;
         }
     }
 
@@ -204,14 +202,14 @@ public class StickyAppBarLayout extends AppBarLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f50452e == null) {
+            if (this.f45218e == null) {
                 c();
             }
-            if (this.f50452e != null) {
-                if (isSticky() && this.f50452e.getHeaderView() != null && this.f50452e.getHeaderView().getVisibility() == 0) {
+            if (this.f45218e != null) {
+                if (isSticky() && this.f45218e.getHeaderView() != null && this.f45218e.getHeaderView().getVisibility() == 0) {
                     d();
                 }
-                this.f50452e.showHeader();
+                this.f45218e.showHeader();
                 return true;
             }
             return false;
@@ -238,6 +236,6 @@ public class StickyAppBarLayout extends AppBarLayout {
                 return;
             }
         }
-        this.f50454g = new a(this, 2921441);
+        this.f45220g = new a(this, 2921441);
     }
 }

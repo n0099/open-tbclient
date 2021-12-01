@@ -40,8 +40,8 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
         throw new IllegalArgumentException(("The number of acquired permits should be in 0.." + this.permits).toString());
     }
 
-    public static final /* synthetic */ SemaphoreSegment access$getSegment(SemaphoreImpl semaphoreImpl, SemaphoreSegment semaphoreSegment, long j) {
-        return semaphoreImpl.getSegment(semaphoreSegment, j);
+    public static final /* synthetic */ SemaphoreSegment access$getSegment(SemaphoreImpl semaphoreImpl, SemaphoreSegment semaphoreSegment, long j2) {
+        return semaphoreImpl.getSegment(semaphoreSegment, j2);
     }
 
     public static final /* synthetic */ SemaphoreSegment access$getTail$p(SemaphoreImpl semaphoreImpl) {
@@ -87,7 +87,7 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
         }
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        orCreateCancellableContinuation.resumeWith(Result.m652constructorimpl(unit));
+        orCreateCancellableContinuation.resumeWith(Result.m702constructorimpl(unit));
         result = orCreateCancellableContinuation.getResult();
         if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
         }
@@ -139,7 +139,7 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
                 if (andSet != symbol2) {
                     Unit unit = Unit.INSTANCE;
                     Result.Companion companion = Result.Companion;
-                    ((CancellableContinuation) andSet).resumeWith(Result.m652constructorimpl(unit));
+                    ((CancellableContinuation) andSet).resumeWith(Result.m702constructorimpl(unit));
                     return;
                 }
             }
@@ -160,7 +160,7 @@ public final class SemaphoreImpl extends SegmentQueue<SemaphoreSegment> implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlinx.coroutines.internal.SegmentQueue
-    public SemaphoreSegment newSegment(long j, SemaphoreSegment semaphoreSegment) {
-        return new SemaphoreSegment(j, semaphoreSegment);
+    public SemaphoreSegment newSegment(long j2, SemaphoreSegment semaphoreSegment) {
+        return new SemaphoreSegment(j2, semaphoreSegment);
     }
 }

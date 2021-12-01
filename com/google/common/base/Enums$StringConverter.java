@@ -1,6 +1,6 @@
 package com.google.common.base;
 
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.Enum;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Enums$StringConverter<T extends Enum<T>> extends Converter<String, T> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -43,7 +43,7 @@ public final class Enums$StringConverter<T extends Enum<T>> extends Converter<St
         return doBackward((Enums$StringConverter<T>) ((Enum) obj));
     }
 
-    @Override // com.google.common.base.Converter, b.h.d.a.g
+    @Override // com.google.common.base.Converter, c.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

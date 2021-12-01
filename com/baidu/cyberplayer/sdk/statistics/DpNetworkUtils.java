@@ -12,13 +12,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.kuaishou.weapon.un.s;
+/* loaded from: classes8.dex */
 public class DpNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class DpNetworkUtils {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return invokeL.booleanValue;
         }
         boolean z2 = true;
@@ -115,7 +115,7 @@ public class DpNetworkUtils {
             return false;
         }
         try {
-            if (!a(context, "android.permission.CALL_PHONE") && !a(context, "android.permission.MODIFY_PHONE_STATE") && !a(context, "android.permission.READ_PHONE_STATE") && !a(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!a(context, "android.permission.CALL_PHONE") && !a(context, "android.permission.MODIFY_PHONE_STATE") && !a(context, s.f56838c) && !a(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {
@@ -142,7 +142,7 @@ public class DpNetworkUtils {
         TelephonyManager telephonyManager;
         String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             NetworkInfo b2 = b(context);
             int i3 = 3;
             if (b2 == null || b2.getState() != NetworkInfo.State.CONNECTED) {

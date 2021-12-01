@@ -23,9 +23,6 @@ import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -36,7 +33,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kuaishou.weapon.un.g;
+import com.kuaishou.weapon.un.s;
+import com.kuaishou.weapon.un.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,12 +55,10 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static b f35138a;
+    public static b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -77,7 +74,7 @@ public final class b {
                 return;
             }
         }
-        f35138a = new b();
+        a = new b();
     }
 
     public b() {
@@ -107,7 +104,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, "android.permission.READ_PHONE_STATE")) {
+        if (a(context, s.f56838c)) {
             return "";
         }
         if (context != null) {
@@ -137,7 +134,7 @@ public final class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f35138a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
@@ -150,10 +147,10 @@ public final class b {
         TelephonyManager telephonyManager;
         String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, "android.permission.READ_PHONE_STATE")) {
+        if (a(context, s.f56838c)) {
             return "";
         }
         if (context != null) {
@@ -172,17 +169,17 @@ public final class b {
     }
 
     public static String c() {
-        long j;
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                j2 = statFs.getAvailableBlocks() * statFs.getBlockSize();
             } catch (Throwable unused) {
-                j = 0;
+                j2 = 0;
             }
-            return String.valueOf(j);
+            return String.valueOf(j2);
         }
         return (String) invokeV.objValue;
     }
@@ -202,17 +199,17 @@ public final class b {
     }
 
     public static String d() {
-        long j;
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(com.alipay.security.mobile.module.a.a.a().getPath());
-                j = statFs.getBlockSize() * statFs.getAvailableBlocks();
-                return String.valueOf(j);
+                j2 = statFs.getBlockSize() * statFs.getAvailableBlocks();
+                return String.valueOf(j2);
             }
-            j = 0;
-            return String.valueOf(j);
+            j2 = 0;
+            return String.valueOf(j2);
         }
         return (String) invokeV.objValue;
     }
@@ -347,7 +344,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0055 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0054 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -531,17 +528,17 @@ public final class b {
     }
 
     public static String i() {
-        long j;
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j = statFs.getBlockCount() * statFs.getBlockSize();
+                j2 = statFs.getBlockCount() * statFs.getBlockSize();
             } catch (Throwable unused) {
-                j = 0;
+                j2 = 0;
             }
-            return String.valueOf(j);
+            return String.valueOf(j2);
         }
         return (String) invokeV.objValue;
     }
@@ -564,17 +561,17 @@ public final class b {
     }
 
     public static String j() {
-        long j;
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                j = statFs.getBlockSize() * statFs.getBlockCount();
-                return String.valueOf(j);
+                j2 = statFs.getBlockSize() * statFs.getBlockCount();
+                return String.valueOf(j2);
             }
-            j = 0;
-            return String.valueOf(j);
+            j2 = 0;
+            return String.valueOf(j2);
         }
         return (String) invokeV.objValue;
     }
@@ -617,7 +614,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, "android.permission.ACCESS_WIFI_STATE")) {
+            if (a(context, s.f56839d)) {
                 return "";
             }
             try {
@@ -651,7 +648,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, "android.permission.READ_PHONE_STATE")) {
+            if (a(context, s.f56838c)) {
                 return "";
             }
             try {
@@ -696,7 +693,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
-                str = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                str = Settings.Secure.getString(context.getContentResolver(), "android_id");
             } catch (Throwable unused) {
                 str = "";
             }
@@ -752,7 +749,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x002b  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x002a  */
     /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -765,7 +762,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, "android.permission.ACCESS_WIFI_STATE")) {
+        if (a(context, s.f56839d)) {
             return "";
         }
         try {
@@ -911,18 +908,18 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
             try {
-                long j = 0;
+                long j2 = 0;
                 if (((KeyguardManager) context.getSystemService("keyguard")).isKeyguardSecure()) {
                     String[] strArr = {"/data/system/password.key", "/data/system/gesture.key", "/data/system/gatekeeper.password.key", "/data/system/gatekeeper.gesture.key", "/data/system/gatekeeper.pattern.key"};
                     for (int i2 = 0; i2 < 5; i2++) {
-                        long j2 = -1;
+                        long j3 = -1;
                         try {
-                            j2 = new File(strArr[i2]).lastModified();
+                            j3 = new File(strArr[i2]).lastModified();
                         } catch (Throwable unused) {
                         }
-                        j = Math.max(j2, j);
+                        j2 = Math.max(j3, j2);
                     }
-                    return "1:" + j;
+                    return "1:" + j2;
                 }
                 return "0:0";
             } catch (Throwable unused2) {
@@ -963,8 +960,8 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x002f  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x002e  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0031  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1012,7 +1009,7 @@ public final class b {
             linkedHashMap.put("ro.product.brand", "generic");
             linkedHashMap.put("ro.product.name", "sdk");
             linkedHashMap.put(RomUtils.PROP_RO_BUILD_FINGERPRINT, "test-keys");
-            linkedHashMap.put("ro.product.manufacturer", "unknow");
+            linkedHashMap.put(g.q, "unknow");
             for (String str : linkedHashMap.keySet()) {
                 char c2 = '0';
                 String str2 = (String) linkedHashMap.get(str);
@@ -1031,7 +1028,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            if (a(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)) {
+            if (a(context, "android.permission.ACCESS_NETWORK_STATE")) {
                 return "";
             }
             try {
@@ -1062,7 +1059,7 @@ public final class b {
                 ArrayList<NetworkInterface> list = Collections.list(NetworkInterface.getNetworkInterfaces());
                 if (list != null) {
                     for (NetworkInterface networkInterface : list) {
-                        if (networkInterface != null && networkInterface.getName() != null && networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
+                        if (networkInterface != null && networkInterface.getName() != null && networkInterface.getName().equalsIgnoreCase("wlan0")) {
                             byte[] hardwareAddress = networkInterface.getHardwareAddress();
                             if (hardwareAddress == null) {
                                 return "02:00:00:00:00:00";
@@ -1097,7 +1094,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
+                fileReader = new FileReader(z.f56920b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

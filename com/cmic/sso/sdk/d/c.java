@@ -8,15 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final c f62868a;
+    public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62869b;
+    public static boolean f54978b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +30,8 @@ public class c {
                 return;
             }
         }
-        f62868a = new c();
-        f62869b = false;
+        a = new c();
+        f54978b = false;
     }
 
     public c() {
@@ -53,13 +51,13 @@ public class c {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f62869b = z;
+            f54978b = z;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f62869b) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f54978b) {
             String str3 = "CMCC-SDK:" + str;
             String str4 = "" + str2;
         }
@@ -67,7 +65,7 @@ public class c {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f62869b) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f54978b) {
             String str3 = "CMCC-SDK:" + str;
             String str4 = "" + str2;
         }

@@ -7,16 +7,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.p0.b;
-import b.a.q0.p0.f;
-import b.a.q0.p0.g;
+import c.a.q0.q0.b;
+import c.a.q0.q0.f;
+import c.a.q0.q0.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.fsg.api.BaiduRIM;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -51,7 +50,7 @@ import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayScene;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PayActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
@@ -102,7 +101,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = b.a.q0.s.e0.b.j().p("version_name", "");
+            String p = c.a.q0.s.e0.b.j().p("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -158,7 +157,7 @@ public class PayActivityStatic {
 
     public static void createUIKit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             if (yyPayUIKit == null || yyPayUIKitYYLive == null) {
                 yyPayUIKit = YYPayUIKit.getUIKit(41, 10002);
                 yyPayUIKitYYLive = YYPayUIKit.getUIKit(41, 30);
@@ -168,21 +167,21 @@ public class PayActivityStatic {
 
     public static void doYYPayTask(f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fVar) == null) || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, fVar) == null) || fVar == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f13557e;
-        Object obj = fVar.f13553a;
+        yyPayResultCallback = fVar.f12490e;
+        Object obj = fVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f13555c)) {
-            viewParams.payAmountDialogTitle = fVar.f13555c;
+        if (!TextUtils.isEmpty(fVar.f12488c)) {
+            viewParams.payAmountDialogTitle = fVar.f12488c;
         }
-        Long l = fVar.f13556d;
+        Long l = fVar.f12489d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
@@ -244,19 +243,19 @@ public class PayActivityStatic {
                     }
                     g gVar = new g();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f13564g = currencyChargeMessage.status;
-                    gVar.f13559b = currencyChargeMessage.appid;
-                    gVar.f13565h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f13566i = currencyChargeMessage.usedChannel;
-                    gVar.f13561d = currencyChargeMessage.currencyType;
-                    gVar.f13558a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f13560c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f13563f = currencyChargeMessage.orderId;
-                    gVar.f13562e = currencyChargeMessage.expand;
+                    gVar.f12496g = currencyChargeMessage.status;
+                    gVar.f12491b = currencyChargeMessage.appid;
+                    gVar.f12497h = Long.valueOf(currencyChargeMessage.uid);
+                    gVar.f12498i = currencyChargeMessage.usedChannel;
+                    gVar.f12493d = currencyChargeMessage.currencyType;
+                    gVar.a = Long.valueOf(currencyChargeMessage.amount);
+                    gVar.f12492c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    gVar.f12495f = currencyChargeMessage.orderId;
+                    gVar.f12494e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(gVar);
                 }
             };
-            if (fVar.f13554b == 0) {
+            if (fVar.f12487b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);

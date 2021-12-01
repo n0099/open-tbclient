@@ -3,7 +3,6 @@ package com.baidu.searchbox.pms.utils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.apache.commons.codec.digest4util.MD5Utils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PMS_DIR = "pms";
@@ -113,7 +112,7 @@ public class DownloadUtils {
         InterceptResult invokeLL;
         File outputDir;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, packageInfo, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageInfo, str)) == null) {
             if (packageInfo == null || (outputDir = getOutputDir(str)) == null) {
                 return null;
             }
@@ -125,7 +124,7 @@ public class DownloadUtils {
     public static File getPmsFileDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
             if (!file.exists()) {
                 file.mkdirs();

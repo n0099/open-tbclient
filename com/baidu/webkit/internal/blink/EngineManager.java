@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EngineManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIFF_FILE_SUBFIX = ".diff";
@@ -118,7 +117,7 @@ public class EngineManager implements INoProGuard {
     private SharedPreferences getSp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (this.mSp == null) {
                 Context context = WebKitFactory.getContext();
                 String str = ZEUS_PREFER;
@@ -132,7 +131,7 @@ public class EngineManager implements INoProGuard {
 
     private void install(String str, WebKitFactory.WebkitInstallListener webkitInstallListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, str, webkitInstallListener, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65542, this, str, webkitInstallListener, z) == null) {
             if (webkitInstallListener == null) {
                 LoadErrorCode.getInstance().addDownloadInfo(1021);
             } else if (str == null) {

@@ -1,14 +1,13 @@
 package com.baidu.apollon.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class Assert {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public abstract class Assert {
 
     public static void notEmpty(Collection<?> collection, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, collection, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, collection, str) == null) {
             if (collection == null || collection.size() == 0) {
                 throw new IllegalArgumentException(str);
             }
@@ -94,7 +93,7 @@ public abstract class Assert {
 
     public static void notEmpty(Collection<?> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, collection) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, collection) == null) {
             notEmpty(collection, "[Assertion failed] - this collection must not be empty: it must contain at least 1 element");
         }
     }

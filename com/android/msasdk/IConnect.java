@@ -1,5 +1,5 @@
 package com.android.msasdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface IConnect {
     void connectSuccess(boolean z);
 }

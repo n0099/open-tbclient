@@ -3,10 +3,10 @@ package com.google.protobuf;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface MessageLite extends MessageLiteOrBuilder {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface Builder extends MessageLiteOrBuilder, Cloneable {
         MessageLite build();
 

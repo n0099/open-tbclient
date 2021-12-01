@@ -1,7 +1,6 @@
 package com.baidu.pass.ecommerce.request;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.request.BaseMapObjectRequest;
 import com.baidu.pass.ecommerce.common.request.BaseRequest;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddressRequestFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS_GET_REGION = "/address/get/region";
@@ -69,13 +68,13 @@ public class AddressRequestFactory {
     public static BaseRequest newIgnoreNuoMiAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new BaseMapObjectRequest(IGNORE_NUOMI_ADDRESS_URL, null) : (BaseRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new BaseMapObjectRequest(IGNORE_NUOMI_ADDRESS_URL, null) : (BaseRequest) invokeV.objValue;
     }
 
     public static BaseRequest newImportNuoMiAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? new BaseMapObjectRequest(IMPORT_NUOMI_ADDRESS_URL, null) : (BaseRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new BaseMapObjectRequest(IMPORT_NUOMI_ADDRESS_URL, null) : (BaseRequest) invokeV.objValue;
     }
 
     public static BaseRequest newLocationQueryAddrList(MapObject mapObject) {

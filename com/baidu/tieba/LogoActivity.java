@@ -15,7 +15,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.i3.g.f;
+import c.a.r0.o;
+import c.a.r0.p3.g.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -25,16 +26,18 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.NASLib;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
@@ -61,8 +64,8 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.HashMap;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes8.dex */
-public class LogoActivity extends BaseActivity<LogoActivity> {
+/* loaded from: classes9.dex */
+public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR;
     public static final double FOOT_HEIGHT_RATIO = 0.1875d;
@@ -73,7 +76,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public long adCreateStartTime;
     public long adReqeustStartTime;
-    public b.a.q0.l.d besAdData;
+    public c.a.q0.l.d besAdData;
     public ViewGroup besSplashHolder;
     public boolean hasLoadBesFinish;
     public boolean isActivityInForeground;
@@ -90,30 +93,31 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     public final CustomMessageListener mNightInstallListener;
     public Runnable mNormalLogoAniRunnable;
     public int mPrivacyPolicyDialogGuideClickTimes;
-    public b.a.q0.s.s.a mPrivacyPolicyDialogGuideOne;
-    public b.a.q0.s.s.a mPrivacyPolicyDialogGuideTwo;
-    public b.a.q0.s.s.a mPrivacyPolicyDialogRemind;
+    public c.a.q0.s.s.a mPrivacyPolicyDialogGuideOne;
+    public c.a.q0.s.s.a mPrivacyPolicyDialogGuideTwo;
+    public c.a.q0.s.s.a mPrivacyPolicyDialogRemind;
     public Runnable mRequirTimeOutRunnable;
     public RelativeLayout mRootView;
     public n mShowADEndRunnable;
     public long mShowAdInternal;
-    public b.a.q0.z0.b mTbAdCallback;
-    public b.a.q0.z0.a mTbAdController;
+    public c.a.q0.a1.b mTbAdCallback;
+    public c.a.q0.a1.a mTbAdController;
     public Runnable mTbTimeOutRunnable;
     public Runnable mTimeOutRunnable;
     public f.g mVideoSplashCallback;
-    public b.a.r0.i3.g.f mVideoSplashController;
+    public c.a.r0.p3.g.f mVideoSplashController;
     public View mVideoSplashView;
     public boolean needGoNext;
+    public c.a.r0.m newLogoDelegate;
     public CustomMessageListener splashClickListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47417e;
+        public final /* synthetic */ LogoActivity f42482e;
 
         public a(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -130,26 +134,26 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47417e = logoActivity;
+            this.f42482e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47417e.deleteApkFile();
+                this.f42482e.deleteApkFile();
                 LogoActivity.deleteH5File();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47418e;
+        public final /* synthetic */ LogoActivity f42483e;
 
         public b(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -166,7 +170,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47418e = logoActivity;
+            this.f42483e = logoActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -175,63 +179,61 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == R.id.private_yes || id == R.id.yesBtn) {
-                    if (this.f47418e.mPrivacyPolicyDialogRemind != null && this.f47418e.mPrivacyPolicyDialogRemind.isShowing()) {
-                        this.f47418e.mPrivacyPolicyDialogRemind.dismiss();
+                    if (this.f42483e.mPrivacyPolicyDialogRemind != null && this.f42483e.mPrivacyPolicyDialogRemind.isShowing()) {
+                        this.f42483e.mPrivacyPolicyDialogRemind.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();
-                        b.a.r0.i3.f.a.a("1", "1");
+                        c.a.r0.p3.f.a.a("1", "1");
                     }
-                    if (this.f47418e.mPrivacyPolicyDialogGuideOne != null && this.f47418e.mPrivacyPolicyDialogGuideOne.isShowing()) {
-                        this.f47418e.mPrivacyPolicyDialogGuideOne.dismiss();
-                        b.a.r0.i3.f.a.a("2", "1");
+                    if (this.f42483e.mPrivacyPolicyDialogGuideOne != null && this.f42483e.mPrivacyPolicyDialogGuideOne.isShowing()) {
+                        this.f42483e.mPrivacyPolicyDialogGuideOne.dismiss();
+                        c.a.r0.p3.f.a.a("2", "1");
                     }
-                    if (this.f47418e.mPrivacyPolicyDialogGuideTwo != null && this.f47418e.mPrivacyPolicyDialogGuideTwo.isShowing()) {
-                        this.f47418e.mPrivacyPolicyDialogGuideTwo.dismiss();
-                        b.a.r0.i3.f.a.a("3", "1");
+                    if (this.f42483e.mPrivacyPolicyDialogGuideTwo != null && this.f42483e.mPrivacyPolicyDialogGuideTwo.isShowing()) {
+                        this.f42483e.mPrivacyPolicyDialogGuideTwo.dismiss();
+                        c.a.r0.p3.f.a.a("3", "1");
                     }
                     PermissionUtil.setIsAgreePrivacyPolicy(true);
-                    b.a.q0.s.e0.b.j().w("key_first_enter_app_timestamp", System.currentTimeMillis());
-                    this.f47418e.goToNextPage();
-                    b.a.q0.s.y.a.c();
+                    c.a.q0.s.e0.b.j().w("key_first_enter_app_timestamp", System.currentTimeMillis());
+                    this.f42483e.goToNextPage();
+                    c.a.q0.s.y.a.i();
                 } else if (id == R.id.private_no) {
-                    if (this.f47418e.mPrivacyPolicyDialogRemind.isShowing()) {
-                        this.f47418e.mPrivacyPolicyDialogRemind.dismiss();
-                        b.a.r0.i3.f.a.a("1", "2");
+                    if (this.f42483e.mPrivacyPolicyDialogRemind.isShowing()) {
+                        this.f42483e.mPrivacyPolicyDialogRemind.dismiss();
+                        c.a.r0.p3.f.a.a("1", "2");
                     }
-                    if (this.f47418e.mPrivacyPolicyDialogGuideOne == null) {
-                        LogoActivity logoActivity = this.f47418e;
-                        logoActivity.mPrivacyPolicyDialogGuideOne = b.a.r0.l.a(logoActivity.getPageContext(), this.f47418e.mListener, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
+                    if (this.f42483e.mPrivacyPolicyDialogGuideOne == null) {
+                        LogoActivity logoActivity = this.f42483e;
+                        logoActivity.mPrivacyPolicyDialogGuideOne = o.a(logoActivity.getPageContext(), this.f42483e.mListener, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                     }
-                    this.f47418e.mPrivacyPolicyDialogGuideOne.show();
-                    b.a.r0.i3.f.a.b("2");
+                    this.f42483e.mPrivacyPolicyDialogGuideOne.show();
+                    c.a.r0.p3.f.a.b("2");
                 } else if (id == R.id.browseBtn) {
-                    LogoActivity.access$2608(this.f47418e);
-                    if (this.f47418e.mPrivacyPolicyDialogGuideOne.isShowing()) {
-                        this.f47418e.mPrivacyPolicyDialogGuideOne.dismiss();
-                        b.a.r0.i3.f.a.a("2", "2");
-                        if (this.f47418e.mPrivacyPolicyDialogGuideTwo == null) {
-                            LogoActivity logoActivity2 = this.f47418e;
-                            logoActivity2.mPrivacyPolicyDialogGuideTwo = b.a.r0.l.a(logoActivity2.getPageContext(), this.f47418e.mListener, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
-                            this.f47418e.mPrivacyPolicyDialogGuideTwo.show();
-                            b.a.r0.i3.f.a.b("3");
+                    LogoActivity.access$2608(this.f42483e);
+                    if (this.f42483e.mPrivacyPolicyDialogGuideOne.isShowing()) {
+                        this.f42483e.mPrivacyPolicyDialogGuideOne.dismiss();
+                        c.a.r0.p3.f.a.a("2", "2");
+                        if (this.f42483e.mPrivacyPolicyDialogGuideTwo == null) {
+                            LogoActivity logoActivity2 = this.f42483e;
+                            logoActivity2.mPrivacyPolicyDialogGuideTwo = o.a(logoActivity2.getPageContext(), this.f42483e.mListener, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
+                            this.f42483e.mPrivacyPolicyDialogGuideTwo.show();
+                            c.a.r0.p3.f.a.b("3");
                         }
                     }
-                    if (this.f47418e.mPrivacyPolicyDialogGuideTwo.isShowing() && this.f47418e.mPrivacyPolicyDialogGuideClickTimes == 2) {
-                        this.f47418e.mPrivacyPolicyDialogGuideTwo.dismiss();
-                        b.a.r0.i3.f.a.a("3", "2");
-                        this.f47418e.finish();
+                    if (this.f42483e.mPrivacyPolicyDialogGuideTwo.isShowing() && this.f42483e.mPrivacyPolicyDialogGuideClickTimes == 2) {
+                        this.f42483e.mPrivacyPolicyDialogGuideTwo.dismiss();
+                        c.a.r0.p3.f.a.a("3", "2");
+                        this.f42483e.finish();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements b.a.q0.l.a {
+    /* loaded from: classes9.dex */
+    public class c implements c.a.q0.l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47419a;
+        public final /* synthetic */ LogoActivity a;
 
         public c(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -248,16 +250,16 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47419a = logoActivity;
+            this.a = logoActivity;
         }
 
-        @Override // b.a.q0.l.a
+        @Override // c.a.q0.l.a
         public void a(boolean z, boolean z2, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, str2}) == null) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-                this.f47419a.overridePendingTransition(0, 0);
-                this.f47419a.isAdDismiss = true;
+                this.a.overridePendingTransition(0, 0);
+                this.a.isAdDismiss = true;
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
                 statisticItem.param("obj_type", z2 ? 2 : 1).param("obj_source", i2);
                 if (str != null) {
@@ -277,30 +279,30 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 } else {
                     statisticItem3.param("obj_type", z2 ? 2 : 1);
                 }
-                b.a.r0.l3.c.g().c(this.f47419a.getUniqueId(), statisticItem3);
+                c.a.r0.s3.c.g().c(this.a.getUniqueId(), statisticItem3);
             }
         }
 
-        @Override // b.a.q0.l.a
-        public void b(String str) {
+        @Override // c.a.q0.l.a
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f47419a.hasLoadBesFinish = true;
-                this.f47419a.mRootView.removeView(this.f47419a.besSplashHolder);
-                this.f47419a.showNormalAniView();
-                b.a.q0.q0.l.b().k(System.currentTimeMillis() - this.f47419a.adReqeustStartTime);
-            }
-        }
-
-        @Override // b.a.q0.l.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SDK_WILL_SHOW_STAMP_KEY);
             }
         }
 
-        @Override // b.a.q0.l.a
+        @Override // c.a.q0.l.a
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a.hasLoadBesFinish = true;
+                this.a.mRootView.removeView(this.a.besSplashHolder);
+                this.a.showNormalAniView();
+                c.a.q0.r0.l.b().k(System.currentTimeMillis() - this.a.adReqeustStartTime);
+            }
+        }
+
+        @Override // c.a.q0.l.a
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -308,19 +310,19 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             }
         }
 
-        @Override // b.a.q0.l.a
+        @Override // c.a.q0.l.a
         public void e(boolean z, boolean z2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
-                this.f47419a.hasLoadBesFinish = true;
-                this.f47419a.mAdSource = i2;
-                if (this.f47419a.mShowAdInternal > 0) {
-                    b.a.q0.s.a0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.f47419a.mShowAdInternal));
+                this.a.hasLoadBesFinish = true;
+                this.a.mAdSource = i2;
+                if (this.a.mShowAdInternal > 0) {
+                    c.a.q0.s.a0.a.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.a.mShowAdInternal));
                 }
-                b.a.e.f.m.e.a().removeCallbacks(this.f47419a.mRequirTimeOutRunnable);
-                b.a.e.f.m.e.a().removeCallbacks(this.f47419a.mTimeOutRunnable);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.mRequirTimeOutRunnable);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.mTimeOutRunnable);
                 if (z2) {
-                    this.f47419a.mRootView.setBackgroundDrawable(null);
+                    this.a.mRootView.setBackgroundDrawable(null);
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_SHOW).param("obj_type", z2 ? 2 : 1).param("obj_source", i2));
                 StatisticItem statisticItem = new StatisticItem("common_exp");
@@ -330,45 +332,36 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 } else {
                     statisticItem.param("obj_type", z2 ? 2 : 1);
                 }
-                b.a.r0.l3.c.g().d(this.f47419a.getUniqueId(), "bes_ad_id", statisticItem);
-                b.a.r0.l3.c.g().h(this.f47419a.getUniqueId(), false);
-                if (this.f47419a.mGoto == -2) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.f47419a));
+                c.a.r0.s3.c.g().d(this.a.getUniqueId(), "bes_ad_id", statisticItem);
+                c.a.r0.s3.c.g().h(this.a.getUniqueId(), false);
+                if (this.a.mGoto == -2) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a));
                 }
-                b.a.q0.q0.l.b().m(System.currentTimeMillis());
-                b.a.q0.q0.l.b().k(System.currentTimeMillis() - this.f47419a.adReqeustStartTime);
+                c.a.q0.r0.l.b().m(System.currentTimeMillis());
+                c.a.q0.r0.l.b().k(System.currentTimeMillis() - this.a.adReqeustStartTime);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
             }
         }
 
-        @Override // b.a.q0.l.a
+        @Override // c.a.q0.l.a
         public void onAdDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-                this.f47419a.isAdDismiss = true;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.f47419a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.f47419a.isActivityInForeground)));
-                if (this.f47419a.isActivityInForeground) {
-                    this.f47419a.showADEnd();
+                this.a.isAdDismiss = true;
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.isActivityInForeground)));
+                if (this.a.isActivityInForeground) {
+                    this.a.showADEnd();
                 }
-            }
-        }
-
-        @Override // b.a.q0.l.a
-        public void onLpClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47420a;
+        public final /* synthetic */ LogoActivity a;
 
         public d(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -385,7 +378,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47420a = logoActivity;
+            this.a = logoActivity;
         }
 
         @Override // java.io.FileFilter
@@ -394,19 +387,17 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
                 String name = file.getName();
-                return !TextUtils.isEmpty(name) && name.contains(this.f47420a.getPageContext().getString(R.string.app_name)) && name.endsWith(".apk");
+                return !TextUtils.isEmpty(name) && name.contains(this.a.getPageContext().getString(R.string.app_name)) && name.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class e implements b.a.q0.z0.b {
+    /* loaded from: classes9.dex */
+    public class e implements c.a.q0.a1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47421a;
+        public final /* synthetic */ LogoActivity a;
 
         public e(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -423,17 +414,17 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47421a = logoActivity;
+            this.a = logoActivity;
         }
 
-        @Override // b.a.q0.z0.b
+        @Override // c.a.q0.a1.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_type", "a064").param(TiebaStatic.Params.RESOURCE_ID, 0).param("obj_locate", 1));
-                b.a.e.f.m.e.a().removeCallbacks(this.f47421a.mTbTimeOutRunnable);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.mTbTimeOutRunnable);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
-                this.f47421a.showADView();
+                this.a.showADView();
             }
         }
 
@@ -441,7 +432,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         /* JADX WARN: Removed duplicated region for block: B:13:0x0045  */
         /* JADX WARN: Removed duplicated region for block: B:16:0x0094  */
         /* JADX WARN: Removed duplicated region for block: B:20:0x009d  */
-        @Override // b.a.q0.z0.b
+        @Override // c.a.q0.a1.b
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -449,8 +440,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                if (this.f47421a.mTbAdController.getView() != null) {
-                    if (this.f47421a.mTbAdController.getView().getHeight() == b.a.e.f.p.l.i(this.f47421a.getPageContext().getPageActivity())) {
+                if (this.a.mTbAdController.getView() != null) {
+                    if (this.a.mTbAdController.getView().getHeight() == c.a.d.f.p.l.i(this.a.getPageContext().getPageActivity())) {
                         z2 = true;
                         TiebaStatic.log(new StatisticItem("c13332").param("obj_id", str).param("obj_type", !z2 ? 2 : 1));
                         StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 2).param("obj_type", "a030").param("obj_locate", 0).eventStat();
@@ -461,10 +452,10 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                         } else {
                             statisticItem.param("obj_type", z2 ? 2 : 1);
                         }
-                        b.a.r0.l3.c.g().c(this.f47421a.getUniqueId(), statisticItem);
+                        c.a.r0.s3.c.g().c(this.a.getUniqueId(), statisticItem);
                         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-                        this.f47421a.overridePendingTransition(0, 0);
-                        this.f47421a.showADEnd();
+                        this.a.overridePendingTransition(0, 0);
+                        this.a.showADEnd();
                     }
                 }
                 z2 = false;
@@ -474,34 +465,34 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 statisticItem2.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param("obj_id", str).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", 2).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
                 if (!z) {
                 }
-                b.a.r0.l3.c.g().c(this.f47421a.getUniqueId(), statisticItem2);
+                c.a.r0.s3.c.g().c(this.a.getUniqueId(), statisticItem2);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-                this.f47421a.overridePendingTransition(0, 0);
-                this.f47421a.showADEnd();
+                this.a.overridePendingTransition(0, 0);
+                this.a.showADEnd();
             }
         }
 
-        @Override // b.a.q0.z0.b
+        @Override // c.a.q0.a1.b
         public void c(String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                b.a.e.f.m.e.a().removeCallbacks(this.f47421a.mTbTimeOutRunnable);
+                c.a.d.f.m.e.a().removeCallbacks(this.a.mTbTimeOutRunnable);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_TB_LOAD_END_STAMP_KEY);
-                if (this.f47421a.mTbAdController.getView() == null) {
-                    this.f47421a.showADEnd();
+                if (this.a.mTbAdController.getView() == null) {
+                    this.a.showADEnd();
                     return;
                 }
-                int k = b.a.e.f.p.l.k(this.f47421a.getPageContext().getPageActivity());
-                int i2 = b.a.e.f.p.l.i(this.f47421a.getPageContext().getPageActivity());
+                int k2 = c.a.d.f.p.l.k(this.a.getPageContext().getPageActivity());
+                int i2 = c.a.d.f.p.l.i(this.a.getPageContext().getPageActivity());
                 if (!z2) {
-                    i2 = (int) (b.a.e.f.p.l.i(this.f47421a.getPageContext().getPageActivity()) * 0.8125d);
+                    i2 = (int) (c.a.d.f.p.l.i(this.a.getPageContext().getPageActivity()) * 0.8125d);
                 }
-                this.f47421a.mTbAdController.getView().setLayoutParams(new RelativeLayout.LayoutParams(k, i2));
-                this.f47421a.mRootView.addView(this.f47421a.mTbAdController.getView());
-                if (this.f47421a.mGoto == -2) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.f47421a));
+                this.a.mTbAdController.getView().setLayoutParams(new RelativeLayout.LayoutParams(k2, i2));
+                this.a.mRootView.addView(this.a.mTbAdController.getView());
+                if (this.a.mGoto == -2) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a));
                 }
-                b.a.q0.q0.l.b().m(System.currentTimeMillis());
+                c.a.q0.r0.l.b().m(System.currentTimeMillis());
                 TiebaStatic.log(new StatisticItem("c13331").param("obj_id", str).param("obj_type", z2 ? 2 : 1));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_type", "a064").param("obj_locate", 0));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 2).param("obj_type", "a064").param("obj_locate", 0));
@@ -512,32 +503,30 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 } else {
                     statisticItem.param("obj_type", z2 ? 2 : 1);
                 }
-                b.a.r0.l3.c.g().d(this.f47421a.getUniqueId(), str, statisticItem);
-                b.a.r0.l3.c.g().h(this.f47421a.getUniqueId(), false);
+                c.a.r0.s3.c.g().d(this.a.getUniqueId(), str, statisticItem);
+                c.a.r0.s3.c.g().h(this.a.getUniqueId(), false);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
             }
         }
 
-        @Override // b.a.q0.z0.b
+        @Override // c.a.q0.a1.b
         public void onAdDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-                this.f47421a.isAdDismiss = true;
-                if (this.f47421a.isActivityInForeground) {
-                    this.f47421a.showADEnd();
+                this.a.isAdDismiss = true;
+                if (this.a.isActivityInForeground) {
+                    this.a.showADEnd();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47422a;
+        public final /* synthetic */ LogoActivity a;
 
         public f(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -554,44 +543,42 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47422a = logoActivity;
+            this.a = logoActivity;
         }
 
-        @Override // b.a.r0.i3.g.f.g
+        @Override // c.a.r0.p3.g.f.g
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean z = false;
-                if (this.f47422a.mTbAdController.getView() != null) {
-                    if (this.f47422a.mTbAdController.getView().getHeight() == b.a.e.f.p.l.i(this.f47422a.getPageContext().getPageActivity())) {
+                if (this.a.mTbAdController.getView() != null) {
+                    if (this.a.mTbAdController.getView().getHeight() == c.a.d.f.p.l.i(this.a.getPageContext().getPageActivity())) {
                         z = true;
                     }
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_SPLASH_SKIP).param("obj_source", 2).param("obj_type", z ? 4 : 3));
-                if (this.f47422a.mGoto != -2) {
-                    this.f47422a.startGoto();
+                if (this.a.mGoto != -2) {
+                    this.a.startGoto();
                 } else {
-                    this.f47422a.finish();
+                    this.a.finish();
                 }
             }
         }
 
-        @Override // b.a.r0.i3.g.f.g
+        @Override // c.a.r0.p3.g.f.g
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f47422a.showNormalAniView();
+                this.a.showNormalAniView();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47423a;
+        public final /* synthetic */ LogoActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(LogoActivity logoActivity, int i2) {
@@ -611,7 +598,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47423a = logoActivity;
+            this.a = logoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -632,7 +619,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                             intent.putExtra("gd_ad", true);
                             intent.putExtra("ext_info", substring2);
                         }
-                        if (!this.f47423a.isFromHotSplash() && (StringUtils.isNull(substring) || !substring.startsWith("bdtiebalive"))) {
+                        if (!this.a.isFromHotSplash() && (StringUtils.isNull(substring) || !substring.startsWith("bdtiebalive"))) {
                             intent.putExtra(DealIntentService.KEY_CLASS, 30);
                             intent.putExtra("jump_url", substring);
                             intent.putExtra("is_ad", true);
@@ -641,27 +628,25 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                             intent.putExtra(DealIntentService.KEY_CLASS, 30);
                             intent.putExtra("jump_url", substring);
                             intent.putExtra("is_ad", true);
-                            UtilHelper.commenDealIntent(this.f47423a, intent);
+                            UtilHelper.commenDealIntent(this.a, intent);
                         }
                     }
-                    b.a.e.f.m.e.a().removeCallbacks(this.f47423a.mShowADEndRunnable);
-                    this.f47423a.isAdDismiss = true;
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.f47423a.getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.f47423a.isActivityInForeground)));
-                    if (this.f47423a.isActivityInForeground || DeviceInfoUtil.isHuaWeiP40Pro()) {
-                        this.f47423a.showADEnd();
+                    c.a.d.f.m.e.a().removeCallbacks(this.a.mShowADEndRunnable);
+                    this.a.isAdDismiss = true;
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.isActivityInForeground)));
+                    if (this.a.isActivityInForeground || DeviceInfoUtil.isHuaWeiP40Pro()) {
+                        this.a.showADEnd();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47424a;
+        public final /* synthetic */ LogoActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(LogoActivity logoActivity, int i2) {
@@ -681,7 +666,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47424a = logoActivity;
+            this.a = logoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -689,18 +674,18 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f47424a.gotoMainTabInternal((customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) ? -1 : ((Integer) customResponsedMessage.getData()).intValue());
+                this.a.gotoMainTabInternal((customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) ? -1 : ((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47425e;
+        public final /* synthetic */ LogoActivity f42484e;
 
         public i(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -717,25 +702,25 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47425e = logoActivity;
+            this.f42484e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47425e.goToNextPage();
+                this.f42484e.goToNextPage();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47426e;
+        public final /* synthetic */ LogoActivity f42485e;
 
         public j(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -752,25 +737,25 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47426e = logoActivity;
+            this.f42485e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47426e.showADEnd();
+                this.f42485e.showADEnd();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47427e;
+        public final /* synthetic */ LogoActivity f42486e;
 
         public k(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -787,30 +772,30 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47427e = logoActivity;
+            this.f42486e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47427e.hasLoadBesFinish) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42486e.hasLoadBesFinish) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("splash_request_timeout"));
             TbadkCoreApplication.getInst().isDebugMode();
-            b.a.e.f.m.e.a().postDelayed(this.f47427e.mTimeOutRunnable, 500L);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921536, this.f47427e.besAdData));
-            this.f47427e.mShowAdInternal = System.currentTimeMillis();
+            c.a.d.f.m.e.a().postDelayed(this.f42486e.mTimeOutRunnable, 500L);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921536, this.f42486e.besAdData));
+            this.f42486e.mShowAdInternal = System.currentTimeMillis();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class l implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47428e;
+        public final /* synthetic */ LogoActivity f42487e;
 
         public l(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -827,30 +812,30 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47428e = logoActivity;
+            this.f42487e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47428e.hasLoadBesFinish || this.f47428e.besSplashHolder == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42487e.hasLoadBesFinish || this.f42487e.besSplashHolder == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
             TbadkCoreApplication.getInst().isDebugMode();
-            this.f47428e.mRootView.removeView(this.f47428e.besSplashHolder);
-            b.a.e.f.m.e.a().post(this.f47428e.mNormalLogoAniRunnable);
+            this.f42487e.mRootView.removeView(this.f42487e.besSplashHolder);
+            c.a.d.f.m.e.a().post(this.f42487e.mNormalLogoAniRunnable);
             BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class m implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47429e;
+        public final /* synthetic */ LogoActivity f42488e;
 
         public m(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -867,26 +852,26 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47429e = logoActivity;
+            this.f42488e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47429e.showNormalAniView();
+                this.f42488e.showNormalAniView();
                 BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoActivity f47430e;
+        public final /* synthetic */ LogoActivity f42489e;
 
         public n(LogoActivity logoActivity) {
             Interceptable interceptable = $ic;
@@ -903,14 +888,14 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     return;
                 }
             }
-            this.f47430e = logoActivity;
+            this.f42489e = logoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47430e.showADEnd();
+                this.f42489e.showADEnd();
             }
         }
 
@@ -1034,7 +1019,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 return;
             }
             sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
-            b.a.e.f.m.h.a().b(new a(this));
+            c.a.d.f.m.h.a().b(new a(this));
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001281, String.class);
             if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
                 return;
@@ -1070,18 +1055,18 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             try {
                 registerListener(this.mNightInstallListener);
                 if (!PermissionUtil.isAgreePrivacyPolicy() && !TbSingleton.getInstance().isBrowseMode()) {
-                    b.a.q0.s.s.a b2 = b.a.r0.l.b(getPageContext(), this.mListener);
+                    c.a.q0.s.s.a b2 = o.b(getPageContext(), this.mListener);
                     this.mPrivacyPolicyDialogRemind = b2;
                     b2.show();
                     SmartLaunchStats.onPrivacyDialogShow();
-                    b.a.r0.i3.f.a.b("1");
+                    c.a.r0.p3.f.a.b("1");
                     return;
                 }
                 sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
                 if (isFromHotSplash()) {
                     getWindow().setFlags(1024, 1024);
                     if (Build.VERSION.SDK_INT > 16) {
-                        getWindow().getDecorView().setSystemUiVisibility(1028);
+                        getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
                     setContentView(R.layout.logo_activity);
@@ -1102,7 +1087,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                     dealIntent(getIntent());
                     getWindow().setFlags(1024, 1024);
                     if (Build.VERSION.SDK_INT > 16) {
-                        getWindow().getDecorView().setSystemUiVisibility(1028);
+                        getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
                     }
                     setContentView(R.layout.logo_activity);
                     this.mRootView = (RelativeLayout) findViewById(R.id.layout_root);
@@ -1112,7 +1097,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                         LogoActivityConfig.isFirst = true;
                     }
                     this.mIsFirstUse = TbadkCoreApplication.getInst().getIsFirstUse();
-                    b.a.q0.q0.l.b().A(this.mIsFirstUse);
+                    c.a.q0.r0.l.b().A(this.mIsFirstUse);
                     registerListener(this.splashClickListener);
                     syncAccountAndStart();
                     this.mHandler.sendMessage(this.mHandler.obtainMessage());
@@ -1142,7 +1127,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         if ((interceptable == null || interceptable.invokeV(65579, this) == null) && this.mIsFirstUse) {
             TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
             TbadkCoreApplication.getInst().setIsAbstractOn(0);
-            b.a.q0.s.e0.b.j().t("frs_first_in", true);
+            c.a.q0.s.e0.b.j().t("frs_first_in", true);
         }
     }
 
@@ -1201,7 +1186,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         if (interceptable == null || interceptable.invokeV(65583, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_VIEW_END_STAMP_KEY);
             startGoto();
-            b.a.q0.q0.l.b().l(System.currentTimeMillis());
+            c.a.q0.r0.l.b().l(System.currentTimeMillis());
         }
     }
 
@@ -1224,15 +1209,15 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         if (interceptable == null || interceptable.invokeV(65585, this) == null) {
             this.adCreateStartTime = System.currentTimeMillis();
             this.adReqeustStartTime = System.currentTimeMillis();
-            this.besAdData = new b.a.q0.l.d();
+            this.besAdData = new c.a.q0.l.d();
             this.besSplashHolder = new RelativeLayout(getPageContext().getPageActivity());
             this.besSplashHolder.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             this.mRootView.addView(this.besSplashHolder);
             this.besAdData.d(this.besSplashHolder);
             this.besAdData.c(new c(this));
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016555, Long.class, this.besAdData);
-            b.a.q0.q0.l.b().j(System.currentTimeMillis() - this.adCreateStartTime);
-            b.a.e.f.m.e.a().postDelayed(this.mRequirTimeOutRunnable, runTask != null ? ((Long) runTask.getData()).longValue() : 1000L);
+            c.a.q0.r0.l.b().j(System.currentTimeMillis() - this.adCreateStartTime);
+            c.a.d.f.m.e.a().postDelayed(this.mRequirTimeOutRunnable, runTask != null ? ((Long) runTask.getData()).longValue() : 1000L);
         }
     }
 
@@ -1243,7 +1228,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             if (this.mGoto == -2) {
                 finish();
             } else {
-                b.a.e.f.m.e.a().post(this.mNormalLogoAniRunnable);
+                c.a.d.f.m.e.a().post(this.mNormalLogoAniRunnable);
             }
         }
     }
@@ -1253,16 +1238,16 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         if (interceptable == null || interceptable.invokeV(65587, this) == null) {
             this.adCreateStartTime = System.currentTimeMillis();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_START_STAMP_KEY);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921390, b.a.q0.z0.a.class, getActivity());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921390, c.a.q0.a1.a.class, getActivity());
             if (runTask != null && runTask.getData() != null) {
-                b.a.q0.z0.a aVar = (b.a.q0.z0.a) runTask.getData();
+                c.a.q0.a1.a aVar = (c.a.q0.a1.a) runTask.getData();
                 this.mTbAdController = aVar;
                 aVar.b(this.mTbAdCallback);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 2).param("obj_locate", 2).param("obj_type", "a064"));
-                int k2 = b.a.q0.s.e0.b.j().k("video_splash_timeout", 1);
-                b.a.e.f.m.e.a().postDelayed(this.mTbTimeOutRunnable, (k2 > 0 ? k2 : 1) * 1000);
+                int k2 = c.a.q0.s.e0.b.j().k("video_splash_timeout", 1);
+                c.a.d.f.m.e.a().postDelayed(this.mTbTimeOutRunnable, (k2 > 0 ? k2 : 1) * 1000);
                 this.mTbAdController.a();
-                b.a.q0.q0.l.b().j(System.currentTimeMillis() - this.adCreateStartTime);
+                c.a.q0.r0.l.b().j(System.currentTimeMillis() - this.adCreateStartTime);
                 return;
             }
             showADView();
@@ -1274,7 +1259,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         if (interceptable == null || interceptable.invokeV(65588, this) == null) {
             if (this.mGoto != -2) {
                 if (this.mVideoSplashController == null) {
-                    this.mVideoSplashController = new b.a.r0.i3.g.f(this);
+                    this.mVideoSplashController = new c.a.r0.p3.g.f(this);
                 }
                 if (this.mVideoSplashController.h()) {
                     View k2 = this.mVideoSplashController.k(0.8125d);
@@ -1299,12 +1284,12 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 LogoActivityConfig.mFromSpacial = false;
             } else if (TbadkCoreApplication.isLogin()) {
                 if (this.mIsFirstUse) {
-                    b.a.e.f.m.e.a().post(this.mFirstLogoAniRunnable);
+                    c.a.d.f.m.e.a().post(this.mFirstLogoAniRunnable);
                 } else {
                     gotoMainTab(2);
                 }
             } else if (this.mIsFirstUse) {
-                b.a.e.f.m.e.a().post(this.mFirstLogoAniRunnable);
+                c.a.d.f.m.e.a().post(this.mFirstLogoAniRunnable);
             } else {
                 showVideoSplash();
             }
@@ -1340,7 +1325,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     private void startSwitchDebugService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new b.a.e.b.a.b(getPageContext().getPageActivity())));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new c.a.d.b.a.b(getPageContext().getPageActivity())));
         }
     }
 
@@ -1348,17 +1333,17 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65592, this) == null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                b.a.q0.s.a0.a.a("account", -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
+                c.a.q0.s.a0.a.a("account", -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
                 if (!getPageContext().getPageActivity().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                    b.a.q0.s.a0.a.a("account", -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
-                    TbadkCoreApplication.setCurrentAccount(b.a.q0.s.l.c.e(), getPageContext().getPageActivity());
+                    c.a.q0.s.a0.a.a("account", -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
+                    TbadkCoreApplication.setCurrentAccount(c.a.q0.s.l.c.e(), getPageContext().getPageActivity());
                 }
             }
             startApp(getPageContext().getPageActivity());
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -1366,7 +1351,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -1374,28 +1359,28 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a064" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public b.a.q0.o0.d getPageStayDurationItem() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public c.a.q0.p0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.q0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.r(this.mAdSource);
             }
             return pageStayDurationItem;
         }
-        return (b.a.q0.o0.d) invokeV.objValue;
+        return (c.a.q0.p0.d) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
@@ -1415,54 +1400,61 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        b.a.q0.l.b bVar;
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        c.a.q0.l.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (this.isLaunchOpOn) {
                 return;
             }
-            b.a.q0.z0.a aVar = this.mTbAdController;
+            c.a.q0.a1.a aVar = this.mTbAdController;
             if (aVar != null && aVar.getView() != null && this.mTbAdController.getView().getParent() != null) {
                 boolean z = false;
                 if (this.mTbAdController.getView() != null) {
-                    if (this.mTbAdController.getView().getHeight() == b.a.e.f.p.l.i(getPageContext().getPageActivity())) {
+                    if (this.mTbAdController.getView().getHeight() == c.a.d.f.p.l.i(getPageContext().getPageActivity())) {
                         z = true;
                     }
                 }
-                int k2 = b.a.e.f.p.l.k(getPageContext().getPageActivity());
-                int i2 = b.a.e.f.p.l.i(getPageContext().getPageActivity());
+                int k2 = c.a.d.f.p.l.k(getPageContext().getPageActivity());
+                int i2 = c.a.d.f.p.l.i(getPageContext().getPageActivity());
                 if (!z) {
-                    i2 = (int) (b.a.e.f.p.l.i(getPageContext().getPageActivity()) * 0.8125d);
+                    i2 = (int) (c.a.d.f.p.l.i(getPageContext().getPageActivity()) * 0.8125d);
                 }
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mTbAdController.getView().getLayoutParams();
                 layoutParams.width = k2;
                 layoutParams.height = i2;
                 this.mTbAdController.getView().setLayoutParams(layoutParams);
             }
-            b.a.q0.l.d dVar = this.besAdData;
-            if (dVar == null || (bVar = dVar.f13464c) == null) {
+            c.a.q0.l.d dVar = this.besAdData;
+            if (dVar == null || (bVar = dVar.f12381c) == null) {
                 return;
             }
             bVar.a();
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3000);
             if (this.isLaunchOpOn) {
+                setIsAddSwipeBackLayout(false);
+                setUseStyleImmersiveSticky(false);
                 super.onCreate(bundle);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(3006);
-                Intent intent = getIntent();
-                intent.setClassName(this, "com.baidu.tieba.NewLogoActivity");
-                startActivity(intent);
+                c.a.r0.m mVar = new c.a.r0.m(this);
+                this.newLogoDelegate = mVar;
+                mVar.d(bundle);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-                finish();
                 return;
             }
             getWindow().getDecorView().setBackgroundResource(R.drawable.pic_splash_logo);
@@ -1474,39 +1466,40 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 finish();
                 return;
             }
-            b.a.r0.l3.c.g().i(getUniqueId());
+            c.a.r0.s3.c.g().i(getUniqueId());
             init(bundle);
             TbadkCoreApplication.getInst().initTrackConfig();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             super.onDestroy();
             if (this.isLaunchOpOn) {
+                this.newLogoDelegate.e();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
                 return;
             }
-            b.a.q0.l.d dVar = this.besAdData;
+            c.a.q0.l.d dVar = this.besAdData;
             if (dVar != null) {
                 dVar.d(null);
                 this.besAdData.c(null);
             }
-            b.a.q0.z0.a aVar = this.mTbAdController;
+            c.a.q0.a1.a aVar = this.mTbAdController;
             if (aVar != null) {
                 aVar.release();
             }
-            b.a.e.f.m.e.a().removeCallbacks(this.mShowADEndRunnable);
-            b.a.e.f.m.e.a().removeCallbacks(this.mFirstLogoAniRunnable);
-            b.a.e.f.m.e.a().removeCallbacks(this.mNormalLogoAniRunnable);
-            b.a.e.f.m.e.a().removeCallbacks(this.mTimeOutRunnable);
-            b.a.e.f.m.e.a().removeCallbacks(this.mRequirTimeOutRunnable);
-            b.a.e.f.m.e.a().removeCallbacks(this.mTbTimeOutRunnable);
-            b.a.r0.i3.g.f fVar = this.mVideoSplashController;
+            c.a.d.f.m.e.a().removeCallbacks(this.mShowADEndRunnable);
+            c.a.d.f.m.e.a().removeCallbacks(this.mFirstLogoAniRunnable);
+            c.a.d.f.m.e.a().removeCallbacks(this.mNormalLogoAniRunnable);
+            c.a.d.f.m.e.a().removeCallbacks(this.mTimeOutRunnable);
+            c.a.d.f.m.e.a().removeCallbacks(this.mRequirTimeOutRunnable);
+            c.a.d.f.m.e.a().removeCallbacks(this.mTbTimeOutRunnable);
+            c.a.r0.p3.g.f fVar = this.mVideoSplashController;
             if (fVar != null) {
                 fVar.n();
             }
@@ -1520,18 +1513,18 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 relativeLayout.setBackgroundDrawable(null);
             }
             LogoActivityConfig.isFirst = true;
-            b.a.r0.l3.c.g().k(getUniqueId());
-            b.a.e.f.p.d.d().b();
+            c.a.r0.s3.c.g().k(getUniqueId());
+            c.a.d.f.p.d.d().b();
             MessageManager.getInstance().runTask(2921555, (Class) null);
-            b.a.q0.s.s.a aVar2 = this.mPrivacyPolicyDialogRemind;
+            c.a.q0.s.s.a aVar2 = this.mPrivacyPolicyDialogRemind;
             if (aVar2 != null) {
                 aVar2.dismiss();
             }
-            b.a.q0.s.s.a aVar3 = this.mPrivacyPolicyDialogGuideOne;
+            c.a.q0.s.s.a aVar3 = this.mPrivacyPolicyDialogGuideOne;
             if (aVar3 != null) {
                 aVar3.dismiss();
             }
-            b.a.q0.s.s.a aVar4 = this.mPrivacyPolicyDialogGuideTwo;
+            c.a.q0.s.s.a aVar4 = this.mPrivacyPolicyDialogGuideTwo;
             if (aVar4 != null) {
                 aVar4.dismiss();
             }
@@ -1539,14 +1532,11 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, keyEvent)) == null) {
-            if (this.isLaunchOpOn) {
-                return super.onKeyDown(i2, keyEvent);
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
             if (i2 == 4 && LogoActivityConfig.isFirst) {
                 return true;
             }
@@ -1555,42 +1545,43 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
             if (this.isLaunchOpOn) {
                 return;
             }
             this.isActivityInForeground = false;
-            b.a.r0.i3.g.f fVar = this.mVideoSplashController;
+            c.a.r0.p3.g.f fVar = this.mVideoSplashController;
             if (fVar != null) {
                 fVar.o();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048586, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048587, this, i2, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             if (!this.isLaunchOpOn && i2 == 22001) {
                 judgeLocationPermissionGranted(iArr);
-                b.a.e.f.i.a.n().j(false);
+                c.a.d.f.i.a.n().j(false);
                 goToNextPage();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             super.onResume();
             if (this.isLaunchOpOn) {
+                this.newLogoDelegate.f();
                 return;
             }
             this.isActivityInForeground = true;
@@ -1598,8 +1589,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 this.mIsFirstOnResume = false;
                 MessageManager.getInstance().registerStickyMode(2001370);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001370));
-                if (System.currentTimeMillis() - b.a.q0.s.e0.b.j().l("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
-                    TbadkCoreApplication.getInst().setInstalledAppIds(b.a.q0.s.e0.b.j().p("applist_intalled_apk_ids", ""));
+                if (System.currentTimeMillis() - c.a.q0.s.e0.b.j().l("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
+                    TbadkCoreApplication.getInst().setInstalledAppIds(c.a.q0.s.e0.b.j().p("applist_intalled_apk_ids", ""));
                 }
             }
             if (PermissionUtil.isAgreePrivacyPolicy()) {
@@ -1618,33 +1609,30 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
                 goToNextPage();
                 this.needGoNext = false;
             }
-            b.a.r0.i3.g.f fVar = this.mVideoSplashController;
+            c.a.r0.p3.g.f fVar = this.mVideoSplashController;
             if (fVar != null) {
                 fVar.p();
             }
             if (LogoActivityConfig.isFirst && this.logoCreateTime >= 0) {
-                b.a.q0.q0.l.b().w(System.currentTimeMillis() - this.logoCreateTime);
+                c.a.q0.r0.l.b().w(System.currentTimeMillis() - this.logoCreateTime);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
         }
     }
 
-    @Override // android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            if (this.isLaunchOpOn) {
-                return;
-            }
             bundle.putBoolean("is_first", LogoActivityConfig.isFirst);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStart();
         }
     }

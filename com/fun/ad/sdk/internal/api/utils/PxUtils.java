@@ -3,14 +3,13 @@ package com.fun.ad.sdk.internal.api.utils;
 import android.content.Context;
 import android.util.TypedValue;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class PxUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,6 +55,6 @@ public class PxUtils {
     public static int pxToDp(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) ? (int) ((i2 / context.getApplicationContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? (int) ((i2 / context.getApplicationContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLI.intValue;
     }
 }

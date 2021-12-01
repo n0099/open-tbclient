@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -151,7 +150,7 @@ public final class Factory {
     public static JoinPoint makeJP(JoinPoint.StaticPart staticPart, Object obj, Object obj2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, staticPart, obj, obj2)) == null) ? new JoinPointImpl(staticPart, obj, obj2, NO_ARGS) : (JoinPoint) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, staticPart, obj, obj2)) == null) ? new JoinPointImpl(staticPart, obj, obj2, NO_ARGS) : (JoinPoint) invokeLLL.objValue;
     }
 
     public AdviceSignature makeAdviceSig(String str) {
@@ -274,7 +273,7 @@ public final class Factory {
     public static JoinPoint makeJP(JoinPoint.StaticPart staticPart, Object obj, Object obj2, Object obj3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, staticPart, obj, obj2, obj3)) == null) ? new JoinPointImpl(staticPart, obj, obj2, new Object[]{obj3}) : (JoinPoint) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, staticPart, obj, obj2, obj3)) == null) ? new JoinPointImpl(staticPart, obj, obj2, new Object[]{obj3}) : (JoinPoint) invokeLLLL.objValue;
     }
 
     public JoinPoint.EnclosingStaticPart makeESJP(String str, Signature signature, int i2, int i3) {

@@ -47,24 +47,24 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
     /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r5v1, types: [V, java.lang.Object] */
     @Override // androidx.collection.LruCache
-    public V create(K k) {
+    public V create(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.$create.invoke(k) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) ? this.$create.invoke(k2) : invokeL.objValue;
     }
 
     @Override // androidx.collection.LruCache
-    public void entryRemoved(boolean z, K k, V v, V v2) {
+    public void entryRemoved(boolean z, K k2, V v, V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
-            this.$onEntryRemoved.invoke(Boolean.valueOf(z), k, v, v2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k2, v, v2}) == null) {
+            this.$onEntryRemoved.invoke(Boolean.valueOf(z), k2, v, v2);
         }
     }
 
     @Override // androidx.collection.LruCache
-    public int sizeOf(K k, V v) {
+    public int sizeOf(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) ? ((Number) this.$sizeOf.invoke(k, v)).intValue() : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, v)) == null) ? ((Number) this.$sizeOf.invoke(k2, v)).intValue() : invokeLL.intValue;
     }
 }

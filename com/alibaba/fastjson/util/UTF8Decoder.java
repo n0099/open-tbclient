@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -16,7 +16,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UTF8Decoder extends CharsetDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset charset;
@@ -114,7 +114,7 @@ public class UTF8Decoder extends CharsetDecoder {
                                 return malformed(byteBuffer, i4, charBuffer, i2, 3);
                             }
                             i3 = i2 + 1;
-                            array2[i2] = (char) ((((b2 << StandardMessageCodec.LIST) ^ (b4 << 6)) ^ b5) ^ 8064);
+                            array2[i2] = (char) ((((b2 << StandardMessageCodec.LIST) ^ (b4 << 6)) ^ b5) ^ w0.n5);
                             i4 += 3;
                         } else if ((b2 >> 3) != -2) {
                             return malformed(byteBuffer, i4, charBuffer, i2, 1);
@@ -161,19 +161,19 @@ public class UTF8Decoder extends CharsetDecoder {
     public static boolean isMalformed3(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & 224) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & w0.Q) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
     }
 
     public static boolean isMalformed4(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.AD_TEXT_ID, null, i2, i3, i4)) == null) ? ((i2 & 192) == 128 && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i2, i3, i4)) == null) ? ((i2 & 192) == 128 && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
     }
 
     public static boolean isNotContinuation(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? (i2 & 192) != 128 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? (i2 & 192) != 128 : invokeI.booleanValue;
     }
 
     public static CoderResult lookupN(ByteBuffer byteBuffer, int i2) {

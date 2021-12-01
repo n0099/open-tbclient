@@ -48,12 +48,12 @@ public class ChangeTimeScaleTrack implements Track {
         LOG = Logger.getLogger(ChangeTimeScaleTrack.class.getName());
     }
 
-    public ChangeTimeScaleTrack(Track track, long j, long[] jArr) {
+    public ChangeTimeScaleTrack(Track track, long j2, long[] jArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j), jArr};
+            Object[] objArr = {track, Long.valueOf(j2), jArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -64,10 +64,10 @@ public class ChangeTimeScaleTrack implements Track {
             }
         }
         this.source = track;
-        this.timeScale = j;
-        double timescale = j / track.getTrackMetaData().getTimescale();
+        this.timeScale = j2;
+        double timescale = j2 / track.getTrackMetaData().getTimescale();
         this.ctts = adjustCtts(track.getCompositionTimeEntries(), timescale);
-        this.decodingTimes = adjustTts(track.getSampleDurations(), timescale, jArr, getTimes(track, jArr, j));
+        this.decodingTimes = adjustTts(track.getSampleDurations(), timescale, jArr, getTimes(track, jArr, j2));
     }
 
     public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, double d2) {
@@ -91,19 +91,19 @@ public class ChangeTimeScaleTrack implements Track {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Double.valueOf(d2), jArr2, jArr3})) == null) {
             long[] jArr4 = new long[jArr.length];
-            long j = 0;
+            long j2 = 0;
             int i2 = 1;
             while (i2 <= jArr.length) {
                 int i3 = i2 - 1;
                 long round = Math.round(jArr[i3] * d2);
                 int i4 = i2 + 1;
                 int binarySearch = Arrays.binarySearch(jArr2, i4);
-                if (binarySearch >= 0 && jArr3[binarySearch] != j) {
-                    long j2 = jArr3[binarySearch] - (j + round);
-                    LOG.finest(String.format("Sample %d %d / %d - correct by %d", Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(jArr3[binarySearch]), Long.valueOf(j2)));
-                    round += j2;
+                if (binarySearch >= 0 && jArr3[binarySearch] != j2) {
+                    long j3 = jArr3[binarySearch] - (j2 + round);
+                    LOG.finest(String.format("Sample %d %d / %d - correct by %d", Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(jArr3[binarySearch]), Long.valueOf(j3)));
+                    round += j3;
                 }
-                j += round;
+                j2 += round;
                 jArr4[i3] = round;
                 i2 = i4;
             }
@@ -112,26 +112,26 @@ public class ChangeTimeScaleTrack implements Track {
         return (long[]) invokeCommon.objValue;
     }
 
-    public static long[] getTimes(Track track, long[] jArr, long j) {
+    public static long[] getTimes(Track track, long[] jArr, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{track, jArr, Long.valueOf(j)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{track, jArr, Long.valueOf(j2)})) != null) {
             return (long[]) invokeCommon.objValue;
         }
         long[] jArr2 = new long[jArr.length];
-        long j2 = 0;
+        long j3 = 0;
         int i2 = 0;
         int i3 = 1;
         while (true) {
-            long j3 = i3;
-            if (j3 > jArr[jArr.length - 1]) {
+            long j4 = i3;
+            if (j4 > jArr[jArr.length - 1]) {
                 return jArr2;
             }
-            if (j3 == jArr[i2]) {
-                jArr2[i2] = (j2 * j) / track.getTrackMetaData().getTimescale();
+            if (j4 == jArr[i2]) {
+                jArr2[i2] = (j3 * j2) / track.getTrackMetaData().getTimescale();
                 i2++;
             }
-            j2 += track.getSampleDurations()[i3 - 1];
+            j3 += track.getSampleDurations()[i3 - 1];
             i3++;
         }
     }
@@ -148,11 +148,11 @@ public class ChangeTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = 0;
-            for (long j2 : this.decodingTimes) {
-                j += j2;
+            long j2 = 0;
+            for (long j3 : this.decodingTimes) {
+                j2 += j3;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

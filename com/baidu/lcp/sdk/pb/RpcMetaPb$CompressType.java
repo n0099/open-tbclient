@@ -1,7 +1,6 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.Internal;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static final /* synthetic */ RpcMetaPb$CompressType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -105,7 +104,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static RpcMetaPb$CompressType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (RpcMetaPb$CompressType[]) $VALUES.clone() : (RpcMetaPb$CompressType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (RpcMetaPb$CompressType[]) $VALUES.clone() : (RpcMetaPb$CompressType[]) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.Internal.EnumLite

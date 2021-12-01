@@ -5,9 +5,9 @@ import android.text.InputFilter;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import b.a.q0.t.c.w;
-import b.a.r0.k2.l;
-import b.a.r0.r0.b;
+import c.a.q0.t.c.w;
+import c.a.r0.q2.l;
+import c.a.r0.x0.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
@@ -17,18 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public class a implements b.f {
+    /* loaded from: classes11.dex */
+    public class a implements b.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f53282a;
+        public final /* synthetic */ PbFullScreenEditorInputView a;
 
         public a(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -45,27 +43,25 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f53282a = pbFullScreenEditorInputView;
+            this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // b.a.r0.r0.b.f
+        @Override // c.a.r0.x0.b.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f53282a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f53282a;
+                this.a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.a;
                 pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements b.f {
+    /* loaded from: classes11.dex */
+    public class b implements b.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f53283a;
+        public final /* synthetic */ PbFullScreenEditorInputView a;
 
         public b(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -82,25 +78,23 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f53283a = pbFullScreenEditorInputView;
+            this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // b.a.r0.r0.b.f
+        @Override // c.a.r0.x0.b.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f53283a.setHint(spannableStringBuilder);
+                this.a.setHint(spannableStringBuilder);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class c implements b.f {
+    /* loaded from: classes11.dex */
+    public class c implements b.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorInputView f53284a;
+        public final /* synthetic */ PbFullScreenEditorInputView a;
 
         public c(PbFullScreenEditorInputView pbFullScreenEditorInputView) {
             Interceptable interceptable = $ic;
@@ -117,15 +111,15 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
                     return;
                 }
             }
-            this.f53284a = pbFullScreenEditorInputView;
+            this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // b.a.r0.r0.b.f
+        @Override // c.a.r0.x0.b.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                this.f53284a.setText(spannableStringBuilder);
-                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.f53284a;
+                this.a.setText(spannableStringBuilder);
+                PbFullScreenEditorInputView pbFullScreenEditorInputView = this.a;
                 pbFullScreenEditorInputView.setSelection(pbFullScreenEditorInputView.getText().length());
             }
         }
@@ -172,29 +166,29 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        b.a.r0.r0.b.d(getContext(), str, new a(this));
+        c.a.r0.x0.b.e(getContext(), str, new a(this));
     }
 
     public void loadDataFromSubPb(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
-                b.a.r0.r0.b.d(getContext(), str, new b(this));
+                c.a.r0.x0.b.e(getContext(), str, new b(this));
             }
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            b.a.r0.r0.b.d(getContext(), str2, new c(this));
+            c.a.r0.x0.b.e(getContext(), str2, new c(this));
         }
     }
 
     public void onAddLocalEmotion(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, wVar) == null) {
-            if (b.a.r0.r0.a.a(getText().toString()) >= 10) {
+            if (c.a.r0.x0.a.a(getText().toString()) >= 10) {
                 CustomToast.newInstance().showToast(l.too_many_face);
             } else {
-                b.a.r0.r0.b.b(getContext(), wVar, this);
+                c.a.r0.x0.b.b(getContext(), wVar, this);
             }
         }
     }

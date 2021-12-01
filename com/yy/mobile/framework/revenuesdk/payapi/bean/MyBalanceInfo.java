@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MyBalanceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class MyBalanceInfo {
     public Map<Integer, AccountPeriod> myAccountPeriodMap;
     public Map<Integer, Account> myBalanceMap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Account {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class MyBalanceInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AccountPeriod {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,12 +85,12 @@ public class MyBalanceInfo {
         }
     }
 
-    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j, long j2) {
+    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map, map2, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {map, map2, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -102,8 +102,8 @@ public class MyBalanceInfo {
         }
         this.myBalanceMap = map;
         this.myAccountPeriodMap = map2;
-        this.minAmountLimit = j;
-        this.imid = j2;
+        this.minAmountLimit = j2;
+        this.imid = j3;
     }
 
     public long getImid() {

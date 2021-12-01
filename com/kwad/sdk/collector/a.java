@@ -8,5 +8,5 @@ import java.util.Map;
 public interface a {
     List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map);
 
-    List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j, String str);
+    List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j2, String str);
 }

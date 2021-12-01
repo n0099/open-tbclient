@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.NewTopicList.DataReq;
 import tbclient.NewTopicList.NewTopicListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestGetTopicListMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50792common;
+    public CommonReq f45528common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetTopicListMessage() {
@@ -46,7 +46,7 @@ public class RequestGetTopicListMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f73914common = this.f50792common;
+            builder.f64693common = this.f45528common;
             builder.call_from = this.callFrom;
             if (z) {
                 z.a(builder, true);
@@ -68,7 +68,7 @@ public class RequestGetTopicListMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f50792common = commonReq;
+            this.f45528common = commonReq;
         }
     }
 }

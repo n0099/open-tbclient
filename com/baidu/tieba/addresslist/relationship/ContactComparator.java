@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import b.a.q0.t.f.a;
+import c.a.q0.t.f.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ContactComparator implements Comparator<a>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
@@ -42,16 +42,16 @@ public class ContactComparator implements Comparator<a>, Serializable {
             if (aVar2 == null) {
                 return 1;
             }
-            String a2 = aVar.a();
-            String a3 = aVar2.a();
-            if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(a3) && !a2.equals(a3)) {
-                if ("#".equals(a2)) {
+            String a = aVar.a();
+            String a2 = aVar2.a();
+            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
+                if ("#".equals(a)) {
                     return 1;
                 }
-                if ("#".equals(a3)) {
+                if ("#".equals(a2)) {
                     return -1;
                 }
-                return a2.compareToIgnoreCase(a3);
+                return a.compareToIgnoreCase(a2);
             }
             String f2 = aVar.f();
             String f3 = aVar2.f();

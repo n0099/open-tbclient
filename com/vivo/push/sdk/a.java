@@ -22,22 +22,22 @@ import com.vivo.push.util.s;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a extends aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f71274c;
+    public static a f62524c;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final List<Integer> f71275f;
+    public static final List<Integer> f62525f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f71276d;
+    public Handler f62526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71277e;
+    public String f62527e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class a extends aa {
                 return;
             }
         }
-        f71275f = Arrays.asList(3);
+        f62525f = Arrays.asList(3);
     }
 
     public a() {
@@ -68,7 +68,7 @@ public final class a extends aa {
                 return;
             }
         }
-        this.f71276d = new Handler(Looper.getMainLooper());
+        this.f62526d = new Handler(Looper.getMainLooper());
     }
 
     public static synchronized a a() {
@@ -77,10 +77,10 @@ public final class a extends aa {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f71274c == null) {
-                    f71274c = new a();
+                if (f62524c == null) {
+                    f62524c = new a();
                 }
-                aVar = f71274c;
+                aVar = f62524c;
             }
             return aVar;
         }
@@ -90,7 +90,7 @@ public final class a extends aa {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f71277e = null;
+            this.f62527e = null;
         }
     }
 
@@ -99,52 +99,52 @@ public final class a extends aa {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             Intent intent = (Intent) message.obj;
-            if (intent != null && this.f71106a != null) {
+            if (intent != null && this.a != null) {
                 int intExtra = intent.getIntExtra("command", -1);
                 if (intExtra < 0) {
                     intExtra = intent.getIntExtra("method", -1);
                 }
-                String packageName = this.f71106a.getPackageName();
-                if (f71275f.contains(Integer.valueOf(intExtra)) && s.b(this.f71106a, packageName) && !s.d(this.f71106a)) {
+                String packageName = this.a.getPackageName();
+                if (f62525f.contains(Integer.valueOf(intExtra)) && s.b(this.a, packageName) && !s.d(this.a)) {
                     return;
                 }
                 String action = intent.getAction();
-                if (TextUtils.isEmpty(this.f71277e)) {
-                    String a2 = a(this.f71106a, packageName, action);
-                    this.f71277e = a2;
-                    if (TextUtils.isEmpty(a2)) {
+                if (TextUtils.isEmpty(this.f62527e)) {
+                    String a = a(this.a, packageName, action);
+                    this.f62527e = a;
+                    if (TextUtils.isEmpty(a)) {
                         p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
                         intent.setPackage(packageName);
-                        this.f71106a.sendBroadcast(intent);
+                        this.a.sendBroadcast(intent);
                         return;
                     }
                 }
                 try {
-                    Class<?> cls = Class.forName(this.f71277e);
+                    Class<?> cls = Class.forName(this.f62527e);
                     Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
                     Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-                    intent.setClassName(packageName, this.f71277e);
-                    this.f71276d.post(new b(this, method, newInstance, new Object[]{this.f71106a.getApplicationContext(), intent}));
+                    intent.setClassName(packageName, this.f62527e);
+                    this.f62526d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
                     return;
                 } catch (Exception e2) {
                     p.b("CommandWorker", "reflect e: ", e2);
                     return;
                 }
             }
-            p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.f71106a);
+            p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.a);
         }
     }
 
     public final void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-            if (intent != null && this.f71106a != null) {
+            if (intent != null && this.a != null) {
                 Message obtain = Message.obtain();
                 obtain.obj = intent;
                 a(obtain);
                 return;
             }
-            p.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.f71106a);
+            p.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.a);
         }
     }
 

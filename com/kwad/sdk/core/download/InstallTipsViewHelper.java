@@ -16,7 +16,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,41 +29,44 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.ag;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class InstallTipsViewHelper implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public AdInfo f65333a;
+    public AdInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f65334b;
+    public AdTemplate f57338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InstallTipsData f65335c;
+    public InstallTipsData f57339c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f65336d;
+    public View f57340d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f65337e;
+    public View f57341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f65338f;
+    public ImageView f57342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f65339g;
+    public TextView f57343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f65340h;
+    public Button f57344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65341i;
-    public long j;
-    public Context k;
+    public int f57345i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f57346j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public Context f57347k;
 
     /* loaded from: classes2.dex */
     public static class InstallTipsData implements Serializable {
@@ -111,13 +113,13 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             }
             this.clickAction = 1;
             this.clickAction = i2;
-            this.iconUrl = com.kwad.sdk.core.response.b.c.m(adTemplate);
-            this.downloadId = com.kwad.sdk.core.response.b.c.i(adTemplate).downloadId;
-            String o = com.kwad.sdk.core.response.b.a.o(com.kwad.sdk.core.response.b.c.i(adTemplate));
-            if (o.length() >= MAX_APP_NAME_LENGTH) {
-                o = o.substring(0, MAX_APP_NAME_LENGTH - 1) + "...";
+            this.iconUrl = com.kwad.sdk.core.response.a.d.o(adTemplate);
+            this.downloadId = com.kwad.sdk.core.response.a.d.j(adTemplate).downloadId;
+            String t = com.kwad.sdk.core.response.a.a.t(com.kwad.sdk.core.response.a.d.j(adTemplate));
+            if (t.length() >= MAX_APP_NAME_LENGTH) {
+                t = t.substring(0, MAX_APP_NAME_LENGTH - 1) + "...";
             }
-            this.displayContent = context.getString(i3, o);
+            this.displayContent = context.getString(i3, t);
         }
 
         public static InstallTipsData newInstallInstance(Context context, AdTemplate adTemplate) {
@@ -178,22 +180,22 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                 return;
             }
         }
-        this.f65341i = -1;
-        this.j = 10000L;
+        this.f57345i = -1;
+        this.f57346j = 10000L;
         Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(KsAdSDKImpl.get().getContext());
-        this.k = wrapContextIfNeed;
+        this.f57347k = wrapContextIfNeed;
         if (wrapContextIfNeed == null) {
             return;
         }
-        this.f65333a = adInfo;
-        this.f65334b = adTemplate;
-        this.f65335c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
-        View inflate = LayoutInflater.from(this.k).inflate(R.layout.ksad_install_tips, (ViewGroup) null, false);
-        this.f65336d = inflate;
-        a(this.k, inflate);
-        InstallTipsData installTipsData = this.f65335c;
+        this.a = adInfo;
+        this.f57338b = adTemplate;
+        this.f57339c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
+        View inflate = LayoutInflater.from(this.f57347k).inflate(R.layout.ksad_install_tips, (ViewGroup) null, false);
+        this.f57340d = inflate;
+        a(this.f57347k, inflate);
+        InstallTipsData installTipsData = this.f57339c;
         if (installTipsData != null) {
-            a(this.k, installTipsData);
+            a(this.f57347k, installTipsData);
         }
     }
 
@@ -202,11 +204,11 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, view)) == null) {
-            int i2 = this.f65341i;
+            int i2 = this.f57345i;
             if (i2 < 0) {
                 return null;
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", i2, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, i2, 0.0f);
             ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.42f, 0.85f, 0.64f));
             ofFloat.setDuration(260L);
             return ofFloat;
@@ -218,7 +220,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, view, i2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", 0.0f, i2);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, 0.0f, i2);
             ofFloat.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.27f, 0.87f));
             ofFloat.setDuration(300L);
             return ofFloat;
@@ -231,16 +233,16 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, view) == null) {
             ViewCompat.setElevation(view, context.getResources().getDimension(R.dimen.ksad_install_tips_card_elevation));
-            this.f65337e = view.findViewById(R.id.ksad_install_tips_close);
-            this.f65338f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
-            this.f65339g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
-            this.f65340h = (Button) view.findViewById(R.id.ksad_install_tips_install);
-            InstallTipsData installTipsData = this.f65335c;
+            this.f57341e = view.findViewById(R.id.ksad_install_tips_close);
+            this.f57342f = (ImageView) view.findViewById(R.id.ksad_install_tips_icon);
+            this.f57343g = (TextView) view.findViewById(R.id.ksad_install_tips_content);
+            this.f57344h = (Button) view.findViewById(R.id.ksad_install_tips_install);
+            InstallTipsData installTipsData = this.f57339c;
             if (installTipsData != null && (clickButtonText = installTipsData.getClickButtonText()) != null) {
-                this.f65340h.setText(clickButtonText);
+                this.f57344h.setText(clickButtonText);
             }
-            this.f65337e.setOnClickListener(this);
-            this.f65340h.setOnClickListener(this);
+            this.f57341e.setOnClickListener(this);
+            this.f57344h.setOnClickListener(this);
         }
     }
 
@@ -248,19 +250,19 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, installTipsData) == null) {
             if (installTipsData.getIconUrl() != null) {
-                KSImageLoader.loadAppIcon(this.f65338f, com.kwad.sdk.core.response.b.a.n(this.f65333a), this.f65334b, 8);
+                KSImageLoader.loadAppIcon(this.f57342f, com.kwad.sdk.core.response.a.a.au(this.a), this.f57338b, 8);
             }
-            this.f65339g.setText(installTipsData.getDisplayContent());
+            this.f57343g.setText(installTipsData.getDisplayContent());
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            String str = this.f65333a.downloadFilePath;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            String str = this.a.downloadFilePath;
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null && !TextUtils.isEmpty(str)) {
-                com.kwad.sdk.core.report.a.h(this.f65334b);
+                com.kwad.sdk.core.report.a.h(this.f57338b);
                 KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
                 return;
             }
@@ -268,53 +270,35 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         }
     }
 
-    private boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (this.k == null) {
-                return false;
-            }
-            String q = com.kwad.sdk.core.response.b.a.q(this.f65333a);
-            if (TextUtils.isEmpty(q)) {
-                return false;
-            }
-            return ac.c(this.k, q);
-        }
-        return invokeV.booleanValue;
-    }
-
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65336d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57340d : (View) invokeV.objValue;
     }
 
     public void a(FrameLayout frameLayout) {
-        View a2;
+        View a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) || (a2 = a()) == null || this.k == null || a2.getParent() != null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) || (a = a()) == null || this.f57347k == null || a.getParent() != null) {
             return;
         }
-        int dimensionPixelSize = this.k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_height);
-        int dimensionPixelSize2 = this.k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_margin);
+        int dimensionPixelSize = this.f57347k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_height);
+        int dimensionPixelSize2 = this.f57347k.getResources().getDimensionPixelSize(R.dimen.ksad_install_tips_card_margin);
         int i2 = dimensionPixelSize + dimensionPixelSize2;
         int i3 = -i2;
-        this.f65341i = i2 + dimensionPixelSize2;
-        ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
+        this.f57345i = i2 + dimensionPixelSize2;
+        ViewGroup.LayoutParams layoutParams = a.getLayoutParams();
         FrameLayout.LayoutParams layoutParams2 = layoutParams instanceof FrameLayout.LayoutParams ? (FrameLayout.LayoutParams) layoutParams : new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         layoutParams2.gravity = 48;
         layoutParams2.leftMargin = dimensionPixelSize2;
         layoutParams2.rightMargin = dimensionPixelSize2;
         layoutParams2.topMargin = i3;
-        frameLayout.addView(a2, layoutParams2);
-        a(a2, this.f65341i).start();
-        a2.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.1
+        frameLayout.addView(a, layoutParams2);
+        a(a, this.f57345i).start();
+        a.postDelayed(new Runnable(this) { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ InstallTipsViewHelper f65342a;
+            public final /* synthetic */ InstallTipsViewHelper a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -331,17 +315,17 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f65342a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f65342a.b();
+                    this.a.b();
                 }
             }
-        }, this.j);
+        }, this.f57346j);
     }
 
     public void b() {
@@ -349,36 +333,34 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || a() == null || a().getParent() == null) {
             return;
         }
-        View a2 = a();
-        ViewGroup viewGroup = (ViewGroup) a2.getParent();
-        Animator a3 = a(a2);
-        if (a3 == null) {
-            viewGroup.removeView(a2);
+        View a = a();
+        ViewGroup viewGroup = (ViewGroup) a.getParent();
+        Animator a2 = a(a);
+        if (a2 == null) {
+            viewGroup.removeView(a);
             return;
         }
-        a3.start();
-        a3.addListener(new Animator.AnimatorListener(this, viewGroup, a2, a3) { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.2
+        a2.start();
+        a2.addListener(new Animator.AnimatorListener(this, viewGroup, a, a2) { // from class: com.kwad.sdk.core.download.InstallTipsViewHelper.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f65343a;
+            public final /* synthetic */ ViewGroup a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ View f65344b;
+            public final /* synthetic */ View f57348b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Animator f65345c;
+            public final /* synthetic */ Animator f57349c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ InstallTipsViewHelper f65346d;
+            public final /* synthetic */ InstallTipsViewHelper f57350d;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, viewGroup, a2, a3};
+                    Object[] objArr = {this, viewGroup, a, a2};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -388,10 +370,10 @@ public class InstallTipsViewHelper implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f65346d = this;
-                this.f65343a = viewGroup;
-                this.f65344b = a2;
-                this.f65345c = a3;
+                this.f57350d = this;
+                this.a = viewGroup;
+                this.f57348b = a;
+                this.f57349c = a2;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -405,9 +387,9 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f65343a.removeView(this.f65344b);
-                    this.f65345c.removeListener(this);
-                    f.a().a(this.f65346d);
+                    this.a.removeView(this.f57348b);
+                    this.f57349c.removeListener(this);
+                    e.a().a(this.f57350d);
                 }
             }
 
@@ -430,13 +412,13 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f65336d = null;
-            this.f65337e = null;
-            this.f65338f = null;
-            this.f65340h = null;
-            this.f65341i = -1;
-            this.f65334b = null;
-            this.f65335c = null;
+            this.f57340d = null;
+            this.f57341e = null;
+            this.f57342f = null;
+            this.f57344h = null;
+            this.f57345i = -1;
+            this.f57338b = null;
+            this.f57339c = null;
         }
     }
 
@@ -446,33 +428,35 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            InstallTipsData installTipsData = this.f65335c;
+            InstallTipsData installTipsData = this.f57339c;
             int clickAction = installTipsData != null ? installTipsData.getClickAction() : 1;
             int id = view.getId();
             if (id == R.id.ksad_install_tips_install) {
                 b();
                 if (clickAction == 1) {
                     d();
-                    com.kwad.sdk.core.report.a.d(this.f65334b, 45);
+                    com.kwad.sdk.core.report.a.e(this.f57338b, 45);
                 } else if (clickAction != 2) {
                     return;
                 }
-                e();
-                adTemplate = this.f65334b;
+                if (ag.c(this.f57347k, com.kwad.sdk.core.response.a.a.v(this.a))) {
+                    com.kwad.sdk.core.report.a.e(this.f57338b);
+                }
+                adTemplate = this.f57338b;
                 i2 = 47;
             } else if (id != R.id.ksad_install_tips_close) {
                 return;
             } else {
                 b();
                 if (clickAction == 1) {
-                    com.kwad.sdk.core.report.a.d(this.f65334b, 46);
+                    com.kwad.sdk.core.report.a.e(this.f57338b, 46);
                 } else if (clickAction != 2) {
                     return;
                 }
-                adTemplate = this.f65334b;
+                adTemplate = this.f57338b;
                 i2 = 48;
             }
-            com.kwad.sdk.core.report.a.c(adTemplate, i2);
+            com.kwad.sdk.core.report.a.d(adTemplate, i2);
         }
     }
 }

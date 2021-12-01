@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UniversalCountDownTimer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CountDownTimer mCountDownTimer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,19 +63,19 @@ public class UniversalCountDownTimer {
             }
         }
 
-        public void onTick(long j) {
+        public void onTick(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
             }
         }
     }
 
-    public UniversalCountDownTimer(long j, long j2) {
+    public UniversalCountDownTimer(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -85,7 +85,7 @@ public class UniversalCountDownTimer {
                 return;
             }
         }
-        this.mCountDownTimer = new CountDownTimer(j, j2);
+        this.mCountDownTimer = new CountDownTimer(j2, j3);
     }
 
     public final synchronized void cancel() {
@@ -115,10 +115,10 @@ public class UniversalCountDownTimer {
         }
     }
 
-    public void setCountDownMillis(long j) {
+    public void setCountDownMillis(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mCountDownTimer.setCountDownMillis(j);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mCountDownTimer.setCountDownMillis(j2);
         }
     }
 
@@ -200,11 +200,11 @@ public class UniversalCountDownTimer {
                 }
 
                 @Override // com.baidu.android.util.time.CountDownTimer.StatusListener
-                public void onTick(long j) {
+                public void onTick(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(1048581, this, j) == null) {
-                        super.onTick(j);
-                        this.val$listener.onTick(j);
+                    if (interceptable2 == null || interceptable2.invokeJ(1048581, this, j2) == null) {
+                        super.onTick(j2);
+                        this.val$listener.onTick(j2);
                     }
                 }
             });

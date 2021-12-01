@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.listener.IInitCallback;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
 import com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule;
@@ -30,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FaceSDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static FaceSDKManager instance;
@@ -93,13 +92,13 @@ public class FaceSDKManager {
     public static String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? FaceEnvironment.SDK_VERSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? FaceEnvironment.SDK_VERSION : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initModel(Context context, IInitCallback iInitCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, iInitCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, context, iInitCallback) == null) {
             this.mFaceDetect = new FaceDetect();
             this.mFaceCrop = new FaceCrop();
             this.mFaceActionLive = new FaceActionLive();
@@ -118,12 +117,10 @@ public class FaceSDKManager {
             this.mFaceDetect.initModel(context, "detect/detect_rgb-customized-pa-faceid4_0.model.int8.0.0.6.1.pass.mml", "align/align-customized-pa-offlineCapture_withScore_quant_20200909.model.int8.6.4.7.1.pass.mml", BDFaceSDKCommon.DetectType.DETECT_VIS, BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE, new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f42780a;
+                public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f42781b;
+                public final /* synthetic */ FaceSDKManager f38282b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -140,15 +137,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f42781b = this;
-                    this.f42780a = iInitCallback;
+                    this.f38282b = this;
+                    this.a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f42780a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -157,12 +154,10 @@ public class FaceSDKManager {
             this.mFaceDetect.initQuality(context, "blur/blur-customized-pa-blurnet_9768.model.int8-3.0.9.1.pass.mml", "occlusion/occlusion-customized-pa-occ.model.float32.2.0.6.1.pass.mml", new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f42782a;
+                public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f42783b;
+                public final /* synthetic */ FaceSDKManager f38283b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,15 +174,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f42783b = this;
-                    this.f42782a = iInitCallback;
+                    this.f38283b = this;
+                    this.a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f42782a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -196,12 +191,10 @@ public class FaceSDKManager {
             this.mFaceCrop.initFaceCrop(new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f42784a;
+                public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f42785b;
+                public final /* synthetic */ FaceSDKManager f38284b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -218,15 +211,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f42785b = this;
-                    this.f42784a = iInitCallback;
+                    this.f38284b = this;
+                    this.a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f42784a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -235,12 +228,10 @@ public class FaceSDKManager {
             this.mFaceActionLive.initActionLiveModel(context, "eyes_close/eyes-customized-pa-caiji.model.float32.1.0.3.1.pass.mml", "mouth_close/mouth-customized-pa-caiji.model.float32.1.0.3.1.pass.mml", new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f42786a;
+                public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f42787b;
+                public final /* synthetic */ FaceSDKManager f38285b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -257,8 +248,8 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f42787b = this;
-                    this.f42786a = iInitCallback;
+                    this.f38285b = this;
+                    this.a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -266,14 +257,14 @@ public class FaceSDKManager {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (i2 != 0 && (iInitCallback2 = this.f42786a) != null) {
+                        if (i2 != 0 && (iInitCallback2 = this.a) != null) {
                             iInitCallback2.initFailure(i2, str);
                         }
-                        if (i2 != 0 || this.f42786a == null) {
+                        if (i2 != 0 || this.a == null) {
                             return;
                         }
-                        this.f42787b.mInitFlag = true;
-                        this.f42786a.initSuccess();
+                        this.f38285b.mInitFlag = true;
+                        this.a.initSuccess();
                     }
                 }
             });
@@ -521,15 +512,13 @@ public class FaceSDKManager {
         this.mFaceAuth.initLicense(new Callback(this, context, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f42777a;
+            public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ IInitCallback f42778b;
+            public final /* synthetic */ IInitCallback f38280b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ FaceSDKManager f42779c;
+            public final /* synthetic */ FaceSDKManager f38281c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -546,9 +535,9 @@ public class FaceSDKManager {
                         return;
                     }
                 }
-                this.f42779c = this;
-                this.f42777a = context;
-                this.f42778b = iInitCallback;
+                this.f38281c = this;
+                this.a = context;
+                this.f38280b = iInitCallback;
             }
 
             @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -556,10 +545,10 @@ public class FaceSDKManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                     if (i2 == 0) {
-                        this.f42779c.initModel(this.f42777a, this.f42778b);
+                        this.f38281c.initModel(this.a, this.f38280b);
                         return;
                     }
-                    IInitCallback iInitCallback2 = this.f42778b;
+                    IInitCallback iInitCallback2 = this.f38280b;
                     if (iInitCallback2 != null) {
                         iInitCallback2.initFailure(i2, str3);
                     }

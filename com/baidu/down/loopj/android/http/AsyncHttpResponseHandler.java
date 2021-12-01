@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AsyncHttpResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_MESSAGE = 4;
@@ -176,10 +176,10 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void sendSuccessMessage(int i2, String str, long j) {
+    public void sendSuccessMessage(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
-            sendMessage(obtainMessage(0, new Object[]{new Integer(i2), str, Long.valueOf(j)}));
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+            sendMessage(obtainMessage(0, new Object[]{new Integer(i2), str, Long.valueOf(j2)}));
         }
     }
 

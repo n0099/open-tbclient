@@ -7,7 +7,6 @@ import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceQueryOptions;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,22 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f41066a = "f";
+    public static final String a = "f";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f41067c = true;
+    public static boolean f36542c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f41068d = 1;
+    public static int f36543d = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f41069b;
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f36544b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,35 +59,35 @@ public class f {
                 return;
             }
         }
-        this.f41069b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+        this.f36544b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
         a(historyTraceQueryOptions);
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f41068d = i2;
+            f36543d = i2;
         }
     }
 
     private void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, historyTraceQueryOptions) == null) {
-            this.f41069b.a("order_id", b(historyTraceQueryOptions));
-            this.f41069b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
-            this.f41069b.a("company", historyTraceQueryOptions.getUserId());
-            this.f41069b.a("order_attr", historyTraceQueryOptions.getDriverId());
-            this.f41069b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
-            this.f41069b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
+            this.f36544b.a("order_id", b(historyTraceQueryOptions));
+            this.f36544b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
+            this.f36544b.a("company", historyTraceQueryOptions.getUserId());
+            this.f36544b.a("order_attr", historyTraceQueryOptions.getDriverId());
+            this.f36544b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
+            this.f36544b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
             if (CoordType.BD09LL != SDKInitializer.getCoordType() && CoordType.GCJ02 == SDKInitializer.getCoordType()) {
-                this.f41069b.a("coord_type", "gcj02");
+                this.f36544b.a("coord_type", "gcj02");
             } else {
-                this.f41069b.a("coord_type", "bd09ll");
+                this.f36544b.a("coord_type", "bd09ll");
             }
-            this.f41069b.a("page_index", String.valueOf(f41068d));
-            f41068d = 1;
-            this.f41069b.a("page_size", "5000");
-            this.f41069b.a("is_processed", "1");
+            this.f36544b.a("page_index", String.valueOf(f36543d));
+            f36543d = 1;
+            this.f36544b.a("page_size", "5000");
+            this.f36544b.a("is_processed", "1");
             b();
         }
     }
@@ -106,7 +103,7 @@ public class f {
             stringBuffer.append("-");
             stringBuffer.append("9sc87244121ip32590fq234mn6641tx7".toLowerCase());
             String a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.c.a(stringBuffer.toString());
-            String str = f41066a;
+            String str = a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The orderId = " + stringBuffer.toString() + "; result = " + a2);
             return a2;
         }
@@ -115,33 +112,33 @@ public class f {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             String authToken = SyncSysInfo.getAuthToken();
             if (authToken == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f41066a, "Token is null, permission check again");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Token is null, permission check again");
                 int permissionCheck = PermissionCheck.permissionCheck();
                 if (permissionCheck != 0) {
-                    String str = f41066a;
+                    String str = a;
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Permission check result is: " + permissionCheck);
                     return;
                 }
                 authToken = SyncSysInfo.getAuthToken();
             }
-            this.f41069b.a("token", authToken);
+            this.f36544b.a("token", authToken);
         }
     }
 
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? f41067c ? g.a() : g.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? f36542c ? g.a() : g.b() : (String) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(this.f41069b.a());
+            StringBuffer stringBuffer = new StringBuffer(this.f36544b.a());
             stringBuffer.append(SyncSysInfo.getPhoneInfo());
             String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
             stringBuffer.append("&sign=");

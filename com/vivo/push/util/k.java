@@ -12,38 +12,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f71305a;
+    public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f71306b;
+    public static final String f62547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f71307c;
+    public static final boolean f62548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f71308d;
+    public static final boolean f62549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f71309e;
+    public static final boolean f62550e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f71310f;
+    public static final boolean f62551f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f71311g;
+    public static final boolean f62552g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f71312h;
+    public static final boolean f62553h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f71313i;
-    public static String j;
-    public static String k;
+    public static Method f62554i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static String f62555j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static String f62556k;
     public static String l;
     public static String m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,21 +64,21 @@ public final class k {
                 return;
             }
         }
-        f71305a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+        a = z.b("ro.vivo.product.overseas", "no").equals("yes");
         if (Build.VERSION.SDK_INT >= 26) {
             b2 = z.b("ro.product.country.region", "N");
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f71306b = b2;
-        f71307c = "RU".equals(b2);
-        f71308d = "IN".equals(f71306b);
-        f71309e = b("rom_1.0");
-        f71310f = b("rom_2.0");
-        f71311g = b("rom_2.5");
-        f71312h = b("rom_3.0");
-        j = null;
-        k = null;
+        f62547b = b2;
+        f62548c = "RU".equals(b2);
+        f62549d = "IN".equals(f62547b);
+        f62550e = b("rom_1.0");
+        f62551f = b("rom_2.0");
+        f62552g = b("rom_2.5");
+        f62553h = b("rom_3.0");
+        f62555j = null;
+        f62556k = null;
         l = "";
         m = "";
     }
@@ -86,21 +88,21 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (k.class) {
-                if (j == null && k == null) {
+                if (f62555j == null && f62556k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f71313i = declaredMethod;
+                        f62554i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        j = (String) f71313i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f71313i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        f62555j = (String) f62554i.invoke(null, "ro.vivo.rom", "@><@");
+                        f62556k = (String) f62554i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + j + " ; sRomProperty2 : " + k);
-                String a2 = a(j);
+                p.d("Device", "sRomProperty1 : " + f62555j + " ; sRomProperty2 : " + f62556k);
+                String a2 = a(f62555j);
                 if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(k);
+                    String a3 = a(f62556k);
                     if (TextUtils.isEmpty(a3)) {
                         return null;
                     }

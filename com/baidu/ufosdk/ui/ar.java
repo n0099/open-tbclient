@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ar implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f57734a;
+    public final /* synthetic */ FeedbackFacePageActivity a;
 
     public ar(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public final class ar implements Runnable {
                 return;
             }
         }
-        this.f57734a = feedbackFacePageActivity;
+        this.a = feedbackFacePageActivity;
     }
 
     @Override // java.lang.Runnable
@@ -40,20 +38,20 @@ public final class ar implements Runnable {
         Handler handler2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f57734a.getApplicationContext());
+            com.baidu.ufosdk.e.a.a(this.a.getApplicationContext());
             if (UfoSDK.clientid.length() != 0) {
-                handler = this.f57734a.v;
+                handler = this.a.v;
                 i2 = 1;
             } else {
-                handler = this.f57734a.v;
+                handler = this.a.v;
                 i2 = 4;
             }
             handler.obtainMessage(i2, null).sendToTarget();
-            Context applicationContext = this.f57734a.getApplicationContext();
+            Context applicationContext = this.a.getApplicationContext();
             String str = UfoSDK.clientid;
             String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
             if (c2 != null) {
-                handler2 = this.f57734a.v;
+                handler2 = this.a.v;
                 handler2.obtainMessage(0, c2).sendToTarget();
             }
         }

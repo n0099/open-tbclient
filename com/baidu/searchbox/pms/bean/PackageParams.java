@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PackageParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,12 +49,12 @@ public class PackageParams {
         this.packageName = str;
     }
 
-    public PackageParams(String str, long j, long j2) {
+    public PackageParams(String str, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -67,7 +67,7 @@ public class PackageParams {
         this.version = -1L;
         this.updateVersion = -1L;
         this.packageName = str;
-        this.version = j;
-        this.updateVersion = j2;
+        this.version = j2;
+        this.updateVersion = j3;
     }
 }

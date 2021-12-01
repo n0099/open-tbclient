@@ -2,7 +2,6 @@ package com.baidu.ar.http;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class m implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +57,9 @@ public class m implements k {
             sb.append(str);
             sb.append("--");
             sb.append(this.rm);
-            sb.append(Part.CRLF);
+            sb.append("\r\n");
             sb.append(format);
-            sb.append(Part.CRLF);
+            sb.append("\r\n");
             sb.append("Content-Type:");
             sb.append(str4);
             sb.append(";");
@@ -68,8 +67,8 @@ public class m implements k {
                 sb.append("charset=");
                 sb.append(this.qI.name());
             }
-            sb.append(Part.CRLF);
-            sb.append(Part.CRLF);
+            sb.append("\r\n");
+            sb.append("\r\n");
             return new ByteArrayInputStream(sb.toString().getBytes(this.qI));
         }
         return (InputStream) invokeCommon.objValue;
@@ -115,7 +114,7 @@ public class m implements k {
                 for (Map.Entry<String, String> entry : this.rn.entrySet()) {
                     arrayList.add(a(str2, entry.getKey(), new File(entry.getValue()).getName(), j.ar(entry.getValue()), false));
                     arrayList.add(new FileInputStream(entry.getValue()));
-                    str2 = Part.CRLF;
+                    str2 = "\r\n";
                 }
                 str = str2;
             }
@@ -126,13 +125,13 @@ public class m implements k {
                 for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
                     arrayList.add(a(str3, entry2.getKey(), valueOf + i2 + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "application/octet-stream", true));
                     arrayList.add(new ByteArrayInputStream(entry2.getValue()));
-                    str3 = Part.CRLF;
+                    str3 = "\r\n";
                     i2++;
                 }
                 str = str3;
             }
             if (!this.rn.isEmpty() || !this.ro.isEmpty()) {
-                arrayList.add(new ByteArrayInputStream((str + "--" + this.rm + "--" + Part.CRLF).getBytes(this.qI)));
+                arrayList.add(new ByteArrayInputStream((str + "--" + this.rm + "--\r\n").getBytes(this.qI)));
             }
             return (InputStream[]) arrayList.toArray(new InputStream[arrayList.size()]);
         }
@@ -147,14 +146,14 @@ public class m implements k {
         StringBuilder sb = this.qJ;
         sb.append("--");
         sb.append(this.rm);
-        sb.append(Part.CRLF);
+        sb.append("\r\n");
         StringBuilder sb2 = this.qJ;
         sb2.append("Content-Disposition: form-data; name=\"");
         sb2.append(j.a(str, this.qI));
         sb2.append("\"\r\n");
-        this.qJ.append(Part.CRLF);
+        this.qJ.append("\r\n");
         this.qJ.append(j.a(str2, this.qI));
-        this.qJ.append(Part.CRLF);
+        this.qJ.append("\r\n");
     }
 
     public String getBoundary() {

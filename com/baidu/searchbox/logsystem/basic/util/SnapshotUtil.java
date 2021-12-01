@@ -6,7 +6,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -32,14 +31,14 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SnapshotUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FILE_PATH_NAME_PARAMETER_DIVIDER = "=";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.util.SnapshotUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType;
         public static /* synthetic */ Interceptable $ic;
@@ -281,7 +280,7 @@ public class SnapshotUtil {
     public static Set<LogFile> obtainProcessSnapShots(@NonNull Context context, @NonNull Set<ProcessSnapshotType> set, @NonNull File file, @NonNull String str, @NonNull LogExtra logExtra) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, set, file, str, logExtra)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, context, set, file, str, logExtra)) == null) {
             HashSet hashSet = new HashSet(5);
             for (ProcessSnapshotType processSnapshotType : set) {
                 if (processSnapshotType == ProcessSnapshotType.PROCESS_SMAPS) {
@@ -347,7 +346,7 @@ public class SnapshotUtil {
         InterceptResult invokeLLLLL;
         boolean saveFragmentSnapshot;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, context, forwardingProcessEventSceneHandler, eventObject, file, str)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, null, context, forwardingProcessEventSceneHandler, eventObject, file, str)) == null) {
             File file2 = new File(file, str);
             if (Utility.createNewEmptyFile(file2)) {
                 try {

@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BdNetTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -52,7 +51,7 @@ public class BdNetTask implements INoProGuard {
     public b mTaskPriority;
     public String mUrl;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,24 +104,22 @@ public class BdNetTask implements INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final b f62030a;
+        public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f62031b;
+        public static final b f54364b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f62032c;
+        public static final b f54365c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f62033d;
+        public static final b f54366d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f62034e;
+        public static final /* synthetic */ b[] f54367e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,12 +135,12 @@ public class BdNetTask implements INoProGuard {
                     return;
                 }
             }
-            f62030a = new b("PRIORITY_HIGHER", 0);
-            f62031b = new b("PRIORITY_NORMAL", 1);
-            f62032c = new b("PRIORITY_LOWER", 2);
+            a = new b("PRIORITY_HIGHER", 0);
+            f54364b = new b("PRIORITY_NORMAL", 1);
+            f54365c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f62033d = bVar;
-            f62034e = new b[]{f62030a, f62031b, f62032c, bVar};
+            f54366d = bVar;
+            f54367e = new b[]{a, f54364b, f54365c, bVar};
         }
 
         public b(String str, int i2) {
@@ -174,7 +171,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f62034e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f54367e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -217,7 +214,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f62031b;
+        this.mTaskPriority = b.f54364b;
     }
 
     private void clearForRecycle() {
@@ -268,7 +265,7 @@ public class BdNetTask implements INoProGuard {
     public static synchronized BdNetTask obtain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (BdNetTask.class) {
                 if (sTaskPool.size() > 0) {
                     try {
@@ -287,7 +284,7 @@ public class BdNetTask implements INoProGuard {
     public static BdNetTask obtain(BdNet bdNet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bdNet)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bdNet)) == null) {
             BdNetTask obtain = obtain();
             obtain.setNet(bdNet);
             return obtain;
@@ -467,7 +464,7 @@ public class BdNetTask implements INoProGuard {
     public boolean isHigherPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.f62030a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTaskPriority == b.a : invokeV.booleanValue;
     }
 
     public boolean isRedirect() {

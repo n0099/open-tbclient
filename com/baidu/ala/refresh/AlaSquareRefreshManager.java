@@ -3,13 +3,12 @@ package com.baidu.ala.refresh;
 import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareRefreshManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class AlaSquareRefreshManager {
 
     private void createPageRefreshRunnables() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             long[] jArr = this.mPageRefreshInterval;
             int length = jArr.length;
             this.mPageRefreshRunnables = new RefreshRunnable[jArr.length];
@@ -57,7 +56,7 @@ public class AlaSquareRefreshManager {
     private long getTimeByIndex(long[] jArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, jArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, jArr, i2)) == null) {
             if (jArr == null || i2 < 0 || jArr.length <= i2) {
                 return -1L;
             }
@@ -134,7 +133,7 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class RefreshRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,12 +141,12 @@ public class AlaSquareRefreshManager {
         public long mInterval;
         public final /* synthetic */ AlaSquareRefreshManager this$0;
 
-        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i2, long j) {
+        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i2), Long.valueOf(j)};
+                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i2), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -161,7 +160,7 @@ public class AlaSquareRefreshManager {
             this.mIndex = 0;
             this.mInterval = 0L;
             this.mIndex = i2;
-            this.mInterval = j;
+            this.mInterval = j2;
         }
 
         public void post() {
@@ -192,13 +191,13 @@ public class AlaSquareRefreshManager {
             }
         }
 
-        public void postDelay(long j) {
+        public void postDelay(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mInterval <= 0) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || this.mInterval <= 0) {
                 return;
             }
             this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.postDelayed(this, j);
+            this.this$0.mHandler.postDelayed(this, j2);
         }
     }
 }

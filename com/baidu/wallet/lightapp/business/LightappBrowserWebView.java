@@ -13,19 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.base.LightappWebView;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LightappBrowserWebView extends LightappWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f59809a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59810b;
+    public int f52955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59811c;
+    public int f52956c;
     public boolean isTop;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,9 +44,9 @@ public class LightappBrowserWebView extends LightappWebView {
                 return;
             }
         }
-        this.f59809a = LightappBrowserWebView.class.getSimpleName();
-        this.f59810b = -1;
-        this.f59811c = -1;
+        this.a = LightappBrowserWebView.class.getSimpleName();
+        this.f52955b = -1;
+        this.f52956c = -1;
         this.isTop = true;
     }
 
@@ -71,7 +69,7 @@ public class LightappBrowserWebView extends LightappWebView {
     private boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f59810b > 0 && this.f59811c > 0 && a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f52955b > 0 && this.f52956c > 0 && a() : invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
@@ -81,18 +79,18 @@ public class LightappBrowserWebView extends LightappWebView {
             super.onMeasure(i2, i3);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            if (this.f59810b < 0 && measuredWidth > 0) {
-                this.f59810b = measuredWidth;
+            if (this.f52955b < 0 && measuredWidth > 0) {
+                this.f52955b = measuredWidth;
             }
-            if (this.f59811c < 0 && measuredHeight > 10) {
-                this.f59811c = measuredHeight;
+            if (this.f52956c < 0 && measuredHeight > 10) {
+                this.f52956c = measuredHeight;
             }
-            String str = this.f59809a;
+            String str = this.a;
             LogUtil.d(str, "onMeasure current:(" + measuredWidth + "," + measuredHeight + SmallTailInfo.EMOTION_SUFFIX);
             if (b()) {
-                String str2 = this.f59809a;
-                LogUtil.d(str2, "onMeasure force to:(" + this.f59810b + "," + this.f59811c + SmallTailInfo.EMOTION_SUFFIX);
-                setMeasuredDimension(this.f59810b, this.f59811c);
+                String str2 = this.a;
+                LogUtil.d(str2, "onMeasure force to:(" + this.f52955b + "," + this.f52956c + SmallTailInfo.EMOTION_SUFFIX);
+                setMeasuredDimension(this.f52955b, this.f52956c);
             }
         }
     }

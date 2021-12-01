@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetChargeOrderStatusResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,17 +85,17 @@ public class GetChargeOrderStatusResult {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.finish : invokeV.booleanValue;
     }
 
-    public void setAmount(long j) {
+    public void setAmount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.amount = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.amount = j2;
         }
     }
 
-    public void setCurrencyAmount(long j) {
+    public void setCurrencyAmount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.currencyAmount = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.currencyAmount = j2;
         }
     }
 
@@ -143,12 +143,12 @@ public class GetChargeOrderStatusResult {
         return (String) invokeV.objValue;
     }
 
-    public GetChargeOrderStatusResult(String str, int i2, String str2, int i3, int i4, long j, long j2, boolean z, List<GiftBagsInfo> list) {
+    public GetChargeOrderStatusResult(String str, int i2, String str2, int i3, int i4, long j2, long j3, boolean z, List<GiftBagsInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), list};
+            Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), list};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -164,8 +164,8 @@ public class GetChargeOrderStatusResult {
         this.message = str2;
         this.hasGotSalePromotion = i3;
         this.currencyType = i4;
-        this.amount = j;
-        this.currencyAmount = j2;
+        this.amount = j2;
+        this.currencyAmount = j3;
         this.finish = z;
         this.giftbags = list;
     }

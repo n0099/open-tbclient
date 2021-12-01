@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f35543e;
+    public View f31975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NestedScrollAcceptedListener f35544f;
+    public NestedScrollAcceptedListener f31976f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface NestedScrollAcceptedListener {
         void onNestedScrollAccepted(boolean z);
     }
@@ -52,7 +52,7 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f35543e;
+            View view = this.f31975e;
             if (view == null) {
                 return true;
             }
@@ -64,22 +64,22 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public void clearTargetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35543e = null;
+            this.f31975e = null;
         }
     }
 
     public boolean hasTargetView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35543e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31975e != null : invokeV.booleanValue;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout, androidx.core.view.NestedScrollingParent2
     public void onNestedScrollAccepted(View view, View view2, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048579, this, view, view2, i2, i3) == null) {
-            this.f35543e = view2;
-            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f35544f;
+            this.f31975e = view2;
+            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f31976f;
             if (nestedScrollAcceptedListener != null) {
                 nestedScrollAcceptedListener.onNestedScrollAccepted(canDrag());
             }
@@ -90,7 +90,7 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public void setListener(NestedScrollAcceptedListener nestedScrollAcceptedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nestedScrollAcceptedListener) == null) {
-            this.f35544f = nestedScrollAcceptedListener;
+            this.f31976f = nestedScrollAcceptedListener;
         }
     }
 

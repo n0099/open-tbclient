@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.fsg.face.base.b.c;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.SapiOptions;
@@ -22,6 +21,7 @@ import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.utils.FileUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
+import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SapiCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, SoftReference<String>> cache;
@@ -53,7 +53,7 @@ public final class SapiCache {
     public final List<String> newModuleIds;
     public final List<String> oldModuleIds;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface LoadModuleEventListener {
         void onFailure(SapiOptions.Cache.Module module);
 
@@ -96,7 +96,7 @@ public final class SapiCache {
     /* JADX INFO: Access modifiers changed from: private */
     public void initSomeSwitch(SapiOptions sapiOptions) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sapiOptions) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, sapiOptions) == null) {
             SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
             new FaceLoginService().syncFaceLoginUID(this.context, null);
             resetFileExecPer(sapiOptions.resetFileExecPer);
@@ -109,8 +109,8 @@ public final class SapiCache {
     /* JADX INFO: Access modifiers changed from: private */
     public void reportDi() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            String deviceInfo = SapiDeviceInfo.getDeviceInfo("/static/appsapi/conf/android-conf.txt");
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
             if (TextUtils.isEmpty(deviceInfo)) {
                 return;
             }
@@ -503,7 +503,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f38604g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f34512g + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }
@@ -633,12 +633,11 @@ public final class SapiCache {
     public void syncCache(SapiOptions sapiOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, sapiOptions) == null) {
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            String str = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + "/static/appsapi/conf/android-conf.txt";
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("If-None-Match", SapiContext.getInstance().getString(SapiContext.KEY_CONFIG_FILE_ETAG));
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             try {
-                new HttpClientWrap().get(str, ReqPriority.IMMEDIATE, httpHashMapWrap, hashMap, null, null, 0, new HttpHandlerWrap(this, true, sapiOptions) { // from class: com.baidu.sapi2.SapiCache.3
+                new HttpClientWrap().post(SapiAccountManager.getInstance().getSapiConfiguration().environment.getWap() + SapiEnv.SAPI_CONFIG_HTTPS_URI, ReqPriority.IMMEDIATE, httpHashMapWrap, hashMap, null, null, new HttpHandlerWrap(this, true, sapiOptions) { // from class: com.baidu.sapi2.SapiCache.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SapiCache this$0;
@@ -667,18 +666,30 @@ public final class SapiCache {
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onFailure(Throwable th, int i2, String str2) {
+                    public void onFailure(Throwable th, int i2, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str) == null) {
                             this.this$0.initSomeSwitch(this.val$oldSapiOptions);
                             this.this$0.reportDi();
                         }
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i2, String str2, HashMap<String, String> hashMap2) {
+                    public void onSuccess(int i2, String str, HashMap<String, String> hashMap2) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2, hashMap2) == null) || str2 == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap2) == null) || str == null) {
+                            return;
+                        }
+                        int i3 = -1;
+                        String str2 = null;
+                        try {
+                            JSONObject jSONObject = new JSONObject(str);
+                            i3 = jSONObject.optInt("errno");
+                            str2 = jSONObject.optString("data");
+                        } catch (JSONException e2) {
+                            Log.e(e2);
+                        }
+                        if (i3 != 0 || TextUtils.isEmpty(str2)) {
                             return;
                         }
                         this.this$0.handleOptions(str2, this.val$oldSapiOptions);

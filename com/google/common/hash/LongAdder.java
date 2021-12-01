@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.d.i;
+import c.i.d.d.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class LongAdder extends Striped64 implements Serializable, i {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7249069246863182397L;
@@ -51,29 +51,29 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         }
     }
 
-    @Override // b.h.d.d.i
-    public void add(long j) {
+    @Override // c.i.d.d.i
+    public void add(long j2) {
         int length;
         Striped64.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             Striped64.b[] bVarArr = this.cells;
             if (bVarArr == null) {
-                long j2 = this.base;
-                if (casBase(j2, j2 + j)) {
+                long j3 = this.base;
+                if (casBase(j3, j3 + j2)) {
                     return;
                 }
             }
             int[] iArr = Striped64.threadHashCode.get();
             boolean z = true;
             if (iArr != null && bVarArr != null && (length = bVarArr.length) >= 1 && (bVar = bVarArr[(length - 1) & iArr[0]]) != null) {
-                long j3 = bVar.f64565a;
-                z = bVar.a(j3, j3 + j);
+                long j4 = bVar.a;
+                z = bVar.a(j4, j4 + j2);
                 if (z) {
                     return;
                 }
             }
-            retryUpdate(j, iArr, z);
+            retryUpdate(j2, iArr, z);
         }
     }
 
@@ -99,13 +99,13 @@ public final class LongAdder extends Striped64 implements Serializable, i {
     }
 
     @Override // com.google.common.hash.Striped64
-    public final long fn(long j, long j2) {
+    public final long fn(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j + j2 : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 + j3 : invokeCommon.longValue;
     }
 
-    @Override // b.h.d.d.i
+    @Override // c.i.d.d.i
     public void increment() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -134,21 +134,21 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         }
     }
 
-    @Override // b.h.d.d.i
+    @Override // c.i.d.d.i
     public long sum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            long j = this.base;
+            long j2 = this.base;
             Striped64.b[] bVarArr = this.cells;
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f64565a;
+                        j2 += bVar.a;
                     }
                 }
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -157,18 +157,18 @@ public final class LongAdder extends Striped64 implements Serializable, i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            long j = this.base;
+            long j2 = this.base;
             Striped64.b[] bVarArr = this.cells;
             this.base = 0L;
             if (bVarArr != null) {
                 for (Striped64.b bVar : bVarArr) {
                     if (bVar != null) {
-                        j += bVar.f64565a;
-                        bVar.f64565a = 0L;
+                        j2 += bVar.a;
+                        bVar.a = 0L;
                     }
                 }
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

@@ -6,7 +6,6 @@ import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +82,7 @@ public class WebRtcAudioManager {
     public static int getMinOutputFrameSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
         }
         return invokeII.intValue;
@@ -93,7 +92,7 @@ public class WebRtcAudioManager {
     public static int getOutputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, null, context, audioManager, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, context, audioManager, i2, i3)) == null) {
             if (isLowLatencyOutputSupported(context)) {
                 return getLowLatencyFramesPerBuffer(audioManager);
             }

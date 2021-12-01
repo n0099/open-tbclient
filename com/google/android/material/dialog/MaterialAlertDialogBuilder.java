@@ -27,7 +27,6 @@ import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +39,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static /* synthetic */ Interceptable $ic;
     @AttrRes
@@ -122,7 +121,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     public static int getOverridingThemeResId(@NonNull Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) ? i2 == 0 ? getMaterialAlertDialogThemeOverlay(context) : i2 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? i2 == 0 ? getMaterialAlertDialogThemeOverlay(context) : i2 : invokeLI.intValue;
     }
 
     @Override // androidx.appcompat.app.AlertDialog.Builder

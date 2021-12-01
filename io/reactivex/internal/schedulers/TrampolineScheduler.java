@@ -18,13 +18,13 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TrampolineScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final TrampolineScheduler INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SleepingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public final class TrampolineScheduler extends Scheduler {
         public final Runnable run;
         public final TrampolineWorker worker;
 
-        public SleepingRunnable(Runnable runnable, TrampolineWorker trampolineWorker, long j) {
+        public SleepingRunnable(Runnable runnable, TrampolineWorker trampolineWorker, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, trampolineWorker, Long.valueOf(j)};
+                Object[] objArr = {runnable, trampolineWorker, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,7 +49,7 @@ public final class TrampolineScheduler extends Scheduler {
             }
             this.run = runnable;
             this.worker = trampolineWorker;
-            this.execTime = j;
+            this.execTime = j2;
         }
 
         @Override // java.lang.Runnable
@@ -59,10 +59,10 @@ public final class TrampolineScheduler extends Scheduler {
                 return;
             }
             long now = this.worker.now(TimeUnit.MILLISECONDS);
-            long j = this.execTime;
-            if (j > now) {
+            long j2 = this.execTime;
+            if (j2 > now) {
                 try {
-                    Thread.sleep(j - now);
+                    Thread.sleep(j2 - now);
                 } catch (InterruptedException e2) {
                     Thread.currentThread().interrupt();
                     RxJavaPlugins.onError(e2);
@@ -76,7 +76,7 @@ public final class TrampolineScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class TrampolineScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TrampolineWorker extends Scheduler.Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public final class TrampolineScheduler extends Scheduler {
         public final PriorityBlockingQueue<TimedRunnable> queue;
         public final AtomicInteger wip;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class AppendToQueueTask implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -189,14 +189,14 @@ public final class TrampolineScheduler extends Scheduler {
             }
         }
 
-        public Disposable enqueue(Runnable runnable, long j) {
+        public Disposable enqueue(Runnable runnable, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2)) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
-                TimedRunnable timedRunnable = new TimedRunnable(runnable, Long.valueOf(j), this.counter.incrementAndGet());
+                TimedRunnable timedRunnable = new TimedRunnable(runnable, Long.valueOf(j2), this.counter.incrementAndGet());
                 this.queue.add(timedRunnable);
                 if (this.wip.getAndIncrement() == 0) {
                     int i2 = 1;
@@ -236,11 +236,11 @@ public final class TrampolineScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-                long now = now(TimeUnit.MILLISECONDS) + timeUnit.toMillis(j);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+                long now = now(TimeUnit.MILLISECONDS) + timeUnit.toMillis(j2);
                 return enqueue(new SleepingRunnable(runnable, this, now), now);
             }
             return (Disposable) invokeCommon.objValue;
@@ -305,12 +305,12 @@ public final class TrampolineScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
             try {
-                timeUnit.sleep(j);
+                timeUnit.sleep(j2);
                 RxJavaPlugins.onSchedule(runnable).run();
             } catch (InterruptedException e2) {
                 Thread.currentThread().interrupt();

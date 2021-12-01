@@ -1,7 +1,6 @@
 package com.qq.e.comm.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +88,7 @@ public class StringUtil {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             BufferedReader bufferedReader2 = null;
             if (file == null || !file.exists()) {
                 return null;
@@ -143,7 +142,7 @@ public class StringUtil {
 
     public static void writeTo(String str, File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, file) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, file) == null) {
             if (file == null) {
                 throw new IOException("Target File Can not be null in StringUtil.writeTo");
             }

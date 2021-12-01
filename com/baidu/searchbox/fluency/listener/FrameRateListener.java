@@ -20,7 +20,7 @@ import kotlin.Unit;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0016\u0018\u0000 #:\u0002#$B\u0007¢\u0006\u0004\b!\u0010\"JO\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u0003H\u0017¢\u0006\u0004\b\u000e\u0010\u000fJO\u0010\u0011\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u00032\u0006\u0010\u0010\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0011\u0010\u000fJO\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u00032\u0006\u0010\u0010\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0012\u0010\u000fJ\u001d\u0010\u0016\u001a\u00020\r2\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00140\u0013H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u0011\u0010\u0019\u001a\u0004\u0018\u00010\u0018H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001b\u0010\u001cR\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001d\u0010\u001eR\u001c\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00140\u001f8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010 ¨\u0006%"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener;", "", "topPage", "", "startNs", "endNs", "", "dropFrames", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "", "collect", "(Ljava/lang/String;JJIZJJJ)V", "dropFrame", "doFrameAsync", "doFrameSync", "", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "frameList", "doReplay", "(Ljava/util/List;)V", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "getIntervalFrameReplay", "()I", "executor", "Ljava/util/concurrent/Executor;", "Ljava/util/LinkedList;", "Ljava/util/LinkedList;", "<init>", "()V", "Companion", "FrameReplay", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrameRateListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Companion Companion;
@@ -30,7 +30,7 @@ public class FrameRateListener {
     public final LinkedList<FrameReplay> frameList;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$Companion;", "Ljava/util/LinkedList;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "framePool", "Ljava/util/LinkedList;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class FrameRateListener {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\f\u0018\u0000 ,:\u0001,B\u0007¢\u0006\u0004\b+\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\"\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\"\u0010\u0012\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0006\u001a\u0004\b\u0013\u0010\b\"\u0004\b\u0014\u0010\nR\"\u0010\u0015\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0006\u001a\u0004\b\u0016\u0010\b\"\u0004\b\u0017\u0010\nR\"\u0010\u0019\u001a\u00020\u00188\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\u001a\u001a\u0004\b\u0019\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\"\u0010\u001e\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u0006\u001a\u0004\b\u001f\u0010\b\"\u0004\b \u0010\nR\"\u0010\"\u001a\u00020!8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'R\"\u0010(\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010\u0006\u001a\u0004\b)\u0010\b\"\u0004\b*\u0010\n¨\u0006-"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "", "recycle", "()V", "", "animationCostNs", "J", "getAnimationCostNs", "()J", "setAnimationCostNs", "(J)V", "", "dropFrame", "I", "getDropFrame", "()I", "setDropFrame", "(I)V", "endNs", "getEndNs", "setEndNs", "inputCostNs", "getInputCostNs", "setInputCostNs", "", "isVsyncFrame", "Z", "()Z", "setVsyncFrame", "(Z)V", "startNs", "getStartNs", "setStartNs", "", "topPage", "Ljava/lang/String;", "getTopPage", "()Ljava/lang/String;", "setTopPage", "(Ljava/lang/String;)V", "traversalCostNs", "getTraversalCostNs", "setTraversalCostNs", "<init>", "Companion", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class FrameReplay {
         public static /* synthetic */ Interceptable $ic;
         public static final Companion Companion;
@@ -70,7 +70,7 @@ public class FrameRateListener {
         public long traversalCostNs;
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay$Companion;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "create", "()Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static final class Companion {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -210,10 +210,10 @@ public class FrameRateListener {
             }
         }
 
-        public final void setAnimationCostNs(long j) {
+        public final void setAnimationCostNs(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                this.animationCostNs = j;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                this.animationCostNs = j2;
             }
         }
 
@@ -224,24 +224,24 @@ public class FrameRateListener {
             }
         }
 
-        public final void setEndNs(long j) {
+        public final void setEndNs(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                this.endNs = j;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                this.endNs = j2;
             }
         }
 
-        public final void setInputCostNs(long j) {
+        public final void setInputCostNs(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-                this.inputCostNs = j;
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+                this.inputCostNs = j2;
             }
         }
 
-        public final void setStartNs(long j) {
+        public final void setStartNs(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.startNs = j;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.startNs = j2;
             }
         }
 
@@ -253,10 +253,10 @@ public class FrameRateListener {
             }
         }
 
-        public final void setTraversalCostNs(long j) {
+        public final void setTraversalCostNs(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-                this.traversalCostNs = j;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+                this.traversalCostNs = j2;
             }
         }
 
@@ -302,19 +302,19 @@ public class FrameRateListener {
     }
 
     @CallSuper
-    public void collect(String topPage, long j, long j2, int i2, boolean z, long j3, long j4, long j5) {
+    public void collect(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
             FrameReplay create = FrameReplay.Companion.create();
             create.setTopPage(topPage);
-            create.setStartNs(j);
-            create.setEndNs(j2);
+            create.setStartNs(j2);
+            create.setEndNs(j3);
             create.setDropFrame(i2);
             create.setVsyncFrame(z);
-            create.setInputCostNs(j3);
-            create.setAnimationCostNs(j4);
-            create.setTraversalCostNs(j5);
+            create.setInputCostNs(j4);
+            create.setAnimationCostNs(j5);
+            create.setTraversalCostNs(j6);
             this.frameList.add(create);
             if (this.frameList.size() >= getIntervalFrameReplay()) {
                 final LinkedList linkedList = new LinkedList(this.frameList);
@@ -362,16 +362,16 @@ public class FrameRateListener {
         }
     }
 
-    public void doFrameAsync(String topPage, long j, long j2, int i2, boolean z, long j3, long j4, long j5) {
+    public void doFrameAsync(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
     }
 
-    public void doFrameSync(String topPage, long j, long j2, int i2, boolean z, long j3, long j4, long j5) {
+    public void doFrameSync(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
     }

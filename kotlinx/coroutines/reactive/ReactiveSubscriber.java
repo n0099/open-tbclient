@@ -17,8 +17,8 @@ public final class ReactiveSubscriber<T> implements Subscriber<T> {
     public final long requestSize;
     public Subscription subscription;
 
-    public ReactiveSubscriber(int i2, long j) {
-        this.requestSize = j;
+    public ReactiveSubscriber(int i2, long j2) {
+        this.requestSize = j2;
         this.channel = kotlinx.coroutines.channels.ChannelKt.Channel(i2);
     }
 

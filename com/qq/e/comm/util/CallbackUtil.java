@@ -13,9 +13,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class CallbackUtil {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Boolean> f68996a;
+    public static final Map<String, Boolean> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +29,7 @@ public class CallbackUtil {
                 return;
             }
         }
-        f68996a = new HashMap();
+        a = new HashMap();
     }
 
     public CallbackUtil() {
@@ -66,14 +64,14 @@ public class CallbackUtil {
                 }
                 sb = sb2.toString();
             }
-            Boolean bool = f68996a.get(sb);
+            Boolean bool = a.get(sb);
             if (bool == null) {
                 try {
                     cls.getDeclaredMethod(str, clsArr);
-                    f68996a.put(sb, Boolean.TRUE);
+                    a.put(sb, Boolean.TRUE);
                     return true;
                 } catch (NoSuchMethodException unused) {
-                    f68996a.put(sb, Boolean.FALSE);
+                    a.put(sb, Boolean.FALSE);
                     return false;
                 }
             }

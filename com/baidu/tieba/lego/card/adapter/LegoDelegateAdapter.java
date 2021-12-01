@@ -3,9 +3,9 @@ package com.baidu.tieba.lego.card.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.q1.o.b;
-import b.a.r0.q1.o.g.a;
-import b.a.r0.q1.o.l.e;
+import c.a.r0.w1.o.b;
+import c.a.r0.w1.o.g.a;
+import c.a.r0.w1.o.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public TbPageContext<?> o;
     public ICardInfo p;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,37 +73,37 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: h0 */
-    public View L(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
+    public View E(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, iCardInfo})) == null) {
             this.p = iCardInfo;
-            return super.L(i2, view, viewGroup, iCardInfo);
+            return super.E(i2, view, viewGroup, iCardInfo);
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: i0 */
-    public LegoDelegateViewHolder T(ViewGroup viewGroup) {
+    public LegoDelegateViewHolder S(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            e a2 = b.h().a(this.o, this.p, this.m);
-            if (a2 == null) {
+            e a = b.h().a(this.o, this.p, this.m);
+            if (a == null) {
                 return null;
             }
-            a2.registerListener(this.n);
-            return new LegoDelegateViewHolder(a2);
+            a.registerListener(this.n);
+            return new LegoDelegateViewHolder(a);
         }
         return (LegoDelegateViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: j0 */
     public View Z(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         InterceptResult invokeCommon;
@@ -120,7 +120,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.r0.q1.f
+    @Override // c.a.r0.w1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

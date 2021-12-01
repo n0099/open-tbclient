@@ -14,22 +14,20 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f65078a = 0;
+    public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f65079b = 1;
+    public static int f57096b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f65080c = 2;
+    public static int f57097c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f65081d;
+    public String f57098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65082e;
+    public int f57099e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,9 +59,9 @@ public class g {
                 return;
             }
         }
-        this.f65082e = f65078a;
-        this.f65081d = str;
-        this.f65082e = i2;
+        this.f57099e = a;
+        this.f57098d = str;
+        this.f57099e = i2;
     }
 
     public static JSONArray a(List<g> list) {
@@ -87,8 +85,8 @@ public class g {
         int lastIndexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            String str = this.f65081d;
-            return ((str.startsWith("com.android.") || this.f65081d.startsWith("android.permission")) && (lastIndexOf = this.f65081d.lastIndexOf(".")) < this.f65081d.length() + (-1)) ? this.f65081d.substring(lastIndexOf + 1) : str;
+            String str = this.f57098d;
+            return ((str.startsWith("com.android.") || this.f57098d.startsWith("android.permission")) && (lastIndexOf = this.f57098d.lastIndexOf(".")) < this.f57098d.length() + (-1)) ? this.f57098d.substring(lastIndexOf + 1) : str;
         }
         return (String) invokeV.objValue;
     }
@@ -100,7 +98,7 @@ public class g {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", b());
-                jSONObject.put("state", this.f65082e);
+                jSONObject.put("state", this.f57099e);
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }

@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsLayer implements ILayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +32,7 @@ public abstract class AbsLayer implements ILayer {
     public Handler mHandler;
     public LayerContainer mLayerContainer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public abstract class AbsLayer implements ILayer {
 
     private void sendVideoEvent(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, videoEvent) == null) && isCourierValid()) {
+        if ((interceptable == null || interceptable.invokeL(65541, this, videoEvent) == null) && isCourierValid()) {
             videoEvent.setSender(this);
             this.mCourier.notifyEvent(videoEvent);
         }

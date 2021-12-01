@@ -10,47 +10,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InfoWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BitmapDescriptor f40199a;
+    public BitmapDescriptor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f40200b;
+    public View f35837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f40201c;
+    public LatLng f35838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OnInfoWindowClickListener f40202d;
+    public OnInfoWindowClickListener f35839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f40203e;
+    public a f35840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40204f;
+    public int f35841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40205g;
+    public boolean f35842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40206h;
+    public int f35843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40207i;
-    public boolean j;
-    public boolean k;
+    public boolean f35844i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f35845j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f35846k;
     public String l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(InfoWindow infoWindow);
 
@@ -73,18 +75,18 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f40205g = false;
-        this.f40206h = SysOSUtil.getDensityDpi();
-        this.f40207i = false;
-        this.j = false;
-        this.k = false;
+        this.f35842g = false;
+        this.f35843h = SysOSUtil.getDensityDpi();
+        this.f35844i = false;
+        this.f35845j = false;
+        this.f35846k = false;
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.f40200b = view;
-        this.f40201c = latLng;
-        this.f40204f = i2;
-        this.j = true;
+        this.f35837b = view;
+        this.f35838c = latLng;
+        this.f35841f = i2;
+        this.f35845j = true;
     }
 
     public InfoWindow(View view, LatLng latLng, int i2, boolean z, int i3) {
@@ -103,20 +105,20 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f40205g = false;
-        this.f40206h = SysOSUtil.getDensityDpi();
-        this.f40207i = false;
-        this.j = false;
-        this.k = false;
+        this.f35842g = false;
+        this.f35843h = SysOSUtil.getDensityDpi();
+        this.f35844i = false;
+        this.f35845j = false;
+        this.f35846k = false;
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: view and position can not be null");
         }
-        this.f40200b = view;
-        this.f40201c = latLng;
-        this.f40204f = i2;
-        this.f40205g = z;
-        this.f40206h = i3;
-        this.j = true;
+        this.f35837b = view;
+        this.f35838c = latLng;
+        this.f35841f = i2;
+        this.f35842g = z;
+        this.f35843h = i3;
+        this.f35845j = true;
     }
 
     public InfoWindow(BitmapDescriptor bitmapDescriptor, LatLng latLng, int i2, OnInfoWindowClickListener onInfoWindowClickListener) {
@@ -135,31 +137,31 @@ public class InfoWindow {
             }
         }
         this.l = "";
-        this.f40205g = false;
-        this.f40206h = SysOSUtil.getDensityDpi();
-        this.f40207i = false;
-        this.j = false;
-        this.k = false;
+        this.f35842g = false;
+        this.f35843h = SysOSUtil.getDensityDpi();
+        this.f35844i = false;
+        this.f35845j = false;
+        this.f35846k = false;
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: bitmapDescriptor and position can not be null");
         }
-        this.f40199a = bitmapDescriptor;
-        this.f40201c = latLng;
-        this.f40202d = onInfoWindowClickListener;
-        this.f40204f = i2;
-        this.k = true;
+        this.a = bitmapDescriptor;
+        this.f35838c = latLng;
+        this.f35839d = onInfoWindowClickListener;
+        this.f35841f = i2;
+        this.f35846k = true;
     }
 
     public BitmapDescriptor getBitmapDescriptor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40199a : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (BitmapDescriptor) invokeV.objValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40201c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35838c : (LatLng) invokeV.objValue;
     }
 
     public String getTag() {
@@ -171,13 +173,13 @@ public class InfoWindow {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40200b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35837b : (View) invokeV.objValue;
     }
 
     public int getYOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40204f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35841f : invokeV.intValue;
     }
 
     public void setBitmapDescriptor(BitmapDescriptor bitmapDescriptor) {
@@ -185,8 +187,8 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmapDescriptor) == null) || bitmapDescriptor == null) {
             return;
         }
-        this.f40199a = bitmapDescriptor;
-        this.f40203e.b(this);
+        this.a = bitmapDescriptor;
+        this.f35840e.b(this);
     }
 
     public void setPosition(LatLng latLng) {
@@ -194,8 +196,8 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, latLng) == null) || latLng == null) {
             return;
         }
-        this.f40201c = latLng;
-        this.f40203e.b(this);
+        this.f35838c = latLng;
+        this.f35840e.b(this);
     }
 
     public void setTag(String str) {
@@ -210,15 +212,15 @@ public class InfoWindow {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null) {
             return;
         }
-        this.f40200b = view;
-        this.f40203e.b(this);
+        this.f35837b = view;
+        this.f35840e.b(this);
     }
 
     public void setYOffset(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f40204f = i2;
-            this.f40203e.b(this);
+            this.f35841f = i2;
+            this.f35840e.b(this);
         }
     }
 }

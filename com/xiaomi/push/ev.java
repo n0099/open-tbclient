@@ -11,40 +11,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushClient;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ev {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ev f71816a;
+    public static final ev a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ev[] f344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ev f71817b;
+    public static final ev f62847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ev f71818c;
+    public static final ev f62848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ev f71819d;
+    public static final ev f62849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ev f71820e;
+    public static final ev f62850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ev f71821f;
+    public static final ev f62851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ev f71822g;
+    public static final ev f62852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ev f71823h;
+    public static final ev f62853h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ev f71824i;
-    public static final ev j;
+    public static final ev f62854i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final ev f62855j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -63,18 +63,18 @@ public final class ev {
                 return;
             }
         }
-        f71816a = new ev("COMMAND_REGISTER", 0, "register");
-        f71817b = new ev("COMMAND_UNREGISTER", 1, "unregister");
-        f71818c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
-        f71819d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
-        f71820e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
-        f71821f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
-        f71822g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
-        f71823h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
-        f71824i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
+        a = new ev("COMMAND_REGISTER", 0, MiPushClient.COMMAND_REGISTER);
+        f62847b = new ev("COMMAND_UNREGISTER", 1, MiPushClient.COMMAND_UNREGISTER);
+        f62848c = new ev("COMMAND_SET_ALIAS", 2, MiPushClient.COMMAND_SET_ALIAS);
+        f62849d = new ev("COMMAND_UNSET_ALIAS", 3, MiPushClient.COMMAND_UNSET_ALIAS);
+        f62850e = new ev("COMMAND_SET_ACCOUNT", 4, MiPushClient.COMMAND_SET_ACCOUNT);
+        f62851f = new ev("COMMAND_UNSET_ACCOUNT", 5, MiPushClient.COMMAND_UNSET_ACCOUNT);
+        f62852g = new ev("COMMAND_SUBSCRIBE_TOPIC", 6, MiPushClient.COMMAND_SUBSCRIBE_TOPIC);
+        f62853h = new ev("COMMAND_UNSUBSCRIBE_TOPIC", 7, MiPushClient.COMMAND_UNSUBSCRIBE_TOPIC);
+        f62854i = new ev("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
         ev evVar = new ev("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
-        j = evVar;
-        f344a = new ev[]{f71816a, f71817b, f71818c, f71819d, f71820e, f71821f, f71822g, f71823h, f71824i, evVar};
+        f62855j = evVar;
+        f344a = new ev[]{a, f62847b, f62848c, f62849d, f62850e, f62851f, f62852g, f62853h, f62854i, evVar};
     }
 
     public ev(String str, int i2, String str2) {

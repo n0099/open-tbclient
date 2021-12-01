@@ -30,16 +30,14 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class a implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Handler f60203a;
+    public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NewBindCardMainActivity f60204b;
+    public NewBindCardMainActivity f53213b;
 
     public a(NewBindCardMainActivity newBindCardMainActivity) {
         Interceptable interceptable = $ic;
@@ -56,17 +54,17 @@ public abstract class a implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f60204b = newBindCardMainActivity;
+        this.f53213b = newBindCardMainActivity;
     }
 
     private Handler l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f60203a == null) {
-                this.f60203a = new Handler(this.f60204b.getMainLooper());
+            if (this.a == null) {
+                this.a = new Handler(this.f53213b.getMainLooper());
             }
-            return this.f60203a;
+            return this.a;
         }
         return (Handler) invokeV.objValue;
     }
@@ -104,14 +102,14 @@ public abstract class a implements IBeanResponseCallback {
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (i2 == 1) {
-            color = ResUtils.getColor(this.f60204b, "wallet_cashdesk_new_bind_card_2222");
-            dimension = ResUtils.getDimension(this.f60204b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
+            color = ResUtils.getColor(this.f53213b, "wallet_cashdesk_new_bind_card_2222");
+            dimension = ResUtils.getDimension(this.f53213b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
         } else if (i2 == 2) {
-            color = ResUtils.getColor(this.f60204b, "wallet_cashdesk_new_bind_card_5050");
-            dimension = ResUtils.getDimension(this.f60204b, "wallet_cashdesk_new_bind_card_line_error_size");
+            color = ResUtils.getColor(this.f53213b, "wallet_cashdesk_new_bind_card_5050");
+            dimension = ResUtils.getDimension(this.f53213b, "wallet_cashdesk_new_bind_card_line_error_size");
         } else {
-            color = ResUtils.getColor(this.f60204b, "wallet_cashdesk_new_bind_card_E0EA");
-            dimension = ResUtils.getDimension(this.f60204b, "wallet_cashdesk_new_bind_card_line_size");
+            color = ResUtils.getColor(this.f53213b, "wallet_cashdesk_new_bind_card_E0EA");
+            dimension = ResUtils.getDimension(this.f53213b, "wallet_cashdesk_new_bind_card_line_size");
         }
         int i3 = (int) dimension;
         view.setBackgroundColor(color);
@@ -146,7 +144,7 @@ public abstract class a implements IBeanResponseCallback {
             return;
         }
         imageView.setImageResource(R.drawable.wallet_cashdesk_new_bind_card_tip_icon);
-        imageView.setOnClickListener(this.f60204b);
+        imageView.setOnClickListener(this.f53213b);
     }
 
     public abstract void d();
@@ -164,12 +162,12 @@ public abstract class a implements IBeanResponseCallback {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            Handler handler = this.f60203a;
+            Handler handler = this.a;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                this.f60203a = null;
+                this.a = null;
             }
-            this.f60204b = null;
+            this.f53213b = null;
         }
     }
 
@@ -186,18 +184,16 @@ public abstract class a implements IBeanResponseCallback {
             l().post(new Runnable(this, i2, i3, str) { // from class: com.baidu.wallet.newbindcard.b.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60209a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f60210b;
+                public final /* synthetic */ int f53217b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60211c;
+                public final /* synthetic */ String f53218c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f60212d;
+                public final /* synthetic */ a f53219d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -214,17 +210,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f60212d = this;
-                    this.f60209a = i2;
-                    this.f60210b = i3;
-                    this.f60211c = str;
+                    this.f53219d = this;
+                    this.a = i2;
+                    this.f53217b = i3;
+                    this.f53218c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60212d.a(this.f60209a, this.f60210b, this.f60211c);
+                        this.f53219d.a(this.a, this.f53217b, this.f53218c);
                     }
                 }
             });
@@ -238,18 +234,16 @@ public abstract class a implements IBeanResponseCallback {
             l().post(new Runnable(this, i2, obj, str) { // from class: com.baidu.wallet.newbindcard.b.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60205a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f60206b;
+                public final /* synthetic */ Object f53214b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60207c;
+                public final /* synthetic */ String f53215c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f60208d;
+                public final /* synthetic */ a f53216d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -266,17 +260,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f60208d = this;
-                    this.f60205a = i2;
-                    this.f60206b = obj;
-                    this.f60207c = str;
+                    this.f53216d = this;
+                    this.a = i2;
+                    this.f53214b = obj;
+                    this.f53215c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60208d.a(this.f60205a, this.f60206b, this.f60207c);
+                        this.f53216d.a(this.a, this.f53214b, this.f53215c);
                     }
                 }
             });
@@ -292,12 +286,10 @@ public abstract class a implements IBeanResponseCallback {
         imageView.setOnClickListener(new View.OnClickListener(this, safeKeyBoardEditText) { // from class: com.baidu.wallet.newbindcard.b.a.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SafeKeyBoardEditText f60213a;
+            public final /* synthetic */ SafeKeyBoardEditText a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f60214b;
+            public final /* synthetic */ a f53220b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -314,15 +306,15 @@ public abstract class a implements IBeanResponseCallback {
                         return;
                     }
                 }
-                this.f60214b = this;
-                this.f60213a = safeKeyBoardEditText;
+                this.f53220b = this;
+                this.a = safeKeyBoardEditText;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f60213a.setText("");
+                    this.a.setText("");
                 }
             }
         });

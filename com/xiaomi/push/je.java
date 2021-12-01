@@ -5,12 +5,10 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class je {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f72257a = Integer.MAX_VALUE;
+    public static int a = Integer.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +29,7 @@ public class je {
     public static void a(jb jbVar, byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{jbVar, Byte.valueOf(b2)}) == null) {
-            a(jbVar, b2, f72257a);
+            a(jbVar, b2, a);
         }
     }
 
@@ -46,13 +44,13 @@ public class je {
         int i3 = 0;
         switch (b2) {
             case 2:
-                jbVar.m532a();
+                jbVar.m581a();
                 return;
             case 3:
                 jbVar.a();
                 return;
             case 4:
-                jbVar.m520a();
+                jbVar.m569a();
                 return;
             case 5:
             case 7:
@@ -60,21 +58,21 @@ public class je {
             default:
                 return;
             case 6:
-                jbVar.m530a();
+                jbVar.m579a();
                 return;
             case 8:
-                jbVar.m521a();
+                jbVar.m570a();
                 return;
             case 10:
-                jbVar.m522a();
+                jbVar.m571a();
                 return;
             case 11:
-                jbVar.m529a();
+                jbVar.m578a();
                 return;
             case 12:
-                jbVar.m527a();
+                jbVar.m576a();
                 while (true) {
-                    byte b3 = jbVar.m523a().f72248a;
+                    byte b3 = jbVar.m572a().a;
                     if (b3 == 0) {
                         jbVar.f();
                         return;
@@ -84,27 +82,27 @@ public class je {
                     }
                 }
             case 13:
-                ja m525a = jbVar.m525a();
-                while (i3 < m525a.f819a) {
+                ja m574a = jbVar.m574a();
+                while (i3 < m574a.f819a) {
                     int i4 = i2 - 1;
-                    a(jbVar, m525a.f72253a, i4);
-                    a(jbVar, m525a.f72254b, i4);
+                    a(jbVar, m574a.a, i4);
+                    a(jbVar, m574a.f63213b, i4);
                     i3++;
                 }
                 jbVar.h();
                 return;
             case 14:
-                jf m526a = jbVar.m526a();
-                while (i3 < m526a.f820a) {
-                    a(jbVar, m526a.f72258a, i2 - 1);
+                jf m575a = jbVar.m575a();
+                while (i3 < m575a.f820a) {
+                    a(jbVar, m575a.a, i2 - 1);
                     i3++;
                 }
                 jbVar.j();
                 return;
             case 15:
-                iz m524a = jbVar.m524a();
-                while (i3 < m524a.f816a) {
-                    a(jbVar, m524a.f72249a, i2 - 1);
+                iz m573a = jbVar.m573a();
+                while (i3 < m573a.f816a) {
+                    a(jbVar, m573a.a, i2 - 1);
                     i3++;
                 }
                 jbVar.i();

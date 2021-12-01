@@ -43,7 +43,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -574,7 +573,7 @@ public class ViewCompat {
         private boolean onUnhandledKeyEvent(@NonNull View view, @NonNull KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, view, keyEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view, keyEvent)) == null) {
                 ArrayList arrayList = (ArrayList) view.getTag(R.id.tag_unhandled_key_listeners);
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
@@ -591,7 +590,7 @@ public class ViewCompat {
 
         private void recalcViewsWithUnhandled() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65542, this) == null) {
                 WeakHashMap<View, Boolean> weakHashMap = this.mViewsContainingListeners;
                 if (weakHashMap != null) {
                     weakHashMap.clear();
@@ -805,7 +804,7 @@ public class ViewCompat {
 
     public static void addKeyboardNavigationClusters(@NonNull View view, @NonNull Collection<View> collection, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, view, collection, i2) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, view, collection, i2) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
         view.addKeyboardNavigationClusters(collection, i2);
@@ -813,7 +812,7 @@ public class ViewCompat {
 
     public static void addOnUnhandledKeyEventListener(@NonNull View view, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, view, onUnhandledKeyEventListenerCompat) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, view, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view.getTag(R.id.tag_unhandled_key_listeners);
                 if (simpleArrayMap == null) {
@@ -2209,13 +2208,13 @@ public class ViewCompat {
         }
     }
 
-    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j) {
+    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j2)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postOnAnimationDelayed(runnable, j);
+                view.postOnAnimationDelayed(runnable, j2);
             } else {
-                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j);
+                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j2);
             }
         }
     }

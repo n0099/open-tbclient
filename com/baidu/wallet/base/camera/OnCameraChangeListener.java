@@ -1,5 +1,5 @@
 package com.baidu.wallet.base.camera;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface OnCameraChangeListener {
     void onCameraClose();
 

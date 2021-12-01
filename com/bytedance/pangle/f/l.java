@@ -18,22 +18,20 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class l implements k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final long f62301a;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f62302b;
+    public final FileDescriptor f54584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f62303c;
+    public final long f54585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f62304d;
+    public final long f54586d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,15 +46,15 @@ public final class l implements k {
                 return;
             }
         }
-        f62301a = Os.sysconf(OsConstants._SC_PAGESIZE);
+        a = Os.sysconf(OsConstants._SC_PAGESIZE);
     }
 
-    public l(FileDescriptor fileDescriptor, long j, long j2) {
+    public l(FileDescriptor fileDescriptor, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fileDescriptor, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -66,16 +64,16 @@ public final class l implements k {
                 return;
             }
         }
-        this.f62302b = fileDescriptor;
-        this.f62303c = j;
-        this.f62304d = j2;
+        this.f54584b = fileDescriptor;
+        this.f54585c = j2;
+        this.f54586d = j3;
     }
 
     @Override // com.bytedance.pangle.f.k
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62304d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54586d : invokeV.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x00cd A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -87,19 +85,19 @@ public final class l implements k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void a(j jVar, long j, int i2) {
+    public final void a(j jVar, long j2, int i2) {
         int intValue;
         long mmap;
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j), Integer.valueOf(i2)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j2), Integer.valueOf(i2)}) != null) {
             return;
         }
-        long j2 = this.f62303c + j;
-        long j3 = f62301a;
-        long j4 = (j2 / j3) * j3;
-        int i3 = (int) (j2 - j4);
-        long j5 = i2 + i3;
+        long j3 = this.f54585c + j2;
+        long j4 = a;
+        long j5 = (j3 / j4) * j4;
+        int i3 = (int) (j3 - j5);
+        long j6 = i2 + i3;
         try {
             try {
                 try {
@@ -113,12 +111,12 @@ public final class l implements k {
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
-                            mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f62302b, j4);
+                            mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f54584b, j5);
                             if (!(Build.VERSION.SDK_INT < 24 && Build.VERSION.SDK_INT <= 28)) {
                                 try {
                                     Constructor a2 = com.bytedance.pangle.a.a.a.a(Class.forName("java.nio.DirectByteBuffer"), Integer.TYPE, Long.TYPE, FileDescriptor.class, Runnable.class, Boolean.TYPE);
                                     if (a2 != null && a2.isAccessible()) {
-                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f62302b, null, Boolean.TRUE);
+                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f54584b, null, Boolean.TRUE);
                                     }
                                 } catch (ClassNotFoundException e4) {
                                     e4.printStackTrace();
@@ -134,7 +132,7 @@ public final class l implements k {
                                 jVar.a(byteBuffer2);
                                 if (mmap == 0) {
                                     try {
-                                        Os.munmap(mmap, j5);
+                                        Os.munmap(mmap, j6);
                                         return;
                                     } catch (ErrnoException unused) {
                                         return;
@@ -174,15 +172,15 @@ public final class l implements k {
                         }
                     } catch (ErrnoException e14) {
                         e = e14;
-                        throw new IOException("Failed to mmap " + j5 + " bytes", e);
+                        throw new IOException("Failed to mmap " + j6 + " bytes", e);
                     }
                     intValue = 0;
-                    mmap = Os.mmap(0L, j5, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f62302b, j4);
+                    mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f54584b, j5);
                 } catch (Throwable th) {
                     th = th;
                     if (0 != 0) {
                         try {
-                            Os.munmap(0L, j5);
+                            Os.munmap(0L, j6);
                         } catch (ErrnoException unused2) {
                         }
                     }

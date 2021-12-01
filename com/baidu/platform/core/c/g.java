@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.platform.base.SearchType;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -28,19 +27,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42914b = "g";
+    public static final String f38372b = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42915c;
+    public int f38373c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42916d;
+    public int f38374d;
 
     static {
         InterceptResult invokeClinit;
@@ -72,8 +71,8 @@ public class g extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f42915c = i2;
-        this.f42916d = i3;
+        this.f38373c = i2;
+        this.f38374d = i3;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -124,9 +123,9 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f42915c);
+                    poiResult.setCurrentPageNum(this.f38373c);
                     if (length != 0) {
-                        int i2 = this.f42916d;
+                        int i2 = this.f38374d;
                         poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
@@ -164,7 +163,7 @@ public class g extends com.baidu.platform.base.d {
     private PoiDetailInfo b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -191,8 +190,8 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setCheckinNum(jSONObject.optInt("checkin_num"));
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
-                SearchType a2 = a();
-                if (SearchType.f42867b == a2 || SearchType.f42866a == a2) {
+                SearchType a = a();
+                if (SearchType.f38333b == a || SearchType.a == a) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;
@@ -206,7 +205,7 @@ public class g extends com.baidu.platform.base.d {
     private List<PoiChildrenInfo> b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONObject)) == null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("children");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return null;
@@ -287,7 +286,7 @@ public class g extends com.baidu.platform.base.d {
     public void a(SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
-            int i2 = h.f42917a[a().ordinal()];
+            int i2 = h.a[a().ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3) {
                 ((OnGetPoiSearchResultListener) obj).onGetPoiResult((PoiResult) searchResult);
             }

@@ -7,7 +7,7 @@ import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class KeyframesParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("k");
 

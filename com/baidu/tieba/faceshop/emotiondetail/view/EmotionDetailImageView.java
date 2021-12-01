@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import b.a.e.f.l.c;
-import b.a.e.f.l.d;
-import b.a.e.f.p.l;
+import c.a.d.f.l.c;
+import c.a.d.f.l.d;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.gif.GifInfo;
@@ -23,33 +23,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EmotionDetailImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float f48936h;
+    public static final float f43900h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f48937e;
+    public ImageView f43901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f48938f;
+    public ProgressBar f43902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48939g;
+    public int f43903g;
 
-    /* loaded from: classes9.dex */
-    public class a extends c<b.a.e.m.d.a> {
+    /* loaded from: classes10.dex */
+    public class a extends c<c.a.d.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionDetailData f48940a;
+        public final /* synthetic */ EmotionDetailData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EmotionDetailImageView f48941b;
+        public final /* synthetic */ EmotionDetailImageView f43904b;
 
         public a(EmotionDetailImageView emotionDetailImageView, EmotionDetailData emotionDetailData) {
             Interceptable interceptable = $ic;
@@ -66,33 +64,33 @@ public class EmotionDetailImageView extends FrameLayout {
                     return;
                 }
             }
-            this.f48941b = emotionDetailImageView;
-            this.f48940a = emotionDetailData;
+            this.f43904b = emotionDetailImageView;
+            this.a = emotionDetailData;
         }
 
-        @Override // b.a.e.f.l.c
+        @Override // c.a.d.f.l.c
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f48941b.f48938f.setVisibility(8);
+                this.f43904b.f43902f.setVisibility(8);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.f.l.c
-        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
+        @Override // c.a.d.f.l.c
+        public void onLoaded(c.a.d.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
-                this.f48941b.f48938f.setVisibility(8);
+                this.f43904b.f43902f.setVisibility(8);
                 if (aVar != null) {
-                    this.f48941b.f48937e = new TbMemeImageView(this.f48941b.getContext());
-                    ((TbMemeImageView) this.f48941b.f48937e).startLoad(aVar);
-                    EmotionDetailImageView emotionDetailImageView = this.f48941b;
-                    ImageView imageView = emotionDetailImageView.f48937e;
-                    EmotionDetailData.PicInfo picInfo = this.f48940a.pic_info;
+                    this.f43904b.f43901e = new TbMemeImageView(this.f43904b.getContext());
+                    ((TbMemeImageView) this.f43904b.f43901e).startLoad(aVar);
+                    EmotionDetailImageView emotionDetailImageView = this.f43904b;
+                    ImageView imageView = emotionDetailImageView.f43901e;
+                    EmotionDetailData.PicInfo picInfo = this.a.pic_info;
                     emotionDetailImageView.f(imageView, picInfo.width, picInfo.height, 200, 200);
-                    EmotionDetailImageView emotionDetailImageView2 = this.f48941b;
-                    emotionDetailImageView2.addView(emotionDetailImageView2.f48937e);
+                    EmotionDetailImageView emotionDetailImageView2 = this.f43904b;
+                    emotionDetailImageView2.addView(emotionDetailImageView2.f43901e);
                 }
             }
         }
@@ -111,7 +109,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        f48936h = l.h(TbadkCoreApplication.getInst());
+        f43900h = l.h(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,7 +130,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        this.f48938f = null;
+        this.f43902f = null;
         e();
     }
 
@@ -141,13 +139,13 @@ public class EmotionDetailImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
-            this.f48938f = progressBar;
+            this.f43902f = progressBar;
             progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
             layoutParams.gravity = 17;
-            this.f48938f.setLayoutParams(layoutParams);
-            this.f48938f.setIndeterminate(true);
-            addView(this.f48938f);
-            this.f48939g = l.k(getContext());
+            this.f43902f.setLayoutParams(layoutParams);
+            this.f43902f.setIndeterminate(true);
+            addView(this.f43902f);
+            this.f43903g = l.k(getContext());
         }
     }
 
@@ -155,7 +153,7 @@ public class EmotionDetailImageView extends FrameLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            int i6 = this.f48939g;
+            int i6 = this.f43903g;
             if (i6 > 0) {
                 i5 = (int) (i6 * 0.5f);
                 i4 = i6;
@@ -168,12 +166,12 @@ public class EmotionDetailImageView extends FrameLayout {
             int i7 = iArr[0];
             int i8 = iArr[1];
             if (i4 > i7) {
-                float f2 = f48936h;
+                float f2 = f43900h;
                 if (f2 > 1.0f) {
                     float f3 = i7;
                     float f4 = i4;
                     if (f3 * f2 > f4) {
-                        i7 = i4 - (l.g(getContext(), R.dimen.ds34) * 2);
+                        i7 = i4 - (l.f(getContext(), R.dimen.ds34) * 2);
                     } else {
                         float f5 = f4 * 0.68f;
                         i7 = f3 * f2 > f5 ? (int) f5 : (int) (f3 * f2);
@@ -200,7 +198,7 @@ public class EmotionDetailImageView extends FrameLayout {
         }
         if (z) {
             GifView gifView = new GifView(getContext());
-            this.f48937e = gifView;
+            this.f43901e = gifView;
             gifView.setSupportNoImage(false);
             GifInfo gifInfo = new GifInfo();
             EmotionDetailData.PicInfo picInfo2 = emotionDetailData.pic_info;
@@ -211,16 +209,16 @@ public class EmotionDetailImageView extends FrameLayout {
             gifInfo.mStaticUrl = str2;
             gifInfo.mGifWidth = picInfo2.width;
             gifInfo.mGifHeight = picInfo2.height;
-            this.f48937e.setTag(str);
-            ((GifView) this.f48937e).startLoad(gifInfo);
-            ImageView imageView = this.f48937e;
+            this.f43901e.setTag(str);
+            ((GifView) this.f43901e).startLoad(gifInfo);
+            ImageView imageView = this.f43901e;
             EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
             f(imageView, picInfo3.width, picInfo3.height, 200, 200);
-            addView(this.f48937e);
-            this.f48938f.setVisibility(8);
+            addView(this.f43901e);
+            this.f43902f.setVisibility(8);
             return;
         }
-        this.f48938f.setVisibility(0);
+        this.f43902f.setVisibility(0);
         d.h().m(emotionDetailData.pic_info.pic_url, i2, new a(this, emotionDetailData), null);
     }
 
@@ -243,7 +241,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        this.f48938f = null;
+        this.f43902f = null;
         e();
     }
 
@@ -266,7 +264,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        this.f48938f = null;
+        this.f43902f = null;
         e();
     }
 }

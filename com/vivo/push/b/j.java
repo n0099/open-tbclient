@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f71136a;
+    public String a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -35,7 +33,7 @@ public final class j extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.a("MsgArriveCommand.MSG_TAG", this.f71136a);
+            aVar.a("MsgArriveCommand.MSG_TAG", this.a);
         }
     }
 
@@ -43,7 +41,7 @@ public final class j extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f71136a = aVar.a("MsgArriveCommand.MSG_TAG");
+            this.a = aVar.a("MsgArriveCommand.MSG_TAG");
         }
     }
 
@@ -65,6 +63,6 @@ public final class j extends com.vivo.push.y {
                 return;
             }
         }
-        this.f71136a = str;
+        this.a = str;
     }
 }

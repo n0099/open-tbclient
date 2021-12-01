@@ -1,0 +1,42 @@
+package c.a.p0.g.p.a.d;
+
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes5.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b2 : digest) {
+                    int i2 = b2 & 255;
+                    if (i2 < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i2));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public static String b(String str, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j2)) == null) ? a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j2))) : (String) invokeLJ.objValue;
+    }
+}

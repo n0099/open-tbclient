@@ -19,42 +19,44 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f57511a;
+        public final TurbonetEngine a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f57512b;
+        public final String f51469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f57513c;
+        public final Callback f51470c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f57514d;
+        public final Executor f51471d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f57515e;
+        public String f51472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f57516f;
+        public final ArrayList<Pair<String, String>> f51473f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f57517g;
+        public boolean f51474g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f57518h;
+        public boolean f51475h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f57519i;
-        public Collection<Object> j;
-        public UploadDataProvider k;
+        public int f51476i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public Collection<Object> f51477j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public UploadDataProvider f51478k;
         public Executor l;
         public boolean m;
         public boolean n;
@@ -68,7 +70,7 @@ public interface UrlRequest {
         public String v;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public @interface RequestPriority {
         }
 
@@ -87,9 +89,9 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f57516f = new ArrayList<>();
-            this.f57519i = 3;
-            this.j = Collections.emptyList();
+            this.f51473f = new ArrayList<>();
+            this.f51476i = 3;
+            this.f51477j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -100,10 +102,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f57512b = str;
-                this.f57513c = callback;
-                this.f57514d = executor;
-                this.f57511a = turbonetEngine;
+                this.f51469b = str;
+                this.f51470c = callback;
+                this.f51471d = executor;
+                this.a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -128,7 +130,7 @@ public interface UrlRequest {
                             new Exception();
                             return this;
                         }
-                        this.f57516f.add(Pair.create(str, str2));
+                        this.f51473f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -142,17 +144,17 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.f57511a.b(this.f57512b, this.f57513c, this.f57514d, this.f57519i, this.j, this.f57517g, this.f57518h, this.n);
-                String str = this.f57515e;
+                UrlRequest b2 = this.a.b(this.f51469b, this.f51470c, this.f51471d, this.f51476i, this.f51477j, this.f51474g, this.f51475h, this.n);
+                String str = this.f51472e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f57516f.iterator();
+                Iterator<Pair<String, String>> it = this.f51473f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
                 }
-                UploadDataProvider uploadDataProvider = this.k;
+                UploadDataProvider uploadDataProvider = this.f51478k;
                 if (uploadDataProvider != null) {
                     b2.i(uploadDataProvider, this.l);
                 }
@@ -197,7 +199,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f57517g = true;
+                this.f51474g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -228,7 +230,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f57515e = str;
+                    this.f51472e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -282,10 +284,10 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f57515e == null) {
-                            this.f57515e = "POST";
+                        if (this.f51472e == null) {
+                            this.f51472e = "POST";
                         }
-                        this.k = uploadDataProvider;
+                        this.f51478k = uploadDataProvider;
                         this.l = executor;
                         return this;
                     }
@@ -307,7 +309,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,13 +345,13 @@ public interface UrlRequest {
         public abstract void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public @interface StatusValues {
         }
 
@@ -426,7 +428,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

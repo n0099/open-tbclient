@@ -28,37 +28,39 @@ import com.baidu.wallet.home.ui.widget.b;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int q = 24;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f59317a;
+    public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f59318b;
+    public final int f52631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f59319c;
+    public final int f52632c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f59320e;
+    public final float f52633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f59321f;
+    public final float f52634f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NetImageView f59322g;
+    public NetImageView f52635g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f59323h;
+    public MaskTextView f52636h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NetImageView f59324i;
-    public MaskTextView j;
-    public LinearLayout k;
+    public NetImageView f52637i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public MaskTextView f52638j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public LinearLayout f52639k;
     public Button l;
     public View m;
     public LinearLayout n;
@@ -99,11 +101,11 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                 return;
             }
         }
-        this.f59317a = 3;
-        this.f59318b = 44;
-        this.f59319c = 22;
-        this.f59320e = 19.0f;
-        this.f59321f = 10.0f;
+        this.a = 3;
+        this.f52631b = 44;
+        this.f52632c = 22;
+        this.f52633e = 19.0f;
+        this.f52634f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }
@@ -121,15 +123,15 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_layout"), this);
             this.o = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_bg"));
-            this.f59322g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
-            this.f59323h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
-            this.j = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_lines_number"));
-            this.k = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_tips"));
+            this.f52635g = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_logo"));
+            this.f52636h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_title"));
+            this.f52638j = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_lines_number"));
+            this.f52639k = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_tips"));
             this.l = (Button) findViewById(ResUtils.id(getContext(), "ch_credit_card_button"));
             this.m = findViewById(ResUtils.id(getContext(), "ch_credit_card_next_repayment_divider"));
             this.n = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_card_repayment_layout"));
-            this.f59324i = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_eye"));
-            this.j.setOnClickListener(this);
+            this.f52637i = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_eye"));
+            this.f52638j.setOnClickListener(this);
             this.l.setOnClickListener(this);
         }
     }
@@ -150,12 +152,12 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && isDataValid()) {
-            if (view == this.f59324i) {
+            if (view == this.f52637i) {
                 if (CheckUtils.isFastDoubleClick()) {
                     return;
                 }
                 getWalletInterface().onEyeMaskBtnClick();
-            } else if (view == this.j) {
+            } else if (view == this.f52638j) {
                 if (!CheckUtils.isFastDoubleClick() && isDataValid()) {
                     b walletInterface = getWalletInterface();
                     HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
@@ -178,9 +180,9 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onEyeMaskChanged();
-            this.j.resetMaskText();
-            if (this.f59324i != null) {
-                this.f59324i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+            this.f52638j.resetMaskText();
+            if (this.f52637i != null) {
+                this.f52637i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
             }
         }
     }
@@ -192,17 +194,17 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
             NetImageView netImageView = this.o;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
             if (!TextUtils.isEmpty(this.mConfigData.list[0].logo)) {
-                this.f59322g.setVisibility(0);
-                NetImageView netImageView2 = this.f59322g;
+                this.f52635g.setVisibility(0);
+                NetImageView netImageView2 = this.f52635g;
                 netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.list[0].logo);
             } else {
-                this.f59322g.setVisibility(8);
+                this.f52635g.setVisibility(8);
             }
-            this.f59323h.setMaskText(this.mConfigData.list[0].name);
-            this.j.setMaskText(this.mConfigData.list[0].value2);
+            this.f52636h.setMaskText(this.mConfigData.list[0].name);
+            this.f52638j.setMaskText(this.mConfigData.list[0].value2);
             boolean z = !TextUtils.isEmpty(this.mConfigData.list[0].value2) && this.mConfigData.list[0].value2.contains(PayTypeItemView.PayTypeItemViewData.MASK_FLAG);
-            this.j.setTextSize(1, z ? 44.0f : 22.0f);
-            this.j.setPadding(0, DisplayUtils.dip2px(getContext(), z ? 0.0f : 19.0f), 0, DisplayUtils.dip2px(getContext(), z ? 0.0f : 10.0f));
+            this.f52638j.setTextSize(1, z ? 44.0f : 22.0f);
+            this.f52638j.setPadding(0, DisplayUtils.dip2px(getContext(), z ? 0.0f : 19.0f), 0, DisplayUtils.dip2px(getContext(), z ? 0.0f : 10.0f));
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             if (dataItemArr[0].icons != null && dataItemArr[0].icons.length > 0) {
                 int length = dataItemArr[0].icons.length <= 3 ? dataItemArr[0].icons.length : 3;
@@ -219,9 +221,7 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                         cHBigCreditCardTipsItem.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBigCreditCardGroup.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ CHBigCreditCardGroup f59325a;
+                            public final /* synthetic */ CHBigCreditCardGroup a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -238,7 +238,7 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                                         return;
                                     }
                                 }
-                                this.f59325a = this;
+                                this.a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
@@ -247,10 +247,10 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                                     return;
                                 }
-                                this.f59325a.getWalletInterface().jump(this.f59325a.mConfigData.list[0].name, this.f59325a.mConfigData.list[0].type, this.f59325a.mConfigData.list[0].link_addr, this.f59325a.mConfigData.list[0].getPrevlogin());
+                                this.a.getWalletInterface().jump(this.a.mConfigData.list[0].name, this.a.mConfigData.list[0].type, this.a.mConfigData.list[0].link_addr, this.a.mConfigData.list[0].getPrevlogin());
                             }
                         });
-                        this.k.addView(cHBigCreditCardTipsItem);
+                        this.f52639k.addView(cHBigCreditCardTipsItem);
                         this.r.add(cHBigCreditCardTipsItem);
                     }
                 }
@@ -286,9 +286,7 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                         findViewById(ResUtils.id(getContext(), "ch_credit_card_next_repayment_button")).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBigCreditCardGroup.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ CHBigCreditCardGroup f59326a;
+                            public final /* synthetic */ CHBigCreditCardGroup a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -305,14 +303,14 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                                         return;
                                     }
                                 }
-                                this.f59326a = this;
+                                this.a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    this.f59326a.getWalletInterface().jump(this.f59326a.mConfigData.list[0].buttons[1].name, this.f59326a.mConfigData.list[0].buttons[1].type, this.f59326a.mConfigData.list[0].buttons[1].link_addr, this.f59326a.mConfigData.list[0].getPrevlogin());
+                                    this.a.getWalletInterface().jump(this.a.mConfigData.list[0].buttons[1].name, this.a.mConfigData.list[0].buttons[1].type, this.a.mConfigData.list[0].buttons[1].link_addr, this.a.mConfigData.list[0].getPrevlogin());
                                 }
                             }
                         });
@@ -324,12 +322,12 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
             }
             HomeCfgResponse.DataItem[] dataItemArr5 = this.mConfigData.list;
             if (dataItemArr5[0].value3 != null && TextUtils.equals(dataItemArr5[0].value3, "1")) {
-                this.f59324i.setVisibility(8);
+                this.f52637i.setVisibility(8);
                 return;
             }
-            this.f59324i.setVisibility(0);
-            this.f59324i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
-            this.f59324i.setOnClickListener(this);
+            this.f52637i.setVisibility(0);
+            this.f52637i.setImageResource(ResUtils.drawable(getContext(), a.a(getContext()) ? "wallet_home_ch_eye_close" : "wallet_home_ch_eye_open"));
+            this.f52637i.setOnClickListener(this);
         }
     }
 
@@ -352,11 +350,11 @@ public class CHBigCreditCardGroup extends BaseItemLayout implements View.OnClick
                 return;
             }
         }
-        this.f59317a = 3;
-        this.f59318b = 44;
-        this.f59319c = 22;
-        this.f59320e = 19.0f;
-        this.f59321f = 10.0f;
+        this.a = 3;
+        this.f52631b = 44;
+        this.f52632c = 22;
+        this.f52633e = 19.0f;
+        this.f52634f = 10.0f;
         this.p = true;
         this.r = new ArrayList();
     }

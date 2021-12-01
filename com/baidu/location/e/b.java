@@ -11,39 +11,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40004e;
+    public static String f35677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40005f;
+    public static String f35678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40006g;
+    public static String f35679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f40007h;
+    public static String f35680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f40008i;
-    public static b j;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static int f35681i;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f40009a;
+    /* renamed from: j  reason: collision with root package name */
+    public static b f35682j;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40010b;
+    public String f35683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40011c;
+    public String f35684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40012d;
-    public boolean k;
+    public String f35685d;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f35686k;
 
     static {
         InterceptResult invokeClinit;
@@ -73,11 +75,11 @@ public class b {
                 return;
             }
         }
-        this.f40009a = null;
-        this.f40010b = null;
-        this.f40011c = null;
-        this.f40012d = null;
-        this.k = false;
+        this.a = null;
+        this.f35683b = null;
+        this.f35684c = null;
+        this.f35685d = null;
+        this.f35686k = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
         }
@@ -87,10 +89,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
-                j = new b();
+            if (f35682j == null) {
+                f35682j = new b();
             }
-            return j;
+            return f35682j;
         }
         return (b) invokeV.objValue;
     }
@@ -118,21 +120,21 @@ public class b {
             stringBuffer.append("&sdk=");
             stringBuffer.append(7.93f);
             if (z) {
-                if (k.f40053g.equals("all")) {
+                if (k.f35718g.equals("all")) {
                     stringBuffer.append("&addr=allj");
                 }
-                if (k.f40055i) {
+                if (k.f35720i) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.f40054h || k.k || k.l || k.j) {
+                if (k.f35719h || k.f35722k || k.l || k.f35721j) {
                     stringBuffer.append("&sema=");
-                    if (k.f40054h) {
+                    if (k.f35719h) {
                         stringBuffer.append("aptag|");
                     }
-                    if (k.j) {
+                    if (k.f35721j) {
                         stringBuffer.append("aptagd|");
                     }
-                    if (k.k) {
+                    if (k.f35722k) {
                         stringBuffer.append("poiregion|");
                     }
                     if (k.l) {
@@ -152,18 +154,18 @@ public class b {
                     stringBuffer.append(j2);
                 }
             }
-            if (this.f40011c != null) {
+            if (this.f35684c != null) {
                 stringBuffer.append("&cu=");
-                stringBuffer.append(this.f40011c);
-                String str3 = this.f40009a;
-                str2 = (str3 == null || str3.equals("NULL") || this.f40011c.contains(new StringBuffer(this.f40009a).reverse().toString())) ? "&Aim=" : "&Aim=";
-                if (this.f40010b != null) {
+                stringBuffer.append(this.f35684c);
+                String str3 = this.a;
+                str2 = (str3 == null || str3.equals("NULL") || this.f35684c.contains(new StringBuffer(this.a).reverse().toString())) ? "&Aim=" : "&Aim=";
+                if (this.f35683b != null) {
                     stringBuffer.append("&snd=");
-                    stringBuffer.append(this.f40010b);
+                    stringBuffer.append(this.f35683b);
                 }
-                if (this.f40012d != null) {
+                if (this.f35685d != null) {
                     stringBuffer.append("&Aid=");
-                    stringBuffer.append(this.f40012d);
+                    stringBuffer.append(this.f35685d);
                 }
                 stringBuffer.append("&fw=");
                 stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -191,10 +193,10 @@ public class b {
             }
             str2 = "&im=";
             stringBuffer.append(str2);
-            stringBuffer.append(this.f40009a);
-            if (this.f40010b != null) {
+            stringBuffer.append(this.a);
+            if (this.f35683b != null) {
             }
-            if (this.f40012d != null) {
+            if (this.f35685d != null) {
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -217,28 +219,28 @@ public class b {
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || context == null || this.k) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || context == null || this.f35686k) {
             return;
         }
         try {
-            this.f40011c = CommonParam.getCUID(context);
+            this.f35684c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f40011c = null;
+            this.f35684c = null;
         }
         try {
-            f40004e = context.getPackageName();
+            f35677e = context.getPackageName();
         } catch (Exception unused2) {
-            f40004e = null;
+            f35677e = null;
         }
-        k.o = "" + this.f40011c;
-        this.k = true;
+        k.o = "" + this.f35684c;
+        this.f35686k = true;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f40005f = str;
-            f40004e = str2;
+            f35678f = str;
+            f35677e = str2;
         }
     }
 }

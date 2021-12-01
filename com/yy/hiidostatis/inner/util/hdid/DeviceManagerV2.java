@@ -5,7 +5,6 @@ import android.content.Context;
 import android.provider.Settings;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.io.FilenameFilter;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DeviceManagerV2 {
     public static final /* synthetic */ DeviceManagerV2[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -85,7 +84,7 @@ public final class DeviceManagerV2 {
             putString(device.json, "hdid", device.hdid);
             putString(device.json, "type", device.type);
             putString(device.json, "imei", device.imei);
-            putString(device.json, "mac", device.mac);
+            putString(device.json, BaseStatisContent.MAC, device.mac);
             putString(device.json, BaseStatisContent.ARID, device.arid);
             JSONObject jSONObject = device.json;
             putString(jSONObject, "key", key(device.hdid + device.imei + device.mac));
@@ -132,18 +131,18 @@ public final class DeviceManagerV2 {
         return (String) invokeL.objValue;
     }
 
-    private long getLong(JSONObject jSONObject, String str, long j) {
+    private long getLong(JSONObject jSONObject, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{jSONObject, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jSONObject, str, Long.valueOf(j2)})) == null) {
             if (jSONObject == null || !jSONObject.has(str)) {
-                return j;
+                return j2;
             }
             try {
                 return jSONObject.getLong(str);
             } catch (JSONException e2) {
                 L.debug(this, e2.getMessage(), new Object[0]);
-                return j;
+                return j2;
             }
         }
         return invokeCommon.longValue;
@@ -152,7 +151,7 @@ public final class DeviceManagerV2 {
     private String getSdpm(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
             boolean checkPermissions = ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS");
             StringBuilder sb = new StringBuilder();
             sb.append(checkPermissions ? 4 : 0);
@@ -244,12 +243,12 @@ public final class DeviceManagerV2 {
         return (String) invokeL.objValue;
     }
 
-    private boolean putLong(JSONObject jSONObject, String str, long j) {
+    private boolean putLong(JSONObject jSONObject, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{jSONObject, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{jSONObject, str, Long.valueOf(j2)})) == null) {
             try {
-                jSONObject.put(str, j);
+                jSONObject.put(str, j2);
                 return true;
             } catch (JSONException unused) {
                 return false;
@@ -292,7 +291,7 @@ public final class DeviceManagerV2 {
             String string = getString(jSONObject, "hdid");
             String string2 = getString(jSONObject, "type");
             String string3 = getString(jSONObject, "imei");
-            String string4 = getString(jSONObject, "mac");
+            String string4 = getString(jSONObject, BaseStatisContent.MAC);
             if (key(string + string3 + string4).equals(getString(jSONObject, "key"))) {
                 Device device = new Device();
                 device.json = jSONObject;

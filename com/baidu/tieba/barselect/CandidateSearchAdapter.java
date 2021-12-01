@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.r0.y.b.a;
+import c.a.r0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
@@ -14,13 +14,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<a> f48125a;
+    public List<a> a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -35,21 +33,21 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
                 return;
             }
         }
-        this.f48125a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48125a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
     public void setData(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f48125a.clear();
-            this.f48125a.addAll(list);
+            this.a.clear();
+            this.a.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -58,10 +56,10 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f48125a)) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.a)) {
             return;
         }
-        candidateSearchItemHolder.bindData(this.f48125a.get(i2));
+        candidateSearchItemHolder.bindData(this.a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

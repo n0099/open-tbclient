@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static List<i> f34658a;
+    public static List<i> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,15 +30,15 @@ public final class e {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f34658a = arrayList;
+        a = arrayList;
         arrayList.add(new l());
-        f34658a.add(new d());
-        f34658a.add(new c());
-        f34658a.add(new h());
-        f34658a.add(new k());
-        f34658a.add(new b());
-        f34658a.add(new a());
-        f34658a.add(new g());
+        a.add(new d());
+        a.add(new c());
+        a.add(new h());
+        a.add(new k());
+        a.add(new b());
+        a.add(new a());
+        a.add(new g());
     }
 
     public static final <T> T a(Object obj, Type type) {
@@ -48,7 +46,7 @@ public final class e {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, type)) == null) {
-            for (i iVar : f34658a) {
+            for (i iVar : a) {
                 if (iVar.a(com.alipay.a.b.a.a(type)) && (t = (T) iVar.a(obj, type)) != null) {
                     return t;
                 }

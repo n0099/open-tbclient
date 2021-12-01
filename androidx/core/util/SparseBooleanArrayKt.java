@@ -3,7 +3,6 @@ package androidx.core.util;
 import android.util.SparseBooleanArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +57,7 @@ public final class SparseBooleanArrayKt {
     public static final boolean getOrElse(SparseBooleanArray sparseBooleanArray, int i2, Function0<Boolean> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, sparseBooleanArray, i2, function0)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseBooleanArray, i2, function0)) == null) {
             int indexOfKey = sparseBooleanArray.indexOfKey(i2);
             return indexOfKey >= 0 ? sparseBooleanArray.valueAt(indexOfKey) : function0.invoke().booleanValue();
         }
@@ -68,7 +67,7 @@ public final class SparseBooleanArrayKt {
     public static final int getSize(SparseBooleanArray sparseBooleanArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sparseBooleanArray)) == null) ? sparseBooleanArray.size() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseBooleanArray)) == null) ? sparseBooleanArray.size() : invokeL.intValue;
     }
 
     public static final boolean isEmpty(SparseBooleanArray sparseBooleanArray) {

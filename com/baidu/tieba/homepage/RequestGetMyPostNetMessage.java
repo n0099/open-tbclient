@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,12 +94,12 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         }
     }
 
-    public void setParams(long j, long j2, long j3, int i2, int i3, double d2, int i4) {
+    public void setParams(long j2, long j3, long j4, int i2, int i3, double d2, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2), Integer.valueOf(i4)}) == null) {
-            this.mPostId = j2;
-            this.mThreadId = j;
-            this.mForumId = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2), Integer.valueOf(i4)}) == null) {
+            this.mPostId = j3;
+            this.mThreadId = j2;
+            this.mForumId = j4;
             this.mScrW = i2;
             this.mScrH = i3;
             this.mScrDip = d2;

@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPaUnsubscribeMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public long mPaId;
 
-    public IMPaUnsubscribeMsg(Context context, long j) {
+    public IMPaUnsubscribeMsg(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j)};
+            Object[] objArr = {context, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,7 +41,7 @@ public class IMPaUnsubscribeMsg extends Message {
         }
         this.mContext = context;
         initCommonParameter(context);
-        this.mPaId = j;
+        this.mPaId = j2;
         setNeedReplay(true);
         setType(101);
     }

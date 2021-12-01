@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class GlideExecutor implements ExecutorService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIMATION_EXECUTOR_NAME = "animation";
@@ -42,7 +41,7 @@ public final class GlideExecutor implements ExecutorService {
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService delegate;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_PRIORITY = 9;
@@ -130,7 +129,7 @@ public final class GlideExecutor implements ExecutorService {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface UncaughtThrowableStrategy {
         public static final UncaughtThrowableStrategy IGNORE = new UncaughtThrowableStrategy() { // from class: com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.1
             public static /* synthetic */ Interceptable $ic;
@@ -274,7 +273,7 @@ public final class GlideExecutor implements ExecutorService {
     public static GlideExecutor newDiskCacheExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? newDiskCacheExecutor(1, DEFAULT_DISK_CACHE_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT) : (GlideExecutor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? newDiskCacheExecutor(1, DEFAULT_DISK_CACHE_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT) : (GlideExecutor) invokeV.objValue;
     }
 
     public static GlideExecutor newSourceExecutor() {
@@ -290,10 +289,10 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? this.delegate.awaitTermination(j, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? this.delegate.awaitTermination(j2, timeUnit) : invokeJL.booleanValue;
     }
 
     @Override // java.util.concurrent.Executor
@@ -372,17 +371,17 @@ public final class GlideExecutor implements ExecutorService {
 
     @Override // java.util.concurrent.ExecutorService
     @NonNull
-    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
+    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection, long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? this.delegate.invokeAll(collection, j, timeUnit) : (List) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? this.delegate.invokeAll(collection, j2, timeUnit) : (List) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection, long j2, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? (T) this.delegate.invokeAny(collection, j, timeUnit) : (T) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? (T) this.delegate.invokeAny(collection, j2, timeUnit) : (T) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
@@ -402,7 +401,7 @@ public final class GlideExecutor implements ExecutorService {
     public static GlideExecutor newDiskCacheExecutor(int i2, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str, uncaughtThrowableStrategy)) == null) ? new GlideExecutor(new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory(str, uncaughtThrowableStrategy, true))) : (GlideExecutor) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(65542, null, i2, str, uncaughtThrowableStrategy)) == null) ? new GlideExecutor(new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory(str, uncaughtThrowableStrategy, true))) : (GlideExecutor) invokeILL.objValue;
     }
 
     public static GlideExecutor newSourceExecutor(UncaughtThrowableStrategy uncaughtThrowableStrategy) {

@@ -1,6 +1,7 @@
 package io.flutter.embedding.android;
 
 import android.content.Context;
+import android.graphics.Region;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -16,7 +17,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterSurfaceView";
@@ -139,12 +140,41 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
         }
     }
 
+    @Override // android.view.SurfaceView, android.view.View
+    public boolean gatherTransparentRegion(Region region) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, region)) == null) {
+            if (getAlpha() < 1.0f) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            getLocationInWindow(iArr);
+            region.op(iArr[0], iArr[1], (iArr[0] + getRight()) - getLeft(), (iArr[1] + getBottom()) - getTop(), Region.Op.DIFFERENCE);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // io.flutter.embedding.engine.renderer.RenderSurface
     @Nullable
     public FlutterRenderer getAttachedRenderer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flutterRenderer : (FlutterRenderer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.flutterRenderer : (FlutterRenderer) invokeV.objValue;
+    }
+
+    @Override // io.flutter.embedding.engine.renderer.RenderSurface
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.flutterRenderer != null) {
+                this.flutterRenderer = null;
+                this.isAttachedToFlutterRenderer = false;
+                return;
+            }
+            Log.w(TAG, "pause() invoked when no FlutterRenderer was attached.");
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

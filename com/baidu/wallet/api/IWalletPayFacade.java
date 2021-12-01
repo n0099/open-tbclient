@@ -7,7 +7,7 @@ import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
 import com.baidu.wallet.rnauth.RNAuthCallBack;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IWalletPayFacade {
     void accessWalletEntry(Context context, String str);
 

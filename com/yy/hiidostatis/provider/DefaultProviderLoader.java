@@ -28,7 +28,7 @@ import com.yy.hiidostatis.message.provider.PackerProvider;
 import com.yy.hiidostatis.message.provider.SendDispatchTaskProvider;
 import com.yy.hiidostatis.message.provider.SessionReportProvider;
 import com.yy.hiidostatis.message.provider.SessionReportWrapperProvider;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultProviderLoader {
     public static /* synthetic */ Interceptable $ic;
     public static boolean init;

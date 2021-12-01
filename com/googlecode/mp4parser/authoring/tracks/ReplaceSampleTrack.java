@@ -86,12 +86,12 @@ public class ReplaceSampleTrack extends AbstractTrack {
         }
     }
 
-    public ReplaceSampleTrack(Track track, long j, ByteBuffer byteBuffer) {
+    public ReplaceSampleTrack(Track track, long j2, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j), byteBuffer};
+            Object[] objArr = {track, Long.valueOf(j2), byteBuffer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -102,7 +102,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
             }
         }
         this.origTrack = track;
-        this.sampleNumber = j;
+        this.sampleNumber = j2;
         this.sampleContent = new SampleImpl(byteBuffer);
         this.samples = new ReplaceASingleEntryList(this, null);
     }

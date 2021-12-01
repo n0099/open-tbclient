@@ -2,7 +2,6 @@ package org.apache.http.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +77,7 @@ public class BasicLineParser implements LineParser {
     public static final RequestLine parseRequestLine(String str, LineParser lineParser) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, lineParser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, lineParser)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (RequestLine) invokeLL.objValue;
@@ -87,7 +86,7 @@ public class BasicLineParser implements LineParser {
     public static final StatusLine parseStatusLine(String str, LineParser lineParser) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, lineParser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, lineParser)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (StatusLine) invokeLL.objValue;

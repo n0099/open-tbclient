@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class aa extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f71120a;
+    public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f71121b;
+    public long f62429b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa() {
@@ -40,7 +38,7 @@ public final class aa extends com.vivo.push.y {
     public final void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f71120a = hashMap;
+            this.a = hashMap;
         }
     }
 
@@ -48,8 +46,8 @@ public final class aa extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("ReporterCommand.EXTRA_PARAMS", this.f71120a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f71121b);
+            aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f62429b);
         }
     }
 
@@ -57,8 +55,8 @@ public final class aa extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f71120a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
-            this.f71121b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f71121b);
+            this.a = (HashMap) aVar.c("ReporterCommand.EXTRA_PARAMS");
+            this.f62429b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f62429b);
         }
     }
 
@@ -67,19 +65,19 @@ public final class aa extends com.vivo.push.y {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ReporterCommand（" + this.f71121b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.f62429b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public aa(long j) {
+    public aa(long j2) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -90,6 +88,6 @@ public final class aa extends com.vivo.push.y {
                 return;
             }
         }
-        this.f71121b = j;
+        this.f62429b = j2;
     }
 }

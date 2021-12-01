@@ -11,11 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoClickTabData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment channelFragment;
     public List<VideoItemData> dataList;
     public Fragment middleFragment;
     public Bundle videoMiddleBundle;
@@ -34,54 +33,41 @@ public class VideoClickTabData implements Serializable {
         }
     }
 
-    public Fragment getChannelFragment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.channelFragment : (Fragment) invokeV.objValue;
-    }
-
     public List<VideoItemData> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataList : (List) invokeV.objValue;
     }
 
     public Fragment getMiddleFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.middleFragment : (Fragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.middleFragment : (Fragment) invokeV.objValue;
     }
 
     public Bundle getVideoMiddleBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.videoMiddleBundle : (Bundle) invokeV.objValue;
-    }
-
-    public void setChannelFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fragment) == null) {
-            this.channelFragment = fragment;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.videoMiddleBundle : (Bundle) invokeV.objValue;
     }
 
     public void setDataList(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.dataList = list;
         }
     }
 
     public void setMiddleFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fragment) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, fragment) == null) {
             this.middleFragment = fragment;
         }
     }
 
     public void setVideoMiddleBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             this.videoMiddleBundle = bundle;
         }
     }

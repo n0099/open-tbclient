@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.DnsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMSocketAddrProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SMART_DNS_TIME_OUT = 5000;
@@ -33,7 +32,7 @@ public class IMSocketAddrProvider {
     public String mNowConnectAddr;
     public IGetSocketAddrListener mSocketAddrListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface IGetSocketAddrListener extends IMListener {
         void onGetSocketAddrResult(String str);
     }
@@ -108,7 +107,7 @@ public class IMSocketAddrProvider {
     /* JADX INFO: Access modifiers changed from: private */
     public void getHttpDnsAddress() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             LogUtils.d(TAG, "will getHttpDnsAddress......");
             try {
                 IMHttpDnsUrlRequest iMHttpDnsUrlRequest = new IMHttpDnsUrlRequest(mContext);
@@ -122,7 +121,7 @@ public class IMSocketAddrProvider {
     public static IMSocketAddrProvider getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (mInstance == null) {
                 synchronized (IMSocketAddrProvider.class) {
                     if (mInstance == null) {

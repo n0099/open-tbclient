@@ -12,7 +12,6 @@ import android.widget.RemoteViews;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -305,7 +304,7 @@ public class RemoteViewBuilder {
     public static Bitmap drawableToBitmap(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawable)) == null) {
             if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
@@ -329,6 +328,6 @@ public class RemoteViewBuilder {
     public static Bitmap getBitmap(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) ? drawableToBitmap(context.getResources().getDrawable(i2)) : (Bitmap) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) ? drawableToBitmap(context.getResources().getDrawable(i2)) : (Bitmap) invokeLI.objValue;
     }
 }

@@ -4,7 +4,6 @@ import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ScreenMonitor {
     public static final /* synthetic */ ScreenMonitor[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -76,8 +75,8 @@ public final class ScreenMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.lastClickTime;
-            if (j == 0 || currentTimeMillis - j > 200) {
+            long j2 = this.lastClickTime;
+            if (j2 == 0 || currentTimeMillis - j2 > 200) {
                 this.click++;
             }
             this.lastClickTime = currentTimeMillis;
@@ -100,7 +99,7 @@ public final class ScreenMonitor {
     public static ScreenMonitor[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ScreenMonitor[]) $VALUES.clone() : (ScreenMonitor[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ScreenMonitor[]) $VALUES.clone() : (ScreenMonitor[]) invokeV.objValue;
     }
 
     public int getClick() {

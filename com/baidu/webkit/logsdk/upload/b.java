@@ -17,16 +17,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62015a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Long, a> f62016b;
+    public ConcurrentHashMap<Long, a> f54355b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,32 +39,32 @@ public final class b {
                 return;
             }
         }
-        this.f62016b = new ConcurrentHashMap<>();
+        this.f54355b = new ConcurrentHashMap<>();
     }
 
-    public static JSONObject a(a aVar, long j) {
+    public static JSONObject a(a aVar, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, aVar, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, aVar, j2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("version", "1");
-                jSONObject.putOpt("log_type", aVar.f62010e.f61975a);
-                jSONObject.putOpt("file", Boolean.valueOf(aVar.f62008c));
-                jSONObject.putOpt("upload_time", Long.valueOf(j));
-                jSONObject.putOpt("retry_count", Integer.valueOf(aVar.f62007b));
-                jSONObject.putOpt("f2", aVar.f62011f);
+                jSONObject.putOpt("log_type", aVar.f54350e.a);
+                jSONObject.putOpt("file", Boolean.valueOf(aVar.f54348c));
+                jSONObject.putOpt("upload_time", Long.valueOf(j2));
+                jSONObject.putOpt("retry_count", Integer.valueOf(aVar.f54347b));
+                jSONObject.putOpt("f2", aVar.f54351f);
                 com.baidu.webkit.logsdk.a.b.a().e();
                 jSONObject.putOpt("f1", com.baidu.webkit.logsdk.b.b.e());
                 jSONObject.putOpt("f3", com.baidu.webkit.logsdk.b.b.g());
-                jSONObject.putOpt("log_level", Integer.valueOf(aVar.f62010e.f61976b));
-                String str = aVar.f62014i;
-                String a2 = (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) ? "full".equals(aVar.f62010e.f61979e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.f62010e.f61979e) : aVar.f62014i;
-                if (!TextUtils.isEmpty(a2)) {
-                    jSONObject.putOpt("base_info", Integer.toString(aVar.f62007b));
-                    aVar.f62014i = a2;
+                jSONObject.putOpt("log_level", Integer.valueOf(aVar.f54350e.f54326b));
+                String str = aVar.f54354i;
+                String a = (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) ? "full".equals(aVar.f54350e.f54329e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.f54350e.f54329e) : aVar.f54354i;
+                if (!TextUtils.isEmpty(a)) {
+                    jSONObject.putOpt("base_info", Integer.toString(aVar.f54347b));
+                    aVar.f54354i = a;
                 }
-                jSONObject.putOpt("content", aVar.f62006a);
+                jSONObject.putOpt("content", aVar.a);
             } catch (Throwable th) {
                 c.a(th);
             }
@@ -81,24 +79,24 @@ public final class b {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if ("full".equals(aVar.f61979e)) {
-                com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
-                str = a2.g().a(a2.f61957c, this.f62015a);
-                str2 = aVar.f61975a;
+            if ("full".equals(aVar.f54329e)) {
+                com.baidu.webkit.logsdk.a.b a = com.baidu.webkit.logsdk.a.b.a();
+                str = a.g().a(a.f54310c, this.a);
+                str2 = aVar.a;
             } else {
-                com.baidu.webkit.logsdk.a.b a3 = com.baidu.webkit.logsdk.a.b.a();
-                String str3 = this.f62015a;
-                String str4 = aVar.f61979e;
+                com.baidu.webkit.logsdk.a.b a2 = com.baidu.webkit.logsdk.a.b.a();
+                String str3 = this.a;
+                String str4 = aVar.f54329e;
                 if ("full".equals(str4)) {
-                    str = a3.g().a(a3.f61957c, str3);
+                    str = a2.g().a(a2.f54310c, str3);
                 } else {
-                    com.baidu.webkit.logsdk.a.a g2 = a3.g();
-                    Context context = a3.f61957c;
+                    com.baidu.webkit.logsdk.a.a g2 = a2.g();
+                    Context context = a2.f54310c;
                     com.baidu.webkit.logsdk.b.c d2 = com.baidu.webkit.logsdk.a.b.a().e().d(str4);
-                    if ("full".equals(d2.f61986a)) {
+                    if ("full".equals(d2.a)) {
                         str = g2.a(context, str3);
                     } else {
-                        HashSet<String> hashSet = d2.f61987b;
+                        HashSet<String> hashSet = d2.f54335b;
                         if (hashSet != null) {
                             StringBuilder sb = new StringBuilder(str3);
                             if (!hashSet.isEmpty() && str3.indexOf("?") < 0) {
@@ -113,27 +111,27 @@ public final class b {
                             while (it.hasNext()) {
                                 String next = it.next();
                                 Iterator<String> it2 = it;
-                                String a4 = g2.a(next, context, c2);
+                                String a3 = g2.a(next, context, c2);
                                 if ("ua".equals(next)) {
-                                    str6 = a4;
+                                    str6 = a3;
                                 } else if ("cuid".equals(next)) {
-                                    str7 = a4;
+                                    str7 = a3;
                                 } else if ("uid".equals(next)) {
-                                    str8 = a4;
+                                    str8 = a3;
                                 }
-                                if (TextUtils.isEmpty(a4)) {
-                                    int a5 = g2.a(next, context);
-                                    if (a5 > 0) {
+                                if (TextUtils.isEmpty(a3)) {
+                                    int a4 = g2.a(next, context);
+                                    if (a4 > 0) {
                                         sb.append("&");
                                         sb.append(next);
                                         sb.append("=");
-                                        sb.append(a5);
+                                        sb.append(a4);
                                     }
                                 } else {
                                     sb.append("&");
                                     sb.append(next);
                                     sb.append("=");
-                                    sb.append(a4);
+                                    sb.append(a3);
                                 }
                                 it = it2;
                             }
@@ -162,7 +160,7 @@ public final class b {
                         }
                     }
                 }
-                str2 = aVar.f61979e;
+                str2 = aVar.f54329e;
             }
             StringBuilder sb2 = new StringBuilder();
             if (!TextUtils.isEmpty(str)) {
@@ -190,20 +188,20 @@ public final class b {
         return (String) invokeL.objValue;
     }
 
-    public final void a(long j) {
+    public final void a(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || j2 <= 0) {
             return;
         }
-        c.e("BdLogSDK", "mNetTasks remove ".concat(String.valueOf(j)));
-        this.f62016b.remove(Long.valueOf(j));
+        c.e("BdLogSDK", "mNetTasks remove ".concat(String.valueOf(j2)));
+        this.f54355b.remove(Long.valueOf(j2));
     }
 
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             c.a("BdLogSDK", "onUploadFailed", null);
-            if (this.f62016b.containsValue(aVar)) {
+            if (this.f54355b.containsValue(aVar)) {
                 com.baidu.webkit.logsdk.a.b.a().a(aVar, System.currentTimeMillis(), true);
             } else {
                 c.e("BdLogSDK", "onUploadFailed aTask not exists");
@@ -215,10 +213,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.e("BdLogSDK", "isNetTaskAllComplete = " + this.f62016b.isEmpty());
+            c.e("BdLogSDK", "isNetTaskAllComplete = " + this.f54355b.isEmpty());
             try {
-                if (com.baidu.webkit.logsdk.a.f61943a && !this.f62016b.isEmpty()) {
-                    Iterator<Map.Entry<Long, a>> it = this.f62016b.entrySet().iterator();
+                if (com.baidu.webkit.logsdk.a.a && !this.f54355b.isEmpty()) {
+                    Iterator<Map.Entry<Long, a>> it = this.f54355b.entrySet().iterator();
                     while (it.hasNext()) {
                         c.e("BdLogSDK", "inComplete NetTask = " + it.next());
                     }
@@ -226,7 +224,7 @@ public final class b {
             } catch (ConcurrentModificationException e2) {
                 c.a(e2);
             }
-            return this.f62016b.isEmpty();
+            return this.f54355b.isEmpty();
         }
         return invokeV.booleanValue;
     }

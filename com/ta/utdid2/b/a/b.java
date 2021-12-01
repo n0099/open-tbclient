@@ -12,7 +12,7 @@ public interface b {
 
         a a(String str, int i2);
 
-        a a(String str, long j);
+        a a(String str, long j2);
 
         a a(String str, String str2);
 
@@ -25,7 +25,7 @@ public interface b {
 
     /* renamed from: com.ta.utdid2.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC2051b {
+    public interface InterfaceC2142b {
         void a(b bVar, String str);
     }
 
@@ -35,7 +35,7 @@ public interface b {
 
     Map<String, ?> getAll();
 
-    long getLong(String str, long j);
+    long getLong(String str, long j2);
 
     String getString(String str, String str2);
 }

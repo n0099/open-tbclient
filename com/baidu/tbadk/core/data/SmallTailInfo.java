@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_PREFIX = "#(";
@@ -29,7 +29,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2017172862365526905L;

@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ShapePath {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ANGLE_LEFT = 180.0f;
@@ -41,7 +40,7 @@ public class ShapePath {
     @Deprecated
     public float startY;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class ArcShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +73,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class LineShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +120,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PathArcOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final RectF rectF;
@@ -276,7 +275,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -337,13 +336,13 @@ public class ShapePath {
         private float getEndX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.endX : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.endX : invokeV.floatValue;
         }
 
         private float getEndY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? this.endY : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.endY : invokeV.floatValue;
         }
 
         private void setControlX1(float f2) {
@@ -401,7 +400,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -435,7 +434,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -460,7 +459,7 @@ public class ShapePath {
         public abstract void applyToPath(Matrix matrix, Path path);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -490,13 +489,13 @@ public class ShapePath {
         private float getControlX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.controlX : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.controlX : invokeV.floatValue;
         }
 
         private float getControlY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? this.controlY : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.controlY : invokeV.floatValue;
         }
 
         private float getEndX() {
@@ -556,7 +555,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final Matrix IDENTITY_MATRIX;
@@ -654,12 +653,12 @@ public class ShapePath {
     private float getEndShadowAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.endShadowAngle : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.endShadowAngle : invokeV.floatValue;
     }
 
     private void setCurrentShadowAngle(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(AdIconUtil.BAIDU_LOGO_ID, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65542, this, f2) == null) {
             this.currentShadowAngle = f2;
         }
     }

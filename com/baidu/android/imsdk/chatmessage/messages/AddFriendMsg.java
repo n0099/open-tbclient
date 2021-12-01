@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AddFriendMsg extends NotifyMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AddFriendMsg> CREATOR;
@@ -129,10 +129,10 @@ public class AddFriendMsg extends NotifyMsg {
         }
     }
 
-    public void setFrom(long j) {
+    public void setFrom(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.from = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.from = j2;
         }
     }
 

@@ -2,7 +2,6 @@ package com.yy.hiidostatis.message.module.sessionreport;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SessionReportWrapperImpl implements SessionReportWrapper, SessionReport.AfterFlush, SessionReport.Processor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +28,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     public SessionReport sessionReport;
     public Set<String> sessions;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class OnTimer extends SharedTimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +145,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             synchronized (this) {
                 z = !this.sessions.contains(str);
             }
@@ -156,23 +155,23 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     }
 
     @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public synchronized void beginSession(String str, String str2, long j, Map<String, Long> map) {
+    public synchronized void beginSession(String str, String str2, long j2, Map<String, Long> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2), map}) == null) {
             synchronized (this) {
                 this.sessionReport.beginSession(str, str2, this, this);
                 this.sessions.add(str);
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 > 0) {
-                    OnTimer onTimer = this.cache.get(Long.valueOf(j));
+                    OnTimer onTimer = this.cache.get(Long.valueOf(j2));
                     if (onTimer == null) {
                         OnTimer onTimer2 = new OnTimer(this);
                         onTimer2.addGlobe(str);
-                        this.cache.put(Long.valueOf(j), onTimer2);
+                        this.cache.put(Long.valueOf(j2), onTimer2);
                         if (this.globeTimer == null) {
                             this.globeTimer = new SharedThreadTimer();
                         }
-                        this.globeTimer.schedule(onTimer2, j, j);
+                        this.globeTimer.schedule(onTimer2, j2, j2);
                     } else {
                         onTimer.addGlobe(str);
                     }

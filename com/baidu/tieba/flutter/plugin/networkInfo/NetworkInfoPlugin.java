@@ -2,8 +2,8 @@ package com.baidu.tieba.flutter.plugin.networkInfo;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.e.f.j.a.a;
-import b.a.e.f.p.j;
+import c.a.d.f.j.a.a;
+import c.a.d.f.p.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,7 +24,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNetworkInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,9 +155,9 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
                         if (r != null) {
                             dnsIpResult.setDnsResolveType(resolveTypeString(r.d()));
                             dnsIpResult.setDnsResolveStatus(resolveStatusString(r.c()));
-                            ArrayList<String> a2 = r.a();
-                            if (a2 != null && a2.size() > 0) {
-                                dnsIpResult.setDnsIpList(a2);
+                            ArrayList<String> a = r.a();
+                            if (a != null && a.size() > 0) {
+                                dnsIpResult.setDnsIpList(a);
                                 result.success(dnsIpResult);
                                 return;
                             }
@@ -166,9 +166,9 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
                 }
                 a b2 = a.b();
                 if (b2 != null) {
-                    String a3 = b2.a(url);
-                    if (!TextUtils.isEmpty(a3)) {
-                        dnsIpResult.setDnsIp(a3);
+                    String a2 = b2.a(url);
+                    if (!TextUtils.isEmpty(a2)) {
+                        dnsIpResult.setDnsIp(a2);
                     }
                 }
                 result.success(dnsIpResult);
@@ -216,7 +216,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
             this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            b.a.r0.t0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.r0.z0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -226,7 +226,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
             this.mFlutterNetworkInfo = null;
-            b.a.r0.t0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.r0.z0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

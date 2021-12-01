@@ -8,11 +8,11 @@ public class MagicApiIntrinsics {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j, long j2, Object obj) {
+    public static <T> T anyMagicApiCall(int i2, long j2, long j3, Object obj) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j, Object obj) {
+    public static <T> T anyMagicApiCall(int i2, long j2, Object obj) {
         return null;
     }
 
@@ -32,11 +32,11 @@ public class MagicApiIntrinsics {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j, long j2, Object obj) {
+    public static int intMagicApiCall(int i2, long j2, long j3, Object obj) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j, Object obj) {
+    public static int intMagicApiCall(int i2, long j2, Object obj) {
         return 0;
     }
 

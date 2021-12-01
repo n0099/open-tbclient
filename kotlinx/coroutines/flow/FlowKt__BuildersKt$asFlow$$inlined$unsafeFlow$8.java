@@ -98,8 +98,8 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$8 implements Fl
                 } else if (i2 != 1) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 } else {
-                    long j = anonymousClass1.J$1;
-                    long j2 = anonymousClass1.J$0;
+                    long j2 = anonymousClass1.J$1;
+                    long j3 = anonymousClass1.J$0;
                     int i6 = anonymousClass1.I$1;
                     int i7 = anonymousClass1.I$0;
                     Object obj4 = (Continuation) anonymousClass1.L$2;
@@ -118,9 +118,9 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$8 implements Fl
                     jArr2 = jArr5;
                     flowCollector3 = flowCollector5;
                     if (i3 < length) {
-                        long j3 = jArr[i3];
+                        long j4 = jArr[i3];
                         Object obj5 = obj;
-                        long longValue = Boxing.boxLong(j3).longValue();
+                        long longValue = Boxing.boxLong(j4).longValue();
                         Long boxLong = Boxing.boxLong(longValue);
                         anonymousClass12.L$0 = flowKt__BuildersKt$asFlow$$inlined$unsafeFlow$8;
                         anonymousClass12.L$1 = flowCollector2;
@@ -130,7 +130,7 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$8 implements Fl
                         anonymousClass12.L$5 = jArr;
                         anonymousClass12.I$0 = length;
                         anonymousClass12.I$1 = i3;
-                        anonymousClass12.J$0 = j3;
+                        anonymousClass12.J$0 = j4;
                         anonymousClass12.J$1 = longValue;
                         i5 = 1;
                         anonymousClass12.label = 1;

@@ -1,0 +1,171 @@
+package c.h.b.a;
+
+import android.os.Debug;
+import android.os.SystemClock;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class g implements Printer {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f28957b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f28958c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f28959d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final boolean f28960e;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ long f28961e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f28962f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ long f28963g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ long f28964h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ g f28965i;
+
+        public a(g gVar, long j2, long j3, long j4, long j5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f28965i = gVar;
+            this.f28961e = j2;
+            this.f28962f = j3;
+            this.f28963g = j4;
+            this.f28964h = j5;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f28965i.f28959d.a(this.f28961e, this.f28962f, this.f28963g, this.f28964h);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(long j2, long j3, long j4, long j5);
+    }
+
+    public g(b bVar, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 3000L;
+        this.f28957b = 0L;
+        this.f28958c = 0L;
+        this.f28959d = null;
+        if (bVar != null) {
+            this.f28959d = bVar;
+            this.a = j2;
+            this.f28960e = z;
+            return;
+        }
+        throw new IllegalArgumentException("blockListener should not be null.");
+    }
+
+    public final boolean b(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 - this.f28957b > this.a : invokeJ.booleanValue;
+    }
+
+    public final void c(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            e.b().post(new a(this, this.f28957b, j2, this.f28958c, SystemClock.currentThreadTimeMillis()));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (c.e().f28951b != null) {
+                c.e().f28951b.c();
+            }
+            if (c.e().f28952c != null) {
+                c.e().f28952c.c();
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c.e().f28951b != null) {
+                c.e().f28951b.d();
+            }
+            if (c.e().f28952c != null) {
+                c.e().f28952c.d();
+            }
+        }
+    }
+
+    @Override // android.util.Printer
+    public void println(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.f28960e && Debug.isDebuggerConnected()) {
+                return;
+            }
+            if (str.charAt(0) == '>') {
+                this.f28957b = System.currentTimeMillis();
+                this.f28958c = SystemClock.currentThreadTimeMillis();
+                d();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (b(currentTimeMillis)) {
+                c(currentTimeMillis);
+            }
+            e();
+        }
+    }
+}

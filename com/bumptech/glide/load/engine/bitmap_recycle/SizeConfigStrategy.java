@@ -7,7 +7,6 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +23,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 @RequiresApi(19)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
@@ -39,7 +38,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +79,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +218,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public static Bitmap.Config[] getInConfigs(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, config)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, config)) == null) {
             if (Build.VERSION.SDK_INT >= 26 && Bitmap.Config.RGBA_F16.equals(config)) {
                 return RGBA_F16_IN_CONFIGS;
             }
@@ -241,7 +240,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     private NavigableMap<Integer, Integer> getSizesForConfig(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, config)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, config)) == null) {
             NavigableMap<Integer, Integer> navigableMap = this.sortedSizes.get(config);
             if (navigableMap == null) {
                 TreeMap treeMap = new TreeMap();
@@ -335,7 +334,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

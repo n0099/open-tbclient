@@ -1,5 +1,5 @@
 package io.reactivex.functions;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface BooleanSupplier {
     boolean getAsBoolean() throws Exception;
 }

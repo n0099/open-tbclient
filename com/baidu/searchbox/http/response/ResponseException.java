@@ -2,7 +2,6 @@ package com.baidu.searchbox.http.response;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCELED = "Canceled";
@@ -59,7 +58,7 @@ public class ResponseException {
     public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, exc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, exc)) == null) {
             return new IOException(" no network connected\n" + exc.toString(), exc);
         }
         return (IOException) invokeL.objValue;

@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.an;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +58,7 @@ public class LiveStatusResultData extends BaseResultData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "liveStreamId", this.liveStreamId);
+                t.a(jSONObject, "liveStreamId", this.liveStreamId);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -87,7 +87,7 @@ public class LiveStatusResultData extends BaseResultData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LiveStatus liveStatus = this.liveStatus;
-            return liveStatus == null || an.a(liveStatus.liveStreamId);
+            return liveStatus == null || at.a(liveStatus.liveStreamId);
         }
         return invokeV.booleanValue;
     }
@@ -102,7 +102,7 @@ public class LiveStatusResultData extends BaseResultData {
             }
             try {
                 String optString = jSONObject.optString("data");
-                if (an.a(optString)) {
+                if (at.a(optString)) {
                     return;
                 }
                 this.liveStatus.parseJson(new JSONObject(d.b(optString)));
@@ -118,7 +118,7 @@ public class LiveStatusResultData extends BaseResultData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "data", this.liveStatus);
+            t.a(json, "data", this.liveStatus);
             return json;
         }
         return (JSONObject) invokeV.objValue;

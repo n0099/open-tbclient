@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.util;
 
 import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.k.b;
-import b.a.e.f.m.a;
-import b.a.q0.t.c.r;
+import c.a.d.a.k.b;
+import c.a.d.f.m.a;
+import c.a.q0.t.c.r;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ChunkUploadDatabaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class ChunkUploadDatabaseService {
     public static r getChunkUploadDataByMd5(String str) {
         InterceptResult invokeL;
         r rVar;
-        Cursor j;
+        Cursor j2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
             return (r) invokeL.objValue;
@@ -70,28 +70,28 @@ public class ChunkUploadDatabaseService {
         b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             try {
-                j = mainDBDatabaseManager.j("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+                j2 = mainDBDatabaseManager.j("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             } catch (Throwable th) {
                 th = th;
             }
             try {
                 try {
-                    if (j.moveToFirst()) {
+                    if (j2.moveToFirst()) {
                         rVar = new r();
                         try {
                             rVar.e(str);
-                            rVar.d(j.getInt(3));
-                            rVar.f(j.getLong(2));
+                            rVar.d(j2.getInt(3));
+                            rVar.f(j2.getLong(2));
                             rVar2 = rVar;
                         } catch (Exception e2) {
                             e = e2;
-                            cursor = j;
+                            cursor = j2;
                             mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
                             a.a(cursor);
                             return rVar;
                         }
                     }
-                    a.a(j);
+                    a.a(j2);
                     return rVar2;
                 } catch (Exception e3) {
                     e = e3;
@@ -99,7 +99,7 @@ public class ChunkUploadDatabaseService {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor = j;
+                cursor = j2;
                 a.a(cursor);
                 throw th;
             }

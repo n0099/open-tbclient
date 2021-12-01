@@ -171,12 +171,12 @@ public class MediaStreamTrack {
         }
     }
 
-    public MediaStreamTrack(long j) {
+    public MediaStreamTrack(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -186,8 +186,8 @@ public class MediaStreamTrack {
                 return;
             }
         }
-        if (j != 0) {
-            this.nativeTrack = j;
+        if (j2 != 0) {
+            this.nativeTrack = j2;
             return;
         }
         throw new IllegalArgumentException("nativeTrack may not be null");
@@ -201,34 +201,34 @@ public class MediaStreamTrack {
     }
 
     @Nullable
-    public static MediaStreamTrack createMediaStreamTrack(long j) {
+    public static MediaStreamTrack createMediaStreamTrack(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            if (j == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            if (j2 == 0) {
                 return null;
             }
-            String nativeGetKind = nativeGetKind(j);
+            String nativeGetKind = nativeGetKind(j2);
             if (nativeGetKind.equals(AUDIO_TRACK_KIND)) {
-                return new AudioTrack(j);
+                return new AudioTrack(j2);
             }
             if (nativeGetKind.equals("video")) {
-                return new VideoTrack(j);
+                return new VideoTrack(j2);
             }
             return null;
         }
         return (MediaStreamTrack) invokeJ.objValue;
     }
 
-    public static native boolean nativeGetEnabled(long j);
+    public static native boolean nativeGetEnabled(long j2);
 
-    public static native String nativeGetId(long j);
+    public static native String nativeGetId(long j2);
 
-    public static native String nativeGetKind(long j);
+    public static native String nativeGetKind(long j2);
 
-    public static native State nativeGetState(long j);
+    public static native State nativeGetState(long j2);
 
-    public static native boolean nativeSetEnabled(long j, boolean z);
+    public static native boolean nativeSetEnabled(long j2, boolean z);
 
     public void dispose() {
         Interceptable interceptable = $ic;

@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.c.h0;
+import c.i.d.c.h0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ForwardingExecutorService extends h0 implements ExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public abstract class ForwardingExecutorService extends h0 implements ExecutorSe
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? delegate().awaitTermination(j, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? delegate().awaitTermination(j2, timeUnit) : invokeJL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.h0
+    @Override // c.i.d.c.h0
     public abstract ExecutorService delegate();
 
     @Override // java.util.concurrent.Executor
@@ -104,17 +104,17 @@ public abstract class ForwardingExecutorService extends h0 implements ExecutorSe
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> collection, long j, TimeUnit timeUnit) throws InterruptedException {
+    public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> collection, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? delegate().invokeAll(collection, j, timeUnit) : (List) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? delegate().invokeAll(collection, j2, timeUnit) : (List) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public <T> T invokeAny(Collection<? extends Callable<T>> collection, long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public <T> T invokeAny(Collection<? extends Callable<T>> collection, long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? (T) delegate().invokeAny(collection, j, timeUnit) : (T) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? (T) delegate().invokeAny(collection, j2, timeUnit) : (T) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService

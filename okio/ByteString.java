@@ -3,7 +3,6 @@ package okio;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -141,7 +140,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     public static int decodeHexDigit(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) {
             if (c2 < '0' || c2 > '9') {
                 char c3 = 'a';
                 if (c2 < 'a' || c2 > 'f') {
@@ -160,7 +159,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     private ByteString digest(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             try {
                 return of(MessageDigest.getInstance(str).digest(this.data));
             } catch (NoSuchAlgorithmException e2) {

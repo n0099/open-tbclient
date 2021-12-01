@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PoiIndoorResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PoiIndoorResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<PoiIndoorInfo> f40566a;
+    public List<PoiIndoorInfo> a;
     public int pageNum;
     public int poiNum;
 
@@ -120,7 +118,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public List<PoiIndoorInfo> getmArrayPoiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40566a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
     public void setPageNum(int i2) {
@@ -140,7 +138,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public void setmArrayPoiInfo(List<PoiIndoorInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f40566a = list;
+            this.a = list;
         }
     }
 

@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.metadata.id3;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.h.b.a.i0.v;
+import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+/* loaded from: classes2.dex */
 public final class CommentFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<CommentFrame> CREATOR;
@@ -21,7 +22,7 @@ public final class CommentFrame extends Id3Frame {
     public final String language;
     public final String text;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<CommentFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +120,7 @@ public final class CommentFrame extends Id3Frame {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.language;
-            int hashCode = (527 + (str != null ? str.hashCode() : 0)) * 31;
+            int hashCode = (PayBeanFactory.BEAN_ID_WIDTHDRAW + (str != null ? str.hashCode() : 0)) * 31;
             String str2 = this.description;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
             String str3 = this.text;

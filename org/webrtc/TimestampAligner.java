@@ -43,11 +43,11 @@ public class TimestampAligner {
 
     public static native long nativeCreateTimestampAligner();
 
-    public static native void nativeReleaseTimestampAligner(long j);
+    public static native void nativeReleaseTimestampAligner(long j2);
 
     public static native long nativeRtcTimeNanos();
 
-    public static native long nativeTranslateTimestamp(long j, long j2);
+    public static native long nativeTranslateTimestamp(long j2, long j3);
 
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class TimestampAligner {
         }
     }
 
-    public long translateTimestamp(long j) {
+    public long translateTimestamp(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             checkNativeAlignerExists();
-            return nativeTranslateTimestamp(this.nativeTimestampAligner, j);
+            return nativeTranslateTimestamp(this.nativeTimestampAligner, j2);
         }
         return invokeJ.longValue;
     }

@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.f.f;
-import b.f.s0;
-import b.f.t0;
+import c.g.f;
+import c.g.r0;
+import c.g.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,31 +30,29 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class BasePidLoader<A> implements PidLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final List<f> f63723a;
+    public final List<f> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<A> f63724b;
+    public final List<A> f55708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Deque<A> f63725c;
+    public final Deque<A> f55709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BasePidLoader<A>.FunAdCallbackWrapper f63726d;
+    public final BasePidLoader<A>.FunAdCallbackWrapper f55710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f63727e;
+    public boolean f55711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63728f;
+    public boolean f55712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RippedAd f63729g;
+    public RippedAd f55713g;
     public boolean isAdLoading;
     public final boolean isSupportCaching;
     public final boolean isSupportNativeAd;
@@ -64,19 +62,17 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public final AdReporter mReporter;
 
     /* renamed from: com.fun.ad.sdk.internal.api.BasePidLoader$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class FunAdCallbackWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BasePidLoader f63730a;
+        public final /* synthetic */ BasePidLoader a;
 
         public FunAdCallbackWrapper(BasePidLoader basePidLoader) {
             Interceptable interceptable = $ic;
@@ -93,7 +89,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
                     return;
                 }
             }
-            this.f63730a = basePidLoader;
+            this.a = basePidLoader;
         }
 
         public /* synthetic */ FunAdCallbackWrapper(BasePidLoader basePidLoader, AnonymousClass1 anonymousClass1) {
@@ -101,75 +97,75 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdClicked() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdClicked(this.f63730a.mPid);
+            adCallback.onAdClicked(this.a.mPid);
         }
 
         public void onAdClose() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdClose(this.f63730a.mPid);
+            adCallback.onAdClose(this.a.mPid);
         }
 
         public void onAdLoad() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdLoad(this.f63730a.mPid);
+            adCallback.onAdLoad(this.a.mPid);
         }
 
         public void onAdLoadError(int i2, String str) {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdLoadError(this.f63730a.mPid, i2, str);
+            adCallback.onAdLoadError(this.a.mPid, i2, str);
         }
 
         public void onAdLoaded() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdLoaded(this.f63730a.mPid);
+            adCallback.onAdLoaded(this.a.mPid);
         }
 
         public void onAdShow() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdShow(this.f63730a.mPid);
+            adCallback.onAdShow(this.a.mPid);
         }
 
         public void onAdShowError(int i2, String str) {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onAdShowError(this.f63730a.mPid, i2, str);
+            adCallback.onAdShowError(this.a.mPid, i2, str);
         }
 
         public void onRewardedVideo() {
-            t0 adCallback;
+            s0 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
             }
-            adCallback.onRewardedVideo(this.f63730a.mPid);
+            adCallback.onRewardedVideo(this.a.mPid);
         }
     }
 
@@ -251,12 +247,12 @@ public abstract class BasePidLoader<A> implements PidLoader {
                 return;
             }
         }
-        this.f63723a = new ArrayList();
-        this.f63724b = new ArrayList();
-        this.f63725c = new ArrayDeque();
-        this.f63726d = new FunAdCallbackWrapper(this, null);
-        this.f63727e = true;
-        this.f63728f = true;
+        this.a = new ArrayList();
+        this.f55708b = new ArrayList();
+        this.f55709c = new ArrayDeque();
+        this.f55710d = new FunAdCallbackWrapper(this, null);
+        this.f55711e = true;
+        this.f55712f = true;
         this.mReporter = new AdReporter();
         if (pid == null) {
             throw new IllegalArgumentException();
@@ -274,18 +270,18 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null) {
             return;
         }
-        synchronized (this.f63723a) {
-            this.f63723a.add(fVar);
+        synchronized (this.a) {
+            this.a.add(fVar);
         }
     }
 
-    public final void cacheOrDestroyAd(A a2) {
+    public final void cacheOrDestroyAd(A a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2) == null) {
-            if (this.isSupportCaching || !this.f63727e) {
-                this.f63725c.add(a2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a) == null) {
+            if (this.isSupportCaching || !this.f55711e) {
+                this.f55709c.add(a);
             } else {
-                destroyInternal(a2);
+                destroyInternal(a);
             }
         }
     }
@@ -301,9 +297,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f63727e = true;
-                this.f63729g = null;
-                Iterator<A> it = this.f63724b.iterator();
+                this.f55711e = true;
+                this.f55713g = null;
+                Iterator<A> it = this.f55708b.iterator();
                 while (it.hasNext()) {
                     A next = it.next();
                     destroyInternal(next);
@@ -311,7 +307,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
                     it.remove();
                 }
                 if (!this.isSupportCaching) {
-                    Iterator<A> it2 = this.f63725c.iterator();
+                    Iterator<A> it2 = this.f55709c.iterator();
                     while (it2.hasNext()) {
                         A next2 = it2.next();
                         destroyInternal(next2);
@@ -323,7 +319,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
     }
 
-    public abstract void destroyInternal(A a2);
+    public abstract void destroyInternal(A a);
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
     public final synchronized FunNativeAd getNativeAd(Context context, String str) {
@@ -333,15 +329,15 @@ public abstract class BasePidLoader<A> implements PidLoader {
             synchronized (this) {
                 if (this.isSupportNativeAd) {
                     if (isLoaded()) {
-                        if (this.f63725c.isEmpty()) {
+                        if (this.f55709c.isEmpty()) {
                             return null;
                         }
-                        this.f63729g = null;
-                        A pollFirst = this.f63725c.pollFirst();
+                        this.f55713g = null;
+                        A pollFirst = this.f55709c.pollFirst();
                         if (pollFirst == null) {
                             return null;
                         }
-                        this.f63724b.add(pollFirst);
+                        this.f55708b.add(pollFirst);
                         return getNativeAdInternal(context, str, pollFirst);
                     }
                     return null;
@@ -359,21 +355,21 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, str)) == null) {
             synchronized (this) {
                 if (isLoaded()) {
-                    if (this.f63725c.isEmpty()) {
+                    if (this.f55709c.isEmpty()) {
                         return null;
                     }
-                    this.f63729g = null;
-                    A peekFirst = this.f63725c.peekFirst();
+                    this.f55713g = null;
+                    A peekFirst = this.f55709c.peekFirst();
                     if (peekFirst == null) {
-                        this.f63725c.removeFirst();
+                        this.f55709c.removeFirst();
                         return null;
                     }
                     FunNativeAd2 nativeAdInternal2 = getNativeAdInternal2(context, str, peekFirst);
                     if (nativeAdInternal2 == null) {
                         return null;
                     }
-                    this.f63725c.removeFirst();
-                    this.f63724b.add(peekFirst);
+                    this.f55709c.removeFirst();
+                    this.f55708b.add(peekFirst);
                     return nativeAdInternal2;
                 }
                 return null;
@@ -383,19 +379,19 @@ public abstract class BasePidLoader<A> implements PidLoader {
     }
 
     @Deprecated
-    public FunNativeAd getNativeAdInternal(Context context, String str, A a2) {
+    public FunNativeAd getNativeAdInternal(Context context, String str, A a) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, context, str, a2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, context, str, a)) == null) {
             return null;
         }
         return (FunNativeAd) invokeLLL.objValue;
     }
 
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, A a2) {
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, A a) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, a2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, a)) == null) {
             return null;
         }
         return (FunNativeAd2) invokeLLL.objValue;
@@ -414,21 +410,21 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
-                if (this.f63728f) {
+                if (this.f55712f) {
                     if (isLoaded()) {
-                        if (this.f63725c.isEmpty()) {
+                        if (this.f55709c.isEmpty()) {
                             return null;
                         }
-                        RippedAd rippedAd = this.f63729g;
+                        RippedAd rippedAd = this.f55713g;
                         if (rippedAd != null) {
                             return rippedAd;
                         }
-                        RippedAd rippedAdInternal = getRippedAdInternal(this.f63725c.peekFirst());
+                        RippedAd rippedAdInternal = getRippedAdInternal(this.f55709c.peekFirst());
                         if (rippedAdInternal == null) {
-                            this.f63728f = false;
+                            this.f55712f = false;
                             return null;
                         }
-                        this.f63729g = rippedAdInternal;
+                        this.f55713g = rippedAdInternal;
                         return rippedAdInternal;
                     }
                     return null;
@@ -439,16 +435,16 @@ public abstract class BasePidLoader<A> implements PidLoader {
         return (RippedAd) invokeV.objValue;
     }
 
-    public final RippedAd getRippedAdInternal(A a2) {
+    public final RippedAd getRippedAdInternal(A a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, a2)) == null) ? this.mAdRipper.getRippedAd(a2) : (RippedAd) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, a)) == null) ? this.mAdRipper.getRippedAd(a) : (RippedAd) invokeL.objValue;
     }
 
-    public boolean isAdAvailable(A a2) {
+    public boolean isAdAvailable(A a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, a2)) == null) ? a2 != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, a)) == null) ? a != null : invokeL.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
@@ -458,7 +454,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             synchronized (this) {
-                Iterator<A> it = this.f63725c.iterator();
+                Iterator<A> it = this.f55709c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -482,14 +478,14 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, context, funAdSlot)) == null) {
             synchronized (this) {
-                this.f63727e = false;
+                this.f55711e = false;
                 if (this.isAdLoading) {
                     return false;
                 }
-                this.f63729g = null;
+                this.f55713g = null;
                 this.isAdLoading = true;
-                this.f63724b.addAll(this.f63725c);
-                this.f63725c.clear();
+                this.f55708b.addAll(this.f55709c);
+                this.f55709c.clear();
                 loadInternal(context, funAdSlot);
                 return true;
             }
@@ -502,9 +498,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public void onAdClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f63726d.onAdClicked();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdClicked();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.c();
                 }
             }
@@ -514,9 +510,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public void onAdClose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f63726d.onAdClose();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdClose();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.b();
                 }
             }
@@ -526,19 +522,19 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public void onAdError(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i2, str) == null) {
-            this.f63726d.onAdShowError(i2, str);
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdShowError(i2, str);
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.b(i2, str);
                 }
             }
         }
     }
 
-    public final void onAdLoaded(A a2) {
+    public final void onAdLoaded(A a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, a2) == null) {
-            cacheOrDestroyAd(a2);
+        if (interceptable == null || interceptable.invokeL(1048595, this, a) == null) {
+            cacheOrDestroyAd(a);
             onLoaded();
         }
     }
@@ -546,20 +542,20 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public final void onAdLoaded(List<A> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-            for (A a2 : list) {
-                cacheOrDestroyAd(a2);
+            for (A a : list) {
+                cacheOrDestroyAd(a);
             }
             onLoaded();
         }
     }
 
-    public void onAdShow(A a2) {
+    public void onAdShow(A a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, a2) == null) {
-            this.f63726d.onAdShow();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
-                    fVar.a(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a2) : null);
+        if (interceptable == null || interceptable.invokeL(1048597, this, a) == null) {
+            this.f55710d.onAdShow();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
+                    fVar.a(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a) : null);
                 }
             }
         }
@@ -569,9 +565,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048598, this, i2, str) == null) {
             this.isAdLoading = false;
-            this.f63726d.onAdLoadError(i2, str);
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdLoadError(i2, str);
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.a(i2, str);
                 }
             }
@@ -581,9 +577,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public void onLoadStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f63726d.onAdLoad();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdLoad();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.e();
                 }
             }
@@ -594,9 +590,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.isAdLoading = false;
-            this.f63726d.onAdLoaded();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onAdLoaded();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.d();
                 }
             }
@@ -606,9 +602,9 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public void onRewardedVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f63726d.onRewardedVideo();
-            synchronized (this.f63723a) {
-                for (f fVar : this.f63723a) {
+            this.f55710d.onRewardedVideo();
+            synchronized (this.a) {
+                for (f fVar : this.a) {
                     fVar.a();
                 }
             }
@@ -621,8 +617,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (!(interceptable == null || interceptable.invokeL(1048602, this, fVar) == null) || fVar == null) {
             return;
         }
-        synchronized (this.f63723a) {
-            this.f63723a.remove(fVar);
+        synchronized (this.a) {
+            this.a.remove(fVar);
         }
     }
 
@@ -633,15 +629,15 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048603, this, activity, viewGroup, str, funNativeAdInflater)) == null) {
             synchronized (this) {
                 if (isLoaded()) {
-                    if (this.f63725c.isEmpty()) {
+                    if (this.f55709c.isEmpty()) {
                         return false;
                     }
-                    this.f63729g = null;
-                    A pollFirst = this.f63725c.pollFirst();
+                    this.f55713g = null;
+                    A pollFirst = this.f55709c.pollFirst();
                     if (pollFirst == null) {
                         return false;
                     }
-                    this.f63724b.add(pollFirst);
+                    this.f55708b.add(pollFirst);
                     return funNativeAdInflater == null ? showInternal(activity, viewGroup, str, (String) pollFirst) : showInternal(activity, str, funNativeAdInflater, (FunNativeAdInflater) pollFirst);
                 }
                 return false;
@@ -650,19 +646,19 @@ public abstract class BasePidLoader<A> implements PidLoader {
         return invokeLLLL.booleanValue;
     }
 
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, A a2) {
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, A a) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, activity, viewGroup, str, a2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, activity, viewGroup, str, a)) == null) {
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public boolean showInternal(Activity activity, String str, FunNativeAdInflater funNativeAdInflater, A a2) {
+    public boolean showInternal(Activity activity, String str, FunNativeAdInflater funNativeAdInflater, A a) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048605, this, activity, str, funNativeAdInflater, a2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048605, this, activity, str, funNativeAdInflater, a)) == null) {
             return false;
         }
         return invokeLLLL.booleanValue;
@@ -676,15 +672,15 @@ public abstract class BasePidLoader<A> implements PidLoader {
             synchronized (this) {
                 if (this.isSupportSplashAd) {
                     if (isLoaded()) {
-                        if (this.f63725c.isEmpty()) {
+                        if (this.f55709c.isEmpty()) {
                             return null;
                         }
-                        this.f63729g = null;
-                        A removeFirst = this.f63725c.removeFirst();
+                        this.f55713g = null;
+                        A removeFirst = this.f55709c.removeFirst();
                         if (removeFirst == null) {
                             return null;
                         }
-                        this.f63724b.add(removeFirst);
+                        this.f55708b.add(removeFirst);
                         return showSplashInternal(activity, viewGroup, str, removeFirst);
                     }
                     return null;
@@ -695,12 +691,12 @@ public abstract class BasePidLoader<A> implements PidLoader {
         return (FunSplashAd) invokeLLL.objValue;
     }
 
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, A a2) {
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, A a) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048607, this, activity, viewGroup, str, a2)) == null) {
-            if (showInternal(activity, viewGroup, str, (String) a2)) {
-                return new s0();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048607, this, activity, viewGroup, str, a)) == null) {
+            if (showInternal(activity, viewGroup, str, (String) a)) {
+                return new r0();
             }
             return null;
         }

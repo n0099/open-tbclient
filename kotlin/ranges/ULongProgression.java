@@ -9,12 +9,13 @@ import kotlin.Metadata;
 import kotlin.SinceKotlin;
 import kotlin.ULong;
 import kotlin.UnsignedKt;
+import kotlin.WasExperimental;
 import kotlin.internal.UProgressionUtilKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.markers.KMappedMarker;
-@SinceKotlin(version = "1.3")
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\b\b\u0017\u0018\u0000 !2\u00020\u00012\u00020\u0002:\u0001!B$\b\u0000\u0012\u0006\u0010\u001d\u001a\u00020\u0013\u0012\u0006\u0010\u001e\u001a\u00020\u0013\u0012\u0006\u0010\u001b\u001a\u00020\u001aø\u0001\u0000¢\u0006\u0004\b\u001f\u0010 J\u001a\u0010\u0006\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0096\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0010\u0010\u000e\u001a\u00020\rH\u0096\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012R\u001f\u0010\u0014\u001a\u00020\u00138\u0006@\u0006ø\u0001\u0000ø\u0001\u0001¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017R\u001f\u0010\u0018\u001a\u00020\u00138\u0006@\u0006ø\u0001\u0000ø\u0001\u0001¢\u0006\f\n\u0004\b\u0018\u0010\u0015\u001a\u0004\b\u0019\u0010\u0017R\u0019\u0010\u001b\u001a\u00020\u001a8\u0006@\u0006¢\u0006\f\n\u0004\b\u001b\u0010\u0015\u001a\u0004\b\u001c\u0010\u0017ø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\""}, d2 = {"Lkotlin/ranges/ULongProgression;", "Ljava/lang/Iterable;", "Lkotlin/jvm/internal/markers/KMappedMarker;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "isEmpty", "()Z", "Lkotlin/collections/ULongIterator;", "iterator", "()Lkotlin/collections/ULongIterator;", "", "toString", "()Ljava/lang/String;", "Lkotlin/ULong;", "first", "J", "getFirst-s-VKNKU", "()J", "last", "getLast-s-VKNKU", "", ShaderParams.VALUE_TYPE_STEP, "getStep", "start", "endInclusive", "<init>", "(JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@ExperimentalUnsignedTypes
+@SinceKotlin(version = "1.5")
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u001c\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010(\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0017\u0018\u0000 \u001a2\b\u0012\u0004\u0012\u00020\u00020\u0001:\u0001\u001aB\"\b\u0000\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\u0006\u0010\u0004\u001a\u00020\u0002\u0012\u0006\u0010\u0005\u001a\u00020\u0006ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0096\u0002J\b\u0010\u0013\u001a\u00020\u0014H\u0016J\b\u0010\u0015\u001a\u00020\u0010H\u0016J\u0012\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00020\u0017H\u0086\u0002ø\u0001\u0000J\b\u0010\u0018\u001a\u00020\u0019H\u0016R\u0019\u0010\b\u001a\u00020\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\t\u0010\nR\u0019\u0010\f\u001a\u00020\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\r\u0010\nR\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\nø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u001b"}, d2 = {"Lkotlin/ranges/ULongProgression;", "", "Lkotlin/ULong;", "start", "endInclusive", ShaderParams.VALUE_TYPE_STEP, "", "(JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "first", "getFirst-s-VKNKU", "()J", "J", "last", "getLast-s-VKNKU", "getStep", "equals", "", "other", "", TTDownloadField.TT_HASHCODE, "", "isEmpty", "iterator", "", "toString", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
 /* loaded from: classes3.dex */
 public class ULongProgression implements Iterable<ULong>, KMappedMarker {
     public static final Companion Companion = new Companion(null);
@@ -22,15 +23,15 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
     public final long last;
     public final long step;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\n\u0010\u000bJ(\u0010\t\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004ø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\b\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\f"}, d2 = {"Lkotlin/ranges/ULongProgression$Companion;", "Lkotlin/ULong;", "rangeStart", "rangeEnd", "", ShaderParams.VALUE_TYPE_STEP, "Lkotlin/ranges/ULongProgression;", "fromClosedRange-7ftBX0g", "(JJJ)Lkotlin/ranges/ULongProgression;", "fromClosedRange", "<init>", "()V", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J(\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\tø\u0001\u0000¢\u0006\u0004\b\n\u0010\u000b\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\f"}, d2 = {"Lkotlin/ranges/ULongProgression$Companion;", "", "()V", "fromClosedRange", "Lkotlin/ranges/ULongProgression;", "rangeStart", "Lkotlin/ULong;", "rangeEnd", ShaderParams.VALUE_TYPE_STEP, "", "fromClosedRange-7ftBX0g", "(JJJ)Lkotlin/ranges/ULongProgression;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes3.dex */
     public static final class Companion {
         public Companion() {
         }
 
         /* renamed from: fromClosedRange-7ftBX0g  reason: not valid java name */
-        public final ULongProgression m1841fromClosedRange7ftBX0g(long j, long j2, long j3) {
-            return new ULongProgression(j, j2, j3, null);
+        public final ULongProgression m1915fromClosedRange7ftBX0g(long j2, long j3, long j4) {
+            return new ULongProgression(j2, j3, j4, null);
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -38,8 +39,8 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         }
     }
 
-    public /* synthetic */ ULongProgression(long j, long j2, long j3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, j2, j3);
+    public /* synthetic */ ULongProgression(long j2, long j3, long j4, DefaultConstructorMarker defaultConstructorMarker) {
+        this(j2, j3, j4);
     }
 
     public boolean equals(Object obj) {
@@ -55,12 +56,12 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
     }
 
     /* renamed from: getFirst-s-VKNKU  reason: not valid java name */
-    public final long m1839getFirstsVKNKU() {
+    public final long m1913getFirstsVKNKU() {
         return this.first;
     }
 
     /* renamed from: getLast-s-VKNKU  reason: not valid java name */
-    public final long m1840getLastsVKNKU() {
+    public final long m1914getLastsVKNKU() {
         return this.last;
     }
 
@@ -72,10 +73,10 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         if (isEmpty()) {
             return -1;
         }
-        long j = this.first;
-        long j2 = this.last;
-        long j3 = this.step;
-        return ((int) (j3 ^ (j3 >>> 32))) + (((((int) ULong.m808constructorimpl(j ^ ULong.m808constructorimpl(j >>> 32))) * 31) + ((int) ULong.m808constructorimpl(j2 ^ ULong.m808constructorimpl(j2 >>> 32)))) * 31);
+        long j2 = this.first;
+        long j3 = this.last;
+        long j4 = this.step;
+        return ((int) (j4 ^ (j4 >>> 32))) + (((((int) ULong.m874constructorimpl(j2 ^ ULong.m874constructorimpl(j2 >>> 32))) * 31) + ((int) ULong.m874constructorimpl(j3 ^ ULong.m874constructorimpl(j3 >>> 32)))) * 31);
     }
 
     public boolean isEmpty() {
@@ -91,45 +92,43 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         return false;
     }
 
+    @Override // java.lang.Iterable
+    public final Iterator<ULong> iterator() {
+        return new ULongProgressionIterator(this.first, this.last, this.step, null);
+    }
+
     public String toString() {
         StringBuilder sb;
-        long j;
+        long j2;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append(ULong.m845toStringimpl(this.first));
+            sb.append(ULong.m919toStringimpl(this.first));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append(ULong.m845toStringimpl(this.last));
+            sb.append(ULong.m919toStringimpl(this.last));
             sb.append(" step ");
-            j = this.step;
+            j2 = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append(ULong.m845toStringimpl(this.first));
+            sb.append(ULong.m919toStringimpl(this.first));
             sb.append(" downTo ");
-            sb.append(ULong.m845toStringimpl(this.last));
+            sb.append(ULong.m919toStringimpl(this.last));
             sb.append(" step ");
-            j = -this.step;
+            j2 = -this.step;
         }
-        sb.append(j);
+        sb.append(j2);
         return sb.toString();
     }
 
-    public ULongProgression(long j, long j2, long j3) {
-        if (j3 == 0) {
+    public ULongProgression(long j2, long j3, long j4) {
+        if (j4 == 0) {
             throw new IllegalArgumentException("Step must be non-zero.");
         }
-        if (j3 != Long.MIN_VALUE) {
-            this.first = j;
-            this.last = UProgressionUtilKt.m1818getProgressionLastElement7ftBX0g(j, j2, j3);
-            this.step = j3;
+        if (j4 != Long.MIN_VALUE) {
+            this.first = j2;
+            this.last = UProgressionUtilKt.m1892getProgressionLastElement7ftBX0g(j2, j3, j4);
+            this.step = j4;
             return;
         }
         throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'kotlin.collections.ULongIterator' to match base method */
-    @Override // java.lang.Iterable
-    public Iterator<ULong> iterator() {
-        return new ULongProgressionIterator(this.first, this.last, this.step, null);
     }
 }

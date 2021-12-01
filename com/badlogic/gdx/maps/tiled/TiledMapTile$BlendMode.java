@@ -1,0 +1,69 @@
+package com.badlogic.gdx.maps.tiled;
+
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes8.dex */
+public final class TiledMapTile$BlendMode {
+    public static final /* synthetic */ TiledMapTile$BlendMode[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final TiledMapTile$BlendMode ALPHA;
+    public static final TiledMapTile$BlendMode NONE;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1556085814, "Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1556085814, "Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;");
+                return;
+            }
+        }
+        NONE = new TiledMapTile$BlendMode(PolyActivity.NONE_PANEL_TYPE, 0);
+        TiledMapTile$BlendMode tiledMapTile$BlendMode = new TiledMapTile$BlendMode("ALPHA", 1);
+        ALPHA = tiledMapTile$BlendMode;
+        $VALUES = new TiledMapTile$BlendMode[]{NONE, tiledMapTile$BlendMode};
+    }
+
+    public TiledMapTile$BlendMode(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static TiledMapTile$BlendMode valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TiledMapTile$BlendMode) Enum.valueOf(TiledMapTile$BlendMode.class, str) : (TiledMapTile$BlendMode) invokeL.objValue;
+    }
+
+    public static TiledMapTile$BlendMode[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TiledMapTile$BlendMode[]) $VALUES.clone() : (TiledMapTile$BlendMode[]) invokeV.objValue;
+    }
+}

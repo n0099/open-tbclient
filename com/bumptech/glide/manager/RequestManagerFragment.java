@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RMFragment";
@@ -38,7 +37,7 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class FragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +148,7 @@ public class RequestManagerFragment extends Fragment {
 
     private void registerFragmentWithRoot(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, activity) == null) {
             unregisterFragmentWithRoot();
             RequestManagerFragment requestManagerFragment = Glide.get(activity).getRequestManagerRetriever().getRequestManagerFragment(activity);
             this.rootRequestManagerFragment = requestManagerFragment;
@@ -162,7 +161,7 @@ public class RequestManagerFragment extends Fragment {
 
     private void removeChildRequestManagerFragment(RequestManagerFragment requestManagerFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, requestManagerFragment) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, requestManagerFragment) == null) {
             this.childRequestManagerFragments.remove(requestManagerFragment);
         }
     }

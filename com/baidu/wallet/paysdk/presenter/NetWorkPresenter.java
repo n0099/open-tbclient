@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanResponseCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,18 +58,16 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
             getHandler().post(new Runnable(this, i2, i3, str) { // from class: com.baidu.wallet.paysdk.presenter.NetWorkPresenter.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60773a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f60774b;
+                public final /* synthetic */ int f53573b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60775c;
+                public final /* synthetic */ String f53574c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f60776d;
+                public final /* synthetic */ NetWorkPresenter f53575d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,17 +84,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f60776d = this;
-                    this.f60773a = i2;
-                    this.f60774b = i3;
-                    this.f60775c = str;
+                    this.f53575d = this;
+                    this.a = i2;
+                    this.f53573b = i3;
+                    this.f53574c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60776d.handleFailure(this.f60773a, this.f60774b, this.f60775c);
+                        this.f53575d.handleFailure(this.a, this.f53573b, this.f53574c);
                     }
                 }
             });
@@ -110,18 +108,16 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
             getHandler().post(new Runnable(this, i2, obj, str) { // from class: com.baidu.wallet.paysdk.presenter.NetWorkPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f60769a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f60770b;
+                public final /* synthetic */ Object f53570b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60771c;
+                public final /* synthetic */ String f53571c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f60772d;
+                public final /* synthetic */ NetWorkPresenter f53572d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,17 +134,17 @@ public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCa
                             return;
                         }
                     }
-                    this.f60772d = this;
-                    this.f60769a = i2;
-                    this.f60770b = obj;
-                    this.f60771c = str;
+                    this.f53572d = this;
+                    this.a = i2;
+                    this.f53570b = obj;
+                    this.f53571c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60772d.handleResponse(this.f60769a, this.f60770b, this.f60771c);
+                        this.f53572d.handleResponse(this.a, this.f53570b, this.f53571c);
                     }
                 }
             });

@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class y extends AsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a0 f62119a;
+    public a0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MsaIdInterface f62120b;
+    public MsaIdInterface f54447b;
 
     public y(MsaIdInterface msaIdInterface, a0 a0Var) {
         Interceptable interceptable = $ic;
@@ -35,8 +33,8 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        this.f62120b = msaIdInterface;
-        this.f62119a = a0Var;
+        this.f54447b = msaIdInterface;
+        this.a = a0Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,13 +46,13 @@ public class y extends AsyncTask<Void, Void, Boolean> {
         a0 a0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            if (this.f62120b == null) {
+            if (this.f54447b == null) {
                 return Boolean.FALSE;
             }
             int i2 = 0;
             while (true) {
                 try {
-                    isDataArrived = this.f62120b.isDataArrived();
+                    isDataArrived = this.f54447b.isDataArrived();
                 } catch (RemoteException | InterruptedException unused) {
                 }
                 if (isDataArrived) {
@@ -66,8 +64,8 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                     break;
                 }
             }
-            if (isDataArrived && (a0Var = this.f62119a) != null) {
-                a0Var.a(this.f62120b);
+            if (isDataArrived && (a0Var = this.a) != null) {
+                a0Var.a(this.f54447b);
             }
             return Boolean.valueOf(isDataArrived);
         }

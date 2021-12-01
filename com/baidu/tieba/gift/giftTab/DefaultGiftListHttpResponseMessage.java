@@ -1,10 +1,10 @@
 package com.baidu.tieba.gift.giftTab;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.q.j0;
-import b.a.q0.s.q.k0;
-import b.a.r0.b1.b.a;
-import b.a.r0.b1.b.e;
+import c.a.q0.s.q.j0;
+import c.a.q0.s.q.k0;
+import c.a.r0.h1.b.a;
+import c.a.r0.h1.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import tbclient.GetGiftList.PresentCategoryList;
 import tbclient.GetGiftList.PresentGiftList1;
 import tbclient.GetGiftList.PresentNumInfo;
 import tbclient.GetGiftList.UrlTitle;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,10 +91,10 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.sceneId : invokeV.longValue;
     }
 
-    public void setSceneId(long j) {
+    public void setSceneId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.sceneId = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.sceneId = j2;
         }
     }
 
@@ -121,29 +121,29 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
             this.urlTitleData = k0Var;
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
-            k0Var.f14160a = urlTitle.name;
-            k0Var.f14161b = urlTitle.url;
+            k0Var.a = urlTitle.name;
+            k0Var.f13001b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
                 for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                     if (presentGiftList1 != null) {
                         j0 j0Var = new j0();
-                        j0Var.f14138a = presentGiftList1.gift_id.intValue();
-                        j0Var.f14139b = presentGiftList1.gift_name;
-                        j0Var.f14140c = presentGiftList1.price.intValue();
-                        j0Var.f14141d = presentGiftList1.thumbnail_url;
+                        j0Var.a = presentGiftList1.gift_id.intValue();
+                        j0Var.f12978b = presentGiftList1.gift_name;
+                        j0Var.f12979c = presentGiftList1.price.intValue();
+                        j0Var.f12980d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        j0Var.f14142e = presentGiftList1.gift_desc;
-                        j0Var.f14143f = presentGiftList1.activity_type.intValue();
-                        j0Var.f14144g = presentGiftList1.mark_url;
-                        j0Var.f14145h = presentGiftList1.begin_time.intValue();
-                        j0Var.f14146i = presentGiftList1.end_time.intValue();
-                        j0Var.j = presentGiftList1.discount.intValue();
+                        j0Var.f12981e = presentGiftList1.gift_desc;
+                        j0Var.f12982f = presentGiftList1.activity_type.intValue();
+                        j0Var.f12983g = presentGiftList1.mark_url;
+                        j0Var.f12984h = presentGiftList1.begin_time.intValue();
+                        j0Var.f12985i = presentGiftList1.end_time.intValue();
+                        j0Var.f12986j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();
                         presentGiftList1.pitch_on.intValue();
-                        j0Var.k = presentGiftList1.gift_count.intValue();
+                        j0Var.f12987k = presentGiftList1.gift_count.intValue();
                         j0Var.q = presentGiftList1.currency_unit.intValue();
                         j0Var.s = presentGiftList1.currency.intValue();
                         this.giftList.add(j0Var);

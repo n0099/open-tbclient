@@ -8,7 +8,6 @@ import android.media.AudioManager;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -146,7 +145,7 @@ public final class WebRtcAudioUtils {
 
     public static void logAudioState(String str, Context context, AudioManager audioManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, context, audioManager) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, context, audioManager) == null) {
             logDeviceInfo(str);
             logAudioStateBasic(str, context, audioManager);
             logAudioStateVolume(str, audioManager);
@@ -156,7 +155,7 @@ public final class WebRtcAudioUtils {
 
     public static void logAudioStateBasic(String str, Context context, AudioManager audioManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, context, audioManager) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, context, audioManager) == null) {
             Logging.d(str, "Audio State: audio mode: " + modeToString(audioManager.getMode()) + ", has mic: " + hasMicrophone(context) + ", mic muted: " + audioManager.isMicrophoneMute() + ", music active: " + audioManager.isMusicActive() + ", speakerphone: " + audioManager.isSpeakerphoneOn() + ", BT SCO: " + audioManager.isBluetoothScoOn());
         }
     }

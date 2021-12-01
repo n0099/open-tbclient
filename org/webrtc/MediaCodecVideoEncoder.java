@@ -15,7 +15,6 @@ import android.view.Surface;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import g.c.i0;
+import h.c.i0;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -137,7 +136,7 @@ public class MediaCodecVideoEncoder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f73497e;
+        public Exception f64311e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -510,12 +509,12 @@ public class MediaCodecVideoEncoder {
         public final boolean isKeyFrame;
         public final long presentationTimestampUs;
 
-        public OutputBufferInfo(int i2, ByteBuffer byteBuffer, boolean z, long j) {
+        public OutputBufferInfo(int i2, ByteBuffer byteBuffer, boolean z, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), byteBuffer, Boolean.valueOf(z), Long.valueOf(j)};
+                Object[] objArr = {Integer.valueOf(i2), byteBuffer, Boolean.valueOf(z), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -528,7 +527,7 @@ public class MediaCodecVideoEncoder {
             this.index = i2;
             this.buffer = byteBuffer;
             this.isKeyFrame = z;
-            this.presentationTimestampUs = j;
+            this.presentationTimestampUs = j2;
         }
 
         @CalledByNative("OutputBufferInfo")
@@ -696,7 +695,7 @@ public class MediaCodecVideoEncoder {
 
     private void checkOnMediaCodecThread() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.mediaCodecThread.getId() == Thread.currentThread().getId()) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mediaCodecThread.getId() == Thread.currentThread().getId()) {
             return;
         }
         throw new RuntimeException("MediaCodecVideoEncoder previously operated on " + this.mediaCodecThread + " but is now called on " + Thread.currentThread());
@@ -706,7 +705,7 @@ public class MediaCodecVideoEncoder {
     public static MediaCodec createByCodecName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 return MediaCodec.createByCodecName(str);
             } catch (Exception unused) {
@@ -986,7 +985,7 @@ public class MediaCodecVideoEncoder {
 
     public static native long nativeCreateEncoder(VideoCodecInfo videoCodecInfo, boolean z);
 
-    public static native void nativeFillInputBuffer(long j, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5);
+    public static native void nativeFillInputBuffer(long j2, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5);
 
     public static void printStackTrace() {
         MediaCodecVideoEncoder mediaCodecVideoEncoder;
@@ -1143,17 +1142,17 @@ public class MediaCodecVideoEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void checkKeyFrameRequired(boolean z, long j) {
+    public void checkKeyFrameRequired(boolean z, long j2) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            long j2 = (j + 500) / 1000;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            long j3 = (j2 + 500) / 1000;
             if (this.lastKeyFrameMs < 0) {
-                this.lastKeyFrameMs = j2;
+                this.lastKeyFrameMs = j3;
             }
             if (!z) {
-                long j3 = this.forcedKeyFrameMs;
-                if (j3 > 0 && j2 > this.lastKeyFrameMs + j3) {
+                long j4 = this.forcedKeyFrameMs;
+                if (j4 > 0 && j3 > this.lastKeyFrameMs + j4) {
                     z2 = true;
                     if (!z || z2) {
                         if (!z) {
@@ -1164,7 +1163,7 @@ public class MediaCodecVideoEncoder {
                         Bundle bundle = new Bundle();
                         bundle.putInt("request-sync", 0);
                         this.mediaCodec.setParameters(bundle);
-                        this.lastKeyFrameMs = j2;
+                        this.lastKeyFrameMs = j3;
                     }
                     return;
                 }
@@ -1177,7 +1176,7 @@ public class MediaCodecVideoEncoder {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("request-sync", 0);
             this.mediaCodec.setParameters(bundle2);
-            this.lastKeyFrameMs = j2;
+            this.lastKeyFrameMs = j3;
         }
     }
 
@@ -1272,14 +1271,14 @@ public class MediaCodecVideoEncoder {
     }
 
     @CalledByNativeUnchecked
-    public boolean encodeBuffer(boolean z, int i2, int i3, long j) {
+    public boolean encodeBuffer(boolean z, int i2, int i3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
             checkOnMediaCodecThread();
             try {
-                checkKeyFrameRequired(z, j);
-                this.mediaCodec.queueInputBuffer(i2, 0, i3, j, 0);
+                checkKeyFrameRequired(z, j2);
+                this.mediaCodec.queueInputBuffer(i2, 0, i3, j2, 0);
                 return true;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "encodeBuffer failed", e2);
@@ -1290,19 +1289,19 @@ public class MediaCodecVideoEncoder {
     }
 
     @CalledByNativeUnchecked
-    public boolean encodeFrame(long j, boolean z, VideoFrame videoFrame, int i2, long j2) {
+    public boolean encodeFrame(long j2, boolean z, VideoFrame videoFrame, int i2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), videoFrame, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), videoFrame, Integer.valueOf(i2), Long.valueOf(j3)})) == null) {
             checkOnMediaCodecThread();
             try {
-                checkKeyFrameRequired(z, j2);
+                checkKeyFrameRequired(z, j3);
                 VideoFrame.Buffer buffer = videoFrame.getBuffer();
                 if (buffer instanceof VideoFrame.TextureBuffer) {
                     this.eglBase.makeCurrent();
                     GLES20.glClear(16384);
                     VideoFrameDrawer.drawTexture(this.drawer, (VideoFrame.TextureBuffer) buffer, new Matrix(), this.width, this.height, 0, 0, this.width, this.height);
-                    this.eglBase.swapBuffers(TimeUnit.MICROSECONDS.toNanos(j2));
+                    this.eglBase.swapBuffers(TimeUnit.MICROSECONDS.toNanos(j3));
                 } else {
                     VideoFrame.I420Buffer i420 = buffer.toI420();
                     int i3 = (this.height + 1) / 2;
@@ -1315,9 +1314,9 @@ public class MediaCodecVideoEncoder {
                     if (dataY.capacity() >= this.height * strideY) {
                         if (dataU.capacity() >= strideU * i3) {
                             if (dataV.capacity() >= i3 * strideV) {
-                                nativeFillInputBuffer(j, i2, dataY, strideY, dataU, strideU, dataV, strideV);
+                                nativeFillInputBuffer(j2, i2, dataY, strideY, dataU, strideU, dataV, strideV);
                                 i420.release();
-                                this.mediaCodec.queueInputBuffer(i2, 0, ((this.width * this.height) * 3) / 2, j2, 0);
+                                this.mediaCodec.queueInputBuffer(i2, 0, ((this.width * this.height) * 3) / 2, j3, 0);
                             } else {
                                 throw new RuntimeException("V-plane buffer size too small.");
                             }
@@ -1553,7 +1552,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f73497e = e3;
+                                this.val$caughtException.f64311e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1590,11 +1589,11 @@ public class MediaCodecVideoEncoder {
                     errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
                 throw new RuntimeException("Media encoder release timeout.");
-            } else if (c1CaughtException.f73497e == null) {
+            } else if (c1CaughtException.f64311e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
             } else {
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73497e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f73497e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f64311e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f64311e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
         }

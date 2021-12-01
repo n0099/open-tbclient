@@ -10,12 +10,13 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SharedPreferencesPlugin implements FlutterPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_NAME = "plugins.flutter.io/shared_preferences";
     public transient /* synthetic */ FieldHolder $fh;
     public MethodChannel channel;
+    public MethodCallHandlerImpl handler;
 
     public SharedPreferencesPlugin() {
         Interceptable interceptable = $ic;
@@ -42,13 +43,17 @@ public class SharedPreferencesPlugin implements FlutterPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, binaryMessenger, context) == null) {
             this.channel = new MethodChannel(binaryMessenger, CHANNEL_NAME);
-            this.channel.setMethodCallHandler(new MethodCallHandlerImpl(context));
+            MethodCallHandlerImpl methodCallHandlerImpl = new MethodCallHandlerImpl(context);
+            this.handler = methodCallHandlerImpl;
+            this.channel.setMethodCallHandler(methodCallHandlerImpl);
         }
     }
 
     private void teardownChannel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.handler.teardown();
+            this.handler = null;
             this.channel.setMethodCallHandler(null);
             this.channel = null;
         }

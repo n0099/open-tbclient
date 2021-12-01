@@ -16,10 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.h.i.d;
-import b.a.p0.h.i.e;
-import b.a.p0.h.i.f;
-import b.a.p0.h.i.h;
+import c.a.p0.h.i.d;
+import c.a.p0.h.i.e;
+import c.a.p0.h.i.f;
+import c.a.p0.h.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,48 +28,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdAlertDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALIDATE_RES_ID = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f45329e;
+    public a f40365e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public b f45330a;
+        public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final AdAlertDialog f45331b;
+        public final AdAlertDialog f40366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f45332c;
+        public Context f40367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f45333d;
+        public boolean f40368d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45334e;
+        public int f40369e;
 
         /* renamed from: com.baidu.swan.game.ad.component.AdAlertDialog$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1738a implements View.OnClickListener {
+        /* loaded from: classes9.dex */
+        public class View$OnClickListenerC1808a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45335e;
+            public final /* synthetic */ DialogInterface.OnClickListener f40370e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f45336f;
+            public final /* synthetic */ a f40371f;
 
-            public View$OnClickListenerC1738a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC1808a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,34 +82,34 @@ public class AdAlertDialog extends Dialog {
                         return;
                     }
                 }
-                this.f45336f = aVar;
-                this.f45335e = onClickListener;
+                this.f40371f = aVar;
+                this.f40370e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f45336f.f45331b.onButtonClick(-1);
-                    this.f45336f.f45331b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f45335e;
+                    this.f40371f.f40366b.onButtonClick(-1);
+                    this.f40371f.f40366b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f40370e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f45336f.f45331b, -1);
+                        onClickListener.onClick(this.f40371f.f40366b, -1);
                     }
                 }
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f45337e;
+            public final /* synthetic */ DialogInterface.OnClickListener f40372e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f45338f;
+            public final /* synthetic */ a f40373f;
 
             public b(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -128,19 +126,19 @@ public class AdAlertDialog extends Dialog {
                         return;
                     }
                 }
-                this.f45338f = aVar;
-                this.f45337e = onClickListener;
+                this.f40373f = aVar;
+                this.f40372e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f45338f.f45331b.onButtonClick(-2);
-                    this.f45338f.f45331b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f45337e;
+                    this.f40373f.f40366b.onButtonClick(-2);
+                    this.f40373f.f40366b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f40372e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f45338f.f45331b, -2);
+                        onClickListener.onClick(this.f40373f.f40366b, -2);
                     }
                 }
             }
@@ -176,15 +174,15 @@ public class AdAlertDialog extends Dialog {
                     return;
                 }
             }
-            this.f45330a = null;
-            this.f45333d = false;
+            this.a = null;
+            this.f40368d = false;
             AdAlertDialog e2 = e(context);
-            this.f45331b = e2;
+            this.f40366b = e2;
             e2.a(this);
-            this.f45332c = context;
-            this.f45334e = context.getResources().getDimensionPixelSize(b.a.p0.h.i.c.swan_ad_dialog_btns_height);
-            if (this.f45331b.getWindow() != null) {
-                this.f45330a = new b((ViewGroup) this.f45331b.getWindow().getDecorView());
+            this.f40367c = context;
+            this.f40369e = context.getResources().getDimensionPixelSize(c.a.p0.h.i.c.swan_ad_dialog_btns_height);
+            if (this.f40366b.getWindow() != null) {
+                this.a = new b((ViewGroup) this.f40366b.getWindow().getDecorView());
             }
         }
 
@@ -192,25 +190,25 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f45331b.setCancelable(this.f45330a.k.booleanValue());
-                if (this.f45330a.k.booleanValue()) {
-                    this.f45331b.setCanceledOnTouchOutside(false);
+                this.f40366b.setCancelable(this.a.f40383k.booleanValue());
+                if (this.a.f40383k.booleanValue()) {
+                    this.f40366b.setCanceledOnTouchOutside(false);
                 }
-                this.f45331b.setOnCancelListener(this.f45330a.l);
-                this.f45331b.setOnDismissListener(this.f45330a.m);
-                this.f45331b.setOnShowListener(this.f45330a.n);
-                DialogInterface.OnKeyListener onKeyListener = this.f45330a.p;
+                this.f40366b.setOnCancelListener(this.a.l);
+                this.f40366b.setOnDismissListener(this.a.m);
+                this.f40366b.setOnShowListener(this.a.n);
+                DialogInterface.OnKeyListener onKeyListener = this.a.p;
                 if (onKeyListener != null) {
-                    this.f45331b.setOnKeyListener(onKeyListener);
+                    this.f40366b.setOnKeyListener(onKeyListener);
                 }
                 q();
-                b bVar = this.f45330a;
+                b bVar = this.a;
                 c cVar = bVar.z;
                 if (cVar != null) {
-                    cVar.a(this.f45331b, bVar);
+                    cVar.a(this.f40366b, bVar);
                 }
-                this.f45331b.a(this);
-                return this.f45331b;
+                this.f40366b.a(this);
+                return this.f40366b;
             }
             return (AdAlertDialog) invokeV.objValue;
         }
@@ -218,14 +216,14 @@ public class AdAlertDialog extends Dialog {
         public Resources b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45332c.getResources() : (Resources) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40367c.getResources() : (Resources) invokeV.objValue;
         }
 
         public a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f45330a.f45339a.setVisibility(z ? 8 : 0);
+                this.a.a.setVisibility(z ? 8 : 0);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -237,23 +235,23 @@ public class AdAlertDialog extends Dialog {
             TextView textView;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                TextView textView2 = this.f45330a.f45343e;
+                TextView textView2 = this.a.f40377e;
                 if (textView2 == null || textView2.getVisibility() != 0) {
                     i2 = 0;
                     textView = null;
                 } else {
-                    textView = this.f45330a.f45343e;
+                    textView = this.a.f40377e;
                     i2 = 1;
                 }
-                TextView textView3 = this.f45330a.f45344f;
+                TextView textView3 = this.a.f40378f;
                 if (textView3 != null && textView3.getVisibility() == 0) {
                     i2++;
-                    textView = this.f45330a.f45344f;
+                    textView = this.a.f40378f;
                 }
-                TextView textView4 = this.f45330a.f45345g;
+                TextView textView4 = this.a.f40379g;
                 if (textView4 != null && textView4.getVisibility() == 0) {
                     i2++;
-                    textView = this.f45330a.f45345g;
+                    textView = this.a.f40379g;
                 }
                 if (i2 != 1) {
                     return null;
@@ -273,7 +271,7 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048581, this, i2, i3, i4, i5)) == null) {
-                this.f45330a.A.setPadding(i2, i3, i4, i5);
+                this.a.A.setPadding(i2, i3, i4, i5);
                 return this;
             }
             return (a) invokeIIII.objValue;
@@ -283,11 +281,11 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                if (this.f45330a.f45342d.getVisibility() != 0) {
-                    this.f45330a.f45342d.setVisibility(0);
+                if (this.a.f40376d.getVisibility() != 0) {
+                    this.a.f40376d.setVisibility(0);
                 }
                 if (str != null) {
-                    this.f45330a.f45341c.setText(str);
+                    this.a.f40375c.setText(str);
                     h();
                 }
                 return this;
@@ -298,9 +296,9 @@ public class AdAlertDialog extends Dialog {
         public final void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f45334e);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f40369e);
                 layoutParams.addRule(3, e.dialog_message_content);
-                this.f45330a.t.setLayoutParams(layoutParams);
+                this.a.t.setLayoutParams(layoutParams);
             }
         }
 
@@ -308,7 +306,7 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, onClickListener)) == null) {
-                j(this.f45332c.getText(i2), onClickListener);
+                j(this.f40367c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -319,18 +317,18 @@ public class AdAlertDialog extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, charSequence, onClickListener)) == null) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f45330a.f45344f.setVisibility(8);
-                    if (this.f45330a.f45343e.getVisibility() == 0) {
-                        this.f45330a.f45347i.setVisibility(8);
+                    this.a.f40378f.setVisibility(8);
+                    if (this.a.f40377e.getVisibility() == 0) {
+                        this.a.f40381i.setVisibility(8);
                     }
                     return this;
                 }
-                this.f45330a.f45344f.setVisibility(0);
-                if (this.f45330a.f45343e.getVisibility() == 0) {
-                    this.f45330a.f45347i.setVisibility(0);
+                this.a.f40378f.setVisibility(0);
+                if (this.a.f40377e.getVisibility() == 0) {
+                    this.a.f40381i.setVisibility(0);
                 }
-                this.f45330a.f45344f.setText(charSequence);
-                this.f45330a.f45344f.setOnClickListener(new b(this, onClickListener));
+                this.a.f40378f.setText(charSequence);
+                this.a.f40378f.setOnClickListener(new b(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -340,7 +338,7 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, onDismissListener)) == null) {
-                this.f45330a.m = onDismissListener;
+                this.a.m = onDismissListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -350,7 +348,7 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, onClickListener)) == null) {
-                m(this.f45332c.getText(i2), onClickListener);
+                m(this.f40367c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -361,18 +359,18 @@ public class AdAlertDialog extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, charSequence, onClickListener)) == null) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f45330a.f45343e.setVisibility(8);
-                    if (this.f45330a.f45344f.getVisibility() == 0) {
-                        this.f45330a.f45347i.setVisibility(8);
+                    this.a.f40377e.setVisibility(8);
+                    if (this.a.f40378f.getVisibility() == 0) {
+                        this.a.f40381i.setVisibility(8);
                     }
                     return this;
                 }
-                this.f45330a.f45343e.setVisibility(0);
-                if (this.f45330a.f45344f.getVisibility() == 0) {
-                    this.f45330a.f45347i.setVisibility(0);
+                this.a.f40377e.setVisibility(0);
+                if (this.a.f40378f.getVisibility() == 0) {
+                    this.a.f40381i.setVisibility(0);
                 }
-                this.f45330a.f45343e.setText(charSequence);
-                this.f45330a.f45343e.setOnClickListener(new View$OnClickListenerC1738a(this, onClickListener));
+                this.a.f40377e.setText(charSequence);
+                this.a.f40377e.setOnClickListener(new View$OnClickListenerC1808a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -392,9 +390,9 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                b bVar = this.f45330a;
+                b bVar = this.a;
                 bVar.w = i2;
-                bVar.f45343e.setTextColor(i2);
+                bVar.f40377e.setTextColor(i2);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -404,15 +402,15 @@ public class AdAlertDialog extends Dialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                AdAlertDialog a2 = a();
-                if (this.f45333d && a2.getWindow() != null) {
-                    a2.getWindow().setType(2003);
+                AdAlertDialog a = a();
+                if (this.f40368d && a.getWindow() != null) {
+                    a.getWindow().setType(2003);
                 }
                 try {
-                    a2.show();
+                    a.show();
                 } catch (WindowManager.BadTokenException unused) {
                 }
-                return a2;
+                return a;
             }
             return (AdAlertDialog) invokeV.objValue;
         }
@@ -420,58 +418,58 @@ public class AdAlertDialog extends Dialog {
         public final void q() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-                int color = b().getColor(b.a.p0.h.i.b.swan_ad_dialog_title_text_color);
-                int color2 = b().getColor(b.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
-                int color3 = b().getColor(b.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
-                int color4 = b().getColor(b.a.p0.h.i.b.swan_ad_box_dialog_message_text_color);
-                int color5 = b().getColor(b.a.p0.h.i.b.swan_ad_dialog_gray);
-                RelativeLayout relativeLayout = this.f45330a.r;
+                int color = b().getColor(c.a.p0.h.i.b.swan_ad_dialog_title_text_color);
+                int color2 = b().getColor(c.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
+                int color3 = b().getColor(c.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
+                int color4 = b().getColor(c.a.p0.h.i.b.swan_ad_box_dialog_message_text_color);
+                int color5 = b().getColor(c.a.p0.h.i.b.swan_ad_dialog_gray);
+                RelativeLayout relativeLayout = this.a.r;
                 Resources b2 = b();
-                int i2 = this.f45330a.C;
+                int i2 = this.a.C;
                 if (i2 == -1) {
                     i2 = d.swan_ad_dialog_bg_white;
                 }
                 relativeLayout.setBackground(b2.getDrawable(i2));
-                this.f45330a.f45340b.setTextColor(color);
-                this.f45330a.f45341c.setTextColor(color4);
-                b bVar = this.f45330a;
-                TextView textView = bVar.f45343e;
+                this.a.f40374b.setTextColor(color);
+                this.a.f40375c.setTextColor(color4);
+                b bVar = this.a;
+                TextView textView = bVar.f40377e;
                 int i3 = bVar.w;
                 if (i3 != color3) {
                     color3 = i3;
                 }
                 textView.setTextColor(color3);
-                b bVar2 = this.f45330a;
+                b bVar2 = this.a;
                 int i4 = bVar2.x;
                 if (i4 != color2) {
-                    bVar2.f45344f.setTextColor(i4);
+                    bVar2.f40378f.setTextColor(i4);
                 } else {
                     int i5 = bVar2.y;
                     if (i5 != -1) {
-                        bVar2.f45344f.setTextColor(AppCompatResources.getColorStateList(this.f45332c, i5));
+                        bVar2.f40378f.setTextColor(AppCompatResources.getColorStateList(this.f40367c, i5));
                     } else {
-                        bVar2.f45344f.setTextColor(color2);
+                        bVar2.f40378f.setTextColor(color2);
                     }
                 }
-                this.f45330a.f45345g.setTextColor(color2);
-                if (this.f45330a.D != -1) {
-                    color5 = b().getColor(this.f45330a.D);
+                this.a.f40379g.setTextColor(color2);
+                if (this.a.D != -1) {
+                    color5 = b().getColor(this.a.D);
                 }
-                this.f45330a.f45346h.setBackgroundColor(color5);
-                this.f45330a.f45347i.setBackgroundColor(color5);
-                this.f45330a.j.setBackgroundColor(color5);
-                this.f45330a.f45343e.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_right_selector));
-                this.f45330a.f45344f.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_left_selector));
-                this.f45330a.f45345g.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector));
+                this.a.f40380h.setBackgroundColor(color5);
+                this.a.f40381i.setBackgroundColor(color5);
+                this.a.f40382j.setBackgroundColor(color5);
+                this.a.f40377e.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_right_selector));
+                this.a.f40378f.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_left_selector));
+                this.a.f40379g.setBackground(b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector));
                 TextView d2 = d();
                 if (d2 != null) {
-                    d2.setBackground(this.f45330a.E ? b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector) : null);
+                    d2.setBackground(this.a.E ? b().getDrawable(d.swan_ad_alertdialog_button_day_bg_all_selector) : null);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -480,35 +478,37 @@ public class AdAlertDialog extends Dialog {
         public int C;
         public int D;
         public boolean E;
-
-        /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f45339a;
+        public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f45340b;
+        public TextView f40374b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f45341c;
+        public TextView f40375c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LinearLayout f45342d;
+        public LinearLayout f40376d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f45343e;
+        public TextView f40377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f45344f;
+        public TextView f40378f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f45345g;
+        public TextView f40379g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f45346h;
+        public View f40380h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f45347i;
-        public View j;
-        public Boolean k;
+        public View f40381i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public View f40382j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public Boolean f40383k;
         public DialogInterface.OnCancelListener l;
         public DialogInterface.OnDismissListener m;
         public DialogInterface.OnShowListener n;
@@ -540,37 +540,37 @@ public class AdAlertDialog extends Dialog {
                     return;
                 }
             }
-            this.k = Boolean.TRUE;
+            this.f40383k = Boolean.TRUE;
             this.y = -1;
             this.C = -1;
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.f45339a = (LinearLayout) viewGroup.findViewById(e.title_panel);
-            this.f45340b = (TextView) viewGroup.findViewById(e.dialog_title);
-            this.f45341c = (TextView) viewGroup.findViewById(e.dialog_message);
-            this.f45342d = (LinearLayout) viewGroup.findViewById(e.dialog_message_content);
-            this.f45343e = (TextView) viewGroup.findViewById(e.positive_button);
-            this.f45344f = (TextView) viewGroup.findViewById(e.negative_button);
-            this.f45345g = (TextView) viewGroup.findViewById(e.neutral_button);
-            this.f45347i = viewGroup.findViewById(e.divider3);
-            this.j = viewGroup.findViewById(e.divider4);
+            this.a = (LinearLayout) viewGroup.findViewById(e.title_panel);
+            this.f40374b = (TextView) viewGroup.findViewById(e.dialog_title);
+            this.f40375c = (TextView) viewGroup.findViewById(e.dialog_message);
+            this.f40376d = (LinearLayout) viewGroup.findViewById(e.dialog_message_content);
+            this.f40377e = (TextView) viewGroup.findViewById(e.positive_button);
+            this.f40378f = (TextView) viewGroup.findViewById(e.negative_button);
+            this.f40379g = (TextView) viewGroup.findViewById(e.neutral_button);
+            this.f40381i = viewGroup.findViewById(e.divider3);
+            this.f40382j = viewGroup.findViewById(e.divider4);
             this.o = (FrameLayout) viewGroup.findViewById(e.dialog_custom_content);
             this.q = (ImageView) viewGroup.findViewById(e.dialog_icon);
             this.r = (RelativeLayout) viewGroup.findViewById(e.searchbox_alert_dialog);
-            this.f45346h = viewGroup.findViewById(e.divider2);
+            this.f40380h = viewGroup.findViewById(e.divider2);
             this.s = (AdScrollView) viewGroup.findViewById(e.message_scrollview);
             this.t = (LinearLayout) viewGroup.findViewById(e.btn_panel);
             this.u = viewGroup.findViewById(e.dialog_customPanel);
             this.A = (FrameLayout) viewGroup.findViewById(e.dialog_root);
             this.B = viewGroup.findViewById(e.nightmode_mask);
-            int color = this.v.getResources().getColor(b.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
+            int color = this.v.getResources().getColor(c.a.p0.h.i.b.swan_ad_dialog_btn_text_color);
             this.w = color;
             this.x = color;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a(AdAlertDialog adAlertDialog, b bVar);
     }
@@ -599,7 +599,7 @@ public class AdAlertDialog extends Dialog {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f45329e = aVar;
+            this.f40365e = aVar;
         }
     }
 
@@ -614,7 +614,7 @@ public class AdAlertDialog extends Dialog {
     public a getBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45329e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40365e : (a) invokeV.objValue;
     }
 
     public void init() {
@@ -637,7 +637,7 @@ public class AdAlertDialog extends Dialog {
     public void setMessage(String str) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.f45329e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.f40365e) == null) {
             return;
         }
         aVar.g(str);

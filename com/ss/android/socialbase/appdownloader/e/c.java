@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,24 +24,20 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f69893a = 8;
+    public static int a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f69894b;
+    public static volatile c f61523b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f69895c;
+    public a<Integer, Bitmap> f61524c;
 
     /* loaded from: classes2.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final int f69899a;
+        public final int a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, int i3) {
@@ -63,14 +58,14 @@ public class c {
                     return;
                 }
             }
-            this.f69899a = i2;
+            this.a = i2;
         }
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<K, T> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.f69899a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.a : invokeL.booleanValue;
         }
     }
 
@@ -102,15 +97,15 @@ public class c {
                 return;
             }
         }
-        this.f69895c = null;
-        int i4 = f69893a;
-        this.f69895c = new a<>(i4, i4 / 2);
+        this.f61524c = null;
+        int i4 = a;
+        this.f61524c = new a<>(i4, i4 / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, inputStream)) != null) {
             return (ByteArrayOutputStream) invokeL.objValue;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -130,14 +125,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f69894b == null) {
+            if (f61523b == null) {
                 synchronized (c.class) {
-                    if (f69894b == null) {
-                        f69894b = new c();
+                    if (f61523b == null) {
+                        f61523b = new c();
                     }
                 }
             }
-            return f69894b;
+            return f61523b;
         }
         return (c) invokeV.objValue;
     }
@@ -145,7 +140,7 @@ public class c {
     public Bitmap a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69895c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f61524c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
     }
 
     public void a(int i2, String str) {
@@ -154,15 +149,13 @@ public class c {
             com.ss.android.socialbase.downloader.downloader.c.m().submit(new Runnable(this, str, i2) { // from class: com.ss.android.socialbase.appdownloader.e.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69896a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f69897b;
+                public final /* synthetic */ int f61525b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f69898c;
+                public final /* synthetic */ c f61526c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,9 +172,9 @@ public class c {
                             return;
                         }
                     }
-                    this.f69898c = this;
-                    this.f69896a = str;
-                    this.f69897b = i2;
+                    this.f61526c = this;
+                    this.a = str;
+                    this.f61525b = i2;
                 }
 
                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00b8 */
@@ -214,7 +207,7 @@ public class c {
                     i3 = 4;
                     try {
                         try {
-                            i a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.f69896a, null);
+                            i a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.a, null);
                             if (a2 == null) {
                                 f.a(null, null, null, null);
                                 return;
@@ -233,7 +226,7 @@ public class c {
                                             int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                             options.inSampleSize = c.a(a3, a3, options);
                                             options.inJustDecodeBounds = false;
-                                            this.f69898c.f69895c.put(Integer.valueOf(this.f69897b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                            this.f61526c.f61524c.put(Integer.valueOf(this.f61525b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                             f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                                         } catch (Exception e3) {
                                             e2 = e3;

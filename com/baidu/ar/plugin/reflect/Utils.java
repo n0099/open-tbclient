@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] EMPTY_CLASS_ARRAY;
@@ -83,7 +82,7 @@ public class Utils {
     public static Class<?>[] nullToEmpty(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? EMPTY_CLASS_ARRAY : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? EMPTY_CLASS_ARRAY : clsArr : (Class[]) invokeL.objValue;
     }
 
     public static Class<?>[] toClass(Object... objArr) {
@@ -108,7 +107,7 @@ public class Utils {
     public static Object[] nullToEmpty(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? EMPTY_OBJECT_ARRAY : objArr : (Object[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? EMPTY_OBJECT_ARRAY : objArr : (Object[]) invokeL.objValue;
     }
 
     public static void getAllInterfaces(Class<?> cls, HashSet<Class<?>> hashSet) {

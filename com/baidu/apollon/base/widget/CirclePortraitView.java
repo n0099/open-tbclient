@@ -12,25 +12,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CirclePortraitView extends NetImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Paint f36684a;
+    public final Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f36685b;
+    public final Paint f32891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f36686c;
+    public final RectF f32892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f36687d;
+    public float f32893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f36688e;
+    public float f32894e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CirclePortraitView(Context context, AttributeSet attributeSet, int i2) {
@@ -51,19 +49,19 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f36684a = new Paint();
-        this.f36685b = new Paint();
-        this.f36686c = new RectF();
+        this.a = new Paint();
+        this.f32891b = new Paint();
+        this.f32892c = new RectF();
         c();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f36684a.setAntiAlias(true);
-            this.f36684a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            this.f36685b.setAntiAlias(true);
-            this.f36685b.setColor(-1);
+            this.a.setAntiAlias(true);
+            this.a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            this.f32891b.setAntiAlias(true);
+            this.f32891b.setColor(-1);
         }
     }
 
@@ -71,10 +69,10 @@ public class CirclePortraitView extends NetImageView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.saveLayer(this.f36686c, this.f36685b, 31);
-            float f2 = this.f36687d;
-            canvas.drawCircle(f2 / 2.0f, this.f36688e / 2.0f, f2 / 2.0f, this.f36685b);
-            canvas.saveLayer(this.f36686c, this.f36684a, 31);
+            canvas.saveLayer(this.f32892c, this.f32891b, 31);
+            float f2 = this.f32893d;
+            canvas.drawCircle(f2 / 2.0f, this.f32894e / 2.0f, f2 / 2.0f, this.f32891b);
+            canvas.saveLayer(this.f32892c, this.a, 31);
             super.draw(canvas);
             canvas.restore();
         }
@@ -85,10 +83,10 @@ public class CirclePortraitView extends NetImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f36687d = getWidth();
+            this.f32893d = getWidth();
             float height = getHeight();
-            this.f36688e = height;
-            this.f36686c.set(0.0f, 0.0f, this.f36687d, height);
+            this.f32894e = height;
+            this.f32892c.set(0.0f, 0.0f, this.f32893d, height);
         }
     }
 
@@ -111,9 +109,9 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f36684a = new Paint();
-        this.f36685b = new Paint();
-        this.f36686c = new RectF();
+        this.a = new Paint();
+        this.f32891b = new Paint();
+        this.f32892c = new RectF();
         c();
     }
 
@@ -135,9 +133,9 @@ public class CirclePortraitView extends NetImageView {
                 return;
             }
         }
-        this.f36684a = new Paint();
-        this.f36685b = new Paint();
-        this.f36686c = new RectF();
+        this.a = new Paint();
+        this.f32891b = new Paint();
+        this.f32892c = new RectF();
         c();
     }
 }

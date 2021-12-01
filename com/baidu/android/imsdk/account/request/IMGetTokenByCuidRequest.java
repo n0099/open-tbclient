@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGenTokenByCuidRequest";
@@ -29,12 +29,12 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public int mDeviceType;
     public String mKey;
 
-    public IMGetTokenByCuidRequest(Context context, long j, String str, String str2) {
+    public IMGetTokenByCuidRequest(Context context, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,7 +47,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         this.mAccountType = 6;
         this.mDeviceType = 2;
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mCuid = str;
         this.mKey = str2;
     }

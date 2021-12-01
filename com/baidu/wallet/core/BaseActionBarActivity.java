@@ -20,7 +20,7 @@ import com.baidu.wallet.base.widget.WalletBaseEmptyView;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
 import com.baidu.wallet.core.beans.BeanActivity;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseActionBarActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,16 +29,14 @@ public abstract class BaseActionBarActivity extends BeanActivity {
     public View mContentView;
     public IErrorViewDelegate mErrorViewDelegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class ErrorViewDelegate implements IErrorViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public WalletBaseEmptyView f58858a;
+        public WalletBaseEmptyView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseActionBarActivity f58859b;
+        public final /* synthetic */ BaseActionBarActivity f52362b;
 
         public ErrorViewDelegate(BaseActionBarActivity baseActionBarActivity) {
             Interceptable interceptable = $ic;
@@ -55,19 +53,19 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f58859b = baseActionBarActivity;
+            this.f52362b = baseActionBarActivity;
             WalletBaseEmptyView walletBaseEmptyView = new WalletBaseEmptyView(baseActionBarActivity.getActivity());
-            this.f58858a = walletBaseEmptyView;
+            this.a = walletBaseEmptyView;
             walletBaseEmptyView.setVisibility(8);
-            baseActionBarActivity.mContentLayout.addView(this.f58858a);
+            baseActionBarActivity.mContentLayout.addView(this.a);
         }
 
         @Override // com.baidu.wallet.core.BaseActionBarActivity.IErrorViewDelegate
         public void showContentView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58859b.mContentView.setVisibility(0);
-                this.f58858a.setVisibility(8);
+                this.f52362b.mContentView.setVisibility(0);
+                this.a.setVisibility(8);
             }
         }
 
@@ -75,9 +73,9 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         public void showLocalNetError(WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emptyBtnClickListener) == null) {
-                this.f58858a.setVisibility(0);
-                this.f58859b.mContentView.setVisibility(8);
-                this.f58858a.showTip1_Tip2_NextBtn(ResUtils.drawable(this.f58859b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f58859b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f58859b.mAct, "wallet_base_no_network_reason"), ResUtils.getString(this.f58859b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+                this.a.setVisibility(0);
+                this.f52362b.mContentView.setVisibility(8);
+                this.a.showTip1_Tip2_NextBtn(ResUtils.drawable(this.f52362b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f52362b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f52362b.mAct, "wallet_base_no_network_reason"), ResUtils.getString(this.f52362b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
             }
         }
 
@@ -85,14 +83,14 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         public void showServerNetError(String str, WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, emptyBtnClickListener) == null) {
-                this.f58858a.setVisibility(0);
-                this.f58859b.mContentView.setVisibility(8);
-                this.f58858a.showTip1_NextBtn(ResUtils.drawable(this.f58859b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f58859b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f58859b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+                this.a.setVisibility(0);
+                this.f52362b.mContentView.setVisibility(8);
+                this.a.showTip1_NextBtn(ResUtils.drawable(this.f52362b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f52362b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f52362b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IErrorViewDelegate {
         void showContentView();
 
@@ -164,9 +162,7 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActionBarActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseActionBarActivity f58851a;
+            public final /* synthetic */ BaseActionBarActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -183,15 +179,15 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                         return;
                     }
                 }
-                this.f58851a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f58851a.getActivity());
-                    this.f58851a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });
@@ -237,15 +233,13 @@ public abstract class BaseActionBarActivity extends BeanActivity {
             promptDialog.setNegativeBtn(ResUtils.string(this.mAct, "ebpay_know"), new View.OnClickListener(this, onClickListener, promptDialog) { // from class: com.baidu.wallet.core.BaseActionBarActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View.OnClickListener f58852a;
+                public final /* synthetic */ View.OnClickListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f58853b;
+                public final /* synthetic */ PromptDialog f52358b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaseActionBarActivity f58854c;
+                public final /* synthetic */ BaseActionBarActivity f52359c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -262,35 +256,33 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f58854c = this;
-                    this.f58852a = onClickListener;
-                    this.f58853b = promptDialog;
+                    this.f52359c = this;
+                    this.a = onClickListener;
+                    this.f52358b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        View.OnClickListener onClickListener3 = this.f58852a;
+                        View.OnClickListener onClickListener3 = this.a;
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f58853b.dismiss();
+                        this.f52358b.dismiss();
                     }
                 }
             });
             promptDialog.setPositiveBtn(ResUtils.string(this.mAct, "wallet_varify_quick"), new View.OnClickListener(this, onClickListener2, promptDialog) { // from class: com.baidu.wallet.core.BaseActionBarActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View.OnClickListener f58855a;
+                public final /* synthetic */ View.OnClickListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f58856b;
+                public final /* synthetic */ PromptDialog f52360b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaseActionBarActivity f58857c;
+                public final /* synthetic */ BaseActionBarActivity f52361c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -307,20 +299,20 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f58857c = this;
-                    this.f58855a = onClickListener2;
-                    this.f58856b = promptDialog;
+                    this.f52361c = this;
+                    this.a = onClickListener2;
+                    this.f52360b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        View.OnClickListener onClickListener3 = this.f58855a;
+                        View.OnClickListener onClickListener3 = this.a;
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f58856b.dismiss();
+                        this.f52360b.dismiss();
                     }
                 }
             });

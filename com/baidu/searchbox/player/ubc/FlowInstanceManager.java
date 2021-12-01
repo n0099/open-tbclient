@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FlowInstanceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ConcurrentHashMap<String, Flow> FLOW_FETCHERS;
@@ -90,7 +89,7 @@ public class FlowInstanceManager {
 
     public static void endFlow(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         Flow flow = FLOW_FETCHERS.get(str);
@@ -103,7 +102,7 @@ public class FlowInstanceManager {
     public static void endFlowPart(@Nullable String str, @NonNull String str2) {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (flow = FLOW_FETCHERS.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (flow = FLOW_FETCHERS.get(str)) == null) {
             return;
         }
         sUBCManager.flowEndSlot(flow, str2);

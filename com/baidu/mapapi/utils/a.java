@@ -6,12 +6,10 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40737a;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,21 +26,21 @@ public /* synthetic */ class a {
             }
         }
         int[] iArr = new int[CoordinateConverter.CoordType.values().length];
-        f40737a = iArr;
+        a = iArr;
         try {
             iArr[CoordinateConverter.CoordType.COMMON.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40737a[CoordinateConverter.CoordType.GPS.ordinal()] = 2;
+            a[CoordinateConverter.CoordType.GPS.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f40737a[CoordinateConverter.CoordType.BD09LL.ordinal()] = 3;
+            a[CoordinateConverter.CoordType.BD09LL.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40737a[CoordinateConverter.CoordType.BD09MC.ordinal()] = 4;
+            a[CoordinateConverter.CoordType.BD09MC.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
     }

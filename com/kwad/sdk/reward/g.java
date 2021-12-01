@@ -1,65 +1,70 @@
 package com.kwad.sdk.reward;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.core.diskcache.b.c;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.w;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes2.dex */
-public class g {
+public class g extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static boolean a(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
+    public g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adTemplate)) == null) {
-            if (b(adTemplate)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            String a2 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(adTemplate));
-            String a3 = w.a(a2);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a3 + "--url:" + a2);
-            c.a aVar = new c.a();
-            boolean a4 = com.kwad.sdk.core.diskcache.b.a.a().a(a2, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a3 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a4);
-            if (a4) {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1);
-            } else {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.f65324a);
-            }
-            return a4;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean a(@NonNull String str, String str2, c.a aVar) {
-        InterceptResult invokeLLL;
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, aVar)) == null) {
-            String a2 = w.a(str2);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a2 + "--url:" + str);
-            boolean a3 = com.kwad.sdk.core.diskcache.b.a.a().a(str, str2, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a2 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a3);
-            return a3;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
+            this.a = (a) p();
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean b(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(adTemplate)));
-            return b2 != null && b2.exists();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            int i2 = z ? 1 : 153;
+            a aVar = this.a;
+            com.kwad.sdk.core.report.a.a(aVar.f58874g, i2, aVar.f58877j.getTouchCoords(), this.a.f58872e);
+            this.a.f58869b.a();
         }
-        return invokeL.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.d.u(this.a.f58874g) : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.d.v(this.a.f58874g) : invokeV.booleanValue;
+    }
+
+    public void h() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (activity = this.a.f58875h) == null) {
+            return;
+        }
+        activity.finish();
     }
 }

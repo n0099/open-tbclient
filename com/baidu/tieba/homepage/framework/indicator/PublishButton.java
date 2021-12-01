@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.n.b;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class PublishButton extends TBSpecificationBtn {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             b bVar = new b();
             bVar.i(R.drawable.icon_pure_issue16, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            bVar.g(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            bVar.g(l.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
             setConfig(bVar);
             setTextSize(R.dimen.T_X08);

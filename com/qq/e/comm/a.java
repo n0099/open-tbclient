@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kuaishou.weapon.un.s;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes2.dex */
@@ -29,7 +29,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.ACCESS_WIFI_STATE"};
+                String[] strArr = {s.a, "android.permission.ACCESS_NETWORK_STATE", s.f56839d};
                 int i2 = 0;
                 while (true) {
                     if (i2 >= 3) {

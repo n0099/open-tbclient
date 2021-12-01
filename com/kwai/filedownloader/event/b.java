@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Runnable f67878a;
+    public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f67879b;
+    public final String f60003b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -31,13 +29,13 @@ public abstract class b {
                 return;
             }
         }
-        this.f67878a = null;
-        this.f67879b = str;
+        this.a = null;
+        this.f60003b = str;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67879b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60003b : (String) invokeV.objValue;
     }
 }

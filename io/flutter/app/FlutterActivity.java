@@ -18,7 +18,8 @@ import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes2.dex */
+@Deprecated
+/* loaded from: classes3.dex */
 public class FlutterActivity extends Activity implements FlutterView.Provider, PluginRegistry, FlutterActivityDelegate.ViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterActivity";

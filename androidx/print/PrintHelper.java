@@ -28,7 +28,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -451,7 +450,7 @@ public final class PrintHelper {
     public static boolean isPortrait(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) == null) ? bitmap.getWidth() <= bitmap.getHeight() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) ? bitmap.getWidth() <= bitmap.getHeight() : invokeL.booleanValue;
     }
 
     private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
@@ -459,7 +458,7 @@ public final class PrintHelper {
         Context context;
         InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, uri, options)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, uri, options)) == null) {
             if (uri != null && (context = this.mContext) != null) {
                 InputStream inputStream = null;
                 try {

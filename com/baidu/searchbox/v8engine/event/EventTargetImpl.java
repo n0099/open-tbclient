@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.searchbox.v8engine.JsObject;
@@ -19,7 +18,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EventTargetImpl implements EventTarget {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -70,7 +69,7 @@ public class EventTargetImpl implements EventTarget {
         InterceptResult invokeL;
         int propertyIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, jsObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, jsObject)) == null) {
             if (jsObject != null && (propertyIndex = jsObject.getPropertyIndex("type")) >= 0) {
                 return jsObject.toString(propertyIndex);
             }

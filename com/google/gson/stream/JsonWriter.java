@@ -3,7 +3,6 @@ package com.google.gson.stream;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -160,7 +159,7 @@ public class JsonWriter implements Closeable, Flushable {
 
     private void newline() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.indent == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.indent == null) {
             return;
         }
         this.out.write(StringUtils.LF);
@@ -173,7 +172,7 @@ public class JsonWriter implements Closeable, Flushable {
     private JsonWriter open(int i2, String str) throws IOException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i2, str)) == null) {
             beforeValue();
             push(i2);
             this.out.write(str);
@@ -490,13 +489,13 @@ public class JsonWriter implements Closeable, Flushable {
         return (JsonWriter) invokeCommon.objValue;
     }
 
-    public JsonWriter value(long j) throws IOException {
+    public JsonWriter value(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
             writeDeferredName();
             beforeValue();
-            this.out.write(Long.toString(j));
+            this.out.write(Long.toString(j2));
             return this;
         }
         return (JsonWriter) invokeJ.objValue;

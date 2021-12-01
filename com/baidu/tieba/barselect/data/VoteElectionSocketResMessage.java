@@ -1,8 +1,8 @@
 package com.baidu.tieba.barselect.data;
 
-import b.a.r0.y.b.d;
-import b.a.r0.y.b.e;
-import b.a.r0.y.b.f;
+import c.a.r0.c0.b.d;
+import c.a.r0.c0.b.e;
+import c.a.r0.c0.b.f;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
 import tbclient.ManagerElection;
 import tbclient.Myrecord;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

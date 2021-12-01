@@ -2,7 +2,6 @@ package io.reactivex.internal.subscriptions;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import org.reactivestreams.Subscriber;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EmptySubscription implements QueueSubscription<Object> {
     public static final /* synthetic */ EmptySubscription[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -83,7 +82,7 @@ public final class EmptySubscription implements QueueSubscription<Object> {
     public static EmptySubscription[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (EmptySubscription[]) $VALUES.clone() : (EmptySubscription[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (EmptySubscription[]) $VALUES.clone() : (EmptySubscription[]) invokeV.objValue;
     }
 
     @Override // org.reactivestreams.Subscription
@@ -132,10 +131,10 @@ public final class EmptySubscription implements QueueSubscription<Object> {
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            SubscriptionHelper.validate(j);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            SubscriptionHelper.validate(j2);
         }
     }
 

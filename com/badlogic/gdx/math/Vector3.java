@@ -1,0 +1,931 @@
+package com.badlogic.gdx.math;
+
+import androidx.core.view.InputDeviceCompat;
+import c.b.b.q.t;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+/* loaded from: classes8.dex */
+public class Vector3 implements Serializable, e<Vector3> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Vector3 X;
+    public static final Vector3 Y;
+    public static final Vector3 Z;
+    public static final Vector3 Zero;
+    public static final long serialVersionUID = 3840054589595372522L;
+    public static final Matrix4 tmpMat;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float x;
+    public float y;
+    public float z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(34217186, "Lcom/badlogic/gdx/math/Vector3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(34217186, "Lcom/badlogic/gdx/math/Vector3;");
+                return;
+            }
+        }
+        X = new Vector3(1.0f, 0.0f, 0.0f);
+        Y = new Vector3(0.0f, 1.0f, 0.0f);
+        Z = new Vector3(0.0f, 0.0f, 1.0f);
+        Zero = new Vector3(0.0f, 0.0f, 0.0f);
+        tmpMat = new Matrix4();
+    }
+
+    public Vector3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static float dot(float f2, float f3, float f4, float f5, float f6, float f7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) ? (f2 * f5) + (f3 * f6) + (f4 * f7) : invokeCommon.floatValue;
+    }
+
+    public static float dst2(float f2, float f3, float f4, float f5, float f6, float f7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
+            float f8 = f5 - f2;
+            float f9 = f6 - f3;
+            float f10 = f7 - f4;
+            return (f8 * f8) + (f9 * f9) + (f10 * f10);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static float len(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4)) : invokeCommon.floatValue;
+    }
+
+    public static float len2(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f2 * f2) + (f3 * f3) + (f4 * f4) : invokeCommon.floatValue;
+    }
+
+    public Vector3 crs(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, vector3)) == null) {
+            float f2 = this.y;
+            float f3 = vector3.z;
+            float f4 = this.z;
+            float f5 = vector3.y;
+            float f6 = (f2 * f3) - (f4 * f5);
+            float f7 = vector3.x;
+            float f8 = this.x;
+            return set(f6, (f4 * f7) - (f3 * f8), (f8 * f5) - (f2 * f7));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && Vector3.class == obj.getClass()) {
+                Vector3 vector3 = (Vector3) obj;
+                return t.a(this.x) == t.a(vector3.x) && t.a(this.y) == t.a(vector3.y) && t.a(this.z) == t.a(vector3.z);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Vector3 fromString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            int indexOf = str.indexOf(44, 1);
+            int i2 = indexOf + 1;
+            int indexOf2 = str.indexOf(44, i2);
+            if (indexOf != -1 && indexOf2 != -1 && str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')') {
+                try {
+                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i2, indexOf2)), Float.parseFloat(str.substring(indexOf2 + 1, str.length() - 1)));
+                } catch (NumberFormatException unused) {
+                }
+            }
+            throw new GdxRuntimeException("Malformed Vector3: " + str);
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? ((((t.a(this.x) + 31) * 31) + t.a(this.y)) * 31) + t.a(this.z) : invokeV.intValue;
+    }
+
+    public boolean idt(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, vector3)) == null) ? this.x == vector3.x && this.y == vector3.y && this.z == vector3.z : invokeL.booleanValue;
+    }
+
+    public boolean isUnit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? isUnit(1.0E-9f) : invokeV.booleanValue;
+    }
+
+    public boolean isZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.x == 0.0f && this.y == 0.0f && this.z == 0.0f : invokeV.booleanValue;
+    }
+
+    public float len2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (f2 * f2) + (f3 * f3);
+            float f5 = this.z;
+            return f4 + (f5 * f5);
+        }
+        return invokeV.floatValue;
+    }
+
+    public Vector3 mul(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[4] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[8] * f5) + fArr[12], (fArr[1] * f2) + (fArr[5] * f3) + (fArr[9] * f5) + fArr[13], (f2 * fArr[2]) + (f3 * fArr[6]) + (f5 * fArr[10]) + fArr[14]);
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 mul4x3(float[] fArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, fArr)) == null) {
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[3] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[6] * f5) + fArr[9], (fArr[1] * f2) + (fArr[4] * f3) + (fArr[7] * f5) + fArr[10], (f2 * fArr[2]) + (f3 * fArr[5]) + (f5 * fArr[8]) + fArr[11]);
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 prj(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[3] * f2) + (fArr[7] * f3);
+            float f5 = this.z;
+            float f6 = 1.0f / ((f4 + (fArr[11] * f5)) + fArr[15]);
+            return set(((fArr[0] * f2) + (fArr[4] * f3) + (fArr[8] * f5) + fArr[12]) * f6, ((fArr[1] * f2) + (fArr[5] * f3) + (fArr[9] * f5) + fArr[13]) * f6, ((f2 * fArr[2]) + (f3 * fArr[6]) + (f5 * fArr[10]) + fArr[14]) * f6);
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 rot(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[4] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[8] * f5), (fArr[1] * f2) + (fArr[5] * f3) + (fArr[9] * f5), (f2 * fArr[2]) + (f3 * fArr[6]) + (f5 * fArr[10]));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 rotate(float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048650, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? mul(tmpMat.setToRotation(f3, f4, f5, f2)) : (Vector3) invokeCommon.objValue;
+    }
+
+    public Vector3 rotateRad(float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048652, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? mul(tmpMat.setToRotationRad(f3, f4, f5, f2)) : (Vector3) invokeCommon.objValue;
+    }
+
+    public Vector3 setFromSpherical(float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float c2 = d.c(f3);
+            float o = d.o(f3);
+            return set(d.c(f2) * o, d.o(f2) * o, c2);
+        }
+        return (Vector3) invokeCommon.objValue;
+    }
+
+    public Vector3 slerp(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048673, this, vector3, f2)) == null) {
+            float dot = dot(vector3);
+            double d2 = dot;
+            if (d2 <= 0.9995d && d2 >= -0.9995d) {
+                double acos = ((float) Math.acos(d2)) * f2;
+                float sin = (float) Math.sin(acos);
+                float f3 = vector3.x - (this.x * dot);
+                float f4 = vector3.y - (this.y * dot);
+                float f5 = vector3.z - (this.z * dot);
+                float f6 = (f3 * f3) + (f4 * f4) + (f5 * f5);
+                float sqrt = sin * (f6 >= 1.0E-4f ? 1.0f / ((float) Math.sqrt(f6)) : 1.0f);
+                return m23scl((float) Math.cos(acos)).add(f3 * sqrt, f4 * sqrt, f5 * sqrt).m22nor();
+            }
+            return lerp(vector3, f2);
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+            return "(" + this.x + "," + this.y + "," + this.z + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Vector3 traMul(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[1] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[2] * f5) + fArr[3], (fArr[4] * f2) + (fArr[5] * f3) + (fArr[6] * f5) + fArr[7], (f2 * fArr[8]) + (f3 * fArr[9]) + (f5 * fArr[10]) + fArr[11]);
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 unrotate(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048681, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[1] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[2] * f5), (fArr[4] * f2) + (fArr[5] * f3) + (fArr[6] * f5), (f2 * fArr[8]) + (f3 * fArr[9]) + (f5 * fArr[10]));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 untransform(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048682, this, matrix4)) == null) {
+            float[] fArr = matrix4.val;
+            float f2 = this.x - fArr[12];
+            this.x = f2;
+            float f3 = this.y - fArr[12];
+            this.y = f3;
+            float f4 = this.z - fArr[12];
+            this.z = f4;
+            return set((fArr[0] * f2) + (fArr[1] * f3) + (fArr[2] * f4), (fArr[4] * f2) + (fArr[5] * f3) + (fArr[6] * f4), (f2 * fArr[8]) + (f3 * fArr[9]) + (f4 * fArr[10]));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3(float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        set(f2, f3, f4);
+    }
+
+    public static float dst(float f2, float f3, float f4, float f5, float f6, float f7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
+            float f8 = f5 - f2;
+            float f9 = f6 - f3;
+            float f10 = f7 - f4;
+            return (float) Math.sqrt((f8 * f8) + (f9 * f9) + (f10 * f10));
+        }
+        return invokeCommon.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 add(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vector3)) == null) ? add(vector3.x, vector3.y, vector3.z) : (Vector3) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clamp */
+    public Vector3 m18clamp(float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float len2 = len2();
+            if (len2 == 0.0f) {
+                return this;
+            }
+            float f4 = f3 * f3;
+            if (len2 > f4) {
+                return m23scl((float) Math.sqrt(f4 / len2));
+            }
+            float f5 = f2 * f2;
+            return len2 < f5 ? m23scl((float) Math.sqrt(f5 / len2)) : this;
+        }
+        return (Vector3) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: cpy */
+    public Vector3 m19cpy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Vector3(this) : (Vector3) invokeV.objValue;
+    }
+
+    public Vector3 crs(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = this.y;
+            float f6 = this.z;
+            float f7 = (f5 * f4) - (f6 * f3);
+            float f8 = this.x;
+            return set(f7, (f6 * f2) - (f4 * f8), (f8 * f3) - (f5 * f2));
+        }
+        return (Vector3) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public float dot(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, vector3)) == null) ? (this.x * vector3.x) + (this.y * vector3.y) + (this.z * vector3.z) : invokeL.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public float dst2(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, vector3)) == null) {
+            float f2 = vector3.x - this.x;
+            float f3 = vector3.y - this.y;
+            float f4 = vector3.z - this.z;
+            return (f2 * f2) + (f3 * f3) + (f4 * f4);
+        }
+        return invokeL.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean epsilonEquals(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048598, this, vector3, f2)) == null) ? vector3 != null && Math.abs(vector3.x - this.x) <= f2 && Math.abs(vector3.y - this.y) <= f2 && Math.abs(vector3.z - this.z) <= f2 : invokeLF.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean hasOppositeDirection(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, vector3)) == null) ? dot(vector3) < 0.0f : invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean hasSameDirection(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, vector3)) == null) ? dot(vector3) > 0.0f : invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 interpolate(Vector3 vector3, float f2, c cVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{vector3, Float.valueOf(f2), cVar})) == null) ? lerp(vector3, cVar.b(0.0f, 1.0f, f2)) : (Vector3) invokeCommon.objValue;
+    }
+
+    public boolean isUnit(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048627, this, f2)) == null) ? Math.abs(len2() - 1.0f) < f2 : invokeF.booleanValue;
+    }
+
+    public boolean isZero(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048629, this, f2)) == null) ? len2() < f2 : invokeF.booleanValue;
+    }
+
+    public float len() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (f2 * f2) + (f3 * f3);
+            float f5 = this.z;
+            return (float) Math.sqrt(f4 + (f5 * f5));
+        }
+        return invokeV.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 lerp(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048632, this, vector3, f2)) == null) {
+            float f3 = this.x;
+            this.x = f3 + ((vector3.x - f3) * f2);
+            float f4 = this.y;
+            this.y = f4 + ((vector3.y - f4) * f2);
+            float f5 = this.z;
+            this.z = f5 + (f2 * (vector3.z - f5));
+            return this;
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: limit */
+    public Vector3 m20limit(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048634, this, f2)) == null) ? m21limit2(f2 * f2) : (Vector3) invokeF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: limit2 */
+    public Vector3 m21limit2(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048636, this, f2)) == null) {
+            float len2 = len2();
+            if (len2 > f2) {
+                m23scl((float) Math.sqrt(f2 / len2));
+            }
+            return this;
+        }
+        return (Vector3) invokeF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: nor */
+    public Vector3 m22nor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+            float len2 = len2();
+            return (len2 == 0.0f || len2 == 1.0f) ? this : m23scl(1.0f / ((float) Math.sqrt(len2)));
+        }
+        return (Vector3) invokeV.objValue;
+    }
+
+    public Vector3 rotate(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048651, this, vector3, f2)) == null) {
+            tmpMat.setToRotation(vector3, f2);
+            return mul(tmpMat);
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    public Vector3 rotateRad(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048653, this, vector3, f2)) == null) {
+            tmpMat.setToRotationRad(vector3, f2);
+            return mul(tmpMat);
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    public Vector3 set(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            this.x = f2;
+            this.y = f3;
+            this.z = f4;
+            return this;
+        }
+        return (Vector3) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: setLength */
+    public Vector3 m24setLength(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048665, this, f2)) == null) ? m25setLength2(f2 * f2) : (Vector3) invokeF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: setLength2 */
+    public Vector3 m25setLength2(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048667, this, f2)) == null) {
+            float len2 = len2();
+            return (len2 == 0.0f || len2 == f2) ? this : m23scl((float) Math.sqrt(f2 / len2));
+        }
+        return (Vector3) invokeF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: setToRandomDirection */
+    public Vector3 m26setToRandomDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? setFromSpherical(d.k() * 6.2831855f, (float) Math.acos((d.k() * 2.0f) - 1.0f)) : (Vector3) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: setZero */
+    public Vector3 m27setZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+            this.x = 0.0f;
+            this.y = 0.0f;
+            this.z = 0.0f;
+            return this;
+        }
+        return (Vector3) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 sub(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048676, this, vector3)) == null) ? sub(vector3.x, vector3.y, vector3.z) : (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 add(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? set(this.x + f2, this.y + f3, this.z + f4) : (Vector3) invokeCommon.objValue;
+    }
+
+    public float dot(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (this.x * f2) + (this.y * f3) + (this.z * f4) : invokeCommon.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public float dst(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, vector3)) == null) {
+            float f2 = vector3.x - this.x;
+            float f3 = vector3.y - this.y;
+            float f4 = vector3.z - this.z;
+            return (float) Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+        }
+        return invokeL.floatValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isCollinear(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048611, this, vector3, f2)) == null) ? isOnLine(vector3, f2) && hasSameDirection(vector3) : invokeLF.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isCollinearOpposite(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048615, this, vector3, f2)) == null) ? isOnLine(vector3, f2) && hasOppositeDirection(vector3) : invokeLF.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isOnLine(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048619, this, vector3, f2)) == null) {
+            float f3 = this.y;
+            float f4 = vector3.z;
+            float f5 = this.z;
+            float f6 = vector3.y;
+            float f7 = (f3 * f4) - (f5 * f6);
+            float f8 = vector3.x;
+            float f9 = this.x;
+            return len2(f7, (f5 * f8) - (f4 * f9), (f9 * f6) - (f3 * f8)) <= f2;
+        }
+        return invokeLF.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isPerpendicular(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, vector3)) == null) ? d.h(dot(vector3)) : invokeL.booleanValue;
+    }
+
+    public Vector3 mul(Matrix3 matrix3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, matrix3)) == null) {
+            float[] fArr = matrix3.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[3] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[6] * f5), (fArr[1] * f2) + (fArr[4] * f3) + (fArr[7] * f5), (f2 * fArr[2]) + (f3 * fArr[5]) + (f5 * fArr[8]));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 mulAdd(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048642, this, vector3, f2)) == null) {
+            this.x += vector3.x * f2;
+            this.y += vector3.y * f2;
+            this.z += vector3.z * f2;
+            return this;
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: scl */
+    public Vector3 m23scl(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048654, this, f2)) == null) ? set(this.x * f2, this.y * f2, this.z * f2) : (Vector3) invokeF.objValue;
+    }
+
+    public Vector3 sub(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048675, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? set(this.x - f2, this.y - f3, this.z - f4) : (Vector3) invokeCommon.objValue;
+    }
+
+    public Vector3 traMul(Matrix3 matrix3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048679, this, matrix3)) == null) {
+            float[] fArr = matrix3.val;
+            float f2 = this.x;
+            float f3 = this.y;
+            float f4 = (fArr[0] * f2) + (fArr[1] * f3);
+            float f5 = this.z;
+            return set(f4 + (fArr[2] * f5), (fArr[3] * f2) + (fArr[4] * f3) + (fArr[5] * f5), (f2 * fArr[6]) + (f3 * fArr[7]) + (f5 * fArr[8]));
+        }
+        return (Vector3) invokeL.objValue;
+    }
+
+    public Vector3(Vector3 vector3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vector3};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        set(vector3);
+    }
+
+    public Vector3 add(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? set(this.x + f2, this.y + f2, this.z + f2) : (Vector3) invokeF.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isCollinear(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, vector3)) == null) ? isOnLine(vector3) && hasSameDirection(vector3) : invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isCollinearOpposite(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, vector3)) == null) ? isOnLine(vector3) && hasOppositeDirection(vector3) : invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isOnLine(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, vector3)) == null) {
+            float f2 = this.y;
+            float f3 = vector3.z;
+            float f4 = this.z;
+            float f5 = vector3.y;
+            float f6 = (f2 * f3) - (f4 * f5);
+            float f7 = vector3.x;
+            float f8 = this.x;
+            return len2(f6, (f4 * f7) - (f3 * f8), (f8 * f5) - (f2 * f7)) <= 1.0E-6f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public boolean isPerpendicular(Vector3 vector3, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048623, this, vector3, f2)) == null) ? d.i(dot(vector3), f2) : invokeLF.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 scl(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, vector3)) == null) ? set(this.x * vector3.x, this.y * vector3.y, this.z * vector3.z) : (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 sub(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048674, this, f2)) == null) ? set(this.x - f2, this.y - f2, this.z - f2) : (Vector3) invokeF.objValue;
+    }
+
+    public float dst2(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f2 - this.x;
+            float f6 = f3 - this.y;
+            float f7 = f4 - this.z;
+            return (f5 * f5) + (f6 * f6) + (f7 * f7);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public boolean epsilonEquals(float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? Math.abs(f2 - this.x) <= f5 && Math.abs(f3 - this.y) <= f5 && Math.abs(f4 - this.z) <= f5 : invokeCommon.booleanValue;
+    }
+
+    public Vector3 mul(Quaternion quaternion) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, quaternion)) == null) ? quaternion.transform(this) : (Vector3) invokeL.objValue;
+    }
+
+    public Vector3 scl(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? set(this.x * f2, this.y * f3, this.z * f4) : (Vector3) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 set(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, vector3)) == null) ? set(vector3.x, vector3.y, vector3.z) : (Vector3) invokeL.objValue;
+    }
+
+    public Vector3(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fArr};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        set(fArr[0], fArr[1], fArr[2]);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public Vector3 mulAdd(Vector3 vector3, Vector3 vector32) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, vector3, vector32)) == null) {
+            this.x += vector3.x * vector32.x;
+            this.y += vector3.y * vector32.y;
+            this.z += vector3.z * vector32.z;
+            return this;
+        }
+        return (Vector3) invokeLL.objValue;
+    }
+
+    public Vector3 set(float[] fArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, fArr)) == null) ? set(fArr[0], fArr[1], fArr[2]) : (Vector3) invokeL.objValue;
+    }
+
+    public float dst(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f2 - this.x;
+            float f6 = f3 - this.y;
+            float f7 = f4 - this.z;
+            return (float) Math.sqrt((f5 * f5) + (f6 * f6) + (f7 * f7));
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public Vector3 set(Vector2 vector2, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048660, this, vector2, f2)) == null) ? set(vector2.x, vector2.y, f2) : (Vector3) invokeLF.objValue;
+    }
+
+    public Vector3(Vector2 vector2, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vector2, Float.valueOf(f2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        set(vector2.x, vector2.y, f2);
+    }
+
+    public boolean epsilonEquals(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, vector3)) == null) ? epsilonEquals(vector3, 1.0E-6f) : invokeL.booleanValue;
+    }
+
+    public boolean epsilonEquals(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? epsilonEquals(f2, f3, f4, 1.0E-6f) : invokeCommon.booleanValue;
+    }
+}

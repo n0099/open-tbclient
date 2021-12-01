@@ -36,7 +36,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class PayBaseBeanActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_ABANDON_CONFIM = 18;
@@ -64,9 +64,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public static final int FLAG_AUTH_FLOW = 4;
     public static final int FLAG_PAY_SKD = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public f f61135a;
+    public f a;
 
     public PayBaseBeanActivity() {
         Interceptable interceptable = $ic;
@@ -144,10 +142,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f61135a == null) {
-                this.f61135a = new f(this);
+            if (this.a == null) {
+                this.a = new f(this);
             }
-            return this.f61135a;
+            return this.a;
         }
         return (f) invokeV.objValue;
     }
@@ -262,9 +260,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 promptDialog.setPositiveBtn(ResUtils.string(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseBeanActivity f61138a;
+                    public final /* synthetic */ PayBaseBeanActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -281,14 +277,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                                 return;
                             }
                         }
-                        this.f61138a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f61138a, 12);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 12);
                         }
                     }
                 });
@@ -306,9 +302,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
             promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "dxm_ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f61136a;
+                public final /* synthetic */ PayBaseBeanActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,23 +319,21 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f61136a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f61136a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.a, 4);
                     }
                 }
             });
             promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_abandon_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f61137a;
+                public final /* synthetic */ PayBaseBeanActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -358,14 +350,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f61137a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f61137a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.a, 4);
                         BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Other);
                         if (bindFastRequest != null && bindFastRequest.mBindFrom == 0) {
                             StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_FAILED, null, StatHelper.SENSOR_ERR_2, "payBindCardCancel");
@@ -375,7 +367,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                         if (!PayDataCache.getInstance().isFromPreCashier()) {
                             StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
                         }
-                        PayCallBackManager.callBackClientCancel(this.f61137a, "PayBaseBeanActivity.onPrepareDialog().1");
+                        PayCallBackManager.callBackClientCancel(this.a, "PayBaseBeanActivity.onPrepareDialog().1");
                     }
                 }
             });

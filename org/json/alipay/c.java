@@ -16,18 +16,16 @@ import org.apache.commons.lang3.CharUtils;
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f73492a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Reader f73493b;
+    public Reader f64308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public char f73494c;
+    public char f64309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f73495d;
+    public boolean f64310d;
 
     public c(Reader reader) {
         Interceptable interceptable = $ic;
@@ -44,9 +42,9 @@ public final class c {
                 return;
             }
         }
-        this.f73493b = reader.markSupported() ? reader : new BufferedReader(reader);
-        this.f73495d = false;
-        this.f73492a = 0;
+        this.f64308b = reader.markSupported() ? reader : new BufferedReader(reader);
+        this.f64310d = false;
+        this.a = 0;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -78,14 +76,14 @@ public final class c {
             }
             char[] cArr = new char[i2];
             int i3 = 0;
-            if (this.f73495d) {
-                this.f73495d = false;
-                cArr[0] = this.f73494c;
+            if (this.f64310d) {
+                this.f64310d = false;
+                cArr[0] = this.f64309c;
                 i3 = 1;
             }
             while (i3 < i2) {
                 try {
-                    int read = this.f73493b.read(cArr, i3, i2 - i3);
+                    int read = this.f64308b.read(cArr, i3, i2 - i3);
                     if (read == -1) {
                         break;
                     }
@@ -94,9 +92,9 @@ public final class c {
                     throw new JSONException(e2);
                 }
             }
-            this.f73492a += i3;
+            this.a += i3;
             if (i3 >= i2) {
-                this.f73494c = cArr[i2 - 1];
+                this.f64309c = cArr[i2 - 1];
                 return new String(cArr);
             }
             throw a("Substring bounds error");
@@ -117,11 +115,11 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f73495d || (i2 = this.f73492a) <= 0) {
+            if (this.f64310d || (i2 = this.a) <= 0) {
                 throw new JSONException("Stepping back two steps is not supported");
             }
-            this.f73492a = i2 - 1;
-            this.f73495d = true;
+            this.a = i2 - 1;
+            this.f64310d = true;
         }
     }
 
@@ -129,22 +127,22 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f73495d) {
-                this.f73495d = false;
-                if (this.f73494c != 0) {
-                    this.f73492a++;
+            if (this.f64310d) {
+                this.f64310d = false;
+                if (this.f64309c != 0) {
+                    this.a++;
                 }
-                return this.f73494c;
+                return this.f64309c;
             }
             try {
-                int read = this.f73493b.read();
+                int read = this.f64308b.read();
                 if (read <= 0) {
-                    this.f73494c = (char) 0;
+                    this.f64309c = (char) 0;
                     return (char) 0;
                 }
-                this.f73492a++;
+                this.a++;
                 char c2 = (char) read;
-                this.f73494c = c2;
+                this.f64309c = c2;
                 return c2;
             } catch (IOException e2) {
                 throw new JSONException(e2);
@@ -213,7 +211,7 @@ public final class c {
     */
     public final Object d() {
         InterceptResult invokeV;
-        String a2;
+        String a;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
             return invokeV.objValue;
@@ -244,7 +242,7 @@ public final class c {
                             return Boolean.FALSE;
                         }
                         if (trim.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                            return b.f73490a;
+                            return b.a;
                         }
                         if ((c2 >= '0' && c2 <= '9') || c2 == '.' || c2 == '-' || c2 == '+') {
                             if (c2 == '0') {
@@ -290,13 +288,13 @@ public final class c {
                     stringBuffer2.append('\n');
                 } else if (b2 != 'r') {
                     if (b2 == 'x') {
-                        a2 = a(2);
+                        a = a(2);
                     } else if (b2 == 't') {
                         b2 = '\t';
                     } else if (b2 == 'u') {
-                        a2 = a(4);
+                        a = a(4);
                     }
-                    b2 = (char) Integer.parseInt(a2, 16);
+                    b2 = (char) Integer.parseInt(a, 16);
                 } else {
                     stringBuffer2.append(CharUtils.CR);
                 }
@@ -311,7 +309,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return " at character " + this.f73492a;
+            return " at character " + this.a;
         }
         return (String) invokeV.objValue;
     }

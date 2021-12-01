@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -102,7 +101,7 @@ public class FadeDrawable extends ArrayDrawable {
 
     private void resetInternal() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mTransitionState = 2;
             Arrays.fill(this.mStartAlphas, this.mDefaultLayerAlpha);
             this.mStartAlphas[0] = 255;
@@ -115,7 +114,7 @@ public class FadeDrawable extends ArrayDrawable {
 
     public static void setGlobalFadingEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             sGlobalFadingEnable = z;
         }
     }

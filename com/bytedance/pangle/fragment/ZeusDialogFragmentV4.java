@@ -20,7 +20,7 @@ import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZeusDialogFragmentV4 extends DialogFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
         }
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;

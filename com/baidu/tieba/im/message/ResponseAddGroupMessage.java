@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import protobuf.AddGroup.AddGroupResIdl;
 import protobuf.GroupInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResponseAddGroupMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FallbackSubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimeoutFallbackSubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T>, TimeoutSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
@@ -102,12 +102,12 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         public final AtomicReference<Subscription> upstream;
         public final Scheduler.Worker worker;
 
-        public TimeoutFallbackSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker, Publisher<? extends T> publisher) {
+        public TimeoutFallbackSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler.Worker worker, Publisher<? extends T> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, worker, publisher};
+                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, worker, publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -118,7 +118,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
                 }
             }
             this.actual = subscriber;
-            this.timeout = j;
+            this.timeout = j2;
             this.unit = timeUnit;
             this.worker = worker;
             this.fallback = publisher;
@@ -165,14 +165,14 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j = this.index.get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = j + 1;
-                    if (this.index.compareAndSet(j, j2)) {
+                long j2 = this.index.get();
+                if (j2 != Long.MAX_VALUE) {
+                    long j3 = j2 + 1;
+                    if (this.index.compareAndSet(j2, j3)) {
                         this.task.get().dispose();
                         this.consumed++;
                         this.actual.onNext(t);
-                        startTimeout(j2);
+                        startTimeout(j3);
                     }
                 }
             }
@@ -187,13 +187,13 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.TimeoutSupport
-        public void onTimeout(long j) {
+        public void onTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && this.index.compareAndSet(j2, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
-                long j2 = this.consumed;
-                if (j2 != 0) {
-                    produced(j2);
+                long j3 = this.consumed;
+                if (j3 != 0) {
+                    produced(j3);
                 }
                 Publisher<? extends T> publisher = this.fallback;
                 this.fallback = null;
@@ -202,15 +202,15 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
             }
         }
 
-        public void startTimeout(long j) {
+        public void startTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+                this.task.replace(this.worker.schedule(new TimeoutTask(j2, this), this.timeout, this.unit));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimeoutSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription, TimeoutSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
@@ -223,12 +223,12 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         public final AtomicReference<Subscription> upstream;
         public final Scheduler.Worker worker;
 
-        public TimeoutSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public TimeoutSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, worker};
+                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, worker};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -239,7 +239,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
                 }
             }
             this.actual = subscriber;
-            this.timeout = j;
+            this.timeout = j2;
             this.unit = timeUnit;
             this.worker = worker;
             this.task = new SequentialDisposable();
@@ -285,13 +285,13 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j = get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (compareAndSet(j, j2)) {
+                long j2 = get();
+                if (j2 != Long.MAX_VALUE) {
+                    long j3 = 1 + j2;
+                    if (compareAndSet(j2, j3)) {
                         this.task.get().dispose();
                         this.actual.onNext(t);
-                        startTimeout(j2);
+                        startTimeout(j3);
                     }
                 }
             }
@@ -306,9 +306,9 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.TimeoutSupport
-        public void onTimeout(long j) {
+        public void onTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && compareAndSet(j, Long.MAX_VALUE)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && compareAndSet(j2, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 this.actual.onError(new TimeoutException());
                 this.worker.dispose();
@@ -316,39 +316,39 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this.upstream, this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this.upstream, this.requested, j2);
             }
         }
 
-        public void startTimeout(long j) {
+        public void startTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                this.task.replace(this.worker.schedule(new TimeoutTask(j, this), this.timeout, this.unit));
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+                this.task.replace(this.worker.schedule(new TimeoutTask(j2, this), this.timeout, this.unit));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface TimeoutSupport {
-        void onTimeout(long j);
+        void onTimeout(long j2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimeoutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long idx;
         public final TimeoutSupport parent;
 
-        public TimeoutTask(long j, TimeoutSupport timeoutSupport) {
+        public TimeoutTask(long j2, TimeoutSupport timeoutSupport) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeoutSupport};
+                Object[] objArr = {Long.valueOf(j2), timeoutSupport};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -358,7 +358,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
                     return;
                 }
             }
-            this.idx = j;
+            this.idx = j2;
             this.parent = timeoutSupport;
         }
 
@@ -372,13 +372,13 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTimeoutTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, Publisher<? extends T> publisher) {
+    public FlowableTimeoutTimed(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, Publisher<? extends T> publisher) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, publisher};
+            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler, publisher};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -389,7 +389,7 @@ public final class FlowableTimeoutTimed<T> extends AbstractFlowableWithUpstream<
                 return;
             }
         }
-        this.timeout = j;
+        this.timeout = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.other = publisher;

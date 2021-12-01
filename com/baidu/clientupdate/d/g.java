@@ -1,7 +1,6 @@
 package com.baidu.clientupdate.d;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +11,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static char[] f37750a;
+    public static char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +30,7 @@ public class g {
                 return;
             }
         }
-        f37750a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(File file) {
@@ -96,8 +93,8 @@ public class g {
 
     public static void a(byte b2, StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
-            char[] cArr = f37750a;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b2), stringBuffer}) == null) {
+            char[] cArr = a;
             char c2 = cArr[(b2 & 240) >> 4];
             char c3 = cArr[b2 & 15];
             stringBuffer.append(c2);

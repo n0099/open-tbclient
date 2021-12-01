@@ -10,15 +10,15 @@ import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.m.e.e;
-import b.a.e.m.e.o;
+import c.a.d.m.e.e;
+import c.a.d.m.e.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         };
     }
 
-    @Override // android.widget.Adapter, b.a.e.m.e.o
+    @Override // android.widget.Adapter, c.a.d.m.e.o
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         return (Filter) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter, b.a.e.m.e.o
+    @Override // android.widget.Adapter, c.a.d.m.e.o
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         return invokeV.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, b.a.e.m.e.o
+    @Override // android.widget.BaseAdapter, c.a.d.m.e.o
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

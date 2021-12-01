@@ -9,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.n.b;
-import h.n.c;
+import i.n.b;
+import i.n.c;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes3.dex */
 public final class Actions {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f73508a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -78,7 +76,7 @@ public final class Actions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
+        @Override // i.n.b
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -88,7 +86,7 @@ public final class Actions {
     }
 
     /* loaded from: classes3.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements h.n.a, b<T0>, c<T0, T1> {
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements i.n.a, b<T0>, c<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,21 +104,21 @@ public final class Actions {
             }
         }
 
-        @Override // h.n.a
+        @Override // i.n.a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // h.n.b
+        @Override // i.n.b
         public void call(T0 t0) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t0) == null) {
             }
         }
 
-        @Override // h.n.c
+        @Override // i.n.c
         public void call(T0 t0, T1 t1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0, t1) == null) {
@@ -189,13 +187,13 @@ public final class Actions {
                 return;
             }
         }
-        f73508a = new a();
+        a = new a();
     }
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73508a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (a) invokeV.objValue;
     }
 
     public static b<Throwable> b() {

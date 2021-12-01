@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MethodInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,12 +22,12 @@ public class MethodInfo {
     public final int srcLineNumber;
     public final String srcPath;
 
-    public MethodInfo(long j, String str, String str2, String str3, String str4, int i2) {
+    public MethodInfo(long j2, String str, String str2, String str3, String str4, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -37,7 +37,7 @@ public class MethodInfo {
                 return;
             }
         }
-        this.id = j;
+        this.id = j2;
         this.className = str;
         this.methodName = str2;
         this.signature = str3;

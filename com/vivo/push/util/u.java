@@ -16,22 +16,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class u implements c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f71325a;
+    public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f71326b;
+    public static final String f62563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f71327c;
+    public static String f62564c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f71328d;
+    public File f62565d;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +44,9 @@ public final class u implements c {
                 return;
             }
         }
-        f71325a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-        f71326b = f71325a + File.separator + "config.txt";
-        f71327c = "SdcardCache";
+        a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+        f62563b = a + File.separator + "config.txt";
+        f62564c = "SdcardCache";
     }
 
     public u() {
@@ -71,14 +69,14 @@ public final class u implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if ("mounted".equals(Environment.getExternalStorageState())) {
-                File file = new File(f71325a);
+                File file = new File(a);
                 boolean mkdirs = !file.exists() ? file.mkdirs() : true;
                 if (mkdirs) {
-                    File file2 = new File(f71326b);
-                    this.f71328d = file2;
+                    File file2 = new File(f62563b);
+                    this.f62565d = file2;
                     if (!file2.exists()) {
                         try {
-                            this.f71328d.createNewFile();
+                            this.f62565d.createNewFile();
                             return true;
                         } catch (IOException e2) {
                             e2.printStackTrace();
@@ -99,7 +97,7 @@ public final class u implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             Properties a2 = a();
-            String str3 = f71326b;
+            String str3 = f62563b;
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
@@ -167,7 +165,7 @@ public final class u implements c {
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f71326b));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(f62563b));
             try {
                 try {
                     properties.load(bufferedInputStream);

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.appframework.SimpleActivityLifeCycle;
 import com.baidu.searchbox.config.AppConfig;
@@ -19,7 +18,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -41,7 +40,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static UBCManager ubc;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ExtDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +69,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StatsRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,14 +209,14 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
 
     public static void setStartSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             sAppStartSource = str;
         }
     }
 
     public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, extDataCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, extDataCallBack) == null) {
             sStartupCountExtCallBack = extDataCallBack;
         }
     }

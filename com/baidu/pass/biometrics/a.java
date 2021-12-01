@@ -4,31 +4,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42528a = false;
+    public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42529b = "com.baidu.pass.biometrics";
+    public static final String f38079b = "com.baidu.pass.biometrics";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42530c = "com.baidu.pass.biometrics";
+    public static final String f38080c = "com.baidu.pass.biometrics";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f42531d = "release";
+    public static final String f38081d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f42532e = "";
+    public static final String f38082e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f42533f = 1;
+    public static final int f38083f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f42534g = "9.4.3";
+    public static final String f38084g = "9.4.7.5";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

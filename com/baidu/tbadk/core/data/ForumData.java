@@ -2,19 +2,20 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.m.e.n;
-import b.a.q0.s.q.b0;
-import b.a.q0.s.q.d0;
-import b.a.q0.s.q.f2;
-import b.a.q0.s.q.g0;
-import b.a.q0.s.q.g2;
-import b.a.q0.s.q.i2;
-import b.a.q0.s.q.l;
-import b.a.q0.s.q.m0;
-import b.a.q0.s.q.p2;
+import c.a.d.m.e.n;
+import c.a.q0.s.q.b0;
+import c.a.q0.s.q.d0;
+import c.a.q0.s.q.f2;
+import c.a.q0.s.q.g0;
+import c.a.q0.s.q.g2;
+import c.a.q0.s.q.i2;
+import c.a.q0.s.q.l;
+import c.a.q0.s.q.m0;
+import c.a.q0.s.q.p2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
@@ -50,7 +51,7 @@ import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForumData implements Serializable, PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
@@ -513,7 +514,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.m.e.n
+    @Override // c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1067,7 +1068,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 }
             }
             try {
-                this.mFrsBannerData.g(jSONObject.getJSONObject("banner"));
+                this.mFrsBannerData.g(jSONObject.getJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

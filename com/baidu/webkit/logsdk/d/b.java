@@ -6,22 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public byte[] f62001a;
+    public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62002b;
+    public int f54344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62003c;
+    public int f54345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f62004d;
+    public byte[] f54346d;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        this.f62004d = str.getBytes();
+        this.f54346d = str.getBytes();
     }
 
     public static String a(String str, String str2) {
@@ -49,23 +47,23 @@ public final class b {
             try {
                 b bVar = new b(str2);
                 byte[] decode = Base64.decode(str.getBytes(), 0);
-                byte[] bArr = bVar.f62004d;
-                bVar.f62002b = 0;
-                bVar.f62003c = 0;
-                if (bVar.f62001a == null) {
-                    bVar.f62001a = new byte[256];
+                byte[] bArr = bVar.f54346d;
+                bVar.f54344b = 0;
+                bVar.f54345c = 0;
+                if (bVar.a == null) {
+                    bVar.a = new byte[256];
                 }
                 for (int i2 = 0; i2 < 256; i2++) {
-                    bVar.f62001a[i2] = (byte) i2;
+                    bVar.a[i2] = (byte) i2;
                 }
                 int i3 = 0;
                 int i4 = 0;
                 for (int i5 = 0; i5 < 256; i5++) {
-                    i4 = ((bArr[i3] & 255) + bVar.f62001a[i5] + i4) & 255;
-                    byte b2 = bVar.f62001a[i5];
-                    byte[] bArr2 = bVar.f62001a;
+                    i4 = ((bArr[i3] & 255) + bVar.a[i5] + i4) & 255;
+                    byte b2 = bVar.a[i5];
+                    byte[] bArr2 = bVar.a;
                     bArr2[i5] = bArr2[i4];
-                    bVar.f62001a[i4] = b2;
+                    bVar.a[i4] = b2;
                     i3 = (i3 + 1) % bArr.length;
                 }
                 int length = decode.length;
@@ -79,15 +77,15 @@ public final class b {
                     sb.append(i6);
                 } else if (i6 <= length) {
                     for (int i7 = 0; i7 < length2; i7++) {
-                        int i8 = (bVar.f62002b + 1) & 255;
-                        bVar.f62002b = i8;
-                        int i9 = (bVar.f62001a[i8] + bVar.f62003c) & 255;
-                        bVar.f62003c = i9;
-                        byte b3 = bVar.f62001a[i8];
-                        bVar.f62001a[i8] = bVar.f62001a[i9];
-                        bVar.f62001a[i9] = b3;
+                        int i8 = (bVar.f54344b + 1) & 255;
+                        bVar.f54344b = i8;
+                        int i9 = (bVar.a[i8] + bVar.f54345c) & 255;
+                        bVar.f54345c = i9;
+                        byte b3 = bVar.a[i8];
+                        bVar.a[i8] = bVar.a[i9];
+                        bVar.a[i9] = b3;
                         int i10 = i7 + 0;
-                        bArr3[i10] = (byte) (bVar.f62001a[(bVar.f62001a[i8] + bVar.f62001a[i9]) & 255] ^ decode[i10]);
+                        bArr3[i10] = (byte) (bVar.a[(bVar.a[i8] + bVar.a[i9]) & 255] ^ decode[i10]);
                     }
                     return new String(bArr3);
                 } else {

@@ -2,10 +2,9 @@ package com.baidu.ugc.editvideo.filter;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.w;
+import c.a.x0.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import com.google.gson.Gson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FilterValue implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FILTER_VALUE = "origin";
@@ -138,7 +137,7 @@ public class FilterValue implements Serializable {
     public static String toJson(FilterValue filterValue) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, filterValue)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, filterValue)) == null) {
             if (filterValue == null) {
                 return "";
             }

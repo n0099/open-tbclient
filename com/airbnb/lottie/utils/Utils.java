@@ -17,6 +17,7 @@ import com.airbnb.lottie.L;
 import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.content.TrimPathContent;
 import com.airbnb.lottie.animation.keyframe.FloatKeyframeAnimation;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.Closeable;
 import java.io.InterruptedIOException;
 import java.net.ProtocolException;
@@ -25,7 +26,7 @@ import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 import java.nio.channels.ClosedChannelException;
 import javax.net.ssl.SSLException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Utils {
     public static final int SECOND_IN_NANOS = 1000000000;
     public static final ThreadLocal<PathMeasure> threadLocalPathMeasure = new ThreadLocal<PathMeasure>() { // from class: com.airbnb.lottie.utils.Utils.1
@@ -130,7 +131,7 @@ public final class Utils {
     }
 
     public static int hashFor(float f2, float f3, float f4, float f5) {
-        int i2 = f2 != 0.0f ? (int) (527 * f2) : 17;
+        int i2 = f2 != 0.0f ? (int) (((float) PayBeanFactory.BEAN_ID_WIDTHDRAW) * f2) : 17;
         if (f3 != 0.0f) {
             i2 = (int) (i2 * 31 * f3);
         }

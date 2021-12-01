@@ -10,18 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f70349a;
+    public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f70350b;
+    public a f61874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70351c;
+    public int f61875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f70352d;
+    public int f61876d;
 
     /* renamed from: com.ss.android.socialbase.downloader.i.e$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -34,18 +32,16 @@ public class e {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f70353a;
+        public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f70354b;
+        public long f61877b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f70355c;
+        public a f61878c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f70356d;
+        public a f61879d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -79,59 +75,59 @@ public class e {
                 return;
             }
         }
-        this.f70352d = 10;
+        this.f61876d = 10;
     }
 
-    public boolean a(long j, long j2) {
+    public boolean a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             synchronized (this) {
-                a aVar = this.f70349a;
+                a aVar = this.a;
                 if (aVar != null) {
-                    if (j >= aVar.f70353a && j2 >= aVar.f70354b) {
-                        a aVar2 = aVar.f70355c;
-                        if (aVar2 != null && j2 - aVar2.f70354b < 1000) {
-                            aVar.f70353a = j;
-                            aVar.f70354b = j2;
+                    if (j2 >= aVar.a && j3 >= aVar.f61877b) {
+                        a aVar2 = aVar.f61878c;
+                        if (aVar2 != null && j3 - aVar2.f61877b < 1000) {
+                            aVar.a = j2;
+                            aVar.f61877b = j3;
                             return true;
                         }
                     }
                     return false;
                 }
                 a a2 = a();
-                a2.f70353a = j;
-                a2.f70354b = j2;
+                a2.a = j2;
+                a2.f61877b = j3;
                 if (aVar != null) {
-                    a2.f70355c = aVar;
-                    aVar.f70356d = a2;
+                    a2.f61878c = aVar;
+                    aVar.f61879d = a2;
                 }
-                this.f70349a = a2;
+                this.a = a2;
                 return true;
             }
         }
         return invokeCommon.booleanValue;
     }
 
-    public long b(long j, long j2) {
+    public long b(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             synchronized (this) {
-                a aVar = this.f70349a;
+                a aVar = this.a;
                 if (aVar == null) {
                     return -1L;
                 }
-                a a2 = a(j);
+                a a2 = a(j2);
                 if (a2 == null) {
                     return -1L;
                 }
-                long j3 = aVar.f70353a - a2.f70353a;
-                long j4 = j2 - a2.f70354b;
-                if (j3 < 0 || j4 <= 0) {
+                long j4 = aVar.a - a2.a;
+                long j5 = j3 - a2.f61877b;
+                if (j4 < 0 || j5 <= 0) {
                     return -1L;
                 }
-                return j3 / j4;
+                return j4 / j5;
             }
         }
         return invokeCommon.longValue;
@@ -142,32 +138,32 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f70351c >= this.f70352d && (aVar = this.f70350b) != null) {
-                a aVar2 = aVar.f70356d;
-                aVar.f70356d = null;
-                this.f70350b = aVar2;
+            if (this.f61875c >= this.f61876d && (aVar = this.f61874b) != null) {
+                a aVar2 = aVar.f61879d;
+                aVar.f61879d = null;
+                this.f61874b = aVar2;
                 if (aVar2 != null) {
-                    aVar2.f70355c = null;
+                    aVar2.f61878c = null;
                 }
                 return aVar;
             }
-            this.f70351c++;
+            this.f61875c++;
             return new a(null);
         }
         return (a) invokeV.objValue;
     }
 
-    private a a(long j) {
+    private a a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-            a aVar = this.f70349a;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+            a aVar = this.a;
             a aVar2 = null;
-            while (aVar != null && aVar.f70354b > j) {
+            while (aVar != null && aVar.f61877b > j2) {
                 aVar2 = aVar;
-                aVar = aVar.f70355c;
+                aVar = aVar.f61878c;
             }
-            return (aVar == null || aVar2 == null || aVar == aVar2 || j - aVar.f70354b >= aVar2.f70354b - j) ? aVar2 : aVar;
+            return (aVar == null || aVar2 == null || aVar == aVar2 || j2 - aVar.f61877b >= aVar2.f61877b - j2) ? aVar2 : aVar;
         }
         return (a) invokeJ.objValue;
     }

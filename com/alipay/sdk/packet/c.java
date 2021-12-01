@@ -3,7 +3,6 @@ package com.alipay.sdk.packet;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,16 +12,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f34974a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34975b;
+    public String f31361b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -39,19 +36,19 @@ public final class c {
                 return;
             }
         }
-        this.f34974a = z;
-        this.f34975b = l.a(24);
+        this.a = z;
+        this.f31361b = l.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr, str2)) == null) ? com.alipay.sdk.encrypt.e.b(str, bArr, str2) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, bArr, str2)) == null) ? com.alipay.sdk.encrypt.e.b(str, bArr, str2) : (byte[]) invokeLLL.objValue;
     }
 
     public d a(b bVar, boolean z, String str) {
         InterceptResult invokeCommon;
-        byte[] a2;
+        byte[] a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bVar, Boolean.valueOf(z), str})) == null) {
             if (bVar == null) {
@@ -66,12 +63,12 @@ public final class c {
                     z = false;
                 }
             }
-            if (this.f34974a) {
-                a2 = a(bytes, a(this.f34975b, com.alipay.sdk.cons.a.f34901e), b(this.f34975b, bytes2, str));
+            if (this.a) {
+                a = a(bytes, a(this.f31361b, com.alipay.sdk.cons.a.f31295e), b(this.f31361b, bytes2, str));
             } else {
-                a2 = a(bytes, bytes2);
+                a = a(bytes, bytes2);
             }
-            return new d(z, a2);
+            return new d(z, a);
         }
         return (d) invokeCommon.objValue;
     }
@@ -104,12 +101,12 @@ public final class c {
                     try {
                         byte[] bArr3 = new byte[5];
                         byteArrayInputStream.read(bArr3);
-                        int a2 = a(new String(bArr3));
-                        if (a2 > 0) {
-                            byte[] bArr4 = new byte[a2];
+                        int a = a(new String(bArr3));
+                        if (a > 0) {
+                            byte[] bArr4 = new byte[a];
                             byteArrayInputStream.read(bArr4);
-                            if (this.f34974a) {
-                                bArr4 = a(this.f34975b, bArr4, str);
+                            if (this.a) {
+                                bArr4 = a(this.f31361b, bArr4, str);
                             }
                             if (dVar.b()) {
                                 bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);
@@ -190,7 +187,7 @@ public final class c {
         DataOutputStream dataOutputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             ByteArrayOutputStream byteArrayOutputStream2 = null;
             r0 = null;
             byte[] bArr2 = null;

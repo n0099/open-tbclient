@@ -15,20 +15,19 @@ import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.h.q;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.ar.arrender.b$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation;
         public static /* synthetic */ Interceptable $ic;
@@ -238,7 +237,7 @@ public class b {
     public static void a(Context context, boolean z, PixelReadParams pixelReadParams) {
         PixelRotation pixelRotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Boolean.valueOf(z), pixelReadParams}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Boolean.valueOf(z), pixelReadParams}) == null) {
             if (q.gL()) {
                 if (pixelReadParams.getIsPortrait()) {
                     if (!z) {
@@ -260,7 +259,7 @@ public class b {
 
     public static void a(Context context, float[] fArr, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, fArr, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, context, fArr, z) == null) {
             Matrix.setIdentityM(fArr, 0);
             if (q.gL() || q.E(context)) {
                 Matrix.rotateM(fArr, 0, 90.0f, 0.0f, 0.0f, 1.0f);

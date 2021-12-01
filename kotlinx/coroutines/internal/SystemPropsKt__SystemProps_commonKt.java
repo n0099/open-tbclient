@@ -26,18 +26,18 @@ public final /* synthetic */ class SystemPropsKt__SystemProps_commonKt {
         return (int) SystemPropsKt.systemProp(str, i2, i3, i4);
     }
 
-    public static /* synthetic */ long systemProp$default(String str, long j, long j2, long j3, int i2, Object obj) {
+    public static /* synthetic */ long systemProp$default(String str, long j2, long j3, long j4, int i2, Object obj) {
         if ((i2 & 4) != 0) {
-            j2 = 1;
+            j3 = 1;
         }
-        long j4 = j2;
+        long j5 = j3;
         if ((i2 & 8) != 0) {
-            j3 = Long.MAX_VALUE;
+            j4 = Long.MAX_VALUE;
         }
-        return SystemPropsKt.systemProp(str, j, j4, j3);
+        return SystemPropsKt.systemProp(str, j2, j5, j4);
     }
 
-    public static final long systemProp(String str, long j, long j2, long j3) {
+    public static final long systemProp(String str, long j2, long j3, long j4) {
         String systemProp = SystemPropsKt.systemProp(str);
         if (systemProp != null) {
             Long longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(systemProp);
@@ -45,11 +45,11 @@ public final /* synthetic */ class SystemPropsKt__SystemProps_commonKt {
                 throw new IllegalStateException(("System property '" + str + "' has unrecognized value '" + systemProp + ExtendedMessageFormat.QUOTE).toString());
             }
             long longValue = longOrNull.longValue();
-            if (j2 > longValue || j3 < longValue) {
-                throw new IllegalStateException(("System property '" + str + "' should be in range " + j2 + IStringUtil.TOP_PATH + j3 + ", but is '" + longValue + ExtendedMessageFormat.QUOTE).toString());
+            if (j3 > longValue || j4 < longValue) {
+                throw new IllegalStateException(("System property '" + str + "' should be in range " + j3 + IStringUtil.TOP_PATH + j4 + ", but is '" + longValue + ExtendedMessageFormat.QUOTE).toString());
             }
             return longValue;
         }
-        return j;
+        return j2;
     }
 }

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.c.m0;
+import h.c.m0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -204,7 +203,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
         public static YuvFormat[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (YuvFormat[]) $VALUES.clone() : (YuvFormat[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (YuvFormat[]) $VALUES.clone() : (YuvFormat[]) invokeV.objValue;
         }
 
         public abstract void fillBuffer(ByteBuffer byteBuffer, VideoFrame.Buffer buffer);
@@ -307,7 +306,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     private VideoCodecStatus encodeByteBuffer(VideoFrame videoFrame, VideoFrame.Buffer buffer, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, this, videoFrame, buffer, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, this, videoFrame, buffer, i2)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             long timestampNs = (videoFrame.getTimestampNs() + 500) / 1000;
             try {
@@ -340,7 +339,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     private VideoCodecStatus encodeTextureBuffer(VideoFrame videoFrame) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, videoFrame)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, videoFrame)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             try {
                 GLES20.glClear(16384);
@@ -448,15 +447,15 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    private void requestKeyFrame(long j) {
+    private void requestKeyFrame(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             try {
                 Bundle bundle = new Bundle();
                 bundle.putInt("request-sync", 0);
                 this.codec.setParameters(bundle);
-                this.lastKeyFrameNs = j;
+                this.lastKeyFrameNs = j2;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "requestKeyFrame failed", e2);
             }
@@ -480,13 +479,13 @@ public class HardwareVideoEncoder implements VideoEncoder {
         return (VideoCodecStatus) invokeCommon.objValue;
     }
 
-    private boolean shouldForceKeyFrame(long j) {
+    private boolean shouldForceKeyFrame(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j2)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            long j2 = this.forcedKeyFrameNs;
-            return j2 > 0 && j > this.lastKeyFrameNs + j2;
+            long j3 = this.forcedKeyFrameNs;
+            return j3 > 0 && j2 > this.lastKeyFrameNs + j3;
         }
         return invokeJ.booleanValue;
     }

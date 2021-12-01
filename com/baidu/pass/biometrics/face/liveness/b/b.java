@@ -4,17 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f42687h = 0;
+    public static final int f38206h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f42688i = 1;
-    public static final int j = 2;
-    public static final int k = 3;
+    public static final int f38207i = 1;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f38208j = 2;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final int f38209k = 3;
     public static final int l = 4;
     public static final int m = 5;
     public static final int n = 6;
@@ -30,27 +34,25 @@ public class b {
     public static final int x = 5000;
     public static final int y = 20000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f42689a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42690b;
+    public boolean f38210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42691c;
+    public boolean f38211c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42692d;
+    public long f38212d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42693e;
+    public long f38213e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42694f;
+    public boolean f38214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f42695g;
+    public boolean f38215g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -65,11 +67,11 @@ public class b {
                 return;
             }
         }
-        this.f42689a = 0;
-        this.f42690b = false;
-        this.f42691c = false;
-        this.f42693e = 20000L;
-        this.f42694f = false;
-        this.f42695g = false;
+        this.a = 0;
+        this.f38210b = false;
+        this.f38211c = false;
+        this.f38213e = 20000L;
+        this.f38214f = false;
+        this.f38215g = false;
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InviteFriendData extends AbstractImageProvider implements TbCheckBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51254e;
+    public String f45947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51255f;
+    public boolean f45948f;
 
     public InviteFriendData() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
                 return;
             }
         }
-        this.f51255f = false;
+        this.f45948f = false;
     }
 
     @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
@@ -52,7 +52,7 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(this.f51254e);
+            arrayList.add(this.f45947e);
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;
@@ -62,14 +62,14 @@ public class InviteFriendData extends AbstractImageProvider implements TbCheckBo
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51255f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45948f : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public void setChecked(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f51255f = z;
+            this.f45948f = z;
         }
     }
 }

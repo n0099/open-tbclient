@@ -16,9 +16,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.imagemanager.ImageProcessor;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class ImageUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;
@@ -64,7 +61,7 @@ public abstract class ImageUtils implements NoProguard {
                 options.inJustDecodeBounds = true;
                 ParcelFileDescriptor parcelFileDescriptor = null;
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f41000a);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
                     if (openFileDescriptor != null) {
                         try {
                             BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
@@ -135,7 +132,7 @@ public abstract class ImageUtils implements NoProguard {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = ImageProcessor.a(options, SDKLogTypeConstants.DZZB_ALERTDIALOG_NEGATIVE_CLICKED, -1);
+            options.inSampleSize = ImageProcessor.a(options, 361, -1);
             options.inJustDecodeBounds = false;
             return BitmapFactory.decodeFile(str, options);
         }
@@ -172,7 +169,7 @@ public abstract class ImageUtils implements NoProguard {
         InterceptResult invokeLLL;
         ParcelFileDescriptor parcelFileDescriptor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, uri, options)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, uri, options)) == null) {
             Bitmap bitmap = null;
             bitmap = null;
             bitmap = null;
@@ -181,7 +178,7 @@ public abstract class ImageUtils implements NoProguard {
             try {
                 try {
                     try {
-                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f41000a);
+                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
                         if (parcelFileDescriptor != null) {
                             try {
                                 bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
@@ -229,7 +226,7 @@ public abstract class ImageUtils implements NoProguard {
     public static int[] getScreenSize(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (context != null) {
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
                 return new int[]{displayMetrics.widthPixels, displayMetrics.heightPixels};

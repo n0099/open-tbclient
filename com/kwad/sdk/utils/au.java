@@ -1,63 +1,108 @@
 package com.kwad.sdk.utils;
 
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
+    public static Class a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Rect f67572a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Rect f67573b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Point f67574c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f67575d;
-
-    public au(View view) {
+    public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, clsArr, objArr)) == null) {
+            try {
+                if (a == null) {
+                    a = Class.forName("android.os.SystemProperties");
+                }
+                Method declaredMethod = a.getDeclaredMethod(str, clsArr);
+                declaredMethod.setAccessible(true);
+                return declaredMethod.invoke(null, objArr);
+            } catch (Throwable th) {
+                com.kwad.sdk.core.d.a.a(th);
+                return null;
             }
         }
-        this.f67574c = new Point();
-        this.f67572a = new Rect();
-        this.f67573b = new Rect();
-        this.f67575d = view;
+        return invokeLLL.objValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean globalVisibleRect = this.f67575d.getGlobalVisibleRect(this.f67572a, this.f67574c);
-            Point point = this.f67574c;
-            if (point.x == 0 && point.y == 0 && this.f67572a.height() == this.f67575d.getHeight() && this.f67573b.height() != 0 && Math.abs(this.f67572a.top - this.f67573b.top) > this.f67575d.getHeight() / 2) {
-                this.f67572a.set(this.f67573b);
-            }
-            this.f67573b.set(this.f67572a);
-            return globalVisibleRect;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Object a2 = a("get", new Class[]{String.class}, new Object[]{str});
+            return a2 instanceof String ? (String) a2 : b(str);
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0005 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0036 */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x003f, code lost:
+        if (r1 == null) goto L12;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.BufferedReader] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b(String str) {
+        ?? r1;
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = (r1 = interceptable).invokeL(65538, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        BufferedReader bufferedReader2 = null;
+        r0 = null;
+        String str2 = null;
+        try {
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+                try {
+                    str2 = bufferedReader.readLine();
+                    r1 = bufferedReader;
+                } catch (IOException e2) {
+                    e = e2;
+                    com.kwad.sdk.core.d.a.a(e);
+                    r1 = bufferedReader;
+                }
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = r1;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (Throwable unused) {
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e3) {
+            e = e3;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (bufferedReader2 != null) {
+            }
+            throw th;
+        }
+        try {
+            r1.close();
+        } catch (Throwable unused2) {
+            return str2;
+        }
     }
 }

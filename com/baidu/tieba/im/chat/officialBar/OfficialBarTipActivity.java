@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.s.a;
-import b.a.q0.s.s.i;
+import c.a.q0.s.s.a;
+import c.a.q0.s.s.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -45,26 +45,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b.a.r0.l1.f.i.b IProcessImpl;
-    public b.a.r0.l1.f.i.a mCompleteProcess;
+    public final c.a.r0.r1.f.i.b IProcessImpl;
+    public c.a.r0.r1.f.i.a mCompleteProcess;
     public final CustomMessageListener mMemoryListener;
     public OfficialBarTipModel mModel;
     public BdProgressDialog1080 mProgressDialog;
-    public final b.a.e.c.g.c mSubscribeListener;
+    public final c.a.d.c.g.c mSubscribeListener;
     public ImMessageCenterShowItemData mUnsubscribeItem;
-    public b.a.r0.l1.f.j.e mView;
+    public c.a.r0.r1.f.j.e mView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51208e;
+        public final /* synthetic */ OfficialBarTipActivity f45904e;
 
         public a(OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -81,77 +81,77 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51208e = officialBarTipActivity;
+            this.f45904e = officialBarTipActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             ImMessageCenterShowItemData item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (item = this.f51208e.mView.h().getItem(i2)) == null || view == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f45904e.mView.h().getItem(i2)) == null || view == null) {
                 return;
             }
-            if (this.f51208e.mView.h().c()) {
+            if (this.f45904e.mView.h().c()) {
                 ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                 if (item.isSelected()) {
                     item.setSelected(false);
                     SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
                     SkinManager.setBackgroundResource(imageView, R.drawable.btn_bgb_choice_n);
-                    if (this.f51208e.hasSelectedData()) {
+                    if (this.f45904e.hasSelectedData()) {
                         return;
                     }
-                    this.f51208e.mView.p(false);
+                    this.f45904e.mView.p(false);
                     return;
                 }
                 item.setSelected(true);
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0205);
                 SkinManager.setBackgroundResource(imageView, R.drawable.btn_bgb_choice_s);
-                this.f51208e.mView.o(true);
+                this.f45904e.mView.o(true);
                 return;
             }
             try {
                 long parseLong = Long.parseLong(item.getFriendId());
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, parseLong + "");
                 TiebaStatic.log("c12936");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SingleForumBroadcastFeedActivityConfig(this.f51208e.getActivity(), item.getFriendId(), item.getFriendName())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SingleForumBroadcastFeedActivityConfig(this.f45904e.getActivity(), item.getFriendId(), item.getFriendName())));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51209e;
+        public final /* synthetic */ OfficialBarTipActivity f45905e;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements i.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PopupDialog f51210e;
+            public final /* synthetic */ PopupDialog f45906e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ImMessageCenterShowItemData f51211f;
+            public final /* synthetic */ ImMessageCenterShowItemData f45907f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f51212g;
+            public final /* synthetic */ b f45908g;
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes9.dex */
-            public class C1768a implements a.e {
+            /* loaded from: classes10.dex */
+            public class C1839a implements a.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f51213e;
+                public final /* synthetic */ a f45909e;
 
-                public C1768a(a aVar) {
+                public C1839a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,28 +166,28 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                             return;
                         }
                     }
-                    this.f51213e = aVar;
+                    this.f45909e = aVar;
                 }
 
-                @Override // b.a.q0.s.s.a.e
-                public void onClick(b.a.q0.s.s.a aVar) {
+                @Override // c.a.q0.s.s.a.e
+                public void onClick(c.a.q0.s.s.a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                         aVar.dismiss();
-                        this.f51213e.f51212g.f51209e.mModel.subscribeBar(false, this.f51213e.f51211f.getFriendId());
-                        a aVar2 = this.f51213e;
-                        aVar2.f51212g.f51209e.mUnsubscribeItem = aVar2.f51211f;
+                        this.f45909e.f45908g.f45905e.mModel.subscribeBar(false, this.f45909e.f45907f.getFriendId());
+                        a aVar2 = this.f45909e;
+                        aVar2.f45908g.f45905e.mUnsubscribeItem = aVar2.f45907f;
                     }
                 }
             }
 
             /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivity$b$a$b  reason: collision with other inner class name */
-            /* loaded from: classes9.dex */
-            public class C1769b implements a.e {
+            /* loaded from: classes10.dex */
+            public class C1840b implements a.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C1769b(a aVar) {
+                public C1840b(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,8 +203,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     }
                 }
 
-                @Override // b.a.q0.s.s.a.e
-                public void onClick(b.a.q0.s.s.a aVar) {
+                @Override // c.a.q0.s.s.a.e
+                public void onClick(c.a.q0.s.s.a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                         aVar.dismiss();
@@ -227,26 +227,26 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                         return;
                     }
                 }
-                this.f51212g = bVar;
-                this.f51210e = popupDialog;
-                this.f51211f = imMessageCenterShowItemData;
+                this.f45908g = bVar;
+                this.f45906e = popupDialog;
+                this.f45907f = imMessageCenterShowItemData;
             }
 
-            @Override // b.a.q0.s.s.i.e
+            @Override // c.a.q0.s.s.i.e
             public void onItemClick(i iVar, int i2, View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                    PopupDialog popupDialog = this.f51210e;
+                    PopupDialog popupDialog = this.f45906e;
                     if (popupDialog != null && popupDialog.isShowing()) {
-                        this.f51210e.dismiss();
+                        this.f45906e.dismiss();
                     }
                     if (i2 == 0) {
-                        this.f51212g.f51209e.mModel.asyncDeleteItem(this.f51211f, this.f51212g.f51209e.IProcessImpl);
+                        this.f45908g.f45905e.mModel.asyncDeleteItem(this.f45907f, this.f45908g.f45905e.IProcessImpl);
                         return;
                     }
-                    b.a.q0.s.s.a a2 = b.a.q0.t.h.a.a(this.f51212g.f51209e.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C1768a(this), new C1769b(this));
-                    a2.setMessageShowCenter(true);
-                    a2.show();
+                    c.a.q0.s.s.a a = c.a.q0.t.h.a.a(this.f45908g.f45905e.getPageContext(), -1, R.string.make_sure_cancel_subscribe, R.string.confirm, R.string.cancel, new C1839a(this), new C1840b(this));
+                    a.setMessageShowCenter(true);
+                    a.show();
                 }
             }
         }
@@ -266,35 +266,35 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51209e = officialBarTipActivity;
+            this.f45905e = officialBarTipActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                ImMessageCenterShowItemData item = this.f51209e.mView.h().getItem(i2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+                ImMessageCenterShowItemData item = this.f45905e.mView.h().getItem(i2);
                 if (item != null) {
-                    if (this.f51209e.mView.h().c()) {
+                    if (this.f45905e.mView.h().c()) {
                         ImageView imageView = (ImageView) view.findViewById(R.id.select_status);
                         if (item.isSelected()) {
                             item.setSelected(false);
                             SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
                             SkinManager.setBackgroundResource(imageView, R.drawable.btn_bgb_choice_n);
-                            if (!this.f51209e.hasSelectedData()) {
-                                this.f51209e.mView.o(false);
+                            if (!this.f45905e.hasSelectedData()) {
+                                this.f45905e.mView.o(false);
                             }
                         } else {
                             item.setSelected(true);
                             SkinManager.setBackgroundColor(view, R.color.CAM_X0205);
                             SkinManager.setBackgroundResource(imageView, R.drawable.btn_bgb_choice_s);
-                            this.f51209e.mView.o(true);
+                            this.f45905e.mView.o(true);
                         }
                         return true;
                     }
                     String[] strArr = {TbadkCoreApplication.getInst().getString(R.string.delete_user_chat), TbadkCoreApplication.getInst().getString(R.string.cancel_subscribe)};
-                    PopupDialog popupDialog = new PopupDialog(this.f51209e.getPageContext());
+                    PopupDialog popupDialog = new PopupDialog(this.f45905e.getPageContext());
                     popupDialog.setDefaultContentView(null, strArr, new a(this, popupDialog, item));
                     popupDialog.showDialog();
                 }
@@ -304,13 +304,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51214a;
+        public final /* synthetic */ OfficialBarTipActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(OfficialBarTipActivity officialBarTipActivity, int i2) {
@@ -330,7 +328,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51214a = officialBarTipActivity;
+            this.a = officialBarTipActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -341,27 +339,25 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                 return;
             }
             if (customResponsedMessage.getCmd() == 2016002) {
-                this.f51214a.processMemoryInitComplete(customResponsedMessage);
+                this.a.processMemoryInitComplete(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.f51214a.processMemoryChanged(customResponsedMessage);
+                this.a.processMemoryChanged(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.f51214a.processResponsedMemoryList(customResponsedMessage);
+                this.a.processResponsedMemoryList(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.f51214a.mModel.setData(null, this.f51214a.mCompleteProcess);
-            } else if (customResponsedMessage.getCmd() != 2016011 || this.f51214a.mView == null || this.f51214a.mView.h() == null) {
+                this.a.mModel.setData(null, this.a.mCompleteProcess);
+            } else if (customResponsedMessage.getCmd() != 2016011 || this.a.mView == null || this.a.mView.h() == null) {
             } else {
-                this.f51214a.mView.h().notifyDataSetChanged();
+                this.a.mView.h().notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class d extends b.a.e.c.g.c {
+    /* loaded from: classes10.dex */
+    public class d extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51215a;
+        public final /* synthetic */ OfficialBarTipActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(OfficialBarTipActivity officialBarTipActivity, int i2) {
@@ -381,7 +377,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51215a = officialBarTipActivity;
+            this.a = officialBarTipActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -395,9 +391,9 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
                     if (requestUpdateMaskInfoMessage.getMaskType() == 12 && requestUpdateMaskInfoMessage.getIsMask() == 1) {
                         if (responseUpdateMaskInfoMessage.getError() == 0) {
-                            this.f51215a.onUnSubscribe(requestUpdateMaskInfoMessage.getList());
+                            this.a.onUnSubscribe(requestUpdateMaskInfoMessage.getList());
                         } else {
-                            this.f51215a.getPageContext().showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.f51215a.getPageContext().getResources().getString(R.string.neterror) : responseUpdateMaskInfoMessage.getErrorString());
+                            this.a.getPageContext().showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.getPageContext().getResources().getString(R.string.neterror) : responseUpdateMaskInfoMessage.getErrorString());
                         }
                     }
                 }
@@ -405,13 +401,11 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class e implements b.a.r0.l1.f.i.a {
+    /* loaded from: classes10.dex */
+    public class e implements c.a.r0.r1.f.i.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51216a;
+        public final /* synthetic */ OfficialBarTipActivity a;
 
         public e(OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -428,28 +422,26 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51216a = officialBarTipActivity;
+            this.a = officialBarTipActivity;
         }
 
-        @Override // b.a.r0.l1.f.i.a
+        @Override // c.a.r0.r1.f.i.a
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51216a.onCompleteProcess();
+                this.a.onCompleteProcess();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f51217a;
+        public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51218b;
+        public final /* synthetic */ OfficialBarTipActivity f45910b;
 
         public f(OfficialBarTipActivity officialBarTipActivity, String str) {
             Interceptable interceptable = $ic;
@@ -466,8 +458,8 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51218b = officialBarTipActivity;
-            this.f51217a = str;
+            this.f45910b = officialBarTipActivity;
+            this.a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -476,23 +468,21 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f51217a)) {
+                if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                b.a.r0.l1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f51217a), false);
+                c.a.r0.r1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
                 return null;
             }
             return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class g implements b.a.r0.l1.f.i.b {
+    /* loaded from: classes10.dex */
+    public class g implements c.a.r0.r1.f.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f51219a;
+        public final /* synthetic */ OfficialBarTipActivity a;
 
         public g(OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -509,44 +499,44 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
                     return;
                 }
             }
-            this.f51219a = officialBarTipActivity;
+            this.a = officialBarTipActivity;
         }
 
-        @Override // b.a.r0.l1.f.i.b
+        @Override // c.a.r0.r1.f.i.b
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51219a.dismissDialog();
-                this.f51219a.onCompleteProcess();
+                this.a.dismissDialog();
+                this.a.onCompleteProcess();
             }
         }
 
-        @Override // b.a.r0.l1.f.i.b
+        @Override // c.a.r0.r1.f.i.b
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f51219a.dismissDialog();
-                this.f51219a.showToast(R.string.delete_success, false);
-                this.f51219a.onCompleteProcess();
+                this.a.dismissDialog();
+                this.a.showToast(R.string.delete_success, false);
+                this.a.onCompleteProcess();
             }
         }
 
-        @Override // b.a.r0.l1.f.i.b
+        @Override // c.a.r0.r1.f.i.b
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f51219a.showProgressDialog();
+                this.a.showProgressDialog();
             }
         }
 
-        @Override // b.a.r0.l1.f.i.b
+        @Override // c.a.r0.r1.f.i.b
         public void onProgressUpdate(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-                if (this.f51219a.mProgressDialog != null) {
-                    this.f51219a.mProgressDialog.setPercent(i2);
+                if (this.a.mProgressDialog != null) {
+                    this.a.mProgressDialog.setPercent(i2);
                 }
-                this.f51219a.notifyDataSetChanged();
+                this.a.notifyDataSetChanged();
             }
         }
     }
@@ -594,7 +584,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            b.a.r0.l1.f.j.e eVar = new b.a.r0.l1.f.j.e(this);
+            c.a.r0.r1.f.j.e eVar = new c.a.r0.r1.f.j.e(this);
             this.mView = eVar;
             eVar.i().setOnItemClickListener(new a(this));
             this.mView.i().setOnItemLongClickListener(new b(this));
@@ -603,7 +593,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        b.a.r0.l1.f.j.e eVar;
+        c.a.r0.r1.f.j.e eVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (eVar = this.mView) == null || eVar.h() == null) {
             return;
@@ -613,7 +603,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
-        b.a.r0.l1.f.j.e eVar;
+        c.a.r0.r1.f.j.e eVar;
         OfficialBarTipModel officialBarTipModel;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (eVar = this.mView) == null || eVar.h() == null || (officialBarTipModel = this.mModel) == null) {
@@ -695,7 +685,7 @@ public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity>
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             dismissDialog();
             if (this.mProgressDialog == null) {
-                this.mProgressDialog = b.a.r0.l1.h.e.m().p(getPageContext().getPageActivity());
+                this.mProgressDialog = c.a.r0.r1.h.e.m().p(getPageContext().getPageActivity());
             }
             this.mProgressDialog.show();
             this.mProgressDialog.setPercent(0);

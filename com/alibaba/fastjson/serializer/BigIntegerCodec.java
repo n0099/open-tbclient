@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final BigInteger HIGH;

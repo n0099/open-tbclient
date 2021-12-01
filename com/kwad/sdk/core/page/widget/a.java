@@ -11,39 +11,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.bb;
+import com.kwad.sdk.utils.bc;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes2.dex */
-public class a extends View implements aw.a {
+public class a extends View implements bc.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1949a f65842a;
+    public InterfaceC2024a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f65843b;
+    public View f57618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65844c;
+    public boolean f57619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65845d;
+    public boolean f57620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f65846e;
+    public boolean f57621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final aw f65847f;
+    public final bc f57622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f65848g;
+    public final AtomicBoolean f57623g;
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC1949a {
+    public interface InterfaceC2024a {
         void a();
 
         void a(View view);
@@ -71,78 +69,79 @@ public class a extends View implements aw.a {
                 return;
             }
         }
-        this.f65847f = new aw(this);
-        this.f65848g = new AtomicBoolean(true);
-        this.f65843b = view;
+        this.f57622f = new bc(this);
+        this.f57623g = new AtomicBoolean(true);
+        this.f57618b = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void a() {
-        InterfaceC1949a interfaceC1949a;
+        InterfaceC2024a interfaceC2024a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f65848g.getAndSet(false) && (interfaceC1949a = this.f65842a) != null) {
-            interfaceC1949a.a();
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f57623g.getAndSet(false) && (interfaceC2024a = this.a) != null) {
+            interfaceC2024a.a();
         }
     }
 
     private void b() {
-        InterfaceC1949a interfaceC1949a;
+        InterfaceC2024a interfaceC2024a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f65848g.getAndSet(true) || (interfaceC1949a = this.f65842a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f57623g.getAndSet(true) || (interfaceC2024a = this.a) == null) {
             return;
         }
-        interfaceC1949a.b();
+        interfaceC2024a.b();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f65845d) {
-            this.f65847f.removeCallbacksAndMessages(null);
-            this.f65845d = false;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f57620d) {
+            this.f57622f.removeCallbacksAndMessages(null);
+            this.f57620d = false;
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f65846e && !this.f65845d) {
-            this.f65845d = true;
-            this.f65847f.sendEmptyMessage(1);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f57621e && !this.f57620d) {
+            this.f57620d = true;
+            this.f57622f.sendEmptyMessage(1);
         }
     }
 
-    @Override // com.kwad.sdk.utils.aw.a
+    @Override // com.kwad.sdk.utils.bc.a
     public void a(Message message) {
-        InterfaceC1949a interfaceC1949a;
+        InterfaceC2024a interfaceC2024a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             int i2 = message.what;
-            if (i2 == 1) {
-                com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_CHECKING");
-                if (this.f65845d) {
-                    if (!av.a(this.f65843b, 30, false)) {
-                        this.f65847f.sendEmptyMessageDelayed(1, 500L);
-                        return;
-                    }
-                    c();
-                    Message obtainMessage = this.f65847f.obtainMessage();
-                    obtainMessage.what = 2;
-                    obtainMessage.arg1 = 1000;
-                    this.f65847f.sendMessageDelayed(obtainMessage, 1000L);
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    return;
                 }
-            } else if (i2 != 2) {
-            } else {
-                com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_SHOWING");
-                if (!av.a(this.f65843b, 30, false)) {
-                    if (this.f65844c) {
+                if (!bb.a(this.f57618b, 30, false)) {
+                    if (this.f57619c) {
                         return;
                     }
                     setNeedCheckingShow(true);
                     return;
                 }
-                if (message.arg1 == 1000 && (interfaceC1949a = this.f65842a) != null) {
-                    interfaceC1949a.a(this.f65843b);
+                if (message.arg1 == 1000 && (interfaceC2024a = this.a) != null) {
+                    interfaceC2024a.a(this.f57618b);
                 }
-                this.f65847f.sendEmptyMessageDelayed(2, 500L);
+                this.f57622f.sendEmptyMessageDelayed(2, 500L);
+                return;
+            }
+            com.kwad.sdk.core.d.a.a("EmptyView", "handleMsg MSG_CHECKING");
+            if (this.f57620d) {
+                if (!bb.a(this.f57618b, 30, false)) {
+                    this.f57622f.sendEmptyMessageDelayed(1, 500L);
+                    return;
+                }
+                c();
+                Message obtainMessage = this.f57622f.obtainMessage();
+                obtainMessage.what = 2;
+                obtainMessage.arg1 = 1000;
+                this.f57622f.sendMessageDelayed(obtainMessage, 1000L);
             }
         }
     }
@@ -154,7 +153,7 @@ public class a extends View implements aw.a {
             super.onAttachedToWindow();
             com.kwad.sdk.core.d.a.a("EmptyView", "onAttachedToWindow:" + this);
             d();
-            this.f65844c = false;
+            this.f57619c = false;
             a();
         }
     }
@@ -166,7 +165,7 @@ public class a extends View implements aw.a {
             super.onDetachedFromWindow();
             com.kwad.sdk.core.d.a.a("EmptyView", "onDetachedFromWindow" + this);
             c();
-            this.f65844c = true;
+            this.f57619c = true;
             b();
         }
     }
@@ -176,7 +175,7 @@ public class a extends View implements aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishTemporaryDetach();
-            com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f65843b.getParent());
+            com.kwad.sdk.core.d.a.a("EmptyView", "onFinishTemporaryDetach:" + this.f57618b.getParent());
             a();
         }
     }
@@ -186,7 +185,7 @@ public class a extends View implements aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStartTemporaryDetach();
-            com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f65843b.getParent());
+            com.kwad.sdk.core.d.a.a("EmptyView", "onStartTemporaryDetach:" + this.f57618b.getParent());
             b();
         }
     }
@@ -197,9 +196,9 @@ public class a extends View implements aw.a {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.onWindowFocusChanged(z);
             com.kwad.sdk.core.d.a.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
-            InterfaceC1949a interfaceC1949a = this.f65842a;
-            if (interfaceC1949a != null) {
-                interfaceC1949a.a(z);
+            InterfaceC2024a interfaceC2024a = this.a;
+            if (interfaceC2024a != null) {
+                interfaceC2024a.a(z);
             }
         }
     }
@@ -216,20 +215,20 @@ public class a extends View implements aw.a {
     public void setNeedCheckingShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f65846e = z;
-            if (!z && this.f65845d) {
+            this.f57621e = z;
+            if (!z && this.f57620d) {
                 c();
-            } else if (!z || this.f65845d) {
+            } else if (!z || this.f57620d) {
             } else {
                 d();
             }
         }
     }
 
-    public void setViewCallback(InterfaceC1949a interfaceC1949a) {
+    public void setViewCallback(InterfaceC2024a interfaceC2024a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC1949a) == null) {
-            this.f65842a = interfaceC1949a;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC2024a) == null) {
+            this.a = interfaceC2024a;
         }
     }
 }

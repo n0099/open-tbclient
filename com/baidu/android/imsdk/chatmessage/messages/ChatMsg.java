@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,7 +27,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_FORM_OTHER_DEVICE = 2;
@@ -158,14 +157,14 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (String) invokeV.objValue;
     }
 
-    public static byte[] long2bytes(long j, int i2) {
+    public static byte[] long2bytes(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = i2 - 1; i3 >= 0; i3--) {
-                bArr[i3] = (byte) (255 & j);
-                j >>= 8;
+                bArr[i3] = (byte) (255 & j2);
+                j2 >>= 8;
             }
             return bArr;
         }
@@ -175,7 +174,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private void notifyMsgStatus(int i2) {
         ISendMessageStatusListener iSendMessageStatusListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) || this.mListenerKey == null) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || this.mListenerKey == null) {
             return;
         }
         if ((i2 == 0 || i2 == 2) && (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(this.mListenerKey)) != null) {
@@ -187,7 +186,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         InterceptResult invokeL;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (str == null || str.length() == 0 || (lastIndexOf = str.lastIndexOf(48)) == str.length() + (-1)) ? "" : str.substring(lastIndexOf + 1) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (str == null || str.length() == 0 || (lastIndexOf = str.lastIndexOf(48)) == str.length() + (-1)) ? "" : str.substring(lastIndexOf + 1) : (String) invokeL.objValue;
     }
 
     public void createMsgKey(Context context) {
@@ -457,8 +456,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mRowId : invokeV.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00b2 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00ae A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00af  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -476,37 +475,37 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                 } else {
                     jSONObject2 = new JSONObject();
                 }
-            } catch (Exception e2) {
-                e = e2;
-                jSONObject = null;
-            }
-            try {
-                jSONObject2.put("buid", this.senderUid);
-                if (this.mChatType == 0) {
-                    jSONObject2.put("tobuid", this.toBduid);
-                }
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("sub_app_identity", String.valueOf(this.mChatType));
-                if (this.mMinSdkVersion > -1) {
-                    jSONObject3.put("min_sdk_version", this.mMinSdkVersion);
-                }
-                if (this.mSubChatType == 21) {
-                    jSONObject3.put("sub_pa_type", 21);
-                }
-                jSONObject2.put("ext", jSONObject3);
-                if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
-                    jSONObject2.put("extra", this.mjsonContentExtra);
-                }
-                if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
-                    jSONObject2.put("stargroupext", this.mjsonStarExtra);
+                try {
+                    jSONObject2.put("buid", this.senderUid);
+                    if (this.mChatType == 0) {
+                        jSONObject2.put("tobuid", this.toBduid);
+                    }
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("sub_app_identity", String.valueOf(this.mChatType));
+                    if (this.mMinSdkVersion > -1) {
+                        jSONObject3.put("min_sdk_version", this.mMinSdkVersion);
+                    }
+                    if (this.mSubChatType == 21) {
+                        jSONObject3.put("sub_pa_type", 21);
+                    }
+                    jSONObject2.put("ext", jSONObject3);
+                    if (!TextUtils.isEmpty(this.mjsonContentExtra)) {
+                        jSONObject2.put("extra", this.mjsonContentExtra);
+                    }
+                    if (!TextUtils.isEmpty(this.mjsonStarExtra)) {
+                        jSONObject2.put("stargroupext", this.mjsonStarExtra);
+                    }
+                } catch (Exception e2) {
+                    jSONObject = jSONObject2;
+                    e = e2;
+                    LogUtils.e(TAG, "getMsgContent Json", e);
+                    jSONObject2 = jSONObject;
+                    if (jSONObject2 != null) {
+                    }
                 }
             } catch (Exception e3) {
-                jSONObject = jSONObject2;
                 e = e3;
-                LogUtils.e(TAG, "getMsgContent Json", e);
-                jSONObject2 = jSONObject;
-                if (jSONObject2 != null) {
-                }
+                jSONObject = null;
             }
             if (jSONObject2 != null) {
                 return null;
@@ -864,10 +863,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public abstract boolean parseJsonString();
 
-    public void setAppId(long j) {
+    public void setAppId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048639, this, j) == null) {
-            this.mAppId = j;
+        if (interceptable == null || interceptable.invokeJ(1048639, this, j2) == null) {
+            this.mAppId = j2;
         }
     }
 
@@ -903,10 +902,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setContacter(long j) {
+    public void setContacter(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
-            this.mContacter = j;
+        if (interceptable == null || interceptable.invokeJ(1048644, this, j2) == null) {
+            this.mContacter = j2;
         }
     }
 
@@ -931,10 +930,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setExpiresTime(long j) {
+    public void setExpiresTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
-            this.expiresTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048648, this, j2) == null) {
+            this.expiresTime = j2;
         }
     }
 
@@ -952,10 +951,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setFromUser(long j) {
+    public void setFromUser(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048651, this, j) == null) {
-            this.mFromUser = j;
+        if (interceptable == null || interceptable.invokeJ(1048651, this, j2) == null) {
+            this.mFromUser = j2;
         }
     }
 
@@ -994,10 +993,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setMinSdkVersion(long j) {
+    public void setMinSdkVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048657, this, j) == null) {
-            this.mMinSdkVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048657, this, j2) == null) {
+            this.mMinSdkVersion = j2;
         }
     }
 
@@ -1021,10 +1020,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return invokeL.booleanValue;
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048660, this, j) == null) {
-            this.mMsgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048660, this, j2) == null) {
+            this.mMsgId = j2;
         }
     }
 
@@ -1042,10 +1041,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setMsgTime(long j) {
+    public void setMsgTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048663, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048663, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 
@@ -1063,10 +1062,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setPaid(long j) {
+    public void setPaid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048666, this, j) == null) {
-            this.mPaid = j;
+        if (interceptable == null || interceptable.invokeJ(1048666, this, j2) == null) {
+            this.mPaid = j2;
         }
     }
 
@@ -1077,10 +1076,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setRowId(long j) {
+    public void setRowId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048668, this, j) == null) {
-            this.mRowId = j;
+        if (interceptable == null || interceptable.invokeJ(1048668, this, j2) == null) {
+            this.mRowId = j2;
         }
     }
 
@@ -1161,10 +1160,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setTriggerReasonn(long j) {
+    public void setTriggerReasonn(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048679, this, j) == null) {
-            this.mTriggerReasonn = j;
+        if (interceptable == null || interceptable.invokeJ(1048679, this, j2) == null) {
+            this.mTriggerReasonn = j2;
         }
     }
 

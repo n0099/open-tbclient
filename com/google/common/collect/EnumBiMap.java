@@ -1,11 +1,10 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.d1;
-import b.h.d.c.k;
+import c.i.d.a.n;
+import c.i.d.c.d1;
+import c.i.d.c.k;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import java.lang.Enum;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends AbstractBiMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -86,7 +85,7 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, objectInputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, objectInputStream) == null) {
             objectInputStream.defaultReadObject();
             this.keyType = (Class) objectInputStream.readObject();
             this.valueType = (Class) objectInputStream.readObject();
@@ -97,7 +96,7 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, objectOutputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, objectOutputStream) == null) {
             objectOutputStream.defaultWriteObject();
             objectOutputStream.writeObject(this.keyType);
             objectOutputStream.writeObject(this.valueType);
@@ -119,27 +118,27 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
         return checkValue((EnumBiMap<K, V>) ((Enum) obj));
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ void clear() {
         super.clear();
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ boolean containsValue(Object obj) {
         return super.containsValue(obj);
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.k
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.k
     public /* bridge */ /* synthetic */ k inverse() {
         return super.inverse();
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ Set keySet() {
         return super.keySet();
     }
@@ -150,7 +149,7 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.keyType : (Class) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ void putAll(Map map) {
         super.putAll(map);
     }
@@ -161,7 +160,7 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.valueType : (Class) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.AbstractBiMap, b.h.d.c.d0, java.util.Map
+    @Override // com.google.common.collect.AbstractBiMap, c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ Set values() {
         return super.values();
     }
@@ -177,12 +176,12 @@ public final class EnumBiMap<K extends Enum<K>, V extends Enum<V>> extends Abstr
         return (EnumBiMap) invokeL.objValue;
     }
 
-    public K checkKey(K k) {
+    public K checkKey(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            n.p(k);
-            return k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+            n.p(k2);
+            return k2;
         }
         return (K) invokeL.objValue;
     }

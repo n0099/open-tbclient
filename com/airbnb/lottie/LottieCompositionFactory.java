@@ -25,7 +25,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import okio.Okio;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieCompositionFactory {
     public static final Map<String, LottieTask<LottieComposition>> taskCache = new HashMap();
 

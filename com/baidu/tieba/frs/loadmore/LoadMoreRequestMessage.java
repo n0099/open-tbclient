@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.loadmore;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.b;
-import b.a.e.f.p.l;
-import b.a.q0.c1.g;
-import b.a.q0.c1.z;
-import b.a.r0.a3.j0.a;
+import c.a.d.f.m.b;
+import c.a.d.f.p.l;
+import c.a.q0.d1.g;
+import c.a.q0.d1.z;
+import c.a.r0.h3.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,16 +70,16 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            int k = l.k(TbadkCoreApplication.getInst());
+            int k2 = l.k(TbadkCoreApplication.getInst());
             int i2 = l.i(TbadkCoreApplication.getInst());
             builder.pn = Integer.valueOf(this.pn);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.scr_h = Integer.valueOf(i2);
-            builder.scr_w = Integer.valueOf(k);
+            builder.scr_w = Integer.valueOf(k2);
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = b.a.r0.a3.l0.b.f().d("FRS");
+            builder.ad_context_list = c.a.r0.h3.l0.b.f().d("FRS");
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();
@@ -129,10 +129,10 @@ public class LoadMoreRequestMessage extends NetMessage {
         }
     }
 
-    public void setForumId(long j) {
+    public void setForumId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.forum_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.forum_id = j2;
         }
     }
 
@@ -143,10 +143,10 @@ public class LoadMoreRequestMessage extends NetMessage {
         }
     }
 
-    public void setLastClickTid(long j) {
+    public void setLastClickTid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mLastClickTid = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mLastClickTid = j2;
         }
     }
 

@@ -2,7 +2,7 @@ package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.content.Context;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ISyncHttpImpl {
     public static final int GET = 0;
     public static final int POST = 1;

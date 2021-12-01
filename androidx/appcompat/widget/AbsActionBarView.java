@@ -17,7 +17,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +127,7 @@ public abstract class AbsActionBarView extends ViewGroup {
     public static int next(int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? z ? i2 - i3 : i2 + i3 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? z ? i2 - i3 : i2 + i3 : invokeCommon.intValue;
     }
 
     public void animateToVisibility(int i2) {
@@ -366,10 +365,10 @@ public abstract class AbsActionBarView extends ViewGroup {
         super.setVisibility(i2);
     }
 
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
             if (viewPropertyAnimatorCompat != null) {
                 viewPropertyAnimatorCompat.cancel();
@@ -379,12 +378,12 @@ public abstract class AbsActionBarView extends ViewGroup {
                     setAlpha(0.0f);
                 }
                 ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
-                alpha.setDuration(j);
+                alpha.setDuration(j2);
                 alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
                 return alpha;
             }
             ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
-            alpha2.setDuration(j);
+            alpha2.setDuration(j2);
             alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
             return alpha2;
         }

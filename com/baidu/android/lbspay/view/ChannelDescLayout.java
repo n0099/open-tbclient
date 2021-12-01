@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChannelDescLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,7 @@ public class ChannelDescLayout extends LinearLayout {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.baidu.android.lbspay.view.ChannelDescLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ChannelDescLayout f35729a;
+            public final /* synthetic */ ChannelDescLayout a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +65,7 @@ public class ChannelDescLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f35729a = this;
+                this.a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -75,10 +73,10 @@ public class ChannelDescLayout extends LinearLayout {
                 int i4;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    int childCount = this.f35729a.getChildCount();
-                    int paddingLeft = this.f35729a.getPaddingLeft();
+                    int childCount = this.a.getChildCount();
+                    int paddingLeft = this.a.getPaddingLeft();
                     for (int i5 = 0; i5 < childCount; i5++) {
-                        View childAt = this.f35729a.getChildAt(i5);
+                        View childAt = this.a.getChildAt(i5);
                         if (childAt instanceof TextView) {
                             TextView textView = (TextView) childAt;
                             i4 = ((int) (textView.getPaint().measureText(textView.getText().toString()) + 0.5d)) + childAt.getPaddingLeft() + childAt.getPaddingRight();
@@ -86,7 +84,7 @@ public class ChannelDescLayout extends LinearLayout {
                             i4 = 10;
                         }
                         paddingLeft += i4;
-                        if (this.f35729a.mwidth < paddingLeft) {
+                        if (this.a.mwidth < paddingLeft) {
                             return;
                         }
                         childAt.setVisibility(0);

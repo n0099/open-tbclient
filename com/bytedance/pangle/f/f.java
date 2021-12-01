@@ -4,7 +4,6 @@ import android.util.ArrayMap;
 import android.util.Pair;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,18 +24,16 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final MessageDigest[] f62291a;
+        public final MessageDigest[] a;
 
         public a(MessageDigest[] messageDigestArr) {
             Interceptable interceptable = $ic;
@@ -53,7 +50,7 @@ public final class f {
                     return;
                 }
             }
-            this.f62291a = messageDigestArr;
+            this.a = messageDigestArr;
         }
 
         @Override // com.bytedance.pangle.f.j
@@ -62,7 +59,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
                 ByteBuffer slice = byteBuffer.slice();
-                for (MessageDigest messageDigest : this.f62291a) {
+                for (MessageDigest messageDigest : this.a) {
                     slice.position(0);
                     messageDigest.update(slice);
                 }
@@ -73,7 +70,7 @@ public final class f {
     public static m a(RandomAccessFile randomAccessFile, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, randomAccessFile, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, randomAccessFile, i2)) == null) {
             Pair<ByteBuffer, Long> a2 = a(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) a2.first;
             long longValue = ((Long) a2.second).longValue();
@@ -223,9 +220,9 @@ public final class f {
             while (a2.hasRemaining()) {
                 i3++;
                 if (a2.remaining() >= 8) {
-                    long j = a2.getLong();
-                    if (j >= 4 && j <= 2147483647L) {
-                        int i4 = (int) j;
+                    long j2 = a2.getLong();
+                    if (j2 >= 4 && j2 <= 2147483647L) {
+                        int i4 = (int) j2;
                         int position = a2.position() + i4;
                         if (i4 <= a2.remaining()) {
                             if (a2.getInt() == i2) {
@@ -236,7 +233,7 @@ public final class f {
                             throw new n("APK Signing Block entry #" + i3 + " size out of range: " + i4 + ", available: " + a2.remaining());
                         }
                     } else {
-                        throw new n("APK Signing Block entry #" + i3 + " size out of range: " + j);
+                        throw new n("APK Signing Block entry #" + i3 + " size out of range: " + j2);
                     }
                 } else {
                     throw new n("Insufficient data to read size of APK Signing Block entry #".concat(String.valueOf(i3)));
@@ -355,16 +352,16 @@ public final class f {
     public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, map, fileDescriptor, mVar) == null) {
-            l lVar = new l(fileDescriptor, 0L, mVar.f62306b);
-            long j = mVar.f62307c;
-            l lVar2 = new l(fileDescriptor, j, mVar.f62308d - j);
-            ByteBuffer duplicate = mVar.f62309e.duplicate();
+            l lVar = new l(fileDescriptor, 0L, mVar.f54587b);
+            long j2 = mVar.f54588c;
+            l lVar2 = new l(fileDescriptor, j2, mVar.f54589d - j2);
+            ByteBuffer duplicate = mVar.f54590e.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            long j2 = mVar.f62306b;
+            long j3 = mVar.f54587b;
             s.c(duplicate);
             int position = duplicate.position() + 16;
-            if (j2 >= 0 && j2 <= 4294967295L) {
-                duplicate.putInt(duplicate.position() + position, (int) j2);
+            if (j3 >= 0 && j3 <= 4294967295L) {
+                duplicate.putInt(duplicate.position() + position, (int) j3);
                 h hVar = new h(duplicate);
                 int size = map.size();
                 int[] iArr = new int[size];
@@ -386,31 +383,31 @@ public final class f {
                     throw new SecurityException("Failed to compute digest(s) of contents", e2);
                 }
             }
-            throw new IllegalArgumentException("uint32 value of out range: ".concat(String.valueOf(j2)));
+            throw new IllegalArgumentException("uint32 value of out range: ".concat(String.valueOf(j3)));
         }
     }
 
     public static byte[][] a(int[] iArr, k[] kVarArr) {
         InterceptResult invokeLL;
         int i2;
-        long j;
+        long j2;
         MessageDigest messageDigest;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, iArr, kVarArr)) == null) {
-            long j2 = 0;
             long j3 = 0;
+            long j4 = 0;
             int i3 = 0;
             while (true) {
                 i2 = 3;
-                j = 1048576;
+                j2 = 1048576;
                 if (i3 >= 3) {
                     break;
                 }
-                j3 += ((kVarArr[i3].a() + 1048576) - 1) / 1048576;
+                j4 += ((kVarArr[i3].a() + 1048576) - 1) / 1048576;
                 i3++;
             }
-            if (j3 < 2097151) {
-                int i4 = (int) j3;
+            if (j4 < 2097151) {
+                int i4 = (int) j4;
                 byte[][] bArr = new byte[iArr.length];
                 for (int i5 = 0; i5 < iArr.length; i5++) {
                     byte[] bArr2 = new byte[(e(iArr[i5]) * i4) + 5];
@@ -436,20 +433,20 @@ public final class f {
                 int i9 = 0;
                 while (i7 < i2) {
                     k kVar = kVarArr[i7];
-                    long j4 = j2;
+                    long j5 = j3;
                     int i10 = i9;
                     a aVar2 = aVar;
                     long a2 = kVar.a();
-                    while (a2 > j2) {
-                        int min = (int) Math.min(a2, j);
+                    while (a2 > j3) {
+                        int min = (int) Math.min(a2, j2);
                         a(min, bArr3);
                         for (int i11 = 0; i11 < length; i11++) {
                             messageDigestArr[i11].update(bArr3);
                         }
                         a aVar3 = aVar2;
-                        long j5 = j4;
+                        long j6 = j5;
                         try {
-                            kVar.a(aVar3, j5, min);
+                            kVar.a(aVar3, j6, min);
                             aVar2 = aVar3;
                             k kVar2 = kVar;
                             int i12 = 0;
@@ -469,15 +466,15 @@ public final class f {
                                 length = i14;
                                 messageDigestArr = messageDigestArr2;
                             }
-                            long j6 = min;
-                            long j7 = j5 + j6;
-                            a2 -= j6;
+                            long j7 = min;
+                            long j8 = j6 + j7;
+                            a2 -= j7;
                             i10++;
-                            j2 = 0;
-                            j = 1048576;
+                            j3 = 0;
+                            j2 = 1048576;
                             kVar = kVar2;
                             bArr3 = bArr3;
-                            j4 = j7;
+                            j5 = j8;
                         } catch (IOException e4) {
                             throw new DigestException("Failed to digest chunk #" + i10 + " of section #" + i8, e4);
                         }
@@ -486,9 +483,9 @@ public final class f {
                     i7++;
                     i9 = i10;
                     aVar = aVar2;
-                    j2 = 0;
+                    j3 = 0;
                     i2 = 3;
-                    j = 1048576;
+                    j2 = 1048576;
                 }
                 byte[][] bArr6 = new byte[iArr.length];
                 for (int i15 = 0; i15 < iArr.length; i15++) {
@@ -503,19 +500,19 @@ public final class f {
                 }
                 return bArr6;
             }
-            throw new DigestException("Too many chunks: ".concat(String.valueOf(j3)));
+            throw new DigestException("Too many chunks: ".concat(String.valueOf(j4)));
         }
         return (byte[][]) invokeLL.objValue;
     }
 
-    public static byte[] a(byte[] bArr, long j, m mVar) {
+    public static byte[] a(byte[] bArr, long j2, m mVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bArr, Long.valueOf(j), mVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bArr, Long.valueOf(j2), mVar})) == null) {
             if (bArr.length == 40) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
                 order.position(32);
-                if (order.getLong() == j - (mVar.f62307c - mVar.f62306b)) {
+                if (order.getLong() == j2 - (mVar.f54588c - mVar.f54587b)) {
                     return Arrays.copyOfRange(bArr, 0, 32);
                 }
                 throw new SecurityException("APK content size did not verify");
@@ -553,7 +550,7 @@ public final class f {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? ByteBuffer.allocate(i2) : (ByteBuffer) invokeI.objValue;
                     }
-                }).f62294b)) {
+                }).f54579b)) {
                     return;
                 }
                 throw new SecurityException("APK verity digest of contents did not verify");
@@ -576,18 +573,18 @@ public final class f {
         return (Pair) invokeL.objValue;
     }
 
-    public static long a(ByteBuffer byteBuffer, long j) {
+    public static long a(ByteBuffer byteBuffer, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j2)) == null) {
             long a2 = s.a(byteBuffer);
-            if (a2 <= j) {
-                if (s.b(byteBuffer) + a2 == j) {
+            if (a2 <= j2) {
+                if (s.b(byteBuffer) + a2 == j2) {
                     return a2;
                 }
                 throw new n("ZIP Central Directory is not immediately followed by End of Central Directory");
             }
-            throw new n("ZIP Central Directory offset out of range: " + a2 + ". ZIP End of Central Directory offset: " + j);
+            throw new n("ZIP Central Directory offset out of range: " + a2 + ". ZIP End of Central Directory offset: " + j2);
         }
         return invokeLJ.longValue;
     }
@@ -660,7 +657,7 @@ public final class f {
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
             if (byteBuffer.remaining() >= 4) {
                 int i2 = byteBuffer.getInt();
                 if (i2 >= 0) {
@@ -686,38 +683,38 @@ public final class f {
         }
     }
 
-    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, long j) {
+    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j)) == null) {
-            if (j >= 32) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j2)) == null) {
+            if (j2 >= 32) {
                 ByteBuffer allocate = ByteBuffer.allocate(24);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
-                randomAccessFile.seek(j - allocate.capacity());
+                randomAccessFile.seek(j2 - allocate.capacity());
                 randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
                 if (allocate.getLong(8) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_LO && allocate.getLong(16) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_HI) {
-                    long j2 = allocate.getLong(0);
-                    if (j2 < allocate.capacity() || j2 > 2147483639) {
-                        throw new n("APK Signing Block size out of range: ".concat(String.valueOf(j2)));
+                    long j3 = allocate.getLong(0);
+                    if (j3 < allocate.capacity() || j3 > 2147483639) {
+                        throw new n("APK Signing Block size out of range: ".concat(String.valueOf(j3)));
                     }
-                    int i2 = (int) (8 + j2);
-                    long j3 = j - i2;
-                    if (j3 >= 0) {
+                    int i2 = (int) (8 + j3);
+                    long j4 = j2 - i2;
+                    if (j4 >= 0) {
                         ByteBuffer allocate2 = ByteBuffer.allocate(i2);
                         allocate2.order(ByteOrder.LITTLE_ENDIAN);
-                        randomAccessFile.seek(j3);
+                        randomAccessFile.seek(j4);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        long j4 = allocate2.getLong(0);
-                        if (j4 == j2) {
-                            return Pair.create(allocate2, Long.valueOf(j3));
+                        long j5 = allocate2.getLong(0);
+                        if (j5 == j3) {
+                            return Pair.create(allocate2, Long.valueOf(j4));
                         }
-                        throw new n("APK Signing Block sizes in header and footer do not match: " + j4 + " vs " + j2);
+                        throw new n("APK Signing Block sizes in header and footer do not match: " + j5 + " vs " + j3);
                     }
-                    throw new n("APK Signing Block offset out of range: ".concat(String.valueOf(j3)));
+                    throw new n("APK Signing Block offset out of range: ".concat(String.valueOf(j4)));
                 }
                 throw new n("No APK Signing Block before ZIP Central Directory");
             }
-            throw new n("APK too small for APK Signing Block. ZIP Central Directory offset: ".concat(String.valueOf(j)));
+            throw new n("APK too small for APK Signing Block. ZIP Central Directory offset: ".concat(String.valueOf(j2)));
         }
         return (Pair) invokeLJ.objValue;
     }

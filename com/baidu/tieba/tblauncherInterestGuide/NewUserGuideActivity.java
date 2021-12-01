@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tieba.R;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HAS_LIEK_BAR = "has_like_bar";
@@ -38,13 +37,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public NewUserGuideModel mNewUserGuideModel;
     public RightSlideViewPager mViewPager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements NewUserGuideModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f55350a;
+        public final /* synthetic */ NewUserGuideActivity a;
 
         public a(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -61,16 +58,16 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f55350a = newUserGuideActivity;
+            this.a = newUserGuideActivity;
         }
 
         @Override // com.baidu.tieba.tblauncherInterestGuide.model.NewUserGuideModel.b
         public void a(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, interestFrsData) == null) {
-                this.f55350a.mNewUserGuideModel.C(false);
-                this.f55350a.mNewUserGuideModel.B(interestFrsData);
-                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.f55350a.mViewPager.getAdapter()).getItem(1)).setData(interestFrsData);
+                this.a.mNewUserGuideModel.C(false);
+                this.a.mNewUserGuideModel.B(interestFrsData);
+                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.a.mViewPager.getAdapter()).getItem(1)).setData(interestFrsData);
             }
         }
 
@@ -78,20 +75,20 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void b(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) {
-                this.f55350a.mNewUserGuideModel.C(true);
-                this.f55350a.mNewUserGuideModel.B(null);
-                this.f55350a.showToast(R.string.neterror);
+                this.a.mNewUserGuideModel.C(true);
+                this.a.mNewUserGuideModel.B(null);
+                this.a.showToast(R.string.neterror);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f55351e;
+        public final /* synthetic */ NewUserGuideActivity f49447e;
 
         public b(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -108,14 +105,14 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f55351e = newUserGuideActivity;
+            this.f49447e = newUserGuideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f55351e.mViewPager.getAdapter()).getItem(0);
+                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f49447e.mViewPager.getAdapter()).getItem(0);
                 if (i2 == 0) {
                     newUserGuideIntroduceFragment.startGoOnAnim();
                 } else {
@@ -127,8 +124,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f55351e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
-                this.f55351e.startMainTabEnterFourm();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f49447e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
+                this.f49447e.startMainTabEnterFourm();
             }
         }
 
@@ -136,7 +133,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && i2 == 1) {
-                this.f55351e.mViewPager.setTag(null);
+                this.f49447e.mViewPager.setTag(null);
             }
         }
     }
@@ -184,7 +181,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
     public static void startGuideActivity(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Intent intent = new Intent(context, NewUserGuideActivity.class);
             intent.putExtra("is_new_user", z);
             intent.putExtra("has_like_bar", z2);
@@ -194,7 +191,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
 
     private void startHardAccelerated() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || Build.VERSION.SDK_INT < 11) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || Build.VERSION.SDK_INT < 11) {
             return;
         }
         try {

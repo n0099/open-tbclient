@@ -126,10 +126,10 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setEndDate(long j) {
+    public void setEndDate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.mEndDate = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.mEndDate = j2;
         }
     }
 
@@ -147,10 +147,10 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setStartDate(long j) {
+    public void setStartDate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mStartDate = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mStartDate = j2;
         }
     }
 

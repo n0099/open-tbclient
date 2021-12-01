@@ -5,16 +5,16 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.kuaishou.weapon.un.x;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ContentModelParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("ty", "d");
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x009a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
         if (r2.equals("gs") != false) goto L24;
      */
     @Nullable
@@ -49,7 +49,7 @@ public class ContentModelParser {
         }
         switch (str.hashCode()) {
             case 3239:
-                if (str.equals("el")) {
+                if (str.equals(x.t)) {
                     c2 = 7;
                     break;
                 }
@@ -100,7 +100,7 @@ public class ContentModelParser {
                 c2 = 65535;
                 break;
             case 3669:
-                if (str.equals(IAdRequestParam.SCREEN_HEIGHT)) {
+                if (str.equals("sh")) {
                     c2 = 6;
                     break;
                 }

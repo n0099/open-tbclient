@@ -38,7 +38,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -328,9 +327,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
                                 this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i4);
                                 if (this.this$0.mIsSingleChoice) {
                                     return;
@@ -368,9 +367,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
                                 boolean[] zArr = this.this$0.mCheckedItems;
                                 if (zArr != null) {
                                     zArr[i4] = this.val$listView.isItemChecked(i4);
@@ -758,7 +757,7 @@ public class AlertController {
     private int selectContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             int i2 = this.mButtonPanelSideLayout;
             if (i2 == 0) {
                 return this.mAlertDialogLayout;
@@ -770,7 +769,7 @@ public class AlertController {
 
     private void setScrollIndicators(ViewGroup viewGroup, View view, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, this, viewGroup, view, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view, i2, i3) == null) {
             View findViewById = this.mWindow.findViewById(R.id.scrollIndicatorUp);
             View findViewById2 = this.mWindow.findViewById(R.id.scrollIndicatorDown);
             if (Build.VERSION.SDK_INT >= 23) {

@@ -13,25 +13,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 @SuppressLint({"UseSparseArrays", "StaticFieldLeak"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaiduTraffic {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f59036a = "BaiduTraffic";
+    public static final String a = "BaiduTraffic";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Object> f59037b;
+    public final Map<Integer, Object> f52474b;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PayStateTrafficModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -60,12 +58,10 @@ public class BaiduTraffic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static BaiduTraffic f59038a;
+        public static BaiduTraffic a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -81,7 +77,7 @@ public class BaiduTraffic {
                     return;
                 }
             }
-            f59038a = new BaiduTraffic(null);
+            a = new BaiduTraffic(null);
         }
     }
 
@@ -107,7 +103,7 @@ public class BaiduTraffic {
     public static BaiduTraffic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f59038a : (BaiduTraffic) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (BaiduTraffic) invokeV.objValue;
     }
 
     public BaiduTraffic() {
@@ -123,7 +119,7 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f59037b = new HashMap();
+        this.f52474b = new HashMap();
     }
 
     public boolean a(String str) {

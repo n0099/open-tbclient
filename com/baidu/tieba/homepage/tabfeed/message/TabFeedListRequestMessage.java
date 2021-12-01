@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import b.a.e.f.p.l;
-import b.a.q0.c1.z;
-import b.a.q0.s.k;
+import c.a.d.f.p.l;
+import c.a.q0.d1.z;
+import c.a.q0.s.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TabFeedListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_RN = 20;

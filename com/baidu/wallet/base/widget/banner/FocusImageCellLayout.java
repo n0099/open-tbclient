@@ -12,15 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FocusImageCellLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetImageView a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public NetImageView f58666a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface FocusImageEvent {
         void submitPage(int i2);
     }
@@ -57,22 +55,22 @@ public class FocusImageCellLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             NetImageView netImageView = new NetImageView(context);
-            this.f58666a = netImageView;
+            this.a = netImageView;
             netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            addView(this.f58666a, new RelativeLayout.LayoutParams(-1, -1));
+            addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public NetImageView getFocusView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58666a : (NetImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (NetImageView) invokeV.objValue;
     }
 
     public void updateImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f58666a.setBackgroundResource(i2);
+            this.a.setBackgroundResource(i2);
         }
     }
 
@@ -101,7 +99,7 @@ public class FocusImageCellLayout extends RelativeLayout {
     public void updateImage(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            this.f58666a.setImageDrawable(drawable);
+            this.a.setImageDrawable(drawable);
         }
     }
 }

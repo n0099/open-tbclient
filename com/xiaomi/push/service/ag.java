@@ -2,7 +2,6 @@ package com.xiaomi.push.service;
 
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.cq;
 import com.xiaomi.push.dt;
 import com.xiaomi.push.gx;
+import com.yy.hiidostatis.inner.FlushManager;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -21,12 +21,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f72323a;
+    public static long a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f890a;
@@ -49,7 +47,7 @@ public class ag {
             }
         }
         f891a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-        f72323a = 0L;
+        a = 0L;
         f890a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
@@ -92,13 +90,13 @@ public class ag {
     }
 
     public static void a() {
-        dt.a m619a;
+        dt.a m668a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f890a.getActiveCount() <= 0 || currentTimeMillis - f72323a >= 1800000) && gx.m366a().m371a() && (m619a = bi.a().m619a()) != null && m619a.e() > 0) {
-                f72323a = currentTimeMillis;
-                a(m619a.a(), true);
+            if ((f890a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && gx.m415a().m420a() && (m668a = bi.a().m668a()) != null && m668a.e() > 0) {
+                a = currentTimeMillis;
+                a(m668a.a(), true);
             }
         }
     }
@@ -112,33 +110,33 @@ public class ag {
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             String a2 = a("/proc/self/net/tcp");
             if (!TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("dump tcp for uid = " + Process.myUid());
-                com.xiaomi.channel.commonutils.logger.b.m73a(a2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("dump tcp for uid = " + Process.myUid());
+                com.xiaomi.channel.commonutils.logger.b.m122a(a2);
             }
             String a3 = a("/proc/self/net/tcp6");
             if (TextUtils.isEmpty(a3)) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m73a("dump tcp6 for uid = " + Process.myUid());
-            com.xiaomi.channel.commonutils.logger.b.m73a(a3);
+            com.xiaomi.channel.commonutils.logger.b.m122a("dump tcp6 for uid = " + Process.myUid());
+            com.xiaomi.channel.commonutils.logger.b.m122a(a3);
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                com.xiaomi.channel.commonutils.logger.b.m73a("ConnectivityTest: begin to connect to " + str);
+                com.xiaomi.channel.commonutils.logger.b.m122a("ConnectivityTest: begin to connect to " + str);
                 Socket socket = new Socket();
-                socket.connect(cq.m229a(str, 5222), 5000);
+                socket.connect(cq.m278a(str, 5222), 5000);
                 socket.setTcpNoDelay(true);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                com.xiaomi.channel.commonutils.logger.b.m73a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("ConnectivityTest: connect to " + str + " in " + currentTimeMillis2);
                 socket.close();
                 return true;
             } catch (Throwable th) {

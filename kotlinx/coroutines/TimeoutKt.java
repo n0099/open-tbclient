@@ -1,5 +1,6 @@
 package kotlinx.coroutines;
 
+import com.alipay.sdk.data.a;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -10,11 +11,11 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 import kotlin.time.ExperimentalTime;
 import kotlinx.coroutines.intrinsics.UndispatchedKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a\u001f\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0002H\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001aa\u0010\u0010\u001a\u0004\u0018\u00010\r\"\u0004\b\u0000\u0010\u0007\"\b\b\u0001\u0010\b*\u00028\u00002\u0012\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\t2'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0002ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001aJ\u0010\u0013\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0012\u001a\u00020\u00002'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0013\u0010\u0014\u001aM\u0010\u0013\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0016\u001a\u00020\u00152'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0087@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u001aL\u0010\u0019\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0012\u001a\u00020\u00002'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0014\u001aO\u0010\u0019\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0016\u001a\u00020\u00152'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0087@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u001a\u0010\u0018\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001b"}, d2 = {"", "time", "Lkotlinx/coroutines/Job;", "coroutine", "Lkotlinx/coroutines/TimeoutCancellationException;", "TimeoutCancellationException", "(JLkotlinx/coroutines/Job;)Lkotlinx/coroutines/TimeoutCancellationException;", "U", "T", "Lkotlinx/coroutines/TimeoutCoroutine;", "Lkotlin/Function2;", "Lkotlinx/coroutines/CoroutineScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "setupTimeout", "(Lkotlinx/coroutines/TimeoutCoroutine;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "timeMillis", "withTimeout", "(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlin/time/Duration;", "timeout", "withTimeout-lwyi7ZQ", "(DLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "withTimeoutOrNull", "withTimeoutOrNull-lwyi7ZQ", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a\u001f\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0002H\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001aa\u0010\u0010\u001a\u0004\u0018\u00010\r\"\u0004\b\u0000\u0010\u0007\"\b\b\u0001\u0010\b*\u00028\u00002\u0012\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\t2'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0002ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001aJ\u0010\u0013\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0012\u001a\u00020\u00002'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0013\u0010\u0014\u001aM\u0010\u0013\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0016\u001a\u00020\u00152'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0087@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u001aL\u0010\u0019\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0012\u001a\u00020\u00002'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0086@ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0014\u001aO\u0010\u0019\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\u0016\u001a\u00020\u00152'\u0010\u000f\u001a#\b\u0001\u0012\u0004\u0012\u00020\u000b\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\f\u0012\u0006\u0012\u0004\u0018\u00010\r0\n¢\u0006\u0002\b\u000eH\u0087@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u001a\u0010\u0018\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001b"}, d2 = {"", "time", "Lkotlinx/coroutines/Job;", "coroutine", "Lkotlinx/coroutines/TimeoutCancellationException;", "TimeoutCancellationException", "(JLkotlinx/coroutines/Job;)Lkotlinx/coroutines/TimeoutCancellationException;", "U", "T", "Lkotlinx/coroutines/TimeoutCoroutine;", "Lkotlin/Function2;", "Lkotlinx/coroutines/CoroutineScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "setupTimeout", "(Lkotlinx/coroutines/TimeoutCoroutine;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "timeMillis", "withTimeout", "(JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlin/time/Duration;", a.O, "withTimeout-lwyi7ZQ", "(DLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "withTimeoutOrNull", "withTimeoutOrNull-lwyi7ZQ", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class TimeoutKt {
-    public static final TimeoutCancellationException TimeoutCancellationException(long j, Job job) {
-        return new TimeoutCancellationException("Timed out waiting for " + j + " ms", job);
+    public static final TimeoutCancellationException TimeoutCancellationException(long j2, Job job) {
+        return new TimeoutCancellationException("Timed out waiting for " + j2 + " ms", job);
     }
 
     public static final <U, T extends U> Object setupTimeout(TimeoutCoroutine<U, ? super T> timeoutCoroutine, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2) {
@@ -22,9 +23,9 @@ public final class TimeoutKt {
         return UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(timeoutCoroutine, timeoutCoroutine, function2);
     }
 
-    public static final <T> Object withTimeout(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        if (j > 0) {
-            Object obj = setupTimeout(new TimeoutCoroutine(j, continuation), function2);
+    public static final <T> Object withTimeout(long j2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        if (j2 > 0) {
+            Object obj = setupTimeout(new TimeoutCoroutine(j2, continuation), function2);
             if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 DebugProbesKt.probeCoroutineSuspended(continuation);
             }
@@ -35,8 +36,8 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeout-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m1974withTimeoutlwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m1967toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m2089withTimeoutlwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m2082toDelayMillisLRDsOJo(d2), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
@@ -47,7 +48,7 @@ public final class TimeoutKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <T> Object withTimeoutOrNull(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+    public static final <T> Object withTimeoutOrNull(long j2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         TimeoutKt$withTimeoutOrNull$1 timeoutKt$withTimeoutOrNull$1;
         int i2;
         Ref.ObjectRef objectRef;
@@ -61,17 +62,17 @@ public final class TimeoutKt {
                 i2 = timeoutKt$withTimeoutOrNull$1.label;
                 if (i2 != 0) {
                     ResultKt.throwOnFailure(obj);
-                    if (j <= 0) {
+                    if (j2 <= 0) {
                         return null;
                     }
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
                     objectRef2.element = null;
                     try {
-                        timeoutKt$withTimeoutOrNull$1.J$0 = j;
+                        timeoutKt$withTimeoutOrNull$1.J$0 = j2;
                         timeoutKt$withTimeoutOrNull$1.L$0 = function2;
                         timeoutKt$withTimeoutOrNull$1.L$1 = objectRef2;
                         timeoutKt$withTimeoutOrNull$1.label = 1;
-                        ?? r2 = (T) new TimeoutCoroutine(j, timeoutKt$withTimeoutOrNull$1);
+                        ?? r2 = (T) new TimeoutCoroutine(j2, timeoutKt$withTimeoutOrNull$1);
                         objectRef2.element = r2;
                         Object obj2 = setupTimeout(r2, function2);
                         if (obj2 == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
@@ -87,7 +88,7 @@ public final class TimeoutKt {
                 } else {
                     objectRef = (Ref.ObjectRef) timeoutKt$withTimeoutOrNull$1.L$1;
                     Function2 function22 = (Function2) timeoutKt$withTimeoutOrNull$1.L$0;
-                    long j2 = timeoutKt$withTimeoutOrNull$1.J$0;
+                    long j3 = timeoutKt$withTimeoutOrNull$1.J$0;
                     try {
                         ResultKt.throwOnFailure(obj);
                         return obj;
@@ -113,7 +114,7 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeoutOrNull-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m1975withTimeoutOrNulllwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m1967toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m2090withTimeoutOrNulllwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m2082toDelayMillisLRDsOJo(d2), function2, continuation);
     }
 }

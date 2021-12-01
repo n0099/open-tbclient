@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String DOMAIN = "https://cd.xdplt.com";
-    public static final String FLAVOR = "pub";
+    public static final String FLAVOR = "baidu";
     public static final Boolean IS_ADM_REPORT;
     public static final String LIBRARY_PACKAGE_NAME = "com.fun.ad.sdk";
-    public static final int VERSION_CODE = 10022;
-    public static final String VERSION_NAME = "4.1.8";
+    public static final int VERSION_CODE = 10035;
+    public static final String VERSION_NAME = "4.2.3";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

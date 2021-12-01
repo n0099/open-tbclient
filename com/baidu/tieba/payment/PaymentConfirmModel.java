@@ -1,6 +1,6 @@
 package com.baidu.tieba.payment;
 
-import b.a.e.a.f;
+import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -18,13 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.tachikoma.core.component.input.InputType;
+/* loaded from: classes10.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f53004e;
+    public f<T> f47444e;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +42,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f53004e = fVar;
+        this.f47444e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,10 +77,10 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
         httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
         httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
-        httpMessage.addParam("password", payRequestData.getPassword());
+        httpMessage.addParam(InputType.PASSWORD, payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f53004e.sendMessage(httpMessage);
+        this.f47444e.sendMessage(httpMessage);
     }
 
     public void x() {
@@ -121,6 +122,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f53004e.sendMessage(httpMessage);
+        this.f47444e.sendMessage(httpMessage);
     }
 }

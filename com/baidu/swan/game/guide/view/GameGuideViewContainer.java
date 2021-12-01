@@ -11,46 +11,50 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.z2.g0;
-import b.a.p0.a.z2.n0;
+import c.a.p0.a.z2.g0;
+import c.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GameGuideViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45448e;
+    public int f40486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45449f;
+    public int f40487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45450g;
+    public int f40488g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45451h;
+    public int f40489h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45452i;
-    public int j;
-    public int k;
+    public int f40490i;
 
-    /* loaded from: classes8.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public int f40491j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f40492k;
+
+    /* loaded from: classes9.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.MarginLayoutParams f45453e;
+        public final /* synthetic */ ViewGroup.MarginLayoutParams f40493e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GameGuideViewContainer f45454f;
+        public final /* synthetic */ GameGuideViewContainer f40494f;
 
         public a(GameGuideViewContainer gameGuideViewContainer, ViewGroup.MarginLayoutParams marginLayoutParams) {
             Interceptable interceptable = $ic;
@@ -67,16 +71,16 @@ public class GameGuideViewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f45454f = gameGuideViewContainer;
-            this.f45453e = marginLayoutParams;
+            this.f40494f = gameGuideViewContainer;
+            this.f40493e = marginLayoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f45453e.rightMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.f45454f.requestLayout();
+                this.f40493e.rightMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                this.f40494f.requestLayout();
             }
         }
     }
@@ -107,14 +111,14 @@ public class GameGuideViewContainer extends FrameLayout {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int i5 = this.f45451h;
+            int i5 = this.f40489h;
             int i6 = i5 / 2;
             if (i2 >= i6) {
                 i3 = (int) (((i5 - i2) / i6) * 400.0f);
                 i4 = n0.g(10.0f);
             } else {
                 i3 = (int) ((i2 / i6) * 400.0f);
-                i4 = i5 - this.f45448e;
+                i4 = i5 - this.f40486e;
             }
             if (i3 <= 0) {
                 i3 = 400;
@@ -131,21 +135,21 @@ public class GameGuideViewContainer extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f45451h = getContext().getResources().getDisplayMetrics().widthPixels;
-            this.f45450g = getContext().getResources().getDisplayMetrics().heightPixels;
+            this.f40489h = getContext().getResources().getDisplayMetrics().widthPixels;
+            this.f40488g = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.f45451h += g0.c();
+                this.f40489h += g0.c();
             } else {
-                this.f45450g += g0.c();
+                this.f40488g += g0.c();
             }
-            this.k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            this.f40492k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
     }
 
     public final boolean c(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? Math.sqrt((double) ((i2 * i2) + (i3 * i3))) > ((double) this.k) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? Math.sqrt((double) ((i2 * i2) + (i3 * i3))) > ((double) this.f40492k) : invokeII.booleanValue;
     }
 
     public final int d(int i2) {
@@ -153,8 +157,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             int g2 = i2 < n0.g(10.0f) ? n0.g(10.0f) : i2;
-            int i3 = this.f45451h;
-            int i4 = this.f45448e;
+            int i3 = this.f40489h;
+            int i4 = this.f40486e;
             return i2 > i3 - i4 ? i3 - i4 : g2;
         }
         return invokeI.intValue;
@@ -165,8 +169,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             int i3 = i2 < 0 ? 0 : i2;
-            int i4 = this.f45450g;
-            int i5 = this.f45449f;
+            int i4 = this.f40488g;
+            int i5 = this.f40487f;
             return i2 > i4 - i5 ? i4 - i5 : i3;
         }
         return invokeI.intValue;
@@ -179,12 +183,12 @@ public class GameGuideViewContainer extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 2 && c(((int) motionEvent.getRawX()) - this.f45452i, ((int) motionEvent.getRawY()) - this.j)) {
+                if (action == 2 && c(((int) motionEvent.getRawX()) - this.f40490i, ((int) motionEvent.getRawY()) - this.f40491j)) {
                     return true;
                 }
             } else {
-                this.f45452i = (int) motionEvent.getRawX();
-                this.j = (int) motionEvent.getRawY();
+                this.f40490i = (int) motionEvent.getRawX();
+                this.f40491j = (int) motionEvent.getRawY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -196,8 +200,8 @@ public class GameGuideViewContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f45448e = i2;
-            this.f45449f = i3;
+            this.f40486e = i2;
+            this.f40487f = i3;
         }
     }
 
@@ -209,8 +213,8 @@ public class GameGuideViewContainer extends FrameLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f45452i = (int) motionEvent.getRawX();
-                this.j = (int) motionEvent.getRawY();
+                this.f40490i = (int) motionEvent.getRawX();
+                this.f40491j = (int) motionEvent.getRawY();
                 return true;
             }
             if (action == 1) {
@@ -219,14 +223,14 @@ public class GameGuideViewContainer extends FrameLayout {
             } else if (action == 2) {
                 int rawX = (int) motionEvent.getRawX();
                 int rawY = (int) motionEvent.getRawY();
-                int i2 = rawX - this.f45452i;
-                int i3 = rawY - this.j;
+                int i2 = rawX - this.f40490i;
+                int i3 = rawY - this.f40491j;
                 if (c(i2, i3)) {
                     marginLayoutParams.rightMargin = d(marginLayoutParams.rightMargin - i2);
                     marginLayoutParams.topMargin = e(marginLayoutParams.topMargin + i3);
                     setLayoutParams(marginLayoutParams);
-                    this.f45452i = rawX;
-                    this.j = rawY;
+                    this.f40490i = rawX;
+                    this.f40491j = rawY;
                     return true;
                 }
             } else if (action == 3) {

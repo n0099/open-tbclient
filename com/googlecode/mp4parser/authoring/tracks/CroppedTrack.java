@@ -48,12 +48,12 @@ public class CroppedTrack extends AbstractTrack {
         }
     }
 
-    public CroppedTrack(Track track, long j, long j2) {
+    public CroppedTrack(Track track, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {track, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -64,47 +64,47 @@ public class CroppedTrack extends AbstractTrack {
             }
         }
         this.origTrack = track;
-        this.fromSample = (int) j;
-        this.toSample = (int) j2;
+        this.fromSample = (int) j2;
+        this.toSample = (int) j3;
     }
 
-    public static List<TimeToSampleBox.Entry> getDecodingTimeEntries(List<TimeToSampleBox.Entry> list, long j, long j2) {
+    public static List<TimeToSampleBox.Entry> getDecodingTimeEntries(List<TimeToSampleBox.Entry> list, long j2, long j3) {
         InterceptResult invokeCommon;
         TimeToSampleBox.Entry next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (list == null || list.isEmpty()) {
                 return null;
             }
-            long j3 = 0;
+            long j4 = 0;
             ListIterator<TimeToSampleBox.Entry> listIterator = list.listIterator();
             LinkedList linkedList = new LinkedList();
             while (true) {
                 next = listIterator.next();
-                if (next.getCount() + j3 > j) {
+                if (next.getCount() + j4 > j2) {
                     break;
                 }
-                j3 += next.getCount();
+                j4 += next.getCount();
             }
-            if (next.getCount() + j3 >= j2) {
-                linkedList.add(new TimeToSampleBox.Entry(j2 - j, next.getDelta()));
+            if (next.getCount() + j4 >= j3) {
+                linkedList.add(new TimeToSampleBox.Entry(j3 - j2, next.getDelta()));
                 return linkedList;
             }
-            linkedList.add(new TimeToSampleBox.Entry((next.getCount() + j3) - j, next.getDelta()));
+            linkedList.add(new TimeToSampleBox.Entry((next.getCount() + j4) - j2, next.getDelta()));
             long count = next.getCount();
             while (true) {
-                j3 += count;
+                j4 += count;
                 if (!listIterator.hasNext()) {
                     break;
                 }
                 next = listIterator.next();
-                if (next.getCount() + j3 >= j2) {
+                if (next.getCount() + j4 >= j3) {
                     break;
                 }
                 linkedList.add(next);
                 count = next.getCount();
             }
-            linkedList.add(new TimeToSampleBox.Entry(j2 - j3, next.getDelta()));
+            linkedList.add(new TimeToSampleBox.Entry(j3 - j4, next.getDelta()));
             return linkedList;
         }
         return (List) invokeCommon.objValue;
@@ -216,43 +216,43 @@ public class CroppedTrack extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.origTrack.getTrackMetaData() : (TrackMetaData) invokeV.objValue;
     }
 
-    public static List<CompositionTimeToSample.Entry> getCompositionTimeEntries(List<CompositionTimeToSample.Entry> list, long j, long j2) {
+    public static List<CompositionTimeToSample.Entry> getCompositionTimeEntries(List<CompositionTimeToSample.Entry> list, long j2, long j3) {
         InterceptResult invokeCommon;
         CompositionTimeToSample.Entry next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (list == null || list.isEmpty()) {
                 return null;
             }
-            long j3 = 0;
+            long j4 = 0;
             ListIterator<CompositionTimeToSample.Entry> listIterator = list.listIterator();
             ArrayList arrayList = new ArrayList();
             while (true) {
                 next = listIterator.next();
-                if (next.getCount() + j3 > j) {
+                if (next.getCount() + j4 > j2) {
                     break;
                 }
-                j3 += next.getCount();
+                j4 += next.getCount();
             }
-            if (next.getCount() + j3 >= j2) {
-                arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j), next.getOffset()));
+            if (next.getCount() + j4 >= j3) {
+                arrayList.add(new CompositionTimeToSample.Entry((int) (j3 - j2), next.getOffset()));
                 return arrayList;
             }
-            arrayList.add(new CompositionTimeToSample.Entry((int) ((next.getCount() + j3) - j), next.getOffset()));
+            arrayList.add(new CompositionTimeToSample.Entry((int) ((next.getCount() + j4) - j2), next.getOffset()));
             int count = next.getCount();
             while (true) {
-                j3 += count;
+                j4 += count;
                 if (!listIterator.hasNext()) {
                     break;
                 }
                 next = listIterator.next();
-                if (next.getCount() + j3 >= j2) {
+                if (next.getCount() + j4 >= j3) {
                     break;
                 }
                 arrayList.add(next);
                 count = next.getCount();
             }
-            arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j3), next.getOffset()));
+            arrayList.add(new CompositionTimeToSample.Entry((int) (j3 - j4), next.getOffset()));
             return arrayList;
         }
         return (List) invokeCommon.objValue;

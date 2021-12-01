@@ -18,28 +18,26 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHBigCreditCardTipsItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public NetImageView f59327a;
+    public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59328b;
+    public MaskTextView f52640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f59329c;
+    public View f52641c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f59330d;
+    public HomeCfgResponse.DataIcon f52642d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f59331e;
+    public b f52643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f59332f;
+    public int f52644f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHBigCreditCardTipsItem(Context context) {
@@ -59,31 +57,31 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
                 return;
             }
         }
-        this.f59332f = 24;
+        this.f52644f = 24;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_tips_item"), this);
-            this.f59327a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_img"));
-            this.f59328b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
-            this.f59329c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
-            this.f59328b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f59332f)});
+            this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_img"));
+            this.f52640b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
+            this.f52641c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
+            this.f52640b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f52644f)});
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (!TextUtils.isEmpty(this.f59330d.icon_link)) {
-                this.f59327a.setVisibility(0);
-                NetImageView netImageView = this.f59327a;
-                netImageView.setImageUrl(this.f59331e.getAndroidPrefix() + this.f59330d.icon_link);
+            if (!TextUtils.isEmpty(this.f52642d.icon_link)) {
+                this.a.setVisibility(0);
+                NetImageView netImageView = this.a;
+                netImageView.setImageUrl(this.f52643e.getAndroidPrefix() + this.f52642d.icon_link);
             } else {
-                this.f59327a.setVisibility(8);
+                this.a.setVisibility(8);
             }
-            this.f59328b.setText(this.f59330d.name);
+            this.f52640b.setText(this.f52642d.name);
         }
     }
 
@@ -100,8 +98,8 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     public void setData(HomeCfgResponse.DataIcon dataIcon, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataIcon, bVar) == null) {
-            this.f59330d = dataIcon;
-            this.f59331e = bVar;
+            this.f52642d = dataIcon;
+            this.f52643e = bVar;
             a();
             b();
         }
@@ -110,14 +108,14 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     public void setMaxLength(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f59332f = i2;
+            this.f52644f = i2;
         }
     }
 
     public void setShowDivider(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f59329c.setVisibility(z ? 0 : 4);
+            this.f52641c.setVisibility(z ? 0 : 4);
         }
     }
 
@@ -140,6 +138,6 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
                 return;
             }
         }
-        this.f59332f = 24;
+        this.f52644f = 24;
     }
 }

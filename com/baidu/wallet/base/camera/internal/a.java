@@ -11,28 +11,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a implements Camera.AutoFocusCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f58261c;
+    public static final String f51928c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f58262a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f58263b;
+    public long f51929b;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile Handler f58264d;
+    public volatile Handler f51930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58265e;
+    public boolean f51931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58266f;
+    public int f51932f;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +45,7 @@ public final class a implements Camera.AutoFocusCallback {
                 return;
             }
         }
-        f58261c = a.class.getSimpleName();
+        f51928c = a.class.getSimpleName();
     }
 
     public a() {
@@ -63,22 +61,22 @@ public final class a implements Camera.AutoFocusCallback {
                 return;
             }
         }
-        this.f58262a = 500L;
-        this.f58263b = 500L;
-        this.f58265e = false;
+        this.a = 500L;
+        this.f51929b = 500L;
+        this.f51931e = false;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f58262a = j;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.a = j2;
         }
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f58263b = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.f51929b = j2;
         }
     }
 
@@ -87,12 +85,12 @@ public final class a implements Camera.AutoFocusCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048579, this, z, camera) == null) {
             synchronized (this) {
-                if (this.f58264d != null) {
-                    this.f58264d.sendMessageDelayed(this.f58264d.obtainMessage(this.f58266f, Boolean.valueOf(z)), this.f58265e ? this.f58262a : this.f58263b);
-                    this.f58265e = true;
-                    this.f58264d = null;
+                if (this.f51930d != null) {
+                    this.f51930d.sendMessageDelayed(this.f51930d.obtainMessage(this.f51932f, Boolean.valueOf(z)), this.f51931e ? this.a : this.f51929b);
+                    this.f51931e = true;
+                    this.f51930d = null;
                 } else {
-                    LogUtil.w(f58261c, "Got auto-focus callback, but no handler for it");
+                    LogUtil.w(f51928c, "Got auto-focus callback, but no handler for it");
                 }
             }
         }
@@ -102,8 +100,8 @@ public final class a implements Camera.AutoFocusCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, handler, i2) == null) {
             synchronized (this) {
-                this.f58264d = handler;
-                this.f58266f = i2;
+                this.f51930d = handler;
+                this.f51932f = i2;
             }
         }
     }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddrListPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PAGER_NUMBER = 4;

@@ -2,7 +2,6 @@ package com.yy.hiidostatis.inner;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.yy.hiidostatis.inner.util.ProcessUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GeneralProxy {
     public static /* synthetic */ Interceptable $ic;
     public static Object OBJ_KEY;
@@ -89,7 +88,7 @@ public class GeneralProxy {
     public static GeneralConfigTool getGeneralConfigInstance(Context context, AbstractConfig abstractConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, abstractConfig)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, abstractConfig)) == null) {
             GeneralConfigTool generalConfigTool = configToolContainer.get(abstractConfig.getConfigKey());
             if (generalConfigTool == null) {
                 GeneralConfigTool generalConfigTool2 = new GeneralConfigTool(context, abstractConfig);
@@ -105,7 +104,7 @@ public class GeneralProxy {
     public static GeneralStatisTool getGeneralStatisInstance(Context context, AbstractConfig abstractConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, abstractConfig)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, abstractConfig)) == null) {
             initFlushManager(context);
             GeneralStatisTool generalStatisTool = statisToolContainer.get(abstractConfig.getConfigKey());
             if (generalStatisTool == null) {

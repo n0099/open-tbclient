@@ -3,7 +3,6 @@ package com.google.gson.internal.bind;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class JsonTreeReader extends JsonReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object SENTINEL_CLOSED;
@@ -136,7 +135,7 @@ public final class JsonTreeReader extends JsonReader {
     private Object popStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Object[] objArr = this.stack;
             int i2 = this.stackSize - 1;
             this.stackSize = i2;
@@ -149,7 +148,7 @@ public final class JsonTreeReader extends JsonReader {
 
     private void push(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, obj) == null) {
             int i2 = this.stackSize;
             Object[] objArr = this.stack;
             if (i2 == objArr.length) {

@@ -20,7 +20,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -383,12 +382,12 @@ public class AccessibilityNodeInfoCompat {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj, Integer.valueOf(i2), charSequence, accessibilityViewCommand, cls};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
                     int i4 = i3 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }
@@ -551,7 +550,7 @@ public class AccessibilityNodeInfoCompat {
     private List<Integer> extrasIntList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (Build.VERSION.SDK_INT < 19) {
                 return new ArrayList();
             }
@@ -569,7 +568,7 @@ public class AccessibilityNodeInfoCompat {
     public static String getActionSymbolicName(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             if (i2 != 1) {
                 if (i2 != 2) {
                     switch (i2) {

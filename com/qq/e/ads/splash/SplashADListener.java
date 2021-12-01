@@ -9,11 +9,11 @@ public interface SplashADListener {
 
     void onADExposure();
 
-    void onADLoaded(long j);
+    void onADLoaded(long j2);
 
     void onADPresent();
 
-    void onADTick(long j);
+    void onADTick(long j2);
 
     void onNoAD(AdError adError);
 }

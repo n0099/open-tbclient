@@ -34,13 +34,14 @@ import com.dxmpay.wallet.core.utils.NFCUtil;
 import com.dxmpay.wallet.core.utils.PassUtil;
 import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.tachikoma.core.component.input.InputType;
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PassNormalizeActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_PAY_SKD = 1;
@@ -50,7 +51,7 @@ public class PassNormalizeActivity extends BeanActivity {
     public int type;
     public String url;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class JavascriptInterfaceImpl implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,19 +101,19 @@ public class PassNormalizeActivity extends BeanActivity {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public final class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f63571e;
+        public final /* synthetic */ PassNormalizeActivity f55580e;
 
         public /* synthetic */ b(PassNormalizeActivity passNormalizeActivity, a aVar) {
             this(passNormalizeActivity);
@@ -130,12 +131,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 String str2 = "onPageFinished url=" + str;
-                if (this.f63571e.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f63571e, -1);
+                if (this.f55580e.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f55580e, -1);
                 }
-                String property = DebugConfig.getInstance(this.f63571e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.f55580e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f63571e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f55580e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -147,16 +148,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 String str2 = "url=" + str;
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f63571e.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f63571e;
+                    if (this.f55580e.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f55580e;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "dxm_ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f63571e.mContent, this.f63571e.type, null);
+                PassUtil.backNormalized(this.f55580e.mContent, this.f55580e.type, null);
                 StatisticManager.onEventWithValue("normalizeVerify", QueryResponse.Options.CANCEL);
-                this.f63571e.finish();
+                this.f55580e.finish();
             }
         }
 
@@ -173,9 +174,9 @@ public class PassNormalizeActivity extends BeanActivity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
+                if (str != null && (str.startsWith("sms") || str.startsWith(InputType.TEL) || str.startsWith("bdscenter"))) {
                     try {
-                        this.f63571e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f55580e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         th.getMessage();
@@ -203,7 +204,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f63571e = passNormalizeActivity;
+            this.f55580e = passNormalizeActivity;
         }
     }
 

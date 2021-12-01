@@ -31,7 +31,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        b.j.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
+        c.k.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBALIAS_STATUS.equals(i(intent));
     }
 

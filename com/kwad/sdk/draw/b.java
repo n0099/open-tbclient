@@ -12,24 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.api.core.AbstractKsDrawAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.b.c;
+import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes2.dex */
 public class b extends AbstractKsDrawAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-
-    /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f66481a;
+    public AdTemplate a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f66482b;
+    public KsDrawAd.AdInteractionListener f58369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f66483c;
+    public a f58370c;
 
     public b(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -46,8 +45,8 @@ public class b extends AbstractKsDrawAd {
                 return;
             }
         }
-        this.f66481a = adTemplate;
-        KSImageLoader.preloadImage(com.kwad.sdk.core.response.b.a.T(c.i(adTemplate)).a(), this.f66481a);
+        this.a = adTemplate;
+        KSImageLoader.preloadImage(com.kwad.sdk.core.response.a.a.aa(d.j(adTemplate)).a(), this.a);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsDrawAd
@@ -56,15 +55,13 @@ public class b extends AbstractKsDrawAd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f66483c == null) {
+            if (this.f58370c == null) {
                 a aVar = new a(context);
-                this.f66483c = aVar;
+                this.f58370c = aVar;
                 aVar.setAdInteractionListener(new KsDrawAd.AdInteractionListener(this) { // from class: com.kwad.sdk.draw.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f66484a;
+                    public final /* synthetic */ b a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -81,35 +78,35 @@ public class b extends AbstractKsDrawAd {
                                 return;
                             }
                         }
-                        this.f66484a = this;
+                        this.a = this;
                     }
 
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onAdClicked() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f58369b == null) {
                             return;
                         }
-                        this.f66484a.f66482b.onAdClicked();
+                        this.a.f58369b.onAdClicked();
                     }
 
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onAdShow() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f58369b == null) {
                             return;
                         }
-                        this.f66484a.f66482b.onAdShow();
+                        this.a.f58369b.onAdShow();
                     }
 
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onVideoPlayEnd() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.f58369b == null) {
                             return;
                         }
                         try {
-                            this.f66484a.f66482b.onVideoPlayEnd();
+                            this.a.f58369b.onVideoPlayEnd();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -118,11 +115,11 @@ public class b extends AbstractKsDrawAd {
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onVideoPlayError() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.a.f58369b == null) {
                             return;
                         }
                         try {
-                            this.f66484a.f66482b.onVideoPlayError();
+                            this.a.f58369b.onVideoPlayError();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -131,11 +128,11 @@ public class b extends AbstractKsDrawAd {
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onVideoPlayPause() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.a.f58369b == null) {
                             return;
                         }
                         try {
-                            this.f66484a.f66482b.onVideoPlayPause();
+                            this.a.f58369b.onVideoPlayPause();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -144,11 +141,11 @@ public class b extends AbstractKsDrawAd {
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onVideoPlayResume() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048581, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048581, this) == null) || this.a.f58369b == null) {
                             return;
                         }
                         try {
-                            this.f66484a.f66482b.onVideoPlayResume();
+                            this.a.f58369b.onVideoPlayResume();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -157,21 +154,21 @@ public class b extends AbstractKsDrawAd {
                     @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
                     public void onVideoPlayStart() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048582, this) == null) || this.f66484a.f66482b == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048582, this) == null) || this.a.f58369b == null) {
                             return;
                         }
                         try {
-                            this.f66484a.f66482b.onVideoPlayStart();
+                            this.a.f58369b.onVideoPlayStart();
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
                     }
                 });
-                this.f66483c.a(this.f66481a);
+                this.f58370c.a(this.a);
             } else {
                 com.kwad.sdk.core.d.a.c("KSDrawAdControl", "mDrawVideoView is not null");
             }
-            return this.f66483c;
+            return this.f58370c;
         }
         return (View) invokeL.objValue;
     }
@@ -180,36 +177,44 @@ public class b extends AbstractKsDrawAd {
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.b.a.x(c.i(this.f66481a)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.F(d.j(this.a)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.w(c.i(this.f66481a)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.E(d.j(this.a)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.H(c.i(this.f66481a)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.R(d.j(this.a)) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsDrawAd
+    public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, adExposureFailedReason) == null) {
+            com.kwad.sdk.core.report.a.a(this.a, i2, adExposureFailedReason);
+        }
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, adInteractionListener) == null) {
-            this.f66482b = adInteractionListener;
+        if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
+            this.f58369b = adInteractionListener;
         }
     }
 
     @Override // com.kwad.sdk.api.KsDrawAd
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            AdTemplate adTemplate = this.f66481a;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            AdTemplate adTemplate = this.a;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }

@@ -1,7 +1,6 @@
 package io.reactivex.disposables;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Future;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Disposables {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +74,7 @@ public final class Disposables {
     public static Disposable fromRunnable(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, runnable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, runnable)) == null) {
             ObjectHelper.requireNonNull(runnable, "run is null");
             return new RunnableDisposable(runnable);
         }
@@ -97,7 +96,7 @@ public final class Disposables {
     public static Disposable fromFuture(@NonNull Future<?> future, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, future, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, future, z)) == null) {
             ObjectHelper.requireNonNull(future, "future is null");
             return new FutureDisposable(future, z);
         }

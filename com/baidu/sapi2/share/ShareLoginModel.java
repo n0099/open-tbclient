@@ -16,11 +16,12 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.ShareAccountAccessor;
 import com.baidu.sapi2.callback.NetCallback;
-import com.baidu.sapi2.callback.ShareModelCallback;
+import com.baidu.sapi2.callback.ShareModelWithCheckCallback;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -41,7 +42,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static String AUTH_APP_PKG_NAME = "auth_app_pkg_name";
@@ -229,31 +230,40 @@ public class ShareLoginModel {
         return (LinkedList) invokeV.objValue;
     }
 
-    public void getShareModels(long j, ShareModelCallback shareModelCallback) {
+    public void getShareModels(long j2, ShareModelWithCheckCallback shareModelWithCheckCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, shareModelCallback) == null) {
-            if (j <= 0) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, shareModelWithCheckCallback) == null) {
+            if (j2 <= 0) {
                 throw new IllegalArgumentException("must timeoutMills > 0");
             }
-            if (shareModelCallback == null) {
+            if (shareModelWithCheckCallback == null) {
                 return;
             }
+            new ArrayList();
             if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_SHARE_V3_EXTERNAL_RECOVERY).isMeetGray()) {
-                shareModelCallback.onReceiveShareModels(getV2ShareModelList(null));
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_V3_DEMOTION, "1");
+                shareModelWithCheckCallback.onReceiveShareModels(getV2ShareModelList(null), ShareUtils.S_SHARE_MODEL_FROM_V2);
                 return;
             }
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_V3_DEMOTION, "0");
             SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
             if (sapiConfiguration == null) {
                 Log.d(ShareUtils.TAG, "getShareModels config is null");
-                shareModelCallback.onReceiveShareModels(new ArrayList(0));
-            } else if (!SapiUtils.isOnline(sapiConfiguration.context)) {
-                Log.d(ShareUtils.TAG, "getShareModels environment is not online");
-                shareModelCallback.onReceiveShareModels(new ArrayList(0));
-            } else if (sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED) {
-                Log.d(ShareUtils.TAG, "getShareModels config loginShareStrategy is not DISABLED");
-                shareModelCallback.onReceiveShareModels(new ArrayList(0));
+                shareModelWithCheckCallback.onReceiveShareModels(new ArrayList(0), ShareUtils.S_SHARE_MODEL_FROM_WITH_ERROR);
+            } else if (!SapiUtils.isOnline(sapiConfiguration)) {
+                Log.d(ShareUtils.TAG, "getShareModels environment is not online and is not config debugSupportShare");
+                shareModelWithCheckCallback.onReceiveShareModels(new ArrayList(0), ShareUtils.S_SHARE_MODEL_FROM_WITH_ERROR);
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_DEBUG, "1");
             } else {
-                ShareUtils.getShareModels(j, sapiConfiguration.context, sapiConfiguration.tpl, shareModelCallback);
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_DEBUG, "0");
+                if (sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED) {
+                    Log.d(ShareUtils.TAG, "getShareModels config loginShareStrategy is not DISABLED");
+                    shareModelWithCheckCallback.onReceiveShareModels(new ArrayList(0), ShareUtils.S_SHARE_MODEL_FROM_WITH_ERROR);
+                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "0");
+                    return;
+                }
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_IS_ABLE, "1");
+                ShareUtils.getShareModels(j2, sapiConfiguration.context, sapiConfiguration.tpl, shareModelWithCheckCallback);
             }
         }
     }
@@ -262,10 +272,11 @@ public class ShareLoginModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            int i2 = 0;
             Log.d(ShareUtils.TAG, "build version is " + Build.VERSION.SDK_INT);
             SapiStatUtil.statLoadLogin("product_line_call");
             List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-            if (shareStorageModel != null && shareStorageModel.size() > 0) {
+            if (shareStorageModel.size() > 0) {
                 ArrayList arrayList = new ArrayList();
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new PassNameValuePair("extrajson", str));
@@ -273,11 +284,20 @@ public class ShareLoginModel {
                 SapiStatUtil.statShareV2Open(shareStorageModel, "product_line_call", arrayList);
             }
             HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            sb.append("");
-            sb.append(shareStorageModel != null ? shareStorageModel.size() : 0);
-            hashMap.put("shareModels", sb.toString());
+            hashMap.put("shareModels", "" + shareStorageModel.size());
             StatService.onEventAutoStat(ShareStatKey.CHECK_SHARE_V2_LOGIN_AVAILABLE, hashMap);
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            for (ShareStorage.StorageModel storageModel : shareStorageModel) {
+                if (storageModel != null) {
+                    jSONArray.put(storageModel.tpl);
+                    jSONArray2.put(storageModel.app);
+                    i2++;
+                }
+            }
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, jSONArray2);
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, jSONArray);
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, Integer.valueOf(i2));
             return shareStorageModel;
         }
         return (List) invokeL.objValue;
@@ -319,35 +339,47 @@ public class ShareLoginModel {
     public void processShareResult(Context context, Intent intent, ShareResultCallback shareResultCallback) {
         Bundle extras;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, context, intent, shareResultCallback) == null) || shareResultCallback == null || intent == null || (extras = intent.getExtras()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, context, intent, shareResultCallback) == null) || shareResultCallback == null) {
             return;
         }
-        updateInvalidBdussList(extras.getString(INVALIDATE_BDUSS));
-        SapiAccount sapiAccount = (SapiAccount) extras.getParcelable(SHARE_ACCOUNT_INFO);
-        if (sapiAccount == null) {
-            StatService.onEventAutoStat(ShareStatKey.SHARE_NEW_AUTH_LOGIN_FAIL);
-            shareResultCallback.onResultAccount(null);
+        if (intent != null && (extras = intent.getExtras()) != null) {
+            updateInvalidBdussList(extras.getString(INVALIDATE_BDUSS));
+            SapiAccount sapiAccount = (SapiAccount) extras.getParcelable(SHARE_ACCOUNT_INFO);
+            if (sapiAccount == null) {
+                StatService.onEventAutoStat(ShareStatKey.SHARE_NEW_AUTH_LOGIN_FAIL);
+                shareResultCallback.onResultAccount(null);
+                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
+                ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", ShareStatKey.SHARE_NEW_AUTH_LOGIN_FAIL);
+                ShareLoginStat.MakeShareLoginStat.upload();
+                return;
+            }
+            ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, intent.getStringExtra(AUTH_APP_PKG_NAME));
+            intent.getStringExtra(AUTH_PASS_SDK_VERSION);
+            SapiContext sapiContext = SapiContext.getInstance();
+            sapiContext.setCurrentAccount(sapiAccount);
+            sapiContext.addLoginAccount(sapiAccount);
+            new ShareCallPacking().asyncMarkLoginState(2);
+            sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
+            if (sapiContext.shareLivingunameEnable()) {
+                ArrayList arrayList = new ArrayList();
+                String stringExtra = intent.getStringExtra(FACE_LOGIN_UIDS);
+                if (!TextUtils.isEmpty(stringExtra)) {
+                    arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra));
+                }
+                if (!arrayList.isEmpty()) {
+                    new FaceLoginService().syncFaceLoginUidList(context, arrayList);
+                }
+            }
+            StatService.onEventAutoStat(ShareStatKey.SHARE_NEW_AUTH_LOGIN_SUCCESS);
+            shareResultCallback.onResultAccount(sapiAccount);
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", ShareStatKey.SHARE_NEW_AUTH_LOGIN_SUCCESS);
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "1");
+            ShareLoginStat.MakeShareLoginStat.upload();
             return;
         }
-        ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, intent.getStringExtra(AUTH_APP_PKG_NAME));
-        intent.getStringExtra(AUTH_PASS_SDK_VERSION);
-        SapiContext sapiContext = SapiContext.getInstance();
-        sapiContext.setCurrentAccount(sapiAccount);
-        sapiContext.addLoginAccount(sapiAccount);
-        new ShareCallPacking().asyncMarkLoginState(2);
-        sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
-        if (sapiContext.shareLivingunameEnable()) {
-            ArrayList arrayList = new ArrayList();
-            String stringExtra = intent.getStringExtra(FACE_LOGIN_UIDS);
-            if (!TextUtils.isEmpty(stringExtra)) {
-                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra));
-            }
-            if (!arrayList.isEmpty()) {
-                new FaceLoginService().syncFaceLoginUidList(context, arrayList);
-            }
-        }
-        StatService.onEventAutoStat(ShareStatKey.SHARE_NEW_AUTH_LOGIN_SUCCESS);
-        shareResultCallback.onResultAccount(sapiAccount);
+        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "0");
+        ShareLoginStat.MakeShareLoginStat.statExtMap.put("errorMsg", ShareStatKey.SHARE_NEW_AUTH_LOGIN_FAIL);
+        shareResultCallback.onResultAccount(null);
     }
 
     public void updateInvalidBdussList(String str) {

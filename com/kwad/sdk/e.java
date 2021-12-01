@@ -5,13 +5,15 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
-import com.kwad.sdk.utils.al;
+import com.kwad.sdk.utils.aq;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class e {
@@ -24,7 +26,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, context, adInstallProxy, z)) == null) {
             try {
-                return com.kwad.sdk.core.download.b.e.a(context, al.c(context), adInstallProxy, z);
+                return com.kwad.sdk.core.download.a.f.a(context, aq.c(context), adInstallProxy, z && b(context));
             } catch (Throwable unused) {
                 return null;
             }
@@ -38,9 +40,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                return com.kwad.sdk.core.network.a.b.a() != null ? new com.kwad.sdk.core.network.c.b() : new com.kwad.sdk.core.network.c.a();
+                return com.kwad.sdk.core.network.kwai.b.a() != null ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
             } catch (Throwable unused) {
-                return new com.kwad.sdk.core.network.c.a();
+                return new com.kwad.sdk.core.network.b.a();
             }
         }
         return (AdHttpProxy) invokeV.objValue;
@@ -80,6 +82,20 @@ public class e {
     public static AdInstallProxy b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new com.kwad.sdk.core.download.d.b() : (AdInstallProxy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new com.kwad.sdk.core.download.c.b() : (AdInstallProxy) invokeV.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                new NotificationCompat.Builder(context, "");
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

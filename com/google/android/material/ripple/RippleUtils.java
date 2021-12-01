@@ -12,7 +12,6 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class RippleUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ENABLED_PRESSED_STATE_SET;
@@ -126,7 +125,7 @@ public class RippleUtils {
     public static ColorStateList sanitizeRippleDrawableColor(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, colorStateList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, colorStateList)) == null) {
             if (colorStateList != null) {
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 >= 22 && i2 <= 27 && Color.alpha(colorStateList.getDefaultColor()) == 0) {
@@ -142,7 +141,7 @@ public class RippleUtils {
     public static boolean shouldDrawRippleCompat(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iArr)) == null) {
             boolean z = false;
             boolean z2 = false;
             for (int i2 : iArr) {

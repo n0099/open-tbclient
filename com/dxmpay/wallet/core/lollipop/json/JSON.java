@@ -1,13 +1,12 @@
 package com.dxmpay.wallet.core.lollipop.json;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JSON {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +106,7 @@ public class JSON {
     public static Long toLong(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
             if (obj instanceof Long) {
                 return (Long) obj;
             }
@@ -129,7 +128,7 @@ public class JSON {
     public static String toString(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
             if (obj instanceof String) {
                 return (String) obj;
             }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.q0.s.u.c;
+import c.a.q0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,26 +22,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56820e;
+    public int f50896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f56821f;
+    public ImageView f50897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56822g;
+    public TextView f50898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56823h;
+    public TextView f50899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56824i;
-    public View j;
+    public ImageView f50900i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f50901j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumSelectedView(Context context) {
@@ -68,11 +70,11 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
-            this.f56821f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-            this.f56822g = (TextView) findViewById(R.id.cell_forum_selected_name);
-            this.f56823h = (TextView) findViewById(R.id.cell_forum_selected_tip);
-            this.f56824i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
-            this.j = findViewById(R.id.cell_forum_selected_line);
+            this.f50897f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
+            this.f50898g = (TextView) findViewById(R.id.cell_forum_selected_name);
+            this.f50899h = (TextView) findViewById(R.id.cell_forum_selected_tip);
+            this.f50900i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+            this.f50901j = findViewById(R.id.cell_forum_selected_line);
             setOnClickListener(this);
             onChangeSkinType();
         }
@@ -81,19 +83,19 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f56820e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f50896e) {
             return;
         }
-        this.f56820e = skinType;
+        this.f50896e = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.f56821f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f56822g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f56823h, R.color.CAM_X0109);
-        c d2 = c.d(this.f56823h);
+        this.f50897f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f50898g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f50899h, R.color.CAM_X0109);
+        c d2 = c.d(this.f50899h);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0206);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56824i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0210);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50900i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setBackgroundColor(this.f50901j, R.color.CAM_X0210);
     }
 
     @Override // android.view.View.OnClickListener
@@ -107,8 +109,8 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public void setSelectedForum(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f56823h.setVisibility(8);
-            this.f56822g.setText(str);
+            this.f50899h.setVisibility(8);
+            this.f50898g.setText(str);
         }
     }
 
@@ -152,7 +154,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f56820e = 3;
+        this.f50896e = 3;
         a();
     }
 }

@@ -2,7 +2,6 @@ package com.yy.hiidostatis.inner.util.cipher;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<MessageDigest> MD5_DIGEST;
@@ -117,7 +116,7 @@ public class TextUtils {
     public static String format8length(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65541, null, i2)) != null) {
             return (String) invokeI.objValue;
         }
         StringBuffer stringBuffer = new StringBuffer(8);
@@ -137,7 +136,7 @@ public class TextUtils {
     public static int getDecimalCharLength(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str.length() < 8) {
                 throw new IllegalArgumentException("Wrong hex size : " + str.length() + ", at least 8 bytes");
             }

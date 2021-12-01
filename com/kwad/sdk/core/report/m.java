@@ -1,150 +1,159 @@
 package com.kwad.sdk.core.report;
 
+import android.util.SparseArray;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.core.network.BaseResultData;
-import java.util.List;
+import com.baidu.walletfacesdk.LightInvokerImpl;
+import com.kwad.sdk.utils.t;
+import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public abstract class m extends com.kwad.sdk.core.network.a<n> {
+public class m extends ReportAction {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseArray<com.kwad.sdk.core.report.kwai.b> bP;
     public transient /* synthetic */ FieldHolder $fh;
+    public String bN;
+    public final Map<String, Object> bO;
 
-    public m() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-615486124, "Lcom/kwad/sdk/core/report/m;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-615486124, "Lcom/kwad/sdk/core/report/m;");
+                return;
+            }
+        }
+        SparseArray<com.kwad.sdk.core.report.kwai.b> sparseArray = new SparseArray<>();
+        bP = sparseArray;
+        sparseArray.put(1, new com.kwad.sdk.core.report.kwai.a());
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(long j2, Map<String, Object> map) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2), map};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.bN = com.kwad.sdk.core.network.k.c();
+        this.bO = new HashMap();
+        if (map != null && !map.isEmpty()) {
+            this.bO.putAll(map);
+        }
+        this.bK = 2;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(JSONObject jSONObject) {
+        super(jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((JSONObject) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.bN = com.kwad.sdk.core.network.k.c();
+        this.bO = new HashMap();
+        com.kwad.sdk.core.report.kwai.b a = a(jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE));
+        if (a != null) {
+            a.a(jSONObject, this.bO);
+        }
+        this.bK = 2;
+    }
+
+    private com.kwad.sdk.core.report.kwai.b a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) ? bP.get(b(i2)) : (com.kwad.sdk.core.report.kwai.b) invokeI.objValue;
+    }
+
+    private int b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.kwad.sdk.core.report.ReportAction, com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.kwai.a
+    public void afterToJson(JSONObject jSONObject) {
+        com.kwad.sdk.core.report.kwai.b a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.afterToJson(jSONObject);
+            if (this.bO.isEmpty() || (a = a(jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE))) == null) {
+                return;
+            }
+            a.b(jSONObject, this.bO);
+            try {
+                jSONObject.put("ecIdentityFlag", true);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    private void a(n nVar) {
+    @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, nVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.parseJson(jSONObject);
+            if (jSONObject == null) {
+                return;
+            }
             try {
-                List<String> i2 = nVar.i();
-                for (String str : i2) {
-                    KsAdSDKImpl.get().getProxyForHttp().doGetWithoutResponse(str, null);
-                }
-                d.a(nVar.h(), i2);
+                this.bN = jSONObject.optString("ua");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.network.a
-    public void a(n nVar, com.kwad.sdk.core.network.c cVar) {
+    @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, cVar) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject json = super.toJson();
+            t.a(json, "ua", this.bN);
+            return json;
         }
-    }
-
-    @Override // com.kwad.sdk.core.network.a
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-                super.d();
-            } else {
-                com.kwad.sdk.core.d.a.e("ReportNetwork", "no network while report log");
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0056  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x009e A[ORIG_RETURN, RETURN] */
-    @Override // com.kwad.sdk.core.network.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void f() {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            n b2 = b();
-            com.kwad.sdk.core.network.c cVar = null;
-            try {
-                str = b2.a();
-            } catch (Exception e2) {
-                e = e2;
-                str = null;
-            }
-            try {
-                cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b2.e());
-                if (cVar == null || cVar.f65710a != 200) {
-                    str2 = "report fail result is null";
-                } else {
-                    str2 = "report success actionType:" + b2.f65933b;
-                }
-                com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
-                a(b2);
-            } catch (Exception e3) {
-                e = e3;
-                com.kwad.sdk.core.d.a.a(e);
-                if (com.kwad.sdk.b.f64912b.booleanValue()) {
-                }
-            }
-            if (com.kwad.sdk.b.f64912b.booleanValue()) {
-                return;
-            }
-            BaseResultData baseResultData = new BaseResultData(this) { // from class: com.kwad.sdk.core.report.ReportNetwork$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ m this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-                public void parseJson(@Nullable JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        super.parseJson(jSONObject);
-                    }
-                }
-            };
-            if (cVar != null) {
-                try {
-                    baseResultData.parseJson(new JSONObject(cVar.f65711b));
-                } catch (JSONException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            if (baseResultData.isResultOk()) {
-                return;
-            }
-            throw new RuntimeException("请求返回失败 code:" + baseResultData.result + ", errorMsg:" + baseResultData.errorMsg + "\n url=" + str);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,17 +1,36 @@
 package com.kwai.filedownloader;
 
-import android.content.Context;
+import com.kwai.filedownloader.a;
+import com.kwai.filedownloader.message.MessageSnapshot;
 /* loaded from: classes2.dex */
 public interface t {
-    void a(Context context);
+    void a(a.b bVar, a.d dVar);
 
-    boolean a(int i2);
+    void a(MessageSnapshot messageSnapshot);
 
-    boolean a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3);
+    boolean a();
 
-    byte b(int i2);
+    void b();
+
+    void b(MessageSnapshot messageSnapshot);
+
+    void c(MessageSnapshot messageSnapshot);
 
     boolean c();
 
-    boolean c(int i2);
+    void d(MessageSnapshot messageSnapshot);
+
+    boolean d();
+
+    void e();
+
+    void e(MessageSnapshot messageSnapshot);
+
+    void f(MessageSnapshot messageSnapshot);
+
+    void g(MessageSnapshot messageSnapshot);
+
+    void h(MessageSnapshot messageSnapshot);
+
+    void i(MessageSnapshot messageSnapshot);
 }

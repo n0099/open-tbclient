@@ -13,21 +13,19 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f69812a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69813b;
+    public int f61462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69814c;
+    public String f61463c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69815d;
+    public String f61464d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69816e;
+    public String f61465e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,7 +40,7 @@ public class a {
                 return;
             }
         }
-        this.f69813b = -1;
+        this.f61462b = -1;
     }
 
     public String a() {
@@ -68,11 +66,11 @@ public class a {
             return;
         }
         try {
-            jSONObject.put("ah_plan_type", this.f69812a);
-            jSONObject.put("error_code", String.valueOf(this.f69813b));
-            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f69814c);
-            jSONObject.put("real_device_plan", this.f69815d);
-            jSONObject.put("device_plans", this.f69816e);
+            jSONObject.put("ah_plan_type", this.a);
+            jSONObject.put("error_code", String.valueOf(this.f61462b));
+            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f61463c);
+            jSONObject.put("real_device_plan", this.f61464d);
+            jSONObject.put("device_plans", this.f61465e);
         } catch (Throwable unused) {
         }
     }
@@ -87,15 +85,15 @@ public class a {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                aVar.f69816e = jSONObject.optString("device_plans", null);
-                aVar.f69815d = jSONObject.optString("real_device_plan", null);
-                aVar.f69814c = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, null);
-                aVar.f69812a = jSONObject.optString("ah_plan_type", null);
+                aVar.f61465e = jSONObject.optString("device_plans", null);
+                aVar.f61464d = jSONObject.optString("real_device_plan", null);
+                aVar.f61463c = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, null);
+                aVar.a = jSONObject.optString("ah_plan_type", null);
                 String optString = jSONObject.optString("error_code");
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f69813b = -1;
+                    aVar.f61462b = -1;
                 } else {
-                    aVar.f69813b = Integer.parseInt(optString);
+                    aVar.f61462b = Integer.parseInt(optString);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

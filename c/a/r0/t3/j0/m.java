@@ -1,0 +1,314 @@
+package c.a.r0.t3.j0;
+
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.View;
+import c.a.q0.d1.u;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes6.dex */
+public class m {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Pattern f23823f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final Pattern f23824g;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f23825b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f23826c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f23827d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SpannableStringBuilder f23828e;
+
+    /* loaded from: classes6.dex */
+    public class a extends u {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ m f23829e;
+
+        public a(m mVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23829e = mVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                b(this.f23829e.f23825b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends u {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ m f23830e;
+
+        public b(m mVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23830e = mVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                Matcher matcher = m.f23823f.matcher(this.f23830e.f23827d);
+                if (matcher.find()) {
+                    try {
+                        String group = matcher.group();
+                        a(group.substring(group.lastIndexOf("/") + 1));
+                        return;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                Matcher matcher2 = m.f23824g.matcher(this.f23830e.f23827d);
+                if (matcher2.find()) {
+                    try {
+                        String group2 = matcher2.group();
+                        a(group2.substring(group2.lastIndexOf("=") + 1));
+                        return;
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                b(this.f23830e.f23827d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends u {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ m f23831e;
+
+        public c(m mVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f23831e = mVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (this.f23831e.f23825b != null) {
+                    this.f23831e.f23825b.replace("@", "").replace(" ", "");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(c.a.d.f.m.b.g(this.f23831e.f23827d, 0L), false, false)));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1045836050, "Lc/a/r0/t3/j0/m;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1045836050, "Lc/a/r0/t3/j0/m;");
+                return;
+            }
+        }
+        f23823f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+        f23824g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    }
+
+    public m() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.f23825b = null;
+        this.f23827d = null;
+        this.f23828e = null;
+    }
+
+    public static boolean k(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? (i2 != 0 || i3 == 3 || i3 == 2) ? false : true : invokeII.booleanValue;
+    }
+
+    public SpannableStringBuilder e(SpannableString spannableString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
+            if (this.f23828e == null) {
+                this.f23828e = new SpannableStringBuilder();
+            }
+            this.f23828e.append((CharSequence) spannableString);
+            return this.f23828e;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23826c : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23827d : (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public SpannableString h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i2 = this.a;
+            if (i2 != 0) {
+                if (i2 == 1) {
+                    if (!this.f23825b.endsWith(" ")) {
+                        this.f23825b += " ";
+                    }
+                    SpannableString spannableString = new SpannableString(this.f23825b);
+                    spannableString.setSpan(new b(this), 0, this.f23825b.length() - 1, 33);
+                    return spannableString;
+                } else if (i2 == 2) {
+                    SpannableString spannableString2 = new SpannableString(this.f23825b + " ");
+                    c.a.d.m.d.a face = TbadkCoreApplication.getInst().getFace(this.f23825b);
+                    if (face != null) {
+                        BitmapDrawable j2 = face.j();
+                        j2.setBounds(0, 0, face.r(), face.m());
+                        spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.f23825b.length(), 33);
+                    }
+                    return spannableString2;
+                } else if (i2 == 4) {
+                    if (!this.f23825b.endsWith(" ")) {
+                        this.f23825b += " ";
+                    }
+                    SpannableString spannableString3 = new SpannableString(this.f23825b);
+                    spannableString3.setSpan(new c(this), 0, this.f23825b.length() - 1, 33);
+                    return spannableString3;
+                } else if (i2 != 5) {
+                    return null;
+                } else {
+                    if (!this.f23825b.endsWith(" ")) {
+                        this.f23825b += " ";
+                    }
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.video);
+                    String str = string + this.f23825b;
+                    SpannableString spannableString4 = new SpannableString(str);
+                    spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);
+                    return spannableString4;
+                }
+            }
+            return new SpannableString(this.f23825b);
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23825b : (String) invokeV.objValue;
+    }
+
+    public SpannableStringBuilder j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23828e : (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void l(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.a = i2;
+        }
+    }
+}

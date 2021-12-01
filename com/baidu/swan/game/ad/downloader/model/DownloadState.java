@@ -1,7 +1,6 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DownloadState {
     public static final /* synthetic */ DownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -40,11 +39,11 @@ public final class DownloadState {
             }
         }
         NOT_START = new DownloadState("NOT_START", 0, 0);
-        DOWNLOADING = new DownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOADING, 1, 1);
+        DOWNLOADING = new DownloadState("DOWNLOADING", 1, 1);
         DOWNLOAD_PAUSED = new DownloadState("DOWNLOAD_PAUSED", 2, 2);
-        DOWNLOADED = new DownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOADED, 3, 3);
-        DOWNLOAD_FAILED = new DownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOAD_FAILED, 4, 4);
-        INSTALLED = new DownloadState(AdDownloadApkUtils.DL_STATUS_INSTALLED, 5, 5);
+        DOWNLOADED = new DownloadState("DOWNLOADED", 3, 3);
+        DOWNLOAD_FAILED = new DownloadState("DOWNLOAD_FAILED", 4, 4);
+        INSTALLED = new DownloadState("INSTALLED", 5, 5);
         DELETED = new DownloadState("DELETED", 6, 6);
         PREPARE_DOWNLOAD = new DownloadState("PREPARE_DOWNLOAD", 7, 7);
         DownloadState downloadState = new DownloadState("WAIT", 8, 8);

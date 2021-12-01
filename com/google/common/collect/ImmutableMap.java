@@ -1,10 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.c.m;
-import b.h.d.c.o1;
+import c.i.d.c.m;
+import c.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Map.Entry<?, ?>[] EMPTY_ENTRY_ARRAY;
@@ -32,7 +31,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public transient ImmutableSetMultimap<K, V> multimapView;
     public transient ImmutableCollection<V> values;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class IteratorBasedImmutableMap<K, V> extends ImmutableMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,36 +120,36 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             return super.keySet();
         }
 
-        @Override // com.google.common.collect.ImmutableMap, java.util.Map, b.h.d.c.k
+        @Override // com.google.common.collect.ImmutableMap, java.util.Map, c.i.d.c.k
         public /* bridge */ /* synthetic */ Collection values() {
             return super.values();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class MapViewOfValuesAsSingletonSets extends IteratorBasedImmutableMap<K, ImmutableSet<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImmutableMap this$0;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public class a extends o1<Map.Entry<K, ImmutableSet<V>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Iterator f64242e;
+            public final /* synthetic */ Iterator f56190e;
 
             /* renamed from: com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets$a$a  reason: collision with other inner class name */
-            /* loaded from: classes11.dex */
-            public class C1909a extends b.h.d.c.b<K, ImmutableSet<V>> {
+            /* loaded from: classes2.dex */
+            public class C1981a extends c.i.d.c.b<K, ImmutableSet<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f64243e;
+                public final /* synthetic */ Map.Entry f56191e;
 
-                public C1909a(a aVar, Map.Entry entry) {
+                public C1981a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,23 +164,23 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
                             return;
                         }
                     }
-                    this.f64243e = entry;
+                    this.f56191e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.h.d.c.b, java.util.Map.Entry
+                @Override // c.i.d.c.b, java.util.Map.Entry
                 /* renamed from: a */
                 public ImmutableSet<V> getValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ImmutableSet.of(this.f64243e.getValue()) : (ImmutableSet) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ImmutableSet.of(this.f56191e.getValue()) : (ImmutableSet) invokeV.objValue;
                 }
 
-                @Override // b.h.d.c.b, java.util.Map.Entry
+                @Override // c.i.d.c.b, java.util.Map.Entry
                 public K getKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) this.f64243e.getKey() : (K) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) this.f56191e.getKey() : (K) invokeV.objValue;
                 }
             }
 
@@ -200,7 +199,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
                         return;
                     }
                 }
-                this.f64242e = it;
+                this.f56190e = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -209,14 +208,14 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             public Map.Entry<K, ImmutableSet<V>> next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1909a(this, (Map.Entry) this.f64242e.next()) : (Map.Entry) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1981a(this, (Map.Entry) this.f56190e.next()) : (Map.Entry) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64242e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56190e.hasNext() : invokeV.booleanValue;
             }
         }
 
@@ -307,7 +306,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -367,13 +366,13 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class a extends o1<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o1 f64244e;
+        public final /* synthetic */ o1 f56192e;
 
         public a(ImmutableMap immutableMap, o1 o1Var) {
             Interceptable interceptable = $ic;
@@ -390,40 +389,38 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
                     return;
                 }
             }
-            this.f64244e = o1Var;
+            this.f56192e = o1Var;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64244e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56192e.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public K next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) ((Map.Entry) this.f64244e.next()).getKey() : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (K) ((Map.Entry) this.f56192e.next()).getKey() : (K) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Comparator<? super V> f64245a;
+        public Comparator<? super V> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object[] f64246b;
+        public Object[] f56193b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f64247c;
+        public int f56194c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f64248d;
+        public boolean f56195d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -448,8 +445,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 g();
-                this.f64248d = true;
-                return RegularImmutableMap.create(this.f64247c, this.f64246b);
+                this.f56195d = true;
+                return RegularImmutableMap.create(this.f56194c, this.f56193b);
             }
             return (ImmutableMap) invokeV.objValue;
         }
@@ -458,25 +455,25 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 int i3 = i2 * 2;
-                Object[] objArr = this.f64246b;
+                Object[] objArr = this.f56193b;
                 if (i3 > objArr.length) {
-                    this.f64246b = Arrays.copyOf(objArr, ImmutableCollection.b.e(objArr.length, i3));
-                    this.f64248d = false;
+                    this.f56193b = Arrays.copyOf(objArr, ImmutableCollection.b.e(objArr.length, i3));
+                    this.f56195d = false;
                 }
             }
         }
 
-        public b<K, V> c(K k, V v) {
+        public b<K, V> c(K k2, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
-                b(this.f64247c + 1);
-                m.a(k, v);
-                Object[] objArr = this.f64246b;
-                int i2 = this.f64247c;
-                objArr[i2 * 2] = k;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, v)) == null) {
+                b(this.f56194c + 1);
+                m.a(k2, v);
+                Object[] objArr = this.f56193b;
+                int i2 = this.f56194c;
+                objArr[i2 * 2] = k2;
                 objArr[(i2 * 2) + 1] = v;
-                this.f64247c = i2 + 1;
+                this.f56194c = i2 + 1;
                 return this;
             }
             return (b) invokeLL.objValue;
@@ -493,7 +490,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iterable)) == null) {
                 if (iterable instanceof Collection) {
-                    b(this.f64247c + ((Collection) iterable).size());
+                    b(this.f56194c + ((Collection) iterable).size());
                 }
                 for (Map.Entry<? extends K, ? extends V> entry : iterable) {
                     d(entry);
@@ -512,29 +509,29 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         public void g() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f64245a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null) {
                 return;
             }
-            if (this.f64248d) {
-                this.f64246b = Arrays.copyOf(this.f64246b, this.f64247c * 2);
+            if (this.f56195d) {
+                this.f56193b = Arrays.copyOf(this.f56193b, this.f56194c * 2);
             }
-            Map.Entry[] entryArr = new Map.Entry[this.f64247c];
+            Map.Entry[] entryArr = new Map.Entry[this.f56194c];
             int i3 = 0;
             while (true) {
-                i2 = this.f64247c;
+                i2 = this.f56194c;
                 if (i3 >= i2) {
                     break;
                 }
-                Object[] objArr = this.f64246b;
+                Object[] objArr = this.f56193b;
                 int i4 = i3 * 2;
                 entryArr[i3] = new AbstractMap.SimpleImmutableEntry(objArr[i4], objArr[i4 + 1]);
                 i3++;
             }
-            Arrays.sort(entryArr, 0, i2, Ordering.from(this.f64245a).onResultOf(Maps.N()));
-            for (int i5 = 0; i5 < this.f64247c; i5++) {
+            Arrays.sort(entryArr, 0, i2, Ordering.from(this.a).onResultOf(Maps.N()));
+            for (int i5 = 0; i5 < this.f56194c; i5++) {
                 int i6 = i5 * 2;
-                this.f64246b[i6] = entryArr[i5].getKey();
-                this.f64246b[i6 + 1] = entryArr[i5].getValue();
+                this.f56193b[i6] = entryArr[i5].getKey();
+                this.f56193b[i6 + 1] = entryArr[i5].getValue();
             }
         }
 
@@ -553,9 +550,9 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
                     return;
                 }
             }
-            this.f64246b = new Object[i2 * 2];
-            this.f64247c = 0;
-            this.f64248d = false;
+            this.f56193b = new Object[i2 * 2];
+            this.f56194c = 0;
+            this.f56195d = false;
         }
     }
 
@@ -615,7 +612,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public static IllegalArgumentException conflictException(String str, Object obj, Object obj2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, obj, obj2)) == null) {
             return new IllegalArgumentException("Multiple entries with same " + str + ": " + obj + " and " + obj2);
         }
         return (IllegalArgumentException) invokeLLL.objValue;
@@ -636,12 +633,12 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return (ImmutableMap) invokeL.objValue;
     }
 
-    public static <K, V> Map.Entry<K, V> entryOf(K k, V v) {
+    public static <K, V> Map.Entry<K, V> entryOf(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, k, v)) == null) {
-            m.a(k, v);
-            return new AbstractMap.SimpleImmutableEntry(k, v);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, k2, v)) == null) {
+            m.a(k2, v);
+            return new AbstractMap.SimpleImmutableEntry(k2, v);
         }
         return (Map.Entry) invokeLL.objValue;
     }
@@ -753,10 +750,10 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
     @Override // java.util.Map
     @Deprecated
-    public final V put(K k, V v) {
+    public final V put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, k2, v)) == null) {
             throw new UnsupportedOperationException();
         }
         return (V) invokeLL.objValue;
@@ -794,12 +791,12 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? new SerializedForm(this) : invokeV.objValue;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v) {
+    public static <K, V> ImmutableMap<K, V> of(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, k, v)) == null) {
-            m.a(k, v);
-            return RegularImmutableMap.create(1, new Object[]{k, v});
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, k2, v)) == null) {
+            m.a(k2, v);
+            return RegularImmutableMap.create(1, new Object[]{k2, v});
         }
         return (ImmutableMap) invokeLL.objValue;
     }
@@ -855,13 +852,13 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return (ImmutableCollection) invokeV.objValue;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2) {
+    public static <K, V> ImmutableMap<K, V> of(K k2, V v, K k3, V v2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, k, v, k2, v2)) == null) {
-            m.a(k, v);
-            m.a(k2, v2);
-            return RegularImmutableMap.create(2, new Object[]{k, v, k2, v2});
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, k2, v, k3, v2)) == null) {
+            m.a(k2, v);
+            m.a(k3, v2);
+            return RegularImmutableMap.create(2, new Object[]{k2, v, k3, v2});
         }
         return (ImmutableMap) invokeLLLL.objValue;
     }
@@ -869,7 +866,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     public static <K, V> ImmutableMap<K, V> copyOf(Iterable<? extends Map.Entry<? extends K, ? extends V>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iterable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iterable)) == null) {
             b bVar = new b(iterable instanceof Collection ? ((Collection) iterable).size() : 4);
             bVar.e(iterable);
             return bVar.a();
@@ -877,41 +874,41 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return (ImmutableMap) invokeL.objValue;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    public static <K, V> ImmutableMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{k, v, k2, v2, k3, v3})) == null) {
-            m.a(k, v);
-            m.a(k2, v2);
-            m.a(k3, v3);
-            return RegularImmutableMap.create(3, new Object[]{k, v, k2, v2, k3, v3});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{k2, v, k3, v2, k4, v3})) == null) {
+            m.a(k2, v);
+            m.a(k3, v2);
+            m.a(k4, v3);
+            return RegularImmutableMap.create(3, new Object[]{k2, v, k3, v2, k4, v3});
         }
         return (ImmutableMap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    public static <K, V> ImmutableMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) {
-            m.a(k, v);
-            m.a(k2, v2);
-            m.a(k3, v3);
-            m.a(k4, v4);
-            return RegularImmutableMap.create(4, new Object[]{k, v, k2, v2, k3, v3, k4, v4});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4})) == null) {
+            m.a(k2, v);
+            m.a(k3, v2);
+            m.a(k4, v3);
+            m.a(k5, v4);
+            return RegularImmutableMap.create(4, new Object[]{k2, v, k3, v2, k4, v3, k5, v4});
         }
         return (ImmutableMap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    public static <K, V> ImmutableMap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4, K k6, V v5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) {
-            m.a(k, v);
-            m.a(k2, v2);
-            m.a(k3, v3);
-            m.a(k4, v4);
-            m.a(k5, v5);
-            return RegularImmutableMap.create(5, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4, k6, v5})) == null) {
+            m.a(k2, v);
+            m.a(k3, v2);
+            m.a(k4, v3);
+            m.a(k5, v4);
+            m.a(k6, v5);
+            return RegularImmutableMap.create(5, new Object[]{k2, v, k3, v2, k4, v3, k5, v4, k6, v5});
         }
         return (ImmutableMap) invokeCommon.objValue;
     }

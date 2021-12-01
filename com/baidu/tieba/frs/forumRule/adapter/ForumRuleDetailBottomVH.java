@@ -2,13 +2,13 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
-import b.a.e.f.p.l;
-import b.a.q0.s.u.c;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.d1;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.i1;
+import c.a.d.f.p.l;
+import c.a.q0.s.u.c;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.d1;
+import c.a.r0.d1.e1;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.i1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,13 +26,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f49372a;
+    public View a;
     public BarImageView mBarManagementHeadView;
     public EMTextView mBarManagementRevise;
     public EMTextView mBarManagementTitle;
@@ -60,13 +58,13 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f49372a = view;
+        this.a = view;
         BarImageView barImageView = (BarImageView) view.findViewById(f1.forum_rules_bar_management_head_view);
         this.mBarManagementHeadView = barImageView;
         barImageView.setShowOval(true);
         this.mBarManagementHeadView.setShowOuterBorder(false);
         this.mBarManagementHeadView.setShowInnerBorder(true);
-        this.mBarManagementHeadView.setStrokeWith(l.g(TbadkCoreApplication.getInst(), d1.tbds1));
+        this.mBarManagementHeadView.setStrokeWith(l.f(TbadkCoreApplication.getInst(), d1.tbds1));
         this.mBarManagementHeadView.setStrokeColorResId(c1.CAM_X0401);
         this.mHeadViewIndex = (ImageView) view.findViewById(f1.forum_rules_bar_management_index);
         this.mBarManagementTitle = (EMTextView) view.findViewById(f1.forum_rules_bar_management_title);
@@ -99,7 +97,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f49372a, c1.CAM_X0205);
+            SkinManager.setBackgroundColor(this.a, c1.CAM_X0205);
             c d2 = c.d(this.mBarManagementTitle);
             d2.A(i1.F_X01);
             d2.v(c1.CAM_X0105);

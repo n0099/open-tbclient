@@ -2,13 +2,12 @@ package com.bytedance.sdk.openadsdk.api.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,14 +19,14 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            String a2 = a();
-            String a3 = a(a2, 32);
+            String a = a();
+            String a2 = a(a, 32);
             String b2 = b();
             String str2 = null;
-            if (a3 != null && b2 != null) {
-                str2 = a.a(str, b2, a3);
+            if (a2 != null && b2 != null) {
+                str2 = a.a(str, b2, a2);
             }
-            return 3 + a2 + b2 + str2;
+            return 3 + a + b2 + str2;
         }
         return (String) invokeL.objValue;
     }
@@ -35,12 +34,12 @@ public class b {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            String a2 = a(8);
-            if (a2 == null || a2.length() != 16) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String a = a(8);
+            if (a == null || a.length() != 16) {
                 return null;
             }
-            return a2;
+            return a;
         }
         return (String) invokeV.objValue;
     }
@@ -55,9 +54,9 @@ public class b {
             }
             try {
                 try {
-                    String a2 = a(jSONObject.toString());
-                    if (!TextUtils.isEmpty(a2)) {
-                        jSONObject2.put("message", a2);
+                    String a = a(jSONObject.toString());
+                    if (!TextUtils.isEmpty(a)) {
+                        jSONObject2.put("message", a);
                         jSONObject2.put("cypher", 3);
                     } else {
                         jSONObject2.put("message", jSONObject.toString());
@@ -78,11 +77,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String a2 = a(16);
-            if (a2 == null || a2.length() != 32) {
+            String a = a(16);
+            if (a == null || a.length() != 32) {
                 return null;
             }
-            return a2;
+            return a;
         }
         return (String) invokeV.objValue;
     }

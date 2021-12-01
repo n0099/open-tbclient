@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,6 +19,7 @@ import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.boxes.DTSSpecificBox;
 import com.googlecode.mp4parser.util.CastUtils;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
@@ -150,14 +150,14 @@ public class DTSTrackImpl extends AbstractTrack {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, byteBuffer)) == null) {
             byteBuffer.get();
             short s = byteBuffer.getShort();
-            this.maxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
+            this.maxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             this.numFramesTotal = byteBuffer.getInt();
             this.samplesPerFrameAtMaxFs = byteBuffer.getShort();
             this.numSamplesOrigAudioAtMaxFs = (byteBuffer.get() << 32) | (byteBuffer.getInt() & 65535);
             this.channelMask = byteBuffer.getShort();
             this.codecDelayAtMaxFs = byteBuffer.getShort();
             if ((s & 3) == 3) {
-                this.bcCoreMaxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
+                this.bcCoreMaxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
                 this.bcCoreBitRate = byteBuffer.getShort();
                 this.bcCoreChannelMask = byteBuffer.getShort();
                 i3 = 28;
@@ -183,8 +183,8 @@ public class DTSTrackImpl extends AbstractTrack {
     private boolean parseCoressmd(int i2, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, byteBuffer)) == null) {
-            this.coreMaxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, byteBuffer)) == null) {
+            this.coreMaxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             this.coreBitRate = byteBuffer.getShort();
             this.coreChannelMask = byteBuffer.getShort();
             this.coreFramePayloadInBytes = byteBuffer.getInt();
@@ -199,7 +199,7 @@ public class DTSTrackImpl extends AbstractTrack {
     private boolean parseDtshdhdr(int i2, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i2, byteBuffer)) == null) {
             byteBuffer.getInt();
             byteBuffer.get();
             byteBuffer.getInt();
@@ -232,9 +232,9 @@ public class DTSTrackImpl extends AbstractTrack {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, this, i2, byteBuffer)) == null) {
-            this.extAvgBitrate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
+            this.extAvgBitrate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             if (this.isVBR) {
-                this.extPeakBitrate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & UShort.MAX_VALUE);
+                this.extPeakBitrate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
                 this.extSmoothBuffSize = byteBuffer.getShort();
                 i3 = 8;
             } else {
@@ -740,7 +740,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 24000;
      */
     /* JADX WARN: Code restructure failed: missing block: B:241:0x0309, code lost:
-        r22.samplerate = 12000;
+        r22.samplerate = com.kuaishou.weapon.un.w0.X3;
      */
     /* JADX WARN: Code restructure failed: missing block: B:242:0x030e, code lost:
         r22.samplerate = 44100;
@@ -855,7 +855,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r1 = 3;
      */
     /* JADX WARN: Code restructure failed: missing block: B:270:0x0396, code lost:
-        r22.bitrate = 224;
+        r22.bitrate = com.kuaishou.weapon.un.w0.Q;
      */
     /* JADX WARN: Code restructure failed: missing block: B:271:0x039b, code lost:
         r22.bitrate = 192;

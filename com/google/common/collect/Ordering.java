@@ -1,14 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.g;
-import b.h.d.a.n;
-import b.h.d.c.l1;
-import b.h.d.c.m;
-import b.h.d.c.o0;
-import b.h.d.c.y0;
+import c.i.d.a.g;
+import c.i.d.a.n;
+import c.i.d.c.l1;
+import c.i.d.c.m;
+import c.i.d.c.o0;
+import c.i.d.c.y0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,14 +25,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class Ordering<T> implements Comparator<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LEFT_IS_GREATER = 1;
     public static final int RIGHT_IS_GREATER = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class IncomparableValueException extends ClassCastException {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -62,16 +61,16 @@ public abstract class Ordering<T> implements Comparator<T> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Ordering<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f64438e;
+        public final AtomicInteger f56377e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f64439f;
+        public final ConcurrentMap<Object, Integer> f56378f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -86,20 +85,20 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            this.f64438e = new AtomicInteger(0);
+            this.f56377e = new AtomicInteger(0);
             MapMaker mapMaker = new MapMaker();
             y0.i(mapMaker);
-            this.f64439f = mapMaker.i();
+            this.f56378f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Integer num = this.f64439f.get(obj);
+                Integer num = this.f56378f.get(obj);
                 if (num == null) {
-                    Integer valueOf = Integer.valueOf(this.f64438e.getAndIncrement());
-                    Integer putIfAbsent = this.f64439f.putIfAbsent(obj, valueOf);
+                    Integer valueOf = Integer.valueOf(this.f56377e.getAndIncrement());
+                    Integer putIfAbsent = this.f56378f.putIfAbsent(obj, valueOf);
                     return putIfAbsent != null ? putIfAbsent : valueOf;
                 }
                 return num;
@@ -148,12 +147,10 @@ public abstract class Ordering<T> implements Comparator<T> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final Ordering<Object> f64440a;
+        public static final Ordering<Object> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -169,7 +166,7 @@ public abstract class Ordering<T> implements Comparator<T> {
                     return;
                 }
             }
-            f64440a = new a();
+            a = new a();
         }
     }
 
@@ -196,13 +193,13 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static Ordering<Object> arbitrary() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f64440a : (Ordering) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (Ordering) invokeV.objValue;
     }
 
     public static <T> Ordering<T> explicit(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) ? new ExplicitOrdering(list) : (Ordering) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) ? new ExplicitOrdering(list) : (Ordering) invokeL.objValue;
     }
 
     public static <T> Ordering<T> from(Comparator<T> comparator) {
@@ -406,7 +403,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static <T> Ordering<T> from(Ordering<T> ordering) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, ordering)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ordering)) == null) {
             n.p(ordering);
             return ordering;
         }
@@ -485,13 +482,13 @@ public abstract class Ordering<T> implements Comparator<T> {
                 return Collections.emptyList();
             }
             if (i2 >= 1073741823) {
-                ArrayList k = Lists.k(it);
-                Collections.sort(k, this);
-                if (k.size() > i2) {
-                    k.subList(i2, k.size()).clear();
+                ArrayList k2 = Lists.k(it);
+                Collections.sort(k2, this);
+                if (k2.size() > i2) {
+                    k2.subList(i2, k2.size()).clear();
                 }
-                k.trimToSize();
-                return Collections.unmodifiableList(k);
+                k2.trimToSize();
+                return Collections.unmodifiableList(k2);
             }
             l1 a2 = l1.a(i2, this);
             a2.c(it);

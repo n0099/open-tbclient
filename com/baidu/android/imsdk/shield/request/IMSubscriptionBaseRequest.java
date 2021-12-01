@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSubscriptionBaseRequest";
@@ -29,12 +29,12 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public String mSource;
     public List<Long> mTopicList;
 
-    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+    public IMSubscriptionBaseRequest(Context context, long j2, List<Long> list, List<String> list2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), list, list2, str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             this.mMiNiAppTopicList = new ArrayList(list2);
         }
         this.mContext = context;
-        this.mPaid = j;
+        this.mPaid = j2;
         this.mKey = str;
         this.mSource = str2;
     }

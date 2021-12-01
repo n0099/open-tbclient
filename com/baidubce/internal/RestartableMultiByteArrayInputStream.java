@@ -10,7 +10,7 @@ import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RestartableMultiByteArrayInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,12 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
     public long length;
     public long pos;
 
-    public RestartableMultiByteArrayInputStream(List<byte[]> list, long j) {
+    public RestartableMultiByteArrayInputStream(List<byte[]> list, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Long.valueOf(j)};
+            Object[] objArr = {list, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,7 +34,7 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
                 return;
             }
         }
-        long j2 = 0;
+        long j3 = 0;
         this.pos = 0L;
         CheckUtils.isNotNull(list, "byteArrayList should not be null.");
         CheckUtils.checkArgument(!list.isEmpty(), "byteArrayList should not be empty.");
@@ -50,16 +50,16 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
                 z = true;
             }
             CheckUtils.checkArgument(z, "byteArrayList should not contain empty byte array.");
-            j2 += next.length;
+            j3 += next.length;
         }
-        CheckUtils.checkArgument(j2 >= j, "The specified length(%s) is greater than the total length(%s) of elements in byteArrayList.", Long.valueOf(j), Long.valueOf(j2));
+        CheckUtils.checkArgument(j3 >= j2, "The specified length(%s) is greater than the total length(%s) of elements in byteArrayList.", Long.valueOf(j2), Long.valueOf(j3));
         this.blockSize = list.get(0).length;
         for (int i4 = 1; i4 < list.size() - 1; i4++) {
             int length = list.get(i4).length;
             CheckUtils.checkArgument(length == this.blockSize, "All elements in byteArrayList except the last one should have the same length. The first element's length is %s but the %sth element's length is %s.", Integer.valueOf(this.blockSize), Integer.valueOf(i4), Integer.valueOf(length));
         }
         this.byteArrayList = list;
-        this.length = j;
+        this.length = j2;
     }
 
     @Override // java.io.InputStream
@@ -74,13 +74,13 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
                 }
                 int i4 = 0;
                 while (i3 > 0) {
-                    long j = this.pos;
-                    if (j >= this.length) {
+                    long j2 = this.pos;
+                    if (j2 >= this.length) {
                         break;
                     }
                     int i5 = this.blockSize;
-                    int i6 = (int) (j % i5);
-                    byte[] bArr2 = this.byteArrayList.get((int) (j / i5));
+                    int i6 = (int) (j2 % i5);
+                    byte[] bArr2 = this.byteArrayList.get((int) (j2 / i5));
                     int length = bArr2.length - i6;
                     if (length > i3) {
                         length = i3;
@@ -111,13 +111,13 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.pos;
-            if (j == this.length) {
+            long j2 = this.pos;
+            if (j2 == this.length) {
                 return -1;
             }
             int i2 = this.blockSize;
-            this.pos = j + 1;
-            return this.byteArrayList.get((int) (j / i2))[(int) (j % i2)] & 255;
+            this.pos = j2 + 1;
+            return this.byteArrayList.get((int) (j2 / i2))[(int) (j2 % i2)] & 255;
         }
         return invokeV.intValue;
     }

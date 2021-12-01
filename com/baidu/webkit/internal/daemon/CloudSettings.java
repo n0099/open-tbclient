@@ -5,7 +5,6 @@ import android.os.Build;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -51,22 +50,20 @@ public class CloudSettings implements INoProGuard, INetListener {
     public int mNetres;
     public long mStartTime;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f61909a;
+        public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61910b;
+        public int f54273b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f61911c;
+        public boolean f54274c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CloudSettings f61912d;
+        public final /* synthetic */ CloudSettings f54275d;
 
         public a(CloudSettings cloudSettings) {
             Interceptable interceptable = $ic;
@@ -83,23 +80,23 @@ public class CloudSettings implements INoProGuard, INetListener {
                     return;
                 }
             }
-            this.f61912d = cloudSettings;
-            this.f61910b = -1;
+            this.f54275d = cloudSettings;
+            this.f54273b = -1;
         }
 
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-                this.f61910b = i2;
+                this.f54273b = i2;
             }
         }
 
-        public final void a(long j) {
+        public final void a(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j)));
-                this.f61909a = j;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j2)));
+                this.a = j2;
             }
         }
 
@@ -107,7 +104,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-                this.f61911c = z;
+                this.f54274c = z;
             }
         }
     }
@@ -145,15 +142,15 @@ public class CloudSettings implements INoProGuard, INetListener {
         this.mData = null;
     }
 
-    public static void addRawLogItem(StringBuilder sb, String str, long j) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j);
+            sb.append(j2);
         }
     }
 
@@ -184,7 +181,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static String bytesToHexString(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder("");
             if (bArr == null || bArr.length <= 0) {
                 return null;
@@ -204,7 +201,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static String getUrl(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             String cloudSettingUrl = WebSettingsGlobalBlink.getCloudSettingUrl();
             cloudSettingUrl = (cloudSettingUrl == null || cloudSettingUrl.length() <= 0) ? "https://browserkernel.baidu.com/config/t5config?cmd=1&" : "https://browserkernel.baidu.com/config/t5config?cmd=1&";
             StringBuilder sb = new StringBuilder();

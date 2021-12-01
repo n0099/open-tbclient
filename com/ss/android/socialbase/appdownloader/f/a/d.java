@@ -13,15 +13,13 @@ import java.io.InputStream;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public InputStream f69927a;
+    public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69928b;
+    public boolean f61553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69929c;
+    public int f61554c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -40,9 +38,9 @@ public class d {
     public final void a(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, inputStream, z) == null) {
-            this.f69927a = inputStream;
-            this.f69928b = z;
-            this.f69929c = 0;
+            this.a = inputStream;
+            this.f61553b = z;
+            this.f61554c = 0;
         }
     }
 
@@ -57,10 +55,10 @@ public class d {
         if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || i2 <= 0) {
             return;
         }
-        long j = i2;
-        long skip = this.f69927a.skip(j);
-        this.f69929c = (int) (this.f69929c + skip);
-        if (skip != j) {
+        long j2 = i2;
+        long skip = this.a.skip(j2);
+        this.f61554c = (int) (this.f61554c + skip);
+        if (skip != j2) {
             throw new EOFException();
         }
     }
@@ -97,7 +95,7 @@ public class d {
     public final void a() {
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f69927a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.a) == null) {
             return;
         }
         try {
@@ -120,13 +118,13 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f69928b) {
+                if (this.f61553b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
-                        int read = this.f69927a.read();
+                        int read = this.a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f69929c++;
+                        this.f61554c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -134,11 +132,11 @@ public class d {
                 int i5 = i2 * 8;
                 int i6 = 0;
                 while (i3 != i5) {
-                    int read2 = this.f69927a.read();
+                    int read2 = this.a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f69929c++;
+                    this.f61554c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }

@@ -12,7 +12,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,12 +63,12 @@ public class WbSdkProgressBar extends View {
         }
     }
 
-    private void calculateProgress(long j) {
+    private void calculateProgress(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            long j2 = this.stopGrowTime;
-            if (j2 >= this.stopGrowTimeMax) {
-                double d2 = this.growTime + j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+            long j3 = this.stopGrowTime;
+            if (j3 >= this.stopGrowTimeMax) {
+                double d2 = this.growTime + j2;
                 this.growTime = d2;
                 double d3 = this.growTimeMax;
                 if (d2 >= d3) {
@@ -87,14 +86,14 @@ public class WbSdkProgressBar extends View {
                 this.length = f2;
                 return;
             }
-            this.stopGrowTime = j2 + j;
+            this.stopGrowTime = j3 + j2;
         }
     }
 
     private int dip2px(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, context, i2)) == null) ? (int) (context.getResources().getDisplayMetrics().density * i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i2)) == null) ? (int) (context.getResources().getDisplayMetrics().density * i2) : invokeLI.intValue;
     }
 
     @Override // android.view.View

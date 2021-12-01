@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +17,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class cw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +130,7 @@ public abstract class cw {
     public static String a(Context context, String str, List<bf> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, list)) == null) ? a(context, str, list, new a(), true) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, list)) == null) ? a(context, str, list, new a(), true) : (String) invokeLLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x00ae A[Catch: MalformedURLException -> 0x00c7, TRY_ENTER, TryCatch #3 {MalformedURLException -> 0x00c7, blocks: (B:6:0x0013, B:8:0x001a, B:10:0x0024, B:13:0x002b, B:15:0x0031, B:16:0x0034, B:17:0x0039, B:19:0x003f, B:21:0x0048, B:23:0x0050, B:51:0x00ae, B:52:0x00c0), top: B:68:0x0013 }] */
@@ -145,16 +144,16 @@ public abstract class cw {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, list, cvVar, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, list, cvVar, Boolean.valueOf(z)})) == null) {
             if (bg.b(context)) {
                 try {
                     ArrayList<String> arrayList = new ArrayList<>();
                     if (z) {
-                        co m232a = cs.a().m232a(str);
-                        if (m232a != null) {
-                            arrayList = m232a.a(str);
+                        co m281a = cs.a().m281a(str);
+                        if (m281a != null) {
+                            arrayList = m281a.a(str);
                         }
-                        coVar = m232a;
+                        coVar = m281a;
                     } else {
                         coVar = null;
                     }
@@ -172,7 +171,7 @@ public abstract class cw {
                             iOException = e2;
                             str2 = str4;
                         }
-                        if (!cvVar.m241a(context, next, (List<bf>) arrayList2)) {
+                        if (!cvVar.m290a(context, next, (List<bf>) arrayList2)) {
                             return str4;
                         }
                         String a2 = cvVar.a(context, next, (List<bf>) arrayList2);

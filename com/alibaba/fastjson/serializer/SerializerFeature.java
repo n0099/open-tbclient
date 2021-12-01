@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SerializerFeature {
     public static final /* synthetic */ SerializerFeature[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -142,7 +141,7 @@ public final class SerializerFeature {
     public static int of(SerializerFeature[] serializerFeatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, serializerFeatureArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, serializerFeatureArr)) == null) {
             if (serializerFeatureArr == null) {
                 return 0;
             }
@@ -158,7 +157,7 @@ public final class SerializerFeature {
     public static SerializerFeature valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (SerializerFeature) Enum.valueOf(SerializerFeature.class, str) : (SerializerFeature) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (SerializerFeature) Enum.valueOf(SerializerFeature.class, str) : (SerializerFeature) invokeL.objValue;
     }
 
     public static SerializerFeature[] values() {

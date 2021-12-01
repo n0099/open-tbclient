@@ -6,12 +6,12 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.e.f.p.l;
-import b.a.q0.h0.d;
-import b.a.q0.s.l.a;
-import b.a.q0.s.l.c;
-import b.a.q0.s.q.t0;
-import b.a.r0.t0.a.g.j;
+import c.a.d.f.p.l;
+import c.a.q0.i0.d;
+import c.a.q0.s.l.a;
+import c.a.q0.s.l.c;
+import c.a.q0.s.q.t0;
+import c.a.r0.z0.a.g.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -55,7 +55,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INFO_TYPE_NONE = 0;
@@ -68,9 +68,10 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public static final String LOGIN_TYPE_WEIBO = "weibo";
     public static final String LOGIN_TYPE_YY = "yy";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean hasSendResult;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
     public PassProviderAuto.Result<PassProviderAuto.LoginResult> mLoginResult;
-    public final a.InterfaceC0720a mReLoginCallback;
+    public final a.InterfaceC0804a mReLoginCallback;
     public WeakReference<Activity> mWeakActivity;
 
     public PassProviderPlugin() {
@@ -86,7 +87,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 return;
             }
         }
-        this.mReLoginCallback = new a.InterfaceC0720a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
+        this.mReLoginCallback = new a.InterfaceC0804a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PassProviderPlugin this$0;
@@ -109,7 +110,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 this.this$0 = this;
             }
 
-            @Override // b.a.q0.s.l.a.InterfaceC0720a
+            @Override // c.a.q0.s.l.a.InterfaceC0804a
             public void onBeforeLogin(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -117,7 +118,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // b.a.q0.s.l.a.InterfaceC0720a
+            @Override // c.a.q0.s.l.a.InterfaceC0804a
             public void onFailure(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i4, str2) == null) {
@@ -126,7 +127,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // b.a.q0.s.l.a.InterfaceC0720a
+            @Override // c.a.q0.s.l.a.InterfaceC0804a
             public void onSuccess(AccountData accountData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -135,17 +136,18 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
         };
+        this.hasSendResult = false;
     }
 
     public static /* synthetic */ CustomResponsedMessage a(AccountData accountData, CustomMessage customMessage) {
         c.g(accountData);
-        b.a.q0.s.a0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+        c.a.q0.s.a0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         return null;
     }
 
     private void addMinePageLoginStatistic() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS);
             statisticItem.param("obj_locate", "1");
             TiebaStatic.log(statisticItem);
@@ -155,7 +157,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     private boolean checkActivityIsValid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, context)) == null) {
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 return (Build.VERSION.SDK_INT < 17 || !activity.isDestroyed()) && !activity.isFinishing();
@@ -168,7 +170,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void closeLoginLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity) && (findCurrentActivity instanceof BaseFragmentActivity)) {
                 ((BaseFragmentActivity) findCurrentActivity).closeLoadingDialog();
@@ -180,7 +182,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public PassProviderAuto.PassResult convertLoginPhonePass(OneKeyLoginResult oneKeyLoginResult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, oneKeyLoginResult)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, oneKeyLoginResult)) == null) {
             PassProviderAuto.PassResult passResult = new PassProviderAuto.PassResult();
             passResult.setType(2L);
             JSONObject jSONObject = new JSONObject();
@@ -201,7 +203,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public PassProviderAuto.PassResult convertShareModelPass(ShareStorage.StorageModel storageModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, storageModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, storageModel)) == null) {
             PassProviderAuto.PassResult passResult = new PassProviderAuto.PassResult();
             passResult.setType(1L);
             passResult.setShareModelJSON(new Gson().toJson(storageModel));
@@ -215,7 +217,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
         InterceptResult invokeV;
         WeakReference<Activity> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             return (currentActivity != null || (weakReference = this.mWeakActivity) == null) ? currentActivity : weakReference.get();
         }
@@ -226,7 +228,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public void goLoginPageWhenFail() {
         WeakReference<Activity> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (weakReference = this.mWeakActivity) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || (weakReference = this.mWeakActivity) == null || weakReference.get() == null) {
             return;
         }
         Activity activity = this.mWeakActivity.get();
@@ -238,7 +240,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void handleThirdLoginResult(PassProviderAuto.Result<PassProviderAuto.PassResult> result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, this, result) == null) {
+        if (interceptable == null || interceptable.invokeL(65557, this, result) == null) {
             try {
                 PassProviderAuto.PassResult passResult = new PassProviderAuto.PassResult();
                 passResult.setType(0L);
@@ -251,7 +253,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     private void loginWithPhone(String str, PassProviderAuto.Result<PassProviderAuto.LoginResult> result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, this, str, result) == null) {
+        if (interceptable == null || interceptable.invokeLL(65558, this, str, result) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 this.mWeakActivity = new WeakReference<>(findCurrentActivity);
@@ -316,7 +318,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     private void loginWithShareModel(String str, PassProviderAuto.Result<PassProviderAuto.LoginResult> result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, this, str, result) == null) {
+        if (interceptable == null || interceptable.invokeLL(65559, this, str, result) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 this.mWeakActivity = new WeakReference<>(findCurrentActivity);
@@ -371,7 +373,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     private String machiningSignWithCuid(Activity activity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, this, activity, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, this, activity, str)) == null) {
             if (TextUtils.isEmpty(str) || str.length() <= 7) {
                 return null;
             }
@@ -385,7 +387,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     private void notifyMainTab() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007002, new d(findCurrentActivity)));
@@ -396,7 +398,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void onLoginFail(PassProviderAuto.Result<PassProviderAuto.LoginResult> result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, this, result) == null) {
+        if (interceptable == null || interceptable.invokeL(65562, this, result) == null) {
             PassProviderAuto.LoginResult loginResult = new PassProviderAuto.LoginResult();
             loginResult.setSuccess(Boolean.FALSE);
             result.success(loginResult);
@@ -406,14 +408,14 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void onLoginSuccess(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, this, accountData) == null) {
+        if (interceptable == null || interceptable.invokeL(65563, this, accountData) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 saveAccountInfo(accountData);
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
                 TbadkCoreApplication.getInst().onUserChanged(findCurrentActivity.getIntent());
-                if (b.a.q0.b.d.f()) {
-                    b.a.q0.a.d.y().r();
+                if (c.a.q0.b.d.f()) {
+                    c.a.q0.a.d.y().r();
                 }
                 if (this.mLoginResult != null) {
                     PassProviderAuto.LoginResult loginResult = new PassProviderAuto.LoginResult();
@@ -427,7 +429,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void passLoginSuccess(PassProviderAuto.Result<PassProviderAuto.LoginResult> result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, this, result) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, this, result) == null) {
             this.mLoginResult = result;
             addMinePageLoginStatistic();
             MessageManager.getInstance().dispatchResponsedMessage(new CancelDownloadMessage(Boolean.TRUE));
@@ -447,10 +449,10 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     private void saveAccountInfo(final AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, this, accountData) == null) {
+        if (interceptable == null || interceptable.invokeL(65565, this, accountData) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
-                CustomMessageTask customMessageTask = new CustomMessageTask(2921643, new CustomMessageTask.CustomRunnable() { // from class: b.a.r0.t0.a.g.i
+                CustomMessageTask customMessageTask = new CustomMessageTask(2921643, new CustomMessageTask.CustomRunnable() { // from class: c.a.r0.z0.a.g.i
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -463,9 +465,9 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 });
                 customMessageTask.setPriority(4);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921643), customMessageTask);
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(accountData, findCurrentActivity);
-                b.a.q0.m.a.f(TbadkCoreApplication.getInst());
+                c.a.q0.m.a.f(TbadkCoreApplication.getInst());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
             }
         }
@@ -474,14 +476,14 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoginLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity) && (findCurrentActivity instanceof BaseFragmentActivity)) {
                 BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) findCurrentActivity;
-                b.a.q0.s.g0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
+                c.a.q0.s.g0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
                 if (loadingDialog == null || !loadingDialog.c()) {
                     baseFragmentActivity.showLoadingDialog(findCurrentActivity.getString(R.string.sapi_logining));
-                    b.a.q0.s.g0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
+                    c.a.q0.s.g0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
                     if (loadingDialog2 != null) {
                         loadingDialog2.f(false);
                         loadingDialog2.g(false);
@@ -494,7 +496,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     /* JADX INFO: Access modifiers changed from: private */
     public void showToast(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65567, this, str) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 l.M(findCurrentActivity, str);
@@ -504,7 +506,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     private void thirdLogin(SocialType socialType, PassProviderAuto.Result<PassProviderAuto.LoginResult> result) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65566, this, socialType, result) == null) || socialType == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65568, this, socialType, result) == null) || socialType == null) {
             return;
         }
         Activity findCurrentActivity = findCurrentActivity();
@@ -600,58 +602,60 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 @Override // com.baidu.sapi2.callback.ShareModelCallback
                 public void onReceiveShareModels(List<ShareStorage.StorageModel> list) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
-                        if (!list.isEmpty()) {
-                            this.val$passResult.success(this.this$0.convertShareModelPass(list.get(0)));
-                        } else {
-                            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new OneKeyLoginCallback(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.2.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass2 this$1;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                }
-
-                                @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-                                public void available(OneKeyLoginResult oneKeyLoginResult) {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                                        if (oneKeyLoginResult.enable) {
-                                            AnonymousClass2 anonymousClass2 = this.this$1;
-                                            anonymousClass2.val$passResult.success(anonymousClass2.this$0.convertLoginPhonePass(oneKeyLoginResult));
-                                            return;
-                                        }
-                                        AnonymousClass2 anonymousClass22 = this.this$1;
-                                        anonymousClass22.this$0.handleThirdLoginResult(anonymousClass22.val$passResult);
-                                    }
-                                }
-
-                                @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-                                public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                                        AnonymousClass2 anonymousClass2 = this.this$1;
-                                        anonymousClass2.this$0.handleThirdLoginResult(anonymousClass2.val$passResult);
-                                    }
-                                }
-                            });
-                        }
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) || this.this$0.hasSendResult) {
+                        return;
                     }
+                    if (!list.isEmpty()) {
+                        this.val$passResult.success(this.this$0.convertShareModelPass(list.get(0)));
+                    } else {
+                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new OneKeyLoginCallback(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.2.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass2 this$1;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                            }
+
+                            @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+                            public void available(OneKeyLoginResult oneKeyLoginResult) {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                                    if (oneKeyLoginResult.enable) {
+                                        AnonymousClass2 anonymousClass2 = this.this$1;
+                                        anonymousClass2.val$passResult.success(anonymousClass2.this$0.convertLoginPhonePass(oneKeyLoginResult));
+                                        return;
+                                    }
+                                    AnonymousClass2 anonymousClass22 = this.this$1;
+                                    anonymousClass22.this$0.handleThirdLoginResult(anonymousClass22.val$passResult);
+                                }
+                            }
+
+                            @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+                            public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+                                    AnonymousClass2 anonymousClass2 = this.this$1;
+                                    anonymousClass2.this$0.handleThirdLoginResult(anonymousClass2.val$passResult);
+                                }
+                            }
+                        });
+                    }
+                    this.this$0.hasSendResult = true;
                 }
             });
         }
@@ -672,25 +676,25 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007f, code lost:
         if (r0 == 1) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x007e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0081, code lost:
         if (r0 == 2) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0080, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0083, code lost:
         if (r0 == 3) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0082, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0085, code lost:
         r7 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0084, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0087, code lost:
         r7 = com.baidu.sapi2.utils.enums.SocialType.YY;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0087, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x008a, code lost:
         r7 = com.baidu.sapi2.utils.enums.SocialType.SINA_WEIBO_SSO;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x008d, code lost:
         r7 = com.baidu.sapi2.utils.enums.SocialType.WEIXIN;
      */
     @Override // com.baidu.tieba.flutter.plugin.passprovider.PassProviderAuto.PassProvider

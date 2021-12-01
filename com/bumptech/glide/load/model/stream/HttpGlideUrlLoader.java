@@ -19,7 +19,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public static final Option<Integer> TIMEOUT;
@@ -27,7 +27,7 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     @Nullable
     public final ModelCache<GlideUrl, GlideUrl> modelCache;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

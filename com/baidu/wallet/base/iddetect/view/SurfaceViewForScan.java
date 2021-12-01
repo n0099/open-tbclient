@@ -14,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +32,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_NUM = 4;
@@ -66,12 +65,12 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public byte[] rotatedFrame;
     public SurfaceHolder surfaceHolder;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface Callback {
         void onFrame(byte[] bArr, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class LooperThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +106,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_INTERVAL = 200;
@@ -748,7 +747,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                     String str = TAG;
                     LogUtil.d(str, "getWidth()" + getWidth() + "getHeight()" + getHeight());
                     String str2 = TAG;
-                    LogUtil.d(str2, "left" + clamp + VerticalTranslateLayout.TOP + clamp2);
+                    LogUtil.d(str2, "left" + clamp + "top" + clamp2);
                     arrayList.add(new Camera.Area(new Rect(clamp, clamp2, this.focusAreaSize + clamp, this.focusAreaSize + clamp2), 1000));
                     this.camera.cancelAutoFocus();
                     parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);

@@ -14,13 +14,11 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.hx;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71504a;
+    public Context a;
 
     public ad(Context context) {
         Interceptable interceptable = $ic;
@@ -37,12 +35,12 @@ public class ad extends ai.a {
                 return;
             }
         }
-        this.f71504a = context;
+        this.a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
@@ -52,14 +50,14 @@ public class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f71504a);
+            com.xiaomi.push.service.aq a = com.xiaomi.push.service.aq.a(this.a);
             hx hxVar = new hx();
-            hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.f72029a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.f72030b));
+            hxVar.a(com.xiaomi.push.service.ar.a(a, hl.a));
+            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f63009b));
             ie ieVar = new ie("-1", false);
             ieVar.c(hp.p.f514a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.f71504a).a((an) ieVar, hf.f71998i, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.f62975i, (hs) null);
         }
     }
 }

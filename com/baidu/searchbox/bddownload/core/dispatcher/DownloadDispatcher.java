@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.StatusUtil;
@@ -31,7 +30,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadDispatcher";
@@ -101,7 +100,7 @@ public class DownloadDispatcher {
 
     private synchronized void enqueueLocked(DownloadTask[] downloadTaskArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, downloadTaskArr) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, downloadTaskArr) == null) {
             synchronized (this) {
                 long uptimeMillis = SystemClock.uptimeMillis();
                 Util.d(TAG, "start enqueueLocked for bunch task: " + downloadTaskArr.length);
@@ -141,7 +140,7 @@ public class DownloadDispatcher {
     */
     private synchronized void filterCanceledCalls(@NonNull IdentifiedTask identifiedTask, @NonNull List<DownloadCall> list, @NonNull List<DownloadCall> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, identifiedTask, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, this, identifiedTask, list, list2) == null) {
             synchronized (this) {
                 Iterator<DownloadCall> it = this.readyAsyncCalls.iterator();
                 while (it.hasNext()) {

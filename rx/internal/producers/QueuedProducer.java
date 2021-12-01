@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.e;
-import h.f;
-import h.j;
-import h.m.a;
-import h.o.d.j.f0;
-import h.o.d.j.y;
+import i.e;
+import i.f;
+import i.j;
+import i.m.a;
+import i.o.d.j.f0;
+import i.o.d.j.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -49,7 +49,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, f0.b() ? new y() : new h.o.d.i.e());
+        this(jVar, f0.b() ? new y() : new i.o.d.i.e());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,9 +100,9 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
-                long j = get();
-                long j2 = 0;
-                while (j != 0) {
+                long j2 = get();
+                long j3 = 0;
+                while (j2 != 0) {
                     boolean z = this.done;
                     Object poll = queue.poll();
                     if (checkTerminated(z, poll == null)) {
@@ -117,8 +117,8 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
                         } else {
                             jVar.onNext(poll);
                         }
-                        j--;
-                        j2++;
+                        j2--;
+                        j3++;
                     } catch (Throwable th) {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
@@ -127,8 +127,8 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
                         return;
                     }
                 }
-                if (j2 != 0 && get() != Long.MAX_VALUE) {
-                    addAndGet(-j2);
+                if (j3 != 0 && get() != Long.MAX_VALUE) {
+                    addAndGet(-j3);
                 }
                 if (this.wip.decrementAndGet() == 0) {
                     return;
@@ -154,7 +154,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
         return invokeL.booleanValue;
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -163,7 +163,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -173,7 +173,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || offer(t)) {
@@ -182,16 +182,16 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
         onError(new MissingBackpressureException());
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i2 > 0) {
-                h.o.a.a.b(this, j);
+                i.o.a.a.b(this, j2);
                 drain();
             }
         }

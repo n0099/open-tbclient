@@ -8,7 +8,6 @@ import android.os.Build;
 import android.util.Pair;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
@@ -36,7 +35,7 @@ public final class BitmapUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -120,7 +119,7 @@ public final class BitmapUtil {
     public static ImageMetaData decodeDimensionsAndColorSpace(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             Preconditions.checkNotNull(inputStream);
             ByteBuffer acquire = DECODE_BUFFERS.acquire();
             if (acquire == null) {
@@ -142,7 +141,7 @@ public final class BitmapUtil {
     public static int getPixelSizeForBitmapConfig(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, config)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, config)) == null) {
             int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {

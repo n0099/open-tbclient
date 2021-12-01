@@ -3,7 +3,6 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "PacDownload";
@@ -109,7 +108,7 @@ public class PacDownload implements IResourceTask, INetListener {
 
     public static void restoreLastDataFreeFLow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             try {
                 String str = CfgFileUtils.get(CfgFileUtils.KEY_PAC_FREE_FLOW_DATA, (String) null);
                 if (str == null) {
@@ -127,7 +126,7 @@ public class PacDownload implements IResourceTask, INetListener {
     public static void tryToDownLoadAsync(Context context) {
         String pacUrl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
                 Log.i(LOG_TAG, "tryToDownLoadAsync return");
             } else if (WebKitFactory.getCurEngine() != 1) {

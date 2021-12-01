@@ -3,7 +3,6 @@ package com.bytedance.pangle.util;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] EMPTY_CLASS_ARRAY;
@@ -163,7 +162,7 @@ public class MethodUtils {
     public static <T> T invokeConstructor(Class<T> cls, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, objArr)) == null) ? (T) invokeConstructor(cls, objArr, toClass(objArr)) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, objArr)) == null) ? (T) invokeConstructor(cls, objArr, toClass(objArr)) : (T) invokeLL.objValue;
     }
 
     public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) {
@@ -232,7 +231,7 @@ public class MethodUtils {
     public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, objArr, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, objArr, clsArr)) == null) {
             Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, clsArr);
             if (matchingAccessibleConstructor != null) {
                 return (T) matchingAccessibleConstructor.newInstance(objArr);

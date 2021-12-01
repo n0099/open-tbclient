@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class OkHttpVersionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public class OkHttpVersionUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String a2 = a();
-            if (!a2.isEmpty()) {
-                String[] split = a2.split("/");
+            String a = a();
+            if (!a.isEmpty()) {
+                String[] split = a.split("/");
                 if (split.length == 2) {
                     String[] split2 = split[1].split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     if (split2.length == 3) {
@@ -75,12 +75,12 @@ public class OkHttpVersionUtil {
                             }
                             return false;
                         } catch (NumberFormatException unused) {
-                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a2));
+                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
                         }
                     }
-                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a2));
+                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
                 }
-                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a2));
+                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
             }
             throw new NoSuchElementException();
         }

@@ -6,19 +6,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.loader.k;
 /* loaded from: classes2.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
+    public static void a(Context context, IKsAdSDK iKsAdSDK) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, iKsAdSDK) == null) {
             if (Math.abs(System.currentTimeMillis() - q.b(context, "lastUpdateTime")) < q.b(context, "interval") * 1000) {
                 return;
             }
-            k.a("https://open.e.kuaishou.com/rest/e/v3/open/sdk").a(new k.c<Boolean>() { // from class: com.kwad.sdk.api.loader.r.1
+            k.a("https://open.e.kuaishou.com/rest/e/v3/open/sdk2", iKsAdSDK).a(new k.c<Boolean>() { // from class: com.kwad.sdk.api.loader.r.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

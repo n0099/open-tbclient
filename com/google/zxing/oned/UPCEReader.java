@@ -12,7 +12,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class UPCEReader extends UPCEANReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;

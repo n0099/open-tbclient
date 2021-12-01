@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class a implements b {
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
                             }
-                            aVar.a().f62857a.add(e);
+                            aVar.a().a.add(e);
                             if (e instanceof EOFException) {
                             }
                             a(outputStream);
@@ -200,7 +200,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    aVar.a().f62857a.add(e);
+                                    aVar.a().a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -270,7 +270,7 @@ public class a implements b {
                         if (e instanceof SSLHandshakeException) {
                             aVar.a("isNeedToGetCert", true);
                         }
-                        aVar.a().f62857a.add(e);
+                        aVar.a().a.add(e);
                         i3 = e instanceof EOFException ? 200050 : 102102;
                         a(outputStream);
                         a(inputStream);
@@ -362,21 +362,21 @@ public class a implements b {
     }
 
     private void a(HttpURLConnection httpURLConnection, com.cmic.sso.sdk.a aVar, String str) {
-        String a2;
+        String a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65538, this, httpURLConnection, aVar, str) == null) || !(httpURLConnection instanceof HttpsURLConnection) || aVar.b("CLOSE_CERT_VERIFY", true) || str.contains("https://config2.cmpassport.com/client/uniConfig")) {
             return;
         }
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "开启证书校验");
         if (str.contains(TbConfig.TMP_LOG_DIR_NAME)) {
-            a2 = q.a(q.h());
+            a = q.a(q.h());
         } else {
-            a2 = q.a(q.f());
+            a = q.a(q.f());
         }
-        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "cer: " + a2);
-        if (TextUtils.isEmpty(a2)) {
+        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "cer: " + a);
+        if (TextUtils.isEmpty(a)) {
             return;
         }
-        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.b.e.a(a2).a().getSocketFactory());
+        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.b.e.a(a).a().getSocketFactory());
     }
 }

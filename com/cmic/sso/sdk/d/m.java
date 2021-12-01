@@ -4,10 +4,11 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kuaishou.weapon.un.j0;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,22 +23,22 @@ public class m {
                     String str = strArr[i2];
                     StringBuilder sb = new StringBuilder();
                     sb.append(str);
-                    sb.append("su");
+                    sb.append(j0.f56676b);
                     String sb2 = sb.toString();
                     if (new File(sb2).exists()) {
                         String[] strArr2 = new String[3];
                         strArr2[0] = "ls";
                         strArr2[1] = "-l";
                         strArr2[2] = sb2;
-                        String a2 = a(strArr2);
+                        String a = a(strArr2);
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append("isRooted=");
-                        sb3.append(a2);
+                        sb3.append(a);
                         c.b("cyb", sb3.toString());
-                        if (TextUtils.isEmpty(a2)) {
+                        if (TextUtils.isEmpty(a)) {
                             return false;
                         }
-                        return a2.indexOf("root") != a2.lastIndexOf("root");
+                        return a.indexOf("root") != a.lastIndexOf("root");
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

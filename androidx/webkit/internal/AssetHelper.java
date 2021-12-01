@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -96,7 +95,7 @@ public class AssetHelper {
     public static String guessMimeType(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
             return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
         }
@@ -107,7 +106,7 @@ public class AssetHelper {
     public static InputStream handleSvgzStream(@NonNull String str, @Nullable InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, inputStream)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, inputStream)) == null) {
             if (inputStream == null || !str.endsWith(".svgz")) {
                 return inputStream;
             }

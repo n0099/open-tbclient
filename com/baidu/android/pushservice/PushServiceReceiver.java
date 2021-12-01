@@ -15,7 +15,6 @@ import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,11 +87,11 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 }
                 if (intent != null) {
                     PendingIntent activity = PendingIntent.getActivity(context, 0, intent, 0);
-                    Notification a2 = d.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false);
-                    if (a2 != null) {
-                        a2.contentIntent = activity;
+                    Notification a = d.a(context, 0, 7, publicMsg.mTitle, publicMsg.mDescription, false);
+                    if (a != null) {
+                        a.contentIntent = activity;
                         long currentTimeMillis = System.currentTimeMillis();
-                        notificationManager.notify(currentTimeMillis + "", 0, a2);
+                        notificationManager.notify(currentTimeMillis + "", 0, a);
                     }
                 }
             } catch (Exception e3) {
@@ -121,7 +120,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static Intent b(Context context, PublicMsg publicMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, publicMsg)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, context, publicMsg)) != null) {
             return (Intent) invokeLL.objValue;
         }
         Intent intent = null;
@@ -144,7 +143,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     public static void b(Context context, String str, String str2, PublicMsg publicMsg, byte[] bArr, byte[] bArr2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, str2, publicMsg, bArr, bArr2, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, str2, publicMsg, bArr, bArr2, Integer.valueOf(i2)}) == null) {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             Intent intent = new Intent();
             intent.setClassName(str, str2);
@@ -166,10 +165,10 @@ public class PushServiceReceiver extends BroadcastReceiver {
             PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
             boolean h2 = m.h(context, publicMsg.mPkgName);
             int i3 = publicMsg.mNotificationBuilder;
-            Notification a2 = i3 == 0 ? d.a(context, i3, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h2) : d.a(context, i3, publicMsg.mTitle, publicMsg.mDescription, h2);
-            a2.contentIntent = service;
-            a2.deleteIntent = service2;
-            notificationManager.notify(i2, a2);
+            Notification a = i3 == 0 ? d.a(context, i3, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h2) : d.a(context, i3, publicMsg.mTitle, publicMsg.mDescription, h2);
+            a.contentIntent = service;
+            a.deleteIntent = service2;
+            notificationManager.notify(i2, a);
             m.a(publicMsg.mMsgId + " notified!", context.getApplicationContext());
             a(context, publicMsg, bArr, bArr2);
         }
@@ -186,15 +185,13 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "PushServiceReceiver - keep alive", (short) 99, context, intent) { // from class: com.baidu.android.pushservice.PushServiceReceiver.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f35773a;
+                        public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Intent f35774b;
+                        public final /* synthetic */ Intent f32137b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ PushServiceReceiver f35775c;
+                        public final /* synthetic */ PushServiceReceiver f32138c;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -215,18 +212,18 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                     return;
                                 }
                             }
-                            this.f35775c = this;
-                            this.f35773a = context;
-                            this.f35774b = intent;
+                            this.f32138c = this;
+                            this.a = context;
+                            this.f32137b = intent;
                         }
 
                         @Override // com.baidu.android.pushservice.h.c
                         public void a() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                if (m.p(this.f35773a) || !l.a(this.f35773a, null)) {
+                                if (m.p(this.a) || !l.a(this.a, null)) {
                                     try {
-                                        g.a(this.f35773a).a(this.f35774b);
+                                        g.a(this.a).a(this.f32137b);
                                     } catch (Exception unused) {
                                     }
                                 }
@@ -258,15 +255,13 @@ public class PushServiceReceiver extends BroadcastReceiver {
                         com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "RecordDuplicatedMsg", (short) 99, stringExtra5, context) { // from class: com.baidu.android.pushservice.PushServiceReceiver.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ String f35776a;
+                            public final /* synthetic */ String a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ Context f35777b;
+                            public final /* synthetic */ Context f32139b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ PushServiceReceiver f35778c;
+                            public final /* synthetic */ PushServiceReceiver f32140c;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -287,16 +282,16 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                         return;
                                     }
                                 }
-                                this.f35778c = this;
-                                this.f35776a = stringExtra5;
-                                this.f35777b = context;
+                                this.f32140c = this;
+                                this.a = stringExtra5;
+                                this.f32139b = context;
                             }
 
                             @Override // com.baidu.android.pushservice.h.c
                             public void a() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    m.a(this.f35776a + " is duplicated!", this.f35777b.getApplicationContext());
+                                    m.a(this.a + " is duplicated!", this.f32139b.getApplicationContext());
                                 }
                             }
                         });
@@ -304,34 +299,34 @@ public class PushServiceReceiver extends BroadcastReceiver {
                         com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "showPrivateNotification", (short) 99, context, stringExtra4, stringExtra5, byteArrayExtra2, byteArrayExtra, stringExtra3, stringExtra, stringExtra2, intExtra) { // from class: com.baidu.android.pushservice.PushServiceReceiver.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f35779a;
+                            public final /* synthetic */ Context a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f35780b;
+                            public final /* synthetic */ String f32141b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f35781c;
+                            public final /* synthetic */ String f32142c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ byte[] f35782d;
+                            public final /* synthetic */ byte[] f32143d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ byte[] f35783e;
+                            public final /* synthetic */ byte[] f32144e;
 
                             /* renamed from: f  reason: collision with root package name */
-                            public final /* synthetic */ String f35784f;
+                            public final /* synthetic */ String f32145f;
 
                             /* renamed from: g  reason: collision with root package name */
-                            public final /* synthetic */ String f35785g;
+                            public final /* synthetic */ String f32146g;
 
                             /* renamed from: h  reason: collision with root package name */
-                            public final /* synthetic */ String f35786h;
+                            public final /* synthetic */ String f32147h;
 
                             /* renamed from: i  reason: collision with root package name */
-                            public final /* synthetic */ int f35787i;
-                            public final /* synthetic */ PushServiceReceiver j;
+                            public final /* synthetic */ int f32148i;
+
+                            /* renamed from: j  reason: collision with root package name */
+                            public final /* synthetic */ PushServiceReceiver f32149j;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -352,31 +347,31 @@ public class PushServiceReceiver extends BroadcastReceiver {
                                         return;
                                     }
                                 }
-                                this.j = this;
-                                this.f35779a = context;
-                                this.f35780b = stringExtra4;
-                                this.f35781c = stringExtra5;
-                                this.f35782d = byteArrayExtra2;
-                                this.f35783e = byteArrayExtra;
-                                this.f35784f = stringExtra3;
-                                this.f35785g = stringExtra;
-                                this.f35786h = stringExtra2;
-                                this.f35787i = intExtra;
+                                this.f32149j = this;
+                                this.a = context;
+                                this.f32141b = stringExtra4;
+                                this.f32142c = stringExtra5;
+                                this.f32143d = byteArrayExtra2;
+                                this.f32144e = byteArrayExtra;
+                                this.f32145f = stringExtra3;
+                                this.f32146g = stringExtra;
+                                this.f32147h = stringExtra2;
+                                this.f32148i = intExtra;
                             }
 
                             @Override // com.baidu.android.pushservice.h.c
                             public void a() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    PublicMsg a2 = com.baidu.android.pushservice.message.a.e.a(this.f35779a, this.f35780b, this.f35781c, this.f35782d, this.f35783e);
-                                    if (a2 != null) {
-                                        if (com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(this.f35784f)) {
-                                            PushServiceReceiver.b(this.f35779a, this.f35785g, this.f35786h, a2, this.f35782d, this.f35783e, this.f35787i);
+                                    PublicMsg a = com.baidu.android.pushservice.message.a.e.a(this.a, this.f32141b, this.f32142c, this.f32143d, this.f32144e);
+                                    if (a != null) {
+                                        if (com.meizu.cloud.pushsdk.constants.PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equals(this.f32145f)) {
+                                            PushServiceReceiver.b(this.a, this.f32146g, this.f32147h, a, this.f32143d, this.f32144e, this.f32148i);
                                             return;
                                         }
                                         return;
                                     }
-                                    m.a(this.f35781c + " check fail!, type=" + this.f35784f, this.f35779a.getApplicationContext());
+                                    m.a(this.f32142c + " check fail!, type=" + this.f32145f, this.a.getApplicationContext());
                                 }
                             }
                         });

@@ -5,16 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppAliasManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f71226a;
+    public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f71227b;
+    public final /* synthetic */ LocalAliasTagsManager f62491b;
 
     public h(LocalAliasTagsManager localAliasTagsManager, String str) {
         Interceptable interceptable = $ic;
@@ -31,8 +29,8 @@ public final class h implements Runnable {
                 return;
             }
         }
-        this.f71227b = localAliasTagsManager;
-        this.f71226a = str;
+        this.f62491b = localAliasTagsManager;
+        this.a = str;
     }
 
     @Override // java.lang.Runnable
@@ -40,9 +38,9 @@ public final class h implements Runnable {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iSubscribeAppAliasManager = this.f71227b.mSubscribeAppAliasManager;
-            if (iSubscribeAppAliasManager.delAlias(this.f71226a)) {
-                p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f71226a);
+            iSubscribeAppAliasManager = this.f62491b.mSubscribeAppAliasManager;
+            if (iSubscribeAppAliasManager.delAlias(this.a)) {
+                p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
             }
         }
     }

@@ -24,7 +24,7 @@ import com.baidu.wallet.utils.NetUtils;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -168,11 +168,11 @@ public class e extends com.baidu.wallet.lightapp.ability.b {
                     e3.printStackTrace();
                 }
             }
-            Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(context, Base64Utils.encodeToString(jSONObject2.toString().getBytes()));
+            Bundle a = com.baidu.wallet.lightapp.ability.b.a.a().a(context, Base64Utils.encodeToString(jSONObject2.toString().getBytes()));
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("data", (Object) null);
-            jSONObject3.put("aesdata", a2.getString("aesContent"));
-            jSONObject3.put("aeskey", a2.getString("aesKey"));
+            jSONObject3.put("aesdata", a.getString("aesContent"));
+            jSONObject3.put("aeskey", a.getString("aesKey"));
             jSONObject3.put("errCode", 0);
             jSONObject3.put("des", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             return a(0, jSONObject3);

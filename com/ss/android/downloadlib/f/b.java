@@ -29,11 +29,11 @@ public class b implements j {
 
     @Override // com.ss.android.socialbase.appdownloader.c.j
     public void a(DownloadInfo downloadInfo, i iVar) {
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, downloadInfo, iVar) == null) {
-            if (downloadInfo != null && (a2 = f.a().a(downloadInfo)) != null) {
-                downloadInfo.setLinkMode(a2.O());
+            if (downloadInfo != null && (a = f.a().a(downloadInfo)) != null) {
+                downloadInfo.setLinkMode(a.O());
             }
             if (iVar != null) {
                 iVar.a();

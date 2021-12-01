@@ -12,8 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.c0.a.b;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.d0.a.b;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
@@ -25,18 +24,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ViewUtility implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f43652a;
+        public final /* synthetic */ float a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -53,7 +50,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f43652a = f2;
+            this.a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -69,7 +66,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f43652a);
+                    view.setAlpha(this.a);
                     return false;
                 } else {
                     return false;
@@ -223,7 +220,7 @@ public class ViewUtility implements NoProguard {
 
     public static void enlargedOtherView(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, view, i2) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -234,7 +231,7 @@ public class ViewUtility implements NoProguard {
 
     public static void enlargedTextView(TextView textView, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, textView, i2) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, textView, i2) == null) || textView == null) {
             return;
         }
         textView.setTextSize(0, (textView.getTextSize() * i2) / 100.0f);

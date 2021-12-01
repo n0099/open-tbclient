@@ -5,8 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.down.common.DownDetail;
-import com.baidu.mobads.container.info.XDeviceInfo;
-import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +17,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;
@@ -56,7 +54,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,8 +81,8 @@ public class Download {
                 }
             }
             WAITING = new DownloadState("WAITING", 0);
-            DOWNLOADING = new DownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOADING, 1);
-            PAUSE = new DownloadState(XDeviceInfo.ABILITY_PAUSE, 2);
+            DOWNLOADING = new DownloadState("DOWNLOADING", 1);
+            PAUSE = new DownloadState("PAUSE", 2);
             FAILED = new DownloadState("FAILED", 3);
             CANCEL = new DownloadState("CANCEL", 4);
             FINISH = new DownloadState("FINISH", 5);
@@ -209,23 +207,23 @@ public class Download {
         this.mNotificationNeeded = false;
     }
 
-    private void addControlFlag(long j) {
+    private void addControlFlag(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
-            this.mControlFlag = Long.valueOf(j | this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+            this.mControlFlag = Long.valueOf(j2 | this.mControlFlag.longValue());
         }
     }
 
-    private boolean hasControlFlag(long j) {
+    private boolean hasControlFlag(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) ? (j & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) ? (j2 & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
     }
 
-    private void removeControlFlag(long j) {
+    private void removeControlFlag(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+            this.mControlFlag = Long.valueOf((~j2) & this.mControlFlag.longValue());
         }
     }
 

@@ -6,7 +6,6 @@ import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -163,7 +162,7 @@ public class ResourcesFlusher {
     @RequiresApi(16)
     public static void flushThemedResourcesCache(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
             if (!sThemedResourceCacheClazzFetched) {
                 try {
                     sThemedResourceCacheClazz = Class.forName("android.content.res.ThemedResourceCache");

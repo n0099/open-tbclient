@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.pb.godreply;
 
-import b.a.e.a.f;
-import b.a.e.m.e.n;
-import b.a.r0.k2.r.w;
-import b.a.r0.k2.u.f.d0;
+import c.a.d.a.f;
+import c.a.d.m.e.n;
+import c.a.r0.q2.r.w;
+import c.a.r0.q2.u.f.d0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -16,34 +16,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MoreGodReplyModel extends BdBaseModel<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PbModel f53082e;
+    public PbModel f47491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53083f;
+    public boolean f47492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53084g;
+    public int f47493g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53085h;
+    public int f47494h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d0.b f53086i;
-    public final d0.b j;
+    public d0.b f47495i;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public final d0.b f47496j;
+
+    /* loaded from: classes10.dex */
     public class a implements d0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreGodReplyModel f53087a;
+        public final /* synthetic */ MoreGodReplyModel a;
 
         public a(MoreGodReplyModel moreGodReplyModel) {
             Interceptable interceptable = $ic;
@@ -60,28 +60,28 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                     return;
                 }
             }
-            this.f53087a = moreGodReplyModel;
+            this.a = moreGodReplyModel;
         }
 
-        @Override // b.a.r0.k2.u.f.d0.b
+        @Override // c.a.r0.q2.u.f.d0.b
         public void a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
-                this.f53087a.f53083f = false;
-                if (this.f53087a.f53086i != null) {
-                    this.f53087a.f53086i.a(i2, str, str2);
+                this.a.f47492f = false;
+                if (this.a.f47495i != null) {
+                    this.a.f47495i.a(i2, str, str2);
                 }
             }
         }
 
-        @Override // b.a.r0.k2.u.f.d0.b
+        @Override // c.a.r0.q2.u.f.d0.b
         public void onSuccess(List<PostData> list) {
             w T;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.f53087a.f53083f = false;
-                if (this.f53087a.f53082e != null && this.f53087a.f53082e.P0() != null && (T = this.f53087a.f53082e.P0().T()) != null) {
-                    List<PostData> list2 = T.f20357a;
+                this.a.f47492f = false;
+                if (this.a.f47491e != null && this.a.f47491e.R0() != null && (T = this.a.f47491e.R0().T()) != null) {
+                    List<PostData> list2 = T.a;
                     int size = list2.size();
                     if (!ListUtils.isEmpty(list)) {
                         for (PostData postData : list) {
@@ -90,14 +90,14 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                             }
                         }
                     }
-                    this.f53087a.f53082e.V1(this.f53087a.f53082e.P0(), size);
+                    this.a.f47491e.Z1(this.a.f47491e.R0(), size);
                 }
-                if (this.f53087a.f53084g > 0) {
-                    MoreGodReplyModel moreGodReplyModel = this.f53087a;
-                    moreGodReplyModel.f53085h = moreGodReplyModel.f53084g;
+                if (this.a.f47493g > 0) {
+                    MoreGodReplyModel moreGodReplyModel = this.a;
+                    moreGodReplyModel.f47494h = moreGodReplyModel.f47493g;
                 }
-                if (this.f53087a.f53086i != null) {
-                    this.f53087a.f53086i.onSuccess(list);
+                if (this.a.f47495i != null) {
+                    this.a.f47495i.onSuccess(list);
                 }
             }
         }
@@ -121,17 +121,17 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                 return;
             }
         }
-        this.f53083f = false;
-        this.f53084g = -1;
-        this.f53085h = -1;
-        this.j = new a(this);
+        this.f47492f = false;
+        this.f47493g = -1;
+        this.f47494h = -1;
+        this.f47496j = new a(this);
         if (pbModel == null) {
             return;
         }
-        this.f53082e = pbModel;
-        d0 L0 = pbModel.L0();
-        if (L0 != null) {
-            L0.f(this.j);
+        this.f47491e = pbModel;
+        d0 N0 = pbModel.N0();
+        if (N0 != null) {
+            N0.f(this.f47496j);
         }
     }
 
@@ -161,16 +161,16 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.f53082e;
+            PbModel pbModel = this.f47491e;
             ArrayList arrayList = null;
             if (pbModel == null) {
                 return null;
             }
-            b.a.r0.k2.r.f P0 = pbModel.P0();
-            if (P0 != null && P0.T() != null && !ListUtils.isEmpty(P0.T().f20357a)) {
-                w T = P0.T();
+            c.a.r0.q2.r.f R0 = pbModel.R0();
+            if (R0 != null && R0.T() != null && !ListUtils.isEmpty(R0.T().a)) {
+                w T = R0.T();
                 arrayList = new ArrayList();
-                List<PostData> list = T.f20357a;
+                List<PostData> list = T.a;
                 int size = list.size();
                 int i2 = 0;
                 while (i2 < size) {
@@ -190,23 +190,23 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public PbModel E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53082e : (PbModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47491e : (PbModel) invokeV.objValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
-        b.a.r0.k2.r.f P0;
+        c.a.r0.q2.r.f R0;
         w T;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PbModel pbModel = this.f53082e;
-            if (pbModel == null || (P0 = pbModel.P0()) == null || (T = P0.T()) == null) {
+            PbModel pbModel = this.f47491e;
+            if (pbModel == null || (R0 = pbModel.R0()) == null || (T = R0.T()) == null) {
                 return false;
             }
-            if (this.f53085h < 0) {
-                this.f53085h = T.a();
+            if (this.f47494h < 0) {
+                this.f47494h = T.a();
             }
-            return T.f20358b.size() > this.f53085h && T.f20357a.size() < 100;
+            return T.f21582b.size() > this.f47494h && T.a.size() < 100;
         }
         return invokeV.booleanValue;
     }
@@ -214,7 +214,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53083f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47492f : invokeV.booleanValue;
     }
 
     public boolean H() {
@@ -222,23 +222,23 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         w T;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b.a.r0.k2.r.f P0 = this.f53082e.P0();
-            if (P0 == null || (T = P0.T()) == null) {
+            c.a.r0.q2.r.f R0 = this.f47491e.R0();
+            if (R0 == null || (T = R0.T()) == null) {
                 return false;
             }
-            if (this.f53085h < 0) {
-                this.f53085h = T.a();
+            if (this.f47494h < 0) {
+                this.f47494h = T.a();
             }
-            List<Long> list = T.f20358b;
+            List<Long> list = T.f21582b;
             int size = list.size();
-            int i2 = this.f53085h;
-            if (size <= i2 || T.f20357a.size() >= 100) {
+            int i2 = this.f47494h;
+            if (size <= i2 || T.a.size() >= 100) {
                 return false;
             }
             int min = Math.min(100, Math.min(i2 + 20, size));
-            this.f53084g = min;
-            this.f53083f = true;
-            this.f53082e.L0().c(list.subList(i2, min));
+            this.f47493g = min;
+            this.f47492f = true;
+            this.f47491e.N0().c(list.subList(i2, min));
             String str = "load from " + i2 + " to " + min;
             return true;
         }
@@ -248,7 +248,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public void I(d0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f53086i = bVar;
+            this.f47495i = bVar;
         }
     }
 
@@ -257,7 +257,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f53083f = false;
+            this.f47492f = false;
             return false;
         }
         return invokeV.booleanValue;

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n extends ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class n extends ag {
                 return;
             }
         }
-        this.f40943c = 6;
-        this.f40942b = "tile";
-        this.f40944d = 500;
-        this.f40931g = 89076;
+        this.f36430c = 6;
+        this.f36429b = "tile";
+        this.f36431d = 500;
+        this.f36418g = 89076;
     }
 }

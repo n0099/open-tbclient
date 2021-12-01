@@ -1,6 +1,5 @@
 package com.sdk.base.framework.e;
 
-import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +12,14 @@ import java.io.PushbackInputStream;
 /* loaded from: classes2.dex */
 public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f69141a;
+    public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f69142b;
+    public static final byte[] f61003b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f69143c;
+    public byte[] f61004c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,13 +34,13 @@ public final class a extends d {
                 return;
             }
         }
-        f69141a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f69142b = new byte[256];
+        a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f61003b = new byte[256];
         for (int i2 = 0; i2 < 255; i2++) {
-            f69142b[i2] = -1;
+            f61003b[i2] = -1;
         }
         for (int i3 = 0; i3 < 64; i3++) {
-            f69142b[f69141a[i3]] = (byte) i3;
+            f61003b[a[i3]] = (byte) i3;
         }
     }
 
@@ -60,7 +57,7 @@ public final class a extends d {
                 return;
             }
         }
-        this.f69143c = new byte[4];
+        this.f61004c = new byte[4];
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0085  */
@@ -89,7 +86,7 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f69143c;
+                byte[] bArr = this.f61004c;
                 bArr[0] = (byte) read;
                 int i4 = i2 - 1;
                 int i5 = 0;
@@ -108,10 +105,10 @@ public final class a extends d {
                 if (i4 == -1) {
                     throw new c();
                 }
-                if (i2 > 3 && this.f69143c[3] == 61) {
+                if (i2 > 3 && this.f61004c[3] == 61) {
                     i2 = 3;
                 }
-                if (i2 > 2 && this.f69143c[2] == 61) {
+                if (i2 > 2 && this.f61004c[2] == 61) {
                     i2 = 2;
                 }
                 if (i2 != 2) {
@@ -121,31 +118,31 @@ public final class a extends d {
                             b5 = -1;
                             b3 = -1;
                             if (i2 != 2) {
-                                i3 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
+                                i3 = ((b3 >>> 4) & 3) | ((b6 << 2) & 252);
                             } else if (i2 != 3) {
                                 if (i2 != 4) {
                                     return;
                                 }
-                                outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
+                                outputStream.write((byte) (((b6 << 2) & 252) | ((b3 >>> 4) & 3)));
                                 outputStream.write((byte) (((b3 << 4) & 240) | ((b4 >>> 2) & 15)));
                                 outputStream.write((byte) (((b4 << 6) & 192) | (b5 & 63)));
                                 return;
                             } else {
-                                outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | (3 & (b3 >>> 4))));
+                                outputStream.write((byte) (((b6 << 2) & 252) | (3 & (b3 >>> 4))));
                                 i3 = ((b3 << 4) & 240) | ((b4 >>> 2) & 15);
                             }
                             outputStream.write((byte) i3);
                             return;
                         }
-                        b6 = f69142b[this.f69143c[3] & 255];
+                        b6 = f61003b[this.f61004c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f69142b[this.f69143c[2] & 255];
+                    b6 = f61003b[this.f61004c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f69142b;
-                byte[] bArr3 = this.f69143c;
+                byte[] bArr2 = f61003b;
+                byte[] bArr3 = this.f61004c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;

@@ -9,7 +9,6 @@ import com.alibaba.fastjson.util.RyuFloat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.utility.FileUtil;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import kotlin.text.Typography;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SerializeWriter extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public static int BUFFER_THRESHOLD;
@@ -245,7 +245,7 @@ public final class SerializeWriter extends Writer {
                         System.arraycopy(cArr4, i3, cArr4, 1, i11);
                         char[] cArr5 = this.buf;
                         cArr5[i9] = ExtendedMessageFormat.QUOTE;
-                        cArr5[i12] = '\\';
+                        cArr5[i12] = FileUtil.WINDOWS_SEPARATOR;
                         int i13 = i12 + 1;
                         cArr5[i13] = IOUtils.replaceChars[c2];
                         i10 += 2;
@@ -262,7 +262,7 @@ public final class SerializeWriter extends Writer {
                         int i14 = i11 + 1;
                         System.arraycopy(cArr6, i14, cArr6, i11 + 2, i10 - i11);
                         char[] cArr7 = this.buf;
-                        cArr7[i11] = '\\';
+                        cArr7[i11] = FileUtil.WINDOWS_SEPARATOR;
                         cArr7[i14] = IOUtils.replaceChars[c2];
                         i10++;
                         i11 = i14;
@@ -291,7 +291,7 @@ public final class SerializeWriter extends Writer {
     }
 
     public void computeFeatures() {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.quoteFieldNames = (this.features & SerializerFeature.QuoteFieldNames.mask) != 0;
@@ -308,11 +308,11 @@ public final class SerializeWriter extends Writer {
             boolean z = (this.features & SerializerFeature.BrowserSecure.mask) != 0;
             this.browserSecure = z;
             if (z) {
-                j = 5764610843043954687L;
+                j2 = 5764610843043954687L;
             } else {
-                j = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
+                j2 = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
             }
-            this.sepcialBits = j;
+            this.sepcialBits = j2;
         }
     }
 
@@ -535,7 +535,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f34958h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f31351h);
                         write(61);
                     }
                     write(c2);
@@ -570,8 +570,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f34958h;
-                this.buf[i5 - 2] = a.f34958h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f31351h;
+                this.buf[i5 - 2] = a.f31351h;
             }
             this.buf[i5 - 1] = c2;
         }
@@ -814,7 +814,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr3 = this.buf;
                         System.arraycopy(cArr3, i19, cArr3, i16 + 6, (i12 - i16) - 1);
                         char[] cArr4 = this.buf;
-                        cArr4[i16] = '\\';
+                        cArr4[i16] = FileUtil.WINDOWS_SEPARATOR;
                         cArr4[i19] = 'u';
                         int i20 = i19 + 1;
                         cArr4[i20] = '2';
@@ -828,7 +828,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr5 = this.buf;
                         System.arraycopy(cArr5, i23, cArr5, i16 + 6, (i12 - i16) - 1);
                         char[] cArr6 = this.buf;
-                        cArr6[i16] = '\\';
+                        cArr6[i16] = FileUtil.WINDOWS_SEPARATOR;
                         cArr6[i23] = 'u';
                         int i24 = i23 + 1;
                         cArr6[i24] = '2';
@@ -844,7 +844,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr7 = this.buf;
                             System.arraycopy(cArr7, i27, cArr7, i16 + 6, (i12 - i16) - 1);
                             char[] cArr8 = this.buf;
-                            cArr8[i16] = '\\';
+                            cArr8[i16] = FileUtil.WINDOWS_SEPARATOR;
                             int i28 = i27 + 1;
                             cArr8[i27] = 'u';
                             int i29 = i28 + 1;
@@ -859,7 +859,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr10 = this.buf;
                             System.arraycopy(cArr10, i31, cArr10, i16 + 2, (i12 - i16) - 1);
                             char[] cArr11 = this.buf;
-                            cArr11[i16] = '\\';
+                            cArr11[i16] = FileUtil.WINDOWS_SEPARATOR;
                             cArr11[i31] = IOUtils.replaceChars[c3];
                         }
                     } else {
@@ -867,7 +867,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr12 = this.buf;
                         System.arraycopy(cArr12, i32, cArr12, i16 + 6, (i12 - i16) - 1);
                         char[] cArr13 = this.buf;
-                        cArr13[i16] = '\\';
+                        cArr13[i16] = FileUtil.WINDOWS_SEPARATOR;
                         int i33 = i32 + 1;
                         cArr13[i32] = 'u';
                         int i34 = i33 + 1;
@@ -888,7 +888,7 @@ public final class SerializeWriter extends Writer {
                             }
                             char[] cArr15 = this.buf;
                             int i37 = i15 + 1;
-                            cArr15[i15] = '\\';
+                            cArr15[i15] = FileUtil.WINDOWS_SEPARATOR;
                             int i38 = i37 + 1;
                             cArr15[i37] = 'u';
                             int i39 = i38 + 1;
@@ -905,7 +905,7 @@ public final class SerializeWriter extends Writer {
                         if ((charAt < bArr3.length && bArr3[charAt] != 0) || (charAt == '/' && isEnabled(SerializerFeature.WriteSlashAsSpecial))) {
                             char[] cArr17 = this.buf;
                             int i42 = i15 + 1;
-                            cArr17[i15] = '\\';
+                            cArr17[i15] = FileUtil.WINDOWS_SEPARATOR;
                             if (IOUtils.specicalFlags_doubleQuotes[charAt] == 4) {
                                 int i43 = i42 + 1;
                                 cArr17[i42] = 'u';
@@ -928,7 +928,7 @@ public final class SerializeWriter extends Writer {
                         } else {
                             char[] cArr19 = this.buf;
                             int i47 = i15 + 1;
-                            cArr19[i15] = '\\';
+                            cArr19[i15] = FileUtil.WINDOWS_SEPARATOR;
                             int i48 = i47 + 1;
                             cArr19[i47] = 'u';
                             int i49 = i48 + 1;
@@ -1039,11 +1039,11 @@ public final class SerializeWriter extends Writer {
         }
     }
 
-    public void writeLong(long j) {
+    public void writeLong(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
-            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j > 9007199254740991L || j < -9007199254740991L);
-            if (j == Long.MIN_VALUE) {
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
+            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j2 > 9007199254740991L || j2 < -9007199254740991L);
+            if (j2 == Long.MIN_VALUE) {
                 if (z) {
                     write("\"-9223372036854775808\"");
                     return;
@@ -1052,7 +1052,7 @@ public final class SerializeWriter extends Writer {
                     return;
                 }
             }
-            int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
+            int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
             int i2 = this.count + stringSize;
             if (z) {
                 i2 += 2;
@@ -1062,7 +1062,7 @@ public final class SerializeWriter extends Writer {
                     expandCapacity(i2);
                 } else {
                     char[] cArr = new char[stringSize];
-                    IOUtils.getChars(j, stringSize, cArr);
+                    IOUtils.getChars(j2, stringSize, cArr);
                     if (z) {
                         write(34);
                         write(cArr, 0, stringSize);
@@ -1077,19 +1077,19 @@ public final class SerializeWriter extends Writer {
                 char[] cArr2 = this.buf;
                 cArr2[this.count] = '\"';
                 int i3 = i2 - 1;
-                IOUtils.getChars(j, i3, cArr2);
+                IOUtils.getChars(j2, i3, cArr2);
                 this.buf[i3] = '\"';
             } else {
-                IOUtils.getChars(j, i2, this.buf);
+                IOUtils.getChars(j2, i2, this.buf);
             }
             this.count = i2;
         }
     }
 
-    public void writeLongAndChar(long j, char c2) throws IOException {
+    public void writeLongAndChar(long j2, char c2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j), Character.valueOf(c2)}) == null) {
-            writeLong(j);
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j2), Character.valueOf(c2)}) == null) {
+            writeLong(j2);
             write(c2);
         }
     }
@@ -1233,21 +1233,21 @@ public final class SerializeWriter extends Writer {
                         int i10 = i8 + 1;
                         System.arraycopy(cArr3, i10, cArr3, i8 + 2, (i7 - i8) - 1);
                         char[] cArr4 = this.buf;
-                        cArr4[i8] = '\\';
+                        cArr4[i8] = FileUtil.WINDOWS_SEPARATOR;
                         cArr4[i10] = IOUtils.replaceChars[c5];
                     } else if (c5 == '\"' || c5 == '/' || c5 == '\\') {
                         char[] cArr5 = this.buf;
                         int i11 = i8 + 1;
                         System.arraycopy(cArr5, i11, cArr5, i8 + 2, (i7 - i8) - 1);
                         char[] cArr6 = this.buf;
-                        cArr6[i8] = '\\';
+                        cArr6[i8] = FileUtil.WINDOWS_SEPARATOR;
                         cArr6[i11] = c5;
                     } else {
                         if (c5 < ' ') {
                             int i12 = i8 + 1;
                             System.arraycopy(cArr2, i12, cArr2, i8 + 6, (i7 - i8) - 1);
                             char[] cArr7 = this.buf;
-                            cArr7[i8] = '\\';
+                            cArr7[i8] = FileUtil.WINDOWS_SEPARATOR;
                             cArr7[i12] = 'u';
                             cArr7[i8 + 2] = '0';
                             cArr7[i8 + 3] = '0';
@@ -1259,7 +1259,7 @@ public final class SerializeWriter extends Writer {
                             int i14 = i8 + 1;
                             System.arraycopy(cArr2, i14, cArr2, i8 + 6, (i7 - i8) - 1);
                             char[] cArr9 = this.buf;
-                            cArr9[i8] = '\\';
+                            cArr9[i8] = FileUtil.WINDOWS_SEPARATOR;
                             cArr9[i14] = 'u';
                             char[] cArr10 = IOUtils.DIGITS;
                             cArr9[i8 + 2] = cArr10[(c5 >>> '\f') & 15];
@@ -1335,7 +1335,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr12 = this.buf;
                         System.arraycopy(cArr12, i21, cArr12, i18 + 6, (i7 - i18) - 1);
                         char[] cArr13 = this.buf;
-                        cArr13[i18] = '\\';
+                        cArr13[i18] = FileUtil.WINDOWS_SEPARATOR;
                         cArr13[i21] = 'u';
                         int i22 = i21 + 1;
                         cArr13[i22] = '2';
@@ -1349,7 +1349,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr14 = this.buf;
                         System.arraycopy(cArr14, i25, cArr14, i18 + 6, (i7 - i18) - 1);
                         char[] cArr15 = this.buf;
-                        cArr15[i18] = '\\';
+                        cArr15[i18] = FileUtil.WINDOWS_SEPARATOR;
                         cArr15[i25] = 'u';
                         int i26 = i25 + 1;
                         cArr15[i26] = '2';
@@ -1365,7 +1365,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr16 = this.buf;
                             System.arraycopy(cArr16, i29, cArr16, i18 + 6, (i7 - i18) - 1);
                             char[] cArr17 = this.buf;
-                            cArr17[i18] = '\\';
+                            cArr17[i18] = FileUtil.WINDOWS_SEPARATOR;
                             int i30 = i29 + 1;
                             cArr17[i29] = 'u';
                             int i31 = i30 + 1;
@@ -1380,7 +1380,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr19 = this.buf;
                             System.arraycopy(cArr19, i33, cArr19, i18 + 2, (i7 - i18) - 1);
                             char[] cArr20 = this.buf;
-                            cArr20[i18] = '\\';
+                            cArr20[i18] = FileUtil.WINDOWS_SEPARATOR;
                             cArr20[i33] = IOUtils.replaceChars[c6];
                         }
                     } else {
@@ -1388,7 +1388,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr21 = this.buf;
                         System.arraycopy(cArr21, i34, cArr21, i18 + 6, (i7 - i18) - 1);
                         char[] cArr22 = this.buf;
-                        cArr22[i18] = '\\';
+                        cArr22[i18] = FileUtil.WINDOWS_SEPARATOR;
                         cArr22[i34] = 'u';
                         int i35 = i34 + 1;
                         char[] cArr23 = IOUtils.DIGITS;
@@ -1409,7 +1409,7 @@ public final class SerializeWriter extends Writer {
                             }
                             char[] cArr24 = this.buf;
                             int i39 = i16 + 1;
-                            cArr24[i16] = '\\';
+                            cArr24[i16] = FileUtil.WINDOWS_SEPARATOR;
                             int i40 = i39 + 1;
                             cArr24[i39] = 'u';
                             int i41 = i40 + 1;
@@ -1430,7 +1430,7 @@ public final class SerializeWriter extends Writer {
                             } else {
                                 char[] cArr26 = this.buf;
                                 int i44 = i16 + 1;
-                                cArr26[i16] = '\\';
+                                cArr26[i16] = FileUtil.WINDOWS_SEPARATOR;
                                 int i45 = i44 + 1;
                                 cArr26[i44] = 'u';
                                 int i46 = i45 + 1;
@@ -1446,7 +1446,7 @@ public final class SerializeWriter extends Writer {
                         }
                         char[] cArr28 = this.buf;
                         int i49 = i16 + 1;
-                        cArr28[i16] = '\\';
+                        cArr28[i16] = FileUtil.WINDOWS_SEPARATOR;
                         if (IOUtils.specicalFlags_doubleQuotes[charAt2] == 4) {
                             int i50 = i49 + 1;
                             cArr28[i49] = 'u';
@@ -1537,14 +1537,14 @@ public final class SerializeWriter extends Writer {
                 int i11 = i8 + 1;
                 System.arraycopy(cArr2, i11, cArr2, i8 + 2, (i7 - i8) - 1);
                 char[] cArr3 = this.buf;
-                cArr3[i8] = '\\';
+                cArr3[i8] = FileUtil.WINDOWS_SEPARATOR;
                 cArr3[i11] = IOUtils.replaceChars[c2];
             } else if (i2 > 1) {
                 char[] cArr4 = this.buf;
                 int i12 = i8 + 1;
                 System.arraycopy(cArr4, i12, cArr4, i8 + 2, (i7 - i8) - 1);
                 char[] cArr5 = this.buf;
-                cArr5[i8] = '\\';
+                cArr5[i8] = FileUtil.WINDOWS_SEPARATOR;
                 cArr5[i12] = IOUtils.replaceChars[c2];
                 int i13 = i7 + 1;
                 for (int i14 = i12 - 2; i14 >= i6; i14--) {
@@ -1554,7 +1554,7 @@ public final class SerializeWriter extends Writer {
                         int i15 = i14 + 1;
                         System.arraycopy(cArr6, i15, cArr6, i14 + 2, (i13 - i14) - 1);
                         char[] cArr7 = this.buf;
-                        cArr7[i14] = '\\';
+                        cArr7[i14] = FileUtil.WINDOWS_SEPARATOR;
                         cArr7[i15] = IOUtils.replaceChars[c4];
                         i13++;
                     }
@@ -1718,14 +1718,14 @@ public final class SerializeWriter extends Writer {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {writer, serializerFeatureArr};
-            interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Writer) objArr2[0], ((Integer) objArr2[1]).intValue(), (SerializerFeature[]) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }
@@ -1759,12 +1759,12 @@ public final class SerializeWriter extends Writer {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {writer, Integer.valueOf(i2), serializerFeatureArr};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -2188,14 +2188,14 @@ public final class SerializeWriter extends Writer {
                 int i11 = i8 + 1;
                 System.arraycopy(cArr3, i11, cArr3, i8 + 2, (i7 - i8) - 1);
                 char[] cArr4 = this.buf;
-                cArr4[i8] = '\\';
+                cArr4[i8] = FileUtil.WINDOWS_SEPARATOR;
                 cArr4[i11] = IOUtils.replaceChars[c3];
             } else if (i2 > 1) {
                 char[] cArr5 = this.buf;
                 int i12 = i8 + 1;
                 System.arraycopy(cArr5, i12, cArr5, i8 + 2, (i7 - i8) - 1);
                 char[] cArr6 = this.buf;
-                cArr6[i8] = '\\';
+                cArr6[i8] = FileUtil.WINDOWS_SEPARATOR;
                 cArr6[i12] = IOUtils.replaceChars[c3];
                 int i13 = i7 + 1;
                 for (int i14 = i12 - 2; i14 >= i6; i14--) {
@@ -2205,7 +2205,7 @@ public final class SerializeWriter extends Writer {
                         int i15 = i14 + 1;
                         System.arraycopy(cArr7, i15, cArr7, i14 + 2, (i13 - i14) - 1);
                         char[] cArr8 = this.buf;
-                        cArr8[i14] = '\\';
+                        cArr8[i14] = FileUtil.WINDOWS_SEPARATOR;
                         cArr8[i15] = IOUtils.replaceChars[c5];
                         i13++;
                     }
@@ -2215,18 +2215,18 @@ public final class SerializeWriter extends Writer {
         }
     }
 
-    public void writeFieldValue(char c2, String str, long j) {
+    public void writeFieldValue(char c2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j)}) == null) {
-            if (j != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
-                int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j2)}) == null) {
+            if (j2 != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
+                int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
                 int length = str.length();
                 int i2 = this.count + length + 4 + stringSize;
                 if (i2 > this.buf.length) {
                     if (this.writer != null) {
                         write(c2);
                         writeFieldName(str);
-                        writeLong(j);
+                        writeLong(j2);
                         return;
                     }
                     expandCapacity(i2);
@@ -2241,12 +2241,12 @@ public final class SerializeWriter extends Writer {
                 char[] cArr2 = this.buf;
                 cArr2[i4 + 1] = this.keySeperator;
                 cArr2[i4 + 2] = ':';
-                IOUtils.getChars(j, this.count, cArr2);
+                IOUtils.getChars(j2, this.count, cArr2);
                 return;
             }
             write(c2);
             writeFieldName(str);
-            writeLong(j);
+            writeLong(j2);
         }
     }
 
@@ -2472,21 +2472,21 @@ public final class SerializeWriter extends Writer {
                         int i11 = i9 + 1;
                         System.arraycopy(cArr4, i11, cArr4, i9 + 2, (i8 - i9) - 1);
                         char[] cArr5 = this.buf;
-                        cArr5[i9] = '\\';
+                        cArr5[i9] = FileUtil.WINDOWS_SEPARATOR;
                         cArr5[i11] = IOUtils.replaceChars[c6];
                     } else if (c6 == '\"' || c6 == '/' || c6 == '\\') {
                         char[] cArr6 = this.buf;
                         int i12 = i9 + 1;
                         System.arraycopy(cArr6, i12, cArr6, i9 + 2, (i8 - i9) - 1);
                         char[] cArr7 = this.buf;
-                        cArr7[i9] = '\\';
+                        cArr7[i9] = FileUtil.WINDOWS_SEPARATOR;
                         cArr7[i12] = c6;
                     } else {
                         if (c6 < ' ') {
                             int i13 = i9 + 1;
                             System.arraycopy(cArr3, i13, cArr3, i9 + 6, (i8 - i9) - 1);
                             char[] cArr8 = this.buf;
-                            cArr8[i9] = '\\';
+                            cArr8[i9] = FileUtil.WINDOWS_SEPARATOR;
                             cArr8[i13] = 'u';
                             cArr8[i9 + 2] = '0';
                             cArr8[i9 + 3] = '0';
@@ -2498,7 +2498,7 @@ public final class SerializeWriter extends Writer {
                             int i15 = i9 + 1;
                             System.arraycopy(cArr3, i15, cArr3, i9 + 6, (i8 - i9) - 1);
                             char[] cArr10 = this.buf;
-                            cArr10[i9] = '\\';
+                            cArr10[i9] = FileUtil.WINDOWS_SEPARATOR;
                             cArr10[i15] = 'u';
                             char[] cArr11 = IOUtils.DIGITS;
                             cArr10[i9 + 2] = cArr11[(c6 >>> '\f') & 15];
@@ -2591,7 +2591,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr13 = this.buf;
                         System.arraycopy(cArr13, i24, cArr13, i20 + 6, (i8 - i20) - 1);
                         char[] cArr14 = this.buf;
-                        cArr14[i20] = '\\';
+                        cArr14[i20] = FileUtil.WINDOWS_SEPARATOR;
                         cArr14[i24] = 'u';
                         int i25 = i24 + 1;
                         cArr14[i25] = '2';
@@ -2605,7 +2605,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr15 = this.buf;
                         System.arraycopy(cArr15, i28, cArr15, i20 + 6, (i8 - i20) - 1);
                         char[] cArr16 = this.buf;
-                        cArr16[i20] = '\\';
+                        cArr16[i20] = FileUtil.WINDOWS_SEPARATOR;
                         cArr16[i28] = 'u';
                         int i29 = i28 + 1;
                         cArr16[i29] = '2';
@@ -2621,7 +2621,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr17 = this.buf;
                             System.arraycopy(cArr17, i32, cArr17, i20 + 6, (i8 - i20) - 1);
                             char[] cArr18 = this.buf;
-                            cArr18[i20] = '\\';
+                            cArr18[i20] = FileUtil.WINDOWS_SEPARATOR;
                             int i33 = i32 + 1;
                             cArr18[i32] = 'u';
                             int i34 = i33 + 1;
@@ -2636,7 +2636,7 @@ public final class SerializeWriter extends Writer {
                             char[] cArr20 = this.buf;
                             System.arraycopy(cArr20, i36, cArr20, i20 + 2, (i8 - i20) - 1);
                             char[] cArr21 = this.buf;
-                            cArr21[i20] = '\\';
+                            cArr21[i20] = FileUtil.WINDOWS_SEPARATOR;
                             cArr21[i36] = IOUtils.replaceChars[c7];
                         }
                     } else {
@@ -2644,7 +2644,7 @@ public final class SerializeWriter extends Writer {
                         char[] cArr22 = this.buf;
                         System.arraycopy(cArr22, i37, cArr22, i20 + 6, (i8 - i20) - 1);
                         char[] cArr23 = this.buf;
-                        cArr23[i20] = '\\';
+                        cArr23[i20] = FileUtil.WINDOWS_SEPARATOR;
                         cArr23[i37] = 'u';
                         int i38 = i37 + 1;
                         char[] cArr24 = IOUtils.DIGITS;
@@ -2665,7 +2665,7 @@ public final class SerializeWriter extends Writer {
                             }
                             char[] cArr25 = this.buf;
                             int i42 = i22 + 1;
-                            cArr25[i22] = '\\';
+                            cArr25[i22] = FileUtil.WINDOWS_SEPARATOR;
                             int i43 = i42 + 1;
                             cArr25[i42] = 'u';
                             int i44 = i43 + 1;
@@ -2686,7 +2686,7 @@ public final class SerializeWriter extends Writer {
                             } else {
                                 char[] cArr27 = this.buf;
                                 int i47 = i22 + 1;
-                                cArr27[i22] = '\\';
+                                cArr27[i22] = FileUtil.WINDOWS_SEPARATOR;
                                 int i48 = i47 + 1;
                                 cArr27[i47] = 'u';
                                 int i49 = i48 + 1;
@@ -2702,7 +2702,7 @@ public final class SerializeWriter extends Writer {
                         }
                         char[] cArr29 = this.buf;
                         int i52 = i22 + 1;
-                        cArr29[i22] = '\\';
+                        cArr29[i22] = FileUtil.WINDOWS_SEPARATOR;
                         if (IOUtils.specicalFlags_doubleQuotes[c9] == 4) {
                             int i53 = i52 + 1;
                             cArr29[i52] = 'u';

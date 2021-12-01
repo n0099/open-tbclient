@@ -13,7 +13,6 @@ import android.transition.TransitionValues;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 @TargetApi(19)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DraweeTransition extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPNAME_BOUNDS = "draweeTransition:bounds";
@@ -65,7 +64,7 @@ public class DraweeTransition extends Transition {
     public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, scaleType, scaleType2)) == null) ? createTransitionSet(scaleType, scaleType2, null, null) : (TransitionSet) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, scaleType, scaleType2)) == null) ? createTransitionSet(scaleType, scaleType2, null, null) : (TransitionSet) invokeLL.objValue;
     }
 
     @Override // android.transition.Transition
@@ -181,7 +180,7 @@ public class DraweeTransition extends Transition {
     public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2, @Nullable PointF pointF, @Nullable PointF pointF2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, scaleType, scaleType2, pointF, pointF2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, scaleType, scaleType2, pointF, pointF2)) == null) {
             TransitionSet transitionSet = new TransitionSet();
             transitionSet.addTransition(new ChangeBounds());
             transitionSet.addTransition(new DraweeTransition(scaleType, scaleType2, pointF, pointF2));

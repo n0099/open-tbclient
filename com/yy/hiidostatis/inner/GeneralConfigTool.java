@@ -3,7 +3,6 @@ package com.yy.hiidostatis.inner;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GeneralConfigTool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CODE = "code";
@@ -138,7 +137,7 @@ public class GeneralConfigTool {
     private String parseData(JSONObject jSONObject, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, this, jSONObject, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, this, jSONObject, z)) == null) {
             if (!"1".equals(jSONObject.getString("code"))) {
                 L.error("GeneralConfigTool", "http get fail! code is %s,msg is %s", jSONObject.getString("code"), jSONObject.getString("msg"));
                 return null;

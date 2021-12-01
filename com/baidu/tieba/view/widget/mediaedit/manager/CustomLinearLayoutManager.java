@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CustomLinearLayoutManager extends LinearLayoutManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f56585a;
+    public boolean a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomLinearLayoutManager(Context context) {
@@ -35,26 +33,26 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
                 return;
             }
         }
-        this.f56585a = false;
+        this.a = false;
     }
 
     @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
     public boolean canScrollHorizontally() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56585a && super.canScrollHorizontally() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a && super.canScrollHorizontally() : invokeV.booleanValue;
     }
 
     public boolean isScrollEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56585a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public void setScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f56585a = z;
+            this.a = z;
         }
     }
 
@@ -77,7 +75,7 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
                 return;
             }
         }
-        this.f56585a = false;
+        this.a = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,6 +97,6 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
                 return;
             }
         }
-        this.f56585a = false;
+        this.a = false;
     }
 }

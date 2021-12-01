@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +27,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f71713a;
+    public static String a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final SimpleDateFormat f236a;
@@ -49,10 +46,10 @@ public class df implements LoggerInterface {
     public Handler f239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71714b;
+    public String f62779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71715c;
+    public String f62780c;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +65,7 @@ public class df implements LoggerInterface {
             }
         }
         f236a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f71713a = "/MiPushLog";
+        a = "/MiPushLog";
         f237a = Collections.synchronizedList(new ArrayList());
     }
 
@@ -87,12 +84,12 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f71715c = "";
+        this.f62780c = "";
         this.f238a = context;
         if (context.getApplicationContext() != null) {
             this.f238a = context.getApplicationContext();
         }
-        this.f71714b = this.f238a.getPackageName();
+        this.f62779b = this.f238a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f239a = new Handler(handlerThread.getLooper());
@@ -100,21 +97,21 @@ public class df implements LoggerInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a  reason: collision with other method in class */
-    public void m247a() {
+    public void m296a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
         File externalFilesDir;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) != null) {
+        if (interceptable != null && interceptable.invokeV(65541, this) != null) {
             return;
         }
         BufferedWriter bufferedWriter = null;
         try {
-            if (TextUtils.isEmpty(this.f71715c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
-                this.f71715c = externalFilesDir.getAbsolutePath() + "";
+            if (TextUtils.isEmpty(this.f62780c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
+                this.f62780c = externalFilesDir.getAbsolutePath() + "";
             }
-            file = new File(this.f71715c + f71713a);
+            file = new File(this.f62780c + a);
         } catch (Exception unused) {
             fileLock = null;
             randomAccessFile = null;
@@ -243,7 +240,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f71714b = str;
+            this.f62779b = str;
         }
     }
 }

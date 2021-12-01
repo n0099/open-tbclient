@@ -9,7 +9,7 @@ import android.os.Process;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.f.m.e;
+import c.a.d.f.m.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public ShadowLayout shadowLayout;
     public PluginStatus status;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f46861e;
+        public final /* synthetic */ PluginErrorTipActivity f41899e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f46861e = pluginErrorTipActivity;
+            this.f41899e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -75,7 +75,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f46861e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f41899e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }
@@ -137,7 +137,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
             TextView textView = (TextView) findViewById(R.id.plugin_error_btn);
             this.btn = textView;
             textView.setOnClickListener(this);
-            this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.x()}));
+            this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.w()}));
             if (this.status.getErrorCode() != 5 && this.status.getErrorCode() != 1 && this.status.getErrorCode() != 100) {
                 this.btn.setVisibility(8);
                 return;
@@ -171,7 +171,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
             } else if (view == this.btn) {
                 PluginStatus pluginStatus = this.status;
                 if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
-                    b.a.e.i.h.a.b().u(true);
+                    c.a.d.i.h.a.b().s(true);
                 }
                 showLoadingDialog(getResources().getString(R.string.waiting));
                 e.a().postDelayed(new a(this), 2000L);

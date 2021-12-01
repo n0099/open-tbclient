@@ -14,19 +14,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static gj f71954a;
+    public static gj a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f71955b;
+    public Map<String, Object> f62955b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -42,8 +40,8 @@ public class gj {
             }
         }
         this.f443a = new ConcurrentHashMap();
-        this.f71955b = new ConcurrentHashMap();
-        m354a();
+        this.f62955b = new ConcurrentHashMap();
+        m403a();
     }
 
     public static synchronized gj a() {
@@ -52,10 +50,10 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gj.class) {
-                if (f71954a == null) {
-                    f71954a = new gj();
+                if (a == null) {
+                    a = new gj();
                 }
-                gjVar = f71954a;
+                gjVar = a;
             }
             return gjVar;
         }
@@ -81,7 +79,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m352a() {
+    private ClassLoader[] m401a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -99,7 +97,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m353a(String str, String str2) {
+    public Object m402a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f443a.get(a(str, str2)) : invokeLL.objValue;
@@ -111,7 +109,7 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m354a() {
+    public void m403a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
@@ -119,7 +117,7 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                for (ClassLoader classLoader : m352a()) {
+                for (ClassLoader classLoader : m401a()) {
                     Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                     while (resources.hasMoreElements()) {
                         InputStream openStream = resources.nextElement().openStream();
@@ -140,14 +138,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f71955b.containsKey(a2)) {
+                                    if (!this.f62955b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f71955b;
+                                                map2 = this.f62955b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f71955b;
+                                                map2 = this.f62955b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

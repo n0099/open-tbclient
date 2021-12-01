@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -218,14 +217,14 @@ public final class AccessibilityManagerCompat {
     public static boolean isTouchExplorationEnabled(AccessibilityManager accessibilityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, accessibilityManager)) == null) ? accessibilityManager.isTouchExplorationEnabled() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, accessibilityManager)) == null) ? accessibilityManager.isTouchExplorationEnabled() : invokeL.booleanValue;
     }
 
     @Deprecated
     public static boolean removeAccessibilityStateChangeListener(AccessibilityManager accessibilityManager, AccessibilityStateChangeListener accessibilityStateChangeListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, accessibilityManager, accessibilityStateChangeListener)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, accessibilityManager, accessibilityStateChangeListener)) == null) {
             if (accessibilityStateChangeListener == null) {
                 return false;
             }

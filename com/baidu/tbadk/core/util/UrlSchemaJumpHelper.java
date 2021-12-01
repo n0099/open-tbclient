@@ -6,10 +6,9 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.e0.b;
+import c.a.q0.s.e0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UrlSchemaJumpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_JUMP_BLACK_LIST = "ad_scheme_blacklist";
@@ -117,7 +116,7 @@ public class UrlSchemaJumpHelper {
 
     public static void setBlackList(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 ArrayList arrayList = new ArrayList(jSONArray.length());
                 int length = jSONArray.length();
@@ -142,6 +141,6 @@ public class UrlSchemaJumpHelper {
     public static boolean tryDeeplinkFromWebview(String str, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, context)) == null) ? (TextUtils.isEmpty(str) || isHitBlackList(str) || launchApplication(context, str) != 1000) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, context)) == null) ? (TextUtils.isEmpty(str) || isHitBlackList(str) || launchApplication(context, str) != 1000) ? false : true : invokeLL.booleanValue;
     }
 }

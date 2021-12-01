@@ -8,7 +8,6 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ResourceExtractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SUPPORTED_ABIS;
@@ -49,7 +49,7 @@ public class ResourceExtractor {
     @NonNull
     public final HashSet<String> mResources;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ExtractTask extends AsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class ResourceExtractor {
                         }
                     } catch (FileNotFoundException unused) {
                     } catch (IOException e2) {
-                        String str2 = "Exception unpacking resources: " + e2.getMessage();
+                        Log.w(ResourceExtractor.TAG, "Exception unpacking resources: " + e2.getMessage());
                         ResourceExtractor.deleteFiles(this.mDataDirPath, this.mResources);
                         return false;
                     }
@@ -155,6 +155,7 @@ public class ResourceExtractor {
                     try {
                         new File(file, checkTimestamp).createNewFile();
                     } catch (IOException unused) {
+                        Log.w(ResourceExtractor.TAG, "Failed to write resource timestamp");
                     }
                 }
                 return null;
@@ -205,7 +206,7 @@ public class ResourceExtractor {
         InterceptResult invokeLLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, file, packageManager, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, file, packageManager, str)) == null) {
             try {
                 if (packageManager.getPackageInfo(str, 0) == null) {
                     return TIMESTAMP_PREFIX;
@@ -229,7 +230,7 @@ public class ResourceExtractor {
 
     public static void copy(@NonNull InputStream inputStream, @NonNull OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, outputStream) != null) {
+        if (interceptable != null && interceptable.invokeLL(65542, null, inputStream, outputStream) != null) {
             return;
         }
         byte[] bArr = new byte[16384];

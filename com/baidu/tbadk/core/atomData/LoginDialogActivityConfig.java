@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import b.a.q0.s.q.t0;
+import c.a.q0.s.q.t0;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
@@ -95,47 +95,47 @@ public class LoginDialogActivityConfig extends IntentConfig {
         if (t0Var.b() != null) {
             getIntent().putExtra("login_dialog_login_listener", t0Var.b());
         }
-        String a2 = t0Var.a();
+        String a = t0Var.a();
         char c2 = 65535;
-        switch (a2.hashCode()) {
+        switch (a.hashCode()) {
             case -1723264065:
-                if (a2.equals("pb_shoucang")) {
+                if (a.equals("pb_shoucang")) {
                     c2 = 1;
                     break;
                 }
                 break;
             case -1142545818:
-                if (a2.equals("frs_fabu")) {
+                if (a.equals("frs_fabu")) {
                     c2 = 2;
                     break;
                 }
                 break;
             case -652469911:
-                if (a2.equals("pb_huifu_louzhonglou")) {
+                if (a.equals("pb_huifu_louzhonglou")) {
                     c2 = 4;
                     break;
                 }
                 break;
             case -360946952:
-                if (a2.equals("first_login_abtest")) {
+                if (a.equals("first_login_abtest")) {
                     c2 = 6;
                     break;
                 }
                 break;
             case -72485631:
-                if (a2.equals("pb_huitie")) {
+                if (a.equals("pb_huitie")) {
                     c2 = 3;
                     break;
                 }
                 break;
             case 844222914:
-                if (a2.equals("pb_chakanhuifu")) {
+                if (a.equals("pb_chakanhuifu")) {
                     c2 = 0;
                     break;
                 }
                 break;
             case 1683575996:
-                if (a2.equals("sousuo_dianji")) {
+                if (a.equals("sousuo_dianji")) {
                     c2 = 5;
                     break;
                 }

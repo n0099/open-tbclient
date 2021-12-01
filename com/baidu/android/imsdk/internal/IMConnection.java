@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import b.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
@@ -35,7 +35,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class IMConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_LOGIN_FAIL = 20;
@@ -72,7 +72,7 @@ public final class IMConnection {
     public boolean mStoped;
     public Object mSync;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public final class ConnectTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class ConnectTimeOutTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,11 +276,11 @@ public final class IMConnection {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 if (message.what == 1) {
-                    long j = message.arg1;
+                    long j2 = message.arg1;
                     synchronized (this.this$0.mSync) {
-                        if (this.this$0.mSendMessageMap.containsKey(Long.valueOf(j))) {
-                            LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) this.this$0.mSendMessageMap.get(Long.valueOf(j))).toString());
-                            this.this$0.mMessageHandler.handleMessage((Message) this.this$0.mSendMessageMap.remove(Long.valueOf(j)), null, false);
+                        if (this.this$0.mSendMessageMap.containsKey(Long.valueOf(j2))) {
+                            LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) this.this$0.mSendMessageMap.get(Long.valueOf(j2))).toString());
+                            this.this$0.mMessageHandler.handleMessage((Message) this.this$0.mSendMessageMap.remove(Long.valueOf(j2)), null, false);
                         }
                     }
                 }
@@ -288,7 +288,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class ReadThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,7 +357,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class SendThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f29542e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f26073e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -616,9 +616,9 @@ public final class IMConnection {
     }
 
     public static /* synthetic */ long access$2108(IMConnection iMConnection) {
-        long j = iMConnection.mNowId;
-        iMConnection.mNowId = 1 + j;
-        return j;
+        long j2 = iMConnection.mNowId;
+        iMConnection.mNowId = 1 + j2;
+        return j2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -660,7 +660,7 @@ public final class IMConnection {
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f29542e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f26073e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -697,7 +697,7 @@ public final class IMConnection {
                     this.val$isInternalAction = z;
                 }
 
-                /* JADX WARN: Removed duplicated region for block: B:21:0x00bd  */
+                /* JADX WARN: Removed duplicated region for block: B:21:0x00bc  */
                 /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
                 @Override // com.baidu.android.imsdk.internal.IMSocketAddrProvider.IGetSocketAddrListener
                 /*
@@ -775,10 +775,10 @@ public final class IMConnection {
             this.mConnectIps += ":" + RequsetNetworkUtils.getNetInfo(this.mContext);
             int i3 = this.mFailedNumber.get();
             LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i3 + "， reason ： " + str);
-            long j = (long) i3;
-            new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i2).reason(str).ext(this.mConnectIps).retryCount(j).build();
+            long j2 = (long) i3;
+            new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i2).reason(str).ext(this.mConnectIps).retryCount(j2).build();
             if (this.mFailedNumber.get() >= 5 && i2 != 401201) {
-                IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j).build()).build());
+                IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j2).build()).build());
             }
             this.mConnectIps = "";
         }
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f29542e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f26073e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f29542e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f26073e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

@@ -5,14 +5,13 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +68,7 @@ public class PreferenceUtils {
     public static float getFloat(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? getFloat(str, 0.0f) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? getFloat(str, 0.0f) : invokeL.floatValue;
     }
 
     public static int getInt(String str) {
@@ -143,11 +142,11 @@ public class PreferenceUtils {
         }
     }
 
-    public static void putLong(String str, long j) {
+    public static void putLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j2) == null) {
             try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -179,7 +178,7 @@ public class PreferenceUtils {
     public static boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getBoolean(str, z);
             } catch (Exception e2) {
@@ -218,15 +217,15 @@ public class PreferenceUtils {
         return invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j) {
+    public static long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j2)) == null) {
             try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j);
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j2);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;

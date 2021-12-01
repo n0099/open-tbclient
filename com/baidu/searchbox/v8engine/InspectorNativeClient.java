@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InspectorNativeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InspectorNativeChannel mChannel;
     public long mNativePtr;
 
-    public InspectorNativeClient(long j, InspectorNativeChannel inspectorNativeChannel) {
+    public InspectorNativeClient(long j2, InspectorNativeChannel inspectorNativeChannel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), inspectorNativeChannel};
+            Object[] objArr = {Long.valueOf(j2), inspectorNativeChannel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,16 +29,16 @@ public class InspectorNativeClient {
             }
         }
         this.mChannel = inspectorNativeChannel;
-        this.mNativePtr = nativeInitInspector(j, inspectorNativeChannel);
+        this.mNativePtr = nativeInitInspector(j2, inspectorNativeChannel);
     }
 
-    private native void nativeDestroyInspector(long j);
+    private native void nativeDestroyInspector(long j2);
 
-    private native void nativeDispatchProtocolMessage(long j, String str);
+    private native void nativeDispatchProtocolMessage(long j2, String str);
 
-    private native long nativeInitInspector(long j, InspectorNativeChannel inspectorNativeChannel);
+    private native long nativeInitInspector(long j2, InspectorNativeChannel inspectorNativeChannel);
 
-    private native void nativeScheduleBreak(long j);
+    private native void nativeScheduleBreak(long j2);
 
     public void destroy() {
         Interceptable interceptable = $ic;

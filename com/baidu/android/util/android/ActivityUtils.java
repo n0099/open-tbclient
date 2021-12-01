@@ -16,7 +16,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ActivityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -118,7 +117,7 @@ public final class ActivityUtils {
 
     public static void setTaskDescription(Activity activity, String str, Bitmap bitmap, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(AdIconUtil.AD_TEXT_ID, null, activity, str, bitmap, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65541, null, activity, str, bitmap, i2) == null) {
             if (Color.alpha(i2) != 255) {
                 i2 = Color.argb(255, Color.red(i2), Color.green(i2), Color.blue(i2));
             }
@@ -144,7 +143,7 @@ public final class ActivityUtils {
     public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{activity, intent, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, intent, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z) {
                 intent.addFlags(268435456);
             }

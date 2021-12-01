@@ -11,13 +11,11 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-/* loaded from: classes10.dex */
-public class c implements a.InterfaceC1855a {
+/* loaded from: classes12.dex */
+public class c implements a.InterfaceC1927a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a.b f60788a;
+    public a.b a;
 
     public c(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,10 +32,10 @@ public class c implements a.InterfaceC1855a {
                 return;
             }
         }
-        this.f60788a = bVar;
+        this.a = bVar;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1927a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,14 +48,14 @@ public class c implements a.InterfaceC1855a {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1927a
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && str.length() >= 3 : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1855a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1927a
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {

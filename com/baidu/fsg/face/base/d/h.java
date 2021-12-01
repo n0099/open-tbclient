@@ -19,7 +19,6 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,38 +35,40 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38670a = "armeabi";
+    public static final String a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38671b = "armeabi-v7a";
+    public static final String f34566b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38672c = "x86";
+    public static final String f34567c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38673d = "arm64-v8a";
+    public static final String f34568d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38674e = 480;
+    public static final int f34569e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38675f = 480;
+    public static final int f34570f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38676g = 192;
+    public static final int f34571g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38677h = 480;
+    public static final int f34572h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38678i = 620;
-    public static final int j = 728;
-    public static final int k = 750;
+    public static final int f34573i = 620;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f34574j = 728;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final int f34575k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";
     public transient /* synthetic */ FieldHolder $fh;
@@ -402,7 +403,7 @@ public class h {
     public static Rect a(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr != null && iArr.length == 2) {
                 int i2 = ((iArr[0] * 480) / 750) / 2;
                 int i3 = ((iArr[1] * 620) / 1335) / 2;
@@ -468,7 +469,7 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
-            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f38641a;
+            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.a;
         }
         return (String) invokeLL.objValue;
     }
@@ -482,7 +483,7 @@ public class h {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1" : (String) invokeV.objValue;
     }
 
     public static String a(Context context, String str) {

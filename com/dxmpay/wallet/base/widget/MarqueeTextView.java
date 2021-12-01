@@ -10,27 +10,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MarqueeTextView extends TextView implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63317e;
+    public int f55362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63318f;
+    public boolean f55363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f63319g;
+    public int f55364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f63320h;
+    public int f55365h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63321i;
-    public int j;
-    public int k;
+    public int f55366i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f55367j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f55368k;
     public boolean l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,10 +55,10 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f63318f = true;
-        this.f63321i = 0;
-        this.j = 2;
-        this.k = 10;
+        this.f55363f = true;
+        this.f55366i = 0;
+        this.f55367j = 2;
+        this.f55368k = 10;
         this.l = false;
     }
 
@@ -63,7 +67,7 @@ public class MarqueeTextView extends TextView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int measureText = (int) getPaint().measureText(getText().toString());
-            this.f63319g = measureText;
+            this.f55364g = measureText;
             return measureText;
         }
         return invokeV.intValue;
@@ -76,14 +80,14 @@ public class MarqueeTextView extends TextView implements Runnable {
             super.onDraw(canvas);
             if (this.l) {
                 int width = getWidth();
-                this.f63320h = width;
+                this.f55365h = width;
                 if (width > getTextWidth()) {
-                    this.f63318f = true;
+                    this.f55363f = true;
                     return;
                 }
                 int scrollX = getScrollX();
-                this.f63321i = scrollX;
-                this.f63317e = scrollX;
+                this.f55366i = scrollX;
+                this.f55362e = scrollX;
                 this.l = false;
             }
         }
@@ -93,14 +97,14 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-            this.f63318f = true;
+            this.f55363f = true;
             removeCallbacks(this);
-            int i5 = this.f63321i;
-            this.f63317e = i5;
+            int i5 = this.f55366i;
+            this.f55362e = i5;
             scrollTo(i5, 0);
             super.onTextChanged(charSequence, i2, i3, i4);
             this.l = true;
-            this.f63318f = false;
+            this.f55363f = false;
             postDelayed(this, 2000L);
         }
     }
@@ -109,20 +113,20 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.f63317e + this.j;
-            this.f63317e = i2;
+            int i2 = this.f55362e + this.f55367j;
+            this.f55362e = i2;
             scrollTo(i2, 0);
-            if (this.f63318f) {
+            if (this.f55363f) {
                 return;
             }
-            if (getScrollX() >= this.f63319g - this.f63320h) {
-                scrollTo(this.f63321i, 0);
-                this.f63317e = this.f63321i;
+            if (getScrollX() >= this.f55364g - this.f55365h) {
+                scrollTo(this.f55366i, 0);
+                this.f55362e = this.f55366i;
                 postDelayed(this, 2000L);
-            } else if (getScrollX() >= (this.f63319g - this.f63320h) - this.j) {
+            } else if (getScrollX() >= (this.f55364g - this.f55365h) - this.f55367j) {
                 postDelayed(this, 2000L);
             } else {
-                postDelayed(this, this.k);
+                postDelayed(this, this.f55368k);
             }
         }
     }
@@ -130,7 +134,7 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f63318f = true;
+            this.f55363f = true;
         }
     }
 
@@ -153,10 +157,10 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f63318f = true;
-        this.f63321i = 0;
-        this.j = 2;
-        this.k = 10;
+        this.f55363f = true;
+        this.f55366i = 0;
+        this.f55367j = 2;
+        this.f55368k = 10;
         this.l = false;
     }
 
@@ -179,10 +183,10 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f63318f = true;
-        this.f63321i = 0;
-        this.j = 2;
-        this.k = 10;
+        this.f55363f = true;
+        this.f55366i = 0;
+        this.f55367j = 2;
+        this.f55368k = 10;
         this.l = false;
     }
 }

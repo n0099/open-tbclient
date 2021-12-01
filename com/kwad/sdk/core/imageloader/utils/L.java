@@ -2,7 +2,6 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,14 +71,14 @@ public final class L {
 
     public static void e(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, th) == null) {
             log(6, th, null, new Object[0]);
         }
     }
 
     public static void e(Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, th, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, th, str, objArr) == null) {
             log(6, th, str, objArr);
         }
     }

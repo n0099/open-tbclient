@@ -12,26 +12,26 @@ public final class c {
     public static <T> com.meizu.cloud.pushsdk.b.a.c<T> b(com.meizu.cloud.pushsdk.b.a.b bVar) {
         try {
             try {
-                k a2 = a.a(bVar);
-                if (a2 == null) {
+                k a = a.a(bVar);
+                if (a == null) {
                     com.meizu.cloud.pushsdk.b.a.c<T> cVar = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a()));
-                    com.meizu.cloud.pushsdk.b.i.a.a(a2, bVar);
+                    com.meizu.cloud.pushsdk.b.i.a.a(a, bVar);
                     return cVar;
                 } else if (bVar.f() == e.OK_HTTP_RESPONSE) {
-                    com.meizu.cloud.pushsdk.b.a.c<T> cVar2 = new com.meizu.cloud.pushsdk.b.a.c<>(a2);
-                    cVar2.a(a2);
-                    com.meizu.cloud.pushsdk.b.i.a.a(a2, bVar);
+                    com.meizu.cloud.pushsdk.b.a.c<T> cVar2 = new com.meizu.cloud.pushsdk.b.a.c<>(a);
+                    cVar2.a(a);
+                    com.meizu.cloud.pushsdk.b.i.a.a(a, bVar);
                     return cVar2;
-                } else if (a2.a() >= 400) {
-                    com.meizu.cloud.pushsdk.b.a.c<T> cVar3 = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a(a2), bVar, a2.a()));
-                    cVar3.a(a2);
-                    com.meizu.cloud.pushsdk.b.i.a.a(a2, bVar);
+                } else if (a.a() >= 400) {
+                    com.meizu.cloud.pushsdk.b.a.c<T> cVar3 = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a(a), bVar, a.a()));
+                    cVar3.a(a);
+                    com.meizu.cloud.pushsdk.b.i.a.a(a, bVar);
                     return cVar3;
                 } else {
-                    com.meizu.cloud.pushsdk.b.a.c<T> a3 = bVar.a(a2);
-                    a3.a(a2);
-                    com.meizu.cloud.pushsdk.b.i.a.a(a2, bVar);
-                    return a3;
+                    com.meizu.cloud.pushsdk.b.a.c<T> a2 = bVar.a(a);
+                    a2.a(a);
+                    com.meizu.cloud.pushsdk.b.i.a.a(a, bVar);
+                    return a2;
                 }
             } catch (com.meizu.cloud.pushsdk.b.b.a e2) {
                 com.meizu.cloud.pushsdk.b.a.c<T> cVar4 = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(new com.meizu.cloud.pushsdk.b.b.a(e2)));
@@ -88,10 +88,10 @@ public final class c {
                     com.meizu.cloud.pushsdk.b.i.a.a(c2, bVar);
                     return cVar3;
                 } else {
-                    com.meizu.cloud.pushsdk.b.a.c<T> a2 = bVar.a(c2);
-                    a2.a(c2);
+                    com.meizu.cloud.pushsdk.b.a.c<T> a = bVar.a(c2);
+                    a.a(c2);
                     com.meizu.cloud.pushsdk.b.i.a.a(c2, bVar);
-                    return a2;
+                    return a;
                 }
             } catch (com.meizu.cloud.pushsdk.b.b.a e2) {
                 com.meizu.cloud.pushsdk.b.a.c<T> cVar4 = new com.meizu.cloud.pushsdk.b.a.c<>(com.meizu.cloud.pushsdk.b.i.b.a(e2));

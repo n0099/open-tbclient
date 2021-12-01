@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface MotionStrategy {
     void addAnimationListener(@NonNull Animator.AnimatorListener animatorListener);
 

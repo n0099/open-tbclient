@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
@@ -64,14 +63,14 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j2, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j2), str2, str3})) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.setCommand(str);
             miPushCommandMessage.setCommandArguments(list);
-            miPushCommandMessage.setResultCode(j);
+            miPushCommandMessage.setResultCode(j2);
             miPushCommandMessage.setReason(str2);
             miPushCommandMessage.setCategory(str3);
             return miPushCommandMessage;
@@ -84,7 +83,7 @@ public class PushMessageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, iiVar, hsVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(iiVar.m489a());
+            miPushMessage.setMessageId(iiVar.m538a());
             if (!TextUtils.isEmpty(iiVar.d())) {
                 miPushMessage.setMessageType(1);
                 miPushMessage.setAlias(iiVar.d());
@@ -103,17 +102,17 @@ public class PushMessageHelper {
             }
             if (hsVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hsVar.m410a());
+                    miPushMessage.setMessageId(hsVar.m459a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hsVar.m415b());
+                    miPushMessage.setTopic(hsVar.m464b());
                 }
                 miPushMessage.setDescription(hsVar.d());
-                miPushMessage.setTitle(hsVar.m418c());
+                miPushMessage.setTitle(hsVar.m467c());
                 miPushMessage.setNotifyType(hsVar.a());
                 miPushMessage.setNotifyId(hsVar.c());
                 miPushMessage.setPassThrough(hsVar.b());
-                miPushMessage.setExtra(hsVar.m411a());
+                miPushMessage.setExtra(hsVar.m460a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;
@@ -142,7 +141,7 @@ public class PushMessageHelper {
     public static int getPushMode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (pushMode == 0) {
                 setPushMode(isUseCallbackPushMode(context) ? 1 : 2);
             }
@@ -154,7 +153,7 @@ public class PushMessageHelper {
     public static boolean isIntentAvailable(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
             try {
                 List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 32);
                 if (queryBroadcastReceivers != null) {

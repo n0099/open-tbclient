@@ -1,9 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +17,7 @@ import com.google.common.util.concurrent.Service;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public static final ListenerCallQueue.Event<Service.Listener> RUNNING_EVENT;
@@ -39,7 +38,7 @@ public abstract class AbstractService implements Service {
     public volatile StateSnapshot snapshot;
 
     /* renamed from: com.google.common.util.concurrent.AbstractService$6  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$common$util$concurrent$Service$State;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +86,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class HasReachedRunningGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +121,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class IsStartableGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +156,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class IsStoppableGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +191,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class IsStoppedGuard extends Monitor.Guard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +226,7 @@ public abstract class AbstractService implements Service {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class StateSnapshot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -432,7 +431,7 @@ public abstract class AbstractService implements Service {
 
     private void enqueueFailedEvent(Service.State state, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, state, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, state, th) == null) {
             this.listeners.enqueue(new ListenerCallQueue.Event<Service.Listener>(this, state, th) { // from class: com.google.common.util.concurrent.AbstractService.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -483,7 +482,7 @@ public abstract class AbstractService implements Service {
 
     private void enqueueRunningEvent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.listeners.enqueue(RUNNING_EVENT);
         }
     }
@@ -838,10 +837,10 @@ public abstract class AbstractService implements Service {
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitRunning(long j, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitRunning(long j2, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
-            if (this.monitor.enterWhenUninterruptibly(this.hasReachedRunning, j, timeUnit)) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
+            if (this.monitor.enterWhenUninterruptibly(this.hasReachedRunning, j2, timeUnit)) {
                 try {
                     checkCurrentState(Service.State.RUNNING);
                     return;
@@ -854,10 +853,10 @@ public abstract class AbstractService implements Service {
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitTerminated(long j, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitTerminated(long j2, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048580, this, j, timeUnit) == null) {
-            if (this.monitor.enterWhenUninterruptibly(this.isStopped, j, timeUnit)) {
+        if (interceptable == null || interceptable.invokeJL(1048580, this, j2, timeUnit) == null) {
+            if (this.monitor.enterWhenUninterruptibly(this.isStopped, j2, timeUnit)) {
                 try {
                     checkCurrentState(Service.State.TERMINATED);
                     return;

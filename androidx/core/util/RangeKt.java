@@ -4,7 +4,6 @@ import android.util.Range;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +113,7 @@ public final class RangeKt {
     public static final <T extends Comparable<? super T>> Range<T> toRange(ClosedRange<T> closedRange) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, closedRange)) == null) ? new Range<>(closedRange.getStart(), closedRange.getEndInclusive()) : (Range) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, closedRange)) == null) ? new Range<>(closedRange.getStart(), closedRange.getEndInclusive()) : (Range) invokeL.objValue;
     }
 
     @RequiresApi(21)

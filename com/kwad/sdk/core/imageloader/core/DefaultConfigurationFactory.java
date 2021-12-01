@@ -5,7 +5,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,6 @@ import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwad.sdk.utils.al;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -129,19 +127,19 @@ public class DefaultConfigurationFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new SimpleBitmapDisplayer() : (BitmapDisplayer) invokeV.objValue;
     }
 
-    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i2) {
+    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j2, int i2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, fileNameGenerator, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            File createReserveDiskCacheDir = createReserveDiskCacheDir(context);
-            if (j > 0 || i2 > 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, fileNameGenerator, Long.valueOf(j2), Integer.valueOf(i2), str})) == null) {
+            File createReserveDiskCacheDir = createReserveDiskCacheDir(context, str);
+            if (j2 > 0 || i2 > 0) {
                 try {
-                    return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j, i2);
+                    return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j2, i2);
                 } catch (IOException e2) {
                     L.e(e2);
                 }
             }
-            return new UnlimitedDiskCache(al.b(context), createReserveDiskCacheDir, fileNameGenerator);
+            return new UnlimitedDiskCache(new File(str), createReserveDiskCacheDir, fileNameGenerator);
         }
         return (DiskCache) invokeCommon.objValue;
     }
@@ -164,13 +162,13 @@ public class DefaultConfigurationFactory {
     public static ImageDecoder createImageDecoder(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z)) == null) ? new BaseImageDecoder(z) : (ImageDecoder) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? new BaseImageDecoder(z) : (ImageDecoder) invokeZ.objValue;
     }
 
     public static ImageDownloader createImageDownloader(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? new BaseImageDownloader(context) : (ImageDownloader) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new BaseImageDownloader(context) : (ImageDownloader) invokeL.objValue;
     }
 
     public static MemoryCache createMemoryCache(Context context, int i2) {
@@ -190,15 +188,15 @@ public class DefaultConfigurationFactory {
         return (MemoryCache) invokeLI.objValue;
     }
 
-    public static File createReserveDiskCacheDir(Context context) {
-        InterceptResult invokeL;
+    public static File createReserveDiskCacheDir(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            File b2 = al.b(context);
-            File file = new File(b2, StorageUtils.INDIVIDUAL_DIR_NAME);
-            return (file.exists() || file.mkdir()) ? file : b2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            File file = new File(str);
+            File file2 = new File(file, StorageUtils.INDIVIDUAL_DIR_NAME);
+            return (file2.exists() || file2.mkdir()) ? file2 : file;
         }
-        return (File) invokeL.objValue;
+        return (File) invokeLL.objValue;
     }
 
     public static Executor createTaskDistributor() {

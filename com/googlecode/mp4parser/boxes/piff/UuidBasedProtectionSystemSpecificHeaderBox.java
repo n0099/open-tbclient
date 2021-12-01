@@ -15,6 +15,7 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.CastUtils;
 import com.googlecode.mp4parser.util.UUIDConverter;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
@@ -49,7 +50,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
             }
         }
         ajc$preClinit();
-        USER_TYPE = new byte[]{-48, -118, 79, 24, 16, -13, 74, -126, -74, -56, 50, -40, -85, -95, -125, -45};
+        USER_TYPE = new byte[]{-48, -118, 79, 24, YogaNodeJNIBase.HAS_NEW_LAYOUT, -13, 74, -126, -74, -56, 50, -40, -85, -95, -125, -45};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

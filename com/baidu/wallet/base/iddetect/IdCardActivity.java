@@ -45,6 +45,7 @@ import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.utils.ImageUtils;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
+import com.kwad.v8.debug.ExecutionState;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +57,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IdCardActivity extends BeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAMERA_REQUEST_CODE = 3;
@@ -112,7 +113,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public String mToastInfo;
     public View mTopView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +175,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 Bundle bundle = new Bundle();
                 bundle.putString("name", idCardActivity.mCardName);
                 bundle.putString(IdCardActivity.KEY_IMG_PATH, idCardActivity.mCardRealPath);
-                bundle.putString(IdCardActivity.KEY_NUMBER, idCardActivity.mCardNumber);
+                bundle.putString("number", idCardActivity.mCardNumber);
                 IdCardController.getInstance().success(bundle);
                 idCardActivity.finish();
             }
@@ -217,7 +218,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 jSONObject2.put(UrlOcrConfig.IdCardKey.IDCARD_PIC, BitmapUtil.getBase64(bitmap));
                 jSONObject.put(UrlOcrConfig.IdCardKey.METHODDATA, jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("os", "android");
+                jSONObject3.put(UrlOcrConfig.IdCardKey.OS, "android");
                 jSONObject3.put("osversion", Build.VERSION.RELEASE);
                 jSONObject3.put("brand", Build.BRAND);
                 jSONObject3.put("model", Build.MODEL);
@@ -629,7 +630,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
             SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.mContext, "surface_view"));
             this.mSurfaceView = surfaceViewForScan;
             surfaceViewForScan.setAttachedActivity(this);
-            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.mContext, "frame"));
+            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.mContext, ExecutionState.FRAME));
             this.mScanFrame = laserScannerForScan;
             laserScannerForScan.setAttachedActivity(this);
             this.mTopView = findViewById(ResUtils.id(this.mContext, "view_top"));

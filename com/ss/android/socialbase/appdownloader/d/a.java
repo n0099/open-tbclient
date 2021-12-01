@@ -15,20 +15,16 @@ import com.ss.android.socialbase.appdownloader.c.l;
 public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public AlertDialog.Builder f69871a;
+    public AlertDialog.Builder a;
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2019a implements k {
+    public static class C2110a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public AlertDialog a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public AlertDialog f69872a;
-
-        public C2019a(AlertDialog.Builder builder) {
+        public C2110a(AlertDialog.Builder builder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +40,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
                 }
             }
             if (builder != null) {
-                this.f69872a = builder.show();
+                this.a = builder.show();
             }
         }
 
@@ -52,7 +48,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         public void a() {
             AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (alertDialog = this.f69872a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (alertDialog = this.a) == null) {
                 return;
             }
             alertDialog.show();
@@ -63,7 +59,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                AlertDialog alertDialog = this.f69872a;
+                AlertDialog alertDialog = this.a;
                 if (alertDialog != null) {
                     return alertDialog.isShowing();
                 }
@@ -88,7 +84,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
                 return;
             }
         }
-        this.f69871a = new AlertDialog.Builder(context);
+        this.a = new AlertDialog.Builder(context);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
@@ -96,7 +92,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            AlertDialog.Builder builder = this.f69871a;
+            AlertDialog.Builder builder = this.a;
             if (builder != null) {
                 builder.setTitle(i2);
             }
@@ -110,7 +106,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, onClickListener)) == null) {
-            AlertDialog.Builder builder = this.f69871a;
+            AlertDialog.Builder builder = this.a;
             if (builder != null) {
                 builder.setNegativeButton(i2, onClickListener);
             }
@@ -124,7 +120,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AlertDialog.Builder builder = this.f69871a;
+            AlertDialog.Builder builder = this.a;
             if (builder != null) {
                 builder.setMessage(str);
             }
@@ -138,7 +134,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, onClickListener)) == null) {
-            AlertDialog.Builder builder = this.f69871a;
+            AlertDialog.Builder builder = this.a;
             if (builder != null) {
                 builder.setPositiveButton(i2, onClickListener);
             }
@@ -152,7 +148,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onCancelListener)) == null) {
-            AlertDialog.Builder builder = this.f69871a;
+            AlertDialog.Builder builder = this.a;
             if (builder != null) {
                 builder.setOnCancelListener(onCancelListener);
             }
@@ -165,6 +161,6 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2019a(this.f69871a) : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2110a(this.a) : (k) invokeV.objValue;
     }
 }

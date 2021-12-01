@@ -25,14 +25,14 @@ public class CastUtils {
         }
     }
 
-    public static int l2i(long j) {
+    public static int l2i(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j > 2147483647L || j < -2147483648L) {
-                throw new RuntimeException("A cast to int has gone wrong. Please contact the mp4parser discussion group (" + j + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
+            if (j2 > 2147483647L || j2 < -2147483648L) {
+                throw new RuntimeException("A cast to int has gone wrong. Please contact the mp4parser discussion group (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeJ.intValue;
     }

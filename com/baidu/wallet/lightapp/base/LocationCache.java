@@ -2,7 +2,6 @@ package com.baidu.wallet.lightapp.base;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +10,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.datamodel.LocationProvider;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class LocationCache {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static double f59688a;
+    public static double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static double f59689b;
+    public static double f52875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Coord f59690c;
+    public static Coord f52876c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f59691d;
+    public static long f52877d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LocationProvider f59692e;
+    public static LocationProvider f52878e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static final class Coord {
         public static final /* synthetic */ Coord[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,43 +116,43 @@ public final class LocationCache {
                 return;
             }
         }
-        f59690c = Coord.UNKNOWN;
-        f59691d = 0L;
-        f59692e = LocationProvider.HOST;
+        f52876c = Coord.UNKNOWN;
+        f52877d = 0L;
+        f52878e = LocationProvider.HOST;
     }
 
     public static void a(double d2, double d3, Coord coord, LocationProvider locationProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), coord, locationProvider}) == null) {
-            f59688a = d2;
-            f59689b = d3;
-            f59690c = coord;
-            f59691d = System.currentTimeMillis();
-            f59692e = locationProvider;
+            a = d2;
+            f52875b = d3;
+            f52876c = coord;
+            f52877d = System.currentTimeMillis();
+            f52878e = locationProvider;
         }
     }
 
     public static double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59689b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f52875b : invokeV.doubleValue;
     }
 
     public static Coord c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f59690c : (Coord) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f52876c : (Coord) invokeV.objValue;
     }
 
     public static long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f59691d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f52877d : invokeV.longValue;
     }
 
     public static double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f59688a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.doubleValue;
     }
 }

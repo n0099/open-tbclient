@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaSegment implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaSegment> CREATOR;
@@ -41,7 +41,7 @@ public class MediaSegment implements Parcelable, Cloneable {
     public String type;
     public float[] vertexMtx;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<MediaSegment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class MediaSegment implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends TypeToken<List<MediaSegment>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new b.a.x0.j.b().c(str, new b().getType());
+                return (List) new c.a.x0.j.b().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }
@@ -208,14 +208,14 @@ public class MediaSegment implements Parcelable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MediaSegment m17clone() {
+    public MediaSegment m37clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaSegment mediaSegment = (MediaSegment) super.clone();
                 if (this.mediaAEffect != null) {
-                    mediaSegment.mediaAEffect = this.mediaAEffect.m15clone();
+                    mediaSegment.mediaAEffect = this.mediaAEffect.m35clone();
                 }
                 return mediaSegment;
             } catch (Exception e2) {

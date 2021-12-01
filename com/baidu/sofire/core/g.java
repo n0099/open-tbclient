@@ -8,22 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f43979a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43980b;
+    public String f39093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43981c;
+    public String f39094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f43982d;
+    public IntentFilter f39095d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -40,10 +38,10 @@ public final class g {
                 return;
             }
         }
-        this.f43979a = str;
-        this.f43982d = intentFilter;
-        this.f43980b = str2;
-        this.f43981c = str3;
+        this.a = str;
+        this.f39095d = intentFilter;
+        this.f39093b = str2;
+        this.f39094c = str3;
     }
 
     public final boolean a(g gVar) {
@@ -52,9 +50,9 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar != null) {
                 try {
-                    if (!TextUtils.isEmpty(gVar.f43979a) && !TextUtils.isEmpty(gVar.f43980b) && !TextUtils.isEmpty(gVar.f43981c) && gVar.f43979a.equals(this.f43979a) && gVar.f43980b.equals(this.f43980b) && gVar.f43981c.equals(this.f43981c)) {
-                        if (gVar.f43982d != null && this.f43982d != null) {
-                            return this.f43982d == gVar.f43982d;
+                    if (!TextUtils.isEmpty(gVar.a) && !TextUtils.isEmpty(gVar.f39093b) && !TextUtils.isEmpty(gVar.f39094c) && gVar.a.equals(this.a) && gVar.f39093b.equals(this.f39093b) && gVar.f39094c.equals(this.f39094c)) {
+                        if (gVar.f39095d != null && this.f39095d != null) {
+                            return this.f39095d == gVar.f39095d;
                         }
                         return true;
                     }
@@ -73,7 +71,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return "PluginloaderIntentFilter:" + this.f43979a + "-" + this.f43980b + "-" + this.f43981c + "-" + this.f43982d;
+                return "PluginloaderIntentFilter:" + this.a + "-" + this.f39093b + "-" + this.f39094c + "-" + this.f39095d;
             } catch (Throwable unused) {
                 return "";
             }

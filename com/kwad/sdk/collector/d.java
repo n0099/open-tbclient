@@ -2,6 +2,7 @@ package com.kwad.sdk.collector;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f65074a;
+    public static final AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -42,49 +41,47 @@ public class d {
                 return;
             }
         }
-        f65074a = new AtomicBoolean(false);
+        a = new AtomicBoolean(false);
     }
 
     public static void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || f65074a.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || a.get()) {
             return;
         }
         if (KsAdSDKImpl.get().getIsExternal()) {
             b(aVar);
             return;
         }
-        f65074a.set(true);
+        a.set(true);
         boolean b2 = AbiUtil.b();
         String str = b2 ? "kwappstatus-v8a" : "kwappstatus-v7a";
-        String Z = com.kwad.sdk.core.config.c.Z();
-        if (TextUtils.isEmpty(Z)) {
-            Z = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArmeabiv7aRelease-3.3.14.apk";
+        String ad = com.kwad.sdk.core.config.b.ad();
+        if (TextUtils.isEmpty(ad)) {
+            ad = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArmeabiv7aRelease-3.3.14.apk";
         }
-        String aa = com.kwad.sdk.core.config.c.aa();
-        if (TextUtils.isEmpty(aa)) {
-            aa = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArm64v8aRelease-3.3.14.apk";
+        String ae = com.kwad.sdk.core.config.b.ae();
+        if (TextUtils.isEmpty(ae)) {
+            ae = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArm64v8aRelease-3.3.14.apk";
         }
         if (b2) {
-            Z = aa;
+            ad = ae;
         }
-        String ab = com.kwad.sdk.core.config.c.ab();
-        if (TextUtils.isEmpty(ab)) {
-            ab = "3";
+        String ah = com.kwad.sdk.core.config.b.ah();
+        if (TextUtils.isEmpty(ah)) {
+            ah = "3";
         }
-        com.kwai.sodler.a.b.a(context);
-        com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-        bVar.f68022c = Z;
-        bVar.f68024e = true;
-        bVar.f68020a = str;
-        bVar.f68021b = ab;
-        bVar.f68026g = false;
-        com.kwai.sodler.a.b.a(str, bVar, new b.a(aVar) { // from class: com.kwad.sdk.collector.d.1
+        com.kwai.sodler.kwai.b.a(context);
+        com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
+        bVar.f60084c = ad;
+        bVar.f60086e = true;
+        bVar.a = str;
+        bVar.f60083b = ah;
+        bVar.f60088g = false;
+        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(aVar) { // from class: com.kwad.sdk.collector.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65075a;
+            public final /* synthetic */ a a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -101,37 +98,40 @@ public class d {
                         return;
                     }
                 }
-                this.f65075a = aVar;
+                this.a = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048579, this, hVar) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, hVar) == null) {
                     super.a(hVar);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar, PluginError pluginError) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048580, this, hVar, pluginError) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, pluginError) == null) {
                     super.a(hVar, pluginError);
-                    if (this.f65075a != null) {
-                        this.f65075a.a(pluginError == null ? "load error" : pluginError.toString());
+                    if (this.a != null) {
+                        this.a.a(pluginError == null ? "load error" : pluginError.toString());
                     }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar, com.kwai.sodler.lib.g gVar) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048581, this, hVar, gVar) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hVar, gVar) == null) {
                     super.a(hVar, gVar);
-                    d.b(this.f65075a);
+                    d.b(this.a);
                 }
             }
         });

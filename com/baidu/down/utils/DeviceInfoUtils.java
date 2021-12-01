@@ -4,19 +4,19 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -120,7 +120,7 @@ public final class DeviceInfoUtils {
         }
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f56920b).start().getInputStream()));
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine());
                 try {
@@ -156,15 +156,15 @@ public final class DeviceInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences(SF_FILENAME, 0);
-            long j = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
-            if (j == -1) {
+            long j2 = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
+            if (j2 == -1) {
                 long cpuFreq = getCpuFreq();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putLong(SF_KEY_CPU_FREQ, cpuFreq);
                 edit.commit();
                 return cpuFreq;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -172,7 +172,7 @@ public final class DeviceInfoUtils {
     public static String getCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String str = Build.MODEL;
             String str2 = Build.VERSION.RELEASE;
             int i2 = Build.VERSION.SDK_INT;

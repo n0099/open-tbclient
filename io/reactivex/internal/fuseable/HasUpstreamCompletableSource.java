@@ -1,7 +1,7 @@
 package io.reactivex.internal.fuseable;
 
 import io.reactivex.CompletableSource;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface HasUpstreamCompletableSource {
     CompletableSource source();
 }

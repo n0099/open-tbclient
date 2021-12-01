@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -225,7 +224,7 @@ public class SerializationUtils {
     public static void serialize(Serializable serializable, OutputStream outputStream) {
         ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, serializable, outputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, serializable, outputStream) == null) {
             if (outputStream != null) {
                 ObjectOutputStream objectOutputStream2 = null;
                 try {
@@ -267,7 +266,7 @@ public class SerializationUtils {
     public static byte[] serialize(Serializable serializable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, serializable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, serializable)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);
             serialize(serializable, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();

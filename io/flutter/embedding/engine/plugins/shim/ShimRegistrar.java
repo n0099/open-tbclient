@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.FlutterInjector;
 import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
@@ -17,13 +18,12 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugin.platform.PlatformViewRegistry;
-import io.flutter.view.FlutterMain;
 import io.flutter.view.FlutterView;
 import io.flutter.view.TextureRegistry;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShimRegistrar implements PluginRegistry.Registrar, FlutterPlugin, ActivityAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShimRegistrar";
@@ -191,7 +191,7 @@ public class ShimRegistrar implements PluginRegistry.Registrar, FlutterPlugin, A
     public String lookupKeyForAsset(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? FlutterMain.getLookupKeyForAsset(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(str) : (String) invokeL.objValue;
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.Registrar
@@ -321,6 +321,6 @@ public class ShimRegistrar implements PluginRegistry.Registrar, FlutterPlugin, A
     public String lookupKeyForAsset(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) ? FlutterMain.getLookupKeyForAsset(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) ? FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(str, str2) : (String) invokeLL.objValue;
     }
 }

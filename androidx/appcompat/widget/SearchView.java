@@ -48,7 +48,6 @@ import androidx.core.view.ViewCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -815,7 +814,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         int i3;
         String columnString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, this, cursor, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, cursor, i2, str)) == null) {
             try {
                 try {
                     String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
@@ -835,12 +834,12 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     }
                     return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i2, str);
                 } catch (RuntimeException unused) {
-                    i3 = -1;
+                    i3 = cursor.getPosition();
                     String str3 = "Search suggestions cursor at row " + i3 + " returned exception.";
                     return null;
                 }
             } catch (RuntimeException unused2) {
-                i3 = cursor.getPosition();
+                i3 = -1;
                 String str32 = "Search suggestions cursor at row " + i3 + " returned exception.";
                 return null;
             }
@@ -851,7 +850,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private Intent createVoiceAppSearchIntent(Intent intent, SearchableInfo searchableInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, intent, searchableInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, intent, searchableInfo)) == null) {
             ComponentName searchActivity = searchableInfo.getSearchActivity();
             Intent intent2 = new Intent("android.intent.action.SEARCH");
             intent2.setComponent(searchActivity);
@@ -1989,9 +1988,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                     this.this$0.onItemClicked(i5, 0, null);
                 }
             }
@@ -2020,9 +2019,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                     this.this$0.onItemSelected(i5);
                 }
             }

@@ -30,10 +30,10 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface PayTypeContract {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,9 +273,7 @@ public interface PayTypeContract {
                 Collections.sort(arrayList, new Comparator<Object>(this) { // from class: com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f60550a;
+                    public final /* synthetic */ Presenter a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -292,7 +290,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f60550a = this;
+                        this.a = this;
                     }
 
                     @Override // java.util.Comparator

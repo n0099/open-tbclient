@@ -3,7 +3,6 @@ package com.baidu.sapi2;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.Log;
@@ -26,7 +25,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SapiOptions implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_GRAY = 1000000;
@@ -45,7 +44,7 @@ public final class SapiOptions implements NoProguard {
     public static final String KEY_DEFAULT_HTTPS_ENABLED = "default_https_enabled";
     public static final String KEY_DI_EXCEPT_INDEX = "di_except_index";
     public static final String KEY_GLOBAL_SHARE_STRATEGY = "global_share_strategy";
-    public static final String KEY_GRAY = "gray";
+    public static final String KEY_GRAY = "gray_android";
     public static final String KEY_JOIN_QR_LOGIN_PROMPT = "join_qr_login_prompt";
     public static final String KEY_LOGIN_COOKIE_DI_KEYS = "login_cookie_di_keys";
     public static final String KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH = "extrajson_limit_len";
@@ -54,6 +53,7 @@ public final class SapiOptions implements NoProguard {
     public static final String KEY_OPTN_BDUSS_DOMAINS = "open_bduss_domains";
     public static final String KEY_PASSHTTP_CLIENT_ASYNC_COOKIE = "pass_httpclient_async_cookie";
     public static final String KEY_RESET_FILE_EXEC_PER = "reset_file_exec_per";
+    public static final String KEY_SHARE_CHECK_ONLINE_TIME_OUT = "share_check_online_time_out";
     public static final String KEY_SHARE_COMMOM_STORAGE_ENABLE = "share_common_storage_enable";
     public static final String KEY_SHARE_INTERNAL_STORAGE = "share_inter_storage_gray";
     public static final String KEY_SHARE_LIVINGUNAME_ENABLE = "share_livinguname_enabled";
@@ -77,13 +77,14 @@ public final class SapiOptions implements NoProguard {
     public List<String> openBdussDomains;
     public List<String> openBdussTpls;
     public boolean resetFileExecPer;
+    public int shareCheckOnlineTimeOut;
     public boolean shareCommonStorageEnable;
     public int shareInterGray;
     public boolean shareLivingunameEnabled;
     public Map<String, LoginShareStrategy> specificShareStrategy;
     public String tid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Cache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
@@ -92,7 +93,7 @@ public final class SapiOptions implements NoProguard {
         public List<Module> modules;
         public String version;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class Module {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +266,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class CacheGray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +322,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Gray implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
@@ -343,10 +344,11 @@ public final class SapiOptions implements NoProguard {
         public static String KEY_GRAY_PERCENT = "p";
         public static String KEY_GRAY_TPLS = "t";
         public static final String KEY_NEW_INIT_SOFIRE = "new_init_sofire";
+        public static final String KEY_SHARE_CHECK_ONLINE_SWITCH = "share_check_online_switch";
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, GrayModule> grayModuleMap;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class GrayModule implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -382,14 +384,14 @@ public final class SapiOptions implements NoProguard {
                     grayModule.minVersion = optJSONObject.has(Gray.KEY_GRAY_MIN_VERSION) ? optJSONObject.optString(Gray.KEY_GRAY_MIN_VERSION) : jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
                     grayModule.percent = optJSONObject.has(Gray.KEY_GRAY_PERCENT) ? optJSONObject.optLong(Gray.KEY_GRAY_PERCENT) : jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
                     grayModule.extraParams = optJSONObject.has(Gray.KEY_GRAY_EX) ? optJSONObject.optString(Gray.KEY_GRAY_EX) : jSONObject.optString(Gray.KEY_GRAY_EX);
-                    long j = SapiContext.getInstance().getLong(str, -1L);
-                    if (j == -1) {
+                    long j2 = SapiContext.getInstance().getLong(str, -1L);
+                    if (j2 == -1) {
                         Random random = new Random();
                         random.setSeed(System.currentTimeMillis());
-                        j = random.nextInt(1000000);
-                        SapiContext.getInstance().put(str, j);
+                        j2 = random.nextInt(1000000);
+                        SapiContext.getInstance().put(str, j2);
                     }
-                    grayModule.meetGray = grayModule.percent >= j;
+                    grayModule.meetGray = grayModule.percent >= j2;
                     if (!TextUtils.isEmpty(grayModule.minVersion) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.minVersion) < 0) {
                         grayModule.meetGray = false;
                     }
@@ -459,7 +461,7 @@ public final class SapiOptions implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
                 Gray gray = new Gray();
-                JSONObject optJSONObject = jSONObject.optJSONObject("gray");
+                JSONObject optJSONObject = jSONObject.optJSONObject(SapiOptions.KEY_GRAY);
                 if (optJSONObject == null) {
                     return gray;
                 }
@@ -508,7 +510,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PkgSigns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";
@@ -753,6 +755,7 @@ public final class SapiOptions implements NoProguard {
         this.openBdussDomains = new ArrayList();
         this.canGetBduss = true;
         this.shareInterGray = 100;
+        this.shareCheckOnlineTimeOut = 1000;
         this.joinQrLoginPrompt = defaultJoinQrLoginPrompt;
         this.cache = new Cache();
         this.gray = new Gray();
@@ -791,7 +794,7 @@ public final class SapiOptions implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             SapiOptions sapiOptions = new SapiOptions();
-            sapiOptions.cache = Cache.fromJSON(jSONObject.optJSONObject(KEY_CACHE));
+            sapiOptions.cache = Cache.fromJSON(jSONObject.optJSONObject("cache"));
             if (jSONObject.has(KEY_CACHE_GRAY)) {
                 cacheGrayTest(jSONObject, sapiOptions);
             }
@@ -800,6 +803,7 @@ public final class SapiOptions implements NoProguard {
             sapiOptions.defaultHttpsEnabled = jSONObject.optBoolean(KEY_DEFAULT_HTTPS_ENABLED, true);
             sapiOptions.addressUseWeb = jSONObject.optBoolean(KEY_ADDRESS_USE_WEB);
             sapiOptions.shareInterGray = jSONObject.optInt(KEY_SHARE_INTERNAL_STORAGE, 0);
+            sapiOptions.shareCheckOnlineTimeOut = jSONObject.optInt(KEY_SHARE_CHECK_ONLINE_TIME_OUT, 2000);
             String optString = jSONObject.optString(KEY_GLOBAL_SHARE_STRATEGY);
             if (!TextUtils.isEmpty(optString)) {
                 sapiOptions.globalShareStrategy = LoginShareStrategy.mapStrToValue(optString);
@@ -839,7 +843,7 @@ public final class SapiOptions implements NoProguard {
     public static List<String> getInitialAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("baidu.com");
             arrayList.add("hao123.com");
@@ -853,7 +857,7 @@ public final class SapiOptions implements NoProguard {
     public static List<String> getInitialCachePackagesWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("com.baidu.browser.(.+)");
             return arrayList;
@@ -1109,10 +1113,11 @@ public final class SapiOptions implements NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(KEY_CACHE, this.cache.toJSON());
+                jSONObject.put("cache", this.cache.toJSON());
                 jSONObject.put(KEY_SHARE_LIVINGUNAME_ENABLE, this.shareLivingunameEnabled);
                 jSONObject.put(KEY_SHARE_COMMOM_STORAGE_ENABLE, this.shareCommonStorageEnable);
                 jSONObject.put(KEY_SHARE_INTERNAL_STORAGE, this.shareInterGray);
+                jSONObject.put(KEY_SHARE_CHECK_ONLINE_TIME_OUT, this.shareCheckOnlineTimeOut);
                 if (this.globalShareStrategy != null) {
                     jSONObject.put(KEY_GLOBAL_SHARE_STRATEGY, this.globalShareStrategy.getStrValue());
                 }
@@ -1137,7 +1142,7 @@ public final class SapiOptions implements NoProguard {
                 jSONObject.put(KEY_PASSHTTP_CLIENT_ASYNC_COOKIE, this.httpClientAsyncCookie);
                 jSONObject.put(KEY_RESET_FILE_EXEC_PER, this.resetFileExecPer);
                 jSONObject.put(KEY_JOIN_QR_LOGIN_PROMPT, this.joinQrLoginPrompt);
-                jSONObject.put("gray", this.gray.toJSON());
+                jSONObject.put(KEY_GRAY, this.gray.toJSON());
                 jSONObject.put(KEY_OPEN_BDUSS_CAN_GET_BDUSS, this.canGetBduss);
                 jSONObject.put("tid", this.tid);
                 return jSONObject.toString();

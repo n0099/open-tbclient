@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"kotlin/collections/UCollectionsKt___UCollectionsKt"}, d2 = {}, k = 4, mv = {1, 4, 0}, pn = "", xi = 1, xs = "")
+@Metadata(d1 = {"kotlin/collections/UCollectionsKt___UCollectionsKt"}, k = 4, mv = {1, 5, 1}, xi = 1)
 /* loaded from: classes3.dex */
 public final class UCollectionsKt extends UCollectionsKt___UCollectionsKt {
 }

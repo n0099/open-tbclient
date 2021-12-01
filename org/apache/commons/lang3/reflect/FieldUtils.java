@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +69,7 @@ public class FieldUtils {
     public static Field getField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
             Field field = getField(cls, str, false);
             MemberUtils.setAccessibleWorkaround(field);
             return field;
@@ -303,7 +302,7 @@ public class FieldUtils {
         InterceptResult invokeLLZ;
         Field declaredField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, cls, str, z)) == null) {
             Validate.isTrue(cls != null, "The class must not be null", new Object[0]);
             Validate.isTrue(StringUtils.isNotBlank(str), "The field name must not be blank/empty", new Object[0]);
             for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {

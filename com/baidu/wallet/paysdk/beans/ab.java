@@ -19,16 +19,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ab extends BaseBean<VerifyByBankResponse> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f60485a;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f60486b;
+    public final List f53392b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +41,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        f60485a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
+        a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,7 +62,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        this.f60486b = Arrays.asList(f60485a);
+        this.f53392b = Arrays.asList(a);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -83,7 +81,7 @@ public class ab extends BaseBean<VerifyByBankResponse> {
             ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (this.f60486b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+                if (this.f53392b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                     it.remove();
                 }
             }

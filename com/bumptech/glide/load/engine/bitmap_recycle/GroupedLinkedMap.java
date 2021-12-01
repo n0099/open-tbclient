@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedEntry<K, V> head;
     public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,12 +85,12 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             return invokeV.intValue;
         }
 
-        public LinkedEntry(K k) {
+        public LinkedEntry(K k2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k};
+                Object[] objArr = {k2};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -102,7 +102,7 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             }
             this.prev = this;
             this.next = this;
-            this.key = k;
+            this.key = k2;
         }
     }
 
@@ -163,16 +163,16 @@ public class GroupedLinkedMap<K extends Poolable, V> {
     }
 
     @Nullable
-    public V get(K k) {
+    public V get(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k2);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry<>(k);
-                this.keyToEntry.put(k, linkedEntry);
+                linkedEntry = new LinkedEntry<>(k2);
+                this.keyToEntry.put(k2, linkedEntry);
             } else {
-                k.offer();
+                k2.offer();
             }
             makeHead(linkedEntry);
             return linkedEntry.removeLast();
@@ -180,16 +180,16 @@ public class GroupedLinkedMap<K extends Poolable, V> {
         return (V) invokeL.objValue;
     }
 
-    public void put(K k, V v) {
+    public void put(K k2, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, v) == null) {
-            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2, v) == null) {
+            LinkedEntry<K, V> linkedEntry = this.keyToEntry.get(k2);
             if (linkedEntry == null) {
-                linkedEntry = new LinkedEntry<>(k);
+                linkedEntry = new LinkedEntry<>(k2);
                 makeTail(linkedEntry);
-                this.keyToEntry.put(k, linkedEntry);
+                this.keyToEntry.put(k2, linkedEntry);
             } else {
-                k.offer();
+                k2.offer();
             }
             linkedEntry.add(v);
         }

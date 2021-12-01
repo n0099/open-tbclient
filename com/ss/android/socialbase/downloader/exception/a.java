@@ -9,9 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends BaseException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f70226a;
+    public String a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -28,12 +26,12 @@ public class a extends BaseException {
                 return;
             }
         }
-        this.f70226a = str;
+        this.a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70226a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

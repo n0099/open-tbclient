@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.transcoder;
 
 import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -104,7 +103,7 @@ public class JpegTranscoderUtils {
     public static int getForceRotatedInvertedExifOrientation(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rotationOptions, encodedImage)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, rotationOptions, encodedImage)) == null) {
             int indexOf = INVERTED_EXIF_ORIENTATIONS.indexOf(Integer.valueOf(encodedImage.getExifOrientation()));
             if (indexOf >= 0) {
                 int forcedAngle = rotationOptions.useImageMetadata() ? 0 : rotationOptions.getForcedAngle();
@@ -119,7 +118,7 @@ public class JpegTranscoderUtils {
     public static int getRotationAngle(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, rotationOptions, encodedImage)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, rotationOptions, encodedImage)) == null) {
             if (rotationOptions.rotationEnabled()) {
                 int extractOrientationFromMetadata = extractOrientationFromMetadata(encodedImage);
                 return rotationOptions.useImageMetadata() ? extractOrientationFromMetadata : (extractOrientationFromMetadata + rotationOptions.getForcedAngle()) % 360;

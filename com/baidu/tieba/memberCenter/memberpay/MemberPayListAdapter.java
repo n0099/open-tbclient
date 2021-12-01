@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MemberPayListAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<MemberPayFragment> f52484a;
+    public List<MemberPayFragment> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MemberPayListAdapter(FragmentManager fragmentManager) {
@@ -42,7 +40,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<MemberPayFragment> list = this.f52484a;
+            List<MemberPayFragment> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -54,7 +52,7 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
     public void setFragments(List<MemberPayFragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f52484a = list;
+            this.a = list;
         }
     }
 
@@ -64,8 +62,8 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f52484a.size() > i2) {
-                return this.f52484a.get(i2);
+            if (this.a.size() > i2) {
+                return this.a.get(i2);
             }
             return null;
         }

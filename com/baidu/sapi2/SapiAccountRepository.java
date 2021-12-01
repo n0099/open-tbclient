@@ -28,6 +28,7 @@ import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.callback.inner.ExecuteJsCallback;
+import com.baidu.sapi2.callback.inner.GetOnlineAppCallback;
 import com.baidu.sapi2.callback.inner.GetShareV3AppCallback;
 import com.baidu.sapi2.callback.inner.LoadExternalWebViewActivityCallback;
 import com.baidu.sapi2.callback.inner.LoginHistoryCallback;
@@ -49,6 +50,7 @@ import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.SsoHashResult;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
+import com.baidu.sapi2.share.GetOnlineRequestShareModel;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.ShareUtils;
@@ -57,6 +59,7 @@ import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.PtokenStat;
@@ -81,6 +84,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.tachikoma.core.component.input.InputType;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -98,7 +102,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -107,7 +111,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i2, String str);
 
@@ -348,7 +352,7 @@ public final class SapiAccountRepository {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            return "tpl:" + this.configuration.tpl + ";android_sapi_v9.4.3";
+            return "tpl:" + this.configuration.tpl + ";android_sapi_v9.4.7.5";
         }
         return (String) invokeV.objValue;
     }
@@ -458,7 +462,7 @@ public final class SapiAccountRepository {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("username", str3);
             jSONObject.put("isphone", "1");
-            jSONObject.put("password", str4);
+            jSONObject.put(InputType.PASSWORD, str4);
             jSONObject.put("login_type", "3");
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
             jSONObject.put("sdk_version", "2");
@@ -1666,9 +1670,98 @@ public final class SapiAccountRepository {
         return (String) invokeV.objValue;
     }
 
+    public void getOnlineAppShareModel(List<GetOnlineRequestShareModel> list, String str, GetOnlineAppCallback getOnlineAppCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048605, this, list, str, getOnlineAppCallback) == null) || getOnlineAppCallback == null || list == null || list.size() == 0) {
+            return;
+        }
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        httpHashMapWrap.put("client", "android");
+        httpHashMapWrap.put("clientfrom", "native");
+        JSONArray jSONArray = new JSONArray();
+        for (GetOnlineRequestShareModel getOnlineRequestShareModel : list) {
+            jSONArray.put(GetOnlineRequestShareModel.parseModel2JsonObject(getOnlineRequestShareModel));
+        }
+        httpHashMapWrap.put("applist", jSONArray.toString());
+        httpHashMapWrap.put("frominterflow", str);
+        String onlineAppUrl = getOnlineAppUrl();
+        new HttpClientWrap().post(onlineAppUrl, httpHashMapWrap, ParamsUtil.buildNaCookie(onlineAppUrl, this.configuration), getUaInfo(), new HttpHandlerWrap(this, getOnlineAppCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.24
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SapiAccountRepository this$0;
+            public final /* synthetic */ GetOnlineAppCallback val$callback;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, getOnlineAppCallback};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$callback = getOnlineAppCallback;
+            }
+
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onFailure(Throwable th, int i2, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str2) == null) {
+                    Log.d(ShareUtils.TAG, "getOnlineAppShareModel fail responseBody=" + str2);
+                    this.val$callback.onFailure();
+                }
+            }
+
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onSuccess(int i2, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                    Log.d(ShareUtils.TAG, "getOnlineAppShareModel success response=" + str2);
+                    try {
+                        JSONObject jSONObject = new JSONObject(str2);
+                        if (jSONObject.optInt("errno") != 0) {
+                            this.val$callback.onFailure();
+                            return;
+                        }
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        if (optJSONObject == null) {
+                            this.val$callback.onFailure();
+                            return;
+                        }
+                        JSONArray optJSONArray = optJSONObject.optJSONArray("applist");
+                        if (optJSONArray == null) {
+                            this.val$callback.onFailure();
+                        } else {
+                            this.val$callback.onSuccess(optJSONArray);
+                        }
+                    } catch (JSONException e2) {
+                        Log.e(SapiAccountRepository.TAG, e2.getMessage());
+                        this.val$callback.onFailure();
+                    }
+                }
+            }
+        });
+    }
+
+    public String getOnlineAppUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return getDomain().getURL() + SapiEnv.SHARE_LOGIN_GET_ONLINE_APP;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void getShareV3App(String str, List<String> list, String str2, GetShareV3AppCallback getShareV3AppCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048605, this, str, list, str2, getShareV3AppCallback) == null) || getShareV3AppCallback == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048607, this, str, list, str2, getShareV3AppCallback) == null) || getShareV3AppCallback == null) {
             return;
         }
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
@@ -1717,6 +1810,7 @@ public final class SapiAccountRepository {
             public void onFailure(Throwable th, int i2, String str4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str4) == null) {
+                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_ERRCODE, Integer.valueOf(i2));
                     Log.d(ShareUtils.TAG, "requestShareV3AppFromCloud fail responseBody=" + str4);
                     this.val$callback.onFailure();
                 }
@@ -1729,6 +1823,7 @@ public final class SapiAccountRepository {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str4) == null) {
                     Log.d(ShareUtils.TAG, "requestShareV3AppFromCloud success response=" + str4);
+                    ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_FROM_NET_ERRCODE, Integer.valueOf(i2));
                     JSONArray jSONArray = null;
                     try {
                         jSONObject = new JSONObject(str4);
@@ -1760,7 +1855,7 @@ public final class SapiAccountRepository {
     public String getShareV3AppUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return getDomain().getURL() + SapiEnv.CLOUD_SHARE_V3_APP;
         }
         return (String) invokeV.objValue;
@@ -1769,7 +1864,7 @@ public final class SapiAccountRepository {
     public String getSwitchAccountUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return getDomain().getWap() + SapiEnv.SWITCH_ACCOUNT;
         }
         return (String) invokeV.objValue;
@@ -1778,7 +1873,7 @@ public final class SapiAccountRepository {
     public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{getTplStokenCallback, str, list, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{getTplStokenCallback, str, list, Boolean.valueOf(z)})) == null) {
             SapiUtils.notNull(getTplStokenCallback, GetTplStokenCallback.class.getSimpleName() + " can't be null");
             GetTplStokenResult getTplStokenResult = new GetTplStokenResult();
             if (list != null && !list.isEmpty()) {
@@ -1974,7 +2069,7 @@ public final class SapiAccountRepository {
     public String getUniteVerifyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return getDomain().getWap() + "/wp/unitewidget";
         }
         return (String) invokeV.objValue;
@@ -1982,7 +2077,7 @@ public final class SapiAccountRepository {
 
     public void getUserInfo(GetUserInfoCallback getUserInfoCallback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, getUserInfoCallback, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, getUserInfoCallback, str) == null) {
             SapiUtils.notNull(getUserInfoCallback, GetUserInfoCallback.class.getSimpleName() + " can't be null");
             SapiUtils.notEmpty(str, "bduss can't be empty");
             SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(str);
@@ -2069,7 +2164,7 @@ public final class SapiAccountRepository {
     public String getWapForgetPwdUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return getDomain().getWap() + "/passport/getpass";
         }
         return (String) invokeV.objValue;
@@ -2078,7 +2173,7 @@ public final class SapiAccountRepository {
     public String getWapLoginUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return getDomain().getWap() + "/passport/login";
         }
         return (String) invokeV.objValue;
@@ -2087,7 +2182,7 @@ public final class SapiAccountRepository {
     public String getWapShareLoginUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return getDomain().getWap() + "/v3/login/api/login";
         }
         return (String) invokeV.objValue;
@@ -2095,7 +2190,7 @@ public final class SapiAccountRepository {
 
     public void handleDynamicPwdLogin(int i2, SapiCallBack<SapiAccountResponse> sapiCallBack, String str, boolean z, SapiDataEncryptor sapiDataEncryptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), sapiCallBack, str, Boolean.valueOf(z), sapiDataEncryptor}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), sapiCallBack, str, Boolean.valueOf(z), sapiDataEncryptor}) == null) {
             if (str == null) {
                 if (sapiCallBack != null) {
                     sapiCallBack.onSystemError(i2);
@@ -2142,7 +2237,7 @@ public final class SapiAccountRepository {
 
     public void handleGetDynamicPwd(SapiCallBack<SapiResponse> sapiCallBack, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048616, this, sapiCallBack, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048618, this, sapiCallBack, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 EnhancedService.smsCodeLength = jSONObject.optInt("smsCodeLength", 6);
@@ -2163,7 +2258,7 @@ public final class SapiAccountRepository {
 
     public void iqiyiSSOLogin(IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginDTO iqiyiLoginDTO) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048617, this, iqiyiLoginCallback, iqiyiLoginDTO) == null) || iqiyiLoginCallback == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048619, this, iqiyiLoginCallback, iqiyiLoginDTO) == null) || iqiyiLoginCallback == null) {
             return;
         }
         iqiyiLoginCallback.onStart();
@@ -2268,7 +2363,7 @@ public final class SapiAccountRepository {
     public boolean isAccountStokenExist(SapiAccount sapiAccount, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048618, this, sapiAccount, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, sapiAccount, list)) == null) {
             if (sapiAccount != null && !TextUtils.isEmpty(sapiAccount.extra)) {
                 try {
                     SapiAccount.DispersionCertification fromJSONObject = SapiAccount.DispersionCertification.fromJSONObject(new JSONObject(sapiAccount.extra));
@@ -2290,7 +2385,7 @@ public final class SapiAccountRepository {
     public boolean isStokenExist(String str, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048619, this, str, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048621, this, str, list)) == null) {
             SapiUtils.notEmpty(str, "bduss can't be empty");
             if (list != null && !list.isEmpty()) {
                 return isAccountStokenExist(SapiContext.getInstance().getAccountFromBduss(str), list);
@@ -2302,7 +2397,7 @@ public final class SapiAccountRepository {
 
     public void loadOneKeyLogin(OneKeyLoginCallback oneKeyLoginCallback, String str, String str2, LoadExternalWebViewActivityCallback loadExternalWebViewActivityCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048620, this, oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048622, this, oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 String operatorType = new OneKeyLoginSdkCall().getOperatorType();
@@ -2372,6 +2467,7 @@ public final class SapiAccountRepository {
                             }
                         }
                         httpHashMap.put("oneKeySdkVersion", "v2");
+                        httpHashMap.put("yyNormalOneKey", "1");
                         String loadOneKeyLoginUrl = this.this$0.getLoadOneKeyLoginUrl();
                         new HttpClientWrap().post(loadOneKeyLoginUrl, httpHashMap, ParamsUtil.buildNaCookie(loadOneKeyLoginUrl, this.this$0.configuration), this.this$0.getUaInfo(), new HttpHandlerWrap(this, Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.19.1
                             public static /* synthetic */ Interceptable $ic;
@@ -2489,9 +2585,9 @@ public final class SapiAccountRepository {
         }
     }
 
-    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str, String str2) {
+    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048621, this, sapiCallback, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048623, this, sapiCallback, str, str2, str3) == null) {
             SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
             SapiUtils.notEmpty(str, "bduss can't be empty");
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
@@ -2499,6 +2595,9 @@ public final class SapiAccountRepository {
                 httpHashMapWrap.put("openPlatformId", str2);
             }
             httpHashMapWrap.put("bduss", str);
+            if (!TextUtils.isEmpty(str3)) {
+                httpHashMapWrap.put("scope", str3);
+            }
             new HttpClientWrap().post(SapiEnv.OAUTH_URI, httpHashMapWrap, null, getUaInfo(), new HttpHandlerWrap(this, Looper.getMainLooper(), sapiCallback, str, str2) { // from class: com.baidu.sapi2.SapiAccountRepository.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2532,11 +2631,11 @@ public final class SapiAccountRepository {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onFailure(Throwable th, int i2, String str3) {
+                public void onFailure(Throwable th, int i2, String str4) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str3) == null) {
-                        String str4 = SapiAccountRepository.TAG;
-                        Log.d(str4, "oauth failure: code=" + i2 + " body=" + str3);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str4) == null) {
+                        String str5 = SapiAccountRepository.TAG;
+                        Log.d(str5, "oauth failure: code=" + i2 + " body=" + str4);
                         OAuthResult oAuthResult = new OAuthResult();
                         oAuthResult.setResultCode(i2);
                         this.val$callback.onFailure(oAuthResult);
@@ -2560,26 +2659,26 @@ public final class SapiAccountRepository {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i2, String str3) {
+                public void onSuccess(int i2, String str4) {
                     JSONObject jSONObject;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i2, str3) == null) {
-                        String str4 = SapiAccountRepository.TAG;
-                        Log.d(str4, "oauth success: " + str3);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i2, str4) == null) {
+                        String str5 = SapiAccountRepository.TAG;
+                        Log.d(str5, "oauth success: " + str4);
                         try {
-                            jSONObject = new JSONObject(str3);
+                            jSONObject = new JSONObject(str4);
                         } catch (JSONException e2) {
-                            String str5 = SapiAccountRepository.TAG;
-                            Log.e(str5, "formatOauthResult: " + e2.getMessage());
+                            String str6 = SapiAccountRepository.TAG;
+                            Log.e(str6, "formatOauthResult: " + e2.getMessage());
                             jSONObject = null;
                         }
                         if (jSONObject != null) {
                             try {
-                                jSONObject.put("extra", str3);
+                                jSONObject.put("extra", str4);
                                 jSONObject.put("cachedTimeSecond", System.currentTimeMillis() / 1000);
                             } catch (JSONException e3) {
-                                String str6 = SapiAccountRepository.TAG;
-                                Log.e(str6, "" + e3.getMessage());
+                                String str7 = SapiAccountRepository.TAG;
+                                Log.e(str7, "" + e3.getMessage());
                             }
                         }
                         OAuthResult formatOauthResult = this.this$0.formatOauthResult(jSONObject);
@@ -2603,12 +2702,12 @@ public final class SapiAccountRepository {
 
     public void oauthAccessToken(SapiCallback<OAuthResult> sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048622, this, sapiCallback, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048624, this, sapiCallback, str, str2) == null) {
             OAuthResult cachedOauthResult = getCachedOauthResult(str, str2);
             if (cachedOauthResult != null) {
                 sapiCallback.onSuccess(cachedOauthResult);
             } else {
-                oauth(sapiCallback, str, str2);
+                oauth(sapiCallback, str, str2, null);
             }
         }
     }
@@ -2616,7 +2715,7 @@ public final class SapiAccountRepository {
     public SapiAccount responseToAccount(SapiAccountResponse sapiAccountResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, sapiAccountResponse)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, sapiAccountResponse)) == null) {
             SapiAccount sapiAccount = new SapiAccount();
             sapiAccount.displayname = sapiAccountResponse.displayname;
             sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -2633,7 +2732,7 @@ public final class SapiAccountRepository {
     public void setCloudShareAccount(int i2, ShareStorage.StorageModel storageModel) {
         SapiAccount currentAccount;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048624, this, i2, storageModel) == null) && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
+        if ((interceptable == null || interceptable.invokeIL(1048626, this, i2, storageModel) == null) && SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_SHARE_V3).meetGray) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             if (i2 == 2) {
                 httpHashMapWrap.put("cmd", "insert");
@@ -2718,7 +2817,7 @@ public final class SapiAccountRepository {
     public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback, boolean z) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048625, this, web2NativeLoginCallback, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048627, this, web2NativeLoginCallback, z) == null) {
             SapiUtils.notNull(web2NativeLoginCallback, Web2NativeLoginCallback.class.getSimpleName() + " can't be null");
             Web2NativeLoginResult web2NativeLoginResult = new Web2NativeLoginResult();
             String cookieBduss = SapiUtils.getCookieBduss();
@@ -2841,7 +2940,7 @@ public final class SapiAccountRepository {
 
     public void getUserInfo(String str, String str2, NetCallback netCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048611, this, str, str2, netCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048613, this, str, str2, netCallback) == null) {
             SapiUtils.notNull(netCallback, "callback can't be null");
             SapiUtils.notEmpty(str, "bduss can't be empty");
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();

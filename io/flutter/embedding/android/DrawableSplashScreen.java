@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.a.a.a.a;
-/* loaded from: classes2.dex */
+import g.a.a.a.b;
+/* loaded from: classes3.dex */
 public final class DrawableSplashScreen implements SplashScreen {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class DrawableSplashScreen implements SplashScreen {
     public final ImageView.ScaleType scaleType;
     public DrawableSplashScreenView splashView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DrawableSplashScreenView extends ImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,14 +148,14 @@ public final class DrawableSplashScreen implements SplashScreen {
     @Override // io.flutter.embedding.android.SplashScreen
     @SuppressLint({"NewApi"})
     public /* synthetic */ boolean doesSplashViewRememberItsTransition() {
-        return a.$default$doesSplashViewRememberItsTransition(this);
+        return b.$default$doesSplashViewRememberItsTransition(this);
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
     @Nullable
     @SuppressLint({"NewApi"})
     public /* synthetic */ Bundle saveSplashScreenState() {
-        return a.$default$saveSplashScreenState(this);
+        return b.$default$saveSplashScreenState(this);
     }
 
     @Override // io.flutter.embedding.android.SplashScreen
@@ -225,12 +225,12 @@ public final class DrawableSplashScreen implements SplashScreen {
         }
     }
 
-    public DrawableSplashScreen(@NonNull Drawable drawable, @NonNull ImageView.ScaleType scaleType, long j) {
+    public DrawableSplashScreen(@NonNull Drawable drawable, @NonNull ImageView.ScaleType scaleType, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, scaleType, Long.valueOf(j)};
+            Object[] objArr = {drawable, scaleType, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -242,6 +242,6 @@ public final class DrawableSplashScreen implements SplashScreen {
         }
         this.drawable = drawable;
         this.scaleType = scaleType;
-        this.crossfadeDurationInMillis = j;
+        this.crossfadeDurationInMillis = j2;
     }
 }

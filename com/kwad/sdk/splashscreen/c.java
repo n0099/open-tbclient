@@ -1,339 +1,148 @@
 package com.kwad.sdk.splashscreen;
 
 import android.content.Context;
-import android.content.DialogInterface;
+import android.graphics.Rect;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsSplashScreenAd;
-import com.kwad.sdk.api.KsVideoPlayConfig;
-import com.kwad.sdk.contentalliance.detail.video.DetailVideoView;
-import com.kwad.sdk.core.download.b.a;
-import com.kwad.sdk.core.j.e;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.api.core.AbstrackKsSplashScreenAd;
+import com.kwad.sdk.api.core.fragment.KsFragment;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.core.preload.SplashPreloadManager;
 import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.splashscreen.a.f;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
+public class c extends AbstrackKsSplashScreenAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdResultData a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f67507d;
+    /* renamed from: b  reason: collision with root package name */
+    public KsScene f59552b;
+    @NonNull
 
-    /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f67508e;
+    /* renamed from: c  reason: collision with root package name */
+    public final AdTemplate f59553c;
 
-    /* renamed from: f  reason: collision with root package name */
-    public AdBaseFrameLayout f67509f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public DetailVideoView f67510g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f67511h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public e f67512i;
-    public AdTemplate j;
-    public KsScene k;
-    public AdInfo l;
-    public boolean m;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(Context context) {
-        super(context);
+    public c(@NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {ksScene, adResultData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f();
+        this.a = adResultData;
+        this.f59552b = ksScene;
+        this.f59553c = adResultData.adTemplateList.get(0);
     }
 
-    public static c a(Context context, @NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public int getECPM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(com.kwad.sdk.core.response.a.d.j(this.f59553c)) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
+    @NonNull
+    public KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, splashScreenAdInteractionListener)) == null) {
+            KsSplashScreenFragment a = KsSplashScreenFragment.a(this.f59552b, this.a);
+            a.a(splashScreenAdInteractionListener);
+            return a;
+        }
+        return (KsFragment) invokeL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public int getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.E(com.kwad.sdk.core.response.a.d.j(this.f59553c)) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public int getMaterialType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.R(com.kwad.sdk.core.response.a.d.j(this.f59553c)) : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
+    @NonNull
+    public View getView2(Context context, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, splashScreenAdInteractionListener)) == null) {
+            d a = d.a(context, this.f59552b, this.a);
+            a.setSplashScreenAdListener(splashScreenAdInteractionListener);
+            return a;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public boolean isAdEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? SplashPreloadManager.b().a(this.a) || SplashPreloadManager.b().b(this.a) : invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public boolean isVideo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.j(this.a.adTemplateList.get(0))) : invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, adExposureFailedReason) == null) {
+            com.kwad.sdk.core.report.a.a(this.f59553c, i2, adExposureFailedReason);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public void setBidEcpm(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            AdTemplate adTemplate = this.f59553c;
+            adTemplate.mBidEcpm = i2;
+            com.kwad.sdk.core.report.a.m(adTemplate);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd
+    public boolean showSplashMiniWindowIfNeeded(Context context, KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener, Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, ksScene, adResultData)) == null) {
-            AdTemplate adTemplate = new AdTemplate();
-            if (!adResultData.adTemplateList.isEmpty()) {
-                adTemplate = adResultData.adTemplateList.get(0);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, context, splashScreenAdInteractionListener, rect)) == null) {
+            String a = com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(this.f59553c));
+            if (a == null || StringUtil.NULL_STRING.equals(a) || a.equals("")) {
+                return false;
             }
-            c cVar = new c(context);
-            cVar.a(ksScene, adTemplate);
-            return cVar;
+            return new b(context, String.valueOf(a.hashCode()), true, splashScreenAdInteractionListener).a(rect);
         }
-        return (c) invokeLLL.objValue;
-    }
-
-    private void a(KsScene ksScene, AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, ksScene, adTemplate) == null) {
-            this.k = ksScene;
-            this.j = adTemplate;
-            e();
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.l = com.kwad.sdk.core.response.b.c.i(this.j);
-            KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-            this.f67508e = build;
-            this.j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
-            com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.j);
-            this.f67511h = bVar;
-            bVar.a((DialogInterface.OnDismissListener) this);
-            this.f67511h.a((DialogInterface.OnShowListener) this);
-        }
-    }
-
-    private void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f67509f = (AdBaseFrameLayout) this.f65124c.findViewById(R.id.ksad_splash_root_container);
-            DetailVideoView detailVideoView = (DetailVideoView) this.f65124c.findViewById(R.id.ksad_splash_video_player);
-            this.f67510g = detailVideoView;
-            detailVideoView.setAd(true);
-            this.f67510g.setVisibility(8);
-            this.f67509f.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.splashscreen.c.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67513a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f67513a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && com.kwad.sdk.core.config.c.J()) {
-                        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f67513a.j, new a.InterfaceC1941a(this) { // from class: com.kwad.sdk.splashscreen.c.1.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f67514a;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f67514a = this;
-                            }
-
-                            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1941a
-                            public void a() {
-                                String d2;
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    if (this.f67514a.f67513a.f67507d != null) {
-                                        this.f67514a.f67513a.f67507d.onAdClicked();
-                                    }
-                                    if (!com.kwad.sdk.core.response.b.a.v(this.f67514a.f67513a.l) && (d2 = ((d) this.f67514a.f67513a.f65123b).d()) != null) {
-                                        ((d) this.f67514a.f67513a.f65123b).f67516b = true;
-                                        ((d) this.f67514a.f67513a.f65123b).f67518d.mMiniWindowId = d2;
-                                    }
-                                    JSONObject jSONObject = new JSONObject();
-                                    try {
-                                        if (this.f67514a.f67513a.f65123b != null && ((d) this.f67514a.f67513a.f65123b).f67520f != null) {
-                                            jSONObject.put("duration", ((d) this.f67514a.f67513a.f65123b).f67520f.c());
-                                        }
-                                    } catch (JSONException e2) {
-                                        com.kwad.sdk.core.d.a.a(e2);
-                                    }
-                                    com.kwad.sdk.core.report.a.a(this.f67514a.f67513a.j, jSONObject, this.f67514a.f67513a.f67509f.getTouchCoords(), (String) null);
-                                }
-                            }
-                        }, this.f67513a.f67511h, false);
-                    }
-                }
-            });
-        }
-    }
-
-    private void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.m) {
-            return;
-        }
-        this.m = true;
-    }
-
-    @Override // com.kwad.sdk.contentalliance.b
-    @NonNull
-    public Presenter c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Presenter presenter = new Presenter();
-            presenter.a((Presenter) new com.kwad.sdk.splashscreen.a.a());
-            presenter.a((Presenter) new com.kwad.sdk.splashscreen.a.b());
-            presenter.a((Presenter) new com.kwad.sdk.splashscreen.a.d());
-            presenter.a(com.kwad.sdk.core.response.b.a.F(this.l) ? new f() : new com.kwad.sdk.splashscreen.a.c());
-            presenter.a((Presenter) new com.kwad.sdk.splashscreen.a.e());
-            return presenter;
-        }
-        return (Presenter) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.contentalliance.b
-    /* renamed from: d */
-    public d b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e eVar = new e(this.f65124c, 70);
-            this.f67512i = eVar;
-            eVar.a();
-            if (this.f67508e == null) {
-                this.f67508e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-            }
-            d dVar = new d();
-            dVar.f67515a = this.f67507d;
-            dVar.f67519e = this.f67509f;
-            dVar.f67518d = this.j;
-            dVar.f67522h = this.k;
-            dVar.f67517c = this.f67508e;
-            dVar.f67523i = this.f67512i;
-            dVar.f67521g = this.f67511h;
-            if (com.kwad.sdk.core.response.b.a.F(this.l)) {
-                com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.j, this.f67510g, this.f67508e);
-                dVar.f67520f = aVar;
-                dVar.f67523i.a(aVar);
-            }
-            return dVar;
-        }
-        return (d) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.contentalliance.b
-    public int getLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.ksad_splash_screen : invokeV.intValue;
-    }
-
-    @Override // com.kwad.sdk.contentalliance.b, android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            T t = this.f65123b;
-            if (((d) t).f67520f != null) {
-                ((d) t).f67520f.j();
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.contentalliance.b, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDetachedFromWindow();
-            this.f67512i.b();
-            T t = this.f65123b;
-            com.kwad.sdk.splashscreen.b.a aVar = ((d) t).f67520f;
-            ((d) t).a();
-            g();
-        }
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dialogInterface) == null) {
-            boolean b2 = dialogInterface instanceof com.kwad.sdk.core.download.a.b ? ((com.kwad.sdk.core.download.a.b) dialogInterface).b() : false;
-            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = this.f67507d;
-            if (splashScreenAdInteractionListener != null) {
-                if (b2) {
-                    splashScreenAdInteractionListener.onDownloadTipsDialogDismiss();
-                } else {
-                    splashScreenAdInteractionListener.onDownloadTipsDialogCancel();
-                }
-            }
-        }
-    }
-
-    @Override // android.content.DialogInterface.OnShowListener
-    public void onShow(DialogInterface dialogInterface) {
-        KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) || (splashScreenAdInteractionListener = this.f67507d) == null) {
-            return;
-        }
-        splashScreenAdInteractionListener.onDownloadTipsDialogShow();
-    }
-
-    @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2) == null) {
-            super.onVisibilityChanged(view, i2);
-        }
-    }
-
-    public void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, splashScreenAdInteractionListener) == null) {
-            this.f67507d = splashScreenAdInteractionListener;
-            T t = this.f65123b;
-            if (t != 0) {
-                ((d) t).f67515a = splashScreenAdInteractionListener;
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

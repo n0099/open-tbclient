@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.DxmApplicationContextImpl;
-import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,28 +18,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.interfaces.RSAPublicKey;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public RSAPublicKey f59585a;
+    public RSAPublicKey a;
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1839a {
+    /* loaded from: classes11.dex */
+    public static class C1911a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f59586a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +51,7 @@ public class a {
                     return;
                 }
             }
-            f59586a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -67,7 +62,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1839a.f59586a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1911a.a : (a) invokeV.objValue;
     }
 
     public static String b(Context context) {
@@ -132,15 +127,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
-            if (this.f59585a == null) {
+            if (this.a == null) {
                 try {
-                    this.f59585a = RsaUtils.loadPublicKeyByStr(b(context));
+                    this.a = RsaUtils.loadPublicKeyByStr(b(context));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            LogUtil.d(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA, "path mPublicKey = " + this.f59585a);
-            return this.f59585a;
+            LogUtil.d("NA", "path mPublicKey = " + this.a);
+            return this.a;
         }
         return (RSAPublicKey) invokeL.objValue;
     }

@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ap implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f71521a;
+    public final /* synthetic */ an a;
 
     public ap(an anVar) {
         Interceptable interceptable = $ic;
@@ -28,6 +26,6 @@ public class ap implements d.b {
                 return;
             }
         }
-        this.f71521a = anVar;
+        this.a = anVar;
     }
 }

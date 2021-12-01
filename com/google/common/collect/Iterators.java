@@ -1,17 +1,16 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.k;
-import b.h.d.a.n;
-import b.h.d.a.o;
-import b.h.d.c.m;
-import b.h.d.c.m1;
-import b.h.d.c.o1;
-import b.h.d.c.p1;
-import b.h.d.c.x0;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.a.o;
+import c.i.d.c.m;
+import c.i.d.c.m1;
+import c.i.d.c.o1;
+import c.i.d.c.p1;
+import c.i.d.c.x0;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,13 +29,13 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import kotlin.text.Typography;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Iterators {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class EmptyModifiableIterator implements Iterator<Object> {
         public static final /* synthetic */ EmptyModifiableIterator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -121,13 +120,13 @@ public final class Iterators {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a extends o1<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterator f64293e;
+        public final /* synthetic */ Iterator f56233e;
 
         public a(Iterator it) {
             Interceptable interceptable = $ic;
@@ -144,14 +143,14 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64293e = it;
+            this.f56233e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64293e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56233e.hasNext() : invokeV.booleanValue;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -160,20 +159,20 @@ public final class Iterators {
         public T next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64293e.next() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56233e.next() : invokeV.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class b extends AbstractIterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f64294g;
+        public final /* synthetic */ Iterator f56234g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ o f64295h;
+        public final /* synthetic */ o f56235h;
 
         public b(Iterator it, o oVar) {
             Interceptable interceptable = $ic;
@@ -190,8 +189,8 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64294g = it;
-            this.f64295h = oVar;
+            this.f56234g = it;
+            this.f56235h = oVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
@@ -201,9 +200,9 @@ public final class Iterators {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                while (this.f64294g.hasNext()) {
-                    ?? next = this.f64294g.next();
-                    if (this.f64295h.apply(next)) {
+                while (this.f56234g.hasNext()) {
+                    ?? next = this.f56234g.next();
+                    if (this.f56235h.apply(next)) {
                         return next;
                     }
                 }
@@ -213,16 +212,16 @@ public final class Iterators {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class c extends m1<F, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.h.d.a.g f64296f;
+        public final /* synthetic */ c.i.d.a.g f56236f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Iterator it, b.h.d.a.g gVar) {
+        public c(Iterator it, c.i.d.a.g gVar) {
             super(it);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -239,29 +238,29 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64296f = gVar;
+            this.f56236f = gVar;
         }
 
         /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
         /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
-        @Override // b.h.d.c.m1
+        @Override // c.i.d.c.m1
         public T a(F f2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f64296f.apply(f2) : invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f56236f.apply(f2) : invokeL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class d extends o1<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f64297e;
+        public boolean f56237e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f64298f;
+        public final /* synthetic */ Object f56238f;
 
         public d(Object obj) {
             Interceptable interceptable = $ic;
@@ -278,14 +277,14 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64298f = obj;
+            this.f56238f = obj;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f64297e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f56237e : invokeV.booleanValue;
         }
 
         /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
@@ -295,9 +294,9 @@ public final class Iterators {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (!this.f64297e) {
-                    this.f64297e = true;
-                    return this.f64298f;
+                if (!this.f56237e) {
+                    this.f56237e = true;
+                    return this.f56238f;
                 }
                 throw new NoSuchElementException();
             }
@@ -305,19 +304,19 @@ public final class Iterators {
         }
     }
 
-    /* loaded from: classes11.dex */
-    public static final class e<T> extends b.h.d.c.a<T> {
+    /* loaded from: classes2.dex */
+    public static final class e<T> extends c.i.d.c.a<T> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final p1<Object> f64299i;
+        public static final p1<Object> f56239i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final T[] f64300g;
+        public final T[] f56240g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f64301h;
+        public final int f56241h;
 
         static {
             InterceptResult invokeClinit;
@@ -332,7 +331,7 @@ public final class Iterators {
                     return;
                 }
             }
-            f64299i = new e(new Object[0], 0, 0, 0);
+            f56239i = new e(new Object[0], 0, 0, 0);
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -354,34 +353,34 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64300g = tArr;
-            this.f64301h = i2;
+            this.f56240g = tArr;
+            this.f56241h = i2;
         }
 
-        @Override // b.h.d.c.a
+        @Override // c.i.d.c.a
         public T a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f64300g[this.f64301h + i2] : (T) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f56240g[this.f56241h + i2] : (T) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class f<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends T> f64302e;
+        public Iterator<? extends T> f56242e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<? extends T> f64303f;
+        public Iterator<? extends T> f56243f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<? extends Iterator<? extends T>> f64304g;
+        public Iterator<? extends Iterator<? extends T>> f56244g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Deque<Iterator<? extends Iterator<? extends T>>> f64305h;
+        public Deque<Iterator<? extends Iterator<? extends T>>> f56245h;
 
         public f(Iterator<? extends Iterator<? extends T>> it) {
             Interceptable interceptable = $ic;
@@ -398,9 +397,9 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64303f = Iterators.i();
+            this.f56243f = Iterators.i();
             n.p(it);
-            this.f64304g = it;
+            this.f56244g = it;
         }
 
         public final Iterator<? extends Iterator<? extends T>> a() {
@@ -410,15 +409,15 @@ public final class Iterators {
                 return (Iterator) invokeV.objValue;
             }
             while (true) {
-                Iterator<? extends Iterator<? extends T>> it = this.f64304g;
+                Iterator<? extends Iterator<? extends T>> it = this.f56244g;
                 if (it != null && it.hasNext()) {
-                    return this.f64304g;
+                    return this.f56244g;
                 }
-                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f64305h;
+                Deque<Iterator<? extends Iterator<? extends T>>> deque = this.f56245h;
                 if (deque == null || deque.isEmpty()) {
                     return null;
                 }
-                this.f64304g = this.f64305h.removeFirst();
+                this.f56244g = this.f56245h.removeFirst();
             }
         }
 
@@ -430,31 +429,31 @@ public final class Iterators {
                 return invokeV.booleanValue;
             }
             while (true) {
-                Iterator<? extends T> it = this.f64303f;
+                Iterator<? extends T> it = this.f56243f;
                 n.p(it);
                 if (it.hasNext()) {
                     return true;
                 }
-                Iterator<? extends Iterator<? extends T>> a2 = a();
-                this.f64304g = a2;
-                if (a2 == null) {
+                Iterator<? extends Iterator<? extends T>> a = a();
+                this.f56244g = a;
+                if (a == null) {
                     return false;
                 }
-                Iterator<? extends T> next = a2.next();
-                this.f64303f = next;
+                Iterator<? extends T> next = a.next();
+                this.f56243f = next;
                 if (next instanceof f) {
                     f fVar = (f) next;
-                    this.f64303f = fVar.f64303f;
-                    if (this.f64305h == null) {
-                        this.f64305h = new ArrayDeque();
+                    this.f56243f = fVar.f56243f;
+                    if (this.f56245h == null) {
+                        this.f56245h = new ArrayDeque();
                     }
-                    this.f64305h.addFirst(this.f64304g);
-                    if (fVar.f64305h != null) {
-                        while (!fVar.f64305h.isEmpty()) {
-                            this.f64305h.addFirst(fVar.f64305h.removeLast());
+                    this.f56245h.addFirst(this.f56244g);
+                    if (fVar.f56245h != null) {
+                        while (!fVar.f56245h.isEmpty()) {
+                            this.f56245h.addFirst(fVar.f56245h.removeLast());
                         }
                     }
-                    this.f64304g = fVar.f64304g;
+                    this.f56244g = fVar.f56244g;
                 }
             }
         }
@@ -465,8 +464,8 @@ public final class Iterators {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (hasNext()) {
-                    Iterator<? extends T> it = this.f64303f;
-                    this.f64302e = it;
+                    Iterator<? extends T> it = this.f56243f;
+                    this.f56242e = it;
                     return it.next();
                 }
                 throw new NoSuchElementException();
@@ -478,28 +477,28 @@ public final class Iterators {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f64302e != null);
-                this.f64302e.remove();
-                this.f64302e = null;
+                m.e(this.f56242e != null);
+                this.f56242e.remove();
+                this.f56242e = null;
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class g<T> extends o1<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Queue<x0<T>> f64306e;
+        public final Queue<x0<T>> f56246e;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public class a implements Comparator<x0<T>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f64307e;
+            public final /* synthetic */ Comparator f56247e;
 
             public a(g gVar, Comparator comparator) {
                 Interceptable interceptable = $ic;
@@ -516,7 +515,7 @@ public final class Iterators {
                         return;
                     }
                 }
-                this.f64307e = comparator;
+                this.f56247e = comparator;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -525,7 +524,7 @@ public final class Iterators {
             public int compare(x0<T> x0Var, x0<T> x0Var2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, x0Var, x0Var2)) == null) ? this.f64307e.compare(x0Var.peek(), x0Var2.peek()) : invokeLL.intValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, x0Var, x0Var2)) == null) ? this.f56247e.compare(x0Var.peek(), x0Var2.peek()) : invokeLL.intValue;
             }
         }
 
@@ -544,10 +543,10 @@ public final class Iterators {
                     return;
                 }
             }
-            this.f64306e = new PriorityQueue(2, new a(this, comparator));
+            this.f56246e = new PriorityQueue(2, new a(this, comparator));
             for (Iterator<? extends T> it : iterable) {
                 if (it.hasNext()) {
-                    this.f64306e.add(Iterators.s(it));
+                    this.f56246e.add(Iterators.s(it));
                 }
             }
         }
@@ -556,7 +555,7 @@ public final class Iterators {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f64306e.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f56246e.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -564,10 +563,10 @@ public final class Iterators {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                x0<T> remove = this.f64306e.remove();
+                x0<T> remove = this.f56246e.remove();
                 T next = remove.next();
                 if (remove.hasNext()) {
-                    this.f64306e.add(remove);
+                    this.f56246e.add(remove);
                 }
                 return next;
             }
@@ -575,19 +574,19 @@ public final class Iterators {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class h<E> implements x0<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends E> f64308e;
+        public final Iterator<? extends E> f56248e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f64309f;
+        public boolean f56249f;
 
         /* renamed from: g  reason: collision with root package name */
-        public E f64310g;
+        public E f56250g;
 
         public h(Iterator<? extends E> it) {
             Interceptable interceptable = $ic;
@@ -605,42 +604,42 @@ public final class Iterators {
                 }
             }
             n.p(it);
-            this.f64308e = it;
+            this.f56248e = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64309f || this.f64308e.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56249f || this.f56248e.hasNext() : invokeV.booleanValue;
         }
 
-        @Override // b.h.d.c.x0, java.util.Iterator
+        @Override // c.i.d.c.x0, java.util.Iterator
         public E next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (!this.f64309f) {
-                    return this.f64308e.next();
+                if (!this.f56249f) {
+                    return this.f56248e.next();
                 }
-                E e2 = this.f64310g;
-                this.f64309f = false;
-                this.f64310g = null;
+                E e2 = this.f56250g;
+                this.f56249f = false;
+                this.f56250g = null;
                 return e2;
             }
             return (E) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.x0
+        @Override // c.i.d.c.x0
         public E peek() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (!this.f64309f) {
-                    this.f64310g = this.f64308e.next();
-                    this.f64309f = true;
+                if (!this.f56249f) {
+                    this.f56250g = this.f56248e.next();
+                    this.f56249f = true;
                 }
-                return this.f64310g;
+                return this.f56250g;
             }
             return (E) invokeV.objValue;
         }
@@ -649,13 +648,13 @@ public final class Iterators {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                n.x(!this.f64309f, "Can't remove after you've peeked at next");
-                this.f64308e.remove();
+                n.x(!this.f56249f, "Can't remove after you've peeked at next");
+                this.f56248e.remove();
             }
         }
     }
 
-    public static <F, T> Iterator<T> A(Iterator<F> it, b.h.d.a.g<? super F, ? extends T> gVar) {
+    public static <F, T> Iterator<T> A(Iterator<F> it, c.i.d.a.g<? super F, ? extends T> gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, it, gVar)) == null) {
@@ -718,12 +717,12 @@ public final class Iterators {
     public static <T> ListIterator<T> d(Iterator<T> it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, it)) == null) ? (ListIterator) it : (ListIterator) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, it)) == null) ? (ListIterator) it : (ListIterator) invokeL.objValue;
     }
 
     public static void e(Iterator<?> it) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, it) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, it) == null) {
             n.p(it);
             while (it.hasNext()) {
                 it.next();
@@ -789,7 +788,7 @@ public final class Iterators {
     public static <T> p1<T> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (p1<T>) e.f64299i : (p1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (p1<T>) e.f56239i : (p1) invokeV.objValue;
     }
 
     public static <T> Iterator<T> k() {
@@ -985,12 +984,12 @@ public final class Iterators {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, it)) == null) {
-            long j = 0;
+            long j2 = 0;
             while (it.hasNext()) {
                 it.next();
-                j++;
+                j2++;
             }
-            return Ints.j(j);
+            return Ints.j(j2);
         }
         return invokeL.intValue;
     }

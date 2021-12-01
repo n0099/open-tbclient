@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.NinePatch;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.a.f.b;
-import b.a.e.f.a.f.c;
-import b.a.e.m.d.a;
+import c.a.d.f.a.f.b;
+import c.a.d.f.a.f.c;
+import c.a.d.m.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            b.a.e.f.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+            c.a.d.f.l.a.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
             return new a(Bytes2NineBitmap);
         }
         return (a) invokeLL.objValue;

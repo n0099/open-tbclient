@@ -23,35 +23,33 @@ import com.baidu.wallet.base.widget.textfilter.IEditTextPasteFilter;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CustomAutoTextView extends AutoCompleteTextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int VIEW_TYPE_BANKCARD = 24;
     public static final int VIEW_TYPE_PHONE = 13;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f58405a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58406b;
+    public int f52035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58407c;
+    public int f52036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f58408d;
+    public Context f52037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58409e;
+    public int f52038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<IEditTextPasteFilter> f58410f;
+    public List<IEditTextPasteFilter> f52039f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ShowDropDownListener f58411g;
+    public ShowDropDownListener f52040g;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface ShowDropDownListener {
         void showDisplayTranslucent();
     }
@@ -75,16 +73,16 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                 return;
             }
         }
-        this.f58405a = CustomAutoTextView.class.getSimpleName();
-        this.f58406b = 13;
-        this.f58407c = 3;
-        this.f58408d = null;
-        this.f58410f = new ArrayList();
+        this.a = CustomAutoTextView.class.getSimpleName();
+        this.f52035b = 13;
+        this.f52036c = 3;
+        this.f52037d = null;
+        this.f52039f = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f58410f.addAll(parseEditTextPasteFilter);
+        this.f52039f.addAll(parseEditTextPasteFilter);
     }
 
     public void addEditTextPasteFilter(IEditTextPasteFilter iEditTextPasteFilter) {
@@ -92,7 +90,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iEditTextPasteFilter) == null) || iEditTextPasteFilter == null) {
             return;
         }
-        this.f58410f.add(iEditTextPasteFilter);
+        this.f52039f.add(iEditTextPasteFilter);
     }
 
     @Override // android.widget.AutoCompleteTextView
@@ -117,7 +115,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                 performFiltering(getText(), 0);
                 return;
             }
-            GlobalUtils.hideInputMethod(this.f58408d, this);
+            GlobalUtils.hideInputMethod(this.f52037d, this);
         }
     }
 
@@ -128,7 +126,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             if (i2 == 16908322) {
-                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f58410f);
+                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f52039f);
                 Editable editableText = getEditableText();
                 try {
                     int selectionStart = getSelectionStart();
@@ -164,7 +162,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                     }
                     return super.onTextContextMenuItem(i2);
                 } catch (Exception e2) {
-                    LogUtil.d(this.f58405a, e2.getMessage());
+                    LogUtil.d(this.a, e2.getMessage());
                     return super.onTextContextMenuItem(i2);
                 }
             }
@@ -176,7 +174,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
     public void setShowDropDownListener(ShowDropDownListener showDropDownListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, showDropDownListener) == null) {
-            this.f58411g = showDropDownListener;
+            this.f52040g = showDropDownListener;
         }
     }
 
@@ -186,7 +184,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getText().length() == 13 || getAdapter() == null || getAdapter().getCount() == 0) {
             return;
         }
-        ShowDropDownListener showDropDownListener = this.f58411g;
+        ShowDropDownListener showDropDownListener = this.f52040g;
         if (showDropDownListener != null) {
             showDropDownListener.showDisplayTranslucent();
         }
@@ -212,43 +210,41 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                 return;
             }
         }
-        this.f58405a = CustomAutoTextView.class.getSimpleName();
-        this.f58406b = 13;
-        this.f58407c = 3;
-        this.f58408d = null;
-        this.f58410f = new ArrayList();
-        this.f58408d = context;
+        this.a = CustomAutoTextView.class.getSimpleName();
+        this.f52035b = 13;
+        this.f52036c = 3;
+        this.f52037d = null;
+        this.f52039f = new ArrayList();
+        this.f52037d = context;
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter != null && parseEditTextPasteFilter.size() > 0) {
-            this.f58410f.addAll(parseEditTextPasteFilter);
+            this.f52039f.addAll(parseEditTextPasteFilter);
         }
         addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.base.widget.CustomAutoTextView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public int f58412a;
+            public int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f58413b;
+            public int f52041b;
 
             /* renamed from: c  reason: collision with root package name */
-            public boolean f58414c;
+            public boolean f52042c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f58415d;
+            public int f52043d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f58416e;
+            public int f52044e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ CustomAutoTextView f58417f;
+            public final /* synthetic */ CustomAutoTextView f52045f;
 
             /* renamed from: g  reason: collision with root package name */
-            public char[] f58418g;
+            public char[] f52046g;
 
             /* renamed from: h  reason: collision with root package name */
-            public StringBuffer f58419h;
+            public StringBuffer f52047h;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -265,46 +261,46 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                         return;
                     }
                 }
-                this.f58417f = this;
-                this.f58412a = 0;
-                this.f58413b = 0;
-                this.f58414c = false;
-                this.f58415d = 0;
-                this.f58419h = new StringBuffer();
-                this.f58416e = 0;
+                this.f52045f = this;
+                this.a = 0;
+                this.f52041b = 0;
+                this.f52042c = false;
+                this.f52043d = 0;
+                this.f52047h = new StringBuffer();
+                this.f52044e = 0;
             }
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 int i4;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f58414c) {
-                    this.f58415d = this.f58417f.getSelectionEnd();
-                    int i5 = this.f58417f.f58406b == 13 ? 3 : 100;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) && this.f52042c) {
+                    this.f52043d = this.f52045f.getSelectionEnd();
+                    int i5 = this.f52045f.f52035b == 13 ? 3 : 100;
                     int i6 = 0;
                     loop0: while (true) {
                         boolean z = true;
-                        while (i6 < this.f58419h.length()) {
-                            if (i6 == i5 && this.f58419h.charAt(i6) != ' ' && this.f58413b == this.f58412a - 1 && z) {
+                        while (i6 < this.f52047h.length()) {
+                            if (i6 == i5 && this.f52047h.charAt(i6) != ' ' && this.f52041b == this.a - 1 && z) {
                                 i6--;
-                                this.f58419h.deleteCharAt(i6);
-                                this.f58415d--;
+                                this.f52047h.deleteCharAt(i6);
+                                this.f52043d--;
                                 z = false;
                             }
-                            if (this.f58419h.charAt(i6) == ' ') {
+                            if (this.f52047h.charAt(i6) == ' ') {
                                 break;
                             }
                             i6++;
                         }
-                        this.f58419h.deleteCharAt(i6);
+                        this.f52047h.deleteCharAt(i6);
                         i5 = i6 + 4;
                     }
-                    if (this.f58417f.f58406b != 13) {
-                        if (this.f58417f.f58406b == 24) {
+                    if (this.f52045f.f52035b != 13) {
+                        if (this.f52045f.f52035b == 24) {
                             i4 = 0;
-                            for (int i7 = 0; i7 < this.f58419h.length(); i7++) {
+                            for (int i7 = 0; i7 < this.f52047h.length(); i7++) {
                                 if (i7 == 4 || i7 == 9 || i7 == 14 || i7 == 19) {
-                                    this.f58419h.insert(i7, ' ');
+                                    this.f52047h.insert(i7, ' ');
                                     i4++;
                                 }
                             }
@@ -313,36 +309,36 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                         }
                     } else {
                         i4 = 0;
-                        for (int i8 = 0; i8 < this.f58419h.length(); i8++) {
+                        for (int i8 = 0; i8 < this.f52047h.length(); i8++) {
                             if (i8 == 3 || i8 == 8) {
-                                this.f58419h.insert(i8, ' ');
+                                this.f52047h.insert(i8, ' ');
                                 i4++;
                             }
                         }
                     }
-                    int i9 = this.f58416e;
+                    int i9 = this.f52044e;
                     if (i4 > i9) {
-                        this.f58415d += i4 - i9;
+                        this.f52043d += i4 - i9;
                     }
-                    this.f58418g = new char[this.f58419h.length()];
-                    StringBuffer stringBuffer = this.f58419h;
-                    stringBuffer.getChars(0, stringBuffer.length(), this.f58418g, 0);
-                    String stringBuffer2 = this.f58419h.toString();
-                    if (stringBuffer2.length() > this.f58417f.f58406b) {
-                        stringBuffer2 = stringBuffer2.substring(0, this.f58417f.f58406b);
+                    this.f52046g = new char[this.f52047h.length()];
+                    StringBuffer stringBuffer = this.f52047h;
+                    stringBuffer.getChars(0, stringBuffer.length(), this.f52046g, 0);
+                    String stringBuffer2 = this.f52047h.toString();
+                    if (stringBuffer2.length() > this.f52045f.f52035b) {
+                        stringBuffer2 = stringBuffer2.substring(0, this.f52045f.f52035b);
                     }
-                    if (this.f58415d > stringBuffer2.length()) {
-                        this.f58415d = stringBuffer2.length();
-                    } else if (this.f58415d < 0) {
-                        this.f58415d = 0;
+                    if (this.f52043d > stringBuffer2.length()) {
+                        this.f52043d = stringBuffer2.length();
+                    } else if (this.f52043d < 0) {
+                        this.f52043d = 0;
                     }
-                    this.f58417f.setText(stringBuffer2);
-                    Editable text = this.f58417f.getText();
-                    Selection.setSelection(text, this.f58415d);
-                    if (this.f58417f.f58406b == 13 && text.length() == 13) {
+                    this.f52045f.setText(stringBuffer2);
+                    Editable text = this.f52045f.getText();
+                    Selection.setSelection(text, this.f52043d);
+                    if (this.f52045f.f52035b == 13 && text.length() == 13) {
                         Selection.setSelection(text, 13);
                     }
-                    this.f58414c = false;
+                    this.f52042c = false;
                 }
             }
 
@@ -350,15 +346,15 @@ public class CustomAutoTextView extends AutoCompleteTextView {
             public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
-                    this.f58412a = charSequence.length();
-                    if (this.f58419h.length() > 0) {
-                        StringBuffer stringBuffer = this.f58419h;
+                    this.a = charSequence.length();
+                    if (this.f52047h.length() > 0) {
+                        StringBuffer stringBuffer = this.f52047h;
                         stringBuffer.delete(0, stringBuffer.length());
                     }
-                    this.f58416e = 0;
+                    this.f52044e = 0;
                     for (int i7 = 0; i7 < charSequence.length(); i7++) {
                         if (charSequence.charAt(i7) == ' ') {
-                            this.f58416e++;
+                            this.f52044e++;
                         }
                     }
                 }
@@ -368,13 +364,13 @@ public class CustomAutoTextView extends AutoCompleteTextView {
             public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
-                    this.f58413b = charSequence.length();
-                    this.f58419h.append(charSequence.toString());
-                    int i7 = this.f58413b;
-                    if (i7 != this.f58412a && i7 >= this.f58417f.f58407c && !this.f58414c) {
-                        this.f58414c = true;
+                    this.f52041b = charSequence.length();
+                    this.f52047h.append(charSequence.toString());
+                    int i7 = this.f52041b;
+                    if (i7 != this.a && i7 >= this.f52045f.f52036c && !this.f52042c) {
+                        this.f52042c = true;
                     } else {
-                        this.f58414c = false;
+                        this.f52042c = false;
                     }
                 }
             }
@@ -382,9 +378,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
         setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.base.widget.CustomAutoTextView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomAutoTextView f58420a;
+            public final /* synthetic */ CustomAutoTextView a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -401,7 +395,7 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                         return;
                     }
                 }
-                this.f58420a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -409,17 +403,17 @@ public class CustomAutoTextView extends AutoCompleteTextView {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
-                    GlobalUtils.showInputMethod(this.f58420a.f58408d, view);
+                    GlobalUtils.showInputMethod(this.a.f52037d, view);
                     int[] iArr = new int[2];
-                    this.f58420a.getLocationInWindow(iArr);
-                    int paddingLeft = this.f58420a.getPaddingLeft();
+                    this.a.getLocationInWindow(iArr);
+                    int paddingLeft = this.a.getPaddingLeft();
                     int action = motionEvent.getAction();
-                    Layout layout = this.f58420a.getLayout();
+                    Layout layout = this.a.getLayout();
                     if (action == 0) {
-                        this.f58420a.f58409e = layout.getOffsetForHorizontal(layout.getLineForVertical(this.f58420a.getScrollY() + ((int) motionEvent.getY())), (int) ((motionEvent.getX() - iArr[0]) - paddingLeft));
-                        Selection.setSelection(this.f58420a.getEditableText(), this.f58420a.f58409e);
+                        this.a.f52038e = layout.getOffsetForHorizontal(layout.getLineForVertical(this.a.getScrollY() + ((int) motionEvent.getY())), (int) ((motionEvent.getX() - iArr[0]) - paddingLeft));
+                        Selection.setSelection(this.a.getEditableText(), this.a.f52038e);
                     } else if (action == 1 || action == 2) {
-                        Selection.setSelection(this.f58420a.getEditableText(), this.f58420a.f58409e, layout.getOffsetForHorizontal(layout.getLineForVertical(this.f58420a.getScrollY() + ((int) motionEvent.getY())), (((int) motionEvent.getX()) - iArr[0]) - paddingLeft));
+                        Selection.setSelection(this.a.getEditableText(), this.a.f52038e, layout.getOffsetForHorizontal(layout.getLineForVertical(this.a.getScrollY() + ((int) motionEvent.getY())), (((int) motionEvent.getX()) - iArr[0]) - paddingLeft));
                     }
                     return false;
                 }

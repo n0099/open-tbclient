@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,7 +87,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     private boolean updateTint(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, iArr)) == null) {
             if (isCompatTintEnabled()) {
                 WrappedDrawableState wrappedDrawableState = this.mState;
                 ColorStateList colorStateList = wrappedDrawableState.mTint;
@@ -308,10 +307,10 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-            scheduleSelf(runnable, j);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
+            scheduleSelf(runnable, j2);
         }
     }
 

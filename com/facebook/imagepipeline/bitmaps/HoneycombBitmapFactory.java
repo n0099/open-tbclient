@@ -19,7 +19,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(11)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HoneycombBitmapFactory extends PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HoneycombBitmapFactory";

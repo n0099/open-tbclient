@@ -2,14 +2,13 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DrawableUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +77,7 @@ public class DrawableUtils {
 
     public static void setCallbacks(@Nullable Drawable drawable, @Nullable Drawable.Callback callback, @Nullable TransformCallback transformCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, drawable, callback, transformCallback) == null) || drawable == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, drawable, callback, transformCallback) == null) || drawable == null) {
             return;
         }
         drawable.setCallback(callback);
@@ -89,7 +88,7 @@ public class DrawableUtils {
 
     public static void setDrawableProperties(@Nullable Drawable drawable, @Nullable DrawableProperties drawableProperties) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, drawable, drawableProperties) == null) || drawable == null || drawableProperties == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, drawable, drawableProperties) == null) || drawable == null || drawableProperties == null) {
             return;
         }
         drawableProperties.applyTo(drawable);

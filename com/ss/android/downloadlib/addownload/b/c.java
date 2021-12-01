@@ -12,34 +12,32 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f69415a = 0;
+    public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f69416b = 1;
+    public static int f61208b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f69417c = 2;
+    public static int f61209c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f69418d;
+    public int f61210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f69419e;
+    public long f61211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f69420f;
+    public JSONObject f61212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f69421g;
+    public int f61213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f69422h;
+    public String f61214h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f69423i;
+    public String f61215i;
 
     static {
         InterceptResult invokeClinit;
@@ -69,31 +67,31 @@ public class c {
                 return;
             }
         }
-        this.f69418d = f69415a;
-        this.f69419e = 0L;
-        this.f69420f = null;
-        this.f69421g = 0;
-        this.f69422h = "";
-        this.f69423i = "";
+        this.f61210d = a;
+        this.f61211e = 0L;
+        this.f61212f = null;
+        this.f61213g = 0;
+        this.f61214h = "";
+        this.f61215i = "";
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69418d == f69416b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61210d == f61208b : invokeV.booleanValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69421g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61213g : invokeV.intValue;
     }
 
     public c a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f69418d = i2;
+            this.f61210d = i2;
             return this;
         }
         return (c) invokeI.objValue;
@@ -103,7 +101,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.f69421g = i2;
+            this.f61213g = i2;
             return this;
         }
         return (c) invokeI.objValue;

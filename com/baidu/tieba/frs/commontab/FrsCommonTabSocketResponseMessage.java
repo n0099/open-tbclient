@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.commontab;
 
-import b.a.r0.x0.w1.d;
+import c.a.r0.d1.w1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<d, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

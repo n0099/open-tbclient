@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,14 +21,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +100,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f41000a);
+                    randomAccessFile = new RandomAccessFile(file, "r");
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -184,7 +182,7 @@ public final class ByteBufferUtil {
     public static byte[] toBytes(@NonNull ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
             SafeArray safeArray = getSafeArray(byteBuffer);
             if (safeArray != null && safeArray.offset == 0 && safeArray.limit == safeArray.data.length) {
                 return byteBuffer.array();
@@ -201,7 +199,7 @@ public final class ByteBufferUtil {
     public static void toFile(@NonNull ByteBuffer byteBuffer, @NonNull File file) throws IOException {
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer, file) != null) {
+        if (interceptable != null && interceptable.invokeLL(65542, null, byteBuffer, file) != null) {
             return;
         }
         byteBuffer.position(0);
@@ -269,7 +267,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;
@@ -352,12 +350,12 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public long skip(long j) throws IOException {
+        public long skip(long j2) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
                 if (this.byteBuffer.hasRemaining()) {
-                    long min = Math.min(j, available());
+                    long min = Math.min(j2, available());
                     ByteBuffer byteBuffer = this.byteBuffer;
                     byteBuffer.position((int) (byteBuffer.position() + min));
                     return min;

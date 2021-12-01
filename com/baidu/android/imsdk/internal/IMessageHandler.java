@@ -21,7 +21,6 @@ import com.baidu.android.imsdk.request.RcvMessage;
 import com.baidu.android.imsdk.utils.BigEndianDataIutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +44,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BODY_LENGTH = 1048576;
@@ -109,7 +108,7 @@ public abstract class IMessageHandler {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void handleDeliverMessage(JSONObject jSONObject) throws JSONException {
-        long j;
+        long j2;
         SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(65538, this, jSONObject) != null) {
@@ -119,15 +118,15 @@ public abstract class IMessageHandler {
         int i2 = jSONObject.getInt("category");
         if (i2 == 0 && jSONObject.has("msgid")) {
             try {
-                j = jSONObject.getLong("msgid");
+                j2 = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
             if (i2 != 0 || i2 == 2) {
                 generate = Generator.generate(this.mContext, 5);
                 if (generate == null) {
-                    if (j != -1) {
-                        generate.start(2, j);
+                    if (j2 != -1) {
+                        generate.start(2, j2);
                         return;
                     } else {
                         generate.start(2);
@@ -136,17 +135,17 @@ public abstract class IMessageHandler {
                 }
                 return;
             } else if (i2 == 1) {
-                long j2 = jSONObject.getLong("contacter");
-                long j3 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(this.mContext, i2, j2, j3, 2);
+                long j3 = jSONObject.getLong("contacter");
+                long j4 = jSONObject.getLong("msgid");
+                LogUtils.i(TAG, "msgid : " + j4);
+                SyncGroupMessageService.getInstance().execute(this.mContext, i2, j3, j4, 2);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
                 return;
             }
         }
-        j = -1;
+        j2 = -1;
         if (i2 != 0) {
         }
         generate = Generator.generate(this.mContext, 5);
@@ -199,7 +198,7 @@ public abstract class IMessageHandler {
         Throwable th;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bArr)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             GZIPInputStream gZIPInputStream2 = null;

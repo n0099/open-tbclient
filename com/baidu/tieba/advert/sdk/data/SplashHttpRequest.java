@@ -1,12 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import b.a.r0.u.a.f.d;
-import b.a.r0.u.a.i.c;
+import c.a.r0.y.a.d.d;
+import c.a.r0.y.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TbHttpMessageTask mTask;
@@ -76,8 +76,8 @@ public class SplashHttpRequest extends HttpMessage {
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
         addParam("nt", d.b(context).intValue());
         addParam("ct", 2);
-        addParam("sw", d.f(context).intValue());
-        addParam(IAdRequestParam.SCREEN_HEIGHT, d.e(context).intValue());
+        addParam(TbConfig.SW_APID, d.f(context).intValue());
+        addParam("sh", d.e(context).intValue());
         addParam("imei", d.a(context));
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);

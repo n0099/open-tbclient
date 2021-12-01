@@ -3,7 +3,6 @@ package com.baidu.fsg.base.utils;
 import android.os.Build;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,30 +22,28 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f38391a = 16;
+    public static final int a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38392b = 8;
+    public static final int f34338b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38393c = 128;
+    public static final int f34339c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38394d = 64;
+    public static final int f34340d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38395e = 8;
+    public static final int f34341e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38396f = 1000;
+    public static final int f34342f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f38397g;
+    public static SecureRandom f34343g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +59,7 @@ public class Crypto {
                 return;
             }
         }
-        f38397g = new SecureRandom();
+        f34343g = new SecureRandom();
     }
 
     public Crypto() {
@@ -107,7 +104,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f38397g.nextBytes(bArr);
+            f34343g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;
@@ -116,7 +113,7 @@ public class Crypto {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             if (bArr == null) {
                 return bArr2;
             }
@@ -134,7 +131,7 @@ public class Crypto {
     public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, bArr2, bArr3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, bArr, bArr2, bArr3)) == null) {
             if (bArr == null) {
                 return a(bArr2, bArr3);
             }

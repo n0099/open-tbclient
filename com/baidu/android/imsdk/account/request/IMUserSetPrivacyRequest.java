@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public int mPrivacy;
 
-    public IMUserSetPrivacyRequest(Context context, String str, long j, int i2) {
+    public IMUserSetPrivacyRequest(Context context, String str, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -46,7 +46,7 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
         this.mContext = context;
         this.mPrivacy = i2;
         this.mKey = str;
-        this.mAppid = j;
+        this.mAppid = j2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

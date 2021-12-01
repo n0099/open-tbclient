@@ -23,15 +23,15 @@ public interface m {
 
     void a(int i2, int i3, int i4, int i5);
 
-    void a(int i2, int i3, int i4, long j);
+    void a(int i2, int i3, int i4, long j2);
 
-    void a(int i2, int i3, long j);
+    void a(int i2, int i3, long j2);
 
     void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
     void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2);
 
-    void a(int i2, long j);
+    void a(int i2, long j2);
 
     void a(int i2, Notification notification);
 

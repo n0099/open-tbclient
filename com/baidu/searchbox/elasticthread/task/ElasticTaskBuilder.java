@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ElasticTaskBuilder {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ElasticTaskBuilder sInstance;
@@ -70,9 +70,9 @@ public class ElasticTaskBuilder {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i2)) == null) {
             if (runnable != null && !TextUtils.isEmpty(str)) {
                 synchronized (this) {
-                    long j = this.currentTaskId + 1;
-                    this.currentTaskId = j;
-                    elasticTask = new ElasticTask(runnable, str, j, i2);
+                    long j2 = this.currentTaskId + 1;
+                    this.currentTaskId = j2;
+                    elasticTask = new ElasticTask(runnable, str, j2, i2);
                 }
                 return elasticTask;
             }

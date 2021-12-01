@@ -1,12 +1,12 @@
 package com.kwad.sdk.crash.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tachikoma.core.utility.FileUtil;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -24,35 +24,37 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Charset f66414a;
+    public static final Charset a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f66415b;
+    public static final Charset f58197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f66416c;
+    public static final BigInteger f58198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f66417d;
+    public static final BigInteger f58199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f66418e;
+    public static final BigInteger f58200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f66419f;
+    public static final BigInteger f58201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f66420g;
+    public static final BigInteger f58202g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f66421h;
+    public static final BigInteger f58203h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f66422i;
-    public static final BigInteger j;
-    public static final BigInteger k;
+    public static final char f58204i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final BigInteger f58205j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final BigInteger f58206k;
     public static final File[] l;
     public static final String m;
     public static final Charset n;
@@ -72,27 +74,27 @@ public class g {
                 return;
             }
         }
-        f66414a = Charset.forName("US-ASCII");
-        f66415b = Charset.forName("UTF-8");
+        a = Charset.forName("US-ASCII");
+        f58197b = Charset.forName("UTF-8");
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f66416c = valueOf;
+        f58198c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f66417d = multiply;
-        BigInteger multiply2 = f66416c.multiply(multiply);
-        f66418e = multiply2;
-        BigInteger multiply3 = f66416c.multiply(multiply2);
-        f66419f = multiply3;
-        BigInteger multiply4 = f66416c.multiply(multiply3);
-        f66420g = multiply4;
-        f66421h = f66416c.multiply(multiply4);
+        f58199d = multiply;
+        BigInteger multiply2 = f58198c.multiply(multiply);
+        f58200e = multiply2;
+        BigInteger multiply3 = f58198c.multiply(multiply2);
+        f58201f = multiply3;
+        BigInteger multiply4 = f58198c.multiply(multiply3);
+        f58202g = multiply4;
+        f58203h = f58198c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
-        j = multiply5;
-        k = f66416c.multiply(multiply5);
+        f58205j = multiply5;
+        f58206k = f58198c.multiply(multiply5);
         l = new File[0];
         m = Character.toString('.');
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f66422i = a() ? '/' : '\\';
+        f58204i = a() ? '/' : FileUtil.WINDOWS_SEPARATOR;
     }
 
     public static FileInputStream a(File file) {
@@ -164,7 +166,7 @@ public class g {
 
     public static void a(File file, File file2, FileFilter fileFilter, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{file, file2, fileFilter, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{file, file2, fileFilter, Boolean.valueOf(z)}) == null) {
             if (file == null) {
                 throw new NullPointerException("Source must not be null");
             }
@@ -195,7 +197,7 @@ public class g {
 
     public static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{file, file2, fileFilter, Boolean.valueOf(z), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{file, file2, fileFilter, Boolean.valueOf(z), list}) == null) {
             File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
             if (listFiles == null) {
                 throw new IOException("Failed to list contents of " + file);

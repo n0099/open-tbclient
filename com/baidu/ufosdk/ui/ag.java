@@ -16,13 +16,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ag extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f57723a;
+    public final WeakReference a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -39,7 +37,7 @@ public final class ag extends Handler {
                 return;
             }
         }
-        this.f57723a = new WeakReference(feedbackEditActivity);
+        this.a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -71,7 +69,7 @@ public final class ag extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f57723a.get();
+            FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.a.get();
             feedbackEditActivity.a(true);
             com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
             if (feedbackEditActivity == null) {
@@ -87,20 +85,20 @@ public final class ag extends Handler {
                 feedbackEditActivity.s = Boolean.FALSE;
                 str6 = feedbackEditActivity.t;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = feedbackEditActivity.f57657g;
+                    str9 = feedbackEditActivity.f51578g;
                     if (TextUtils.isEmpty(str9)) {
-                        editor6 = feedbackEditActivity.f57652b;
+                        editor6 = feedbackEditActivity.f51573b;
                         str10 = feedbackEditActivity.t;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = feedbackEditActivity.f57657g;
+                str7 = feedbackEditActivity.f51578g;
                 if (!TextUtils.isEmpty(str7)) {
-                    editor5 = feedbackEditActivity.f57652b;
-                    str8 = feedbackEditActivity.f57657g;
+                    editor5 = feedbackEditActivity.f51573b;
+                    str8 = feedbackEditActivity.f51578g;
                     editor5.putString(str8, "");
                 }
-                editor4 = feedbackEditActivity.f57652b;
+                editor4 = feedbackEditActivity.f51573b;
                 editor4.commit();
                 view4 = feedbackEditActivity.u;
                 view4.setVisibility(8);
@@ -148,20 +146,20 @@ public final class ag extends Handler {
                 feedbackEditActivity.s = Boolean.FALSE;
                 str = feedbackEditActivity.t;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = feedbackEditActivity.f57657g;
+                    str4 = feedbackEditActivity.f51578g;
                     if (TextUtils.isEmpty(str4)) {
-                        editor3 = feedbackEditActivity.f57652b;
+                        editor3 = feedbackEditActivity.f51573b;
                         str5 = feedbackEditActivity.t;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = feedbackEditActivity.f57657g;
+                str2 = feedbackEditActivity.f51578g;
                 if (!TextUtils.isEmpty(str2)) {
-                    editor2 = feedbackEditActivity.f57652b;
-                    str3 = feedbackEditActivity.f57657g;
+                    editor2 = feedbackEditActivity.f51573b;
+                    str3 = feedbackEditActivity.f51578g;
                     editor2.putString(str3, "");
                 }
-                editor = feedbackEditActivity.f57652b;
+                editor = feedbackEditActivity.f51573b;
                 editor.commit();
                 view2 = feedbackEditActivity.u;
                 view2.setVisibility(8);

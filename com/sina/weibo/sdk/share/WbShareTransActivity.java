@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +110,7 @@ public class WbShareTransActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void gotoWeiboComposer(WeiboMultiMessage weiboMultiMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, weiboMultiMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, weiboMultiMessage) == null) {
             LogUtil.d("Share", "gotoWeiboComposer");
             Intent intent = getIntent();
             this.flag = true;
@@ -151,7 +150,7 @@ public class WbShareTransActivity extends BaseActivity {
     private void initView() {
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             int intExtra = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_COLOR, -1);
             int intExtra2 = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_ID, -1);
             this.rootLayout = new FrameLayout(this);

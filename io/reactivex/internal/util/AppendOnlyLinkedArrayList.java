@@ -10,7 +10,7 @@ import io.reactivex.Observer;
 import io.reactivex.functions.BiPredicate;
 import io.reactivex.functions.Predicate;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppendOnlyLinkedArrayList<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class AppendOnlyLinkedArrayList<T> {
     public int offset;
     public Object[] tail;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NonThrowingPredicate<T> extends Predicate<T> {
         @Override // io.reactivex.functions.Predicate
         boolean test(T t);

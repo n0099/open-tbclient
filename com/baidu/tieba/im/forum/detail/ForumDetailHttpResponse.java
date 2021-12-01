@@ -14,12 +14,12 @@ import tbclient.Error;
 import tbclient.GetForumDetail.BzApplySwitch;
 import tbclient.GetForumDetail.DataRes;
 import tbclient.GetForumDetail.GetForumDetailResIdl;
-import tbclient.GetForumDetail.ManagerApplyInfo;
 import tbclient.GetForumDetail.ManagerElectionTab;
+import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,6 @@ public class ForumDetailHttpResponse extends TbHttpResponsedMessage {
             DataRes dataRes3 = getForumDetailResIdl.data;
             this.privateApplyInfo = dataRes3.pribz_apply_info;
             this.managerElectionTab = dataRes3.election_tab;
-            this.bzApplySwitch = dataRes3.bz_apply_switch;
         }
     }
 }

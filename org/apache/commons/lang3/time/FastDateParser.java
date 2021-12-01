@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.utility.FileUtil;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -1097,7 +1098,7 @@ public class FastDateParser implements DateParser, Serializable {
                             sb.append(charAt);
                     }
                 }
-                sb.append('\\');
+                sb.append(FileUtil.WINDOWS_SEPARATOR);
                 sb.append(charAt);
             }
             return sb;

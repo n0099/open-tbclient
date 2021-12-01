@@ -10,17 +10,16 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "S", "T", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1, 1}, l = {2129, 2132}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator", "accumulator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
+@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "S", "T", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
+@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1}, l = {2173, 2176}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1"})
 /* loaded from: classes3.dex */
 public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super S>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $operation;
     public final /* synthetic */ Sequence $this_runningReduce;
-    public Object L$0;
+    public /* synthetic */ Object L$0;
     public Object L$1;
     public Object L$2;
     public int label;
-    public SequenceScope p$;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SequencesKt___SequencesKt$runningReduce$1(Sequence sequence, Function2 function2, Continuation continuation) {
@@ -33,7 +32,7 @@ public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedS
     public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
         Intrinsics.checkNotNullParameter(completion, "completion");
         SequencesKt___SequencesKt$runningReduce$1 sequencesKt___SequencesKt$runningReduce$1 = new SequencesKt___SequencesKt$runningReduce$1(this.$this_runningReduce, this.$operation, completion);
-        sequencesKt___SequencesKt$runningReduce$1.p$ = (SequenceScope) obj;
+        sequencesKt___SequencesKt$runningReduce$1.L$0 = obj;
         return sequencesKt___SequencesKt$runningReduce$1;
     }
 
@@ -52,7 +51,7 @@ public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedS
         int i2 = this.label;
         if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
-            sequenceScope = this.p$;
+            sequenceScope = (SequenceScope) this.L$0;
             Iterator it2 = this.$this_runningReduce.iterator();
             if (it2.hasNext()) {
                 next = it2.next();

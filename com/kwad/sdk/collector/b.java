@@ -9,7 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.collector.AppStatusRules;
+import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
+import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
+import com.kwad.sdk.collector.model.jni.UploadEntryNative;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.io.File;
 import java.util.ArrayList;
@@ -54,24 +57,24 @@ public class b {
             return (String) invokeL.objValue;
         }
 
-        public static void a(long j, String str, File file, ArrayList<com.kwad.sdk.collector.model.e> arrayList) {
+        public static void a(long j2, String str, File file, ArrayList<com.kwad.sdk.collector.model.e> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), str, file, arrayList}) == null) {
-                if ((file.exists() && file.isFile()) && file.length() <= j) {
-                    arrayList.add(new com.kwad.sdk.collector.model.a.d(str, file.getAbsolutePath()));
+            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), str, file, arrayList}) == null) {
+                if ((file.exists() && file.isFile()) && file.length() <= j2) {
+                    arrayList.add(new com.kwad.sdk.collector.model.kwai.d(str, file.getAbsolutePath()));
                 }
             }
         }
 
-        public static void a(com.kwad.sdk.collector.model.a.b bVar, long j, @NonNull List<com.kwad.sdk.collector.model.b> list, long j2, AppStatusRules.Strategy strategy) {
+        public static void a(com.kwad.sdk.collector.model.kwai.b bVar, long j2, @NonNull List<com.kwad.sdk.collector.model.b> list, long j3, AppStatusRules.Strategy strategy) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bVar, Long.valueOf(j), list, Long.valueOf(j2), strategy}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bVar, Long.valueOf(j2), list, Long.valueOf(j3), strategy}) == null) {
                 long startTimeWithMS = strategy.getStartTimeWithMS();
-                if (j <= 0 || startTimeWithMS + j <= j2) {
+                if (j2 <= 0 || startTimeWithMS + j2 <= j3) {
                     return;
                 }
-                com.kwad.sdk.collector.model.a.b clone = bVar.clone();
-                clone.c(j);
+                com.kwad.sdk.collector.model.kwai.b clone = bVar.clone();
+                clone.c(j2);
                 list.add(clone);
             }
         }
@@ -99,13 +102,13 @@ public class b {
                 File file3 = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
                 long currentTimeMillis = System.currentTimeMillis();
                 for (com.kwad.sdk.collector.model.a aVar : arrayList2) {
-                    if (!(aVar instanceof com.kwad.sdk.collector.model.a.a)) {
+                    if (!(aVar instanceof com.kwad.sdk.collector.model.kwai.a)) {
                         return arrayList;
                     }
-                    com.kwad.sdk.collector.model.a.a aVar2 = (com.kwad.sdk.collector.model.a.a) aVar;
-                    String a2 = aVar2.a();
+                    com.kwad.sdk.collector.model.kwai.a aVar2 = (com.kwad.sdk.collector.model.kwai.a) aVar;
+                    String a = aVar2.a();
                     Set<String> b2 = aVar2.b();
-                    com.kwad.sdk.collector.model.a.b c2 = aVar2.c();
+                    com.kwad.sdk.collector.model.kwai.b c2 = aVar2.c();
                     if (c2 != null) {
                         for (String str4 : b2) {
                             int i5 = 0;
@@ -178,7 +181,7 @@ public class b {
                                         str5 = str3;
                                     }
                                 }
-                            } else if (str4.startsWith(a2)) {
+                            } else if (str4.startsWith(a)) {
                                 File file8 = new File(file3, str4);
                                 if (file8.exists()) {
                                     a(c2, file8.lastModified(), arrayList, currentTimeMillis, strategy);
@@ -198,22 +201,22 @@ public class b {
         }
 
         @Override // com.kwad.sdk.collector.a
-        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j, String str) {
+        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j2, String str) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Long.valueOf(j), str})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Long.valueOf(j2), str})) == null) {
                 ArrayList arrayList = new ArrayList();
                 for (com.kwad.sdk.collector.model.d dVar : list) {
-                    if (!(dVar instanceof com.kwad.sdk.collector.model.a.c)) {
+                    if (!(dVar instanceof com.kwad.sdk.collector.model.kwai.c)) {
                         return arrayList;
                     }
-                    com.kwad.sdk.collector.model.a.c cVar = (com.kwad.sdk.collector.model.a.c) dVar;
+                    com.kwad.sdk.collector.model.kwai.c cVar = (com.kwad.sdk.collector.model.kwai.c) dVar;
                     List<String> b2 = cVar.b();
                     if (b2 != null) {
-                        String a2 = cVar.a();
-                        if (new File(str, a2).exists()) {
+                        String a = cVar.a();
+                        if (new File(str, a).exists()) {
                             for (String str2 : b2) {
-                                String a3 = a(str2);
+                                String a2 = a(str2);
                                 int i2 = 0;
                                 if (str2.endsWith(AppStatusRules.SUFFIX_ALL_CHILDREN)) {
                                     File[] listFiles = new File(str, str2.replace(AppStatusRules.SUFFIX_ALL_CHILDREN, "")).listFiles();
@@ -222,7 +225,7 @@ public class b {
                                         while (i2 < length) {
                                             File file = listFiles[i2];
                                             if (file.isFile()) {
-                                                a(j, a2, file, arrayList);
+                                                a(j2, a, file, arrayList);
                                             }
                                             i2++;
                                         }
@@ -234,12 +237,12 @@ public class b {
                                     while (i2 < length2) {
                                         File file2 = listFiles2[i2];
                                         if (file2.isFile() && file2.getAbsolutePath().contains(replace)) {
-                                            a(j, a2, file2, arrayList);
+                                            a(j2, a, file2, arrayList);
                                         }
                                         i2++;
                                     }
-                                } else if (a3 == null || !a3.startsWith(AppStatusRules.SUFFIX_ALL_FILE)) {
-                                    a(j, a2, new File(str, str2), arrayList);
+                                } else if (a2 == null || !a2.startsWith(AppStatusRules.SUFFIX_ALL_FILE)) {
+                                    a(j2, a, new File(str, str2), arrayList);
                                 }
                             }
                         }
@@ -253,11 +256,11 @@ public class b {
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1933b implements com.kwad.sdk.collector.a {
+    public static class C2008b implements com.kwad.sdk.collector.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1933b() {
+        public C2008b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -284,15 +287,15 @@ public class b {
                 long[] jArr = new long[size];
                 for (int i2 = 0; i2 < size; i2++) {
                     com.kwad.sdk.collector.model.a aVar = (com.kwad.sdk.collector.model.a) arrayList2.get(i2);
-                    if (!(aVar instanceof com.kwad.sdk.collector.model.jni.a)) {
+                    if (!(aVar instanceof AnalyseTaskNative)) {
                         return arrayList;
                     }
-                    jArr[i2] = ((com.kwad.sdk.collector.model.jni.a) aVar).getNativePtr();
+                    jArr[i2] = ((AnalyseTaskNative) aVar).getNativePtr();
                 }
                 long[] analysis = AppStatusNative.analysis(jArr, file.getAbsolutePath() + "/");
                 com.kwad.sdk.core.d.a.a("AppStatusAnalyserNative", "analysisByFile: runningInfoPtrs: " + analysis);
-                for (long j : analysis) {
-                    arrayList.add(new com.kwad.sdk.collector.model.jni.b(j));
+                for (long j2 : analysis) {
+                    arrayList.add(new AppRunningInfoNative(j2));
                 }
                 com.kwad.sdk.core.d.a.a("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
                 return arrayList;
@@ -301,10 +304,10 @@ public class b {
         }
 
         @Override // com.kwad.sdk.collector.a
-        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j, String str) {
+        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j2, String str) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Long.valueOf(j), str})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Long.valueOf(j2), str})) == null) {
                 int size = list.size();
                 long[] jArr = new long[list.size()];
                 for (int i2 = 0; i2 < size; i2++) {
@@ -313,10 +316,10 @@ public class b {
                         jArr[i2] = ((RulesTargetNative) dVar).getNativePtr();
                     }
                 }
-                long[] nativeGetUploadEntry = AppStatusNative.nativeGetUploadEntry(jArr, j, str);
+                long[] nativeGetUploadEntry = AppStatusNative.nativeGetUploadEntry(jArr, j2, str);
                 ArrayList arrayList = new ArrayList();
-                for (long j2 : nativeGetUploadEntry) {
-                    arrayList.add(new com.kwad.sdk.collector.model.jni.c(j2));
+                for (long j3 : nativeGetUploadEntry) {
+                    arrayList.add(new UploadEntryNative(j3));
                 }
                 return arrayList;
             }
@@ -327,6 +330,6 @@ public class b {
     public static com.kwad.sdk.collector.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.c.ac() ? new C1933b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? com.kwad.sdk.core.config.b.ai() ? new C2008b() : new a() : (com.kwad.sdk.collector.a) invokeV.objValue;
     }
 }

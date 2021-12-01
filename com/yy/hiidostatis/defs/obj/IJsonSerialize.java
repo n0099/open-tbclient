@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IJsonSerialize {
     JSONObject toJson();
 }

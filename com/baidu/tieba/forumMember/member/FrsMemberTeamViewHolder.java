@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        int g2 = l.g(BdBaseApplication.getInst().getApp(), R.dimen.ds1);
+        int f2 = l.f(BdBaseApplication.getInst().getApp(), R.dimen.ds1);
         int color = SkinManager.getColor(R.color.black_alpha10);
         TextView textView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView = textView;
@@ -64,28 +64,28 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         this.nameView1 = (TextView) view.findViewById(R.id.textview_user_name1);
         this.headView1.setIsRound(true);
         this.headView1.setBorderColor(color);
-        this.headView1.setBorderWidth(g2);
+        this.headView1.setBorderWidth(f2);
         this.headView1.setOnClickListener(onClickListener);
         this.memberView2 = (LinearLayout) view.findViewById(R.id.member2);
         this.headView2 = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
         this.nameView2 = (TextView) view.findViewById(R.id.textview_user_name2);
         this.headView2.setIsRound(true);
         this.headView2.setBorderColor(color);
-        this.headView2.setBorderWidth(g2);
+        this.headView2.setBorderWidth(f2);
         this.headView2.setOnClickListener(onClickListener);
         this.memberView3 = (LinearLayout) view.findViewById(R.id.member3);
         this.headView3 = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
         this.nameView3 = (TextView) view.findViewById(R.id.textview_user_name3);
         this.headView3.setIsRound(true);
         this.headView3.setBorderColor(color);
-        this.headView3.setBorderWidth(g2);
+        this.headView3.setBorderWidth(f2);
         this.headView3.setOnClickListener(onClickListener);
         this.memberView4 = (LinearLayout) view.findViewById(R.id.member4);
         this.headView4 = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
         this.nameView4 = (TextView) view.findViewById(R.id.textview_user_name4);
         this.headView4.setIsRound(true);
         this.headView4.setBorderColor(color);
-        this.headView4.setBorderWidth(g2);
+        this.headView4.setBorderWidth(f2);
         this.headView4.setOnClickListener(onClickListener);
         this.forumMemberTeamItemView = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }

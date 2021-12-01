@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SubscriptionArbiter extends AtomicInteger implements Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2189523197179400958L;
@@ -64,19 +64,19 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i2 = 1;
             Subscription subscription = null;
-            long j = 0;
+            long j2 = 0;
             do {
                 Subscription subscription2 = this.missedSubscription.get();
                 if (subscription2 != null) {
                     subscription2 = this.missedSubscription.getAndSet(null);
                 }
-                long j2 = this.missedRequested.get();
-                if (j2 != 0) {
-                    j2 = this.missedRequested.getAndSet(0L);
-                }
-                long j3 = this.missedProduced.get();
+                long j3 = this.missedRequested.get();
                 if (j3 != 0) {
-                    j3 = this.missedProduced.getAndSet(0L);
+                    j3 = this.missedRequested.getAndSet(0L);
+                }
+                long j4 = this.missedProduced.get();
+                if (j4 != 0) {
+                    j4 = this.missedProduced.getAndSet(0L);
                 }
                 Subscription subscription3 = this.actual;
                 if (this.cancelled) {
@@ -88,36 +88,36 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                         subscription2.cancel();
                     }
                 } else {
-                    long j4 = this.requested;
-                    if (j4 != Long.MAX_VALUE) {
-                        j4 = BackpressureHelper.addCap(j4, j2);
-                        if (j4 != Long.MAX_VALUE) {
-                            j4 -= j3;
-                            if (j4 < 0) {
-                                SubscriptionHelper.reportMoreProduced(j4);
-                                j4 = 0;
+                    long j5 = this.requested;
+                    if (j5 != Long.MAX_VALUE) {
+                        j5 = BackpressureHelper.addCap(j5, j3);
+                        if (j5 != Long.MAX_VALUE) {
+                            j5 -= j4;
+                            if (j5 < 0) {
+                                SubscriptionHelper.reportMoreProduced(j5);
+                                j5 = 0;
                             }
                         }
-                        this.requested = j4;
+                        this.requested = j5;
                     }
                     if (subscription2 != null) {
                         if (subscription3 != null) {
                             subscription3.cancel();
                         }
                         this.actual = subscription2;
-                        if (j4 != 0) {
-                            j = BackpressureHelper.addCap(j, j4);
+                        if (j5 != 0) {
+                            j2 = BackpressureHelper.addCap(j2, j5);
                             subscription = subscription2;
                         }
-                    } else if (subscription3 != null && j2 != 0) {
-                        j = BackpressureHelper.addCap(j, j2);
+                    } else if (subscription3 != null && j3 != 0) {
+                        j2 = BackpressureHelper.addCap(j2, j3);
                         subscription = subscription3;
                     }
                 }
                 i2 = addAndGet(-i2);
             } while (i2 != 0);
-            if (j != 0) {
-                subscription.request(j);
+            if (j2 != 0) {
+                subscription.request(j2);
             }
         }
     }
@@ -134,20 +134,20 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.unbounded : invokeV.booleanValue;
     }
 
-    public final void produced(long j) {
+    public final void produced(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.unbounded) {
+        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || this.unbounded) {
             return;
         }
         if (get() == 0 && compareAndSet(0, 1)) {
-            long j2 = this.requested;
-            if (j2 != Long.MAX_VALUE) {
-                long j3 = j2 - j;
-                if (j3 < 0) {
-                    SubscriptionHelper.reportMoreProduced(j3);
-                    j3 = 0;
+            long j3 = this.requested;
+            if (j3 != Long.MAX_VALUE) {
+                long j4 = j3 - j2;
+                if (j4 < 0) {
+                    SubscriptionHelper.reportMoreProduced(j4);
+                    j4 = 0;
                 }
-                this.requested = j3;
+                this.requested = j4;
             }
             if (decrementAndGet() == 0) {
                 return;
@@ -155,18 +155,18 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
             drainLoop();
             return;
         }
-        BackpressureHelper.add(this.missedProduced, j);
+        BackpressureHelper.add(this.missedProduced, j2);
         drain();
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j) {
+    public final void request(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && !this.unbounded) {
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && !this.unbounded) {
             if (get() == 0 && compareAndSet(0, 1)) {
-                long j2 = this.requested;
-                if (j2 != Long.MAX_VALUE) {
-                    long addCap = BackpressureHelper.addCap(j2, j);
+                long j3 = this.requested;
+                if (j3 != Long.MAX_VALUE) {
+                    long addCap = BackpressureHelper.addCap(j3, j2);
                     this.requested = addCap;
                     if (addCap == Long.MAX_VALUE) {
                         this.unbounded = true;
@@ -177,12 +177,12 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                     drainLoop();
                 }
                 if (subscription != null) {
-                    subscription.request(j);
+                    subscription.request(j2);
                     return;
                 }
                 return;
             }
-            BackpressureHelper.add(this.missedRequested, j);
+            BackpressureHelper.add(this.missedRequested, j2);
             drain();
         }
     }
@@ -201,12 +201,12 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                     subscription2.cancel();
                 }
                 this.actual = subscription;
-                long j = this.requested;
+                long j2 = this.requested;
                 if (decrementAndGet() != 0) {
                     drainLoop();
                 }
-                if (j != 0) {
-                    subscription.request(j);
+                if (j2 != 0) {
+                    subscription.request(j2);
                     return;
                 }
                 return;

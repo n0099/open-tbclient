@@ -2,7 +2,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface BitmapPool {
     void clearMemory();
 

@@ -10,8 +10,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.m3.c;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.r0.t3.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebPManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ResourceStateType {
         public static final /* synthetic */ ResourceStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -87,13 +86,13 @@ public class WebPManager {
         public static ResourceStateType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (ResourceStateType) Enum.valueOf(ResourceStateType.class, str) : (ResourceStateType) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (ResourceStateType) Enum.valueOf(ResourceStateType.class, str) : (ResourceStateType) invokeL.objValue;
         }
 
         public static ResourceStateType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (ResourceStateType[]) $VALUES.clone() : (ResourceStateType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (ResourceStateType[]) $VALUES.clone() : (ResourceStateType[]) invokeV.objValue;
         }
     }
 
@@ -195,7 +194,7 @@ public class WebPManager {
     public static Drawable getPureDrawable(int i2, @ColorInt int i3, @Nullable ResourceStateType resourceStateType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(AdIconUtil.AD_TEXT_ID, null, i2, i3, resourceStateType)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i2, i3, resourceStateType)) == null) {
             if (i2 <= 0) {
                 return null;
             }
@@ -218,7 +217,7 @@ public class WebPManager {
         InterceptResult invokeIII;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
             if (i2 <= 0) {
                 return null;
             }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
 import com.fun.openid.sdk.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class k implements f {
         if (r1.versionCode >= 1) goto L13;
      */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x009a, code lost:
-        if (r0.f63788a == null) goto L41;
+        if (r0.a == null) goto L41;
      */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0041  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
@@ -47,13 +47,13 @@ public class k implements f {
     */
     public void a(Context context, f.a aVar) {
         boolean z;
-        String a2;
+        String a;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(1048576, this, context, aVar) != null) {
             return;
         }
-        c cVar = c.b.f63794a;
+        c cVar = c.b.a;
         Context applicationContext = context.getApplicationContext();
         cVar.getClass();
         try {
@@ -64,25 +64,25 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f63787b = z;
-                b.f63786a = true;
-                if (!b.f63787b) {
+                b.f55755b = z;
+                b.a = true;
+                if (!b.f55755b) {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                     return;
-                } else if (b.f63786a) {
-                    c cVar2 = c.b.f63794a;
+                } else if (b.a) {
+                    c cVar2 = c.b.a;
                     Context applicationContext2 = context.getApplicationContext();
                     synchronized (cVar2) {
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            if (cVar2.f63788a == null) {
+                            if (cVar2.a == null) {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f63792e, 1)) {
-                                    synchronized (cVar2.f63791d) {
+                                if (applicationContext2.bindService(intent, cVar2.f55759e, 1)) {
+                                    synchronized (cVar2.f55758d) {
                                         try {
-                                            cVar2.f63791d.wait(3000L);
+                                            cVar2.f55758d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -90,35 +90,35 @@ public class k implements f {
                                 }
                             }
                             try {
-                                a2 = cVar2.a(applicationContext2, "OUID");
+                                a = cVar2.a(applicationContext2, "OUID");
                             } catch (RemoteException e4) {
                                 e4.printStackTrace();
-                                a2 = "";
-                                aVar.a(true, a2);
+                                a = "";
+                                aVar.a(true, a);
                                 return;
                             }
                         } else {
                             throw new IllegalStateException("Cannot run on MainThread");
                         }
                     }
-                    aVar.a(true, a2);
+                    aVar.a(true, a);
                     return;
                 } else {
                     throw new RuntimeException("SDK Need Init First!");
                 }
             }
             z = false;
-            b.f63787b = z;
-            b.f63786a = true;
-            if (!b.f63787b) {
+            b.f55755b = z;
+            b.a = true;
+            if (!b.f55755b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f63787b = z;
-            b.f63786a = true;
-            if (!b.f63787b) {
+            b.f55755b = z;
+            b.a = true;
+            if (!b.f55755b) {
             }
         }
     }

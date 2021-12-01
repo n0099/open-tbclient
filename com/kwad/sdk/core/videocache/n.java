@@ -10,22 +10,20 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f66109a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f66110b;
+    public final long f57934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f66111c;
+    public final String f57935c;
 
-    public n(String str, long j, String str2) {
+    public n(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2};
+            Object[] objArr = {str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,16 +33,16 @@ public class n {
                 return;
             }
         }
-        this.f66109a = str;
-        this.f66110b = j;
-        this.f66111c = str2;
+        this.a = str;
+        this.f57934b = j2;
+        this.f57935c = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SourceInfo{url='" + this.f66109a + ExtendedMessageFormat.QUOTE + ", length=" + this.f66110b + ", mime='" + this.f66111c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SourceInfo{url='" + this.a + ExtendedMessageFormat.QUOTE + ", length=" + this.f57934b + ", mime='" + this.f57935c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

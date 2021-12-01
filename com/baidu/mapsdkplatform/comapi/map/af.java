@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f40927a;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a a;
 
     public af(com.baidu.mapsdkplatform.comjni.map.basemap.a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public class af {
                 return;
             }
         }
-        this.f40927a = aVar;
+        this.a = aVar;
     }
 
     public Point a(GeoPoint geoPoint) {
@@ -44,7 +42,7 @@ public class af {
                 return null;
             }
             Point point = new Point(0, 0);
-            String b2 = this.f40927a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
+            String b2 = this.a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
             if (b2 != null && !b2.isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject(b2);
@@ -64,10 +62,10 @@ public class af {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-            String a2 = this.f40927a.a(i2, i3);
-            if (a2 != null && !a2.isEmpty()) {
+            String a = this.a.a(i2, i3);
+            if (a != null && !a.isEmpty()) {
                 try {
-                    JSONObject jSONObject = new JSONObject(a2);
+                    JSONObject jSONObject = new JSONObject(a);
                     geoPoint.setLongitudeE6(jSONObject.getInt("geox"));
                     geoPoint.setLatitudeE6(jSONObject.getInt("geoy"));
                 } catch (JSONException e2) {

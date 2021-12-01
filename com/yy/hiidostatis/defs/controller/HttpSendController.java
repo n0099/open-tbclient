@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpSendController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,9 +180,9 @@ public class HttpSendController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendHttp(long j) {
+    public void sendHttp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65551, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65551, this, j2) == null) {
             ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.defs.controller.HttpSendController.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -241,14 +241,14 @@ public class HttpSendController {
                         }
                     }
                 }
-            }, j * 1000);
+            }, j2 * 1000);
         }
     }
 
-    public void send(String str, long j) {
+    public void send(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            putTask(new SendCell(str, j));
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+            putTask(new SendCell(str, j2));
             sendHttp(0L);
         }
     }

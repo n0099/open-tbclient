@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.AccountManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoginOutHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IAfterDismissCallback {
         void onCancel();
 
@@ -48,15 +48,13 @@ public class LoginOutHelper {
             dialog.findViewById(ResUtils.id(context, "ebpay_logout")).setOnClickListener(new View.OnClickListener(dialog, context, iAfterDismissCallback) { // from class: com.baidu.wallet.base.widget.LoginOutHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Dialog f58506a;
+                public final /* synthetic */ Dialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f58507b;
+                public final /* synthetic */ Context f52113b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f58508c;
+                public final /* synthetic */ IAfterDismissCallback f52114c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -73,19 +71,19 @@ public class LoginOutHelper {
                             return;
                         }
                     }
-                    this.f58506a = dialog;
-                    this.f58507b = context;
-                    this.f58508c = iAfterDismissCallback;
+                    this.a = dialog;
+                    this.f52113b = context;
+                    this.f52114c = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f58506a.dismiss();
-                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f58507b)).logout();
+                        this.a.dismiss();
+                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f52113b)).logout();
                         WalletLoginHelper.getInstance().logout();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f58508c;
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f52114c;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onLogout();
                         }
@@ -95,12 +93,10 @@ public class LoginOutHelper {
             dialog.findViewById(ResUtils.id(context, "ebpay_cancel")).setOnClickListener(new View.OnClickListener(dialog, iAfterDismissCallback) { // from class: com.baidu.wallet.base.widget.LoginOutHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Dialog f58509a;
+                public final /* synthetic */ Dialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f58510b;
+                public final /* synthetic */ IAfterDismissCallback f52115b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,16 +113,16 @@ public class LoginOutHelper {
                             return;
                         }
                     }
-                    this.f58509a = dialog;
-                    this.f58510b = iAfterDismissCallback;
+                    this.a = dialog;
+                    this.f52115b = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f58509a.dismiss();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f58510b;
+                        this.a.dismiss();
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f52115b;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onCancel();
                         }

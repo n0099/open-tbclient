@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,7 @@ import java.io.FilenameFilter;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CrashController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPIRES_DAY = 5;
@@ -48,7 +47,7 @@ public class CrashController {
     public Preference mPreference;
     public IStatisAPI mStatisAPI;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnCrashListener {
         void handler(JSONObject jSONObject);
     }
@@ -90,7 +89,7 @@ public class CrashController {
     private boolean delFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 File file = new File(str);
                 if (file.exists()) {
@@ -107,7 +106,7 @@ public class CrashController {
     private boolean doExpire(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONObject)) == null) {
             try {
                 if (Util.daysBetween(Long.parseLong(jSONObject.getString("time")) * 1000, Util.wallTimeMillis()) > 5) {
                     String string = jSONObject.getString("crashid");
@@ -275,7 +274,7 @@ public class CrashController {
             jSONObject.put(BaseStatisContent.SESSIONID, this.mStatisAPI.getSession());
             jSONObject.put(BaseStatisContent.SDKVER, HdStatisConfig.getConfig(this.mStatisAPI.getOption().getAppkey()).getSdkVer());
             jSONObject.put("imei", CommonFiller.getIMEI(this.mContext));
-            jSONObject.put("mac", CommonFiller.getMacAddr(this.mContext));
+            jSONObject.put(BaseStatisContent.MAC, CommonFiller.getMacAddr(this.mContext));
             jSONObject.put(BaseStatisContent.SJP, ArdUtil.getSjp(this.mContext));
             jSONObject.put("sjm", ArdUtil.getSjm(this.mContext));
             jSONObject.put("sys", 2);

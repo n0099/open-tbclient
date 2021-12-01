@@ -22,9 +22,7 @@ public abstract class m<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hVar)) == null) ? new i<T>(hVar) { // from class: com.kwad.sdk.pngencrypt.m.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f66900a;
+            public final /* synthetic */ h a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -41,7 +39,7 @@ public abstract class m<T> {
                         return;
                     }
                 }
-                this.f66900a = hVar;
+                this.a = hVar;
             }
         } : (i) invokeL.objValue;
     }

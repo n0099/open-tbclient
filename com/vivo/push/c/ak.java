@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ak extends com.vivo.push.v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,23 +34,23 @@ public final class ak extends com.vivo.push.v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
             com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f71347a);
-            if (a2 == null) {
+            com.vivo.push.model.b a = com.vivo.push.util.s.a(this.a);
+            if (a == null) {
                 com.vivo.push.p.a().a(cVar.h(), 1005, new Object[0]);
                 return;
             }
-            String a3 = a2.a();
-            if (a2.c()) {
+            String a2 = a.a();
+            if (a.c()) {
                 com.vivo.push.p.a().a(cVar.h(), 1004, new Object[0]);
                 yVar = new com.vivo.push.b.e();
             } else {
-                int a4 = com.vivo.push.util.r.a(cVar);
-                if (a4 != 0) {
-                    com.vivo.push.p.a().a(cVar.h(), a4, new Object[0]);
+                int a3 = com.vivo.push.util.r.a(cVar);
+                if (a3 != 0) {
+                    com.vivo.push.p.a().a(cVar.h(), a3, new Object[0]);
                     return;
                 }
             }
-            com.vivo.push.a.a.a(this.f71347a, a3, yVar);
+            com.vivo.push.a.a.a(this.a, a2, yVar);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +23,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +193,7 @@ public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonRespons
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     ProductInfo productInfo = new ProductInfo();
-                    productInfo.cid = optJSONObject.optInt(IAdRequestParam.CELL_ID);
+                    productInfo.cid = optJSONObject.optInt("cid");
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
                     productInfo.level = optJSONObject.optInt("level");
@@ -249,7 +248,7 @@ public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonRespons
                     int optInt = jSONObject.optInt("cmd");
                     if (this.cmd == optInt) {
                         this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                        this.seq = jSONObject.optString("seq");
                         this.expend = jSONObject.optString("expand");
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.defaultCid = jSONObject.optInt("defaultCid");

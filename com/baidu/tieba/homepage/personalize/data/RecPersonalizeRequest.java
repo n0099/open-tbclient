@@ -1,13 +1,13 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
-import b.a.e.f.p.l;
-import b.a.q0.c1.g;
-import b.a.q0.c1.z;
-import b.a.q0.s.q.g1;
-import b.a.r0.a3.j0.a;
-import b.a.r0.a3.l0.b;
+import c.a.d.f.p.j;
+import c.a.d.f.p.l;
+import c.a.q0.d1.g;
+import c.a.q0.d1.z;
+import c.a.q0.s.q.g1;
+import c.a.r0.h3.j0.a;
+import c.a.r0.h3.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -87,10 +87,10 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.app_pos = a.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 g1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(b.a.e.f.m.b.g(pbToHomeUpdateData.f14108a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f14109b;
-                builder.first_dir = pbToHomeUpdateData.f14110c;
-                builder.second_dir = pbToHomeUpdateData.f14111d;
+                builder.from_tid = Long.valueOf(c.a.d.f.m.b.g(pbToHomeUpdateData.a, 0L));
+                builder.query_eqid = pbToHomeUpdateData.f12954b;
+                builder.first_dir = pbToHomeUpdateData.f12955c;
+                builder.second_dir = pbToHomeUpdateData.f12956d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();

@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 import org.apache.commons.lang3.text.FormattableUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class NASLib extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static NASCallBack callback;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }
@@ -111,14 +110,14 @@ public class NASLib extends Activity {
 
     public static void recordCustomAction(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             Logger.recordCustomAction(context, str);
         }
     }
 
     public static void setCallBack(NASCallBack nASCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, nASCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, nASCallBack) == null) {
             callback = nASCallBack;
         }
     }

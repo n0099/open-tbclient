@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableCombineLatest<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
     @Nullable
     public final Iterable<? extends Publisher<? extends T>> iterable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5082275438355852221L;
@@ -175,10 +175,10 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                 SpscLinkedArrayQueue<?> spscLinkedArrayQueue = this.queue;
                 int i3 = 1;
                 do {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         }
@@ -194,7 +194,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                         try {
                             subscriber.onNext((Object) ObjectHelper.requireNonNull(this.combiner.apply((Object[]) spscLinkedArrayQueue.poll()), "The combiner returned a null value"));
                             ((CombineLatestInnerSubscriber) poll).requestOne();
-                            j2++;
+                            j3++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             cancelAll();
@@ -206,8 +206,8 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                     if (i2 == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                         return;
                     }
-                    if (j2 != 0 && j != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j2);
+                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j3);
                     }
                     i3 = addAndGet(-i3);
                 } while (i3 != 0);
@@ -335,10 +335,10 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }
@@ -369,7 +369,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730235182291002949L;
@@ -454,7 +454,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

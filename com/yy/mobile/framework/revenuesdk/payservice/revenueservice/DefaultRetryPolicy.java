@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = -1;
@@ -109,7 +108,7 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.mStatus = 1;
-            RLog.info(TAG, AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+            RLog.info(TAG, "done");
         }
     }
 

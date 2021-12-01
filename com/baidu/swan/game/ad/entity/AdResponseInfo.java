@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdResponseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AdResponseInfo> CREATOR;
@@ -27,7 +26,7 @@ public class AdResponseInfo implements Parcelable {
     public String mErrorCode;
     public String mRequestId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<AdResponseInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +103,7 @@ public class AdResponseInfo implements Parcelable {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.mAdsNum = jSONObject.optInt("n", 0);
-            this.mRequestId = jSONObject.optString(IAdRequestParam.REQ_ID);
+            this.mRequestId = jSONObject.optString("req_id");
             this.mErrorCode = jSONObject.optString("error_code", "");
             JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {

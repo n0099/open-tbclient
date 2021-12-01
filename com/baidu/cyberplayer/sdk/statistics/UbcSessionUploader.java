@@ -8,23 +8,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UbcSessionUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static final int PLAY_SESSION_STAGE_TYPE_UBC_LIVE = -1002;
     @Keep
     public static final int PLAY_SESSION_STAGE_TYPE_UBC_VOD = -1001;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static UbcSessionUploader f38063a;
+    public static UbcSessionUploader a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f38064b;
+    public Object f34086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f38065c;
+    public Method f34087c;
 
     public UbcSessionUploader() {
         Interceptable interceptable = $ic;
@@ -39,8 +37,8 @@ public final class UbcSessionUploader {
                 return;
             }
         }
-        this.f38064b = null;
-        this.f38065c = null;
+        this.f34086b = null;
+        this.f34087c = null;
         a();
     }
 
@@ -53,8 +51,8 @@ public final class UbcSessionUploader {
                 Field declaredField = cls.getDeclaredField("SERVICE_REFERENCE");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f38064b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
-                    this.f38065c = cls.getDeclaredMethod("onEvent", String.class, String.class);
+                    this.f34086b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
+                    this.f34087c = cls.getDeclaredMethod("onEvent", String.class, String.class);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -69,10 +67,10 @@ public final class UbcSessionUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (UbcSessionUploader.class) {
-                if (f38063a == null) {
-                    f38063a = new UbcSessionUploader();
+                if (a == null) {
+                    a = new UbcSessionUploader();
                 }
-                ubcSessionUploader = f38063a;
+                ubcSessionUploader = a;
             }
             return ubcSessionUploader;
         }
@@ -82,11 +80,11 @@ public final class UbcSessionUploader {
     @Keep
     public void upload(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f38065c == null || this.f38064b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f34087c == null || this.f34086b == null) {
             return;
         }
         try {
-            this.f38065c.invoke(this.f38064b, i2 == -1001 ? "2360" : "2368", str);
+            this.f34087c.invoke(this.f34086b, i2 == -1001 ? "2360" : "2368", str);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

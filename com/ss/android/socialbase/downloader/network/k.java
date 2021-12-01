@@ -2,7 +2,6 @@ package com.ss.android.socialbase.downloader.network;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,36 +14,32 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f70621a = "k";
+    public static final String a = "k";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f70622b;
+    public final d f62056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f70623c;
+    public volatile boolean f62057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<l> f70624d;
+    public final AtomicReference<l> f62058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicReference<l> f70625e;
+    public AtomicReference<l> f62059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f70626f;
+    public final ArrayList<b> f62060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f70627g;
+    public int f62061g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f70628a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,21 +56,21 @@ public class k {
                 }
             }
             int[] iArr = new int[l.values().length];
-            f70628a = iArr;
+            a = iArr;
             try {
-                iArr[l.f70630a.ordinal()] = 1;
+                iArr[l.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f70628a[l.f70631b.ordinal()] = 2;
+                a[l.f62062b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f70628a[l.f70632c.ordinal()] = 3;
+                a[l.f62063c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f70628a[l.f70633d.ordinal()] = 4;
+                a[l.f62064d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -84,9 +79,7 @@ public class k {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final k f70629a;
+        public static final k a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -102,7 +95,7 @@ public class k {
                     return;
                 }
             }
-            f70629a = new k(null);
+            a = new k(null);
         }
     }
 
@@ -133,18 +126,18 @@ public class k {
     public static k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f70629a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (k) invokeV.objValue;
     }
 
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (this.f70622b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            if (this.f62056b == null) {
                 return false;
             }
             try {
-                int i2 = AnonymousClass1.f70628a[this.f70624d.get().ordinal()];
+                int i2 = AnonymousClass1.a[this.f62058d.get().ordinal()];
                 double d2 = 2000.0d;
                 double d3 = 550.0d;
                 if (i2 == 1) {
@@ -160,7 +153,7 @@ public class k {
                     d2 = 3.4028234663852886E38d;
                     d3 = 2000.0d;
                 }
-                double a2 = this.f70622b.a();
+                double a2 = this.f62056b.a();
                 if (a2 > d2) {
                     if (a2 > d2 * 1.25d) {
                         return true;
@@ -178,11 +171,11 @@ public class k {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             try {
-                int size = this.f70626f.size();
+                int size = this.f62060f.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f70626f.get(i2).a(this.f70624d.get());
+                    this.f62060f.get(i2).a(this.f62058d.get());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -195,10 +188,10 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f70622b == null) {
-                    return l.f70634e;
+                if (this.f62056b == null) {
+                    return l.f62065e;
                 }
-                return a(this.f70622b.a());
+                return a(this.f62056b.a());
             }
         }
         return (l) invokeV.objValue;
@@ -217,43 +210,43 @@ public class k {
                 return;
             }
         }
-        this.f70622b = new d(0.05d);
-        this.f70623c = false;
-        this.f70624d = new AtomicReference<>(l.f70634e);
-        this.f70626f = new ArrayList<>();
+        this.f62056b = new d(0.05d);
+        this.f62057c = false;
+        this.f62058d = new AtomicReference<>(l.f62065e);
+        this.f62060f = new ArrayList<>();
     }
 
-    public synchronized void a(long j, long j2) {
+    public synchronized void a(long j2, long j3) {
         l b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             synchronized (this) {
-                double d2 = ((j * 1.0d) / j2) * 8.0d;
-                if (j2 == 0 || d2 < 3.0d) {
+                double d2 = ((j2 * 1.0d) / j3) * 8.0d;
+                if (j3 == 0 || d2 < 3.0d) {
                     return;
                 }
                 try {
-                    this.f70622b.a(d2);
+                    this.f62056b.a(d2);
                     b2 = b();
                 } catch (Throwable unused) {
                 }
-                if (this.f70623c) {
-                    this.f70627g++;
-                    if (b2 != this.f70625e.get()) {
-                        this.f70623c = false;
-                        this.f70627g = 1;
+                if (this.f62057c) {
+                    this.f62061g++;
+                    if (b2 != this.f62059e.get()) {
+                        this.f62057c = false;
+                        this.f62061g = 1;
                     }
-                    if (this.f70627g >= 5.0d && c()) {
-                        this.f70623c = false;
-                        this.f70627g = 1;
-                        this.f70624d.set(this.f70625e.get());
+                    if (this.f62061g >= 5.0d && c()) {
+                        this.f62057c = false;
+                        this.f62061g = 1;
+                        this.f62058d.set(this.f62059e.get());
                         d();
                     }
                     return;
                 }
-                if (this.f70624d.get() != b2) {
-                    this.f70623c = true;
-                    this.f70625e = new AtomicReference<>(b2);
+                if (this.f62058d.get() != b2) {
+                    this.f62057c = true;
+                    this.f62059e = new AtomicReference<>(b2);
                 }
             }
         }
@@ -264,18 +257,18 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2)})) == null) {
             if (d2 < 0.0d) {
-                return l.f70634e;
+                return l.f62065e;
             }
             if (d2 < 150.0d) {
-                return l.f70630a;
+                return l.a;
             }
             if (d2 < 550.0d) {
-                return l.f70631b;
+                return l.f62062b;
             }
             if (d2 < 2000.0d) {
-                return l.f70632c;
+                return l.f62063c;
             }
-            return l.f70633d;
+            return l.f62064d;
         }
         return (l) invokeCommon.objValue;
     }

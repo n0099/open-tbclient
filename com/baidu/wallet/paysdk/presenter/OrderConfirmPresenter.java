@@ -35,7 +35,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OrderConfirmPresenter";
@@ -292,9 +292,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f60778a;
+                public final /* synthetic */ OrderConfirmPresenter a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,14 +309,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f60778a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60778a.getViewData();
+                        this.a.getViewData();
                     }
                 }
             }, 800L);
@@ -418,9 +416,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
             WalletFingerprint.getInstance(this.mActivity).startListening(new com.baidu.wallet.paysdk.fingerprint.b(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f60777a;
+                public final /* synthetic */ OrderConfirmPresenter a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -437,7 +433,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f60777a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
@@ -451,19 +447,19 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             StatHelper.cacheCodeAndMsg(i2 + "", str);
                         }
                         if (i2 == 0) {
-                            this.f60777a.onFpCheckSucces(str);
+                            this.a.onFpCheckSucces(str);
                         } else if (i2 == -5) {
-                            this.f60777a.onFpCheckError();
+                            this.a.onFpCheckError();
                         } else if (i2 == -3) {
-                            this.f60777a.gotoPayUsePwd(true, str);
+                            this.a.gotoPayUsePwd(true, str);
                         } else if (i2 == -1) {
-                            this.f60777a.changePwdMode();
+                            this.a.changePwdMode();
                         } else if (i2 == -4 || i2 == -6) {
-                            this.f60777a.gotoPayUsePwd(true, str);
+                            this.a.gotoPayUsePwd(true, str);
                         } else if (i2 == -7) {
-                            this.f60777a.gotoPayUsePwd(true, str);
+                            this.a.gotoPayUsePwd(true, str);
                         } else if (i2 == -2) {
-                            this.f60777a.gotoPayUsePwd(true, "");
+                            this.a.gotoPayUsePwd(true, "");
                         }
                     }
                 }

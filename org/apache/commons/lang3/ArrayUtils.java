@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -506,10 +505,10 @@ public class ArrayUtils {
         return (long[]) invokeL.objValue;
     }
 
-    public static boolean contains(long[] jArr, long j) {
+    public static boolean contains(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65581, null, jArr, j)) == null) ? indexOf(jArr, j) != -1 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65581, null, jArr, j2)) == null) ? indexOf(jArr, j2) != -1 : invokeLJ.booleanValue;
     }
 
     public static int indexOf(Object[] objArr, Object obj, int i2) {
@@ -911,10 +910,10 @@ public class ArrayUtils {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{bArr, Byte.valueOf(b2)})) == null) ? indexOf(bArr, b2) != -1 : invokeCommon.booleanValue;
     }
 
-    public static int indexOf(long[] jArr, long j) {
+    public static int indexOf(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65600, null, jArr, j)) == null) ? indexOf(jArr, j, 0) : invokeLJ.intValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65600, null, jArr, j2)) == null) ? indexOf(jArr, j2, 0) : invokeLJ.intValue;
     }
 
     public static boolean isEmpty(byte[] bArr) {
@@ -1020,10 +1019,10 @@ public class ArrayUtils {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{dArr, Double.valueOf(d2)})) == null) ? indexOf(dArr, d2) != -1 : invokeCommon.booleanValue;
     }
 
-    public static int indexOf(long[] jArr, long j, int i2) {
+    public static int indexOf(long[] jArr, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{jArr, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{jArr, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (jArr == null) {
                 return -1;
             }
@@ -1031,7 +1030,7 @@ public class ArrayUtils {
                 i2 = 0;
             }
             while (i2 < jArr.length) {
-                if (j == jArr[i2]) {
+                if (j2 == jArr[i2]) {
                     return i2;
                 }
                 i2++;
@@ -1059,10 +1058,10 @@ public class ArrayUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65629, null, dArr, dArr2)) == null) ? getLength(dArr) == getLength(dArr2) : invokeLL.booleanValue;
     }
 
-    public static int lastIndexOf(long[] jArr, long j) {
+    public static int lastIndexOf(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65659, null, jArr, j)) == null) ? lastIndexOf(jArr, j, Integer.MAX_VALUE) : invokeLJ.intValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65659, null, jArr, j2)) == null) ? lastIndexOf(jArr, j2, Integer.MAX_VALUE) : invokeLJ.intValue;
     }
 
     public static String[] nullToEmpty(String[] strArr) {
@@ -1213,16 +1212,16 @@ public class ArrayUtils {
         return invokeL.booleanValue;
     }
 
-    public static int lastIndexOf(long[] jArr, long j, int i2) {
+    public static int lastIndexOf(long[] jArr, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65660, null, new Object[]{jArr, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65660, null, new Object[]{jArr, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (jArr != null && i2 >= 0) {
                 if (i2 >= jArr.length) {
                     i2 = jArr.length - 1;
                 }
                 while (i2 >= 0) {
-                    if (j == jArr[i2]) {
+                    if (j2 == jArr[i2]) {
                         return i2;
                     }
                     i2--;
@@ -1373,7 +1372,7 @@ public class ArrayUtils {
     public static char[] add(char[] cArr, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{cArr, Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{cArr, Character.valueOf(c2)})) == null) {
             char[] cArr2 = (char[]) copyArrayGrow1(cArr, Character.TYPE);
             cArr2[cArr2.length - 1] = c2;
             return cArr2;
@@ -1712,16 +1711,16 @@ public class ArrayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65642, null, jArr)) == null) {
             if (jArr != null && jArr.length >= 2) {
-                long j = jArr[0];
+                long j2 = jArr[0];
                 int length = jArr.length;
                 int i2 = 1;
                 while (i2 < length) {
-                    long j2 = jArr[i2];
-                    if (NumberUtils.compare(j, j2) > 0) {
+                    long j3 = jArr[i2];
+                    if (NumberUtils.compare(j2, j3) > 0) {
                         return false;
                     }
                     i2++;
-                    j = j2;
+                    j2 = j3;
                 }
             }
             return true;
@@ -2046,10 +2045,10 @@ public class ArrayUtils {
         swap(zArr, i2, i3, 1);
     }
 
-    public static long[] toPrimitive(Long[] lArr, long j) {
+    public static long[] toPrimitive(Long[] lArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65820, null, lArr, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65820, null, lArr, j2)) == null) {
             if (lArr == null) {
                 return null;
             }
@@ -2059,19 +2058,19 @@ public class ArrayUtils {
             long[] jArr = new long[lArr.length];
             for (int i2 = 0; i2 < lArr.length; i2++) {
                 Long l = lArr[i2];
-                jArr[i2] = l == null ? j : l.longValue();
+                jArr[i2] = l == null ? j2 : l.longValue();
             }
             return jArr;
         }
         return (long[]) invokeLJ.objValue;
     }
 
-    public static long[] add(long[] jArr, long j) {
+    public static long[] add(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65550, null, jArr, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65550, null, jArr, j2)) == null) {
             long[] jArr2 = (long[]) copyArrayGrow1(jArr, Long.TYPE);
-            jArr2[jArr2.length - 1] = j;
+            jArr2[jArr2.length - 1] = j2;
             return jArr2;
         }
         return (long[]) invokeLJ.objValue;
@@ -2349,11 +2348,11 @@ public class ArrayUtils {
         }
     }
 
-    public static long[] removeElement(long[] jArr, long j) {
+    public static long[] removeElement(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65722, null, jArr, j)) == null) {
-            int indexOf = indexOf(jArr, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65722, null, jArr, j2)) == null) {
+            int indexOf = indexOf(jArr, j2);
             if (indexOf == -1) {
                 return clone(jArr);
             }
@@ -2647,7 +2646,7 @@ public class ArrayUtils {
     public static char[] add(char[] cArr, int i2, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{cArr, Integer.valueOf(i2), Character.valueOf(c2)})) == null) ? (char[]) add(cArr, i2, Character.valueOf(c2), Character.TYPE) : (char[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{cArr, Integer.valueOf(i2), Character.valueOf(c2)})) == null) ? (char[]) add(cArr, i2, Character.valueOf(c2), Character.TYPE) : (char[]) invokeCommon.objValue;
     }
 
     public static short[] addAll(short[] sArr, short... sArr2) {
@@ -2889,10 +2888,10 @@ public class ArrayUtils {
         }
     }
 
-    public static long[] add(long[] jArr, int i2, long j) {
+    public static long[] add(long[] jArr, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? (long[]) add(jArr, i2, Long.valueOf(j), Long.TYPE) : (long[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? (long[]) add(jArr, i2, Long.valueOf(j2), Long.TYPE) : (long[]) invokeCommon.objValue;
     }
 
     public static Character[] nullToEmpty(Character[] chArr) {
@@ -3159,9 +3158,9 @@ public class ArrayUtils {
         }
         int min = Math.min(jArr.length, i3) - 1;
         while (min > i2) {
-            long j = jArr[min];
+            long j2 = jArr[min];
             jArr[min] = jArr[i2];
-            jArr[i2] = j;
+            jArr[i2] = j2;
             min--;
             i2++;
         }
@@ -3215,13 +3214,13 @@ public class ArrayUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65677, null, dArr)) == null) ? isEmpty(dArr) ? EMPTY_DOUBLE_OBJECT_ARRAY : dArr : (Double[]) invokeL.objValue;
     }
 
-    public static long[] removeAllOccurences(long[] jArr, long j) {
+    public static long[] removeAllOccurences(long[] jArr, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65713, null, jArr, j)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65713, null, jArr, j2)) != null) {
             return (long[]) invokeLJ.objValue;
         }
-        int indexOf = indexOf(jArr, j);
+        int indexOf = indexOf(jArr, j2);
         if (indexOf == -1) {
             return clone(jArr);
         }
@@ -3229,7 +3228,7 @@ public class ArrayUtils {
         iArr[0] = indexOf;
         int i2 = 1;
         while (true) {
-            int indexOf2 = indexOf(jArr, j, iArr[i2 - 1] + 1);
+            int indexOf2 = indexOf(jArr, j2, iArr[i2 - 1] + 1);
             if (indexOf2 != -1) {
                 iArr[i2] = indexOf2;
                 i2++;
@@ -3736,9 +3735,9 @@ public class ArrayUtils {
         }
         int min = Math.min(Math.min(i4, jArr.length - i2), jArr.length - i3);
         while (i5 < min) {
-            long j = jArr[i2];
+            long j2 = jArr[i2];
             jArr[i2] = jArr[i3];
-            jArr[i3] = j;
+            jArr[i3] = j2;
             i5++;
             i2++;
             i3++;
@@ -4115,8 +4114,8 @@ public class ArrayUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65731, null, jArr, jArr2)) == null) {
             if (!isEmpty(jArr) && !isEmpty(jArr2)) {
                 HashMap hashMap = new HashMap(jArr2.length);
-                for (long j : jArr2) {
-                    Long valueOf = Long.valueOf(j);
+                for (long j2 : jArr2) {
+                    Long valueOf = Long.valueOf(j2);
                     MutableInt mutableInt = (MutableInt) hashMap.get(valueOf);
                     if (mutableInt == null) {
                         hashMap.put(valueOf, new MutableInt(1));
@@ -4126,11 +4125,11 @@ public class ArrayUtils {
                 }
                 BitSet bitSet = new BitSet();
                 for (int i2 = 0; i2 < jArr.length; i2++) {
-                    long j2 = jArr[i2];
-                    MutableInt mutableInt2 = (MutableInt) hashMap.get(Long.valueOf(j2));
+                    long j3 = jArr[i2];
+                    MutableInt mutableInt2 = (MutableInt) hashMap.get(Long.valueOf(j3));
                     if (mutableInt2 != null) {
                         if (mutableInt2.decrementAndGet() == 0) {
-                            hashMap.remove(Long.valueOf(j2));
+                            hashMap.remove(Long.valueOf(j3));
                         }
                         bitSet.set(i2);
                     }

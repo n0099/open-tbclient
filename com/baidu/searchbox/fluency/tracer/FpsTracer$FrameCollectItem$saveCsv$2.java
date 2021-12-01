@@ -1,7 +1,6 @@
 package com.baidu.searchbox.fluency.tracer;
 
 import android.text.TextUtils;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
@@ -28,7 +27,7 @@ import kotlin.text.Charsets;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem$saveCsv$2", f = "FpsTracer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,7 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         byte[] bytes = "fps,dropFrozen,dropHigh,dropMiddle,dropNormal,dropBest".getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         fileOutputStream.write(bytes);
-                        byte[] bytes2 = Part.CRLF.getBytes(Charsets.UTF_8);
+                        byte[] bytes2 = "\r\n".getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
                         fileOutputStream.write(bytes2);
                         StringBuilder sb = new StringBuilder();
@@ -154,7 +153,7 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         Logcat logcat4 = Logcat.INSTANCE;
                         logcat4.d(FpsTracer.TAG, "file exist: " + csvFile.getAbsolutePath());
                         FileOutputStream fileOutputStream2 = new FileOutputStream(csvFile, true);
-                        byte[] bytes4 = Part.CRLF.getBytes(Charsets.UTF_8);
+                        byte[] bytes4 = "\r\n".getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes4, "(this as java.lang.String).getBytes(charset)");
                         fileOutputStream2.write(bytes4);
                         StringBuilder sb3 = new StringBuilder();

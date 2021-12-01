@@ -20,7 +20,6 @@ import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +41,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -60,7 +59,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +99,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -178,7 +177,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         public static CornerData right(CornerData cornerData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cornerData)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cornerData)) == null) {
                 CornerSize cornerSize = noCorner;
                 return new CornerData(cornerSize, cornerSize, cornerData.topRight, cornerData.bottomRight);
             }
@@ -188,7 +187,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         public static CornerData start(CornerData cornerData, View view) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cornerData, view)) == null) ? ViewUtils.isLayoutRtl(view) ? right(cornerData) : left(cornerData) : (CornerData) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cornerData, view)) == null) ? ViewUtils.isLayoutRtl(view) ? right(cornerData) : left(cornerData) : (CornerData) invokeLL.objValue;
         }
 
         public static CornerData top(CornerData cornerData) {
@@ -203,12 +202,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i2, boolean z);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

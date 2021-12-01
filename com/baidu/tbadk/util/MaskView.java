@@ -13,25 +13,24 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaskView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaskView f46915e;
+        public final /* synthetic */ MaskView f41938e;
 
         public a(MaskView maskView) {
             Interceptable interceptable = $ic;
@@ -48,7 +47,7 @@ public class MaskView extends View {
                     return;
                 }
             }
-            this.f46915e = maskView;
+            this.f41938e = maskView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -59,7 +58,7 @@ public class MaskView extends View {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +85,7 @@ public class MaskView extends View {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +154,7 @@ public class MaskView extends View {
     public static void maskTextView(TextView textView, boolean z) {
         Drawable[] compoundDrawables;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, textView, z) == null) && textView != null && z) {
+        if ((interceptable == null || interceptable.invokeLZ(65541, null, textView, z) == null) && textView != null && z) {
             textView.setTextColor(textView.getTextColors().withAlpha(84));
             textView.setClickable(false);
             textView.setEnabled(false);
@@ -171,7 +170,7 @@ public class MaskView extends View {
     public static void maskViewGroup(ViewGroup viewGroup, boolean z, View.OnClickListener onClickListener) {
         int childCount;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{viewGroup, Boolean.valueOf(z), onClickListener}) == null) || viewGroup == null || !z || (childCount = viewGroup.getChildCount()) <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{viewGroup, Boolean.valueOf(z), onClickListener}) == null) || viewGroup == null || !z || (childCount = viewGroup.getChildCount()) <= 0) {
             return;
         }
         for (int i2 = 0; i2 < childCount; i2++) {

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.httpNet;
 
-import b.a.q0.o.a;
+import c.a.q0.o.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.client.methods.HttpGet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ICDNIPDirectConnect {
     public static /* synthetic */ Interceptable $ic;
     public static ICDNIPDirectConnect directConnect;

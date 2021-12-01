@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ParallelJoin<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
     public final int prefetch;
     public final ParallelFlowable<? extends T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class JoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8410034718427740355L;
@@ -113,11 +113,24 @@ public final class ParallelJoin<T> extends Flowable<T> {
             }
         }
 
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                long j2 = this.produced + j;
-                if (j2 >= this.limit) {
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+                long j3 = this.produced + j2;
+                if (j3 >= this.limit) {
+                    this.produced = 0L;
+                    get().request(j3);
+                    return;
+                }
+                this.produced = j3;
+            }
+        }
+
+        public void requestOne() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                long j2 = this.produced + 1;
+                if (j2 == this.limit) {
                     this.produced = 0L;
                     get().request(j2);
                     return;
@@ -125,22 +138,9 @@ public final class ParallelJoin<T> extends Flowable<T> {
                 this.produced = j2;
             }
         }
-
-        public void requestOne() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                long j = this.produced + 1;
-                if (j == this.limit) {
-                    this.produced = 0L;
-                    get().request(j);
-                    return;
-                }
-                this.produced = j;
-            }
-        }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6312374661811000451L;
@@ -205,9 +205,9 @@ public final class ParallelJoin<T> extends Flowable<T> {
             Subscriber<? super T> subscriber = this.actual;
             int i2 = 1;
             while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
-                while (j2 != j) {
+                long j2 = this.requested.get();
+                long j3 = 0;
+                while (j3 != j2) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -230,8 +230,8 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
                             subscriber.onNext(obj);
                             joinInnerSubscriber.requestOne();
-                            j2++;
-                            if (j2 == j) {
+                            j3++;
+                            if (j3 == j2) {
                                 break;
                             }
                             z3 = false;
@@ -239,7 +239,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         i3++;
                     }
                 }
-                if (j2 == j) {
+                if (j3 == j2) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -270,8 +270,8 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         return;
                     }
                 }
-                if (j2 != 0 && j != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
+                if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j3);
                 }
                 int i5 = get();
                 if (i5 == i2 && (i5 = addAndGet(-i2)) == 0) {
@@ -340,7 +340,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3100232009247827843L;
@@ -433,16 +433,16 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public abstract void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t);
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5737965195918321883L;
@@ -516,9 +516,9 @@ public final class ParallelJoin<T> extends Flowable<T> {
             Subscriber<? super T> subscriber = this.actual;
             int i2 = 1;
             while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
-                while (j2 != j) {
+                long j2 = this.requested.get();
+                long j3 = 0;
+                while (j3 != j2) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -535,8 +535,8 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
                             subscriber.onNext(obj);
                             joinInnerSubscriber.requestOne();
-                            j2++;
-                            if (j2 == j) {
+                            j3++;
+                            if (j3 == j2) {
                                 break;
                             }
                             z3 = false;
@@ -544,7 +544,7 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         i3++;
                     }
                 }
-                if (j2 == j) {
+                if (j3 == j2) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -574,8 +574,8 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         }
                     }
                 }
-                if (j2 != 0 && j != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
+                if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j3);
                 }
                 int i5 = get();
                 if (i5 == i2 && (i5 = addAndGet(-i2)) == 0) {

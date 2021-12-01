@@ -12,7 +12,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -183,35 +182,37 @@ public class DownloadInfo implements Parcelable {
         public boolean V;
         public long W;
         public boolean X;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f70528a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f70529b;
+        public String f61980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f70530c;
+        public String f61981c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f70531d;
+        public String f61982d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f70532e;
+        public String f61983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f70533f;
+        public boolean f61984f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f70534g;
+        public String f61985g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f70535h;
+        public List<c> f61986h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f70536i;
-        public String[] j;
-        public int[] k;
+        public int f61987i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public String[] f61988j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public int[] f61989k;
         public int l;
         public int m;
         public boolean n;
@@ -252,7 +253,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f70528a = str;
+                this.a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -262,7 +263,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f70529b = str;
+                this.f61980b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -272,7 +273,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f70530c = str;
+                this.f61981c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -282,7 +283,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                this.f70531d = str;
+                this.f61982d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -292,7 +293,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-                this.f70532e = str;
+                this.f61983e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -302,7 +303,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
-                this.f70534g = str;
+                this.f61985g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -472,7 +473,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f70533f = z;
+                this.f61984f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -592,7 +593,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-                this.f70535h = list;
+                this.f61986h = list;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -652,7 +653,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f70536i = i2;
+                this.f61987i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -668,11 +669,11 @@ public class DownloadInfo implements Parcelable {
             return (a) invokeL.objValue;
         }
 
-        public a c(long j) {
+        public a c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
-                this.W = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
+                this.W = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -682,7 +683,7 @@ public class DownloadInfo implements Parcelable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr)) == null) {
-                this.j = strArr;
+                this.f61988j = strArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -718,34 +719,34 @@ public class DownloadInfo implements Parcelable {
             this.y = true;
             this.H = EnqueueType.ENQUEUE_NONE;
             this.Q = true;
-            this.f70530c = str;
+            this.f61981c = str;
         }
 
         public a a(int[] iArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iArr)) == null) {
-                this.k = iArr;
+                this.f61989k = iArr;
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a b(long j) {
+        public a b(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-                this.M = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+                this.M = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
         }
 
-        public a a(long j) {
+        public a a(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.C = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+                this.C = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -831,7 +832,7 @@ public class DownloadInfo implements Parcelable {
 
     private void convertEnqueueType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65542, this, i2) == null) {
             if (i2 == EnqueueType.ENQUEUE_HEAD.ordinal()) {
                 this.enqueueType = EnqueueType.ENQUEUE_HEAD;
             } else if (i2 == EnqueueType.ENQUEUE_TAIL.ordinal()) {
@@ -845,14 +846,14 @@ public class DownloadInfo implements Parcelable {
     private void convertRetryDelayStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
-            if (i2 == g.f70110b.ordinal()) {
-                this.retryDelayStatus = g.f70110b;
-            } else if (i2 == g.f70111c.ordinal()) {
-                this.retryDelayStatus = g.f70111c;
-            } else if (i2 == g.f70112d.ordinal()) {
-                this.retryDelayStatus = g.f70112d;
+            if (i2 == g.f61679b.ordinal()) {
+                this.retryDelayStatus = g.f61679b;
+            } else if (i2 == g.f61680c.ordinal()) {
+                this.retryDelayStatus = g.f61680c;
+            } else if (i2 == g.f61681d.ordinal()) {
+                this.retryDelayStatus = g.f61681d;
             } else {
-                this.retryDelayStatus = g.f70109a;
+                this.retryDelayStatus = g.a;
             }
         }
     }
@@ -1083,9 +1084,9 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void addErrorBytesLog(long j, int i2, String str) {
+    public void addErrorBytesLog(long j2, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
             try {
                 if (com.ss.android.socialbase.downloader.c.a.a()) {
                     if (this.errorBytesLog == null) {
@@ -1098,7 +1099,7 @@ public class DownloadInfo implements Parcelable {
                     stringBuffer.append("[type:");
                     stringBuffer.append(i2);
                     stringBuffer.append(",bytes:");
-                    stringBuffer.append(j);
+                    stringBuffer.append(j2);
                     stringBuffer.append(",method:");
                     stringBuffer.append(str);
                     stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
@@ -1303,8 +1304,8 @@ public class DownloadInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.lastNotifyProgressTime.get();
-            return j == 0 || SystemClock.uptimeMillis() - j > 20;
+            long j2 = this.lastNotifyProgressTime.get();
+            return j2 == 0 || SystemClock.uptimeMillis() - j2 > 20;
         }
         return invokeV.booleanValue;
     }
@@ -1312,7 +1313,7 @@ public class DownloadInfo implements Parcelable {
     public boolean canReStartAsyncTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStatus() != -3 && this.asyncHandleStatus == com.ss.android.socialbase.downloader.constants.a.f70076b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStatus() != -3 && this.asyncHandleStatus == com.ss.android.socialbase.downloader.constants.a.f61651b : invokeV.booleanValue;
     }
 
     public boolean canReplaceHttpForRetry() {
@@ -1333,7 +1334,7 @@ public class DownloadInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int status = getStatus();
-            return status == 7 || this.retryDelayStatus == g.f70110b || status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f70076b || aVar == com.ss.android.socialbase.downloader.constants.a.f70077c || this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f70082b;
+            return status == 7 || this.retryDelayStatus == g.f61679b || status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f61651b || aVar == com.ss.android.socialbase.downloader.constants.a.f61652c || this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f61656b;
         }
         return invokeV.booleanValue;
     }
@@ -1341,7 +1342,7 @@ public class DownloadInfo implements Parcelable {
     public boolean canStartRetryDelayTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? isNeedRetryDelay() && getStatus() != -3 && this.retryDelayStatus == g.f70110b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? isNeedRetryDelay() && getStatus() != -3 && this.retryDelayStatus == g.f61679b : invokeV.booleanValue;
     }
 
     public void changeSkipStatus() {
@@ -1349,14 +1350,14 @@ public class DownloadInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             int status = getStatus();
-            if (status == 7 || this.retryDelayStatus == g.f70110b) {
-                setRetryDelayStatus(g.f70111c);
+            if (status == 7 || this.retryDelayStatus == g.f61679b) {
+                setRetryDelayStatus(g.f61680c);
             }
-            if (status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f70076b || aVar == com.ss.android.socialbase.downloader.constants.a.f70077c) {
-                setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f70078d);
+            if (status == 8 || (aVar = this.asyncHandleStatus) == com.ss.android.socialbase.downloader.constants.a.f61651b || aVar == com.ss.android.socialbase.downloader.constants.a.f61652c) {
+                setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f61653d);
             }
-            if (this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f70082b) {
-                setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f70083c);
+            if (this.byteInvalidRetryStatus == com.ss.android.socialbase.downloader.constants.b.f61656b) {
+                setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f61657c);
             }
         }
     }
@@ -1925,19 +1926,19 @@ public class DownloadInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.mimeType : (String) invokeV.objValue;
     }
 
-    public long getMinByteIntervalForPostToMainThread(long j) {
+    public long getMinByteIntervalForPostToMainThread(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048646, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048646, this, j2)) == null) {
             int i2 = this.maxProgressCount;
             if (i2 <= 0) {
                 i2 = 100;
             }
-            long j2 = j / (i2 + 1);
-            if (j2 <= 0) {
+            long j3 = j2 / (i2 + 1);
+            if (j3 <= 0) {
                 return 1048576L;
             }
-            return j2;
+            return j3;
         }
         return invokeJ.longValue;
     }
@@ -2302,28 +2303,28 @@ public class DownloadInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? (getReserveWifiStatus() & 1) > 0 : invokeV.booleanValue;
     }
 
-    public void increaseAllConnectTime(long j) {
+    public void increaseAllConnectTime(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048689, this, j) == null) || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048689, this, j2) == null) || j2 <= 0) {
             return;
         }
         getAllConnectTime();
-        safePutToDBJsonData("dbjson_key_all_connect_time", Long.valueOf(this.allConnectTime.addAndGet(j)));
+        safePutToDBJsonData("dbjson_key_all_connect_time", Long.valueOf(this.allConnectTime.addAndGet(j2)));
     }
 
-    public void increaseCurBytes(long j) {
+    public void increaseCurBytes(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048690, this, j) == null) {
-            this.curBytes.addAndGet(j);
+        if (interceptable == null || interceptable.invokeJ(1048690, this, j2) == null) {
+            this.curBytes.addAndGet(j2);
         }
     }
 
-    public void increaseDownloadPrepareTime(long j) {
+    public void increaseDownloadPrepareTime(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048691, this, j) == null) || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048691, this, j2) == null) || j2 <= 0) {
             return;
         }
-        safePutToDBJsonData("dbjson_key_download_prepare_time", Long.valueOf(getDownloadPrepareTime() + j));
+        safePutToDBJsonData("dbjson_key_download_prepare_time", Long.valueOf(getDownloadPrepareTime() + j2));
     }
 
     public boolean isAddListenerToSameTask() {
@@ -2409,14 +2410,14 @@ public class DownloadInfo implements Parcelable {
                 if (c2 == null || c2.size() != this.chunkCount) {
                     return false;
                 }
-                long j = 0;
+                long j2 = 0;
                 for (b bVar : c2) {
                     if (bVar != null) {
-                        j += bVar.o();
+                        j2 += bVar.o();
                     }
                 }
-                if (j != getCurBytes()) {
-                    setCurBytes(j);
+                if (j2 != getCurBytes()) {
+                    setCurBytes(j2);
                 }
             }
             return true;
@@ -2519,8 +2520,8 @@ public class DownloadInfo implements Parcelable {
                 long curBytes = getCurBytes();
                 if (com.ss.android.socialbase.downloader.g.a.c().a("fix_file_data_valid")) {
                     if (curBytes > 0) {
-                        long j = this.totalBytes;
-                        if (j > 0 && this.chunkCount > 0 && length >= curBytes && length <= j) {
+                        long j2 = this.totalBytes;
+                        if (j2 > 0 && this.chunkCount > 0 && length >= curBytes && length <= j2) {
                             return true;
                         }
                     }
@@ -2528,8 +2529,8 @@ public class DownloadInfo implements Parcelable {
                     return false;
                 }
                 if (length > 0 && curBytes > 0) {
-                    long j2 = this.totalBytes;
-                    if (j2 > 0 && this.chunkCount > 0 && length >= curBytes && length <= j2 && curBytes < j2) {
+                    long j3 = this.totalBytes;
+                    if (j3 > 0 && this.chunkCount > 0 && length >= curBytes && length <= j3 && curBytes < j3) {
                         return true;
                     }
                 }
@@ -2959,12 +2960,12 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setCacheExpiredTime(long j) {
+    public void setCacheExpiredTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048755, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048755, this, j2) == null) {
             ensureSpData();
             try {
-                this.spData.put("cache-control/expired_time", j);
+                this.spData.put("cache-control/expired_time", j2);
                 updateSpData();
             } catch (Exception unused) {
             }
@@ -2985,14 +2986,14 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setCurBytes(long j) {
+    public void setCurBytes(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048758, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048758, this, j2) == null) {
             AtomicLong atomicLong = this.curBytes;
             if (atomicLong != null) {
-                atomicLong.set(j);
+                atomicLong.set(j2);
             } else {
-                this.curBytes = new AtomicLong(j);
+                this.curBytes = new AtomicLong(j2);
             }
         }
     }
@@ -3011,12 +3012,12 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setDownloadTime(long j) {
+    public void setDownloadTime(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048762, this, j) == null) || j < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048762, this, j2) == null) || j2 < 0) {
             return;
         }
-        this.downloadTime = j;
+        this.downloadTime = j2;
     }
 
     public void setExtra(String str) {
@@ -3059,10 +3060,10 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setFirstSpeedTime(long j) {
+    public void setFirstSpeedTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048768, this, j) == null) {
-            safePutToDBJsonData("dbjson_key_first_speed_time", Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeJ(1048768, this, j2) == null) {
+            safePutToDBJsonData("dbjson_key_first_speed_time", Long.valueOf(j2));
         }
     }
 
@@ -3153,12 +3154,12 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setLastFailedResumeTime(long j) {
+    public void setLastFailedResumeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048781, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048781, this, j2) == null) {
             ensureSpData();
             try {
-                this.spData.put("last_failed_resume_time", j);
+                this.spData.put("last_failed_resume_time", j2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -3184,12 +3185,12 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setLastUninstallResumeTime(long j) {
+    public void setLastUninstallResumeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048784, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048784, this, j2) == null) {
             ensureSpData();
             try {
-                this.spData.put("last_unins_resume_time", j);
+                this.spData.put("last_unins_resume_time", j2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -3388,17 +3389,17 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void setThrottleNetSpeed(long j) {
+    public void setThrottleNetSpeed(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048810, this, j) == null) {
-            this.throttleNetSpeed = j;
+        if (interceptable == null || interceptable.invokeJ(1048810, this, j2) == null) {
+            this.throttleNetSpeed = j2;
         }
     }
 
-    public void setTotalBytes(long j) {
+    public void setTotalBytes(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048811, this, j) == null) {
-            this.totalBytes = j;
+        if (interceptable == null || interceptable.invokeJ(1048811, this, j2) == null) {
+            this.totalBytes = j2;
         }
     }
 
@@ -3568,22 +3569,22 @@ public class DownloadInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048823, this, z) == null) {
             long nanoTime = System.nanoTime();
-            long j = this.realStartDownloadTime;
-            if (j <= 0) {
+            long j2 = this.realStartDownloadTime;
+            if (j2 <= 0) {
                 if (z) {
                     this.realStartDownloadTime = nanoTime;
                     return;
                 }
                 return;
             }
-            long j2 = nanoTime - j;
+            long j3 = nanoTime - j2;
             if (z) {
                 this.realStartDownloadTime = nanoTime;
             } else {
                 this.realStartDownloadTime = 0L;
             }
-            if (j2 > 0) {
-                this.realDownloadTime += j2;
+            if (j3 > 0) {
+                this.realDownloadTime += j3;
             }
         }
     }
@@ -3703,9 +3704,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f70109a;
+        this.retryDelayStatus = g.a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f70075a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3714,19 +3715,19 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f70081a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
     }
 
-    public void setCurBytes(long j, boolean z) {
+    public void setCurBytes(long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048759, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048759, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             if (z) {
-                setCurBytes(j);
-            } else if (j > getCurBytes()) {
-                setCurBytes(j);
+                setCurBytes(j2);
+            } else if (j2 > getCurBytes()) {
+                setCurBytes(j2);
             }
         }
     }
@@ -3747,9 +3748,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f70109a;
+        this.retryDelayStatus = g.a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f70075a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3758,17 +3759,17 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f70081a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
         if (aVar == null) {
             return;
         }
-        this.name = aVar.f70528a;
-        this.title = aVar.f70529b;
-        this.url = aVar.f70530c;
-        String str = aVar.f70531d;
+        this.name = aVar.a;
+        this.title = aVar.f61980b;
+        this.url = aVar.f61981c;
+        String str = aVar.f61982d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = f.e();
@@ -3777,7 +3778,7 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        String str2 = aVar.f70532e;
+        String str2 = aVar.f61983e;
         this.tempPath = str2;
         if (TextUtils.isEmpty(str2) && !f.h(str)) {
             this.tempPath = f.f();
@@ -3792,15 +3793,15 @@ public class DownloadInfo implements Parcelable {
         }
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = aVar.f70534g;
-        this.onlyWifi = aVar.f70533f;
-        this.extraHeaders = aVar.f70535h;
-        this.maxBytes = aVar.f70536i;
+        this.extra = aVar.f61985g;
+        this.onlyWifi = aVar.f61984f;
+        this.extraHeaders = aVar.f61986h;
+        this.maxBytes = aVar.f61987i;
         this.retryCount = aVar.l;
         this.backUpUrlRetryCount = aVar.m;
         this.force = aVar.n;
-        this.outIp = aVar.j;
-        this.outSize = aVar.k;
+        this.outIp = aVar.f61988j;
+        this.outSize = aVar.f61989k;
         this.needPostProgress = aVar.o;
         this.maxProgressCount = aVar.p;
         this.minProgressTimeMsInterval = aVar.q;
@@ -3862,9 +3863,9 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f70109a;
+        this.retryDelayStatus = g.a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f70075a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3873,7 +3874,7 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f70081a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
@@ -3897,9 +3898,9 @@ public class DownloadInfo implements Parcelable {
         }
         boolean z = true;
         this.needDefaultHttpServiceBackUp = true;
-        this.retryDelayStatus = g.f70109a;
+        this.retryDelayStatus = g.a;
         this.needReuseFirstConnection = false;
-        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.f70075a;
+        this.asyncHandleStatus = com.ss.android.socialbase.downloader.constants.a.a;
         this.supportPartial = true;
         this.needSDKMonitor = true;
         this.expiredRedownload = false;
@@ -3908,7 +3909,7 @@ public class DownloadInfo implements Parcelable {
         this.chunkCount = 1;
         this.isFirstDownload = true;
         this.isFirstSuccess = true;
-        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.f70081a;
+        this.byteInvalidRetryStatus = com.ss.android.socialbase.downloader.constants.b.a;
         this.enqueueType = EnqueueType.ENQUEUE_NONE;
         this.lastNotifyProgressTime = new AtomicLong(0L);
         this.isAutoInstallWithoutNotification = null;
@@ -4027,14 +4028,14 @@ public class DownloadInfo implements Parcelable {
             int columnIndex27 = cursor.getColumnIndex("retryDelayStatus");
             if (columnIndex27 != -1) {
                 int i4 = cursor.getInt(columnIndex27);
-                if (i4 == g.f70110b.ordinal()) {
-                    this.retryDelayStatus = g.f70110b;
-                } else if (i4 == g.f70111c.ordinal()) {
-                    this.retryDelayStatus = g.f70111c;
-                } else if (i4 == g.f70112d.ordinal()) {
-                    this.retryDelayStatus = g.f70112d;
+                if (i4 == g.f61679b.ordinal()) {
+                    this.retryDelayStatus = g.f61679b;
+                } else if (i4 == g.f61680c.ordinal()) {
+                    this.retryDelayStatus = g.f61680c;
+                } else if (i4 == g.f61681d.ordinal()) {
+                    this.retryDelayStatus = g.f61681d;
                 } else {
-                    this.retryDelayStatus = g.f70109a;
+                    this.retryDelayStatus = g.a;
                 }
             }
             int columnIndex28 = cursor.getColumnIndex("defaultHttpServiceBackUp");

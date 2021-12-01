@@ -15,7 +15,6 @@ import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double COS_45;
@@ -157,7 +156,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     public static float calculateVerticalPadding(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) ((f2 * 1.5f) + ((1.0d - COS_45) * f3)) : f2 * 1.5f : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? z ? (float) ((f2 * 1.5f) + ((1.0d - COS_45) * f3)) : f2 * 1.5f : invokeCommon.floatValue;
     }
 
     private void drawShadow(@NonNull Canvas canvas) {
@@ -168,7 +167,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         float f4;
         float f5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, canvas) == null) {
             int save = canvas.save();
             canvas.rotate(this.rotation, this.contentBounds.centerX(), this.contentBounds.centerY());
             float f6 = this.cornerRadius;

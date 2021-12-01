@@ -30,7 +30,6 @@ import androidx.core.provider.SelfDestructiveThread;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -401,7 +400,7 @@ public class FontsContractCompat {
     public static FontFamilyResult fetchFonts(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontRequest fontRequest) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, cancellationSignal, fontRequest)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, cancellationSignal, fontRequest)) == null) {
             ProviderInfo provider = getProvider(context.getPackageManager(), fontRequest, context.getResources());
             if (provider == null) {
                 return new FontFamilyResult(1, null);
@@ -414,7 +413,7 @@ public class FontsContractCompat {
     public static List<List<byte[]>> getCertificates(FontRequest fontRequest, Resources resources) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, fontRequest, resources)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, fontRequest, resources)) == null) {
             if (fontRequest.getCertificates() != null) {
                 return fontRequest.getCertificates();
             }
@@ -436,15 +435,15 @@ public class FontsContractCompat {
             Cursor cursor = null;
             try {
                 if (Build.VERSION.SDK_INT > 16) {
-                    cursor = context.getContentResolver().query(build, new String[]{"_id", "file_id", Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
+                    cursor = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null, cancellationSignal);
                 } else {
-                    cursor = context.getContentResolver().query(build, new String[]{"_id", "file_id", Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
+                    cursor = context.getContentResolver().query(build, new String[]{"_id", Columns.FILE_ID, Columns.TTC_INDEX, Columns.VARIATION_SETTINGS, Columns.WEIGHT, Columns.ITALIC, "result_code"}, "query = ?", new String[]{fontRequest.getQuery()}, null);
                 }
                 if (cursor != null && cursor.getCount() > 0) {
                     int columnIndex = cursor.getColumnIndex("result_code");
                     ArrayList arrayList2 = new ArrayList();
                     int columnIndex2 = cursor.getColumnIndex("_id");
-                    int columnIndex3 = cursor.getColumnIndex("file_id");
+                    int columnIndex3 = cursor.getColumnIndex(Columns.FILE_ID);
                     int columnIndex4 = cursor.getColumnIndex(Columns.TTC_INDEX);
                     int columnIndex5 = cursor.getColumnIndex(Columns.WEIGHT);
                     int columnIndex6 = cursor.getColumnIndex(Columns.ITALIC);

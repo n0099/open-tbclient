@@ -25,26 +25,26 @@ public class Math {
         }
     }
 
-    public static long gcd(long j, long j2) {
+    public static long gcd(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) != null) {
             return invokeCommon.longValue;
         }
         while (true) {
-            long j3 = j;
-            j = j2;
-            if (j <= 0) {
-                return j3;
+            long j4 = j2;
+            j2 = j3;
+            if (j2 <= 0) {
+                return j4;
             }
-            j2 = j3 % j;
+            j3 = j4 % j2;
         }
     }
 
-    public static long lcm(long j, long j2) {
+    public static long lcm(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j * (j2 / gcd(j, j2)) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 * (j3 / gcd(j2, j3)) : invokeCommon.longValue;
     }
 
     public static int gcd(int i2, int i3) {

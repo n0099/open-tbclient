@@ -12,9 +12,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
-import b.a.q0.m.f;
+import c.a.q0.m.f;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterWebViewClient";
@@ -32,7 +32,7 @@ public class FlutterWebViewClient {
     public boolean hasNavigationDelegate;
     public final MethodChannel methodChannel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class FlutterWebViewClient {
     public static String errorCodeToString(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             switch (i2) {
                 case -16:
                     return "unsafeResource";
@@ -136,7 +136,7 @@ public class FlutterWebViewClient {
                 case -9:
                     return "redirectLoop";
                 case -8:
-                    return "timeout";
+                    return a.O;
                 case -7:
                     return "io";
                 case -6:

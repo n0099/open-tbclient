@@ -12,38 +12,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RestHttpNetwork implements c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f36995a = 30000;
+    public static final int a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36996b = 30000;
+    public static final int f33143b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36997c = 10;
+    public static final int f33144c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f36998d = 10;
+    public static final int f33145d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f36999e = 8192;
+    public static final int f33146e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f37000f = 1;
+    public static final int f33147f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f37001g = 1000;
+    public static final int f33148g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37002h = "RestHttpNetwork";
+    public static final String f33149h = "RestHttpNetwork";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f37003i;
-    public final g j;
+    public final c f33150i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final g f33151j;
 
     public RestHttpNetwork(c cVar) {
         Interceptable interceptable = $ic;
@@ -60,8 +60,8 @@ public class RestHttpNetwork implements c {
                 return;
             }
         }
-        this.f37003i = cVar;
-        this.j = new g(1, 1000);
+        this.f33150i = cVar;
+        this.f33151j = new g(1, 1000);
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -119,7 +119,7 @@ public class RestHttpNetwork implements c {
             r6 = 0
         L11:
             if (r5 == 0) goto Le2
-            com.baidu.apollon.restnet.rest.c r4 = r10.f37003i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            com.baidu.apollon.restnet.rest.c r4 = r10.f33150i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             com.baidu.apollon.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             if (r4 == 0) goto L30
             com.baidu.apollon.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
@@ -133,7 +133,7 @@ public class RestHttpNetwork implements c {
             return r4
         L31:
             r4 = move-exception
-            com.baidu.apollon.restnet.rest.g r5 = r10.j
+            com.baidu.apollon.restnet.rest.g r5 = r10.f33151j
             int r6 = r6 + 1
             boolean r5 = r5.a(r4, r6)
             goto Lb2
@@ -148,7 +148,7 @@ public class RestHttpNetwork implements c {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            com.baidu.apollon.restnet.rest.g r7 = r10.j
+            com.baidu.apollon.restnet.rest.g r7 = r10.f33151j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             goto L83
@@ -163,7 +163,7 @@ public class RestHttpNetwork implements c {
             r7.append(r4)
             java.lang.String r4 = r7.toString()
             r5.<init>(r4)
-            com.baidu.apollon.restnet.rest.g r4 = r10.j
+            com.baidu.apollon.restnet.rest.g r4 = r10.f33151j
             int r6 = r6 + 1
             boolean r4 = r4.a(r5, r6)
         L83:
@@ -183,7 +183,7 @@ public class RestHttpNetwork implements c {
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
             if (r6 <= 0) goto Lb0
-            com.baidu.apollon.restnet.rest.g r7 = r10.j
+            com.baidu.apollon.restnet.rest.g r7 = r10.f33151j
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             if (r4 == 0) goto Lb0
@@ -230,7 +230,7 @@ public class RestHttpNetwork implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37003i.a();
+            this.f33150i.a();
         }
     }
 }

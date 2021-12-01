@@ -1,9 +1,8 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.UnsignedInts;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class HashCode {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] hexDigits;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class BytesHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -117,11 +116,11 @@ public abstract class HashCode {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                long j = this.bytes[0] & 255;
+                long j2 = this.bytes[0] & 255;
                 for (int i2 = 1; i2 < Math.min(this.bytes.length, 8); i2++) {
-                    j |= (this.bytes[i2] & 255) << (i2 * 8);
+                    j2 |= (this.bytes[i2] & 255) << (i2 * 8);
                 }
-                return j;
+                return j2;
             }
             return invokeV.longValue;
         }
@@ -135,7 +134,7 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class IntHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -223,19 +222,19 @@ public abstract class HashCode {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LongHashCode extends HashCode implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
         public final long hash;
 
-        public LongHashCode(long j) {
+        public LongHashCode(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -245,7 +244,7 @@ public abstract class HashCode {
                     return;
                 }
             }
-            this.hash = j;
+            this.hash = j2;
         }
 
         @Override // com.google.common.hash.HashCode
@@ -253,8 +252,8 @@ public abstract class HashCode {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = this.hash;
-                return new byte[]{(byte) j, (byte) (j >> 8), (byte) (j >> 16), (byte) (j >> 24), (byte) (j >> 32), (byte) (j >> 40), (byte) (j >> 48), (byte) (j >> 56)};
+                long j2 = this.hash;
+                return new byte[]{(byte) j2, (byte) (j2 >> 8), (byte) (j2 >> 16), (byte) (j2 >> 24), (byte) (j2 >> 32), (byte) (j2 >> 40), (byte) (j2 >> 48), (byte) (j2 >> 56)};
             }
             return (byte[]) invokeV.objValue;
         }
@@ -372,13 +371,13 @@ public abstract class HashCode {
     public static HashCode fromInt(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new IntHashCode(i2) : (HashCode) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new IntHashCode(i2) : (HashCode) invokeI.objValue;
     }
 
-    public static HashCode fromLong(long j) {
+    public static HashCode fromLong(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? new LongHashCode(j) : (HashCode) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65542, null, j2)) == null) ? new LongHashCode(j2) : (HashCode) invokeJ.objValue;
     }
 
     public static HashCode fromString(String str) {

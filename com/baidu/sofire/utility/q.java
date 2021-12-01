@@ -2,7 +2,6 @@ package com.baidu.sofire.utility;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +11,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f44143a;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +30,7 @@ public final class q {
                 return;
             }
         }
-        f44143a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public static String a(String str) {
@@ -68,7 +65,7 @@ public final class q {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f44143a[i2 / 16] + f44143a[i2 % 16]);
+                stringBuffer.append(a[i2 / 16] + a[i2 % 16]);
             }
             return stringBuffer.toString();
         }
@@ -78,7 +75,7 @@ public final class q {
     public static String c(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             char[] cArr2 = new char[bArr.length * 2];
             for (int i2 = 0; i2 < bArr.length; i2++) {

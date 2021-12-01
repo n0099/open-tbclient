@@ -1,7 +1,6 @@
 package com.coremedia.iso;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.util.IntHashMap;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;
@@ -63,7 +63,7 @@ public final class IsoTypeReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
             byteBuffer.get(codeBytes);
             byte[] bArr = codeBytes;
-            int i2 = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << 16) & 16711680) | ((bArr[2] << 8) & 65280);
+            int i2 = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((bArr[2] << 8) & 65280);
             String str = (String) codeCache.get(i2);
             if (str != null) {
                 return str;
@@ -85,7 +85,7 @@ public final class IsoTypeReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
             byte[] bArr = new byte[4];
             byteBuffer.get(bArr);
-            return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 1.073741824E9d;
+            return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 1.073741824E9d;
         }
         return invokeL.doubleValue;
     }
@@ -93,10 +93,10 @@ public final class IsoTypeReader {
     public static double readFixedPoint1616(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
             byte[] bArr = new byte[4];
             byteBuffer.get(bArr);
-            return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << 16) & 16711680)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 65536.0d;
+            return ((((0 | ((bArr[0] << 24) & (-16777216))) | ((bArr[1] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680)) | ((bArr[2] << 8) & 65280)) | (bArr[3] & 255)) / 65536.0d;
         }
         return invokeL.doubleValue;
     }
@@ -104,7 +104,7 @@ public final class IsoTypeReader {
     public static float readFixedPoint88(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
             byte[] bArr = new byte[2];
             byteBuffer.get(bArr);
             return ((short) (((short) (0 | ((bArr[0] << 8) & 65280))) | (bArr[1] & 255))) / 256.0f;
@@ -164,8 +164,8 @@ public final class IsoTypeReader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
-            long j = byteBuffer.getInt();
-            return j < 0 ? j + 4294967296L : j;
+            long j2 = byteBuffer.getInt();
+            return j2 < 0 ? j2 + 4294967296L : j2;
         }
         return invokeL.longValue;
     }

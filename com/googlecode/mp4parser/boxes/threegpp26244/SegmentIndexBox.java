@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.boxes.threegpp26244;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
@@ -18,6 +17,7 @@ import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
+import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -130,8 +130,8 @@ public class SegmentIndexBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                long j = this.subsegmentDuration;
-                return (((((((((this.referenceType * 31) + this.referencedSize) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.startsWithSap) * 31) + this.sapType) * 31) + this.sapDeltaTime;
+                long j2 = this.subsegmentDuration;
+                return (((((((((this.referenceType * 31) + this.referencedSize) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.startsWithSap) * 31) + this.sapType) * 31) + this.sapDeltaTime;
             }
             return invokeV.intValue;
         }
@@ -171,10 +171,10 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
         }
 
-        public void setSubsegmentDuration(long j) {
+        public void setSubsegmentDuration(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.subsegmentDuration = j;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.subsegmentDuration = j2;
             }
         }
 
@@ -187,12 +187,12 @@ public class SegmentIndexBox extends AbstractFullBox {
             return (String) invokeV.objValue;
         }
 
-        public Entry(byte b2, int i2, long j, byte b3, byte b4, int i3) {
+        public Entry(byte b2, int i2, long j2, byte b3, byte b4, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i2), Long.valueOf(j), Byte.valueOf(b3), Byte.valueOf(b4), Integer.valueOf(i3)};
+                Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i2), Long.valueOf(j2), Byte.valueOf(b3), Byte.valueOf(b4), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
@@ -204,7 +204,7 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
             this.referenceType = b2;
             this.referencedSize = i2;
-            this.subsegmentDuration = j;
+            this.subsegmentDuration = j2;
             this.startsWithSap = b3;
             this.sapType = b4;
             this.sapDeltaTime = i3;
@@ -250,12 +250,12 @@ public class SegmentIndexBox extends AbstractFullBox {
         Factory factory = new Factory("SegmentIndexBox.java", SegmentIndexBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "java.util.List"), 128);
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "java.util.List", "entries", "", "void"), 132);
-        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getReserved", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "int"), 168);
+        ajc$tjp_10 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getReserved", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "int"), w0.d0);
         ajc$tjp_11 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setReserved", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "int", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "", "void"), 172);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getReferenceId", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 136);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setReferenceId", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "referenceId", "", "void"), PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 144);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "timeScale", "", "void"), Opcodes.LCMP);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "timeScale", "", "void"), 148);
         ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 152);
         ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "earliestPresentationTime", "", "void"), 156);
         ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 160);
@@ -392,11 +392,11 @@ public class SegmentIndexBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setEarliestPresentationTime(long j) {
+    public void setEarliestPresentationTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j)));
-            this.earliestPresentationTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j2)));
+            this.earliestPresentationTime = j2;
         }
     }
 
@@ -408,19 +408,19 @@ public class SegmentIndexBox extends AbstractFullBox {
         }
     }
 
-    public void setFirstOffset(long j) {
+    public void setFirstOffset(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.longObject(j)));
-            this.firstOffset = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.longObject(j2)));
+            this.firstOffset = j2;
         }
     }
 
-    public void setReferenceId(long j) {
+    public void setReferenceId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
-            this.referenceId = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j2)));
+            this.referenceId = j2;
         }
     }
 
@@ -432,11 +432,11 @@ public class SegmentIndexBox extends AbstractFullBox {
         }
     }
 
-    public void setTimeScale(long j) {
+    public void setTimeScale(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j)));
-            this.timeScale = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j2)));
+            this.timeScale = j2;
         }
     }
 }

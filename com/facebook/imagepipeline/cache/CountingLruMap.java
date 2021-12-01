@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CountingLruMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +75,13 @@ public class CountingLruMap<K, V> {
         return (ArrayList) invokeV.objValue;
     }
 
-    public synchronized boolean contains(K k) {
+    public synchronized boolean contains(K k2) {
         InterceptResult invokeL;
         boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) {
             synchronized (this) {
-                containsKey = this.mMap.containsKey(k);
+                containsKey = this.mMap.containsKey(k2);
             }
             return containsKey;
         }
@@ -89,13 +89,13 @@ public class CountingLruMap<K, V> {
     }
 
     @Nullable
-    public synchronized V get(K k) {
+    public synchronized V get(K k2) {
         InterceptResult invokeL;
         V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k2)) == null) {
             synchronized (this) {
-                v = this.mMap.get(k);
+                v = this.mMap.get(k2);
             }
             return v;
         }
@@ -189,15 +189,15 @@ public class CountingLruMap<K, V> {
     }
 
     @Nullable
-    public synchronized V put(K k, V v) {
+    public synchronized V put(K k2, V v) {
         InterceptResult invokeLL;
         V remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k2, v)) == null) {
             synchronized (this) {
-                remove = this.mMap.remove(k);
+                remove = this.mMap.remove(k2);
                 this.mSizeInBytes -= getValueSizeInBytes(remove);
-                this.mMap.put(k, v);
+                this.mMap.put(k2, v);
                 this.mSizeInBytes += getValueSizeInBytes(v);
             }
             return remove;
@@ -206,13 +206,13 @@ public class CountingLruMap<K, V> {
     }
 
     @Nullable
-    public synchronized V remove(K k) {
+    public synchronized V remove(K k2) {
         InterceptResult invokeL;
         V remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k2)) == null) {
             synchronized (this) {
-                remove = this.mMap.remove(k);
+                remove = this.mMap.remove(k2);
                 this.mSizeInBytes -= getValueSizeInBytes(remove);
             }
             return remove;

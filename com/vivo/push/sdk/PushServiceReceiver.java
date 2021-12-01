@@ -18,30 +18,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClient;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.util.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static HandlerThread f71269a;
+    public static HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f71270b;
+    public static Handler f62521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f71271c;
+    public static a f62522c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Context f71272a;
+        public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71273b;
+        public String f62523b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,29 +54,29 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
 
         public static /* synthetic */ void a(a aVar, Context context, String str) {
-            aVar.f71272a = context.getApplicationContext();
-            aVar.f71273b = str;
+            aVar.a = context.getApplicationContext();
+            aVar.f62523b = str;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f71272a.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.a.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
                 if (!(activeNetworkInfo != null ? activeNetworkInfo.isConnectedOrConnecting() : false)) {
-                    p.d("PushServiceReceiver", this.f71272a.getPackageName() + ": 无网络  by " + this.f71273b);
-                    Context context = this.f71272a;
-                    p.a(context, "触发静态广播:无网络(" + this.f71273b + "," + this.f71272a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f62523b);
+                    Context context = this.a;
+                    p.a(context, "触发静态广播:无网络(" + this.f62523b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 }
-                p.d("PushServiceReceiver", this.f71272a.getPackageName() + ": 执行开始出发动作: " + this.f71273b);
-                Context context2 = this.f71272a;
-                p.a(context2, "触发静态广播(" + this.f71273b + "," + this.f71272a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
-                com.vivo.push.p.a().a(this.f71272a);
-                if (ClientConfigManagerImpl.getInstance(this.f71272a).isCancleBroadcastReceiver()) {
+                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f62523b);
+                Context context2 = this.a;
+                p.a(context2, "触发静态广播(" + this.f62523b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                com.vivo.push.p.a().a(this.a);
+                if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     return;
                 }
-                PushClient.getInstance(this.f71272a).initialize();
+                PushClient.getInstance(this.a).initialize();
             }
         }
     }
@@ -98,7 +94,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f71271c = new a();
+        f62522c = new a();
     }
 
     public PushServiceReceiver() {
@@ -121,16 +117,16 @@ public class PushServiceReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             String action = intent.getAction();
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action) || "android.intent.action.ACTION_POWER_CONNECTED".equals(action) || "android.intent.action.ACTION_POWER_DISCONNECTED".equals(action)) {
-                if (f71269a == null) {
+                if (a == null) {
                     HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
-                    f71269a = handlerThread;
+                    a = handlerThread;
                     handlerThread.start();
-                    f71270b = new Handler(f71269a.getLooper());
+                    f62521b = new Handler(a.getLooper());
                 }
-                p.d("PushServiceReceiver", context.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f71270b);
-                a.a(f71271c, context, action);
-                f71270b.removeCallbacks(f71271c);
-                f71270b.postDelayed(f71271c, 2000L);
+                p.d("PushServiceReceiver", context.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f62521b);
+                a.a(f62522c, context, action);
+                f62521b.removeCallbacks(f62522c);
+                f62521b.postDelayed(f62522c, 2000L);
             }
         }
     }

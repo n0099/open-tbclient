@@ -3,10 +3,10 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import b.a.e.f.p.l;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.d1;
-import b.a.r0.x0.e1;
+import c.a.d.f.p.l;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.d1;
+import c.a.r0.d1.e1;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,26 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VerticalScrollNumberView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String START_NUMBER = "0\n";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49220e;
+    public Context f44128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49221f;
+    public int f44129f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49222g;
+    public int f44130g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49223h;
+    public int f44131h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49224i;
+    public int f44132i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalScrollNumberView(Context context) {
@@ -55,14 +55,14 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f49220e = null;
+        this.f44128e = null;
         b(context);
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ScrollTextView scrollTextView = new ScrollTextView(this.f49220e);
+            ScrollTextView scrollTextView = new ScrollTextView(this.f44128e);
             scrollTextView.setText(str);
             scrollTextView.setGravity(17);
             SkinManager.setBackgroundResource(scrollTextView, e1.lottery_number_bg);
@@ -73,8 +73,8 @@ public class VerticalScrollNumberView extends LinearLayout {
             scrollTextView.setMaxLines(1);
             scrollTextView.setContinuousScrolling(false);
             scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-            scrollTextView.setWidth(this.f49221f);
-            scrollTextView.setHeight(this.f49222g);
+            scrollTextView.setWidth(this.f44129f);
+            scrollTextView.setHeight(this.f44130g);
             addView(scrollTextView);
         }
     }
@@ -82,11 +82,11 @@ public class VerticalScrollNumberView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f49220e = context;
-            this.f49221f = l.g(context, d1.ds30);
-            this.f49222g = l.g(this.f49220e, d1.ds40);
-            this.f49223h = l.g(this.f49220e, d1.ds2);
-            this.f49224i = l.g(this.f49220e, d1.ds8);
+            this.f44128e = context;
+            this.f44129f = l.f(context, d1.ds30);
+            this.f44130g = l.f(this.f44128e, d1.ds40);
+            this.f44131h = l.f(this.f44128e, d1.ds2);
+            this.f44132i = l.f(this.f44128e, d1.ds8);
         }
     }
 
@@ -111,10 +111,10 @@ public class VerticalScrollNumberView extends LinearLayout {
                 if (getChildAt(childCount) instanceof ScrollTextView) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     if (i4 == 2) {
-                        layoutParams.setMargins(this.f49224i, 0, 0, 0);
+                        layoutParams.setMargins(this.f44132i, 0, 0, 0);
                         i4 = 0;
                     } else {
-                        layoutParams.setMargins(this.f49223h, 0, 0, 0);
+                        layoutParams.setMargins(this.f44131h, 0, 0, 0);
                         i4++;
                     }
                     getChildAt(childCount).setLayoutParams(layoutParams);
@@ -142,7 +142,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f49220e = null;
+        this.f44128e = null;
         b(context);
     }
 
@@ -165,7 +165,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f49220e = null;
+        this.f44128e = null;
         b(context);
     }
 }

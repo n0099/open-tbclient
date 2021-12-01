@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 2;
@@ -127,7 +126,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     private TaskData transToTaskData(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, cursor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, cursor)) == null) {
             TaskData taskData = new TaskData(cursor.getString(1));
             taskData.setDataId(cursor.getString(0));
             taskData.setAid(cursor.getLong(2));

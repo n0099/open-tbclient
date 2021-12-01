@@ -11,14 +11,16 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.adsdk.DeviceInfo;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -51,26 +53,32 @@ public class InstalledAppInfoManager {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.appName = "";
         }
     }
 
     public static AppPackageInfo a(@NonNull PackageInfo packageInfo, @Nullable PackageManager packageManager) {
         InterceptResult invokeLL;
+        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, packageInfo, packageManager)) == null) {
             AppPackageInfo appPackageInfo = new AppPackageInfo();
             appPackageInfo.packageName = packageInfo.packageName;
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            if (applicationInfo != null) {
-                appPackageInfo.isSystemApp = a(applicationInfo) || b(packageInfo.applicationInfo);
+            ApplicationInfo applicationInfo2 = packageInfo.applicationInfo;
+            if (applicationInfo2 != null) {
+                appPackageInfo.isSystemApp = a(applicationInfo2) || b(packageInfo.applicationInfo);
             }
             appPackageInfo.versionName = packageInfo.versionName;
             appPackageInfo.firstInstallTime = packageInfo.firstInstallTime;
             appPackageInfo.lastUpdateTime = packageInfo.lastUpdateTime;
+            if (packageManager != null && (applicationInfo = packageInfo.applicationInfo) != null) {
+                try {
+                    appPackageInfo.appName = packageManager.getApplicationLabel(applicationInfo).toString();
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.d.a.b(th);
+                }
+            }
             return appPackageInfo;
         }
         return (AppPackageInfo) invokeLL.objValue;
@@ -80,15 +88,7 @@ public class InstalledAppInfoManager {
     public static JSONArray a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (com.kwad.sdk.core.config.c.a(16L)) {
-                return new JSONArray();
-            }
-            Map<String, AppPackageInfo> b2 = b(context);
-            b2.putAll(b(context, com.kwad.sdk.core.config.c.i()));
-            return a(b2);
-        }
-        return (JSONArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? a(b(context)) : (JSONArray) invokeL.objValue;
     }
 
     @NonNull
@@ -101,7 +101,7 @@ public class InstalledAppInfoManager {
                 for (String str : map.keySet()) {
                     AppPackageInfo appPackageInfo = map.get(str);
                     if (appPackageInfo != null && !TextUtils.isEmpty(appPackageInfo.packageName)) {
-                        q.a(jSONArray, a(appPackageInfo));
+                        t.a(jSONArray, a(appPackageInfo));
                     }
                 }
             } catch (Exception e2) {
@@ -117,13 +117,13 @@ public class InstalledAppInfoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appPackageInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "pkgName", appPackageInfo.packageName);
-            q.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
-            q.a(jSONObject, "appVersion", appPackageInfo.versionName);
-            q.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
-            q.a(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
-            q.a(jSONObject, "reportMethod", appPackageInfo.reportMethod);
-            q.a(jSONObject, "appName", appPackageInfo.appName);
+            t.a(jSONObject, "pkgName", appPackageInfo.packageName);
+            t.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
+            t.a(jSONObject, "appVersion", appPackageInfo.versionName);
+            t.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
+            t.a(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
+            t.a(jSONObject, "reportMethod", appPackageInfo.reportMethod);
+            t.a(jSONObject, "appName", appPackageInfo.appName);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
@@ -139,18 +139,32 @@ public class InstalledAppInfoManager {
     public static JSONArray[] a(Context context, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, list)) == null) {
             JSONArray[] jSONArrayArr = new JSONArray[2];
             if (context != null && list != null && !list.isEmpty()) {
+                ArrayList<String> arrayList = new ArrayList();
+                if (ao.m()) {
+                    if (ao.n() != null) {
+                        HashSet hashSet = new HashSet(list);
+                        HashSet hashSet2 = new HashSet(ao.n());
+                        HashSet hashSet3 = new HashSet(hashSet);
+                        hashSet3.retainAll(hashSet2);
+                        arrayList.addAll(hashSet3);
+                    }
+                } else if (com.kwad.sdk.core.config.b.a(16L)) {
+                    return jSONArrayArr;
+                } else {
+                    arrayList.addAll(list);
+                }
                 HashMap hashMap = new HashMap();
                 HashMap hashMap2 = new HashMap();
-                for (String str : list) {
+                for (String str : arrayList) {
                     try {
                         PackageManager packageManager = context.getPackageManager();
                         PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                         if (packageInfo != null) {
-                            AppPackageInfo a2 = a(packageInfo, packageManager);
-                            hashMap.put(a2.packageName, a2);
+                            AppPackageInfo a = a(packageInfo, packageManager);
+                            hashMap.put(a.packageName, a);
                         } else {
                             AppPackageInfo appPackageInfo = new AppPackageInfo();
                             appPackageInfo.packageName = str;
@@ -174,47 +188,80 @@ public class InstalledAppInfoManager {
     public static Map<String, AppPackageInfo> b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             HashMap hashMap = new HashMap();
             if (context == null) {
                 return hashMap;
             }
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-                intent.addCategory("android.intent.category.LAUNCHER");
-                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 32);
-                List<String> b2 = f.b(context);
-                for (ResolveInfo resolveInfo : queryIntentActivities) {
-                    if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
-                        String str = resolveInfo.activityInfo.packageName;
-                        if (b2 != null && !b2.isEmpty()) {
-                            b2.remove(str);
-                        }
-                        PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
-                        if (packageInfo != null) {
-                            AppPackageInfo a2 = a(packageInfo, packageManager);
-                            a2.reportMethod = 1;
-                            hashMap.put(a2.packageName, a2);
-                        }
-                    }
-                }
-                if (b2 != null && !b2.isEmpty()) {
-                    for (String str2 : b2) {
+            PackageManager packageManager = context.getPackageManager();
+            if (ao.m()) {
+                if (ao.n() != null) {
+                    for (String str : ao.n()) {
                         try {
-                            PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
-                            if (packageInfo2 != null) {
-                                AppPackageInfo a3 = a(packageInfo2, packageManager);
-                                a3.reportMethod = 2;
-                                hashMap.put(a3.packageName, a3);
+                            PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
+                            if (packageInfo != null) {
+                                AppPackageInfo a = a(packageInfo, packageManager);
+                                a.reportMethod = 3;
+                                hashMap.put(a.packageName, a);
                             }
                         } catch (Throwable unused) {
                         }
                     }
                 }
-            } catch (Exception unused2) {
+                return hashMap;
+            } else if (com.kwad.sdk.core.config.b.a(16L)) {
+                return hashMap;
+            } else {
+                try {
+                    List<String> b2 = h.b(context);
+                    if (com.kwad.sdk.b.a.booleanValue()) {
+                        for (String str2 : DeviceInfo.queryInstalledAppList(context)) {
+                            if (b2 != null && !b2.isEmpty()) {
+                                b2.remove(str2);
+                            }
+                            PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
+                            if (packageInfo2 != null) {
+                                AppPackageInfo a2 = a(packageInfo2, packageManager);
+                                a2.reportMethod = 1;
+                                hashMap.put(a2.packageName, a2);
+                            }
+                        }
+                    } else {
+                        Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+                        intent.addCategory("android.intent.category.LAUNCHER");
+                        for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 32)) {
+                            if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
+                                String str3 = resolveInfo.activityInfo.packageName;
+                                if (b2 != null && !b2.isEmpty()) {
+                                    b2.remove(str3);
+                                }
+                                PackageInfo packageInfo3 = packageManager.getPackageInfo(str3, 0);
+                                if (packageInfo3 != null) {
+                                    AppPackageInfo a3 = a(packageInfo3, packageManager);
+                                    a3.reportMethod = 1;
+                                    hashMap.put(a3.packageName, a3);
+                                }
+                            }
+                        }
+                    }
+                    if (b2 != null && !b2.isEmpty()) {
+                        for (String str4 : b2) {
+                            try {
+                                PackageInfo packageInfo4 = packageManager.getPackageInfo(str4, 0);
+                                if (packageInfo4 != null) {
+                                    AppPackageInfo a4 = a(packageInfo4, packageManager);
+                                    a4.reportMethod = 2;
+                                    hashMap.put(a4.packageName, a4);
+                                }
+                            } catch (Throwable unused2) {
+                            }
+                        }
+                    }
+                } catch (Exception unused3) {
+                }
+                hashMap.putAll(b(context, com.kwad.sdk.core.config.b.f()));
+                return hashMap;
             }
-            return hashMap;
         }
         return (Map) invokeL.objValue;
     }
@@ -231,8 +278,8 @@ public class InstalledAppInfoManager {
                         PackageManager packageManager = context.getPackageManager();
                         PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                         if (packageInfo != null) {
-                            AppPackageInfo a2 = a(packageInfo, packageManager);
-                            hashMap.put(a2.packageName, a2);
+                            AppPackageInfo a = a(packageInfo, packageManager);
+                            hashMap.put(a.packageName, a);
                         }
                     } catch (Exception unused) {
                     }

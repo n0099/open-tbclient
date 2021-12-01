@@ -1,9 +1,7 @@
 package org.apache.http.entity.mime;
 
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,7 +79,7 @@ public class HttpMultipart {
             }
         }
         FIELD_SEP = encode(MIME.DEFAULT_CHARSET, ": ");
-        CR_LF = encode(MIME.DEFAULT_CHARSET, Part.CRLF);
+        CR_LF = encode(MIME.DEFAULT_CHARSET, "\r\n");
         TWO_DASHES = encode(MIME.DEFAULT_CHARSET, "--");
     }
 
@@ -151,7 +149,7 @@ public class HttpMultipart {
     public static ByteArrayBuffer encode(Charset charset, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, charset, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, charset, str)) == null) {
             ByteBuffer encode = charset.encode(CharBuffer.wrap(str));
             ByteArrayBuffer byteArrayBuffer = new ByteArrayBuffer(encode.remaining());
             byteArrayBuffer.append(encode.array(), encode.position(), encode.remaining());
@@ -220,17 +218,17 @@ public class HttpMultipart {
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (FormBodyPart formBodyPart : this.parts) {
                 long contentLength = formBodyPart.getBody().getContentLength();
                 if (contentLength < 0) {
                     return -1L;
                 }
-                j += contentLength;
+                j2 += contentLength;
             }
             try {
                 doWriteTo(this.mode, new ByteArrayOutputStream(), false);
-                return j + byteArrayOutputStream.toByteArray().length;
+                return j2 + byteArrayOutputStream.toByteArray().length;
             } catch (IOException unused) {
                 return -1L;
             }
@@ -254,7 +252,7 @@ public class HttpMultipart {
 
     public static void writeBytes(String str, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, outputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, outputStream) == null) {
             writeBytes(encode(MIME.DEFAULT_CHARSET, str), outputStream);
         }
     }

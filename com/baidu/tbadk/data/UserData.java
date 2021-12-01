@@ -1,9 +1,8 @@
 package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.m.e.n;
-import b.a.q0.s.q.j2;
-import b.a.q0.u.o;
+import c.a.d.m.e.n;
+import c.a.q0.s.q.j2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,7 +39,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UserData extends MetaData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_PICS_MAX_COUNT = 9;
@@ -105,7 +104,7 @@ public class UserData extends MetaData {
     public UserVipInfoData vipInfo;
     public int visitorNum;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -548,20 +547,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        o oVar = new o();
-        oVar.g(getPortraitH());
-        oVar.i(getPortrait());
-        oVar.h(true);
-        this.mPhotoAlbum.add(oVar);
+        c.a.q0.u.n nVar = new c.a.q0.u.n();
+        nVar.g(getPortraitH());
+        nVar.i(getPortrait());
+        nVar.h(true);
+        this.mPhotoAlbum.add(nVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    o oVar2 = new o();
-                    oVar2.g(userPics.big);
-                    oVar2.i(userPics.small);
-                    oVar2.h(false);
-                    this.mPhotoAlbum.add(oVar2);
+                    c.a.q0.u.n nVar2 = new c.a.q0.u.n();
+                    nVar2.g(userPics.big);
+                    nVar2.i(userPics.small);
+                    nVar2.h(false);
+                    this.mPhotoAlbum.add(nVar2);
                 }
             }
         }
@@ -755,10 +754,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setInTime(long j) {
+    public void setInTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
-            this.inTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048638, this, j2) == null) {
+            this.inTime = j2;
         }
     }
 
@@ -790,10 +789,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setLastReplyTime(long j) {
+    public void setLastReplyTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
-            this.lastReplyTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
+            this.lastReplyTime = j2;
         }
     }
 
@@ -822,7 +821,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, b.a.q0.s.g0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.s.g0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -845,10 +844,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setLoginTime(long j) {
+    public void setLoginTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
-            this.loginTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048650, this, j2) == null) {
+            this.loginTime = j2;
         }
     }
 
@@ -1001,22 +1000,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                o oVar = new o();
-                oVar.g(getPortraitH());
-                oVar.i(getPortrait());
-                oVar.h(true);
-                this.mPhotoAlbum.add(oVar);
+                c.a.q0.u.n nVar = new c.a.q0.u.n();
+                nVar.g(getPortraitH());
+                nVar.i(getPortrait());
+                nVar.h(true);
+                this.mPhotoAlbum.add(nVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null) {
-                            o oVar2 = new o();
-                            oVar2.g(jSONObject2.optString("big"));
-                            oVar2.i(jSONObject2.optString("small"));
-                            oVar2.h(false);
-                            this.mPhotoAlbum.add(oVar2);
+                            c.a.q0.u.n nVar2 = new c.a.q0.u.n();
+                            nVar2.g(jSONObject2.optString("big"));
+                            nVar2.i(jSONObject2.optString("small"));
+                            nVar2.h(false);
+                            this.mPhotoAlbum.add(nVar2);
                         }
                     }
                 }
@@ -1082,12 +1081,12 @@ public class UserData extends MetaData {
         }
     }
 
-    public UserData(long j, String str, String str2, int i2) {
+    public UserData(long j2, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -1110,7 +1109,7 @@ public class UserData extends MetaData {
         this.liveStatus = 0;
         this.liveId = "0";
         this.isGodInvited = false;
-        setUserId(String.valueOf(j));
+        setUserId(String.valueOf(j2));
         setUserName(str);
         setPortrait(str2);
         this.sex = i2;

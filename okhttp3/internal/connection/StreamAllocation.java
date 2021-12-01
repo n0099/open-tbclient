@@ -2,7 +2,6 @@ package okhttp3.internal.connection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -300,7 +299,7 @@ public final class StreamAllocation {
     private Socket releaseIfNoNewStreams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             RealConnection realConnection = this.connection;
             if (realConnection == null || !realConnection.noNewStreams) {
                 return null;
@@ -507,13 +506,13 @@ public final class StreamAllocation {
         }
     }
 
-    public void streamFinished(boolean z, HttpCodec httpCodec, long j, IOException iOException) {
+    public void streamFinished(boolean z, HttpCodec httpCodec, long j2, IOException iOException) {
         RealConnection realConnection;
         Socket deallocate;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j), iOException}) == null) {
-            this.eventListener.responseBodyEnd(this.call, j);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j2), iOException}) == null) {
+            this.eventListener.responseBodyEnd(this.call, j2);
             synchronized (this.connectionPool) {
                 if (httpCodec != null) {
                     if (httpCodec == this.codec) {
@@ -554,7 +553,7 @@ public final class StreamAllocation {
 
     private void release(RealConnection realConnection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, realConnection) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, realConnection) == null) {
             int size = realConnection.allocations.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (realConnection.allocations.get(i2).get() == this) {

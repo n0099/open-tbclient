@@ -15,21 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f63795a;
+        public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f63796b;
+        public final LinkedBlockingQueue<IBinder> f55760b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -44,19 +42,19 @@ public class d implements f {
                     return;
                 }
             }
-            this.f63795a = false;
-            this.f63796b = new LinkedBlockingQueue<>();
+            this.a = false;
+            this.f55760b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f63795a) {
+                if (this.a) {
                     throw new IllegalStateException();
                 }
-                this.f63795a = true;
-                return this.f63796b.poll(5L, TimeUnit.SECONDS);
+                this.a = true;
+                return this.f55760b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -66,7 +64,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f63796b.put(iBinder);
+                    this.f55760b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

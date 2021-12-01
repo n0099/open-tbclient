@@ -20,7 +20,6 @@ import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,15 +119,15 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
             ComponentName mediaButtonReceiverComponent = getMediaButtonReceiverComponent(context);
             if (mediaButtonReceiverComponent == null) {
                 return null;
             }
-            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j);
+            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j2);
         }
         return (PendingIntent) invokeLJ.objValue;
     }
@@ -174,7 +173,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
     public static KeyEvent handleIntent(MediaSessionCompat mediaSessionCompat, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, mediaSessionCompat, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, mediaSessionCompat, intent)) == null) {
             if (mediaSessionCompat == null || intent == null || !"android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) || !intent.hasExtra("android.intent.extra.KEY_EVENT")) {
                 return null;
             }
@@ -187,7 +186,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
 
     public static void startForegroundService(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, intent) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 context.startForegroundService(intent);
             } else {
@@ -223,16 +222,16 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j2)})) == null) {
             if (componentName == null) {
                 return null;
             }
-            int keyCode = PlaybackStateCompat.toKeyCode(j);
+            int keyCode = PlaybackStateCompat.toKeyCode(j2);
             if (keyCode == 0) {
-                String str = "Cannot build a media button pending intent with the given action: " + j;
+                String str = "Cannot build a media button pending intent with the given action: " + j2;
                 return null;
             }
             Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");

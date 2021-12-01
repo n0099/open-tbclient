@@ -11,22 +11,20 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class co implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f57794a;
+    public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f57795b;
+    public final /* synthetic */ cg f51652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57796c;
+    public int f51653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57797d;
+    public String f51654d;
 
     public co(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -43,26 +41,26 @@ public final class co implements AdapterView.OnItemClickListener {
                 return;
             }
         }
-        this.f57795b = cgVar;
-        this.f57794a = i2;
-        this.f57796c = 0;
-        this.f57797d = "";
+        this.f51652b = cgVar;
+        this.a = i2;
+        this.f51653c = 0;
+        this.f51654d = "";
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView adapterView, View view, int i2, long j) {
+    public final void onItemClick(AdapterView adapterView, View view, int i2, long j2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || this.f57795b.f57783a.H) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f51652b.a.H) {
             return;
         }
         com.baidu.ufosdk.f.c.a("FeedbackInputActiviy --> FeedbackInput item clicked! " + i2);
-        if (((Integer) ((Map) this.f57795b.f57783a.f57687h.get(this.f57794a)).get("subtype")).intValue() == 0) {
-            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked! -- > \n" + ((Map) this.f57795b.f57783a.f57687h.get(this.f57794a)).get("content").toString());
+        if (((Integer) ((Map) this.f51652b.a.f51610h.get(this.a)).get("subtype")).intValue() == 0) {
+            com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked! -- > \n" + ((Map) this.f51652b.a.f51610h.get(this.a)).get("content").toString());
             try {
-                JSONObject jSONObject = (JSONObject) ((JSONArray) ((Map) this.f57795b.f57783a.f57687h.get(this.f57794a)).get("content")).get(i2);
-                this.f57796c = jSONObject.getInt("qid");
-                this.f57797d = jSONObject.getString("question");
+                JSONObject jSONObject = (JSONObject) ((JSONArray) ((Map) this.f51652b.a.f51610h.get(this.a)).get("content")).get(i2);
+                this.f51653c = jSONObject.getInt("qid");
+                this.f51654d = jSONObject.getString("question");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -71,7 +69,7 @@ public final class co implements AdapterView.OnItemClickListener {
         }
         JSONArray jSONArray = null;
         try {
-            JSONObject jSONObject2 = (JSONObject) ((JSONArray) ((Map) this.f57795b.f57783a.f57687h.get(this.f57794a)).get("content")).get(i2);
+            JSONObject jSONObject2 = (JSONObject) ((JSONArray) ((Map) this.f51652b.a.f51610h.get(this.a)).get("content")).get(i2);
             i3 = jSONObject2.getInt("id");
             try {
                 if (jSONObject2.has("extra_fields")) {
@@ -80,33 +78,33 @@ public final class co implements AdapterView.OnItemClickListener {
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
-                com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.f57795b.f57783a.f57684e);
+                com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.f51652b.a.f51607e);
                 Intent intent = new Intent();
-                intent.setClass(this.f57795b.f57783a, FeedbackEditActivity.class);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+                intent.setClass(this.f51652b.a, FeedbackEditActivity.class);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
                 intent.putExtra("product_type", i3);
                 if (jSONArray != null) {
                 }
-                intent.putExtra("msgid", this.f57795b.f57783a.f57684e);
+                intent.putExtra("msgid", this.f51652b.a.f51607e);
                 intent.putExtra("data_array", r6);
-                intent.putExtra("im_content", this.f57795b.f57783a.A);
+                intent.putExtra("im_content", this.f51652b.a.A);
                 intent.putExtra("come_from", 0);
-                this.f57795b.f57783a.startActivity(intent);
+                this.f51652b.a.startActivity(intent);
             }
         } catch (Exception e4) {
             e = e4;
             i3 = 0;
         }
-        com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.f57795b.f57783a.f57684e);
+        com.baidu.ufosdk.f.c.a("FeedbackInputActiviy clicked!-- product_type : " + i3 + "msgId" + this.f51652b.a.f51607e);
         Intent intent2 = new Intent();
-        intent2.setClass(this.f57795b.f57783a, FeedbackEditActivity.class);
-        intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
+        intent2.setClass(this.f51652b.a, FeedbackEditActivity.class);
+        intent2.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
         intent2.putExtra("product_type", i3);
         String jSONArray2 = (jSONArray != null || jSONArray.length() <= 0) ? "" : jSONArray.toString();
-        intent2.putExtra("msgid", this.f57795b.f57783a.f57684e);
+        intent2.putExtra("msgid", this.f51652b.a.f51607e);
         intent2.putExtra("data_array", jSONArray2);
-        intent2.putExtra("im_content", this.f57795b.f57783a.A);
+        intent2.putExtra("im_content", this.f51652b.a.A);
         intent2.putExtra("come_from", 0);
-        this.f57795b.f57783a.startActivity(intent2);
+        this.f51652b.a.startActivity(intent2);
     }
 }

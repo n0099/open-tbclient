@@ -3,7 +3,6 @@ package com.yy.hiidostatis.inner.implementation;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskDataSqLiteCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_DAY;
@@ -125,13 +124,13 @@ public class TaskDataSqLiteCacheManager {
     private boolean isOverMaxTryTimes(TaskData taskData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, taskData)) == null) ? taskData.getTryTimes() >= MAX_RETRY_TIMES : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, taskData)) == null) ? taskData.getTryTimes() >= MAX_RETRY_TIMES : invokeL.booleanValue;
     }
 
     private boolean isOverdue(TaskData taskData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, taskData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, taskData)) == null) {
             try {
                 return Util.daysBetween(taskData.getTime(), System.currentTimeMillis()) > MAX_CACHE_DAY;
             } catch (Throwable th) {

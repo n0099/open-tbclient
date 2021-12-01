@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExternalCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
@@ -50,7 +49,7 @@ public class ExternalCache {
     public int mScene;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -240,7 +239,7 @@ public class ExternalCache {
     private List<String> getIpCNWifi(Map<String, List<String>> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, map)) == null) {
             LinkedList linkedList = new LinkedList();
             List<String> ipCNMobile = getIpCNMobile(map, NetType.MOBILE_CTL);
             if (!ipCNMobile.isEmpty()) {
@@ -263,7 +262,7 @@ public class ExternalCache {
         InterceptResult invokeV;
         NetStatusInfo cachedNetStatusInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             NetType netType = this.mNetType;
             NetType netType2 = NetType.WIFI;
             if (netType == netType2) {

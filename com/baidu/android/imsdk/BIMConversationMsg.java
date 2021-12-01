@@ -18,7 +18,6 @@ import com.baidu.android.imsdk.group.GroupManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMConversationMsg extends BIMConversation {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "BIMConversation";
@@ -36,7 +35,7 @@ public class BIMConversationMsg extends BIMConversation {
     public ChatMsg mLastChatMsg;
 
     /* renamed from: com.baidu.android.imsdk.BIMConversationMsg$4  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE;
         public static /* synthetic */ Interceptable $ic;
@@ -154,7 +153,7 @@ public class BIMConversationMsg extends BIMConversation {
     private boolean checkChatMsg(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, chatMsg)) == null) {
             if (chatMsg != null && chatMsg.getCategory() == this.session.getCategory() && chatMsg.getContacter() == this.session.getContacter()) {
                 return true;
             }
@@ -168,7 +167,7 @@ public class BIMConversationMsg extends BIMConversation {
     private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
         ArrayList<ChatMsg> fetchMessageSync;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i2), Boolean.valueOf(z), iFetchMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i2), Boolean.valueOf(z), iFetchMessageListener}) == null) {
             int i3 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
             if (i3 == 1) {
                 fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);

@@ -31,10 +31,10 @@ public class VisualStateCallbackAdapter implements VisualStateCallbackBoundaryIn
     }
 
     @Override // org.chromium.support_lib_boundary.VisualStateCallbackBoundaryInterface
-    public void onComplete(long j) {
+    public void onComplete(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.mVisualStateCallback.onComplete(j);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.mVisualStateCallback.onComplete(j2);
         }
     }
 }

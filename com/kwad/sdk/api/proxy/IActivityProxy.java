@@ -61,6 +61,7 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

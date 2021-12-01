@@ -12,7 +12,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TransformKeyframeAnimation {
     @NonNull
     public BaseKeyframeAnimation<PointF, PointF> anchorPoint;

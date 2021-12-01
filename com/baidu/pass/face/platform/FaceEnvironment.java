@@ -1,7 +1,6 @@
 package com.baidu.pass.face.platform;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FaceEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OS = "android";
@@ -134,7 +133,7 @@ public final class FaceEnvironment {
     public static void setTipsId(FaceStatusNewEnum faceStatusNewEnum, int i2) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, faceStatusNewEnum, i2) == null) || (iArr = mTipsTextIds) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, faceStatusNewEnum, i2) == null) || (iArr = mTipsTextIds) == null) {
             return;
         }
         try {

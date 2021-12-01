@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.text.translate;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +57,7 @@ public class NumericEntityEscaper extends CodePointTranslator {
     public static NumericEntityEscaper outsideOf(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) ? new NumericEntityEscaper(i2, i3, false) : (NumericEntityEscaper) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) ? new NumericEntityEscaper(i2, i3, false) : (NumericEntityEscaper) invokeII.objValue;
     }
 
     @Override // org.apache.commons.lang3.text.translate.CodePointTranslator

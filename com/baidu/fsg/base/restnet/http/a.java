@@ -5,7 +5,6 @@ import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,38 +29,40 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38249a = "Host";
+    public static final String a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38250b = "Accept";
+    public static final String f34225b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38251c = "Accept-Charset";
+    public static final String f34226c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38252d = "Accept-Encoding";
+    public static final String f34227d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38253e = "Accept-Language";
+    public static final String f34228e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38254f = "Allow";
+    public static final String f34229f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38255g = "Cache-Control";
+    public static final String f34230g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38256h = "Content-Disposition";
+    public static final String f34231h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38257i = "Content-Encoding";
-    public static final String j = "Content-Length";
-    public static final String k = "Content-Type";
+    public static final String f34232i = "Content-Encoding";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f34233j = "Content-Length";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f34234k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";
     public static final String n = "Expires";
@@ -171,7 +172,7 @@ public class a implements b<String, String> {
 
     private void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65541, this, str, j2) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(v[0], Locale.US);
             simpleDateFormat.setTimeZone(w);
             set(str, simpleDateFormat.format(new Date(j2)));
@@ -181,7 +182,7 @@ public class a implements b<String, String> {
     private long l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             String first = getFirst(str);
             if (first == null) {
                 return -1L;

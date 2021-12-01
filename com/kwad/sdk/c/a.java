@@ -1,31 +1,28 @@
 package com.kwad.sdk.c;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.Nullable;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.loader.Wrapper;
-import com.kwad.sdk.api.proxy.IActivityProxy;
-import com.kwad.sdk.utils.af;
-import com.kwad.sdk.utils.k;
+import com.kwad.sdk.c.a.b;
+import com.kwad.sdk.c.kwai.f;
+import com.kwai.filedownloader.i;
+import com.kwai.filedownloader.m;
+import com.kwai.filedownloader.r;
 /* loaded from: classes2.dex */
-public abstract class a extends IActivityProxy {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_START_TIME = "key_start_time";
+public class a implements com.kwad.sdk.c.a.b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean enableDestroyer;
-    public final com.kwad.sdk.c.b.a mPageMonitor;
+    public final Context a;
 
-    public a() {
+    public a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,74 +32,84 @@ public abstract class a extends IActivityProxy {
                 return;
             }
         }
-        this.mPageMonitor = new com.kwad.sdk.c.b.a();
-        this.enableDestroyer = true;
+        this.a = context;
     }
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public Intent getIntent() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.c.a.b
+    public void a(com.kwad.sdk.c.kwai.d dVar, b.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = super.getIntent();
-            af.a(intent);
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public abstract String getPageName();
-
-    public boolean isEnableDestroyer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enableDestroyer : invokeV.booleanValue;
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            Intent intent = getIntent();
-            long longExtra = intent != null ? intent.getLongExtra("key_start_time", 0L) : 0L;
-            this.mPageMonitor.a(getPageName());
-            this.mPageMonitor.a(longExtra);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-            if (this.enableDestroyer) {
-                k.a(this);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, aVar) == null) {
+            com.kwad.sdk.c.b.b.a(dVar, 1);
+            String d2 = dVar.d();
+            String c2 = new f(d2).c();
+            if (c2 == null) {
+                return;
             }
-        }
-    }
+            dVar.d(c2.substring(0, c2.indexOf(".zip")));
+            String b2 = com.kwad.sdk.c.b.a.b(this.a, dVar.f());
+            dVar.c(b2);
+            r.a().a(d2).a(dVar).a(b2).a((i) new m(this, aVar, dVar) { // from class: com.kwad.sdk.c.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b.a a;
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onResume();
-            this.mPageMonitor.a(getActivity());
-        }
-    }
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ com.kwad.sdk.c.kwai.d f57048b;
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void setContentView(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i2, null));
-        }
-    }
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ a f57049c;
 
-    public void setEnableDestroyer(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.enableDestroyer = z;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, aVar, dVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57049c = this;
+                    this.a = aVar;
+                    this.f57048b = dVar;
+                }
+
+                @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
+                public void a(com.kwai.filedownloader.a aVar2, Throwable th) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, aVar2, th) == null) {
+                        super.a(aVar2, th);
+                        com.kwad.sdk.c.b.b.a(this.f57048b, 1, th.getMessage());
+                        b.a aVar3 = this.a;
+                        if (aVar3 != null) {
+                            aVar3.b((com.kwad.sdk.c.kwai.d) aVar2.z());
+                        }
+                    }
+                }
+
+                @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
+                public void c(com.kwai.filedownloader.a aVar2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar2) == null) {
+                        super.c(aVar2);
+                        if (this.a != null && aVar2.v() == -3) {
+                            this.a.a((com.kwad.sdk.c.kwai.d) aVar2.z());
+                            return;
+                        }
+                        b.a aVar3 = this.a;
+                        if (aVar3 != null) {
+                            aVar3.b((com.kwad.sdk.c.kwai.d) aVar2.z());
+                            com.kwad.sdk.c.kwai.d dVar2 = this.f57048b;
+                            com.kwad.sdk.c.b.b.a(dVar2, 1, "task.getStatus()=" + ((int) aVar2.v()));
+                        }
+                    }
+                }
+            }).e();
         }
     }
 }

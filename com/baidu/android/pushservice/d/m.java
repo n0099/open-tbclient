@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class m extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36112d;
+    public String f32433d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(i iVar, Context context, String str) {
@@ -38,7 +38,7 @@ public class m extends c {
                 return;
             }
         }
-        this.f36112d = str;
+        this.f32433d = str;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -65,7 +65,7 @@ public class m extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "settags");
-            hashMap.put(CommandMessage.TYPE_TAGS, this.f36112d);
+            hashMap.put(CommandMessage.TYPE_TAGS, this.f32433d);
         }
     }
 }

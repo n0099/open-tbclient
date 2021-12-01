@@ -3,9 +3,9 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import b.a.c0.a.c;
-import b.a.c0.a.e;
-import b.a.c0.a.f;
+import c.a.d0.a.c;
+import c.a.d0.a.e;
+import c.a.d0.a.f;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwipeBackLayout H;
-    public ImageView I;
+    public SwipeBackLayout I;
+    public ImageView J;
 
     public YouthStyleLoginActivity() {
         Interceptable interceptable = $ic;
@@ -41,20 +41,18 @@ public class YouthStyleLoginActivity extends LoginActivity {
             setContentView(f.layout_sapi_sdk_youth_style_login_activity);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.H = (SwipeBackLayout) findViewById(e.sbl_root_view);
-            this.I = (ImageView) findViewById(e.iv_pick_up_arrow);
-            this.H.setDirectionMode(4);
+            this.I = (SwipeBackLayout) findViewById(e.sbl_root_view);
+            this.J = (ImageView) findViewById(e.iv_pick_up_arrow);
+            this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
             if (sapiWebView instanceof RoundWebview) {
                 ((RoundWebview) sapiWebView).a(getResources().getDimension(c.sapi_sdk_youth_style_webview_radius), getResources().getDimension(c.sapi_sdk_youth_style_webview_radius), 0.0f, 0.0f);
             }
-            this.I.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
+            this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ YouthStyleLoginActivity f43474a;
+                public final /* synthetic */ YouthStyleLoginActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,14 +69,14 @@ public class YouthStyleLoginActivity extends LoginActivity {
                             return;
                         }
                     }
-                    this.f43474a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f43474a.onClose();
+                        this.a.onClose();
                     }
                 }
             });

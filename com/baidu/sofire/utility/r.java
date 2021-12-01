@@ -7,7 +7,6 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +19,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class r {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f44144a = "";
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,11 +58,11 @@ public final class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f44144a)) {
+            if (TextUtils.isEmpty(a)) {
                 new r();
-                f44144a = b(context);
+                a = b(context);
             }
-            return f44144a;
+            return a;
         }
         return (String) invokeL.objValue;
     }
@@ -82,7 +79,7 @@ public final class r {
         File file;
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             String c2 = c(context);
             boolean z3 = true;
             if (TextUtils.isEmpty(c2)) {
@@ -196,7 +193,7 @@ public final class r {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f44018c.getString("rpnewuid", "");
+                    String string = a2.f39121c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }
@@ -234,7 +231,7 @@ public final class r {
             } catch (Throwable unused) {
                 c.a();
             }
-            if (u.c(context) && b(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+            if (u.c(context) && b(context, com.kuaishou.weapon.un.s.f56844i)) {
                 File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
                 if (file.exists()) {
                     return a(file);
@@ -308,7 +305,7 @@ public final class r {
     public static boolean a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
             try {
                 if (u.d(context)) {
                     return Settings.System.putString(context.getContentResolver(), str, str2);

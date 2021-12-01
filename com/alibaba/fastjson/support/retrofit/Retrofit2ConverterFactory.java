@@ -8,7 +8,6 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Retrofit2ConverterFactory extends Converter.Factory {
     public static /* synthetic */ Interceptable $ic;
     @Deprecated
@@ -43,7 +42,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     @Deprecated
     public SerializerFeature[] serializerFeatures;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class RequestBodyConverter<T> implements Converter<T, RequestBody> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class ResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +170,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     public static Retrofit2ConverterFactory create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? create(new FastJsonConfig()) : (Retrofit2ConverterFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? create(new FastJsonConfig()) : (Retrofit2ConverterFactory) invokeV.objValue;
     }
 
     public FastJsonConfig getFastJsonConfig() {
@@ -291,7 +290,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     public static Retrofit2ConverterFactory create(FastJsonConfig fastJsonConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fastJsonConfig)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fastJsonConfig)) == null) {
             if (fastJsonConfig != null) {
                 return new Retrofit2ConverterFactory(fastJsonConfig);
             }

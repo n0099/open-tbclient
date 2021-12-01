@@ -3,7 +3,6 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -85,7 +84,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
     public static boolean isHttpRedirect(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 == 307 || i2 == 308) {
                 return true;
             }
@@ -105,7 +104,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
     public static boolean isHttpSuccess(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? i2 >= 200 && i2 < 300 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? i2 >= 200 && i2 < 300 : invokeI.booleanValue;
     }
 
     @VisibleForTesting

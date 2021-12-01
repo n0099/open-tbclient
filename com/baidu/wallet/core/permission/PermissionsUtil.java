@@ -8,7 +8,6 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import com.baidu.wallet.core.NoProguard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PermissionsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PermissionsUtil";
@@ -92,7 +91,7 @@ public class PermissionsUtil implements NoProguard {
     public static boolean isGranted(@NonNull int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr.length == 0) {
                 return false;
             }
@@ -108,7 +107,7 @@ public class PermissionsUtil implements NoProguard {
 
     public static void requestPermission(@NonNull Context context, @NonNull PermissionListener permissionListener, @NonNull String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, permissionListener, strArr) == null) || permissionListener == null || strArr == null || strArr.length == 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, context, permissionListener, strArr) == null) || permissionListener == null || strArr == null || strArr.length == 0) {
             return;
         }
         if (Build.VERSION.SDK_INT < 23) {

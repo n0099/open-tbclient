@@ -11,7 +11,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +81,7 @@ public final class NavUtils {
 
     public static void navigateUpFromSameTask(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
             Intent parentActivityIntent = getParentActivityIntent(activity);
             if (parentActivityIntent != null) {
                 navigateUpTo(activity, parentActivityIntent);
@@ -124,7 +123,7 @@ public final class NavUtils {
         String string;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, componentName)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, componentName)) == null) {
             PackageManager packageManager = context.getPackageManager();
             int i2 = Build.VERSION.SDK_INT;
             int i3 = 640;

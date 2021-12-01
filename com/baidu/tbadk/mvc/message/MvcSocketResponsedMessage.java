@@ -1,12 +1,12 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import b.a.e.f.d.l;
-import b.a.e.f.p.b;
-import b.a.e.f.p.n;
-import b.a.q0.k0.b.d;
-import b.a.q0.k0.b.h;
-import b.a.q0.s.r.a;
+import c.a.d.f.d.l;
+import c.a.d.f.p.b;
+import c.a.d.f.p.n;
+import c.a.q0.l0.b.d;
+import c.a.q0.l0.b.h;
+import c.a.q0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -20,7 +20,7 @@ import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,17 +136,17 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
                 z = false;
             } else {
                 z = true;
-                Object a2 = n.a(parseFrom, c3.get(0));
-                if (a2 instanceof Error) {
-                    Error error = (Error) a2;
+                Object a = n.a(parseFrom, c3.get(0));
+                if (a instanceof Error) {
+                    Error error = (Error) a;
                     setError(error.errorno.intValue());
                     setErrorString(error.usermsg);
                 }
             }
             if (!z && (c2 = b.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
-                Object a3 = n.a(parseFrom, c2.get(0));
-                if (a3 instanceof tbclient.Error) {
-                    tbclient.Error error2 = (tbclient.Error) a3;
+                Object a2 = n.a(parseFrom, c2.get(0));
+                if (a2 instanceof tbclient.Error) {
+                    tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());
                     setErrorString(error2.usermsg);
                 }

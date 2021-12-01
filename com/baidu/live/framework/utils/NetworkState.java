@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetworkState implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6342610950738914764L;
@@ -29,12 +29,12 @@ public class NetworkState implements Serializable {
         }
     }
 
-    public NetworkState(int i2, int i3, long j, long j2) {
+    public NetworkState(int i2, int i3, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -46,7 +46,7 @@ public class NetworkState implements Serializable {
         }
         this.mLastNetState = i2;
         this.mCurNetState = i3;
-        this.mlastChangedTime = j;
-        this.mCurChangedTime = j2;
+        this.mlastChangedTime = j2;
+        this.mCurChangedTime = j3;
     }
 }

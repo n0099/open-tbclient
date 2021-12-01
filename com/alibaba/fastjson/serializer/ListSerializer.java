@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ListSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final ListSerializer instance;

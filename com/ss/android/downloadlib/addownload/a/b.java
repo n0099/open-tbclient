@@ -43,9 +43,9 @@ public class b {
                     JSONObject jSONObject = new JSONObject(string);
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
-                        com.ss.android.downloadlib.addownload.b.a a2 = com.ss.android.downloadlib.addownload.b.a.a(jSONObject.optJSONObject(keys.next()));
-                        if (a2 != null) {
-                            copyOnWriteArrayList.add(a2);
+                        com.ss.android.downloadlib.addownload.b.a a = com.ss.android.downloadlib.addownload.b.a.a(jSONObject.optJSONObject(keys.next()));
+                        if (a != null) {
+                            copyOnWriteArrayList.add(a);
                         }
                     }
                 }
@@ -76,7 +76,7 @@ public class b {
             while (it.hasNext()) {
                 com.ss.android.downloadlib.addownload.b.a next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f69399b), next.a());
+                    jSONObject.put(String.valueOf(next.f61193b), next.a());
                 }
             }
         } catch (Exception e2) {

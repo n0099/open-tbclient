@@ -65,15 +65,15 @@ public class b {
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i4 = options.outWidth;
             int i5 = options.outHeight;
-            int a2 = a(i2, i3, i4, i5, scaleType);
-            int a3 = a(i3, i2, i5, i4, scaleType);
+            int a = a(i2, i3, i4, i5, scaleType);
+            int a2 = a(i3, i2, i5, i4, scaleType);
             options.inJustDecodeBounds = false;
-            options.inSampleSize = a(i4, i5, a2, a3);
+            options.inSampleSize = a(i4, i5, a, a2);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a2 && decodeByteArray.getHeight() <= a3)) {
+            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a && decodeByteArray.getHeight() <= a2)) {
                 bitmap = decodeByteArray;
             } else {
-                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a2, a3, true);
+                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a, a2, true);
                 decodeByteArray.recycle();
             }
         }
@@ -88,10 +88,10 @@ public class b {
     }
 
     public static com.meizu.cloud.pushsdk.b.b.a a(com.meizu.cloud.pushsdk.b.b.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar, int i2) {
-        com.meizu.cloud.pushsdk.b.b.a a2 = bVar.a(aVar);
-        a2.a(i2);
-        a2.a("responseFromServerError");
-        return a2;
+        com.meizu.cloud.pushsdk.b.b.a a = bVar.a(aVar);
+        a.a(i2);
+        a.a("responseFromServerError");
+        return a;
     }
 
     public static com.meizu.cloud.pushsdk.b.b.a a(Exception exc) {

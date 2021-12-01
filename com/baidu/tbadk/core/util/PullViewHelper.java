@@ -9,10 +9,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import b.a.e.f.m.h;
-import b.a.e.f.p.m;
-import b.a.e.f.p.q;
-import b.a.q0.s.e0.b;
+import c.a.d.f.m.h;
+import c.a.d.f.p.m;
+import c.a.d.f.p.q;
+import c.a.q0.s.e0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +55,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,16 +144,16 @@ public class PullViewHelper {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             String p = b.j().p("pull_image_url", "");
             boolean z = false;
-            int k = b.j().k("pull_image_num", 0);
+            int k2 = b.j().k("pull_image_num", 0);
             this.pullview_backgroundColor_day = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
             this.pullview_backgroundColor_night = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             if (!TextUtils.isEmpty(p)) {
-                if (k > 0 && isImagesExist(k)) {
-                    this.drawables = new Drawable[k];
+                if (k2 > 0 && isImagesExist(k2)) {
+                    this.drawables = new Drawable[k2];
                     File imageFileDir = getImageFileDir();
                     if (imageFileDir != null) {
                         File[] listFiles = imageFileDir.listFiles();
-                        for (int i2 = 1; i2 <= k; i2++) {
+                        for (int i2 = 1; i2 <= k2; i2++) {
                             this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + ".");
                         }
                     }
@@ -679,8 +679,8 @@ public class PullViewHelper {
             int i2 = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i3 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int k = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int k2 = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int k2 = b.j().k("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int k3 = b.j().k("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i3 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -689,7 +689,7 @@ public class PullViewHelper {
                     i2 = Color.parseColor(str5);
                 } catch (Exception unused2) {
                 }
-                if (k != i3 || i2 != k2) {
+                if (k2 != i3 || i2 != k3) {
                     b.j().v("pullview_background_color_day", i3);
                     b.j().v("pullview_background_color_night", i2);
                     this.pullview_backgroundColor_day = i3;
@@ -744,7 +744,7 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int e2 = b.a.e.f.m.b.e(str3, 0);
+            int e2 = c.a.d.f.m.b.e(str3, 0);
             if (str.equals(p)) {
                 if (isImagesExist(e2)) {
                     buildDrawablesAsync();
@@ -802,7 +802,7 @@ public class PullViewHelper {
                     return;
                 }
             }
-            startDownloadAsync(str, str2, b.a.e.f.m.b.e(str3, 0));
+            startDownloadAsync(str, str2, c.a.d.f.m.b.e(str3, 0));
         }
     }
 

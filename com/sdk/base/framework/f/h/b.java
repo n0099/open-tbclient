@@ -22,9 +22,7 @@ import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes2.dex */
 public class b extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f69165a = "RSA/ECB/PKCS1Padding";
+    public static String a = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +38,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = f.f69125b;
+        boolean z = f.f60988b;
     }
 
     public b() {
@@ -76,7 +74,7 @@ public class b extends com.sdk.base.framework.f.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rSAPublicKey, bArr)) == null) {
             if (rSAPublicKey != null) {
                 try {
-                    Cipher cipher = Cipher.getInstance(f69165a);
+                    Cipher cipher = Cipher.getInstance(a);
                     cipher.init(2, rSAPublicKey);
                     return cipher.doFinal(bArr);
                 } catch (InvalidKeyException unused) {
@@ -101,7 +99,7 @@ public class b extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             PublicKey a2 = a.a(str);
-            Cipher cipher = Cipher.getInstance(f69165a);
+            Cipher cipher = Cipher.getInstance(a);
             cipher.init(1, a2);
             return com.sdk.base.framework.f.i.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
         }

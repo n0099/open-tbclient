@@ -2,7 +2,6 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +15,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f72392a;
+    public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +34,7 @@ public class bn {
                 return;
             }
         }
-        f72392a = new Object();
+        a = new Object();
     }
 
     public static void a(Context context, hj hjVar) {
@@ -54,7 +51,7 @@ public class bn {
             String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
             if (TextUtils.isEmpty(a2)) {
                 a2 = com.xiaomi.push.bm.a(20);
-                com.xiaomi.push.p.a(context).m543a("mipush", "td_key", a2);
+                com.xiaomi.push.p.a(context).m592a("mipush", "td_key", a2);
             }
             return a(a2);
         }
@@ -65,7 +62,7 @@ public class bn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m183a(str), 16);
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m232a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -87,7 +84,7 @@ public class bn {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, hjVar) != null) {
+        if (interceptable != null && interceptable.invokeLL(65541, null, context, hjVar) != null) {
             return;
         }
         BufferedOutputStream a2 = a(context);
@@ -97,7 +94,7 @@ public class bn {
                 if (b2 != null && b2.length >= 1) {
                     if (b2.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m73a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m122a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -136,7 +133,7 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m73a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m122a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

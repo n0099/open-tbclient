@@ -112,10 +112,10 @@ public class ListFragment extends Fragment {
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-                    this.this$0.onListItemClick((ListView) adapterView, view, i4, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
+                    this.this$0.onListItemClick((ListView) adapterView, view, i4, j2);
                 }
             }
         };
@@ -259,9 +259,9 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i2, long j) {
+    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
         }
     }
 

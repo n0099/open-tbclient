@@ -1,7 +1,5 @@
 package com.baidu.tbadk.core.elementsMaven;
 
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Direction {
     public static final /* synthetic */ Direction[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,10 +31,10 @@ public final class Direction {
                 return;
             }
         }
-        TOP = new Direction("TOP", 0, VerticalTranslateLayout.TOP);
+        TOP = new Direction("TOP", 0, "top");
         BOTTOM = new Direction("BOTTOM", 1, "bottom");
         LEFT = new Direction("LEFT", 2, "left");
-        Direction direction = new Direction("RIGHT", 3, HorizontalTranslateLayout.RIGHT);
+        Direction direction = new Direction("RIGHT", 3, "right");
         RIGHT = direction;
         $VALUES = new Direction[]{TOP, BOTTOM, LEFT, direction};
     }

@@ -3,7 +3,6 @@ package com.baidu.wallet.core.lollipop.json;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.client.result.ResultParser;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class JSONTokener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +153,7 @@ public class JSONTokener {
     private char readEscapeCharacter() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             String str = this.in;
             int i2 = this.pos;
             this.pos = i2 + 1;
@@ -194,7 +193,7 @@ public class JSONTokener {
         String substring;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             String nextToInternal = nextToInternal("{}[]/\\:,=;# \t\f");
             if (nextToInternal.length() != 0) {
                 if (StringUtil.NULL_STRING.equalsIgnoreCase(nextToInternal)) {

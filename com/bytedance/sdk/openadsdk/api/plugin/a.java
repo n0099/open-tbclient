@@ -20,31 +20,27 @@ import com.bytedance.sdk.openadsdk.TTPluginListener;
 import com.bytedance.sdk.openadsdk.common.CommonListener;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a implements TTAdManager {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f62493a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile TTAdManager f62494b;
+    public volatile TTAdManager f54707b;
 
     /* renamed from: com.bytedance.sdk.openadsdk.api.plugin.a$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class AnonymousClass1 implements b<TTAdNative> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TTAdNative f62495a;
+        public TTAdNative a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f62496b;
+        public final /* synthetic */ Context f54708b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f62497c;
+        public final /* synthetic */ a f54709c;
 
         public AnonymousClass1(a aVar, Context context) {
             Interceptable interceptable = $ic;
@@ -61,34 +57,32 @@ public final class a implements TTAdManager {
                     return;
                 }
             }
-            this.f62497c = aVar;
-            this.f62496b = context;
+            this.f54709c = aVar;
+            this.f54708b = context;
         }
 
         @Override // com.bytedance.sdk.openadsdk.api.plugin.a.b
-        public void a(InterfaceC1888a<TTAdNative> interfaceC1888a) {
+        public void a(InterfaceC1960a<TTAdNative> interfaceC1960a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1888a) == null) {
-                TTAdNative tTAdNative = this.f62495a;
+            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1960a) == null) {
+                TTAdNative tTAdNative = this.a;
                 if (tTAdNative != null) {
-                    interfaceC1888a.a(tTAdNative);
+                    interfaceC1960a.a(tTAdNative);
                 } else {
-                    this.f62497c.call(new InterfaceC1888a<TTAdManager>(this, interfaceC1888a) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.1.1
+                    this.f54709c.call(new InterfaceC1960a<TTAdManager>(this, interfaceC1960a) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ InterfaceC1888a f62498a;
+                        public final /* synthetic */ InterfaceC1960a a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f62499b;
+                        public final /* synthetic */ AnonymousClass1 f54710b;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, interfaceC1888a};
+                                Object[] objArr = {this, interfaceC1960a};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -98,18 +92,18 @@ public final class a implements TTAdManager {
                                     return;
                                 }
                             }
-                            this.f62499b = this;
-                            this.f62498a = interfaceC1888a;
+                            this.f54710b = this;
+                            this.a = interfaceC1960a;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                        @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                         public void a(TTAdManager tTAdManager) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                                AnonymousClass1 anonymousClass1 = this.f62499b;
-                                anonymousClass1.f62495a = tTAdManager.createAdNative(anonymousClass1.f62496b);
-                                this.f62498a.a(this.f62499b.f62495a);
+                                AnonymousClass1 anonymousClass1 = this.f54710b;
+                                anonymousClass1.a = tTAdManager.createAdNative(anonymousClass1.f54708b);
+                                this.a.a(this.f54710b.a);
                             }
                         }
                     });
@@ -119,28 +113,26 @@ public final class a implements TTAdManager {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.api.plugin.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC1888a<T> {
+    /* loaded from: classes12.dex */
+    public interface InterfaceC1960a<T> {
         void a(T t);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b<T> {
-        void a(InterfaceC1888a<T> interfaceC1888a);
+        void a(InterfaceC1960a<T> interfaceC1960a);
     }
 
-    /* loaded from: classes11.dex */
-    public interface c<T> extends InterfaceC1888a<T> {
+    /* loaded from: classes12.dex */
+    public interface c<T> extends InterfaceC1960a<T> {
         void a();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class d implements TTAdNative {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public b<TTAdNative> f62517a;
+        public b<TTAdNative> a;
 
         public d(b<TTAdNative> bVar) {
             Interceptable interceptable = $ic;
@@ -157,14 +149,14 @@ public final class a implements TTAdManager {
                     return;
                 }
             }
-            this.f62517a = bVar;
+            this.a = bVar;
         }
 
-        private final void a(CommonListener commonListener, InterfaceC1888a<TTAdNative> interfaceC1888a) {
+        private final void a(CommonListener commonListener, InterfaceC1960a<TTAdNative> interfaceC1960a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, this, commonListener, interfaceC1888a) == null) {
+            if (interceptable == null || interceptable.invokeLL(65537, this, commonListener, interfaceC1960a) == null) {
                 try {
-                    this.f62517a.a(interfaceC1888a);
+                    this.a.a(interfaceC1960a);
                 } catch (Throwable th) {
                     if (commonListener != null) {
                         commonListener.onError(4202, "Load ad failed: " + th.getMessage());
@@ -177,18 +169,16 @@ public final class a implements TTAdManager {
         public void loadBannerAd(AdSlot adSlot, TTAdNative.BannerAdListener bannerAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, adSlot, bannerAdListener) == null) {
-                a(bannerAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, bannerAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.10
+                a(bannerAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, bannerAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62521a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.BannerAdListener f62522b;
+                    public final /* synthetic */ TTAdNative.BannerAdListener f54723b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62523c;
+                    public final /* synthetic */ d f54724c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -205,17 +195,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62523c = this;
-                        this.f62521a = adSlot;
-                        this.f62522b = bannerAdListener;
+                        this.f54724c = this;
+                        this.a = adSlot;
+                        this.f54723b = bannerAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadBannerAd(this.f62521a, this.f62522b);
+                            tTAdNative.loadBannerAd(this.a, this.f54723b);
                         }
                     }
                 });
@@ -226,18 +216,16 @@ public final class a implements TTAdManager {
         public void loadBannerExpressAd(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adSlot, nativeExpressAdListener) == null) {
-                a(nativeExpressAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.5
+                a(nativeExpressAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62546a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f62547b;
+                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f54740b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62548c;
+                    public final /* synthetic */ d f54741c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -254,17 +242,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62548c = this;
-                        this.f62546a = adSlot;
-                        this.f62547b = nativeExpressAdListener;
+                        this.f54741c = this;
+                        this.a = adSlot;
+                        this.f54740b = nativeExpressAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadBannerExpressAd(this.f62546a, this.f62547b);
+                            tTAdNative.loadBannerExpressAd(this.a, this.f54740b);
                         }
                     }
                 });
@@ -275,18 +263,16 @@ public final class a implements TTAdManager {
         public void loadDrawFeedAd(AdSlot adSlot, TTAdNative.DrawFeedAdListener drawFeedAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adSlot, drawFeedAdListener) == null) {
-                a(drawFeedAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, drawFeedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.8
+                a(drawFeedAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, drawFeedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62555a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.DrawFeedAdListener f62556b;
+                    public final /* synthetic */ TTAdNative.DrawFeedAdListener f54746b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62557c;
+                    public final /* synthetic */ d f54747c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -303,17 +289,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62557c = this;
-                        this.f62555a = adSlot;
-                        this.f62556b = drawFeedAdListener;
+                        this.f54747c = this;
+                        this.a = adSlot;
+                        this.f54746b = drawFeedAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadDrawFeedAd(this.f62555a, this.f62556b);
+                            tTAdNative.loadDrawFeedAd(this.a, this.f54746b);
                         }
                     }
                 });
@@ -324,18 +310,16 @@ public final class a implements TTAdManager {
         public void loadExpressDrawFeedAd(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, adSlot, nativeExpressAdListener) == null) {
-                a(nativeExpressAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.4
+                a(nativeExpressAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62543a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f62544b;
+                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f54738b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62545c;
+                    public final /* synthetic */ d f54739c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -352,17 +336,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62545c = this;
-                        this.f62543a = adSlot;
-                        this.f62544b = nativeExpressAdListener;
+                        this.f54739c = this;
+                        this.a = adSlot;
+                        this.f54738b = nativeExpressAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadExpressDrawFeedAd(this.f62543a, this.f62544b);
+                            tTAdNative.loadExpressDrawFeedAd(this.a, this.f54738b);
                         }
                     }
                 });
@@ -373,18 +357,16 @@ public final class a implements TTAdManager {
         public void loadFeedAd(AdSlot adSlot, TTAdNative.FeedAdListener feedAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, adSlot, feedAdListener) == null) {
-                a(feedAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, feedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.1
+                a(feedAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, feedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62518a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.FeedAdListener f62519b;
+                    public final /* synthetic */ TTAdNative.FeedAdListener f54721b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62520c;
+                    public final /* synthetic */ d f54722c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -401,17 +383,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62520c = this;
-                        this.f62518a = adSlot;
-                        this.f62519b = feedAdListener;
+                        this.f54722c = this;
+                        this.a = adSlot;
+                        this.f54721b = feedAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadFeedAd(this.f62518a, this.f62519b);
+                            tTAdNative.loadFeedAd(this.a, this.f54721b);
                         }
                     }
                 });
@@ -422,18 +404,16 @@ public final class a implements TTAdManager {
         public void loadFullScreenVideoAd(AdSlot adSlot, TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, adSlot, fullScreenVideoAdListener) == null) {
-                a(fullScreenVideoAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, fullScreenVideoAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.2
+                a(fullScreenVideoAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, fullScreenVideoAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62537a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.FullScreenVideoAdListener f62538b;
+                    public final /* synthetic */ TTAdNative.FullScreenVideoAdListener f54734b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62539c;
+                    public final /* synthetic */ d f54735c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -450,17 +430,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62539c = this;
-                        this.f62537a = adSlot;
-                        this.f62538b = fullScreenVideoAdListener;
+                        this.f54735c = this;
+                        this.a = adSlot;
+                        this.f54734b = fullScreenVideoAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadFullScreenVideoAd(this.f62537a, this.f62538b);
+                            tTAdNative.loadFullScreenVideoAd(this.a, this.f54734b);
                         }
                     }
                 });
@@ -471,18 +451,16 @@ public final class a implements TTAdManager {
         public void loadInteractionAd(AdSlot adSlot, TTAdNative.InteractionAdListener interactionAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, adSlot, interactionAdListener) == null) {
-                a(interactionAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, interactionAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.11
+                a(interactionAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, interactionAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62524a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.InteractionAdListener f62525b;
+                    public final /* synthetic */ TTAdNative.InteractionAdListener f54725b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62526c;
+                    public final /* synthetic */ d f54726c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -499,17 +477,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62526c = this;
-                        this.f62524a = adSlot;
-                        this.f62525b = interactionAdListener;
+                        this.f54726c = this;
+                        this.a = adSlot;
+                        this.f54725b = interactionAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadInteractionAd(this.f62524a, this.f62525b);
+                            tTAdNative.loadInteractionAd(this.a, this.f54725b);
                         }
                     }
                 });
@@ -520,18 +498,16 @@ public final class a implements TTAdManager {
         public void loadInteractionExpressAd(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, adSlot, nativeExpressAdListener) == null) {
-                a(nativeExpressAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.6
+                a(nativeExpressAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62549a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f62550b;
+                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f54742b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62551c;
+                    public final /* synthetic */ d f54743c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -548,17 +524,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62551c = this;
-                        this.f62549a = adSlot;
-                        this.f62550b = nativeExpressAdListener;
+                        this.f54743c = this;
+                        this.a = adSlot;
+                        this.f54742b = nativeExpressAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadInteractionExpressAd(this.f62549a, this.f62550b);
+                            tTAdNative.loadInteractionExpressAd(this.a, this.f54742b);
                         }
                     }
                 });
@@ -569,18 +545,16 @@ public final class a implements TTAdManager {
         public void loadNativeAd(AdSlot adSlot, TTAdNative.NativeAdListener nativeAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adSlot, nativeAdListener) == null) {
-                a(nativeAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, nativeAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.9
+                a(nativeAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, nativeAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62558a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.NativeAdListener f62559b;
+                    public final /* synthetic */ TTAdNative.NativeAdListener f54748b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62560c;
+                    public final /* synthetic */ d f54749c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -597,17 +571,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62560c = this;
-                        this.f62558a = adSlot;
-                        this.f62559b = nativeAdListener;
+                        this.f54749c = this;
+                        this.a = adSlot;
+                        this.f54748b = nativeAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadNativeAd(this.f62558a, this.f62559b);
+                            tTAdNative.loadNativeAd(this.a, this.f54748b);
                         }
                     }
                 });
@@ -618,18 +592,16 @@ public final class a implements TTAdManager {
         public void loadNativeExpressAd(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, adSlot, nativeExpressAdListener) == null) {
-                a(nativeExpressAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.3
+                a(nativeExpressAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, nativeExpressAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62540a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f62541b;
+                    public final /* synthetic */ TTAdNative.NativeExpressAdListener f54736b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62542c;
+                    public final /* synthetic */ d f54737c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -646,17 +618,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62542c = this;
-                        this.f62540a = adSlot;
-                        this.f62541b = nativeExpressAdListener;
+                        this.f54737c = this;
+                        this.a = adSlot;
+                        this.f54736b = nativeExpressAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadNativeExpressAd(this.f62540a, this.f62541b);
+                            tTAdNative.loadNativeExpressAd(this.a, this.f54736b);
                         }
                     }
                 });
@@ -667,18 +639,16 @@ public final class a implements TTAdManager {
         public void loadRewardVideoAd(AdSlot adSlot, TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, adSlot, rewardVideoAdListener) == null) {
-                a(rewardVideoAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, rewardVideoAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.14
+                a(rewardVideoAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, rewardVideoAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62534a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.RewardVideoAdListener f62535b;
+                    public final /* synthetic */ TTAdNative.RewardVideoAdListener f54732b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62536c;
+                    public final /* synthetic */ d f54733c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -695,17 +665,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62536c = this;
-                        this.f62534a = adSlot;
-                        this.f62535b = rewardVideoAdListener;
+                        this.f54733c = this;
+                        this.a = adSlot;
+                        this.f54732b = rewardVideoAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadRewardVideoAd(this.f62534a, this.f62535b);
+                            tTAdNative.loadRewardVideoAd(this.a, this.f54732b);
                         }
                     }
                 });
@@ -716,21 +686,19 @@ public final class a implements TTAdManager {
         public void loadSplashAd(AdSlot adSlot, TTAdNative.SplashAdListener splashAdListener, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048588, this, adSlot, splashAdListener, i2) == null) {
-                a(splashAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, splashAdListener, i2) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.12
+                a(splashAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, splashAdListener, i2) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62527a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.SplashAdListener f62528b;
+                    public final /* synthetic */ TTAdNative.SplashAdListener f54727b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f62529c;
+                    public final /* synthetic */ int f54728c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ d f62530d;
+                    public final /* synthetic */ d f54729d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -747,18 +715,18 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62530d = this;
-                        this.f62527a = adSlot;
-                        this.f62528b = splashAdListener;
-                        this.f62529c = i2;
+                        this.f54729d = this;
+                        this.a = adSlot;
+                        this.f54727b = splashAdListener;
+                        this.f54728c = i2;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadSplashAd(this.f62527a, this.f62528b, this.f62529c);
+                            tTAdNative.loadSplashAd(this.a, this.f54727b, this.f54728c);
                         }
                     }
                 });
@@ -769,18 +737,16 @@ public final class a implements TTAdManager {
         public void loadStream(AdSlot adSlot, TTAdNative.FeedAdListener feedAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048589, this, adSlot, feedAdListener) == null) {
-                a(feedAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, feedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.7
+                a(feedAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, feedAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62552a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.FeedAdListener f62553b;
+                    public final /* synthetic */ TTAdNative.FeedAdListener f54744b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62554c;
+                    public final /* synthetic */ d f54745c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -797,17 +763,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62554c = this;
-                        this.f62552a = adSlot;
-                        this.f62553b = feedAdListener;
+                        this.f54745c = this;
+                        this.a = adSlot;
+                        this.f54744b = feedAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadStream(this.f62552a, this.f62553b);
+                            tTAdNative.loadStream(this.a, this.f54744b);
                         }
                     }
                 });
@@ -818,18 +784,16 @@ public final class a implements TTAdManager {
         public void loadSplashAd(AdSlot adSlot, TTAdNative.SplashAdListener splashAdListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, adSlot, splashAdListener) == null) {
-                a(splashAdListener, new InterfaceC1888a<TTAdNative>(this, adSlot, splashAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.13
+                a(splashAdListener, new InterfaceC1960a<TTAdNative>(this, adSlot, splashAdListener) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdSlot f62531a;
+                    public final /* synthetic */ AdSlot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ TTAdNative.SplashAdListener f62532b;
+                    public final /* synthetic */ TTAdNative.SplashAdListener f54730b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f62533c;
+                    public final /* synthetic */ d f54731c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -846,17 +810,17 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62533c = this;
-                        this.f62531a = adSlot;
-                        this.f62532b = splashAdListener;
+                        this.f54731c = this;
+                        this.a = adSlot;
+                        this.f54730b = splashAdListener;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdNative tTAdNative) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdNative) == null) {
-                            tTAdNative.loadSplashAd(this.f62531a, this.f62532b);
+                            tTAdNative.loadSplashAd(this.a, this.f54730b);
                         }
                     }
                 });
@@ -877,7 +841,7 @@ public final class a implements TTAdManager {
                 return;
             }
         }
-        f62493a = new a();
+        a = new a();
     }
 
     public a() {
@@ -895,36 +859,34 @@ public final class a implements TTAdManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void call(InterfaceC1888a<TTAdManager> interfaceC1888a) {
+    public final void call(InterfaceC1960a<TTAdManager> interfaceC1960a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, interfaceC1888a) == null) {
-            if (this.f62494b != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, interfaceC1960a) == null) {
+            if (this.f54707b != null) {
                 try {
-                    interfaceC1888a.a(this.f62494b);
+                    interfaceC1960a.a(this.f54707b);
                     return;
                 } catch (Throwable th) {
                     com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Unexpected manager call error: " + th.getMessage());
                     return;
                 }
             }
-            ScheduledExecutorService scheduledExecutorService = g.f62588a;
+            ScheduledExecutorService scheduledExecutorService = g.a;
             if (scheduledExecutorService != null) {
-                scheduledExecutorService.submit(new Runnable(this, interfaceC1888a) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.8
+                scheduledExecutorService.submit(new Runnable(this, interfaceC1960a) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InterfaceC1888a f62515a;
+                    public final /* synthetic */ InterfaceC1960a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f62516b;
+                    public final /* synthetic */ a f54720b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, interfaceC1888a};
+                            Object[] objArr = {this, interfaceC1960a};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -934,8 +896,8 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62516b = this;
-                        this.f62515a = interfaceC1888a;
+                        this.f54720b = this;
+                        this.a = interfaceC1960a;
                     }
 
                     @Override // java.lang.Runnable
@@ -943,12 +905,12 @@ public final class a implements TTAdManager {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                if (this.f62516b.f62494b != null) {
-                                    this.f62515a.a(this.f62516b.f62494b);
+                                if (this.f54720b.f54707b != null) {
+                                    this.a.a(this.f54720b.f54707b);
                                     return;
                                 }
-                                if (this.f62515a instanceof c) {
-                                    ((c) this.f62515a).a();
+                                if (this.a instanceof c) {
+                                    ((c) this.a).a();
                                 }
                                 com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Not ready, no manager");
                             } catch (Throwable th2) {
@@ -975,8 +937,8 @@ public final class a implements TTAdManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adSlot)) == null) {
-            if (this.f62494b != null) {
-                return this.f62494b.getBiddingToken(adSlot);
+            if (this.f54707b != null) {
+                return this.f54707b.getBiddingToken(adSlot);
             }
             return null;
         }
@@ -988,22 +950,20 @@ public final class a implements TTAdManager {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, cls, bundle)) == null) {
-            if (this.f62494b != null) {
-                return (T) this.f62494b.getExtra(cls, bundle);
+            if (this.f54707b != null) {
+                return (T) this.f54707b.getExtra(cls, bundle);
             }
             if (cls == Bundle.class && bundle != null && bundle.getInt("action", 0) == 1) {
                 call(new c<TTAdManager>(this, bundle, cls) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Bundle f62505a;
+                    public final /* synthetic */ Bundle a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Class f62506b;
+                    public final /* synthetic */ Class f54714b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f62507c;
+                    public final /* synthetic */ a f54715c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1020,42 +980,40 @@ public final class a implements TTAdManager {
                                 return;
                             }
                         }
-                        this.f62507c = this;
-                        this.f62505a = bundle;
-                        this.f62506b = cls;
+                        this.f54715c = this;
+                        this.a = bundle;
+                        this.f54714b = cls;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.api.plugin.a.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            e.a(this.f62505a);
+                            e.a(this.a);
                         }
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                     public void a(TTAdManager tTAdManager) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTAdManager) == null) {
-                            tTAdManager.getExtra(this.f62506b, this.f62505a);
+                            tTAdManager.getExtra(this.f54714b, this.a);
                         }
                     }
                 });
                 return null;
             }
-            call(new InterfaceC1888a<TTAdManager>(this, cls, bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.5
+            call(new InterfaceC1960a<TTAdManager>(this, cls, bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Class f62508a;
+                public final /* synthetic */ Class a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f62509b;
+                public final /* synthetic */ Bundle f54716b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f62510c;
+                public final /* synthetic */ a f54717c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1072,17 +1030,17 @@ public final class a implements TTAdManager {
                             return;
                         }
                     }
-                    this.f62510c = this;
-                    this.f62508a = cls;
-                    this.f62509b = bundle;
+                    this.f54717c = this;
+                    this.a = cls;
+                    this.f54716b = bundle;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                 public void a(TTAdManager tTAdManager) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                        tTAdManager.getExtra(this.f62508a, this.f62509b);
+                        tTAdManager.getExtra(this.a, this.f54716b);
                     }
                 }
             });
@@ -1095,7 +1053,7 @@ public final class a implements TTAdManager {
     public String getPluginVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62494b != null ? this.f62494b.getPluginVersion() : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54707b != null ? this.f54707b.getPluginVersion() : "" : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -1110,8 +1068,8 @@ public final class a implements TTAdManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f62494b != null) {
-                return this.f62494b.getThemeStatus();
+            if (this.f54707b != null) {
+                return this.f54707b.getThemeStatus();
             }
             return 0;
         }
@@ -1123,8 +1081,8 @@ public final class a implements TTAdManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4})) == null) {
-            if (this.f62494b != null) {
-                return this.f62494b.onlyVerityPlayable(str, i2, str2, str3, str4);
+            if (this.f54707b != null) {
+                return this.f54707b.onlyVerityPlayable(str, i2, str2, str3, str4);
             }
             return false;
         }
@@ -1142,18 +1100,16 @@ public final class a implements TTAdManager {
             } else {
                 bundle = obj;
             }
-            call(new InterfaceC1888a<TTAdManager>(this, obj, bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.2
+            call(new InterfaceC1960a<TTAdManager>(this, obj, bundle) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Object f62500a;
+                public final /* synthetic */ Object a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f62501b;
+                public final /* synthetic */ Object f54711b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f62502c;
+                public final /* synthetic */ a f54712c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1170,20 +1126,20 @@ public final class a implements TTAdManager {
                             return;
                         }
                     }
-                    this.f62502c = this;
-                    this.f62500a = obj;
-                    this.f62501b = bundle;
+                    this.f54712c = this;
+                    this.a = obj;
+                    this.f54711b = bundle;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                 public void a(TTAdManager tTAdManager) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                        if (this.f62500a instanceof TTPluginListener) {
-                            f.a(TTAppContextHolder.getContext()).a((TTPluginListener) this.f62500a);
+                        if (this.a instanceof TTPluginListener) {
+                            f.a(TTAppContextHolder.getContext()).a((TTPluginListener) this.a);
                         }
-                        tTAdManager.register(this.f62501b);
+                        tTAdManager.register(this.f54711b);
                     }
                 }
             });
@@ -1194,15 +1150,13 @@ public final class a implements TTAdManager {
     public void requestPermissionIfNecessary(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            call(new InterfaceC1888a<TTAdManager>(this, context) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.6
+            call(new InterfaceC1960a<TTAdManager>(this, context) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f62511a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62512b;
+                public final /* synthetic */ a f54718b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1219,16 +1173,16 @@ public final class a implements TTAdManager {
                             return;
                         }
                     }
-                    this.f62512b = this;
-                    this.f62511a = context;
+                    this.f54718b = this;
+                    this.a = context;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                 public void a(TTAdManager tTAdManager) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                        tTAdManager.requestPermissionIfNecessary(this.f62511a);
+                        tTAdManager.requestPermissionIfNecessary(this.a);
                     }
                 }
             });
@@ -1239,15 +1193,13 @@ public final class a implements TTAdManager {
     public void setThemeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            call(new InterfaceC1888a<TTAdManager>(this, i2) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.7
+            call(new InterfaceC1960a<TTAdManager>(this, i2) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f62513a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62514b;
+                public final /* synthetic */ a f54719b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1264,16 +1216,16 @@ public final class a implements TTAdManager {
                             return;
                         }
                     }
-                    this.f62514b = this;
-                    this.f62513a = i2;
+                    this.f54719b = this;
+                    this.a = i2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                 public void a(TTAdManager tTAdManager) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                        this.f62514b.f62494b.setThemeStatus(this.f62513a);
+                        this.f54719b.f54707b.setThemeStatus(this.a);
                     }
                 }
             });
@@ -1284,22 +1236,20 @@ public final class a implements TTAdManager {
     public boolean tryShowInstallDialogWhenExit(Activity activity, ExitInstallListener exitInstallListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, activity, exitInstallListener)) == null) ? this.f62494b != null && this.f62494b.tryShowInstallDialogWhenExit(activity, exitInstallListener) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, activity, exitInstallListener)) == null) ? this.f54707b != null && this.f54707b.tryShowInstallDialogWhenExit(activity, exitInstallListener) : invokeLL.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public void unregister(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, obj) == null) {
-            call(new InterfaceC1888a<TTAdManager>(this, obj) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.3
+            call(new InterfaceC1960a<TTAdManager>(this, obj) { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Object f62503a;
+                public final /* synthetic */ Object a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62504b;
+                public final /* synthetic */ a f54713b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1316,16 +1266,16 @@ public final class a implements TTAdManager {
                             return;
                         }
                     }
-                    this.f62504b = this;
-                    this.f62503a = obj;
+                    this.f54713b = this;
+                    this.a = obj;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1888a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC1960a
                 public void a(TTAdManager tTAdManager) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, tTAdManager) == null) {
-                        tTAdManager.unregister(this.f62503a);
+                        tTAdManager.unregister(this.a);
                     }
                 }
             });
@@ -1337,8 +1287,8 @@ public final class a implements TTAdManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{adSlot, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            if (this.f62494b != null) {
-                return this.f62494b.getBiddingToken(adSlot, z, i2);
+            if (this.f54707b != null) {
+                return this.f54707b.getBiddingToken(adSlot, z, i2);
             }
             return null;
         }
@@ -1348,7 +1298,7 @@ public final class a implements TTAdManager {
     public void a(TTAdManager tTAdManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTAdManager) == null) {
-            this.f62494b = tTAdManager;
+            this.f54707b = tTAdManager;
         }
     }
 }

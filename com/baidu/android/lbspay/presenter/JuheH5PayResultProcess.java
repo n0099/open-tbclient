@@ -25,7 +25,7 @@ import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class JuheH5PayResultProcess extends H5PayResultProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,9 +137,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                 H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback(this) { // from class: com.baidu.android.lbspay.presenter.JuheH5PayResultProcess.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JuheH5PayResultProcess f35727a;
+                    public final /* synthetic */ JuheH5PayResultProcess a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -156,7 +154,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                                 return;
                             }
                         }
-                        this.f35727a = this;
+                        this.a = this;
                     }
 
                     @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -164,7 +162,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                             BaiduWalletDelegate.getInstance().removeH5LifeCycleCb(activity, this);
-                            this.f35727a.afterShow();
+                            this.a.afterShow();
                         }
                     }
                 };

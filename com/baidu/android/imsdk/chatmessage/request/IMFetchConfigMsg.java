@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMFetchConfigMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 50;
@@ -35,7 +34,7 @@ public class IMFetchConfigMsg extends Message {
     public long mCursor;
     public long mLimit;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class FetchConfigTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,15 +75,15 @@ public class IMFetchConfigMsg extends Message {
                 type.t = 0L;
                 if (this.mErrorCode == 0) {
                     try {
-                        long j = this.mObj.has(Constants.EXTRA_CONFIG_CURSOR) ? this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR) : 0L;
+                        long j2 = this.mObj.has(Constants.EXTRA_CONFIG_CURSOR) ? this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR) : 0L;
                         if (!(this.mObj.has("has_more") ? this.mObj.getBoolean("has_more") : false) || IMFetchConfigMsg.cur_count > 50) {
                             int unused = IMFetchConfigMsg.cur_count = 1;
-                            if (j > Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L)) {
-                                Utility.writeLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, j);
+                            if (j2 > Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L)) {
+                                Utility.writeLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, j2);
                             }
                         } else {
                             IMFetchConfigMsg.access$008();
-                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j, this.this$0.mLimit);
+                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j2, this.this$0.mLimit);
                         }
                         if (this.mObj.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
                             ArrayList<ChatMsg> parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
@@ -115,12 +114,12 @@ public class IMFetchConfigMsg extends Message {
         }
     }
 
-    public IMFetchConfigMsg(Context context, long j, long j2) {
+    public IMFetchConfigMsg(Context context, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -132,8 +131,8 @@ public class IMFetchConfigMsg extends Message {
         }
         initCommonParameter(context);
         this.mContext = context;
-        this.mCursor = j;
-        this.mLimit = j2;
+        this.mCursor = j2;
+        this.mLimit = j3;
         setNeedReplay(true);
         setType(193);
     }
@@ -147,7 +146,7 @@ public class IMFetchConfigMsg extends Message {
     public static IMFetchConfigMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
             if (intent.hasExtra(Constants.EXTRA_CONFIG_CURSOR) && intent.hasExtra(Constants.EXTRA_CONFIG_LIMIT)) {
                 return new IMFetchConfigMsg(context, intent.getLongExtra(Constants.EXTRA_CONFIG_CURSOR, 0L), intent.getLongExtra(Constants.EXTRA_CONFIG_LIMIT, 0L));
             }

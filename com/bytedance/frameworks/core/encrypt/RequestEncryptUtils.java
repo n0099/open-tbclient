@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RequestEncryptUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";
@@ -41,7 +40,7 @@ public class RequestEncryptUtils {
     public static IEncryptConfig sEncryptConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface IEncryptConfig {
         boolean isSsQueriesHeaderOpen();
 
@@ -164,7 +163,7 @@ public class RequestEncryptUtils {
     public static void parseQueries(Uri uri, Map<String, List<String>> map) throws IOException {
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, uri, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, uri, map) == null) {
             if (uri == null) {
                 throw new IOException("parseUrl url is null !!!");
             }
@@ -203,7 +202,7 @@ public class RequestEncryptUtils {
 
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             sDebug = z;
         }
     }

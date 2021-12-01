@@ -21,16 +21,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BasePromotionAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public PromotionInfoResponse f59120a;
+    public PromotionInfoResponse a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59121b;
+    public Context f52526b;
 
     public a(Context context, PromotionInfoResponse promotionInfoResponse) {
         Interceptable interceptable = $ic;
@@ -47,8 +45,8 @@ public class a extends BasePromotionAdapter {
                 return;
             }
         }
-        this.f59120a = promotionInfoResponse;
-        this.f59121b = context;
+        this.a = promotionInfoResponse;
+        this.f52526b = context;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -56,19 +54,19 @@ public class a extends BasePromotionAdapter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            PromotionInfoResponse promotionInfoResponse = this.f59120a;
+            PromotionInfoResponse promotionInfoResponse = this.a;
             if (promotionInfoResponse == null) {
                 return null;
             }
             int i2 = promotionInfoResponse.promotion_type;
             if (i2 == 1) {
                 CommonPromotionView commonPromotionView = new CommonPromotionView(context);
-                commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f59121b, "wallet_fp_promtion_text"));
+                commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f52526b, "wallet_fp_promtion_text"));
                 return commonPromotionView;
             } else if (i2 == 2) {
                 CommonPromotionView commonPromotionView2 = new CommonPromotionView(context);
                 commonPromotionView2.setCenText(getCenText()).setTextClickListener(getClickListener()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl());
-                PromotionInfoResponse promotionInfoResponse2 = this.f59120a;
+                PromotionInfoResponse promotionInfoResponse2 = this.a;
                 if (promotionInfoResponse2.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse2.promotion_detail_url)) {
                     return commonPromotionView2;
                 }
@@ -78,7 +76,7 @@ public class a extends BasePromotionAdapter {
                 CommonPromotionView commonPromotionView3 = new CommonPromotionView(context);
                 a();
                 commonPromotionView3.setCenText(getCenText()).setTextClickListener(getClickListener()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl());
-                PromotionInfoResponse promotionInfoResponse3 = this.f59120a;
+                PromotionInfoResponse promotionInfoResponse3 = this.a;
                 if (promotionInfoResponse3.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse3.promotion_detail_url)) {
                     return commonPromotionView3;
                 }
@@ -89,7 +87,7 @@ public class a extends BasePromotionAdapter {
             } else {
                 FastPayPromotionView fastPayPromotionView = new FastPayPromotionView(context);
                 fastPayPromotionView.setCenText(getCenText()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl()).setClickRightImgToClose();
-                PromotionInfoResponse promotionInfoResponse4 = this.f59120a;
+                PromotionInfoResponse promotionInfoResponse4 = this.a;
                 if (promotionInfoResponse4.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse4.promotion_detail_url)) {
                     return fastPayPromotionView;
                 }
@@ -111,7 +109,7 @@ public class a extends BasePromotionAdapter {
     public CharSequence getCenText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59120a.promotion_txt : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.promotion_txt : (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -121,9 +119,7 @@ public class a extends BasePromotionAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new View.OnClickListener(this) { // from class: com.baidu.wallet.fastpay.ui.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f59122a;
+            public final /* synthetic */ a a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -140,24 +136,24 @@ public class a extends BasePromotionAdapter {
                         return;
                     }
                 }
-                this.f59122a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f59122a.f59120a.promotion_detail_url)) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.a.a.promotion_detail_url)) {
                     return;
                 }
-                ArrayList arrayList = new ArrayList(Arrays.asList(this.f59122a.f59120a.promotion_detail_url));
+                ArrayList arrayList = new ArrayList(Arrays.asList(this.a.a.promotion_detail_url));
                 arrayList.addAll(com.baidu.wallet.fastpay.a.a.a().b());
                 DXMSdkSAUtils.onEventWithValues("mobileRechargeClickPrompt", arrayList);
-                int i2 = this.f59122a.f59120a.link_type;
+                int i2 = this.a.a.link_type;
                 if (i2 == 1) {
-                    BaiduWalletDelegate.getInstance().openH5Module(this.f59122a.f59121b, this.f59122a.f59120a.promotion_detail_url, true);
+                    BaiduWalletDelegate.getInstance().openH5Module(this.a.f52526b, this.a.a.promotion_detail_url, true);
                 } else if (i2 != 3) {
                 } else {
-                    BaiduWalletDelegate.getInstance().gotoWalletService(this.f59122a.f59121b, this.f59122a.f59120a.promotion_detail_url, "");
+                    BaiduWalletDelegate.getInstance().gotoWalletService(this.a.f52526b, this.a.a.promotion_detail_url, "");
                 }
             }
         } : (View.OnClickListener) invokeV.objValue;
@@ -168,17 +164,17 @@ public class a extends BasePromotionAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f59120a.promotion_type;
+            int i2 = this.a.promotion_type;
             if (i2 != 2) {
                 if (i2 != 3) {
                     if (i2 != 4) {
                         return null;
                     }
-                    return ResUtils.getDrawable(this.f59121b, "wallet_fp_promotion_gift");
+                    return ResUtils.getDrawable(this.f52526b, "wallet_fp_promotion_gift");
                 }
-                return ResUtils.getDrawable(this.f59121b, "wallet_fp_promotion_youhui");
+                return ResUtils.getDrawable(this.f52526b, "wallet_fp_promotion_youhui");
             }
-            return ResUtils.getDrawable(this.f59121b, "wallet_fp_promoiton_left");
+            return ResUtils.getDrawable(this.f52526b, "wallet_fp_promoiton_left");
         }
         return (Drawable) invokeV.objValue;
     }
@@ -188,10 +184,10 @@ public class a extends BasePromotionAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f59120a.promotion_type != 4) {
-                return ResUtils.getDrawable(this.f59121b, "wallet_fp_promotion_right");
+            if (this.a.promotion_type != 4) {
+                return ResUtils.getDrawable(this.f52526b, "wallet_fp_promotion_right");
             }
-            return ResUtils.getDrawable(this.f59121b, "wallet_fp_promotion_close");
+            return ResUtils.getDrawable(this.f52526b, "wallet_fp_promotion_close");
         }
         return (Drawable) invokeV.objValue;
     }
@@ -200,7 +196,7 @@ public class a extends BasePromotionAdapter {
     public String getLeftUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59120a.promotion_img_url : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.promotion_img_url : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -215,21 +211,21 @@ public class a extends BasePromotionAdapter {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.isEmpty(this.f59120a.promotion_txt)) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.isEmpty(this.a.promotion_txt)) {
             return;
         }
-        Matcher matcher = Pattern.compile("[-+]?([0-9]*\\.[0-9]+|[0-9]+)").matcher(this.f59120a.promotion_txt);
+        Matcher matcher = Pattern.compile("[-+]?([0-9]*\\.[0-9]+|[0-9]+)").matcher(this.a.promotion_txt);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
             String group = matcher.group();
-            String str = this.f59120a.promotion_txt;
+            String str = this.a.promotion_txt;
             stringBuffer.append(str.substring(0, str.indexOf(group)));
             stringBuffer.append(String.format("<font color='#E85352'>%s</font>", group));
-            PromotionInfoResponse promotionInfoResponse = this.f59120a;
+            PromotionInfoResponse promotionInfoResponse = this.a;
             String str2 = promotionInfoResponse.promotion_txt;
             promotionInfoResponse.promotion_txt = str2.substring(str2.indexOf(group) + group.length());
         }
-        PromotionInfoResponse promotionInfoResponse2 = this.f59120a;
+        PromotionInfoResponse promotionInfoResponse2 = this.a;
         stringBuffer.append(promotionInfoResponse2.promotion_txt);
         promotionInfoResponse2.promotion_txt = stringBuffer.toString();
     }

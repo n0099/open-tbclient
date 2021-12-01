@@ -14,18 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Collections;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f34880a = 1010;
+    public static final int a = 1010;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f34881b;
+    public static a f31279b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(boolean z, JSONObject jSONObject, String str);
     }
@@ -57,7 +55,7 @@ public class d {
             try {
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.z0);
                 activity.startActivityForResult(new Intent(str2, Uri.parse(str)), i2);
-                f34881b = aVar2;
+                f31279b = aVar2;
                 return true;
             } catch (Throwable th) {
                 aVar2.a(false, null, "UNKNOWN_ERROR");
@@ -73,11 +71,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{aVar, Integer.valueOf(i2), Integer.valueOf(i3), intent})) == null) {
             if (i2 == 1010 && intent != null) {
-                a aVar2 = f34881b;
+                a aVar2 = f31279b;
                 if (aVar2 == null) {
                     return true;
                 }
-                f34881b = null;
+                f31279b = null;
                 if (i3 != -1) {
                     if (i3 != 0) {
                         com.alipay.sdk.app.statistic.a.b(aVar, "biz", com.alipay.sdk.app.statistic.b.B0, "" + i3);

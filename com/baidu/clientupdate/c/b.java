@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
 import com.baidu.util.LogUtil;
 import java.net.URLEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public StringBuilder f37736a;
+    public StringBuilder a;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public class b {
                 return;
             }
         }
-        this.f37736a = new StringBuilder(str);
+        this.a = new StringBuilder(str);
     }
 
     public void a(String str, String str2) {
@@ -41,10 +39,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f37736a;
+        StringBuilder sb = this.a;
         sb.append("&" + str + "=");
         byte[] b64Encode = Base64Encoder.b64Encode(URLEncoder.encode(str2).getBytes());
-        this.f37736a.append(new String(b64Encode));
+        this.a.append(new String(b64Encode));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + new String(b64Encode));
     }
@@ -54,9 +52,9 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        StringBuilder sb = this.f37736a;
+        StringBuilder sb = this.a;
         sb.append("&" + str + "=");
-        this.f37736a.append(URLEncoder.encode(str2));
+        this.a.append(URLEncoder.encode(str2));
         LogUtil.logD("ClientUpdateUriHelper", "key: " + str + ", value: " + str2);
         LogUtil.logD("ClientUpdateUriHelper", "b64encode key: " + str + ", value: " + str2);
     }
@@ -64,6 +62,6 @@ public class b {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37736a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
     }
 }

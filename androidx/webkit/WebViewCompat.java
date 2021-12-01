@@ -21,7 +21,6 @@ import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
 import androidx.webkit.internal.WebViewProviderAdapter;
 import androidx.webkit.internal.WebViewProviderFactory;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,7 +44,7 @@ public class WebViewCompat {
     /* loaded from: classes.dex */
     public interface VisualStateCallback {
         @UiThread
-        void onComplete(long j);
+        void onComplete(long j2);
     }
 
     static {
@@ -130,7 +129,7 @@ public class WebViewCompat {
     public static PackageInfo getCurrentWebViewPackage(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 < 21) {
                 return null;
@@ -151,7 +150,7 @@ public class WebViewCompat {
     public static WebViewProviderFactory getFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? WebViewGlueCommunicator.getFactory() : (WebViewProviderFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? WebViewGlueCommunicator.getFactory() : (WebViewProviderFactory) invokeV.objValue;
     }
 
     @SuppressLint({"PrivateApi"})
@@ -284,12 +283,12 @@ public class WebViewCompat {
         return invokeV.booleanValue;
     }
 
-    public static void postVisualStateCallback(@NonNull WebView webView, long j, @NonNull VisualStateCallback visualStateCallback) {
+    public static void postVisualStateCallback(@NonNull WebView webView, long j2, @NonNull VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{webView, Long.valueOf(j), visualStateCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{webView, Long.valueOf(j2), visualStateCallback}) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("VISUAL_STATE_CALLBACK");
             if (feature.isSupportedByFramework()) {
-                webView.postVisualStateCallback(j, new WebView.VisualStateCallback(visualStateCallback) { // from class: androidx.webkit.WebViewCompat.1
+                webView.postVisualStateCallback(j2, new WebView.VisualStateCallback(visualStateCallback) { // from class: androidx.webkit.WebViewCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ VisualStateCallback val$callback;
@@ -313,16 +312,16 @@ public class WebViewCompat {
                     }
 
                     @Override // android.webkit.WebView.VisualStateCallback
-                    public void onComplete(long j2) {
+                    public void onComplete(long j3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) {
-                            this.val$callback.onComplete(j2);
+                        if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j3) == null) {
+                            this.val$callback.onComplete(j3);
                         }
                     }
                 });
             } else if (feature.isSupportedByWebView()) {
                 checkThread(webView);
-                getProvider(webView).insertVisualStateCallback(j, visualStateCallback);
+                getProvider(webView).insertVisualStateCallback(j2, visualStateCallback);
             } else {
                 throw WebViewFeatureInternal.getUnsupportedOperationException();
             }

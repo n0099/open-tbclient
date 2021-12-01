@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.flyme.openidsdk.OpenIdHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class q extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f62112i;
+    public Context f54437i;
 
     public q(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class q extends m {
                 return;
             }
         }
-        this.f62112i = context;
+        this.f54437i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -39,12 +39,12 @@ public class q extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            this.f62112i = a(this.f62112i);
+            this.f54437i = a(this.f54437i);
             gVar.e(new h(OpenIdHelper.class, null, "isSupported", null, null));
             gVar.d(null);
-            gVar.b(new h(OpenIdHelper.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f62112i}));
-            gVar.c(new h(OpenIdHelper.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f62112i}));
-            gVar.a(new h(OpenIdHelper.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f62112i}));
+            gVar.b(new h(OpenIdHelper.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f54437i}));
+            gVar.c(new h(OpenIdHelper.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f54437i}));
+            gVar.a(new h(OpenIdHelper.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f54437i}));
             return gVar;
         }
         return (g) invokeV.objValue;

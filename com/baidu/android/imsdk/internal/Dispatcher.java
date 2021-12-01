@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Dispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL = 0;
@@ -32,7 +31,7 @@ public class Dispatcher {
     public static List<MsgListener> normalALL;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,10 +78,10 @@ public class Dispatcher {
             }
         }
 
-        public void setContacter(long j) {
+        public void setContacter(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.contacter = j;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+                this.contacter = j2;
             }
         }
 
@@ -94,7 +93,7 @@ public class Dispatcher {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class MsgListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,13 +253,13 @@ public class Dispatcher {
                 }
             }
             ArrayList<ChatMsg> arrayList2 = new ArrayList<>();
-            long j = 0;
+            long j2 = 0;
             Iterator<ChatMsg> it = arrayList.iterator();
             while (it.hasNext()) {
                 ChatMsg next = it.next();
                 if (next.getCategory() != 0 && next.getCategory() != 1) {
-                    if (next.getCategory() == 2 && j < next.getMsgId()) {
-                        j = next.getMsgId();
+                    if (next.getCategory() == 2 && j2 < next.getMsgId()) {
+                        j2 = next.getMsgId();
                     }
                 } else {
                     arrayList2.add(next);
@@ -279,7 +278,7 @@ public class Dispatcher {
 
     public static void registerListener(Event event, MsgListener msgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, event, msgListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, event, msgListener) == null) {
             if (event.getType() == 0) {
                 allMsgListeners.add(msgListener);
             } else if (event.getCategory() == -1 && event.getType() == -1) {

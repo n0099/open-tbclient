@@ -2,14 +2,13 @@ package com.bumptech.glide.load.data.mediastore;
 
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class MediaStoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINI_THUMB_HEIGHT = 384;
@@ -57,6 +56,6 @@ public final class MediaStoreUtil {
     public static boolean isVideoUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, uri)) == null) ? uri.getPathSegments().contains("video") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) ? uri.getPathSegments().contains("video") : invokeL.booleanValue;
     }
 }

@@ -8,7 +8,6 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,7 +40,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -61,7 +60,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
@@ -133,13 +132,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -230,7 +229,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
@@ -302,7 +301,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         private String getAppVersionCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                 if (getAppPackageInfo() != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(getAppPackageInfo().versionCode);
@@ -316,7 +315,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         private String getBaseBand() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? Build.VERSION.SDK_INT >= 14 ? Build.getRadioVersion() : Build.RADIO : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? Build.VERSION.SDK_INT >= 14 ? Build.getRadioVersion() : Build.RADIO : (String) invokeV.objValue;
         }
 
         private String getCPU() {
@@ -553,7 +552,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private void dumpExtraInfo(Writer writer) throws IOException {
         long approximateStartTimestamp;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, writer) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, writer) == null) {
             dumpIdentification(writer);
             writer.write("\n************************************************\n");
             if (this.mClient != null) {
@@ -593,7 +592,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     private void dumpExtraLogcatInfo(Writer writer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, writer) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, writer) == null) {
             try {
                 Process exec = Runtime.getRuntime().exec(new String[]{"logcat", "-d", "-t150", "-vthreadtime"}, (String[]) null);
                 Thread thread = new Thread(new Runnable(this, writer, exec) { // from class: com.baidu.webkit.sdk.dumper.ZeusCrashHandler.3
@@ -803,10 +802,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         return (File) invokeV.objValue;
     }
 
-    public static String getTimestmapString(long j) {
+    public static String getTimestmapString(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j2)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j2)) : (String) invokeJ.objValue;
     }
 
     public static void init() {
@@ -995,10 +994,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public void setCrashTime(long j) {
+    public void setCrashTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mCrashTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mCrashTime = j2;
         }
     }
 

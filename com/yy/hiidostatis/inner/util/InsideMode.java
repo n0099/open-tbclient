@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InsideMode {
     public static /* synthetic */ Interceptable $ic;
     public static boolean encriptIMEI;
@@ -22,7 +22,7 @@ public class InsideMode {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.yy.hiidostatis.inner.util.InsideMode$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType;
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp;
@@ -82,7 +82,7 @@ public class InsideMode {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class EncriptType {
         public static final /* synthetic */ EncriptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class InsideMode {
                     return;
                 }
             }
-            NONE = new EncriptType("NONE", 0);
+            NONE = new EncriptType(PolyActivity.NONE_PANEL_TYPE, 0);
             MD5 = new EncriptType("MD5", 1);
             DOUBLE_MD5 = new EncriptType("DOUBLE_MD5", 2);
             EncriptType encriptType = new EncriptType("SHA256", 3);
@@ -146,7 +146,7 @@ public class InsideMode {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class HostApp {
         public static final /* synthetic */ HostApp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -169,7 +169,7 @@ public class InsideMode {
                     return;
                 }
             }
-            NONE = new HostApp("NONE", 0);
+            NONE = new HostApp(PolyActivity.NONE_PANEL_TYPE, 0);
             MI = new HostApp("MI", 1);
             VIVO = new HostApp("VIVO", 2);
             HostApp hostApp = new HostApp("MEIPAI", 3);
@@ -302,13 +302,13 @@ public class InsideMode {
     public static String safeIMEI(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? encriptIMEI ? encript(str) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? encriptIMEI ? encript(str) : str : (String) invokeL.objValue;
     }
 
     public static String safeIMSI(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? encriptIMSI ? encript(str) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? encriptIMSI ? encript(str) : str : (String) invokeL.objValue;
     }
 
     public static String safeMac(String str) {

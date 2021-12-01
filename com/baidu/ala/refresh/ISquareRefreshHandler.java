@@ -1,5 +1,5 @@
 package com.baidu.ala.refresh;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface ISquareRefreshHandler {
     boolean isForeGround(int i2);
 

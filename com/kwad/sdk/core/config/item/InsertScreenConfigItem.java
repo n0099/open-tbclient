@@ -16,7 +16,7 @@ public class InsertScreenConfigItem extends b<InsertScreenConfig> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class InsertScreenConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class InsertScreenConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8956767980880231273L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,25 +45,6 @@ public class InsertScreenConfigItem extends b<InsertScreenConfig> {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InsertScreenConfigItem() {
-        super("insertScreenConfig", null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
     @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences.Editor editor) {
         String b2;
@@ -85,9 +66,9 @@ public class InsertScreenConfigItem extends b<InsertScreenConfig> {
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            InsertScreenConfig a2 = a();
-            if (a2 == null) {
-                a2 = new InsertScreenConfig();
+            InsertScreenConfig a = a();
+            if (a == null) {
+                a = new InsertScreenConfig();
             }
             JSONObject jSONObject = null;
             try {
@@ -96,9 +77,9 @@ public class InsertScreenConfigItem extends b<InsertScreenConfig> {
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if (jSONObject != null) {
-                a2.parseJson(jSONObject);
+                a.parseJson(jSONObject);
             }
-            a((InsertScreenConfigItem) a2);
+            a((InsertScreenConfigItem) a);
         }
     }
 

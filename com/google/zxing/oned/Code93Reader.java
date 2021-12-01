@@ -2,8 +2,6 @@ package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.live.interfaces.player.VideoInfoConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,10 +21,11 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Code93Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -51,7 +50,7 @@ public final class Code93Reader extends OneDReader {
             }
         }
         ALPHABET = ALPHABET_STRING.toCharArray();
-        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, SDKLogTypeConstants.TYPE_FEED_CLICK, 358, 310, 314, 302, 468, 466, 458, SDKLogTypeConstants.TYPE_APO_CLICK, 374, SDKLogTypeConstants.TYPE_LP_DOWNLOAD, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, w0.m0, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, w0.z0, 344, 332, 326, 300, w0.w0, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }
@@ -181,7 +180,7 @@ public final class Code93Reader extends OneDReader {
     private int[] findAsteriskPattern(BitArray bitArray) throws NotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bitArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitArray)) == null) {
             int size = bitArray.getSize();
             int nextSet = bitArray.getNextSet(0);
             Arrays.fill(this.counters, 0);
@@ -220,7 +219,7 @@ public final class Code93Reader extends OneDReader {
     public static char patternToChar(int i2) throws NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65542, null, i2)) != null) {
             return invokeI.charValue;
         }
         int i3 = 0;

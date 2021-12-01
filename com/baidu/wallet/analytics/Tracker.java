@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.utils.NetworkUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +14,7 @@ import com.baidu.wallet.api.WalletApiExt;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Tracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public class Tracker {
 
     public static void sendPerformanceInfoToSensors(@NonNull String str, @NonNull Map<String, String> map, @NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map, context) == null) || WalletApiExt.getInstance().getSensorsAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, map, context) == null) || WalletApiExt.getInstance().getSensorsAdapter() == null) {
             return;
         }
         WalletApiExt.getInstance().getSensorsAdapter().sendPerformanceInfo(map);
@@ -86,7 +85,7 @@ public class Tracker {
 
     public static void send(@NonNull String str, @NonNull Map<String, String> map, @NonNull Map<String, String> map2, @Nullable String str2, @NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, str, map, map2, str2, context) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, map, map2, str2, context) == null) {
             ArrayList arrayList = new ArrayList(map.size() + 2);
             arrayList.add(new RestNameValuePair("type", str));
             for (Map.Entry<String, String> entry : map.entrySet()) {

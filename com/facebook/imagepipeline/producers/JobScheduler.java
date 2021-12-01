@@ -3,7 +3,6 @@ package com.facebook.imagepipeline.producers;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -45,7 +44,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -85,13 +84,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i2);
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -126,7 +125,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -302,11 +301,11 @@ public class JobScheduler {
         }
     }
 
-    private void enqueueJob(long j) {
+    private void enqueueJob(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            if (j > 0) {
-                JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+            if (j2 > 0) {
+                JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j2, TimeUnit.MILLISECONDS);
             } else {
                 this.mSubmitJobRunnable.run();
             }
@@ -314,25 +313,25 @@ public class JobScheduler {
     }
 
     private void onJobFinished() {
-        long j;
+        long j2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
             synchronized (this) {
                 if (this.mJobState == JobState.RUNNING_AND_PENDING) {
-                    j = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                    j2 = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
                     z = true;
                     this.mJobSubmitTime = uptimeMillis;
                     this.mJobState = JobState.QUEUED;
                 } else {
                     this.mJobState = JobState.IDLE;
-                    j = 0;
+                    j2 = 0;
                     z = false;
                 }
             }
             if (z) {
-                enqueueJob(j - uptimeMillis);
+                enqueueJob(j2 - uptimeMillis);
             }
         }
     }
@@ -340,7 +339,7 @@ public class JobScheduler {
     public static boolean shouldProcess(EncodedImage encodedImage, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, encodedImage, i2)) == null) ? BaseConsumer.isLast(i2) || BaseConsumer.statusHasFlag(i2, 4) || EncodedImage.isValid(encodedImage) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, encodedImage, i2)) == null) ? BaseConsumer.isLast(i2) || BaseConsumer.statusHasFlag(i2, 4) || EncodedImage.isValid(encodedImage) : invokeLI.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -366,13 +365,13 @@ public class JobScheduler {
 
     public synchronized long getQueuedTime() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                j = this.mJobStartTime - this.mJobSubmitTime;
+                j2 = this.mJobStartTime - this.mJobSubmitTime;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

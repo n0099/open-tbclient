@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.api.plugin.f;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TTFileProvider extends FileProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +33,10 @@ public class TTFileProvider extends FileProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean onCreate = super.onCreate();
-            g.f62588a.execute(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.TTFileProvider.1
+            g.a.execute(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.TTFileProvider.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTFileProvider f62477a;
+                public final /* synthetic */ TTFileProvider a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,14 +53,14 @@ public class TTFileProvider extends FileProvider {
                             return;
                         }
                     }
-                    this.f62477a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.a(this.f62477a.getContext()).a();
+                        f.a(this.a.getContext()).a();
                     }
                 }
             });

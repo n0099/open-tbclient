@@ -1,9 +1,9 @@
 package com.google.ar.core;
 
 import android.os.Bundle;
-import b.h.c.a.l;
-import b.h.c.a.m;
-import b.h.c.a.q;
+import c.i.c.a.l;
+import c.i.c.a.m;
+import c.i.c.a.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f64033a;
+    public final /* synthetic */ AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ q f64034b;
+    public final /* synthetic */ q f55972b;
 
     public x(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -37,8 +35,8 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.f64034b = qVar;
-        this.f64033a = atomicBoolean;
+        this.f55972b = qVar;
+        this.a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -51,44 +49,44 @@ public final class x extends com.google.a.b.a.a.a.e {
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f64033a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.a.getAndSet(true)) {
             return;
         }
         int i2 = bundle.getInt("error.code", -100);
         int i3 = bundle.getInt("install.status", 0);
         if (i3 == 4) {
-            this.f64034b.f33814f.a(p.f64030c);
+            this.f55972b.f30530f.a(p.f55970c);
         } else if (i2 != 0) {
             StringBuilder sb = new StringBuilder(51);
             sb.append("requestInstall = ");
             sb.append(i2);
             sb.append(", launching fullscreen.");
             sb.toString();
-            q qVar = this.f64034b;
-            l lVar = qVar.f33815g;
-            l.n(qVar.f33813e, qVar.f33814f);
+            q qVar = this.f55972b;
+            l lVar = qVar.f30531g;
+            l.n(qVar.f30529e, qVar.f30530f);
         } else if (bundle.containsKey("resolution.intent")) {
-            q qVar2 = this.f64034b;
-            l lVar2 = qVar2.f33815g;
-            l.b(qVar2.f33813e, bundle, qVar2.f33814f);
+            q qVar2 = this.f55972b;
+            l lVar2 = qVar2.f30531g;
+            l.b(qVar2.f30529e, bundle, qVar2.f30530f);
         } else if (i3 != 10) {
             switch (i3) {
                 case 1:
                 case 2:
                 case 3:
-                    this.f64034b.f33814f.a(p.f64028a);
+                    this.f55972b.f30530f.a(p.a);
                     return;
                 case 4:
-                    this.f64034b.f33814f.a(p.f64030c);
+                    this.f55972b.f30530f.a(p.f55970c);
                     return;
                 case 5:
-                    this.f64034b.f33814f.b(new FatalException("Unexpected FAILED install status without error."));
+                    this.f55972b.f30530f.b(new FatalException("Unexpected FAILED install status without error."));
                     return;
                 case 6:
-                    this.f64034b.f33814f.a(p.f64029b);
+                    this.f55972b.f30530f.a(p.f55969b);
                     return;
                 default:
-                    m mVar = this.f64034b.f33814f;
+                    m mVar = this.f55972b.f30530f;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i3);
@@ -96,7 +94,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                     return;
             }
         } else {
-            this.f64034b.f33814f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+            this.f55972b.f30530f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
         }
     }
 

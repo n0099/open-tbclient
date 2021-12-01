@@ -18,22 +18,20 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHToolGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f59374a;
+    public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLayout f59375b;
+    public FlowLayout f52674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f59376c;
+    public NetImageView f52675c;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<BaseItemView> f59377e;
+    public List<BaseItemView> f52676e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHToolGroup(Context context) {
@@ -53,15 +51,15 @@ public class CHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59374a = 4;
-        this.f59377e = new ArrayList();
+        this.a = 4;
+        this.f52676e = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59377e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52676e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -69,8 +67,8 @@ public class CHToolGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tools_layout"), this);
-            this.f59375b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
-            this.f59376c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
+            this.f52674b = (FlowLayout) findViewById(ResUtils.id(getContext(), "ch_tools_layout"));
+            this.f52675c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tools_bg"));
         }
     }
 
@@ -92,18 +90,18 @@ public class CHToolGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             int length = dataItemArr.length <= 4 ? dataItemArr.length : 4;
-            this.f59375b.setHorizontalChildNum(length);
-            this.f59375b.setHorizontalSpacing(0);
-            this.f59375b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
+            this.f52674b.setHorizontalChildNum(length);
+            this.f52674b.setHorizontalSpacing(0);
+            this.f52674b.setChildViewHeight(DisplayUtils.dip2px(getContext(), 80.0f));
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHToolItem cHToolItem = new CHToolItem(getContext());
                     cHToolItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f59375b.addView(cHToolItem);
-                    this.f59377e.add(cHToolItem);
+                    this.f52674b.addView(cHToolItem);
+                    this.f52676e.add(cHToolItem);
                 }
             }
-            NetImageView netImageView = this.f59376c;
+            NetImageView netImageView = this.f52675c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_background);
         }
     }
@@ -127,7 +125,7 @@ public class CHToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59374a = 4;
-        this.f59377e = new ArrayList();
+        this.a = 4;
+        this.f52676e = new ArrayList();
     }
 }

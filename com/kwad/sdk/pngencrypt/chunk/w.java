@@ -12,12 +12,16 @@ public class w extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66865h;
+    public int f58765h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66866i;
-    public int j;
-    public int k;
+    public int f58766i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58767j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f58768k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,36 +49,36 @@ public class w extends aa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = this.f66810e.f66894f ? 1 : 3;
-            return this.f66810e.f66893e ? i2 + 1 : i2;
+            int i2 = this.f58700e.f58798f ? 1 : 3;
+            return this.f58700e.f58797e ? i2 + 1 : i2;
         }
         return invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        int a2;
+        int a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f66829a != c()) {
+            if (dVar.a != c()) {
                 throw new PngjException("bad chunk length " + dVar);
             }
-            if (this.f66810e.f66894f) {
-                this.f66865h = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 0);
-                if (!this.f66810e.f66893e) {
+            if (this.f58700e.f58798f) {
+                this.f58765h = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 0);
+                if (!this.f58700e.f58797e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 1);
+                a = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 1);
             } else {
-                this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 0);
-                this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 1);
-                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 2);
-                if (!this.f66810e.f66893e) {
+                this.f58767j = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 0);
+                this.f58768k = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 1);
+                this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 2);
+                if (!this.f58700e.f58797e) {
                     return;
                 }
-                a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f66832d, 3);
+                a = com.kwad.sdk.pngencrypt.n.a(dVar.f58722d, 3);
             }
-            this.f66866i = a2;
+            this.f58766i = a;
         }
     }
 }

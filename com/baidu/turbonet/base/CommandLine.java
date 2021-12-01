@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class CommandLine {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<CommandLine> f57291a;
+    public static final AtomicReference<CommandLine> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +29,7 @@ public abstract class CommandLine {
             }
         }
         new ArrayList();
-        f57291a = new AtomicReference<>();
+        a = new AtomicReference<>();
     }
 
     public CommandLine() {
@@ -51,7 +49,7 @@ public abstract class CommandLine {
     public static CommandLine a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f57291a.get() : (CommandLine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.get() : (CommandLine) invokeV.objValue;
     }
 
     public static native void nativeAppendSwitch(String str);

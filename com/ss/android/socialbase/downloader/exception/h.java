@@ -11,15 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final h f70230a;
+    public static final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f70231b;
+    public static final h f61768b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ h[] f70232c;
+    public static final /* synthetic */ h[] f61769c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +33,10 @@ public final class h {
                 return;
             }
         }
-        f70230a = new h("RETURN", 0);
+        a = new h("RETURN", 0);
         h hVar = new h("CONTINUE", 1);
-        f70231b = hVar;
-        f70232c = new h[]{f70230a, hVar};
+        f61768b = hVar;
+        f61769c = new h[]{a, hVar};
     }
 
     public h(String str, int i2) {
@@ -69,6 +67,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f70232c.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f61769c.clone() : (h[]) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.dxmpay.wallet.core.beans.BeanConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDL_KEY_BANKINFO_EXTRA = "baidu.wallet.listbankcard.extra";
@@ -59,7 +59,7 @@ public final class Constants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class InterfaceId {
         public static final /* synthetic */ InterfaceId[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

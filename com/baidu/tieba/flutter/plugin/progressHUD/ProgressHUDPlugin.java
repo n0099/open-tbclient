@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.progressHUD;
 
 import androidx.annotation.NonNull;
-import b.a.e.a.h;
-import b.a.e.f.p.l;
-import b.a.r0.t0.a.i.f;
+import c.a.d.a.h;
+import c.a.d.f.p.l;
+import c.a.r0.z0.a.i.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ProgressHUDPlugin implements FlutterPlugin, ProgressHUDAuto.HostProgressHUD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

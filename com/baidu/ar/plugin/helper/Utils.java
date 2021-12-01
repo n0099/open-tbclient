@@ -3,7 +3,6 @@ package com.baidu.ar.plugin.helper;
 import android.app.ActivityManager;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM = "MD5";
@@ -146,7 +145,7 @@ public class Utils {
     public static String getProcessName(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                 if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i2) {
                     return runningAppProcessInfo.processName;
@@ -160,7 +159,7 @@ public class Utils {
     public static String md5(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
             try {
                 return toHex(MessageDigest.getInstance("MD5").digest(bArr));
             } catch (NoSuchAlgorithmException unused) {

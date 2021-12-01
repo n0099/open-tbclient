@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.mobstat.bm;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,19 +27,17 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f42464a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f42465b;
+    public static s f37506b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f42466c;
+    public Handler f37507c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +52,7 @@ public class s {
                 return;
             }
         }
-        f42464a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
@@ -71,9 +68,9 @@ public class s {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.f38366a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.a);
         handlerThread.start();
-        this.f42466c = new Handler(handlerThread.getLooper());
+        this.f37507c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -85,7 +82,7 @@ public class s {
                     return true;
                 }
                 try {
-                    a(context, f42464a, str);
+                    a(context, a, str);
                     return true;
                 } catch (Exception e2) {
                     bb.c().c(e2);
@@ -100,14 +97,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f42465b == null) {
+            if (f37506b == null) {
                 synchronized (s.class) {
-                    if (f42465b == null) {
-                        f42465b = new s();
+                    if (f37506b == null) {
+                        f37506b = new s();
                     }
                 }
             }
-            return f42465b;
+            return f37506b;
         }
         return (s) invokeV.objValue;
     }
@@ -120,18 +117,16 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f42466c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f37507c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f42467a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f42468b;
+                public final /* synthetic */ Context f37508b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f42469c;
+                public final /* synthetic */ s f37509c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,9 +143,9 @@ public class s {
                             return;
                         }
                     }
-                    this.f42469c = this;
-                    this.f42467a = str;
-                    this.f42468b = context;
+                    this.f37509c = this;
+                    this.a = str;
+                    this.f37508b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -158,11 +153,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f42469c.a(this.f42467a);
-                            if (this.f42468b == null) {
+                            this.f37509c.a(this.a);
+                            if (this.f37508b == null) {
                                 return;
                             }
-                            this.f42469c.a(this.f42468b.getApplicationContext());
+                            this.f37509c.a(this.f37508b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }
@@ -193,9 +188,7 @@ public class s {
                 Arrays.sort(listFiles, new Comparator<File>(this) { // from class: com.baidu.mobstat.s.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f42470a;
+                    public final /* synthetic */ s a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,7 +205,7 @@ public class s {
                                 return;
                             }
                         }
-                        this.f42470a = this;
+                        this.a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -279,10 +272,10 @@ public class s {
         d2.setDoOutput(true);
         d2.setInstanceFollowRedirects(false);
         d2.setUseCaches(false);
-        d2.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
+        d2.setRequestProperty("Content-Encoding", "gzip");
         try {
             JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject("he");
-            d2.setRequestProperty("Content-Type", AsyncHttpClient.ENCODING_GZIP);
+            d2.setRequestProperty("Content-Type", "gzip");
             d2.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
             d2.setRequestProperty("mtj_os", "Android");
             d2.setRequestProperty("mtj_pn", jSONObject.getString("pn"));
@@ -346,14 +339,14 @@ public class s {
         }
     }
 
-    public static byte[] a(long j, int i2) {
+    public static byte[] a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                bArr[(i2 - i3) - 1] = (byte) (255 & j);
-                j >>= 8;
+                bArr[(i2 - i3) - 1] = (byte) (255 & j2);
+                j2 >>= 8;
             }
             return bArr;
         }

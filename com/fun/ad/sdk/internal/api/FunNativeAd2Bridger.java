@@ -5,11 +5,11 @@ import android.view.View;
 import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunNativeAd2Bridger<A, B extends View> {
-    B createExpressView(A a2);
+    B createExpressView(A a);
 
-    void showCustom(Activity activity, CustomInflater customInflater, String str, A a2, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
+    void showCustom(Activity activity, CustomInflater customInflater, String str, A a, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
 
-    void showExpress(Activity activity, ExpressInflater expressInflater, String str, A a2, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
+    void showExpress(Activity activity, ExpressInflater expressInflater, String str, A a, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
 }

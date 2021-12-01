@@ -1,10 +1,8 @@
 package com.baidu.ugc.editvideo.data;
 
-import b.a.x0.t.e;
-import b.a.x0.t.l;
-import b.a.x0.t.w;
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-import com.baidu.adp.widget.VerticalTranslateLayout;
+import c.a.x0.t.e;
+import c.a.x0.t.l;
+import c.a.x0.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -15,13 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TextWordsEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,11 +28,11 @@ public class TextWordsEntity {
     public List<TextStyleEntity> mCoverStyleList;
     public List<TextColorEntity> mCoverTextColorList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class StyleBackgroudInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("alpha")
+        @SerializedName(AnimationProperty.OPACITY)
         public String mBackgroudAlpha;
         @SerializedName("bottom")
         public int mBackgroudBottom;
@@ -43,9 +42,9 @@ public class TextWordsEntity {
         public String mBackgroudImageUrl;
         @SerializedName("left")
         public int mBackgroudLeft;
-        @SerializedName(HorizontalTranslateLayout.RIGHT)
+        @SerializedName("right")
         public int mBackgroudRight;
-        @SerializedName(VerticalTranslateLayout.TOP)
+        @SerializedName("top")
         public int mBackgroudTop;
         @SerializedName("width")
         public int mBackgroudWidth;
@@ -86,12 +85,12 @@ public class TextWordsEntity {
                 StyleBackgroudInfoEntity styleBackgroudInfoEntity = new StyleBackgroudInfoEntity();
                 try {
                     styleBackgroudInfoEntity.mBackgroudColor = jSONObject.optString("color");
-                    styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString("alpha");
+                    styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString(AnimationProperty.OPACITY);
                     styleBackgroudInfoEntity.mBackgroudImageUrl = jSONObject.optString("imageUrl");
                     styleBackgroudInfoEntity.mLocalParentFile = jSONObject.optString("localParentFile");
                     styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt("left");
-                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt(VerticalTranslateLayout.TOP);
-                    styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt(HorizontalTranslateLayout.RIGHT);
+                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt("top");
+                    styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt("right");
                     styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt("bottom");
                     styleBackgroudInfoEntity.mBackgroudWidth = jSONObject.optInt("width");
                     styleBackgroudInfoEntity.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE);
@@ -136,12 +135,12 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleBackgroudInfoEntity.mBackgroudColor);
-                    jSONObject.put("alpha", styleBackgroudInfoEntity.mBackgroudAlpha);
+                    jSONObject.put(AnimationProperty.OPACITY, styleBackgroudInfoEntity.mBackgroudAlpha);
                     jSONObject.put("imageUrl", styleBackgroudInfoEntity.mBackgroudImageUrl);
                     jSONObject.put("localParentFile", styleBackgroudInfoEntity.mLocalParentFile);
                     jSONObject.put("left", styleBackgroudInfoEntity.mBackgroudLeft);
-                    jSONObject.put(VerticalTranslateLayout.TOP, styleBackgroudInfoEntity.mBackgroudTop);
-                    jSONObject.put(HorizontalTranslateLayout.RIGHT, styleBackgroudInfoEntity.mBackgroudRight);
+                    jSONObject.put("top", styleBackgroudInfoEntity.mBackgroudTop);
+                    jSONObject.put("right", styleBackgroudInfoEntity.mBackgroudRight);
                     jSONObject.put("bottom", styleBackgroudInfoEntity.mBackgroudBottom);
                     jSONObject.put("width", styleBackgroudInfoEntity.mBackgroudWidth);
                     jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, styleBackgroudInfoEntity.mImageType);
@@ -204,11 +203,11 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class StyleShadowInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("alpha")
+        @SerializedName(AnimationProperty.OPACITY)
         public String mShadowAlpha;
         @SerializedName("blur")
         public String mShadowBlur;
@@ -245,7 +244,7 @@ public class TextWordsEntity {
                 StyleShadowInfoEntity styleShadowInfoEntity = new StyleShadowInfoEntity();
                 try {
                     styleShadowInfoEntity.mShadowColor = jSONObject.optString("color");
-                    styleShadowInfoEntity.mShadowAlpha = jSONObject.optString("alpha");
+                    styleShadowInfoEntity.mShadowAlpha = jSONObject.optString(AnimationProperty.OPACITY);
                     styleShadowInfoEntity.mShadowOffsetX = jSONObject.optString("offset_x");
                     styleShadowInfoEntity.mShadowOffsetY = jSONObject.optString("offset_y");
                     styleShadowInfoEntity.mShadowBlur = jSONObject.optString("blur");
@@ -267,7 +266,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleShadowInfoEntity.mShadowColor);
-                    jSONObject.put("alpha", styleShadowInfoEntity.mShadowAlpha);
+                    jSONObject.put(AnimationProperty.OPACITY, styleShadowInfoEntity.mShadowAlpha);
                     jSONObject.put("offset_x", styleShadowInfoEntity.mShadowOffsetX);
                     jSONObject.put("offset_y", styleShadowInfoEntity.mShadowOffsetY);
                     jSONObject.put("blur", styleShadowInfoEntity.mShadowBlur);
@@ -280,11 +279,11 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class StyleStrokeInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("alpha")
+        @SerializedName(AnimationProperty.OPACITY)
         public String mStrokeAlpha;
         @SerializedName("color")
         public String mStrokeColor;
@@ -315,7 +314,7 @@ public class TextWordsEntity {
                 StyleStrokeInfoEntity styleStrokeInfoEntity = new StyleStrokeInfoEntity();
                 try {
                     styleStrokeInfoEntity.mStrokeColor = jSONObject.optString("color");
-                    styleStrokeInfoEntity.mStrokeAlpha = jSONObject.optString("alpha");
+                    styleStrokeInfoEntity.mStrokeAlpha = jSONObject.optString(AnimationProperty.OPACITY);
                     styleStrokeInfoEntity.mStrokeWidth = jSONObject.optString("width");
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -335,7 +334,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleStrokeInfoEntity.mStrokeColor);
-                    jSONObject.put("alpha", styleStrokeInfoEntity.mStrokeAlpha);
+                    jSONObject.put(AnimationProperty.OPACITY, styleStrokeInfoEntity.mStrokeAlpha);
                     jSONObject.put("width", styleStrokeInfoEntity.mStrokeWidth);
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -346,11 +345,11 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class StyleTextInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("alpha")
+        @SerializedName(AnimationProperty.OPACITY)
         public String mTextAlpha;
         @SerializedName("color")
         public String mTextColor;
@@ -379,7 +378,7 @@ public class TextWordsEntity {
                 StyleTextInfoEntity styleTextInfoEntity = new StyleTextInfoEntity();
                 try {
                     styleTextInfoEntity.mTextColor = jSONObject.optString("color");
-                    styleTextInfoEntity.mTextAlpha = jSONObject.optString("alpha");
+                    styleTextInfoEntity.mTextAlpha = jSONObject.optString(AnimationProperty.OPACITY);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -398,7 +397,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", styleTextInfoEntity.mTextColor);
-                    jSONObject.put("alpha", styleTextInfoEntity.mTextAlpha);
+                    jSONObject.put(AnimationProperty.OPACITY, styleTextInfoEntity.mTextAlpha);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -408,7 +407,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class TextColorEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -440,7 +439,7 @@ public class TextWordsEntity {
                 TextColorEntity textColorEntity = new TextColorEntity();
                 try {
                     textColorEntity.mColor = jSONObject.optString("color");
-                    String optString = jSONObject.optString("alpha");
+                    String optString = jSONObject.optString(AnimationProperty.OPACITY);
                     textColorEntity.mAlpha = optString;
                     textColorEntity.mColorInfo = e.b(textColorEntity.mColor, optString);
                 } catch (Exception e2) {
@@ -461,7 +460,7 @@ public class TextWordsEntity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("color", textColorEntity.mColor);
-                    jSONObject.put("alpha", textColorEntity.mAlpha);
+                    jSONObject.put(AnimationProperty.OPACITY, textColorEntity.mAlpha);
                     jSONObject.put("color_info", textColorEntity.mColorInfo);
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -472,7 +471,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class TextFontEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -591,7 +590,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class TextStyleEntity {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TEXT_STYLE_TYPE_1 = 1;

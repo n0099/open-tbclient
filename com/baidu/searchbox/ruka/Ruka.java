@@ -2,7 +2,6 @@ package com.baidu.searchbox.ruka;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Ruka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;
@@ -73,16 +72,16 @@ public final class Ruka {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
     }
 
-    public static void setProcessLaunchTime(long j) {
+    public static void setProcessLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
-            sProcessLaunchTime = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
+            sProcessLaunchTime = j2;
         }
     }
 
     public static void startAnrMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             if (AppConfig.isDebug()) {
                 IANRMonitor aNRMonitor = ANRProvider.getANRMonitor();
                 String str = "IANRMonitor = " + aNRMonitor.getClass().getSimpleName();
@@ -162,7 +161,7 @@ public final class Ruka {
 
     public static void startBlockMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             startBlockMonitor(context, 2000);
         }
     }

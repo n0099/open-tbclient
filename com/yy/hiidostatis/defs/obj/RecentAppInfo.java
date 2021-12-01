@@ -7,9 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RecentAppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class RecentAppInfo {
             try {
                 String string = jSONObject.getString("name");
                 String string2 = jSONObject.getString("pkg");
-                Long valueOf = Long.valueOf(jSONObject.getLong("ts"));
+                Long valueOf = Long.valueOf(jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING));
                 int i2 = jSONObject.getInt("type");
                 if (string2 == null || string2.isEmpty() || valueOf == null) {
                     return null;
@@ -82,10 +83,10 @@ public class RecentAppInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
     }
 
-    public void setLastModified(long j) {
+    public void setLastModified(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.lastModified = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.lastModified = j2;
         }
     }
 
@@ -120,7 +121,7 @@ public class RecentAppInfo {
                     jSONObject.put("name", this.name);
                 }
                 jSONObject.put("pkg", this.pkg);
-                jSONObject.put("ts", this.lastModified);
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.lastModified);
                 jSONObject.put("type", this.type);
                 return jSONObject;
             } catch (Throwable th) {

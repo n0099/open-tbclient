@@ -18,29 +18,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.channel.ks.R;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.ks.w;
+import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
-public class KSNativeAdVideoH5OpenView extends w {
+/* loaded from: classes2.dex */
+public class KSNativeAdVideoH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63713b;
+    public TextView f55700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f63714c;
+    public FrameLayout f55701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f63715d;
+    public ImageView f55702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f63716e;
+    public TextView f55703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f63717f;
+    public Button f55704f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -105,27 +105,27 @@ public class KSNativeAdVideoH5OpenView extends w {
         }
     }
 
-    @Override // com.fun.module.ks.w
+    @Override // com.fun.module.ks.x
     public void a(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            this.f63783a.clear();
-            this.f63783a.addAll(arrayList);
+            this.a.clear();
+            this.a.addAll(arrayList);
             View videoView = ksNativeAd.getVideoView(getContext(), new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
             LogPrinter.e("KSNativeAd video videoView: " + videoView, new Object[0]);
             if (videoView != null && videoView.getParent() != null) {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f63714c.removeAllViews();
-                this.f63714c.addView(videoView);
+                this.f55701c.removeAllViews();
+                this.f55701c.addView(videoView);
             }
-            this.f63715d.setImageBitmap(getSdkLogo());
-            this.f63713b.setText(ksNativeAd.getAdDescription());
-            this.f63716e.setText(ksNativeAd.getAdSource());
-            this.f63717f.setText(ksNativeAd.getActionDescription());
+            this.f55702d.setImageBitmap(getSdkLogo());
+            this.f55700b.setText(ksNativeAd.getAdDescription());
+            this.f55703e.setText(ksNativeAd.getAdSource());
+            this.f55704f.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -134,11 +134,11 @@ public class KSNativeAdVideoH5OpenView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f63713b = (TextView) findViewById(R.id.ad_description);
-            this.f63714c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f63715d = (ImageView) findViewById(R.id.ad_logo);
-            this.f63716e = (TextView) findViewById(R.id.ad_h5_description);
-            this.f63717f = (Button) findViewById(R.id.ad_h5_open);
+            this.f55700b = (TextView) findViewById(R.id.ad_description);
+            this.f55701c = (FrameLayout) findViewById(R.id.ad_video);
+            this.f55702d = (ImageView) findViewById(R.id.ad_logo);
+            this.f55703e = (TextView) findViewById(R.id.ad_h5_description);
+            this.f55704f = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -147,11 +147,11 @@ public class KSNativeAdVideoH5OpenView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f63714c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55701c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f63714c.setLayoutParams(layoutParams);
+            this.f55701c.setLayoutParams(layoutParams);
         }
     }
 }

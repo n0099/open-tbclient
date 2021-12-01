@@ -15,5 +15,5 @@ public interface c extends l {
 
     c c(byte[] bArr, int i2, int i3) throws IOException;
 
-    c e(long j) throws IOException;
+    c e(long j2) throws IOException;
 }

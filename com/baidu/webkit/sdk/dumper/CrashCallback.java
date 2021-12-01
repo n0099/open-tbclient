@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk.dumper;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface CrashCallback {
-    void onCrash(Context context, String str, int i2, long j, String str2, int i3, String str3);
+    void onCrash(Context context, String str, int i2, long j2, String str2, int i3, String str3);
 }

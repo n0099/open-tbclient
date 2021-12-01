@@ -12,22 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.ActLifecycleCbs;
 import com.baidu.wallet.utils.BdWalletUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PollInitUtils implements ActLifecycleCbs.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int INTERVAL_TIME = 120000;
     public static final String TAG = "PollInitUtils";
     public transient /* synthetic */ FieldHolder $fh;
+    public Boolean a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Boolean f58978a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final PollInitUtils f58979a;
+        public static final PollInitUtils a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +39,7 @@ public class PollInitUtils implements ActLifecycleCbs.a {
                     return;
                 }
             }
-            f58979a = new PollInitUtils();
+            a = new PollInitUtils();
         }
 
         public a() {
@@ -89,13 +85,13 @@ public class PollInitUtils implements ActLifecycleCbs.a {
                 return;
             }
         }
-        this.f58978a = Boolean.TRUE;
+        this.a = Boolean.TRUE;
     }
 
     public static final PollInitUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58979a : (PollInitUtils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (PollInitUtils) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.ActLifecycleCbs.a
@@ -103,7 +99,7 @@ public class PollInitUtils implements ActLifecycleCbs.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, from)) == null) {
-            if (this.f58978a.booleanValue()) {
+            if (this.a.booleanValue()) {
                 LogUtil.d(TAG, "pollinit-触发请求init接口");
                 BdWalletUtils.getInitForPoll(context);
                 return true;
@@ -133,9 +129,9 @@ public class PollInitUtils implements ActLifecycleCbs.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (!TextUtils.isEmpty(str) && "false".equals(str)) {
-                this.f58978a = Boolean.FALSE;
+                this.a = Boolean.FALSE;
             } else {
-                this.f58978a = Boolean.TRUE;
+                this.a = Boolean.TRUE;
             }
         }
     }

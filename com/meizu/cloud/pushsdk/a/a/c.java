@@ -4,23 +4,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f68097a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68098b;
+    public String f60166b;
 
     public c(int i2, String str) {
-        this.f68097a = i2;
-        this.f68098b = str;
+        this.a = i2;
+        this.f60166b = str;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("code", this.f68097a);
-            jSONObject.put("body", this.f68098b);
+            jSONObject.put("code", this.a);
+            jSONObject.put("body", this.f60166b);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

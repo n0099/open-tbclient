@@ -9,12 +9,11 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import androidx.core.view.InputDeviceCompat;
-import b.a.n.c.f;
+import c.a.m.c.f;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -25,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.g;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FALSE = "0";
@@ -60,7 +60,7 @@ public class CommonUtils {
     public static final ConcurrentHashMap<String, String> sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";
@@ -210,7 +210,7 @@ public class CommonUtils {
     public static String getExStorage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             long availableExternalMemorySize = StorageUtils.getAvailableExternalMemorySize();
             long totalExternalMemorySize = StorageUtils.getTotalExternalMemorySize();
             if (availableExternalMemorySize > 0) {
@@ -231,10 +231,10 @@ public class CommonUtils {
     public static String getHeapInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            long j = Runtime.getRuntime().totalMemory() / 1024;
-            long freeMemory = j - (Runtime.getRuntime().freeMemory() / 1024);
-            return (Debug.getNativeHeapAllocatedSize() / 1024) + ";" + freeMemory + ";" + (Debug.getNativeHeapSize() / 1024) + ";" + j + ";" + (Runtime.getRuntime().maxMemory() / 1024);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            long j2 = Runtime.getRuntime().totalMemory() / 1024;
+            long freeMemory = j2 - (Runtime.getRuntime().freeMemory() / 1024);
+            return (Debug.getNativeHeapAllocatedSize() / 1024) + ";" + freeMemory + ";" + (Debug.getNativeHeapSize() / 1024) + ";" + j2 + ";" + (Runtime.getRuntime().maxMemory() / 1024);
         }
         return (String) invokeV.objValue;
     }
@@ -276,9 +276,9 @@ public class CommonUtils {
                 String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                 ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-                long j = memoryInfo.totalMem;
-                if (j > 0) {
-                    j = (j / 1024) / 1024;
+                long j2 = memoryInfo.totalMem;
+                if (j2 > 0) {
+                    j2 = (j2 / 1024) / 1024;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(prop);
@@ -287,7 +287,7 @@ public class CommonUtils {
                 sb.append(";");
                 sb.append(prop3);
                 sb.append(";");
-                sb.append(j >= 0 ? Long.valueOf(j) : "-1");
+                sb.append(j2 >= 0 ? Long.valueOf(j2) : "-1");
                 sMemory = sb.toString().replace("m", "");
             }
             return sMemory;
@@ -335,11 +335,11 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
             Debug.getMemoryInfo(memoryInfo);
-            long j = memoryInfo.dalvikPss;
+            long j2 = memoryInfo.dalvikPss;
             StringBuilder sb = new StringBuilder();
             sb.append(memoryInfo.nativePss);
             sb.append(";");
-            sb.append(j);
+            sb.append(j2);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -731,7 +731,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             String prop = RomUtils.getProp("ro.product.model");
             if (!TextUtils.isEmpty(prop) && !prop.toLowerCase().contains("sdk") && !prop.toLowerCase().contains("google_sdk") && !prop.contains("Emulator")) {
-                String prop2 = RomUtils.getProp("ro.product.manufacturer");
+                String prop2 = RomUtils.getProp(g.q);
                 if (!TextUtils.isEmpty(prop2) && !prop2.toLowerCase().contains("unknown") && !prop2.contains("Genymotion")) {
                     String prop3 = RomUtils.getProp("ro.product.device");
                     if (!TextUtils.isEmpty(prop3) && !prop3.toLowerCase().contains("generic")) {

@@ -139,9 +139,9 @@ public class SingleClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void closeIdleConnections(long j, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -182,9 +182,9 @@ public class SingleClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
+    public void releaseConnection(ManagedClientConnection managedClientConnection, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j2), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

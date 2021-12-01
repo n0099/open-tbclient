@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PassInfoMocker implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,18 +19,16 @@ public class PassInfoMocker implements NoProguard {
     public String mMockedStoken;
 
     /* renamed from: com.baidu.wallet.passport.PassInfoMocker$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static PassInfoMocker f60333a;
+        public static PassInfoMocker a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +44,7 @@ public class PassInfoMocker implements NoProguard {
                     return;
                 }
             }
-            f60333a = new PassInfoMocker(null);
+            a = new PassInfoMocker(null);
         }
 
         public a() {
@@ -71,7 +69,7 @@ public class PassInfoMocker implements NoProguard {
     public static PassInfoMocker getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60333a : (PassInfoMocker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (PassInfoMocker) invokeV.objValue;
     }
 
     public String getMockedBduss() {

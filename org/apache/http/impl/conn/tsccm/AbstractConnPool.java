@@ -58,9 +58,9 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public void closeIdleConnections(long j, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -74,12 +74,12 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit);
+    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j2, TimeUnit timeUnit);
 
-    public final BasicPoolEntry getEntry(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit) throws ConnectionPoolTimeoutException, InterruptedException {
+    public final BasicPoolEntry getEntry(HttpRoute httpRoute, Object obj, long j2, TimeUnit timeUnit) throws ConnectionPoolTimeoutException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{httpRoute, obj, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{httpRoute, obj, Long.valueOf(j2), timeUnit})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (BasicPoolEntry) invokeCommon.objValue;

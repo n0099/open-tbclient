@@ -1,21 +1,19 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import b.a.r0.y1.c.h;
-import b.a.r0.y1.c.k.p;
+import c.a.r0.e2.c.h;
+import c.a.r0.e2.c.k.p;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RankViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public h f52435a;
+    public h a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RankViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,16 +33,16 @@ public class RankViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f52435a = new h(view, baseFragmentActivity);
+        this.a = new h(view, baseFragmentActivity);
     }
 
     public void fillView(p pVar) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) || pVar == null || (hVar = this.f52435a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) || pVar == null || (hVar = this.a) == null) {
             return;
         }
         hVar.c(pVar);
-        this.f52435a.f();
+        this.a.f();
     }
 }

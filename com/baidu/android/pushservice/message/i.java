@@ -13,39 +13,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f36626a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36627b;
+    public String f32846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36628c;
+    public String f32847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36629d;
+    public String f32848d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36630e;
+    public String f32849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36631f;
+    public String f32850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36632g;
+    public String f32851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36633h;
+    public String f32852h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36634i;
-    public String j;
-    public int k;
+    public String f32853i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f32854j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f32855k;
     public String l;
     public String m;
 
@@ -70,18 +72,18 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             PublicMsg publicMsg = new PublicMsg();
             try {
-                publicMsg.mMsgId = this.j;
-                publicMsg.mAppId = this.f36634i;
-                if (TextUtils.isEmpty(this.f36632g) && TextUtils.isEmpty(this.f36633h)) {
-                    publicMsg.mTitle = this.f36630e;
-                    publicMsg.mDescription = this.f36631f;
-                    publicMsg.mUrl = this.f36626a;
-                    str = this.f36628c;
+                publicMsg.mMsgId = this.f32854j;
+                publicMsg.mAppId = this.f32853i;
+                if (TextUtils.isEmpty(this.f32851g) && TextUtils.isEmpty(this.f32852h)) {
+                    publicMsg.mTitle = this.f32849e;
+                    publicMsg.mDescription = this.f32850f;
+                    publicMsg.mUrl = this.a;
+                    str = this.f32847c;
                 } else {
-                    publicMsg.mTitle = this.f36632g;
-                    publicMsg.mDescription = this.f36633h;
-                    publicMsg.mUrl = this.f36627b;
-                    str = this.f36629d;
+                    publicMsg.mTitle = this.f32851g;
+                    publicMsg.mDescription = this.f32852h;
+                    publicMsg.mUrl = this.f32846b;
+                    str = this.f32848d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
@@ -132,13 +134,13 @@ public class i {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (!jSONObject.isNull("Appid")) {
-                        this.f36634i = jSONObject.getString("Appid");
+                        this.f32853i = jSONObject.getString("Appid");
                     }
                     if (!jSONObject.isNull("Msgid")) {
-                        this.j = jSONObject.getString("Msgid");
+                        this.f32854j = jSONObject.getString("Msgid");
                     }
                     if (!jSONObject.isNull("Type")) {
-                        this.k = jSONObject.getInt("Type");
+                        this.f32855k = jSONObject.getInt("Type");
                     }
                     if (!jSONObject.isNull("msgBody")) {
                         this.l = jSONObject.getString("msgBody");

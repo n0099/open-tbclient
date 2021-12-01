@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -217,11 +217,11 @@ public class i {
         return invokeCommon.booleanValue;
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            com.baidu.ar.h.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j);
-            FaceJniClient.destoryFrame(j);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            com.baidu.ar.h.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j2);
+            FaceJniClient.destoryFrame(j2);
         }
     }
 
@@ -358,13 +358,13 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? dW() : invokeV.booleanValue;
     }
 
-    public void q(long j) {
+    public void q(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048602, this, j) == null) || (algoHandleController = this.cb) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) || (algoHandleController = this.cb) == null) {
             return;
         }
-        algoHandleController.destroyHandle(j);
+        algoHandleController.destroyHandle(j2);
     }
 
     public boolean release() {

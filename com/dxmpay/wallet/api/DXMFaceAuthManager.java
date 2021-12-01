@@ -3,8 +3,7 @@ package com.dxmpay.wallet.api;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.e.a.d.a;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.f.a.d.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +20,12 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.dxmpay.wallet.statistics.impl.StatConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DXMFaceAuthManager implements IFaceAuthAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final DXMFaceAuthManager instance;
@@ -129,7 +128,7 @@ public class DXMFaceAuthManager implements IFaceAuthAPI {
 
     private void initUA(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
             BeanConstants.CHANNEL_ID = str;
             String str2 = "BaiduWallet-" + BeanConstants.VERSION_NO + "-Android-" + BeanConstants.CHANNEL_ID;
             BeanConstants.SDK_VERSION = str2;

@@ -23,13 +23,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String[] f61871a;
+    public final String[] a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +42,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f61871a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -58,7 +56,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f61871a;
+            String[] strArr = this.a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -98,9 +96,7 @@ public final class b extends g {
                         AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new DialogInterface.OnClickListener(this) { // from class: com.baidu.webkit.internal.b.b.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f61873a;
+                            public final /* synthetic */ b a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -117,7 +113,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f61873a = this;
+                                this.a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
@@ -129,9 +125,7 @@ public final class b extends g {
                         }).setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.webkit.internal.b.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f61872a;
+                            public final /* synthetic */ b a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -148,7 +142,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f61872a = this;
+                                this.a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnCancelListener
@@ -162,12 +156,10 @@ public final class b extends g {
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this, show) { // from class: com.baidu.webkit.internal.b.b.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f61874a;
+                            public final /* synthetic */ AlertDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f61875b;
+                            public final /* synthetic */ b f54249b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,8 +176,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f61875b = this;
-                                this.f61874a = show;
+                                this.f54249b = this;
+                                this.a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -193,7 +185,7 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f61874a.dismiss();
+                                        this.a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }

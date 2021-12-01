@@ -6,12 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dj {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f71719a;
+    public static volatile dj a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,20 +33,20 @@ public class dj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f71719a == null) {
+            if (a == null) {
                 synchronized (dj.class) {
-                    if (f71719a == null) {
-                        f71719a = new dj();
+                    if (a == null) {
+                        a = new dj();
                     }
                 }
             }
-            return f71719a;
+            return a;
         }
         return (dj) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public di m249a() {
+    public di m298a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f243a : (di) invokeV.objValue;

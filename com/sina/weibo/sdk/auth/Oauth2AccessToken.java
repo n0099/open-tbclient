@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +58,7 @@ public class Oauth2AccessToken {
     public static Oauth2AccessToken parseAccessToken(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str) || str.indexOf(StringUtil.ARRAY_START) < 0) {
                 return null;
             }
@@ -82,7 +81,7 @@ public class Oauth2AccessToken {
 
     private void setPhoneNum(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             this.mPhoneNum = str;
         }
     }
@@ -144,10 +143,10 @@ public class Oauth2AccessToken {
         setExpiresTime(System.currentTimeMillis() + (Long.parseLong(str) * 1000));
     }
 
-    public void setExpiresTime(long j) {
+    public void setExpiresTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mExpiresTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mExpiresTime = j2;
         }
     }
 

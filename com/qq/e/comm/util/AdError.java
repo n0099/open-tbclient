@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdError {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f68994a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68995b;
+    public String f60889b;
 
     public AdError() {
         Interceptable interceptable = $ic;
@@ -46,19 +44,19 @@ public class AdError {
                 return;
             }
         }
-        this.f68994a = i2;
-        this.f68995b = str;
+        this.a = i2;
+        this.f60889b = str;
     }
 
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68994a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68995b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60889b : (String) invokeV.objValue;
     }
 }

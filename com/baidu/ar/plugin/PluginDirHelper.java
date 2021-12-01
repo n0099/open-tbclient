@@ -3,7 +3,6 @@ package com.baidu.ar.plugin;
 import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic;
     public static File sBaseDir;
@@ -95,13 +94,13 @@ public class PluginDirHelper {
     public static String getContextDataDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? new File(new File(Environment.getDataDirectory(), "data/").getPath(), context.getPackageName()).getPath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new File(new File(Environment.getDataDirectory(), "data/").getPath(), context.getPackageName()).getPath() : (String) invokeL.objValue;
     }
 
     public static String getPluginApkDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "apk")) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "apk")) : (String) invokeLL.objValue;
     }
 
     public static String getPluginApkFile(Context context, String str) {

@@ -14,9 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f65829a;
+    public boolean a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context) {
@@ -84,7 +82,7 @@ public class g extends RecyclerView {
     public void removeDetachedView(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            boolean z2 = this.f65829a;
+            boolean z2 = this.a;
             super.removeDetachedView(view, z);
         }
     }
@@ -92,7 +90,7 @@ public class g extends RecyclerView {
     public void setIngoreTmpDetachedFlag(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f65829a = z;
+            this.a = z;
         }
     }
 }

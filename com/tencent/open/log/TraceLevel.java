@@ -1,5 +1,5 @@
 package com.tencent.open.log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TraceLevel {
     public static final int ABOVE_DEBUG = 60;
     public static final int ABOVE_INFO = 56;

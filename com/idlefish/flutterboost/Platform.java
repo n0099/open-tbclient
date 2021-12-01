@@ -8,6 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
+import io.flutter.embedding.android.FlutterEngineProvider;
+import io.flutter.embedding.android.FlutterView;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class Platform {
@@ -39,13 +42,21 @@ public abstract class Platform {
 
     public abstract String dartEntrypoint();
 
+    public abstract FlutterEngineProvider flutterEngineProvider();
+
     public abstract Application getApplication();
+
+    public abstract Class<? extends FlutterView> getFlutterViewClass();
 
     public abstract String initialRoute();
 
     public abstract boolean isDebug();
 
     public abstract void openContainer(Context context, String str, Map<String, Object> map, int i2, Map<String, Object> map2);
+
+    public abstract FlutterView.RenderMode renderMode();
+
+    public abstract List<String> shellArgs();
 
     public abstract int whenEngineStart();
 }

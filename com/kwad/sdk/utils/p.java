@@ -1,262 +1,124 @@
 package com.kwad.sdk.utils;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.loader.Loader;
+import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class p {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f67628a;
+    /* renamed from: b  reason: collision with root package name */
+    public static String f59660b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f59661c = "";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes2.dex */
-    public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f67629a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final T f67630b;
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835260, "Lcom/kwad/sdk/utils/p;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835260, "Lcom/kwad/sdk/utils/p;");
-                return;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1510835260, "Lcom/kwad/sdk/utils/p;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1510835260, "Lcom/kwad/sdk/utils/p;");
+        }
+    }
+
+    public p() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        HashMap hashMap = new HashMap();
-        f67628a = hashMap;
-        hashMap.put(Boolean.class, Boolean.TYPE);
-        f67628a.put(Byte.class, Byte.TYPE);
-        f67628a.put(Character.class, Character.TYPE);
-        f67628a.put(Short.class, Short.TYPE);
-        f67628a.put(Integer.class, Integer.TYPE);
-        f67628a.put(Float.class, Float.TYPE);
-        f67628a.put(Long.class, Long.TYPE);
-        f67628a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f67628a;
-        Class<?> cls = Boolean.TYPE;
-        map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f67628a;
-        Class<?> cls2 = Byte.TYPE;
-        map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f67628a;
-        Class<?> cls3 = Character.TYPE;
-        map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f67628a;
-        Class<?> cls4 = Short.TYPE;
-        map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f67628a;
-        Class<?> cls5 = Integer.TYPE;
-        map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f67628a;
-        Class<?> cls6 = Float.TYPE;
-        map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f67628a;
-        Class<?> cls7 = Long.TYPE;
-        map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f67628a;
-        Class<?> cls8 = Double.TYPE;
-        map8.put(cls8, cls8);
     }
 
-    public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
+    public static String a(int i2) {
+        InterceptResult invokeI;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, b(objArr)) : (T) invokeLLL.objValue;
-    }
-
-    public static <T> T a(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, str)) == null) {
-            try {
-                return (T) b(obj, str);
-            } catch (Throwable th) {
-                throw a(th);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
+                com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey context is null");
+                return "";
             }
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static <T> T a(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, str, objArr)) == null) {
-            try {
-                return (T) b(obj, str, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static <T> T a(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr)) == null) {
-            try {
-                return (T) a(Class.forName(str), str2, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static RuntimeException a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th)) == null) ? th instanceof RuntimeException ? (RuntimeException) th : new RuntimeException(th) : (RuntimeException) invokeL.objValue;
-    }
-
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, clsArr)) == null) {
-            Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
-            if (a2 != null) {
-                a2.setAccessible(true);
-                return a2;
-            } else if (cls.getSuperclass() != null) {
-                return a((Class<?>) cls.getSuperclass(), str, clsArr);
+            if (i2 == 0) {
+                str = a;
+                str2 = GrowthConstant.UBC_KEY_AES_KEY;
+            } else if (i2 == 1) {
+                str = f59660b;
+                str2 = "rsa_public_key";
+            } else if (i2 != 2) {
+                str = "";
+                str2 = str;
             } else {
-                throw new NoSuchMethodException();
+                str = f59661c;
+                str2 = "rsa_private_key";
             }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, methodArr, str, clsArr)) == null) {
-            if (str != null) {
-                for (Method method : methodArr) {
-                    if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
-                        return method;
-                    }
+            if (TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(str2)) {
+                    com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey get id is error ");
                 }
-                return null;
-            }
-            throw new NullPointerException("Method name must not be null.");
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, clsArr, clsArr2)) == null) {
-            if (clsArr == null) {
-                return clsArr2 == null || clsArr2.length == 0;
-            } else if (clsArr2 == null) {
-                return clsArr.length == 0;
-            } else if (clsArr.length != clsArr2.length) {
-                return false;
-            } else {
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f67628a.containsKey(clsArr[i2]) || !f67628a.get(clsArr[i2]).equals(f67628a.get(clsArr2[i2])))) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Class<?>[] a(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    clsArr[i2] = obj == null ? null : obj.getClass();
-                } else {
-                    clsArr[i2] = ((a) obj).f67629a;
-                }
-            }
-            return clsArr;
-        }
-        return (Class[]) invokeL.objValue;
-    }
-
-    public static <T> T b(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, str)) == null) {
-            Class<?> cls = obj.getClass();
-            Field field = null;
-            while (field == null) {
                 try {
-                    field = cls.getDeclaredField(str);
-                    field.setAccessible(true);
-                    continue;
-                } catch (NoSuchFieldException unused) {
-                    cls = cls.getSuperclass();
-                    continue;
-                }
-                if (cls == null) {
-                    throw new NoSuchFieldException();
+                    InputStream open = Loader.get().getExternalResource().getAssets().open("ksad_common_encrypt_image.png");
+                    if (open == null) {
+                        open = context.getAssets().open("ksad_common_encrypt_image.png");
+                    }
+                    String a2 = a(str2, open);
+                    if (TextUtils.isEmpty(a2)) {
+                        com.kwad.sdk.core.d.a.e("EncryptUtils", "EncryptUtils getKey get encryptedKey is invalid ");
+                    }
+                    if (i2 == 0) {
+                        a = a2;
+                    } else if (i2 == 1) {
+                        f59660b = a2;
+                    } else if (i2 == 2) {
+                        f59661c = a2;
+                    }
+                    return a2;
                 }
             }
-            field.setAccessible(true);
-            return (T) field.get(obj);
+            return str;
         }
-        return (T) invokeLL.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public static <T> T b(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
+    public static String a(String str, InputStream inputStream) {
+        InterceptResult invokeLL;
+        String b2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr)) : (T) invokeLLL.objValue;
-    }
-
-    public static Object[] b(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            synchronized (p.class) {
+                com.kwad.sdk.pngencrypt.o oVar = new com.kwad.sdk.pngencrypt.o(inputStream, true);
+                oVar.c();
+                b2 = oVar.b().b(str);
+                oVar.d();
             }
-            Object[] objArr2 = new Object[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    objArr2[i2] = obj;
-                } else {
-                    objArr2[i2] = ((a) obj).f67630b;
-                }
-            }
-            return objArr2;
+            return b2;
         }
-        return (Object[]) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

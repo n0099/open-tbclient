@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ch extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f71672a;
+    public final /* synthetic */ cg a;
 
     public ch(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -32,12 +30,12 @@ public class ch extends ai.a {
                 return;
             }
         }
-        this.f71672a = cgVar;
+        this.a = cgVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100957" : (String) invokeV.objValue;
@@ -53,21 +51,21 @@ public class ch extends ai.a {
         ArrayList<cg.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.f71672a.f180a;
+            arrayList = this.a.f180a;
             synchronized (arrayList) {
-                arrayList2 = this.f71672a.f180a;
+                arrayList2 = this.a.f180a;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.f71672a.f180a;
+                    arrayList3 = this.a.f180a;
                     if (arrayList3.size() > 1) {
-                        cg cgVar = this.f71672a;
-                        arrayList6 = this.f71672a.f180a;
+                        cg cgVar = this.a;
+                        arrayList6 = this.a.f180a;
                         cgVar.a(arrayList6);
                     } else {
-                        cg cgVar2 = this.f71672a;
-                        arrayList4 = this.f71672a.f180a;
+                        cg cgVar2 = this.a;
+                        arrayList4 = this.a.f180a;
                         cgVar2.b((cg.a) arrayList4.get(0));
                     }
-                    arrayList5 = this.f71672a.f180a;
+                    arrayList5 = this.a.f180a;
                     arrayList5.clear();
                     System.gc();
                 }

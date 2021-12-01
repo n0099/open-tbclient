@@ -1,128 +1,114 @@
 package com.kwai.filedownloader.e;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.filedownloader.f.c;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileOutputStream;
-import java.io.RandomAccessFile;
+import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public class b implements com.kwai.filedownloader.e.a {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final BufferedOutputStream f67869a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f67870b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final RandomAccessFile f67871c;
-
     /* loaded from: classes2.dex */
-    public static class a implements c.e {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
+        public static final AtomicInteger a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        /* renamed from: b  reason: collision with root package name */
+        public final String f59985b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final ThreadGroup f59986c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final AtomicInteger f59987d;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1272842141, "Lcom/kwai/filedownloader/e/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1272842141, "Lcom/kwai/filedownloader/e/b$a;");
+                    return;
+                }
+            }
+            a = new AtomicInteger(1);
+        }
+
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
+            this.f59987d = new AtomicInteger(1);
+            this.f59986c = Thread.currentThread().getThreadGroup();
+            this.f59985b = f.i(str);
         }
 
-        @Override // com.kwai.filedownloader.f.c.e
-        public com.kwai.filedownloader.e.a a(File file) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? new b(file) : (com.kwai.filedownloader.e.a) invokeL.objValue;
-        }
-
-        @Override // com.kwai.filedownloader.f.c.e
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                ThreadGroup threadGroup = this.f59986c;
+                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f59985b + this.f59987d.getAndIncrement(), 0L);
+                if (thread.isDaemon()) {
+                    thread.setDaemon(false);
+                }
+                if (thread.getPriority() != 5) {
+                    thread.setPriority(5);
+                }
+                return thread;
             }
-            return invokeV.booleanValue;
+            return (Thread) invokeL.objValue;
         }
     }
 
-    public b(File file) {
+    public static ThreadPoolExecutor a(int i2, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        this.f67871c = randomAccessFile;
-        this.f67870b = randomAccessFile.getFD();
-        this.f67869a = new BufferedOutputStream(new FileOutputStream(this.f67871c.getFD()));
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, str)) == null) ? a(i2, new LinkedBlockingQueue(), str) : (ThreadPoolExecutor) invokeIL.objValue;
     }
 
-    @Override // com.kwai.filedownloader.e.a
-    public void a() {
+    public static ThreadPoolExecutor a(int i2, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f67869a.flush();
-            this.f67870b.sync();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i2, linkedBlockingQueue, str)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+            return threadPoolExecutor;
         }
+        return (ThreadPoolExecutor) invokeILL.objValue;
     }
 
-    @Override // com.kwai.filedownloader.e.a
-    public void a(long j) {
+    public static ThreadPoolExecutor a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f67871c.seek(j);
-        }
-    }
-
-    @Override // com.kwai.filedownloader.e.a
-    public void a(byte[] bArr, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-            this.f67869a.write(bArr, i2, i3);
-        }
-    }
-
-    @Override // com.kwai.filedownloader.e.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f67869a.close();
-            this.f67871c.close();
-        }
-    }
-
-    @Override // com.kwai.filedownloader.e.a
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f67871c.setLength(j);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 15L, TimeUnit.SECONDS, new SynchronousQueue(), new a(str)) : (ThreadPoolExecutor) invokeL.objValue;
     }
 }

@@ -13,21 +13,19 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f62130a;
+    public static Map<String, Field> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Method> f62131b;
+    public static Map<String, Method> f54453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Constructor> f62132c;
+    public static Map<String, Constructor> f54454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, Class> f62133d;
+    public static Map<String, Class> f54455d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,10 +41,10 @@ public final class a {
                 return;
             }
         }
-        f62130a = new HashMap();
-        f62131b = new HashMap();
-        f62132c = new HashMap();
-        f62133d = new HashMap();
+        a = new HashMap();
+        f54453b = new HashMap();
+        f54454c = new HashMap();
+        f54455d = new HashMap();
         try {
             FieldUtils.writeField(b.class, "classLoader", (Object) null);
             ZeusLogger.w(ZeusLogger.TAG_INIT, "HackHelper HackHelperImpl use BootClassLoader");
@@ -61,8 +59,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
             String b2 = b(cls, str, clsArr);
-            synchronized (f62131b) {
-                method = f62131b.get(b2);
+            synchronized (f54453b) {
+                method = f54453b.get(b2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -73,8 +71,8 @@ public final class a {
             try {
                 Method a2 = b.a(cls, str, clsArr);
                 if (a2 != null) {
-                    synchronized (f62131b) {
-                        f62131b.put(b2, a2);
+                    synchronized (f54453b) {
+                        f54453b.put(b2, a2);
                     }
                 }
                 return a2;
@@ -113,8 +111,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
             String b2 = b(cls, "clinit", clsArr);
-            synchronized (f62132c) {
-                constructor = f62132c.get(b2);
+            synchronized (f54454c) {
+                constructor = f54454c.get(b2);
             }
             if (constructor != null) {
                 if (!constructor.isAccessible()) {
@@ -125,8 +123,8 @@ public final class a {
             try {
                 Constructor a2 = b.a(cls, clsArr);
                 if (a2 != null) {
-                    synchronized (f62132c) {
-                        f62132c.put(b2, a2);
+                    synchronized (f54454c) {
+                        f54454c.put(b2, a2);
                     }
                 }
                 return a2;
@@ -144,8 +142,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
             String str2 = cls.getName() + "#" + str;
-            synchronized (f62130a) {
-                field = f62130a.get(str2);
+            synchronized (a) {
+                field = a.get(str2);
             }
             if (field != null) {
                 if (!field.isAccessible()) {
@@ -156,8 +154,8 @@ public final class a {
             try {
                 Field a2 = b.a(cls, str);
                 if (a2 != null) {
-                    synchronized (f62130a) {
-                        f62130a.put(str2, a2);
+                    synchronized (a) {
+                        a.put(str2, a2);
                     }
                 }
                 return a2;

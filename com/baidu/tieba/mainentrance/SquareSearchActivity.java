@@ -25,9 +25,9 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.c1.i0;
-import b.a.q0.c1.l0;
-import b.a.q0.s.s.a;
+import c.a.q0.d1.i0;
+import c.a.q0.d1.l0;
+import c.a.q0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -39,7 +39,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -80,7 +79,7 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 @SuppressLint({"ResourceAsColor"})
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> implements HotForumModel.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HOT_FORUM_TOPIC_COLUMN_COUNT = 2;
@@ -100,10 +99,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public String mCreatBarName;
     public CustomMessageListener mCreateBarListener;
     public EditText mEditSearch;
-    public b.a.r0.v1.a mForumSuggestAdapter;
+    public c.a.r0.b2.a mForumSuggestAdapter;
     public HotForumModel mHotForumModel;
     public HotSearchInfoData mHotSearchInfo;
-    public List<b.a.r0.v1.c> mHotTopicList;
+    public List<c.a.r0.b2.c> mHotTopicList;
     public FrameLayout mListLayout;
     public BdListView mListSearchSuggest;
     public FrameLayout mMainLayout;
@@ -115,10 +114,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public LinearLayout mSearchHistoryLayout;
     public ImageView mSearchIcon;
     public String mSearchKey;
-    public b.a.e.c.g.a mSearchListListener;
-    public b.a.r0.v1.h.a mSearchSuggestAdapter;
+    public c.a.d.c.g.a mSearchListListener;
+    public c.a.r0.b2.h.a mSearchSuggestAdapter;
     public View.OnClickListener mSearchTopicClickListener;
-    public b.a.r0.v1.g mSearchTopicViewHolder;
+    public c.a.r0.b2.g mSearchTopicViewHolder;
     public boolean mShouldShowKeyboard;
     public final Runnable mSuggestRunnble;
     public c0 mSuggestTask;
@@ -132,13 +131,11 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public BaseWebView search_result_webview;
     public Runnable showKeyBoard;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements BaseWebView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52235a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         public a(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -155,7 +152,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52235a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.i
@@ -164,17 +161,17 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) || sslError == null) {
                 return;
             }
-            b.a.q0.s.a0.a.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
+            c.a.q0.s.a0.a.a("search", -1L, 0, "ReceivedSslError", 0, "", "requesturl", sslError.getUrl(), "receiveerror", sslError.toString());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a0 implements BaseWebView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52236e;
+        public final /* synthetic */ SquareSearchActivity f46778e;
 
         public a0(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -191,25 +188,25 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52236e = squareSearchActivity;
+            this.f46778e = squareSearchActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) && this.f52236e.isProgressBarShown()) {
-                this.f52236e.hideProgressBar();
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) && this.f46778e.isProgressBarShown()) {
+                this.f46778e.hideProgressBar();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52237e;
+        public final /* synthetic */ SquareSearchActivity f46779e;
 
         public b(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -226,24 +223,22 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52237e = squareSearchActivity;
+            this.f46779e = squareSearchActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) ? UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f52237e.getPageContext(), new String[]{str}) != 3 : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) ? UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f46779e.getPageContext(), new String[]{str}) != 3 : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b0 implements BaseWebView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52238a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         public b0(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -260,25 +255,25 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52238a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) {
-                b.a.q0.s.a0.a.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i2), "description", str);
+                c.a.q0.s.a0.a.a("search", -1L, 0, "ReceivedError", 0, "", "requesturl", str2, "receiveerror", Integer.valueOf(i2), "description", str);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52239e;
+        public final /* synthetic */ SquareSearchActivity f46780e;
 
         public c(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -295,7 +290,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52239e = squareSearchActivity;
+            this.f46780e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -303,30 +298,28 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    b.a.e.f.p.l.x(this.f52239e.getPageContext().getPageActivity(), view);
+                    c.a.d.f.p.l.w(this.f46780e.getPageContext().getPageActivity(), view);
                 } else {
-                    this.f52239e.dealOnClickSearchData();
+                    this.f46780e.dealOnClickSearchData();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c0 extends BdAsyncTask<Object, Integer, ForumSuggestModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public NetWork f52240a;
+        public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f52241b;
+        public String f46781b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BasicNameValuePair f52242c;
+        public BasicNameValuePair f46782c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52243d;
+        public final /* synthetic */ SquareSearchActivity f46783d;
 
         public c0(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
             Interceptable interceptable = $ic;
@@ -343,12 +336,12 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52243d = squareSearchActivity;
-            this.f52240a = null;
-            this.f52241b = null;
-            this.f52242c = null;
-            this.f52241b = str;
-            this.f52242c = basicNameValuePair;
+            this.f46783d = squareSearchActivity;
+            this.a = null;
+            this.f46781b = null;
+            this.f46782c = null;
+            this.f46781b = str;
+            this.f46782c = basicNameValuePair;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -359,15 +352,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 ForumSuggestModel forumSuggestModel = null;
-                if (b.a.e.f.p.j.z()) {
+                if (c.a.d.f.p.j.z()) {
                     try {
-                        NetWork netWork = new NetWork(this.f52241b);
-                        this.f52240a = netWork;
-                        netWork.addPostData(this.f52242c);
-                        String postNetData = this.f52240a.postNetData();
+                        NetWork netWork = new NetWork(this.f46781b);
+                        this.a = netWork;
+                        netWork.addPostData(this.f46782c);
+                        String postNetData = this.a.postNetData();
                         if (postNetData != null) {
                             forumSuggestModel = ForumSuggestModel.parserJson(postNetData);
-                            this.f52243d.lastSearchBarKey = this.f52242c.getValue();
+                            this.f46783d.lastSearchBarKey = this.f46782c.getValue();
                             return forumSuggestModel;
                         }
                         return null;
@@ -387,19 +380,19 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         public void onPostExecute(ForumSuggestModel forumSuggestModel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumSuggestModel) == null) {
-                SquareSearchActivity squareSearchActivity = this.f52243d;
+                SquareSearchActivity squareSearchActivity = this.f46783d;
                 squareSearchActivity.hideLoadingView(squareSearchActivity.mMainLayout);
                 if (forumSuggestModel != null) {
-                    SquareSearchActivity squareSearchActivity2 = this.f52243d;
+                    SquareSearchActivity squareSearchActivity2 = this.f46783d;
                     squareSearchActivity2.setViewGone(squareSearchActivity2.mNoDataView);
-                    this.f52243d.mModelSuggest = forumSuggestModel;
-                    this.f52243d.refresh();
+                    this.f46783d.mModelSuggest = forumSuggestModel;
+                    this.f46783d.refresh();
                 } else {
-                    SquareSearchActivity squareSearchActivity3 = this.f52243d;
+                    SquareSearchActivity squareSearchActivity3 = this.f46783d;
                     squareSearchActivity3.setViewVisible(squareSearchActivity3.mNoDataView);
-                    this.f52243d.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.text_no_search_record));
+                    this.f46783d.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.text_no_search_record));
                 }
-                this.f52243d.mSuggestTask = null;
+                this.f46783d.mSuggestTask = null;
             }
         }
 
@@ -407,12 +400,12 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f52240a;
+                NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f52240a = null;
+                    this.a = null;
                 }
-                SquareSearchActivity squareSearchActivity = this.f52243d;
+                SquareSearchActivity squareSearchActivity = this.f46783d;
                 squareSearchActivity.hideLoadingView(squareSearchActivity.mMainLayout);
                 super.cancel(true);
             }
@@ -421,24 +414,24 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f52243d.checkNetworkAbailableAndSetNetworkErrPrompt()) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f46783d.checkNetworkAbailableAndSetNetworkErrPrompt()) {
                 return;
             }
-            SquareSearchActivity squareSearchActivity = this.f52243d;
+            SquareSearchActivity squareSearchActivity = this.f46783d;
             squareSearchActivity.setViewGone(squareSearchActivity.mNoDataView);
-            SquareSearchActivity squareSearchActivity2 = this.f52243d;
-            squareSearchActivity2.showLoadingView(squareSearchActivity2.mMainLayout, true, this.f52243d.getResources().getDimensionPixelSize(R.dimen.ds320));
-            this.f52243d.mListLayout.setVisibility(8);
+            SquareSearchActivity squareSearchActivity2 = this.f46783d;
+            squareSearchActivity2.showLoadingView(squareSearchActivity2.mMainLayout, true, this.f46783d.getResources().getDimensionPixelSize(R.dimen.ds320));
+            this.f46783d.mListLayout.setVisibility(8);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52244e;
+        public final /* synthetic */ SquareSearchActivity f46784e;
 
         public d(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -455,28 +448,28 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52244e = squareSearchActivity;
+            this.f46784e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f52244e.dealOnClickSearchData();
+                this.f46784e.dealOnClickSearchData();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d0 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f52245e;
+        public String f46785e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52246f;
+        public final /* synthetic */ SquareSearchActivity f46786f;
 
         public d0(SquareSearchActivity squareSearchActivity, String str) {
             Interceptable interceptable = $ic;
@@ -493,37 +486,37 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52246f = squareSearchActivity;
-            this.f52245e = str;
+            this.f46786f = squareSearchActivity;
+            this.f46785e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f52245e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f46785e)) {
                 return;
             }
-            this.f52246f.mSearchKey = this.f52245e;
+            this.f46786f.mSearchKey = this.f46785e;
             TiebaStatic.log(new StatisticItem("c12034"));
-            this.f52246f.doSearch(this.f52245e, true);
+            this.f46786f.doSearch(this.f46785e, true);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52247e;
+        public final /* synthetic */ SquareSearchActivity f46787e;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f52248e;
+            public final /* synthetic */ e f46788e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -540,14 +533,14 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                         return;
                     }
                 }
-                this.f52248e = eVar;
+                this.f46788e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f52248e.f52247e.finish();
+                    this.f46788e.f46787e.finish();
                 }
             }
         }
@@ -567,26 +560,24 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52247e = squareSearchActivity;
+            this.f46787e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.f.p.l.x(this.f52247e.getPageContext().getPageActivity(), this.f52247e.mEditSearch);
-                b.a.e.f.m.e.a().postDelayed(new a(this), 200L);
+                c.a.d.f.p.l.w(this.f46787e.getPageContext().getPageActivity(), this.f46787e.mEditSearch);
+                c.a.d.f.m.e.a().postDelayed(new a(this), 200L);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52249a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         public f(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -603,7 +594,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52249a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -612,18 +603,18 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    if (this.f52249a.mSearchKey == null || this.f52249a.mSearchKey.trim().length() < 1) {
-                        b.a.e.f.p.l.x(this.f52249a.getPageContext().getPageActivity(), this.f52249a.mEditSearch);
-                        if (!this.f52249a.navigateToHotSearch()) {
-                            SquareSearchActivity squareSearchActivity = this.f52249a;
+                    if (this.a.mSearchKey == null || this.a.mSearchKey.trim().length() < 1) {
+                        c.a.d.f.p.l.w(this.a.getPageContext().getPageActivity(), this.a.mEditSearch);
+                        if (!this.a.navigateToHotSearch()) {
+                            SquareSearchActivity squareSearchActivity = this.a;
                             squareSearchActivity.showToast(squareSearchActivity.getResources().getString(R.string.write_keyword));
                         }
                     } else {
-                        String trim = this.f52249a.mEditSearch.getText().toString().trim();
+                        String trim = this.a.mEditSearch.getText().toString().trim();
                         if (!StringUtils.isNull(trim)) {
-                            this.f52249a.doSearch(trim, false);
+                            this.a.doSearch(trim, false);
                         } else {
-                            SquareSearchActivity squareSearchActivity2 = this.f52249a;
+                            SquareSearchActivity squareSearchActivity2 = this.a;
                             squareSearchActivity2.showToast(squareSearchActivity2.getResources().getString(R.string.write_keyword));
                         }
                     }
@@ -635,13 +626,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52250e;
+        public final /* synthetic */ SquareSearchActivity f46789e;
 
         public g(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -658,25 +649,25 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52250e = squareSearchActivity;
+            this.f46789e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f52250e.mEditSearch.setText("");
+                this.f46789e.mEditSearch.setText("");
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class h implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52251e;
+        public final /* synthetic */ SquareSearchActivity f46790e;
 
         public h(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -693,26 +684,26 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52251e = squareSearchActivity;
+            this.f46790e = squareSearchActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.f52251e.isNeedToShowSuggest) {
-                    this.f52251e.mSearchKey = editable.toString();
-                    if (StringUtils.isNull(this.f52251e.mSearchKey)) {
-                        this.f52251e.isFirstSearch = true;
+                if (this.f46790e.isNeedToShowSuggest) {
+                    this.f46790e.mSearchKey = editable.toString();
+                    if (StringUtils.isNull(this.f46790e.mSearchKey)) {
+                        this.f46790e.isFirstSearch = true;
                     }
-                    this.f52251e.showSuggest();
+                    this.f46790e.showSuggest();
                 }
                 if (editable.toString().trim().length() == 0) {
-                    this.f52251e.mButtonDel.setVisibility(8);
+                    this.f46790e.mButtonDel.setVisibility(8);
                 } else {
-                    this.f52251e.mButtonDel.setVisibility(0);
+                    this.f46790e.mButtonDel.setVisibility(0);
                 }
-                SkinManager.setViewTextColor(this.f52251e.mButtonCancelSearch, R.color.CAM_X0302, 1);
+                SkinManager.setViewTextColor(this.f46790e.mButtonCancelSearch, R.color.CAM_X0302, 1);
             }
         }
 
@@ -731,13 +722,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class i implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52252e;
+        public final /* synthetic */ SquareSearchActivity f46791e;
 
         public i(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -754,32 +745,32 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52252e = squareSearchActivity;
+            this.f46791e = squareSearchActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             ListView listView;
             ListAdapter adapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (listView = (ListView) adapterView) == null || (adapter = listView.getAdapter()) == null || adapter.getCount() == 0 || i2 >= adapter.getCount()) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (listView = (ListView) adapterView) == null || (adapter = listView.getAdapter()) == null || adapter.getCount() == 0 || i2 >= adapter.getCount()) {
                 return;
             }
             Object item = adapter.getItem(i2);
             if (item instanceof String) {
-                this.f52252e.doSearch((String) item, true);
-                TiebaStatic.eventStat(this.f52252e.getPageContext().getPageActivity(), "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                this.f46791e.doSearch((String) item, true);
+                TiebaStatic.eventStat(this.f46791e.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class j implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52253e;
+        public final /* synthetic */ SquareSearchActivity f46792e;
 
         public j(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -796,7 +787,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52253e = squareSearchActivity;
+            this.f46792e = squareSearchActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -811,19 +802,19 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
                 if (i2 == 2 || i2 == 1) {
-                    b.a.e.f.p.l.x(this.f52253e.getPageContext().getPageActivity(), absListView);
+                    c.a.d.f.p.l.w(this.f46792e.getPageContext().getPageActivity(), absListView);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52254e;
+        public final /* synthetic */ SquareSearchActivity f46793e;
 
         public k(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -840,26 +831,24 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52254e = squareSearchActivity;
+            this.f46793e = squareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52254e.mEditSearch.requestFocus();
-                b.a.e.f.p.l.K(this.f52254e.getPageContext().getPageActivity(), this.f52254e.mEditSearch);
+                this.f46793e.mEditSearch.requestFocus();
+                c.a.d.f.p.l.K(this.f46793e.getPageContext().getPageActivity(), this.f46793e.mEditSearch);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class l extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52255a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(SquareSearchActivity squareSearchActivity, int i2) {
@@ -879,7 +868,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52255a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -891,35 +880,33 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof ArrayList) {
-                this.f52255a.showHistoryResult((ArrayList) data);
+                this.a.showHistoryResult((ArrayList) data);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class m implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f52256e;
+        public final /* synthetic */ String f46794e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f52257f;
+        public final /* synthetic */ View f46795f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f52258g;
+        public final /* synthetic */ ArrayList f46796g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52259h;
+        public final /* synthetic */ SquareSearchActivity f46797h;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a extends i0<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ m f52260a;
+            public final /* synthetic */ m a;
 
             public a(m mVar) {
                 Interceptable interceptable = $ic;
@@ -936,30 +923,28 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                         return;
                     }
                 }
-                this.f52260a = mVar;
+                this.a = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // b.a.q0.c1.i0
+            @Override // c.a.q0.d1.i0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    b.a.r0.m3.p0.a.h(this.f52260a.f52256e);
+                    c.a.r0.t3.p0.a.h(this.a.f46794e);
                     return Boolean.TRUE;
                 }
                 return (Boolean) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes9.dex */
-        public class b implements b.a.q0.c1.q<Boolean> {
+        /* loaded from: classes10.dex */
+        public class b implements c.a.q0.d1.q<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ m f52261a;
+            public final /* synthetic */ m a;
 
             public b(m mVar) {
                 Interceptable interceptable = $ic;
@@ -976,20 +961,20 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                         return;
                     }
                 }
-                this.f52261a = mVar;
+                this.a = mVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.q0.c1.q
+            @Override // c.a.q0.d1.q
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                    this.f52261a.f52259h.mSearchHistoryLayout.removeView(this.f52261a.f52257f);
-                    m mVar = this.f52261a;
-                    mVar.f52258g.remove(mVar.f52256e);
-                    if (this.f52261a.f52258g.size() <= 0) {
-                        this.f52261a.f52259h.showHistoryResult(null);
+                    this.a.f46797h.mSearchHistoryLayout.removeView(this.a.f46795f);
+                    m mVar = this.a;
+                    mVar.f46796g.remove(mVar.f46794e);
+                    if (this.a.f46796g.size() <= 0) {
+                        this.a.f46797h.showHistoryResult(null);
                     }
                 }
             }
@@ -1010,10 +995,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52259h = squareSearchActivity;
-            this.f52256e = str;
-            this.f52257f = view;
-            this.f52258g = arrayList;
+            this.f46797h = squareSearchActivity;
+            this.f46794e = str;
+            this.f46795f = view;
+            this.f46796g = arrayList;
         }
 
         @Override // android.view.View.OnClickListener
@@ -1025,13 +1010,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class n implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52262e;
+        public final /* synthetic */ SquareSearchActivity f46798e;
 
         public n(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1048,25 +1033,25 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52262e = squareSearchActivity;
+            this.f46798e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f52262e.showClearHistoryDialog();
+                this.f46798e.showClearHistoryDialog();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class o implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52263e;
+        public final /* synthetic */ SquareSearchActivity f46799e;
 
         public o(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1083,15 +1068,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52263e = squareSearchActivity;
+            this.f46799e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.f.p.l.x(this.f52263e.getPageContext().getPageActivity(), this.f52263e.mEditSearch);
-                if (b.a.q0.s0.b.b(this.f52263e.getPageContext())) {
+                c.a.d.f.p.l.w(this.f46799e.getPageContext().getPageActivity(), this.f46799e.mEditSearch);
+                if (c.a.q0.t0.b.b(this.f46799e.getPageContext())) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all")));
@@ -1099,13 +1084,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class p implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52264e;
+        public final /* synthetic */ SquareSearchActivity f46800e;
 
         public p(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1122,11 +1107,11 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52264e = squareSearchActivity;
+            this.f46800e = squareSearchActivity;
         }
 
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -1134,15 +1119,15 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class q implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52265e;
+        public final /* synthetic */ SquareSearchActivity f46801e;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1167,7 +1152,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b.a.r0.m3.p0.a.b();
+                    c.a.r0.t3.p0.a.b();
                 }
             }
         }
@@ -1187,37 +1172,37 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52265e = squareSearchActivity;
+            this.f46801e = squareSearchActivity;
         }
 
-        @Override // b.a.q0.s.s.a.e
-        public void onClick(b.a.q0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                b.a.e.f.m.h.a().b(new a(this));
-                if (this.f52265e.mHotTopicList != null && this.f52265e.mHotTopicList.size() >= 2) {
-                    this.f52265e.showHistoryResult(null);
+                c.a.d.f.m.h.a().b(new a(this));
+                if (this.f46801e.mHotTopicList != null && this.f46801e.mHotTopicList.size() >= 2) {
+                    this.f46801e.showHistoryResult(null);
                     return;
                 }
-                SquareSearchActivity squareSearchActivity = this.f52265e;
+                SquareSearchActivity squareSearchActivity = this.f46801e;
                 squareSearchActivity.setViewVisible(squareSearchActivity.mScrollNoDataView);
-                SquareSearchActivity squareSearchActivity2 = this.f52265e;
+                SquareSearchActivity squareSearchActivity2 = this.f46801e;
                 squareSearchActivity2.setViewVisible(squareSearchActivity2.mNoDataFocusBar);
-                this.f52265e.mListLayout.setVisibility(8);
-                this.f52265e.mNoDataView.setVisibility(0);
-                this.f52265e.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.text_no_search_record));
+                this.f46801e.mListLayout.setVisibility(8);
+                this.f46801e.mNoDataView.setVisibility(0);
+                this.f46801e.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.text_no_search_record));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class r implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52266e;
+        public final /* synthetic */ SquareSearchActivity f46802e;
 
         public r(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1234,36 +1219,34 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52266e = squareSearchActivity;
+            this.f46802e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.f.p.l.x(this.f52266e.getPageContext().getPageActivity(), this.f52266e.mEditSearch);
-                if (view.getTag() instanceof b.a.r0.v1.c) {
-                    b.a.r0.v1.c cVar = (b.a.r0.v1.c) view.getTag();
+                c.a.d.f.p.l.w(this.f46802e.getPageContext().getPageActivity(), this.f46802e.mEditSearch);
+                if (view.getTag() instanceof c.a.r0.b2.c) {
+                    c.a.r0.b2.c cVar = (c.a.r0.b2.c) view.getTag();
                     TiebaStatic.log(new StatisticItem("c10363").param("obj_name", cVar.b()));
-                    if (b.a.q0.s0.b.b(this.f52266e.getPageContext())) {
+                    if (c.a.q0.t0.b.b(this.f46802e.getPageContext())) {
                         return;
                     }
-                    this.f52266e.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f52266e.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(cVar.a()), cVar.b(), "4")));
+                    this.f46802e.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f46802e.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(cVar.a()), cVar.b(), "4")));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class s extends i0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f52267a;
+        public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52268b;
+        public final /* synthetic */ SquareSearchActivity f46803b;
 
         public s(SquareSearchActivity squareSearchActivity, String str) {
             Interceptable interceptable = $ic;
@@ -1280,31 +1263,29 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52268b = squareSearchActivity;
-            this.f52267a = str;
+            this.f46803b = squareSearchActivity;
+            this.a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.r0.m3.p0.a.o(this.f52267a);
+                c.a.r0.t3.p0.a.o(this.a);
                 return Boolean.TRUE;
             }
             return (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class t extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52269a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public t(SquareSearchActivity squareSearchActivity, int i2) {
@@ -1324,7 +1305,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52269a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1333,22 +1314,22 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.f52269a.search_result_webview.getUrl() == null || !this.f52269a.search_result_webview.getUrl().contains(str)) {
+                if (this.a.search_result_webview.getUrl() == null || !this.a.search_result_webview.getUrl().contains(str)) {
                     return;
                 }
-                SquareSearchActivity squareSearchActivity = this.f52269a;
+                SquareSearchActivity squareSearchActivity = this.a;
                 squareSearchActivity.hideLoadingView(squareSearchActivity.mMainLayout);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class u implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52270e;
+        public final /* synthetic */ SquareSearchActivity f46804e;
 
         public u(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1365,40 +1346,38 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52270e = squareSearchActivity;
+            this.f46804e = squareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52270e.checkNetworkAbailableAndSetNetworkErrPrompt()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46804e.checkNetworkAbailableAndSetNetworkErrPrompt()) {
                 return;
             }
             try {
-                if (this.f52270e.mSearchKey == null || this.f52270e.mSearchKey.length() <= 0) {
+                if (this.f46804e.mSearchKey == null || this.f46804e.mSearchKey.length() <= 0) {
                     return;
                 }
                 StringBuffer stringBuffer = new StringBuffer(30);
                 stringBuffer.append(TbConfig.SERVER_ADDRESS);
                 stringBuffer.append("c/f/forum/search");
-                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.f52270e.mSearchKey.trim());
-                this.f52270e.cancelAsyncTask();
-                this.f52270e.mSuggestTask = new c0(this.f52270e, stringBuffer.toString(), basicNameValuePair, true);
-                this.f52270e.mSuggestTask.setPriority(3);
-                this.f52270e.mSuggestTask.execute(stringBuffer.toString(), basicNameValuePair);
+                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.f46804e.mSearchKey.trim());
+                this.f46804e.cancelAsyncTask();
+                this.f46804e.mSuggestTask = new c0(this.f46804e, stringBuffer.toString(), basicNameValuePair, true);
+                this.f46804e.mSuggestTask.setPriority(3);
+                this.f46804e.mSuggestTask.execute(stringBuffer.toString(), basicNameValuePair);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class v extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class v extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52271a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(SquareSearchActivity squareSearchActivity, int i2, int i3) {
@@ -1419,10 +1398,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52271a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -1435,40 +1414,38 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     } else if (responsedMessage instanceof SearchListSocketResMessage) {
                         list = ((SearchListSocketResMessage) responsedMessage).suggests;
                     }
-                    if (this.f52271a.isFirstSearch && responsedMessage.getError() != 0) {
-                        SquareSearchActivity squareSearchActivity = this.f52271a;
+                    if (this.a.isFirstSearch && responsedMessage.getError() != 0) {
+                        SquareSearchActivity squareSearchActivity = this.a;
                         squareSearchActivity.showToast(squareSearchActivity.getActivity().getString(R.string.neterror));
                         return;
                     }
                     if (list != null && list.size() > 0) {
-                        this.f52271a.isFirstSearch = false;
+                        this.a.isFirstSearch = false;
                     }
-                    this.f52271a.setSuggestListVisible();
-                    this.f52271a.mListSearchSuggest.setAdapter((ListAdapter) this.f52271a.mSearchSuggestAdapter);
-                    this.f52271a.mSearchSuggestAdapter.d(this.f52271a.mSearchKey.trim());
-                    this.f52271a.mSearchSuggestAdapter.c(list);
-                    this.f52271a.mSearchSuggestAdapter.notifyDataSetInvalidated();
+                    this.a.setSuggestListVisible();
+                    this.a.mListSearchSuggest.setAdapter((ListAdapter) this.a.mSearchSuggestAdapter);
+                    this.a.mSearchSuggestAdapter.d(this.a.mSearchKey.trim());
+                    this.a.mSearchSuggestAdapter.c(list);
+                    this.a.mSearchSuggestAdapter.notifyDataSetInvalidated();
                     return;
                 }
-                if (b.a.e.f.p.j.z() || !this.f52271a.hasRemindSearchResultForNet) {
-                    SquareSearchActivity squareSearchActivity2 = this.f52271a;
+                if (c.a.d.f.p.j.z() || !this.a.hasRemindSearchResultForNet) {
+                    SquareSearchActivity squareSearchActivity2 = this.a;
                     squareSearchActivity2.showToast(squareSearchActivity2.getActivity().getString(R.string.neterror));
                 }
-                if (b.a.e.f.p.j.z()) {
+                if (c.a.d.f.p.j.z()) {
                     return;
                 }
-                this.f52271a.hasRemindSearchResultForNet = true;
+                this.a.hasRemindSearchResultForNet = true;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class w extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52272a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public w(SquareSearchActivity squareSearchActivity, int i2) {
@@ -1488,7 +1465,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52272a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1496,18 +1473,16 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f52272a.creatBar(customResponsedMessage.getData().toString());
+                this.a.creatBar(customResponsedMessage.getData().toString());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class x implements LinearLayoutDetectsSoftKeyboard.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52273a;
+        public final /* synthetic */ SquareSearchActivity a;
 
         public x(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1524,25 +1499,25 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52273a = squareSearchActivity;
+            this.a = squareSearchActivity;
         }
 
         @Override // com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard.a
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f52273a.mShouldShowKeyboard = z;
+                this.a.mShouldShowKeyboard = z;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class y implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52274e;
+        public final /* synthetic */ SquareSearchActivity f46805e;
 
         public y(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1559,7 +1534,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52274e = squareSearchActivity;
+            this.f46805e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -1568,10 +1543,10 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f52274e.parent.setFocusable(true);
-                    this.f52274e.parent.setFocusableInTouchMode(true);
-                    if (this.f52274e.mEditSearch.hasFocus()) {
-                        b.a.e.f.p.l.x(this.f52274e.getPageContext().getPageActivity(), this.f52274e.mEditSearch);
+                    this.f46805e.parent.setFocusable(true);
+                    this.f46805e.parent.setFocusableInTouchMode(true);
+                    if (this.f46805e.mEditSearch.hasFocus()) {
+                        c.a.d.f.p.l.w(this.f46805e.getPageContext().getPageActivity(), this.f46805e.mEditSearch);
                         return false;
                     }
                     return false;
@@ -1582,13 +1557,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class z implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareSearchActivity f52275e;
+        public final /* synthetic */ SquareSearchActivity f46806e;
 
         public z(SquareSearchActivity squareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -1605,7 +1580,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     return;
                 }
             }
-            this.f52275e = squareSearchActivity;
+            this.f46806e = squareSearchActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -1613,7 +1588,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                b.a.e.f.p.l.x(this.f52275e.getPageContext().getPageActivity(), this.f52275e.mScrollNoDataView);
+                c.a.d.f.p.l.w(this.f46806e.getPageContext().getPageActivity(), this.f46806e.mScrollNoDataView);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -1652,7 +1627,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
-            if (!b.a.e.f.p.j.z()) {
+            if (!c.a.d.f.p.j.z()) {
                 setViewVisible(this.mNoDataView);
                 this.mNoDataView.setTextOption(NoDataViewFactory.e.a(R.string.neterror));
                 return true;
@@ -1667,7 +1642,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public void creatBar(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, this, str) == null) {
-            if (!b.a.e.f.p.j.z()) {
+            if (!c.a.d.f.p.j.z()) {
                 showToast(R.string.neterror);
             } else if (StringUtils.isNull(str)) {
             } else {
@@ -1701,7 +1676,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public void doSearch(String str, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65578, this, str, z2) == null) {
-            if (!b.a.e.f.p.j.z()) {
+            if (!c.a.d.f.p.j.z()) {
                 showToast(R.string.neterror);
             } else if (StringUtils.isNull(str)) {
             } else {
@@ -1711,7 +1686,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                     this.mEditSearch.setSelection(str.length());
                     this.isNeedToShowSuggest = true;
                 }
-                b.a.e.f.p.l.x(getPageContext().getPageActivity(), this.mEditSearch);
+                c.a.d.f.p.l.w(getPageContext().getPageActivity(), this.mEditSearch);
                 this.search_history_scrollview.setVisibility(8);
                 this.mListSearchSuggest.setVisibility(8);
                 this.search_result_webview.setVisibility(0);
@@ -1824,8 +1799,8 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65583, this) == null) {
             this.mListSearchSuggest = (BdListView) findViewById(R.id.home_lv_search_suggest);
-            this.mForumSuggestAdapter = new b.a.r0.v1.a(this, null);
-            this.mSearchSuggestAdapter = new b.a.r0.v1.h.a(getPageContext().getPageActivity(), null);
+            this.mForumSuggestAdapter = new c.a.r0.b2.a(this, null);
+            this.mSearchSuggestAdapter = new c.a.r0.b2.h.a(getPageContext().getPageActivity(), null);
             this.mListSearchSuggest.setOnItemClickListener(new i(this));
             this.mListSearchSuggest.setOnScrollListener(new j(this));
         }
@@ -1834,7 +1809,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     private void initSearchTopicList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65584, this) == null) && this.mSearchTopicViewHolder == null) {
-            b.a.r0.v1.g gVar = new b.a.r0.v1.g(getPageContext());
+            c.a.r0.b2.g gVar = new c.a.r0.b2.g(getPageContext());
             this.mSearchTopicViewHolder = gVar;
             this.search_history_linearlayout.addView(gVar.d());
         }
@@ -1853,7 +1828,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     private void loadHotSearchCache() {
         HotSearchInfoData hotSearchInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65586, this) == null) || (hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(b.a.q0.s.e0.b.j().p("hot_search_info", ""), HotSearchInfoData.class)) == null || hotSearchInfoData.getId() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65586, this) == null) || (hotSearchInfoData = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.q0.s.e0.b.j().p("hot_search_info", ""), HotSearchInfoData.class)) == null || hotSearchInfoData.getId() == 0) {
             return;
         }
         this.mHotSearchInfo = hotSearchInfoData;
@@ -1870,7 +1845,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             }
             if (hotSearchInfoData.getType() == 0) {
                 doSearch(this.mHotSearchInfo.getName(), false);
-            } else if (this.mHotSearchInfo.getType() == 1 && !b.a.q0.s0.b.b(getPageContext())) {
+            } else if (this.mHotSearchInfo.getType() == 1 && !c.a.q0.t0.b.b(getPageContext())) {
                 sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.mHotSearchInfo.getId()), this.mHotSearchInfo.getName(), "4")));
             }
             TiebaStatic.log(new StatisticItem("c10355").param("obj_name", this.mHotSearchInfo.getName()).param("obj_type", this.mHotSearchInfo.getType() == 0 ? 2 : 1));
@@ -2018,7 +1993,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65598, this, arrayList)) == null) {
             if (arrayList == null || arrayList.isEmpty()) {
-                List<b.a.r0.v1.c> list = this.mHotTopicList;
+                List<c.a.r0.b2.c> list = this.mHotTopicList;
                 return (list == null || list.size() <= 2) && this.isRequestHotForumData;
             }
             return false;
@@ -2030,7 +2005,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public void showClearHistoryDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65599, this) == null) {
-            new b.a.q0.s.s.a(getPageContext().getPageActivity()).setMessage(getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(getPageContext().getString(R.string.clear_all_text), new q(this)).setNegativeButton(getPageContext().getString(R.string.cancel), new p(this)).create(getPageContext()).show();
+            new c.a.q0.s.s.a(getPageContext().getPageActivity()).setMessage(getPageContext().getString(R.string.alert_clean_history)).setPositiveButton(getPageContext().getString(R.string.clear_all_text), new q(this)).setNegativeButton(getPageContext().getString(R.string.cancel), new p(this)).create(getPageContext()).show();
         }
     }
 
@@ -2041,7 +2016,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         if (interceptable == null || interceptable.invokeL(65600, this, arrayList) == null) {
             if (shouldShowNoDataView(arrayList)) {
                 setNoDataViewVisible();
-                if (b.a.e.f.p.j.z()) {
+                if (c.a.d.f.p.j.z()) {
                     a2 = NoDataViewFactory.e.a(R.string.text_no_search_record);
                 } else {
                     a2 = NoDataViewFactory.e.a(R.string.neterror);
@@ -2073,7 +2048,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65602, this, hotSearchInfoData) == null) {
             if (hotSearchInfoData != null) {
-                b.a.q0.s.e0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData));
+                c.a.q0.s.e0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData));
                 return;
             }
             HotSearchInfoData hotSearchInfoData2 = new HotSearchInfoData();
@@ -2081,7 +2056,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             hotSearchInfoData2.setName("");
             hotSearchInfoData2.y("");
             hotSearchInfoData2.z(0L);
-            b.a.q0.s.e0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData2));
+            c.a.q0.s.e0.b.j().x("hot_search_info", OrmObject.jsonStrWithObject(hotSearchInfoData2));
         }
     }
 
@@ -2130,13 +2105,13 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     private void updateSearchTopic(boolean z2, boolean z3) {
-        b.a.r0.v1.g gVar;
+        c.a.r0.b2.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65604, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || (gVar = this.mSearchTopicViewHolder) == null) {
             return;
         }
         gVar.c();
-        List<b.a.r0.v1.c> list = this.mHotTopicList;
+        List<c.a.r0.b2.c> list = this.mHotTopicList;
         if (list == null || list.isEmpty() || !z2) {
             return;
         }
@@ -2151,7 +2126,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 size--;
             }
             for (int i2 = 0; i2 < size; i2++) {
-                b.a.r0.v1.c cVar = (b.a.r0.v1.c) ListUtils.getItem(this.mHotTopicList, i2);
+                c.a.r0.b2.c cVar = (c.a.r0.b2.c) ListUtils.getItem(this.mHotTopicList, i2);
                 if (cVar != null) {
                     this.mSearchTopicViewHolder.a(cVar, i2).setOnClickListener(this.mSearchTopicClickListener);
                 }
@@ -2183,14 +2158,14 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                b.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 1);
+                c.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 1);
             } else {
-                b.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 2);
+                c.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 2);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2225,7 +2200,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(this.parent);
             SkinManager.setBgColor(this.parent, i2);
-            b.a.r0.v1.a aVar = this.mForumSuggestAdapter;
+            c.a.r0.b2.a aVar = this.mForumSuggestAdapter;
             if (aVar != null) {
                 aVar.notifyDataSetChanged();
             }
@@ -2239,7 +2214,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             SkinManager.setBackgroundResource(this.mMainLayout, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
-            b.a.r0.v1.g gVar = this.mSearchTopicViewHolder;
+            c.a.r0.b2.g gVar = this.mSearchTopicViewHolder;
             if (gVar != null) {
                 gVar.f(i2);
             }
@@ -2290,7 +2265,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<b.a.r0.v1.b> list, List<b.a.r0.v1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<c.a.r0.b2.b> list, List<c.a.r0.b2.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2, hotSearchInfoData, str) == null) {
             this.isRequestHotForumData = true;

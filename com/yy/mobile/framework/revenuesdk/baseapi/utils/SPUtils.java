@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.baseapi.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SPUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_NAME = "revenuesdk_share_data";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SharedPreferencesCompat {
         public static /* synthetic */ Interceptable $ic;
         public static final Method sApplyMethod;
@@ -170,7 +169,7 @@ public class SPUtils {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, obj) == null) || context == null || str == null || obj == null || (sharedPreferences = context.getSharedPreferences(FILE_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, context, str, obj) == null) || context == null || str == null || obj == null || (sharedPreferences = context.getSharedPreferences(FILE_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         if (obj instanceof String) {
@@ -191,7 +190,7 @@ public class SPUtils {
 
     public static void remove(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) || context == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) || context == null || str == null) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(FILE_NAME, 0).edit();

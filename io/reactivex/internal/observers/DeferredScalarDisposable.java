@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPOSED = 4;

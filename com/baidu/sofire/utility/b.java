@@ -14,7 +14,7 @@ import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,25 +90,25 @@ public final class b {
             while (entries.hasMoreElements()) {
                 JarEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                    Certificate[] a2 = a(jarFile, nextElement, bArr);
-                    if (a2 != null && a2.length > 0) {
+                    Certificate[] a = a(jarFile, nextElement, bArr);
+                    if (a != null && a.length > 0) {
                         if (certificateArr == null) {
-                            certificateArr = a2;
+                            certificateArr = a;
                         } else {
                             while (i2 < certificateArr.length) {
                                 int i3 = 0;
                                 while (true) {
-                                    if (i3 >= a2.length) {
+                                    if (i3 >= a.length) {
                                         z = false;
                                         break;
-                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(a2[i3])) {
+                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(a[i3])) {
                                         z = true;
                                         break;
                                     } else {
                                         i3++;
                                     }
                                 }
-                                i2 = (z && certificateArr.length == a2.length) ? i2 + 1 : 0;
+                                i2 = (z && certificateArr.length == a.length) ? i2 + 1 : 0;
                                 jarFile.close();
                                 return null;
                             }

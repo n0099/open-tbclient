@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.b;
+import c.a.d.f.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

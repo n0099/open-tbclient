@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,10 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public com.baidu.wallet.core.domain.a o;
 
     /* renamed from: com.baidu.wallet.core.domain.DomainConfig$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f58912a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,20 +39,20 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
                 }
             }
             int[] iArr = new int[DomainStrategyType.values().length];
-            f58912a = iArr;
+            a = iArr;
             try {
                 iArr[DomainStrategyType.QA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f58912a[DomainStrategyType.ONLINE.ordinal()] = 2;
+                a[DomainStrategyType.ONLINE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class DomainStrategyType {
         public static final /* synthetic */ DomainStrategyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,12 +111,10 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final DomainConfig f58913a;
+        public static final DomainConfig a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -134,7 +130,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
                     return;
                 }
             }
-            f58913a = new DomainConfig(null);
+            a = new DomainConfig(null);
         }
 
         public a() {
@@ -159,7 +155,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public static DomainConfig getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58913a : (DomainConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (DomainConfig) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
@@ -287,7 +283,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public void setStrategy(DomainStrategyType domainStrategyType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, domainStrategyType) == null) {
-            int i2 = AnonymousClass1.f58912a[domainStrategyType.ordinal()];
+            int i2 = AnonymousClass1.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
                 this.m = this.o;
             } else if (i2 != 2) {
@@ -318,7 +314,7 @@ public class DomainConfig implements com.baidu.wallet.core.domain.a {
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, domainStrategyType, str) == null) {
-            int i2 = AnonymousClass1.f58912a[domainStrategyType.ordinal()];
+            int i2 = AnonymousClass1.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
                 this.m = this.o;
             } else if (i2 == 2) {

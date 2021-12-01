@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes2.dex */
@@ -25,6 +26,14 @@ public interface KsFeedAd {
         @KsAdSdkApi
         @Keep
         void onDislikeClicked();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogDismiss();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogShow();
     }
 
     @KsAdSdkApi
@@ -43,6 +52,10 @@ public interface KsFeedAd {
     @KsAdSdkApi
     @Keep
     int getMaterialType();
+
+    @KsAdSdkApi
+    @Keep
+    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep

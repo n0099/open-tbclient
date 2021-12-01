@@ -23,7 +23,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+@Deprecated
+/* loaded from: classes3.dex */
 public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.RequestPermissionsResultListener, PluginRegistry.ActivityResultListener, PluginRegistry.NewIntentListener, PluginRegistry.UserLeaveHintListener, PluginRegistry.ViewDestroyListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterPluginRegistry";
@@ -40,7 +41,7 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
     public final List<PluginRegistry.UserLeaveHintListener> mUserLeaveHintListeners;
     public final List<PluginRegistry.ViewDestroyListener> mViewDestroyListeners;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class FlutterRegistrar implements PluginRegistry.Registrar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +235,7 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mPlatformViewsController.onFlutterViewDestroyed();
+            this.mPlatformViewsController.onDetachedFromJNI();
         }
     }
 
@@ -242,7 +243,7 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.mPlatformViewsController.detach();
-            this.mPlatformViewsController.onFlutterViewDestroyed();
+            this.mPlatformViewsController.onDetachedFromJNI();
             this.mFlutterView = null;
             this.mActivity = null;
         }

@@ -337,7 +337,7 @@ public abstract class DelegateDialogFragment extends DialogFragment implements I
         }
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // androidx.fragment.app.Fragment
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048609, this, i2, strArr, iArr) == null) {

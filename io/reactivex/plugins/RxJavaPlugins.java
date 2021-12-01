@@ -1,7 +1,6 @@
 package io.reactivex.plugins;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ import io.reactivex.parallel.ParallelFlowable;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadFactory;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RxJavaPlugins {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -150,14 +149,14 @@ public final class RxJavaPlugins {
     public static Scheduler createComputationScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, threadFactory)) == null) ? new ComputationScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) ? new ComputationScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @NonNull
     public static Scheduler createIoScheduler(@NonNull ThreadFactory threadFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, threadFactory)) == null) ? new IoScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, threadFactory)) == null) ? new IoScheduler((ThreadFactory) ObjectHelper.requireNonNull(threadFactory, "threadFactory is null")) : (Scheduler) invokeL.objValue;
     }
 
     @NonNull

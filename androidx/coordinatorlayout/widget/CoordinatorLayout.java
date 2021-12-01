@@ -45,7 +45,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -589,12 +588,12 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static int clamp(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.AD_TEXT_ID, null, i2, i3, i4)) == null) ? i2 < i3 ? i3 : i2 > i4 ? i4 : i2 : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i2, i3, i4)) == null) ? i2 < i3 ? i3 : i2 > i4 ? i4 : i2 : invokeIII.intValue;
     }
 
     private void constrainChildRect(LayoutParams layoutParams, Rect rect, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, this, layoutParams, rect, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65542, this, layoutParams, rect, i2, i3) == null) {
             int width = getWidth();
             int height = getHeight();
             int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, Math.min(rect.left, ((width - getPaddingRight()) - i2) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin));
@@ -1143,10 +1142,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             Behavior behavior = layoutParams.mBehavior;
             if (behavior != null) {
@@ -1165,7 +1164,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     canvas.restoreToCount(save);
                 }
             }
-            return super.drawChild(canvas, view, j);
+            return super.drawChild(canvas, view, j2);
         }
         return invokeCommon.booleanValue;
     }
@@ -2495,7 +2494,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
         private void resolveAnchorView(View view, CoordinatorLayout coordinatorLayout) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, view, coordinatorLayout) == null) {
+            if (interceptable == null || interceptable.invokeLL(65541, this, view, coordinatorLayout) == null) {
                 View findViewById = coordinatorLayout.findViewById(this.mAnchorId);
                 this.mAnchorView = findViewById;
                 if (findViewById == null) {
@@ -2534,7 +2533,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         private boolean shouldDodge(View view, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, view, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, view, i2)) == null) {
                 int absoluteGravity = GravityCompat.getAbsoluteGravity(((LayoutParams) view.getLayoutParams()).insetEdge, i2);
                 return absoluteGravity != 0 && (GravityCompat.getAbsoluteGravity(this.dodgeInsetEdges, i2) & absoluteGravity) == absoluteGravity;
             }

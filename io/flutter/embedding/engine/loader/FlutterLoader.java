@@ -1,8 +1,7 @@
 package io.flutter.embedding.engine.loader;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,52 +11,77 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.FlutterInjector;
+import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.util.PathUtils;
 import io.flutter.view.VsyncWaiter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+/* loaded from: classes3.dex */
 public class FlutterLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AOT_SHARED_LIBRARY_NAME = "aot-shared-library-name";
-    public static final String DEFAULT_AOT_SHARED_LIBRARY_NAME = "libapp.so";
-    public static final String DEFAULT_FLUTTER_ASSETS_DIR = "flutter_assets";
-    public static final String DEFAULT_ISOLATE_SNAPSHOT_DATA = "isolate_snapshot_data";
+    public static final String AUTOMATICALLY_REGISTER_PLUGINS_KEY = "automatically-register-plugins";
     public static final String DEFAULT_KERNEL_BLOB = "kernel_blob.bin";
     public static final String DEFAULT_LIBRARY = "libflutter.so";
-    public static final String DEFAULT_VM_SNAPSHOT_DATA = "vm_snapshot_data";
+    public static final String ENABLE_SKPARAGRAPH_META_DATA_KEY = "io.flutter.embedding.android.EnableSkParagraph";
     public static final String FLUTTER_ASSETS_DIR_KEY = "flutter-assets-dir";
     public static final String ISOLATE_SNAPSHOT_DATA_KEY = "isolate-snapshot-data";
-    public static final String PUBLIC_AOT_SHARED_LIBRARY_NAME;
-    public static final String PUBLIC_FLUTTER_ASSETS_DIR_KEY;
-    public static final String PUBLIC_ISOLATE_SNAPSHOT_DATA_KEY;
-    public static final String PUBLIC_VM_SNAPSHOT_DATA_KEY;
+    public static final String OLD_GEN_HEAP_SIZE_META_DATA_KEY = "io.flutter.embedding.android.OldGenHeapSize";
     public static final String SNAPSHOT_ASSET_PATH_KEY = "snapshot-asset-path";
     public static final String TAG = "FlutterLoader";
     public static final String VM_SNAPSHOT_DATA_KEY = "vm-snapshot-data";
     public static FlutterLoader instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public String aotSharedLibraryName;
-    public String flutterAssetsDir;
-    public boolean initialized;
-    public String isolateSnapshotData;
+    public FlutterApplicationInfo flutterApplicationInfo;
+    public FlutterJNI flutterJNI;
     @Nullable
-    public ResourceExtractor resourceExtractor;
+    public Future<InitResult> initResultFuture;
+    public long initStartTimestampMillis;
+    public boolean initialized;
     @Nullable
     public Settings settings;
-    public String vmSnapshotData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public static class InitResult {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String appStoragePath;
+        public final String dataDirPath;
+        public final String engineCachesPath;
+
+        public InitResult(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.appStoragePath = str;
+            this.engineCachesPath = str2;
+            this.dataDirPath = str3;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,74 +116,40 @@ public class FlutterLoader {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1080064349, "Lio/flutter/embedding/engine/loader/FlutterLoader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1080064349, "Lio/flutter/embedding/engine/loader/FlutterLoader;");
-                return;
-            }
-        }
-        PUBLIC_AOT_SHARED_LIBRARY_NAME = FlutterLoader.class.getName() + '.' + AOT_SHARED_LIBRARY_NAME;
-        PUBLIC_VM_SNAPSHOT_DATA_KEY = FlutterLoader.class.getName() + '.' + VM_SNAPSHOT_DATA_KEY;
-        PUBLIC_ISOLATE_SNAPSHOT_DATA_KEY = FlutterLoader.class.getName() + '.' + ISOLATE_SNAPSHOT_DATA_KEY;
-        PUBLIC_FLUTTER_ASSETS_DIR_KEY = FlutterLoader.class.getName() + '.' + FLUTTER_ASSETS_DIR_KEY;
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FlutterLoader() {
+        this(FlutterInjector.instance().getFlutterJNIFactory().provideFlutterJNI());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                this((FlutterJNI) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.aotSharedLibraryName = DEFAULT_AOT_SHARED_LIBRARY_NAME;
-        this.vmSnapshotData = DEFAULT_VM_SNAPSHOT_DATA;
-        this.isolateSnapshotData = DEFAULT_ISOLATE_SNAPSHOT_DATA;
-        this.flutterAssetsDir = DEFAULT_FLUTTER_ASSETS_DIR;
-        this.initialized = false;
     }
 
     @NonNull
     private String fullAssetPathFrom(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            return this.flutterAssetsDir + File.separator + str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+            return this.flutterApplicationInfo.flutterAssetsDir + File.separator + str;
         }
         return (String) invokeL.objValue;
     }
 
     @NonNull
-    private ApplicationInfo getApplicationInfo(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
-            try {
-                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new RuntimeException(e2);
-            }
-        }
-        return (ApplicationInfo) invokeL.objValue;
-    }
-
-    @NonNull
+    @Deprecated
     public static FlutterLoader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (instance == null) {
                 instance = new FlutterLoader();
             }
@@ -168,56 +158,66 @@ public class FlutterLoader {
         return (FlutterLoader) invokeV.objValue;
     }
 
-    private void initConfig(@NonNull Context context) {
-        Bundle bundle;
+    /* JADX INFO: Access modifiers changed from: private */
+    public ResourceExtractor initResources(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) || (bundle = getApplicationInfo(context).metaData) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
+            return null;
         }
-        this.aotSharedLibraryName = bundle.getString(PUBLIC_AOT_SHARED_LIBRARY_NAME, DEFAULT_AOT_SHARED_LIBRARY_NAME);
-        this.flutterAssetsDir = bundle.getString(PUBLIC_FLUTTER_ASSETS_DIR_KEY, DEFAULT_FLUTTER_ASSETS_DIR);
-        this.vmSnapshotData = bundle.getString(PUBLIC_VM_SNAPSHOT_DATA_KEY, DEFAULT_VM_SNAPSHOT_DATA);
-        this.isolateSnapshotData = bundle.getString(PUBLIC_ISOLATE_SNAPSHOT_DATA_KEY, DEFAULT_ISOLATE_SNAPSHOT_DATA);
+        return (ResourceExtractor) invokeL.objValue;
     }
 
-    private void initResources(@NonNull Context context) {
+    @NonNull
+    public boolean automaticallyRegisterPlugins() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
-            new ResourceCleaner(context).start();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.flutterApplicationInfo.automaticallyRegisterPlugins : invokeV.booleanValue;
     }
 
     public void ensureInitializationComplete(@NonNull Context context, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, strArr) == null) || this.initialized) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, strArr) == null) || this.initialized) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
             if (this.settings != null) {
                 try {
-                    if (this.resourceExtractor != null) {
-                        this.resourceExtractor.waitForCompletion();
-                    }
+                    InitResult initResult = this.initResultFuture.get();
                     ArrayList arrayList = new ArrayList();
                     arrayList.add("--icu-symbol-prefix=_binary_icudtl_dat");
-                    ApplicationInfo applicationInfo = getApplicationInfo(context);
-                    arrayList.add("--icu-native-lib-path=" + applicationInfo.nativeLibraryDir + File.separator + DEFAULT_LIBRARY);
+                    arrayList.add("--icu-native-lib-path=" + this.flutterApplicationInfo.nativeLibraryDir + File.separator + DEFAULT_LIBRARY);
                     if (strArr != null) {
                         Collections.addAll(arrayList, strArr);
                     }
-                    arrayList.add("--aot-shared-library-name=" + this.aotSharedLibraryName);
-                    arrayList.add("--aot-shared-library-name=" + applicationInfo.nativeLibraryDir + File.separator + this.aotSharedLibraryName);
+                    arrayList.add("--aot-shared-library-name=" + this.flutterApplicationInfo.aotSharedLibraryName);
+                    arrayList.add("--aot-shared-library-name=" + this.flutterApplicationInfo.nativeLibraryDir + File.separator + this.flutterApplicationInfo.aotSharedLibraryName);
                     StringBuilder sb = new StringBuilder();
                     sb.append("--cache-dir-path=");
-                    sb.append(PathUtils.getCacheDirectory(context));
+                    sb.append(initResult.engineCachesPath);
                     arrayList.add(sb.toString());
+                    if (this.flutterApplicationInfo.domainNetworkPolicy != null) {
+                        arrayList.add("--domain-network-policy=" + this.flutterApplicationInfo.domainNetworkPolicy);
+                    }
                     if (this.settings.getLogTag() != null) {
                         arrayList.add("--log-tag=" + this.settings.getLogTag());
                     }
-                    FlutterJNI.nativeInit(context, (String[]) arrayList.toArray(new String[0]), null, PathUtils.getFilesDir(context), PathUtils.getCacheDirectory(context));
+                    Bundle bundle = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).metaData;
+                    int i2 = bundle != null ? bundle.getInt(OLD_GEN_HEAP_SIZE_META_DATA_KEY) : 0;
+                    if (i2 == 0) {
+                        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+                        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
+                        i2 = (int) ((memoryInfo.totalMem / 1000000.0d) / 2.0d);
+                    }
+                    arrayList.add("--old-gen-heap-size=" + i2);
+                    if (bundle != null && bundle.getBoolean(ENABLE_SKPARAGRAPH_META_DATA_KEY)) {
+                        arrayList.add("--enable-skparagraph");
+                    }
+                    this.flutterJNI.init(context, (String[]) arrayList.toArray(new String[0]), null, initResult.appStoragePath, initResult.engineCachesPath, SystemClock.uptimeMillis() - this.initStartTimestampMillis);
                     this.initialized = true;
                     return;
                 } catch (Exception e2) {
+                    Log.e(TAG, "Flutter initialization failed.", e2);
                     throw new RuntimeException(e2);
                 }
             }
@@ -228,14 +228,14 @@ public class FlutterLoader {
 
     public void ensureInitializationCompleteAsync(@NonNull Context context, @Nullable String[] strArr, @NonNull Handler handler, @NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, strArr, handler, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, handler, runnable) == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 if (this.settings != null) {
                     if (this.initialized) {
                         handler.post(runnable);
                         return;
                     } else {
-                        new Thread(new Runnable(this, context, strArr, handler, runnable) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.1
+                        Executors.newSingleThreadExecutor().execute(new Runnable(this, context, strArr, handler, runnable) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ FlutterLoader this$0;
@@ -270,46 +270,49 @@ public class FlutterLoader {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    if (this.this$0.resourceExtractor != null) {
-                                        this.this$0.resourceExtractor.waitForCompletion();
-                                    }
-                                    new Handler(Looper.getMainLooper()).post(new Runnable(this) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.1.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass1 this$1;
+                                    try {
+                                        this.this$0.initResultFuture.get();
+                                        new Handler(Looper.getMainLooper()).post(new Runnable(this) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.2.1
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass2 this$1;
 
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i2 = newInitContext.flag;
+                                                    if ((i2 & 1) != 0) {
+                                                        int i3 = i2 & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$1 = this;
+                                            }
+
+                                            @Override // java.lang.Runnable
+                                            public void run() {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                    AnonymousClass2 anonymousClass2 = this.this$1;
+                                                    anonymousClass2.this$0.ensureInitializationComplete(anonymousClass2.val$applicationContext.getApplicationContext(), this.this$1.val$args);
+                                                    AnonymousClass2 anonymousClass22 = this.this$1;
+                                                    anonymousClass22.val$callbackHandler.post(anonymousClass22.val$callback);
                                                 }
                                             }
-                                            this.this$1 = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                AnonymousClass1 anonymousClass1 = this.this$1;
-                                                anonymousClass1.this$0.ensureInitializationComplete(anonymousClass1.val$applicationContext.getApplicationContext(), this.this$1.val$args);
-                                                AnonymousClass1 anonymousClass12 = this.this$1;
-                                                anonymousClass12.val$callbackHandler.post(anonymousClass12.val$callback);
-                                            }
-                                        }
-                                    });
+                                        });
+                                    } catch (Exception e2) {
+                                        Log.e(FlutterLoader.TAG, "Flutter initialization failed.", e2);
+                                        throw new RuntimeException(e2);
+                                    }
                                 }
                             }
-                        }).start();
+                        });
                         return;
                     }
                 }
@@ -323,28 +326,53 @@ public class FlutterLoader {
     public String findAppBundlePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flutterAssetsDir : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.flutterApplicationInfo.flutterAssetsDir : (String) invokeV.objValue;
     }
 
     @NonNull
     public String getLookupKeyForAsset(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? fullAssetPathFrom(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? fullAssetPathFrom(str) : (String) invokeL.objValue;
+    }
+
+    public boolean initialized() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.initialized : invokeV.booleanValue;
     }
 
     public void startInitialization(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             startInitialization(context, new Settings());
         }
+    }
+
+    public FlutterLoader(@NonNull FlutterJNI flutterJNI) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flutterJNI};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.initialized = false;
+        this.flutterJNI = flutterJNI;
     }
 
     @NonNull
     public String getLookupKeyForAsset(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
             return getLookupKeyForAsset("packages" + File.separator + str2 + File.separator + str);
         }
         return (String) invokeLL.objValue;
@@ -352,16 +380,86 @@ public class FlutterLoader {
 
     public void startInitialization(@NonNull Context context, @NonNull Settings settings) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, context, settings) == null) && this.settings == null) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, settings) == null) && this.settings == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 Context applicationContext = context.getApplicationContext();
                 this.settings = settings;
-                long uptimeMillis = SystemClock.uptimeMillis();
-                initConfig(applicationContext);
-                initResources(applicationContext);
-                System.loadLibrary("flutter");
+                this.initStartTimestampMillis = SystemClock.uptimeMillis();
+                this.flutterApplicationInfo = ApplicationInfoLoader.load(applicationContext);
                 VsyncWaiter.getInstance((WindowManager) applicationContext.getSystemService("window")).init();
-                FlutterJNI.nativeRecordStartTimestamp(SystemClock.uptimeMillis() - uptimeMillis);
+                this.initResultFuture = Executors.newSingleThreadExecutor().submit(new Callable<InitResult>(this, applicationContext) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ FlutterLoader this$0;
+                    public final /* synthetic */ Context val$appContext;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, applicationContext};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$appContext = applicationContext;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
+                    @Override // java.util.concurrent.Callable
+                    public InitResult call() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            ResourceExtractor initResources = this.this$0.initResources(this.val$appContext);
+                            this.this$0.flutterJNI.loadLibrary();
+                            Executors.newSingleThreadExecutor().execute(new Runnable(this) { // from class: io.flutter.embedding.engine.loader.FlutterLoader.1.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AnonymousClass1 this$1;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                        this.this$1.this$0.flutterJNI.prefetchDefaultFontManager();
+                                    }
+                                }
+                            });
+                            if (initResources != null) {
+                                initResources.waitForCompletion();
+                            }
+                            return new InitResult(PathUtils.getFilesDir(this.val$appContext), PathUtils.getCacheDirectory(this.val$appContext), PathUtils.getDataDirectory(this.val$appContext));
+                        }
+                        return (InitResult) invokeV.objValue;
+                    }
+                });
                 return;
             }
             throw new IllegalStateException("startInitialization must be called on the main thread");

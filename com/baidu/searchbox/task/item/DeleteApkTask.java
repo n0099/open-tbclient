@@ -2,9 +2,9 @@ package com.baidu.searchbox.task.item;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.h;
+import c.a.d.f.m.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DeleteApkTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR;
@@ -90,7 +90,7 @@ public class DeleteApkTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
                         String name = file2.getName();
-                        return !TextUtils.isEmpty(name) && name.contains(TbadkCoreApplication.getInst().getString(R.string.app_name)) && name.endsWith(".apk");
+                        return !TextUtils.isEmpty(name) && name.contains(TbadkCoreApplication.getInst().getString(R.string.app_name)) && name.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                     }
                     return invokeL.booleanValue;
                 }
@@ -105,7 +105,7 @@ public class DeleteApkTask extends LaunchTask {
 
     public static void deleteH5File() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             String str = DOWNLOAD_DIR + "bdtbWCache";
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {

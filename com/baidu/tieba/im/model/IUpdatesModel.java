@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IUpdatesModel {
     UpdatesItemData convertToUpdatesItem(GroupNewsPojo groupNewsPojo);
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
@@ -33,7 +33,7 @@ public class e extends com.kwad.sdk.core.network.d {
         }
         JSONArray jSONArray = new JSONArray();
         for (ReportAction reportAction : list) {
-            q.a(jSONArray, reportAction.a());
+            t.a(jSONArray, reportAction.a());
         }
         a("actionList", jSONArray);
     }
@@ -42,6 +42,6 @@ public class e extends com.kwad.sdk.core.network.d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.d.c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.d.d() : (String) invokeV.objValue;
     }
 }

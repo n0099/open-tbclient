@@ -5,7 +5,7 @@ public interface d {
 
     boolean a();
 
-    boolean a(long j);
+    boolean a(long j2);
 
     long c();
 

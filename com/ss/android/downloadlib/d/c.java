@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,11 +18,9 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f69687b;
+    public static volatile c f61381b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public SQLiteDatabase f69688a;
+    public SQLiteDatabase a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,7 +36,7 @@ public class c {
             }
         }
         try {
-            this.f69688a = new b(j.getContext()).getWritableDatabase();
+            this.a = new b(j.getContext()).getWritableDatabase();
         } catch (Throwable th) {
             com.ss.android.downloadlib.e.c.a().a(th, "ClickEventHelper");
         }
@@ -49,14 +46,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f69687b == null) {
+            if (f61381b == null) {
                 synchronized (c.class) {
-                    if (f69687b == null) {
-                        f69687b = new c();
+                    if (f61381b == null) {
+                        f61381b = new c();
                     }
                 }
             }
-            return f69687b;
+            return f61381b;
         }
         return (c) invokeV.objValue;
     }
@@ -73,40 +70,40 @@ public class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 2 : invokeV.booleanValue;
     }
 
-    private void c(long j, String str) {
+    private void c(long j2, String str) {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65538, this, j, str) == null) || (sQLiteDatabase = this.f69688a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(65538, this, j2, str) == null) || (sQLiteDatabase = this.a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            String optString = new JSONObject(str).optString(IAdRequestParam.REQ_ID);
+            String optString = new JSONObject(str).optString("req_id");
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            this.f69688a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
+            this.a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString});
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public boolean b(long j, String str) {
+    public boolean b(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str)) == null) {
-            SQLiteDatabase sQLiteDatabase = this.f69688a;
-            if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str)) == null) {
+            SQLiteDatabase sQLiteDatabase = this.a;
+            if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
                 return false;
             }
             Cursor cursor = null;
             try {
                 try {
-                    String optString = new JSONObject(str).optString(IAdRequestParam.REQ_ID);
+                    String optString = new JSONObject(str).optString("req_id");
                     if (TextUtils.isEmpty(optString)) {
                         return false;
                     }
-                    cursor = this.f69688a.query("click_event", b.f69686a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
+                    cursor = this.a.query("click_event", b.a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString}, null, null, null, null);
                     boolean z = cursor.getCount() > 0;
                     if (cursor != null) {
                         cursor.close();
@@ -129,15 +126,15 @@ public class c {
         return invokeJL.booleanValue;
     }
 
-    public void a(long j, String str) {
+    public void a(long j2, String str) {
         SQLiteDatabase sQLiteDatabase;
         String optString;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) || (sQLiteDatabase = this.f69688a) == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) || (sQLiteDatabase = this.a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            optString = new JSONObject(str).optString(IAdRequestParam.REQ_ID);
+            optString = new JSONObject(str).optString("req_id");
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -145,10 +142,10 @@ public class c {
             return;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
-        contentValues.put(IAdRequestParam.REQ_ID, optString);
+        contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j2));
+        contentValues.put("req_id", optString);
         contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-        this.f69688a.insert("click_event", null, contentValues);
-        c(j, str);
+        this.a.insert("click_event", null, contentValues);
+        c(j2, str);
     }
 }

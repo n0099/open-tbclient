@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import b.a.s0.a.a;
+import c.a.s0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ContextUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Context f57292a;
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public ContextUtils() {
@@ -35,13 +33,13 @@ public class ContextUtils {
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f57292a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Context context2 = f57292a;
+            Context context2 = a;
             if (context2 != null && context2 != context) {
                 a.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
             } else {
@@ -53,7 +51,7 @@ public class ContextUtils {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            Context context = f57292a;
+            Context context = a;
             if (context != null) {
                 nativeInitNativeSideApplicationContext(context);
                 return;
@@ -66,7 +64,7 @@ public class ContextUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             if (context != null) {
-                f57292a = context;
+                a = context;
                 return;
             }
             throw new RuntimeException("Global application context cannot be set to null.");

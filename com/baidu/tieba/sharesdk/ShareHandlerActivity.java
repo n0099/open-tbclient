@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
-import b.a.r0.e3.d.a;
-import b.a.r0.e3.d.c;
-import b.a.r0.e3.d.d;
-import b.a.r0.e3.d.e;
-import b.a.r0.e3.d.f;
-import b.a.r0.e3.e.b;
+import c.a.d.f.p.k;
+import c.a.r0.l3.d.a;
+import c.a.r0.l3.d.c;
+import c.a.r0.l3.d.d;
+import c.a.r0.l3.d.e;
+import c.a.r0.l3.d.f;
+import c.a.r0.l3.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static int skinType = 3;
@@ -153,7 +153,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 this.mShareByWeibo = eVar2;
                 this.mCurrentShare = eVar2;
             } else if (i2 == 8) {
-                this.mCurrentShare = new b.a.r0.e3.d.b(this);
+                this.mCurrentShare = new c.a.r0.l3.d.b(this);
             } else if (i2 == 2) {
                 this.mCurrentShare = new f(this, 2);
             } else if (i2 == 3) {
@@ -252,18 +252,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // b.a.r0.e3.e.b
+    @Override // c.a.r0.l3.e.b
     public void onShare(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             if (i3 == 1) {
-                b.a.r0.e3.f.b.b(i2, this.mShareEntity);
+                c.a.r0.l3.f.b.b(i2, this.mShareEntity);
             }
             if (i3 == 3) {
                 if (i2 != 8 && i2 != 6) {
-                    b.a.r0.e3.f.b.a(i2, this.mShareEntity);
+                    c.a.r0.l3.f.b.a(i2, this.mShareEntity);
                 } else {
-                    b.a.r0.e3.f.b.b(i2, this.mShareEntity);
+                    c.a.r0.l3.f.b.b(i2, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {

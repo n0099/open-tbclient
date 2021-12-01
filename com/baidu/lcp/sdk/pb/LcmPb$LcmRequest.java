@@ -3,7 +3,6 @@ package com.baidu.lcp.sdk.pb;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LcmPb$LcmRequest extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_FIELD_NUMBER = 5;
@@ -50,7 +49,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public long timestamp_;
     public Object token_;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends AbstractParser<LcmPb$LcmRequest> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,27 +78,31 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmRequest, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39448e;
+        public int f35172e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f39449f;
+        public long f35173f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f39450g;
+        public Object f35174g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LcmPb$Common f39451h;
+        public LcmPb$Common f35175h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f39452i;
-        public int j;
-        public int k;
+        public long f35176i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public int f35177j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public int f35178k;
         public int l;
 
         public b() {
@@ -115,8 +118,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                     return;
                 }
             }
-            this.f39450g = "";
-            this.f39451h = LcmPb$Common.getDefaultInstance();
+            this.f35174g = "";
+            this.f35175h = LcmPb$Common.getDefaultInstance();
             maybeForceBuilderInitialization();
         }
 
@@ -130,19 +133,19 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f39448e |= 32;
-                this.k = i2;
+                this.f35172e |= 32;
+                this.f35178k = i2;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b B(long j) {
+        public b B(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f39448e |= 8;
-                this.f39452i = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+                this.f35172e |= 8;
+                this.f35176i = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -153,8 +156,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                 if (str != null) {
-                    this.f39448e |= 2;
-                    this.f39450g = str;
+                    this.f35172e |= 2;
+                    this.f35174g = str;
                     return this;
                 }
                 throw null;
@@ -210,30 +213,30 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (b.a.u.a.e.a) null);
-                int i2 = this.f39448e;
+                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (c.a.t.a.e.a) null);
+                int i2 = this.f35172e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                lcmPb$LcmRequest.logId_ = this.f39449f;
+                lcmPb$LcmRequest.logId_ = this.f35173f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                lcmPb$LcmRequest.token_ = this.f39450g;
+                lcmPb$LcmRequest.token_ = this.f35174g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                lcmPb$LcmRequest.common_ = this.f39451h;
+                lcmPb$LcmRequest.common_ = this.f35175h;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                lcmPb$LcmRequest.timestamp_ = this.f39452i;
+                lcmPb$LcmRequest.timestamp_ = this.f35176i;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                lcmPb$LcmRequest.action_ = this.j;
+                lcmPb$LcmRequest.action_ = this.f35177j;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                lcmPb$LcmRequest.startType_ = this.k;
+                lcmPb$LcmRequest.startType_ = this.f35178k;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
@@ -249,25 +252,25 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 super.clear();
-                this.f39449f = 0L;
-                int i2 = this.f39448e & (-2);
-                this.f39448e = i2;
-                this.f39450g = "";
-                this.f39448e = i2 & (-3);
-                this.f39451h = LcmPb$Common.getDefaultInstance();
-                int i3 = this.f39448e & (-5);
-                this.f39448e = i3;
-                this.f39452i = 0L;
+                this.f35173f = 0L;
+                int i2 = this.f35172e & (-2);
+                this.f35172e = i2;
+                this.f35174g = "";
+                this.f35172e = i2 & (-3);
+                this.f35175h = LcmPb$Common.getDefaultInstance();
+                int i3 = this.f35172e & (-5);
+                this.f35172e = i3;
+                this.f35176i = 0L;
                 int i4 = i3 & (-9);
-                this.f39448e = i4;
-                this.j = 0;
+                this.f35172e = i4;
+                this.f35177j = 0;
                 int i5 = i4 & (-17);
-                this.f39448e = i5;
-                this.k = 0;
+                this.f35172e = i5;
+                this.f35178k = 0;
                 int i6 = i5 & (-33);
-                this.f39448e = i6;
+                this.f35172e = i6;
                 this.l = 0;
-                this.f39448e = i6 & (-65);
+                this.f35172e = i6 & (-65);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -299,21 +302,21 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f39448e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f35172e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(LcmPb$Common lcmPb$Common) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, lcmPb$Common)) == null) {
-                if ((this.f39448e & 4) == 4 && this.f39451h != LcmPb$Common.getDefaultInstance()) {
-                    LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder(this.f39451h);
+                if ((this.f35172e & 4) == 4 && this.f35175h != LcmPb$Common.getDefaultInstance()) {
+                    LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder(this.f35175h);
                     newBuilder.s(lcmPb$Common);
-                    this.f39451h = newBuilder.buildPartial();
+                    this.f35175h = newBuilder.buildPartial();
                 } else {
-                    this.f39451h = lcmPb$Common;
+                    this.f35175h = lcmPb$Common;
                 }
-                this.f39448e |= 4;
+                this.f35172e |= 4;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -330,8 +333,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                     z(lcmPb$LcmRequest.getLogId());
                 }
                 if (lcmPb$LcmRequest.hasToken()) {
-                    this.f39448e |= 2;
-                    this.f39450g = lcmPb$LcmRequest.token_;
+                    this.f35172e |= 2;
+                    this.f35174g = lcmPb$LcmRequest.token_;
                 }
                 if (lcmPb$LcmRequest.hasCommon()) {
                     t(lcmPb$LcmRequest.getCommon());
@@ -396,8 +399,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-                this.f39448e |= 16;
-                this.j = i2;
+                this.f35172e |= 16;
+                this.f35177j = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -408,8 +411,8 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, lcmPb$Common)) == null) {
                 if (lcmPb$Common != null) {
-                    this.f39451h = lcmPb$Common;
-                    this.f39448e |= 4;
+                    this.f35175h = lcmPb$Common;
+                    this.f35172e |= 4;
                     return this;
                 }
                 throw null;
@@ -421,19 +424,19 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
-                this.f39448e |= 64;
+                this.f35172e |= 64;
                 this.l = i2;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b z(long j) {
+        public b z(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j)) == null) {
-                this.f39448e |= 1;
-                this.f39449f = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j2)) == null) {
+                this.f35172e |= 1;
+                this.f35173f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -479,7 +482,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         lcmPb$LcmRequest.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b.a.u.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -727,7 +730,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, b.a.u.a.e.a aVar) {
+    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
         this(builder);
     }
 
@@ -824,12 +827,12 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }

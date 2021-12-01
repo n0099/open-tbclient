@@ -3,7 +3,6 @@ package com.baidu.rtc;
 import android.content.Context;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.config.Constraints;
@@ -17,13 +16,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaiduRtcRoom {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<BaiduRtcRoomImp> mInstanceList;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface BaiduRtcRoomDelegate {
         public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
         public static final int RTC_ROOM_EVENTS_LIVE_INTRERRUPT = 118;
@@ -78,19 +77,19 @@ public abstract class BaiduRtcRoom {
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i2, long j, String str);
+        void onRoomEventUpdate(int i2, long j2, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface BaiduRtcRoomVideoObserver {
         void getInputBuffer(int i2, int i3, RtcVideoFormat rtcVideoFormat);
 
-        void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j);
+        void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class RoomInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +115,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RtcLiveTransferMode {
         public static final /* synthetic */ RtcLiveTransferMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -175,7 +174,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class RtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +201,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class RtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +225,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class RtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +249,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RtcSoundMode {
         public static final /* synthetic */ RtcSoundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -310,7 +309,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RtcVideoFormat {
         public static final /* synthetic */ RtcVideoFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -369,7 +368,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class UserList {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -458,14 +457,14 @@ public abstract class BaiduRtcRoom {
 
     public static void setUseTestEnv(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
             BaiduRtcRoomImp.setUseTestEnv(z);
         }
     }
 
     public static void setVerbose(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             BaiduRtcRoomImp.setVerbose(z);
         }
     }
@@ -476,11 +475,11 @@ public abstract class BaiduRtcRoom {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Constraints.version() : (String) invokeV.objValue;
     }
 
-    public abstract void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender);
+    public abstract void addExternalRenderer(long j2, RTCVideoExternalRender rTCVideoExternalRender);
 
     public abstract void cameraFocusWithPoint(int i2, int i3);
 
-    public abstract void changeSurfaceSize(long j, int i2, int i3);
+    public abstract void changeSurfaceSize(long j2, int i2, int i3);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -499,7 +498,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    public abstract void destroyExternalSurface(long j, Surface surface);
+    public abstract void destroyExternalSurface(long j2, Surface surface);
 
     public abstract void disbandRoom();
 
@@ -525,9 +524,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract RtcRoomAudioLevel[] getRemoteAudioLevels();
 
-    public abstract RtcRoomVideoDimension getRemoteVideoDimension(long j);
+    public abstract RtcRoomVideoDimension getRemoteVideoDimension(long j2);
 
-    public abstract void getUserAttribute(long j);
+    public abstract void getUserAttribute(long j2);
 
     public abstract RtcRoomUserInfo[] getUserListOfRoom();
 
@@ -535,13 +534,13 @@ public abstract class BaiduRtcRoom {
 
     public abstract boolean isSpeakerOn();
 
-    public abstract void kickOffUserWithId(long j);
+    public abstract void kickOffUserWithId(long j2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z, boolean z2);
 
     public abstract boolean logoutRtcRoom();
 
@@ -559,11 +558,11 @@ public abstract class BaiduRtcRoom {
 
     public abstract UserList queryUserListOfRoom();
 
-    public abstract void removeExternalRenderer(long j);
+    public abstract void removeExternalRenderer(long j2);
 
     public abstract void sendData(ByteBuffer byteBuffer);
 
-    public abstract void sendMessageToUser(String str, long j);
+    public abstract void sendMessageToUser(String str, long j2);
 
     public abstract void setAudioRecordDelegate(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback);
 
@@ -583,7 +582,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setEngineStateStatistics(boolean z);
 
-    public abstract void setExternalSurface(long j, Surface surface);
+    public abstract void setExternalSurface(long j2, Surface surface);
 
     public abstract boolean setLiveStreamingMix(boolean z);
 
@@ -605,17 +604,17 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setRedenFactor(float f2);
 
-    public abstract void setRemoteAudioPlayState(boolean z, long j);
+    public abstract void setRemoteAudioPlayState(boolean z, long j2);
 
     public abstract void setRemoteAudioSamplesCallback(RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback);
 
     public abstract void setRemoteDisplay(RTCVideoView rTCVideoView);
 
-    public abstract void setRemoteDisplay(RTCVideoView rTCVideoView, long j);
+    public abstract void setRemoteDisplay(RTCVideoView rTCVideoView, long j2);
 
     public abstract void setRemoteDisplayGroup(RTCVideoView[] rTCVideoViewArr);
 
-    public abstract void setRemoteVideoPlayState(boolean z, long j);
+    public abstract void setRemoteVideoPlayState(boolean z, long j2);
 
     public abstract void setSoLaterLoadUrl(String str);
 
@@ -627,9 +626,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setWhitenFactor(float f2);
 
-    public abstract void shutUpUserWithId(long j);
+    public abstract void shutUpUserWithId(long j2);
 
-    public abstract void shutUpUserWithId(long j, boolean z);
+    public abstract void shutUpUserWithId(long j2, boolean z);
 
     public abstract boolean startLiveServerStreaming(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -643,9 +642,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract void stopPublish();
 
-    public abstract void stopSubscribeStreaming(long j);
+    public abstract void stopSubscribeStreaming(long j2);
 
-    public abstract void subscribeStreaming(int i2, long j);
+    public abstract void subscribeStreaming(int i2, long j2);
 
     public abstract void switchCamera();
 

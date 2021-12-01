@@ -30,7 +30,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -279,7 +278,7 @@ public final class NotificationManagerCompat {
         private void handleServiceConnected(ComponentName componentName, IBinder iBinder) {
             ListenerRecord listenerRecord;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, componentName, iBinder) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(65541, this, componentName, iBinder) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
                 return;
             }
             listenerRecord.service = INotificationSideChannel.Stub.asInterface(iBinder);
@@ -290,7 +289,7 @@ public final class NotificationManagerCompat {
         private void handleServiceDisconnected(ComponentName componentName) {
             ListenerRecord listenerRecord;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(65542, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
                 return;
             }
             ensureServiceUnbound(listenerRecord);
@@ -546,7 +545,7 @@ public final class NotificationManagerCompat {
     public static boolean useSideChannelForNotification(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, notification)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, notification)) == null) {
             Bundle extras = NotificationCompat.getExtras(notification);
             return extras != null && extras.getBoolean(EXTRA_USE_SIDE_CHANNEL);
         }

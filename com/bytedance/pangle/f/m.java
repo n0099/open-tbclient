@@ -5,32 +5,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f62305a;
+    public final ByteBuffer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f62306b;
+    public final long f54587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f62307c;
+    public final long f54588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f62308d;
+    public final long f54589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ByteBuffer f62309e;
+    public final ByteBuffer f54590e;
 
-    public m(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
+    public m(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer2};
+            Object[] objArr = {byteBuffer, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,10 +38,10 @@ public final class m {
                 return;
             }
         }
-        this.f62305a = byteBuffer;
-        this.f62306b = j;
-        this.f62307c = j2;
-        this.f62308d = j3;
-        this.f62309e = byteBuffer2;
+        this.a = byteBuffer;
+        this.f54587b = j2;
+        this.f54588c = j3;
+        this.f54589d = j4;
+        this.f54590e = byteBuffer2;
     }
 }

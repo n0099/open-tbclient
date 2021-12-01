@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPushUploadConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIM_LOG_ID = "log-id";
@@ -20,7 +20,7 @@ public class IMPushUploadConstants {
     public static final int VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Service {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU_APP = "baidu_app";
@@ -79,9 +79,9 @@ public class IMPushUploadConstants {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static String sign(Context context, String str, long j) {
+    public static String sign(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? md5(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j))) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? md5(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j2))) : (String) invokeCommon.objValue;
     }
 }

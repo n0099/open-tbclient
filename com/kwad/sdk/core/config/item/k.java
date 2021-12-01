@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class k extends a<Long> {
+public class k extends b<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(String str, Long l) {
-        super(str, l);
+    public k(String str, String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, l};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,7 +38,7 @@ public class k extends a<Long> {
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putLong(b(), a().longValue());
+            editor.putString(b(), a());
         }
     }
 
@@ -46,15 +46,16 @@ public class k extends a<Long> {
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            a((k) Long.valueOf(sharedPreferences.getLong(b(), c().longValue())));
+            a((k) sharedPreferences.getString(b(), c()));
         }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            a((k) (jSONObject != null ? Long.valueOf(jSONObject.optLong(b(), c().longValue())) : c()));
+            a((k) ((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(b())) == null) ? c() : optJSONObject.toString()));
         }
     }
 }

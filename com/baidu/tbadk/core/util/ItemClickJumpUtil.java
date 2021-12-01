@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
-import b.a.r0.m3.j0.n;
+import c.a.r0.t3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkApplication;
@@ -14,9 +14,9 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0017\u001a5\u0010\u0007\u001a\u00020\u00062\b\u0010\u0001\u001a\u0004\u0018\u00010\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0004\u001a\u00020\u00032\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0003H\u0007¢\u0006\u0004\b\u0007\u0010\b\u001a!\u0010\t\u001a\u00020\u00062\u0006\u0010\u0001\u001a\u00020\u00002\b\u0010\u0005\u001a\u0004\u0018\u00010\u0003H\u0002¢\u0006\u0004\b\t\u0010\n\u001a\u001f\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u000b\u0010\f\"\u0016\u0010\r\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\r\u0010\u000e\"\u0016\u0010\u000f\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000f\u0010\u000e\"\u0016\u0010\u0010\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0010\u0010\u000e\"\u0016\u0010\u0011\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0011\u0010\u000e\"\u0016\u0010\u0012\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u000e\"\u0016\u0010\u0013\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0013\u0010\u000e\"\u0016\u0010\u0014\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0014\u0010\u000e\"\u0016\u0010\u0015\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0015\u0010\u000e\"\u0016\u0010\u0016\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0016\u0010\u000e\"\u0016\u0010\u0017\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0017\u0010\u000e\"\u0016\u0010\u0018\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0018\u0010\u000e\"\u0016\u0010\u0019\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0019\u0010\u000e\"\u0016\u0010\u001a\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001a\u0010\u000e\"\u0016\u0010\u001b\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001b\u0010\u000e\"\u0016\u0010\u001c\u001a\u00020\u00038\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u001c\u0010\u000e¨\u0006\u001d"}, d2 = {"", "itemForumName", Transition.MATCH_ITEM_ID_STR, "", "source", "itemPosition", "", "itemClickJump", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Integer;)V", "jumpToFrs", "(Ljava/lang/String;Ljava/lang/Integer;)V", "jumpToItemDetailPage", "(Ljava/lang/String;I)V", "FRS_CALL_FROM_BY_ITEM_POSITION_CONCERN", "I", "FRS_CALL_FROM_BY_ITEM_POSITION_FRS_FEED", "FRS_CALL_FROM_BY_ITEM_POSITION_FRS_OTHER_TAB", "FRS_CALL_FROM_BY_ITEM_POSITION_ITEM_DIRECT_SEARCH", "FRS_CALL_FROM_BY_ITEM_POSITION_NATIVE_CHANNEL", "FRS_CALL_FROM_BY_ITEM_POSITION_PB_ABSTRACT", "FRS_CALL_FROM_BY_ITEM_POSITION_PB_FIRST_FLOOR", "FRS_CALL_FROM_BY_ITEM_POSITION_RECOMMEND", "ITEM_SOURCE_CONCERN", "ITEM_SOURCE_DIRECT_SEARCH", "ITEM_SOURCE_DOWNLOAD_MANAGER_PAGE", "ITEM_SOURCE_FRS", "ITEM_SOURCE_HOME_PAGE", "ITEM_SOURCE_PB", "ITEM_SOURCE_PB_FIRST_FLOOR", "tbadkcore_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(d1 = {"\u0000\u0018\n\u0000\n\u0002\u0010\b\n\u0002\b\u000f\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\b\u001a3\u0010\u0010\u001a\u00020\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u00132\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u00012\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u0001H\u0007¢\u0006\u0002\u0010\u0017\u001a\u001f\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\b\u0010\u0016\u001a\u0004\u0018\u00010\u0001H\u0002¢\u0006\u0002\u0010\u0019\u001a\u0018\u0010\u001a\u001a\u00020\u00112\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0001H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\n\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\r\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"FRS_CALL_FROM_BY_ITEM_POSITION_CONCERN", "", "FRS_CALL_FROM_BY_ITEM_POSITION_FRS_FEED", "FRS_CALL_FROM_BY_ITEM_POSITION_FRS_OTHER_TAB", "FRS_CALL_FROM_BY_ITEM_POSITION_ITEM_DIRECT_SEARCH", "FRS_CALL_FROM_BY_ITEM_POSITION_NATIVE_CHANNEL", "FRS_CALL_FROM_BY_ITEM_POSITION_PB_ABSTRACT", "FRS_CALL_FROM_BY_ITEM_POSITION_PB_FIRST_FLOOR", "FRS_CALL_FROM_BY_ITEM_POSITION_RECOMMEND", "ITEM_SOURCE_CONCERN", "ITEM_SOURCE_DIRECT_SEARCH", "ITEM_SOURCE_DOWNLOAD_MANAGER_PAGE", "ITEM_SOURCE_FRS", "ITEM_SOURCE_HOME_PAGE", "ITEM_SOURCE_PB", "ITEM_SOURCE_PB_FIRST_FLOOR", "itemClickJump", "", "itemForumName", "", Transition.MATCH_ITEM_ID_STR, "source", "itemPosition", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Integer;)V", "jumpToFrs", "(Ljava/lang/String;Ljava/lang/Integer;)V", "jumpToItemDetailPage", "tbadkcore_release"}, k = 2, mv = {1, 5, 1}, xi = 48)
 @JvmName(name = "ItemClickJumpUtil")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ItemClickJumpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRS_CALL_FROM_BY_ITEM_POSITION_CONCERN = 2;
@@ -37,19 +37,21 @@ public final class ItemClickJumpUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     @JvmOverloads
-    public static final void itemClickJump(String str, String str2, int i2) {
+    public static final void itemClickJump(String str, String itemId, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, str, str2, i2) == null) {
-            itemClickJump$default(str, str2, i2, null, 8, null);
+        if (interceptable == null || interceptable.invokeLLI(65536, null, str, itemId, i2) == null) {
+            Intrinsics.checkNotNullParameter(itemId, "itemId");
+            itemClickJump$default(str, itemId, i2, null, 8, null);
         }
     }
 
     @JvmOverloads
-    public static final void itemClickJump(String str, String str2, int i2, Integer num) {
+    public static final void itemClickJump(String str, String itemId, int i2, Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, str, str2, i2, num) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65537, null, str, itemId, i2, num) == null) {
+            Intrinsics.checkNotNullParameter(itemId, "itemId");
             if (str == null || str.length() == 0) {
-                jumpToItemDetailPage(str2, i2);
+                jumpToItemDetailPage(itemId, i2);
             } else {
                 jumpToFrs(str, num);
             }
@@ -66,9 +68,7 @@ public final class ItemClickJumpUtil {
     public static final void jumpToFrs(String str, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, num) == null) {
-            TbadkApplication inst = TbadkApplication.getInst();
-            Intrinsics.checkExpressionValueIsNotNull(inst, "TbadkApplication.getInst()");
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(inst.getContext()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ITEM);
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(TbadkApplication.getInst().getContext()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ITEM);
             if (num != null) {
                 createNormalCfg.setFrsCallFromByItemPosition(num.intValue());
             }
@@ -82,10 +82,7 @@ public final class ItemClickJumpUtil {
             HashMap hashMap = new HashMap(1);
             hashMap.put("itemID", str);
             hashMap.put("source", Integer.valueOf(i2));
-            MessageManager messageManager = MessageManager.getInstance();
-            TbadkApplication inst = TbadkApplication.getInst();
-            Intrinsics.checkExpressionValueIsNotNull(inst, "TbadkApplication.getInst()");
-            messageManager.sendMessage(new CustomMessage(2002015, new n(inst.getApplicationContext(), "GameItemDetailsPage", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
         }
     }
 }

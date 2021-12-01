@@ -14,7 +14,6 @@ import androidx.core.R;
 import androidx.core.provider.FontRequest;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -303,7 +302,7 @@ public class FontResourcesParserCompat {
     public static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, xmlPullParser, resources)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, xmlPullParser, resources)) == null) {
             TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamily);
             String string = obtainAttributes.getString(R.styleable.FontFamily_fontProviderAuthority);
             String string2 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderPackage);
@@ -344,7 +343,7 @@ public class FontResourcesParserCompat {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, xmlPullParser, resources)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xmlPullParser, resources)) == null) {
             TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
             if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontWeight)) {
                 i2 = R.styleable.FontFamilyFont_fontWeight;

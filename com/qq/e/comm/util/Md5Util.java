@@ -2,7 +2,6 @@ package com.qq.e.comm.util;
 
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,9 +15,7 @@ import java.security.MessageDigest;
 /* loaded from: classes2.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f68997a;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +31,7 @@ public class Md5Util {
                 return;
             }
         }
-        f68997a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public Md5Util() {
@@ -60,7 +57,7 @@ public class Md5Util {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f68997a[i2 / 16] + f68997a[i2 % 16]);
+                stringBuffer.append(a[i2 / 16] + a[i2 % 16]);
             }
             return stringBuffer.toString();
         }
@@ -142,7 +139,7 @@ public class Md5Util {
     public static String encodeBase64String(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(Base64.decode(str, 0)));
             } catch (Exception unused) {
@@ -156,7 +153,7 @@ public class Md5Util {
     public static byte[] hexStringtoByteArray(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str.length() % 2 != 0) {
                 return null;
             }

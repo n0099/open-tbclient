@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.q0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,6 +22,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.write.write.work.selectview.SelectTopicView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,17 +31,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\b\u0016\u0018\u00002\u00020\u0001B\u0013\b\u0016\u0012\b\u00108\u001a\u0004\u0018\u000107¢\u0006\u0004\b9\u0010:B\u001d\b\u0016\u0012\b\u00108\u001a\u0004\u0018\u000107\u0012\b\u0010<\u001a\u0004\u0018\u00010;¢\u0006\u0004\b9\u0010=B%\b\u0016\u0012\b\u00108\u001a\u0004\u0018\u000107\u0012\b\u0010<\u001a\u0004\u0018\u00010;\u0012\u0006\u0010?\u001a\u00020>¢\u0006\u0004\b9\u0010@J%\u0010\u0007\u001a\u00020\u00062\u0016\u0010\u0005\u001a\u0012\u0012\u0004\u0012\u00020\u00030\u0002j\b\u0012\u0004\u0012\u00020\u0003`\u0004¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0006¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nR(\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00030\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\"\u0010\u0014\u001a\u00020\u00138\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\"\u0010\u001b\u001a\u00020\u001a8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\"\u0010\"\u001a\u00020!8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'R\"\u0010(\u001a\u00020!8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b(\u0010#\u001a\u0004\b)\u0010%\"\u0004\b*\u0010'R\"\u0010,\u001a\u00020+8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R&\u00102\u001a\u0012\u0012\u0004\u0012\u00020\u00030\u0002j\b\u0012\u0004\u0012\u00020\u0003`\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\"\u00104\u001a\u00020+8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b4\u0010-\u001a\u0004\b5\u0010/\"\u0004\b6\u00101¨\u0006A"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "Landroid/widget/LinearLayout;", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "bean", "", "bindData", "(Ljava/util/ArrayList;)V", "init", "()V", "onChangeSkin", "Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "labelTextProvider", "Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "getLabelTextProvider", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "setLabelTextProvider", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;)V", "Landroid/view/View;", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "mCenterContent", "Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "getMCenterContent", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "setMCenterContent", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView;)V", "Landroid/widget/TextView;", "mCenterContentTips", "Landroid/widget/TextView;", "getMCenterContentTips", "()Landroid/widget/TextView;", "setMCenterContentTips", "(Landroid/widget/TextView;)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "Landroid/widget/ImageView;", "mRightArrow", "Landroid/widget/ImageView;", "getMRightArrow", "()Landroid/widget/ImageView;", "setMRightArrow", "(Landroid/widget/ImageView;)V", "mTopicList", "Ljava/util/ArrayList;", "mTopicTitleSign", "getMTopicTitleSign", "setMTopicTitleSign", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0004\b\u0016\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u001e\u00103\u001a\u0002042\u0016\u00105\u001a\u0012\u0012\u0004\u0012\u00020\r0.j\b\u0012\u0004\u0012\u00020\r`/J\u0006\u00106\u001a\u000204J\b\u00107\u001a\u000204H\u0016R \u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\r0\fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u001a\u0010\u0012\u001a\u00020\u0013X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u001a\u0010\u0018\u001a\u00020\u0019X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\u001a\u0010\u001e\u001a\u00020\u001fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R\u001a\u0010$\u001a\u00020\u001fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010!\"\u0004\b&\u0010#R\u001a\u0010'\u001a\u00020(X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b)\u0010*\"\u0004\b+\u0010,R\u001e\u0010-\u001a\u0012\u0012\u0004\u0012\u00020\r0.j\b\u0012\u0004\u0012\u00020\r`/X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u00100\u001a\u00020(X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b1\u0010*\"\u0004\b2\u0010,¨\u00068"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "labelTextProvider", "Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "", "getLabelTextProvider", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;", "setLabelTextProvider", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView$LabelTextProvider;)V", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "mCenterContent", "Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "getMCenterContent", "()Lcom/baidu/tbadk/core/view/AutoChangeLineView;", "setMCenterContent", "(Lcom/baidu/tbadk/core/view/AutoChangeLineView;)V", "mCenterContentTips", "Landroid/widget/TextView;", "getMCenterContentTips", "()Landroid/widget/TextView;", "setMCenterContentTips", "(Landroid/widget/TextView;)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "mRightArrow", "Landroid/widget/ImageView;", "getMRightArrow", "()Landroid/widget/ImageView;", "setMRightArrow", "(Landroid/widget/ImageView;)V", "mTopicList", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "mTopicTitleSign", "getMTopicTitleSign", "setMTopicTitleSign", "bindData", "", "bean", "init", "onChangeSkin", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes11.dex */
 public class SelectTopicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f57184e;
+    public ArrayList<String> f51178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoChangeLineView.b<String> f57185f;
+    public AutoChangeLineView.b<String> f51179f;
     public View mBottomLine;
     public AutoChangeLineView mCenterContent;
     public TextView mCenterContentTips;
@@ -47,86 +49,12 @@ public class SelectTopicView extends LinearLayout {
     public ImageView mRightArrow;
     public ImageView mTopicTitleSign;
 
-    /* loaded from: classes9.dex */
-    public static final class a implements AutoChangeLineView.c {
+    /* loaded from: classes11.dex */
+    public static final class a implements AutoChangeLineView.b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicView f57186e;
-
-        public a(SelectTopicView selectTopicView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {selectTopicView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f57186e = selectTopicView;
-        }
-
-        @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
-        public final void onLabelClick(TextView textView, Object obj, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, textView, obj, i2) == null) {
-                WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this.f57186e.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-                workPublishHotTopicSelectActivityConfig.setTopicList(this.f57186e.f57184e);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicView f57187e;
-
-        public b(SelectTopicView selectTopicView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {selectTopicView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f57187e = selectTopicView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this.f57187e.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-                workPublishHotTopicSelectActivityConfig.setTopicList(this.f57187e.f57184e);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class c implements AutoChangeLineView.b<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,20 +71,22 @@ public class SelectTopicView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
         /* renamed from: b */
-        public CharSequence a(TextView textView, int i2, String str) {
+        public CharSequence a(TextView label, int i2, String data) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i2, str)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label, i2, data)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                Intrinsics.checkNotNullParameter(data, "data");
                 Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_post_topic12, R.color.CAM_X0109, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-                textView.setCompoundDrawables(pureDrawable, null, null, null);
-                String cutData = StringHelper.cutChineseAndEnglishWithEmoji(str, 16, "...");
-                b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(textView);
+                label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+                label.setCompoundDrawables(pureDrawable, null, null, null);
+                String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, "...");
+                c d2 = c.d(label);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0204);
-                Intrinsics.checkExpressionValueIsNotNull(cutData, "cutData");
+                Intrinsics.checkNotNullExpressionValue(cutData, "cutData");
                 return cutData;
             }
             return (CharSequence) invokeLIL.objValue;
@@ -181,50 +111,51 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f57184e = new ArrayList<>();
-        this.f57185f = new c();
+        this.f51178e = new ArrayList<>();
+        this.f51179f = new a();
         init();
     }
 
-    public final void bindData(ArrayList<String> arrayList) {
+    public static final void a(SelectTopicView this$0, TextView textView, Object obj, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f57184e = arrayList;
-            if (arrayList.isEmpty()) {
-                AutoChangeLineView autoChangeLineView = this.mCenterContent;
-                if (autoChangeLineView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-                }
-                autoChangeLineView.setVisibility(8);
-                TextView textView = this.mCenterContentTips;
-                if (textView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
-                }
-                textView.setVisibility(0);
+        if (interceptable == null || interceptable.invokeLLLI(65539, null, this$0, textView, obj, i2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f51178e);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
+        }
+    }
+
+    public static final void b(SelectTopicView this$0, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f51178e);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
+        }
+    }
+
+    public final void bindData(ArrayList<String> bean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
+            Intrinsics.checkNotNullParameter(bean, "bean");
+            this.f51178e = bean;
+            if (bean.isEmpty()) {
+                getMCenterContent().setVisibility(8);
+                getMCenterContentTips().setVisibility(0);
                 return;
             }
-            AutoChangeLineView autoChangeLineView2 = this.mCenterContent;
-            if (autoChangeLineView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            }
-            autoChangeLineView2.setVisibility(0);
-            TextView textView2 = this.mCenterContentTips;
-            if (textView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
-            }
-            textView2.setVisibility(8);
-            AutoChangeLineView autoChangeLineView3 = this.mCenterContent;
-            if (autoChangeLineView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            }
-            autoChangeLineView3.setLabels(arrayList, this.f57185f);
+            getMCenterContent().setVisibility(0);
+            getMCenterContentTips().setVisibility(8);
+            getMCenterContent().setLabels(bean, this.f51179f);
         }
     }
 
     public final AutoChangeLineView.b<String> getLabelTextProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57185f : (AutoChangeLineView.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51179f : (AutoChangeLineView.b) invokeV.objValue;
     }
 
     public final View getMBottomLine() {
@@ -232,10 +163,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View view = this.mBottomLine;
-            if (view == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
+            if (view != null) {
+                return view;
             }
-            return view;
+            Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
+            return null;
         }
         return (View) invokeV.objValue;
     }
@@ -245,10 +177,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             AutoChangeLineView autoChangeLineView = this.mCenterContent;
-            if (autoChangeLineView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
+            if (autoChangeLineView != null) {
+                return autoChangeLineView;
             }
-            return autoChangeLineView;
+            Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
+            return null;
         }
         return (AutoChangeLineView) invokeV.objValue;
     }
@@ -258,10 +191,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             TextView textView = this.mCenterContentTips;
-            if (textView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
+            if (textView != null) {
+                return textView;
             }
-            return textView;
+            Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
+            return null;
         }
         return (TextView) invokeV.objValue;
     }
@@ -271,10 +205,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             TextView textView = this.mLeftTitle;
-            if (textView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
+            if (textView != null) {
+                return textView;
             }
-            return textView;
+            Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
+            return null;
         }
         return (TextView) invokeV.objValue;
     }
@@ -284,10 +219,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ImageView imageView = this.mRightArrow;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
+            if (imageView != null) {
+                return imageView;
             }
-            return imageView;
+            Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
+            return null;
         }
         return (ImageView) invokeV.objValue;
     }
@@ -297,10 +233,11 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ImageView imageView = this.mTopicTitleSign;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTopicTitleSign");
+            if (imageView != null) {
+                return imageView;
             }
-            return imageView;
+            Intrinsics.throwUninitializedPropertyAccessException("mTopicTitleSign");
+            return null;
         }
         return (ImageView) invokeV.objValue;
     }
@@ -310,30 +247,48 @@ public class SelectTopicView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.view_select_topic, (ViewGroup) this, true);
             View findViewById = findViewById(R.id.work_publish_topic_sign);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.work_publish_topic_sign)");
-            this.mTopicTitleSign = (ImageView) findViewById;
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
+            setMTopicTitleSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.left_title);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.left_title)");
-            this.mLeftTitle = (TextView) findViewById2;
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
+            setMLeftTitle((TextView) findViewById2);
             View findViewById3 = findViewById(R.id.center_content_tips);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById3, "findViewById(R.id.center_content_tips)");
-            this.mCenterContentTips = (TextView) findViewById3;
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
+            setMCenterContentTips((TextView) findViewById3);
             View findViewById4 = findViewById(R.id.center_content);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById4, "findViewById(R.id.center_content)");
-            this.mCenterContent = (AutoChangeLineView) findViewById4;
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
+            setMCenterContent((AutoChangeLineView) findViewById4);
             View findViewById5 = findViewById(R.id.right_arrow);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById5, "findViewById(R.id.right_arrow)");
-            this.mRightArrow = (ImageView) findViewById5;
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
+            setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
-            Intrinsics.checkExpressionValueIsNotNull(findViewById6, "findViewById(R.id.bottom_line)");
-            this.mBottomLine = findViewById6;
+            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
+            setMBottomLine(findViewById6);
             onChangeSkin();
-            AutoChangeLineView autoChangeLineView = this.mCenterContent;
-            if (autoChangeLineView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            }
-            autoChangeLineView.setOnLabelClickListener(new a(this));
-            setOnClickListener(new b(this));
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: c.a.r0.l4.u.p.z.b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
+                public final void onLabelClick(TextView textView, Object obj, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, textView, obj, i2) == null) {
+                        SelectTopicView.a(SelectTopicView.this, textView, obj, i2);
+                    }
+                }
+            });
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.l4.u.p.z.f
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        SelectTopicView.b(SelectTopicView.this, view);
+                    }
+                }
+            });
             bindData(new ArrayList<>());
         }
     }
@@ -341,49 +296,27 @@ public class SelectTopicView extends LinearLayout {
     public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AutoChangeLineView autoChangeLineView = this.mCenterContent;
-            if (autoChangeLineView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            }
-            autoChangeLineView.setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            AutoChangeLineView autoChangeLineView2 = this.mCenterContent;
-            if (autoChangeLineView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            }
-            autoChangeLineView2.setLabels(this.f57184e, this.f57185f);
-            TextView textView = this.mLeftTitle;
-            if (textView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
-            }
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
-            ImageView imageView = this.mRightArrow;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
-            }
-            WebPManager.setPureDrawable(imageView, R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
-            View view = this.mBottomLine;
-            if (view == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
-            }
-            SkinManager.setBackgroundColor(view, R.color.CAM_X0210);
-            TextView textView2 = this.mCenterContentTips;
-            if (textView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
-            }
-            textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            getMCenterContent().setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            getMCenterContent().setLabels(this.f51178e, this.f51179f);
+            SkinManager.setViewTextColor(getMLeftTitle(), R.color.CAM_X0105);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
+            getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
         }
     }
 
     public final void setLabelTextProvider(AutoChangeLineView.b<String> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f57185f = bVar;
+            Intrinsics.checkNotNullParameter(bVar, "<set-?>");
+            this.f51179f = bVar;
         }
     }
 
     public final void setMBottomLine(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
+            Intrinsics.checkNotNullParameter(view, "<set-?>");
             this.mBottomLine = view;
         }
     }
@@ -391,6 +324,7 @@ public class SelectTopicView extends LinearLayout {
     public final void setMCenterContent(AutoChangeLineView autoChangeLineView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, autoChangeLineView) == null) {
+            Intrinsics.checkNotNullParameter(autoChangeLineView, "<set-?>");
             this.mCenterContent = autoChangeLineView;
         }
     }
@@ -398,6 +332,7 @@ public class SelectTopicView extends LinearLayout {
     public final void setMCenterContentTips(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
             this.mCenterContentTips = textView;
         }
     }
@@ -405,6 +340,7 @@ public class SelectTopicView extends LinearLayout {
     public final void setMLeftTitle(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
             this.mLeftTitle = textView;
         }
     }
@@ -412,6 +348,7 @@ public class SelectTopicView extends LinearLayout {
     public final void setMRightArrow(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
             this.mRightArrow = imageView;
         }
     }
@@ -419,6 +356,7 @@ public class SelectTopicView extends LinearLayout {
     public final void setMTopicTitleSign(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
             this.mTopicTitleSign = imageView;
         }
     }
@@ -442,8 +380,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f57184e = new ArrayList<>();
-        this.f57185f = new c();
+        this.f51178e = new ArrayList<>();
+        this.f51179f = new a();
         init();
     }
 
@@ -466,8 +404,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f57184e = new ArrayList<>();
-        this.f57185f = new c();
+        this.f51178e = new ArrayList<>();
+        this.f51179f = new a();
         init();
     }
 }

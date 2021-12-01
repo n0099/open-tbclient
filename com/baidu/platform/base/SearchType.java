@@ -8,38 +8,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SearchType {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final SearchType f42866a;
+    public static final SearchType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SearchType f42867b;
+    public static final SearchType f38333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SearchType f42868c;
+    public static final SearchType f38334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SearchType f42869d;
+    public static final SearchType f38335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SearchType f42870e;
+    public static final SearchType f38336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SearchType f42871f;
+    public static final SearchType f38337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SearchType f42872g;
+    public static final SearchType f38338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final SearchType f42873h;
+    public static final SearchType f38339h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final SearchType f42874i;
-    public static final SearchType j;
-    public static final SearchType k;
+    public static final SearchType f38340i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final SearchType f38341j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final SearchType f38342k;
     public static final SearchType l;
     public static final SearchType m;
     public static final SearchType n;
@@ -64,17 +66,17 @@ public final class SearchType {
                 return;
             }
         }
-        f42866a = new SearchType("POI_NEAR_BY_SEARCH", 0);
-        f42867b = new SearchType("POI_IN_CITY_SEARCH", 1);
-        f42868c = new SearchType("POI_IN_BOUND_SEARCH", 2);
-        f42869d = new SearchType("POI_DETAIL_SEARCH", 3);
-        f42870e = new SearchType("INDOOR_POI_SEARCH", 4);
-        f42871f = new SearchType("SUGGESTION_SEARCH_TYPE", 5);
-        f42872g = new SearchType("GEO_CODER", 6);
-        f42873h = new SearchType("REVERSE_GEO_CODER", 7);
-        f42874i = new SearchType("MASS_TRANSIT_ROUTE", 8);
-        j = new SearchType("TRANSIT_ROUTE", 9);
-        k = new SearchType("DRIVE_ROUTE", 10);
+        a = new SearchType("POI_NEAR_BY_SEARCH", 0);
+        f38333b = new SearchType("POI_IN_CITY_SEARCH", 1);
+        f38334c = new SearchType("POI_IN_BOUND_SEARCH", 2);
+        f38335d = new SearchType("POI_DETAIL_SEARCH", 3);
+        f38336e = new SearchType("INDOOR_POI_SEARCH", 4);
+        f38337f = new SearchType("SUGGESTION_SEARCH_TYPE", 5);
+        f38338g = new SearchType("GEO_CODER", 6);
+        f38339h = new SearchType("REVERSE_GEO_CODER", 7);
+        f38340i = new SearchType("MASS_TRANSIT_ROUTE", 8);
+        f38341j = new SearchType("TRANSIT_ROUTE", 9);
+        f38342k = new SearchType("DRIVE_ROUTE", 10);
         l = new SearchType("BIKE_ROUTE", 11);
         m = new SearchType("WALK_ROUTE", 12);
         n = new SearchType("INDOOR_ROUTE", 13);
@@ -84,7 +86,7 @@ public final class SearchType {
         r = new SearchType("LOCATION_SEARCH_SHARE", 17);
         SearchType searchType = new SearchType("ROUTE_PLAN_SHARE", 18);
         s = searchType;
-        t = new SearchType[]{f42866a, f42867b, f42868c, f42869d, f42870e, f42871f, f42872g, f42873h, f42874i, j, k, l, m, n, o, p, q, r, searchType};
+        t = new SearchType[]{a, f38333b, f38334c, f38335d, f38336e, f38337f, f38338g, f38339h, f38340i, f38341j, f38342k, l, m, n, o, p, q, r, searchType};
     }
 
     public SearchType(String str, int i2) {

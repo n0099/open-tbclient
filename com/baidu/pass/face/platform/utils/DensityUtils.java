@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DensityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] BUILD_MODELS;
@@ -72,13 +71,13 @@ public final class DensityUtils {
     public static int getDisplayHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? context.getResources().getDisplayMetrics().heightPixels : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? context.getResources().getDisplayMetrics().heightPixels : invokeL.intValue;
     }
 
     public static int getDisplayWidth(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? context.getResources().getDisplayMetrics().widthPixels : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? context.getResources().getDisplayMetrics().widthPixels : invokeL.intValue;
     }
 
     public static int getPortraitDegree() {

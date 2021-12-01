@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.a.j;
-import b.a.e.f.m.b;
-import b.a.q0.v0.a;
-import b.a.r0.y1.c.k.o;
+import c.a.d.a.j;
+import c.a.d.f.m.b;
+import c.a.q0.w0.a;
+import c.a.r0.e2.c.k.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,26 +22,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52404e;
+    public Context f46937e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f52405f;
+    public View f46938f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f52406g;
+    public TbImageView f46939g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f52407h;
+    public PrivilegeTextView f46940h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f52408i;
-    public o j;
+    public TextView f46941i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public o f46942j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context) {
@@ -61,31 +63,31 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f52404e = context;
+        this.f46937e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f52404e).inflate(R.layout.index_privilege_item, this);
-            this.f52405f = inflate;
-            this.f52406g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            this.f52407h = (PrivilegeTextView) this.f52405f.findViewById(R.id.privilege_name);
-            this.f52408i = (TextView) this.f52405f.findViewById(R.id.privilege_desc);
+            View inflate = LayoutInflater.from(this.f46937e).inflate(R.layout.index_privilege_item, this);
+            this.f46938f = inflate;
+            this.f46939g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            this.f46940h = (PrivilegeTextView) this.f46938f.findViewById(R.id.privilege_name);
+            this.f46941i = (TextView) this.f46938f.findViewById(R.id.privilege_desc);
         }
     }
 
     public PrivilegeTextView getPrivilegeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52407h : (PrivilegeTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46940h : (PrivilegeTextView) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f52404e), this.f52405f);
+            a.a((TbPageContext) j.a(this.f46937e), this.f46938f);
         }
     }
 
@@ -95,24 +97,24 @@ public class PrivilegeItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.j = oVar;
-        this.f52406g.setIsRound(false);
+        this.f46942j = oVar;
+        this.f46939g.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f52406g.setDefaultBgResource(R.color.img_bg_color);
+            this.f46939g.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f52406g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f46939g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f52406g.startLoad(oVar.b(), 10, false);
-        this.f52408i.setText(oVar.a());
-        this.f52407h.setText(oVar.f());
-        if (TbadkCoreApplication.isLogin() && this.j.d() > 0) {
-            if (b.g(oVar.g(), 0L) > b.g(b.a.q0.s.e0.b.j().p("member_center_item_red_tip_" + this.j.d() + TbadkCoreApplication.getCurrentAccount(), "0"), 0L)) {
-                if (this.j.h() == 1) {
+        this.f46939g.startLoad(oVar.b(), 10, false);
+        this.f46941i.setText(oVar.a());
+        this.f46940h.setText(oVar.f());
+        if (TbadkCoreApplication.isLogin() && this.f46942j.d() > 0) {
+            if (b.g(oVar.g(), 0L) > b.g(c.a.q0.s.e0.b.j().p("member_center_item_red_tip_" + this.f46942j.d() + TbadkCoreApplication.getCurrentAccount(), "0"), 0L)) {
+                if (this.f46942j.h() == 1) {
                     bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_news_down_bar_one);
                     if (bitmapDrawable != null) {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                     }
-                } else if (this.j.h() == 2) {
+                } else if (this.f46942j.h() == 2) {
                     bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_new_privilege);
                     if (bitmapDrawable != null) {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -121,16 +123,16 @@ public class PrivilegeItemView extends RelativeLayout {
                     bitmapDrawable = null;
                 }
                 if (bitmapDrawable != null) {
-                    this.f52407h.setCompoundDrawables(null, null, bitmapDrawable, null);
-                    this.f52407h.setCompoundDrawablePadding(10);
+                    this.f46940h.setCompoundDrawables(null, null, bitmapDrawable, null);
+                    this.f46940h.setCompoundDrawablePadding(10);
                     return;
                 }
                 return;
             }
-            this.f52407h.setCompoundDrawables(null, null, null, null);
+            this.f46940h.setCompoundDrawables(null, null, null, null);
             return;
         }
-        this.f52407h.setCompoundDrawables(null, null, null, null);
+        this.f46940h.setCompoundDrawables(null, null, null, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -152,7 +154,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f52404e = context;
+        this.f46937e = context;
         a();
     }
 
@@ -175,7 +177,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f52404e = context;
+        this.f46937e = context;
         a();
     }
 }

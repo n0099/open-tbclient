@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGlobalConfRequest";
@@ -31,7 +31,7 @@ public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
     public long mAppid;
     public String mKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,12 +99,12 @@ public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryGlobalConfRequest(Context context, String str, long j) {
+    public IMQueryGlobalConfRequest(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j)};
+            Object[] objArr = {context, str, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -115,7 +115,7 @@ public class IMQueryGlobalConfRequest extends GroupBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
     }
 

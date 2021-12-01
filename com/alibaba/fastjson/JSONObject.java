@@ -6,7 +6,6 @@ import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JSONObject extends JSON implements Map<String, Object>, Cloneable, Serializable, InvocationHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -43,7 +42,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Object> map;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SecureObjectInputStream extends ObjectInputStream {
         public static /* synthetic */ Interceptable $ic;
         public static Field[] fields;
@@ -165,7 +164,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, objectInputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, objectInputStream) == null) {
             SecureObjectInputStream.ensureFields();
             if (SecureObjectInputStream.fields != null && !SecureObjectInputStream.fields_error) {
                 try {

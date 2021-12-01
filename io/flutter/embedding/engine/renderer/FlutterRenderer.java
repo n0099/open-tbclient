@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(16)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterRenderer implements TextureRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterRenderer";
@@ -37,7 +36,7 @@ public class FlutterRenderer implements TextureRegistry {
     @Nullable
     public Surface surface;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,15 +44,15 @@ public class FlutterRenderer implements TextureRegistry {
         public SurfaceTexture.OnFrameAvailableListener onFrameListener;
         public boolean released;
         @NonNull
-        public final SurfaceTexture surfaceTexture;
+        public final SurfaceTextureWrapper textureWrapper;
         public final /* synthetic */ FlutterRenderer this$0;
 
-        public SurfaceTextureRegistryEntry(FlutterRenderer flutterRenderer, @NonNull long j, SurfaceTexture surfaceTexture) {
+        public SurfaceTextureRegistryEntry(FlutterRenderer flutterRenderer, @NonNull long j2, SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flutterRenderer, Long.valueOf(j), surfaceTexture};
+                Object[] objArr = {flutterRenderer, Long.valueOf(j2), surfaceTexture};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -64,7 +63,7 @@ public class FlutterRenderer implements TextureRegistry {
                 }
             }
             this.this$0 = flutterRenderer;
-            SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = new SurfaceTexture.OnFrameAvailableListener(this) { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.SurfaceTextureRegistryEntry.1
+            this.onFrameListener = new SurfaceTexture.OnFrameAvailableListener(this) { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.SurfaceTextureRegistryEntry.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SurfaceTextureRegistryEntry this$1;
@@ -90,20 +89,18 @@ public class FlutterRenderer implements TextureRegistry {
                 @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
                 public void onFrameAvailable(@NonNull SurfaceTexture surfaceTexture2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture2) == null) || this.this$1.released) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture2) == null) && !this.this$1.released && this.this$1.this$0.flutterJNI.isAttached()) {
+                        SurfaceTextureRegistryEntry surfaceTextureRegistryEntry = this.this$1;
+                        surfaceTextureRegistryEntry.this$0.markTextureFrameAvailable(surfaceTextureRegistryEntry.id);
                     }
-                    SurfaceTextureRegistryEntry surfaceTextureRegistryEntry = this.this$1;
-                    surfaceTextureRegistryEntry.this$0.markTextureFrameAvailable(surfaceTextureRegistryEntry.id);
                 }
             };
-            this.onFrameListener = onFrameAvailableListener;
-            this.id = j;
-            this.surfaceTexture = surfaceTexture;
+            this.id = j2;
+            this.textureWrapper = new SurfaceTextureWrapper(surfaceTexture);
             if (Build.VERSION.SDK_INT >= 21) {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
+                surfaceTexture().setOnFrameAvailableListener(this.onFrameListener, new Handler());
             } else {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+                surfaceTexture().setOnFrameAvailableListener(this.onFrameListener);
             }
         }
 
@@ -121,7 +118,7 @@ public class FlutterRenderer implements TextureRegistry {
                 return;
             }
             Log.v(FlutterRenderer.TAG, "Releasing a SurfaceTexture (" + this.id + ").");
-            this.surfaceTexture.release();
+            this.textureWrapper.release();
             this.this$0.unregisterTexture(this.id);
             this.released = true;
         }
@@ -131,20 +128,25 @@ public class FlutterRenderer implements TextureRegistry {
         public SurfaceTexture surfaceTexture() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.surfaceTexture : (SurfaceTexture) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.textureWrapper.surfaceTexture() : (SurfaceTexture) invokeV.objValue;
+        }
+
+        @NonNull
+        public SurfaceTextureWrapper textureWrapper() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.textureWrapper : (SurfaceTextureWrapper) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ViewportMetrics {
-        public static /* synthetic */ Interceptable $ic;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int unsetValue = -1;
         public transient /* synthetic */ FieldHolder $fh;
         public float devicePixelRatio;
         public int height;
-        public int paddingBottom;
-        public int paddingLeft;
-        public int paddingRight;
-        public int paddingTop;
+        public int physicalTouchSlop;
         public int systemGestureInsetBottom;
         public int systemGestureInsetLeft;
         public int systemGestureInsetRight;
@@ -153,6 +155,10 @@ public class FlutterRenderer implements TextureRegistry {
         public int viewInsetLeft;
         public int viewInsetRight;
         public int viewInsetTop;
+        public int viewPaddingBottom;
+        public int viewPaddingLeft;
+        public int viewPaddingRight;
+        public int viewPaddingTop;
         public int width;
 
         public ViewportMetrics() {
@@ -171,10 +177,10 @@ public class FlutterRenderer implements TextureRegistry {
             this.devicePixelRatio = 1.0f;
             this.width = 0;
             this.height = 0;
-            this.paddingTop = 0;
-            this.paddingRight = 0;
-            this.paddingBottom = 0;
-            this.paddingLeft = 0;
+            this.viewPaddingTop = 0;
+            this.viewPaddingRight = 0;
+            this.viewPaddingBottom = 0;
+            this.viewPaddingLeft = 0;
             this.viewInsetTop = 0;
             this.viewInsetRight = 0;
             this.viewInsetBottom = 0;
@@ -183,6 +189,13 @@ public class FlutterRenderer implements TextureRegistry {
             this.systemGestureInsetRight = 0;
             this.systemGestureInsetBottom = 0;
             this.systemGestureInsetLeft = 0;
+            this.physicalTouchSlop = -1;
+        }
+
+        public boolean validate() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.width > 0 && this.height > 0 && this.devicePixelRatio > 0.0f : invokeV.booleanValue;
         }
     }
 
@@ -248,25 +261,25 @@ public class FlutterRenderer implements TextureRegistry {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void markTextureFrameAvailable(long j) {
+    public void markTextureFrameAvailable(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            this.flutterJNI.markTextureFrameAvailable(j);
+        if (interceptable == null || interceptable.invokeJ(65541, this, j2) == null) {
+            this.flutterJNI.markTextureFrameAvailable(j2);
         }
     }
 
-    private void registerTexture(long j, @NonNull SurfaceTexture surfaceTexture) {
+    private void registerTexture(long j2, @NonNull SurfaceTextureWrapper surfaceTextureWrapper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(AdIconUtil.AD_TEXT_ID, this, j, surfaceTexture) == null) {
-            this.flutterJNI.registerTexture(j, surfaceTexture);
+        if (interceptable == null || interceptable.invokeJL(65542, this, j2, surfaceTextureWrapper) == null) {
+            this.flutterJNI.registerTexture(j2, surfaceTextureWrapper);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void unregisterTexture(long j) {
+    public void unregisterTexture(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j) == null) {
-            this.flutterJNI.unregisterTexture(j);
+        if (interceptable == null || interceptable.invokeJ(65543, this, j2) == null) {
+            this.flutterJNI.unregisterTexture(j2);
         }
     }
 
@@ -290,7 +303,7 @@ public class FlutterRenderer implements TextureRegistry {
             surfaceTexture.detachFromGLContext();
             SurfaceTextureRegistryEntry surfaceTextureRegistryEntry = new SurfaceTextureRegistryEntry(this, this.nextTextureId.getAndIncrement(), surfaceTexture);
             Log.v(TAG, "New SurfaceTexture ID: " + surfaceTextureRegistryEntry.id());
-            registerTexture(surfaceTextureRegistryEntry.id(), surfaceTexture);
+            registerTexture(surfaceTextureRegistryEntry.id(), surfaceTextureRegistryEntry.textureWrapper());
             return surfaceTextureRegistryEntry;
         }
         return (TextureRegistry.SurfaceTextureEntry) invokeV.objValue;
@@ -325,7 +338,7 @@ public class FlutterRenderer implements TextureRegistry {
     public boolean isSoftwareRenderingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.flutterJNI.nativeGetIsSoftwareRenderingEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.flutterJNI.getIsSoftwareRenderingEnabled() : invokeV.booleanValue;
     }
 
     public void removeIsDisplayingFlutterUiListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
@@ -351,9 +364,9 @@ public class FlutterRenderer implements TextureRegistry {
 
     public void setViewportMetrics(@NonNull ViewportMetrics viewportMetrics) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, viewportMetrics) == null) {
-            Log.v(TAG, "Setting viewport metrics\nSize: " + viewportMetrics.width + " x " + viewportMetrics.height + "\nPadding - L: " + viewportMetrics.paddingLeft + ", T: " + viewportMetrics.paddingTop + ", R: " + viewportMetrics.paddingRight + ", B: " + viewportMetrics.paddingBottom + "\nInsets - L: " + viewportMetrics.viewInsetLeft + ", T: " + viewportMetrics.viewInsetTop + ", R: " + viewportMetrics.viewInsetRight + ", B: " + viewportMetrics.viewInsetBottom + "\nSystem Gesture Insets - L: " + viewportMetrics.systemGestureInsetLeft + ", T: " + viewportMetrics.systemGestureInsetTop + ", R: " + viewportMetrics.systemGestureInsetRight + ", B: " + viewportMetrics.viewInsetBottom);
-            this.flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.width, viewportMetrics.height, viewportMetrics.paddingTop, viewportMetrics.paddingRight, viewportMetrics.paddingBottom, viewportMetrics.paddingLeft, viewportMetrics.viewInsetTop, viewportMetrics.viewInsetRight, viewportMetrics.viewInsetBottom, viewportMetrics.viewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft);
+        if ((interceptable == null || interceptable.invokeL(1048586, this, viewportMetrics) == null) && viewportMetrics.validate()) {
+            Log.v(TAG, "Setting viewport metrics\nSize: " + viewportMetrics.width + " x " + viewportMetrics.height + "\nPadding - L: " + viewportMetrics.viewPaddingLeft + ", T: " + viewportMetrics.viewPaddingTop + ", R: " + viewportMetrics.viewPaddingRight + ", B: " + viewportMetrics.viewPaddingBottom + "\nInsets - L: " + viewportMetrics.viewInsetLeft + ", T: " + viewportMetrics.viewInsetTop + ", R: " + viewportMetrics.viewInsetRight + ", B: " + viewportMetrics.viewInsetBottom + "\nSystem Gesture Insets - L: " + viewportMetrics.systemGestureInsetLeft + ", T: " + viewportMetrics.systemGestureInsetTop + ", R: " + viewportMetrics.systemGestureInsetRight + ", B: " + viewportMetrics.viewInsetBottom);
+            this.flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.width, viewportMetrics.height, viewportMetrics.viewPaddingTop, viewportMetrics.viewPaddingRight, viewportMetrics.viewPaddingBottom, viewportMetrics.viewPaddingLeft, viewportMetrics.viewInsetTop, viewportMetrics.viewInsetRight, viewportMetrics.viewInsetBottom, viewportMetrics.viewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft, viewportMetrics.physicalTouchSlop);
         }
     }
 
@@ -384,6 +397,14 @@ public class FlutterRenderer implements TextureRegistry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
             this.flutterJNI.onSurfaceChanged(i2, i3);
+        }
+    }
+
+    public void swapSurface(@NonNull Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, surface) == null) {
+            this.surface = surface;
+            this.flutterJNI.onSurfaceWindowChanged(surface);
         }
     }
 }

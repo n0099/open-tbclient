@@ -14,7 +14,7 @@ import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.beans.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IDDetectBean extends BaseBean<IDDetectResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

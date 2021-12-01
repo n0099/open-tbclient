@@ -15,25 +15,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ActivityStackManager implements Application.ActivityLifecycleCallbacks, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Stack<Activity> stack;
 
     /* renamed from: com.baidu.wallet.core.utils.ActivityStackManager$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static ActivityStackManager f58923a;
+        public static ActivityStackManager a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +47,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
                     return;
                 }
             }
-            f58923a = new ActivityStackManager(null);
+            a = new ActivityStackManager(null);
         }
 
         public a() {
@@ -74,7 +72,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public static ActivityStackManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58923a : (ActivityStackManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (ActivityStackManager) invokeV.objValue;
     }
 
     public void addActivity(Activity activity) {

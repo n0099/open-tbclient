@@ -1,18 +1,15 @@
 package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f71640a;
+    public static final String a;
 
     /* renamed from: a  reason: collision with other field name */
     public static byte[] f161a;
@@ -34,7 +31,7 @@ public class bj {
                 return;
             }
         }
-        f71640a = System.getProperty("line.separator");
+        a = System.getProperty("line.separator");
         f162a = new char[64];
         char c2 = 'A';
         int i2 = 0;
@@ -80,7 +77,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m183a(String str) {
+    public static byte[] m232a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -165,7 +162,7 @@ public class bj {
     public static char[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? a(bArr, 0, bArr.length) : (char[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? a(bArr, 0, bArr.length) : (char[]) invokeL.objValue;
     }
 
     public static char[] a(byte[] bArr, int i2, int i3) {
@@ -174,7 +171,7 @@ public class bj {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             int i7 = ((i3 * 4) + 2) / 3;
             char[] cArr = new char[((i3 + 2) / 3) * 4];
             int i8 = i3 + i2;
@@ -204,8 +201,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f34958h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f34958h;
+                char c2 = com.alipay.sdk.encrypt.a.f31351h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31351h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f162a[i15];
@@ -222,6 +219,6 @@ public class bj {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m183a(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m232a(str)) : (String) invokeL.objValue;
     }
 }

@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class h extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f34691a;
+    public Context a;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public final class h extends w {
                 return;
             }
         }
-        this.f34691a = context;
+        this.a = context;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.w

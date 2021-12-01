@@ -14,7 +14,6 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SegAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegAR";
@@ -43,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f37296io;
+    public byte[] f33392io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -69,7 +68,7 @@ public class SegAR extends c {
     public int vz;
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
@@ -180,7 +179,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f37296io = null;
+        this.f33392io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -190,7 +189,7 @@ public class SegAR extends c {
     public HashMap<String, Object> a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             int i2 = this.oU;
             if (i2 != 4) {
                 if (i2 == 2) {
@@ -312,18 +311,18 @@ public class SegAR extends c {
         }
     }
 
-    private void b(long j) {
+    private void b(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65551, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65551, this, j2) == null) || (algoHandleController = this.cb) == null || j2 <= 0) {
             return;
         }
-        long handleType = algoHandleController.getHandleType(j);
+        long handleType = algoHandleController.getHandleType(j2);
         SegDetector segDetector = this.uY;
         if (segDetector == null || handleType != this.vz) {
             return;
         }
-        segDetector.b(j);
+        segDetector.b(j2);
     }
 
     private void b(byte[] bArr, int i2, int i3) {
@@ -380,8 +379,8 @@ public class SegAR extends c {
         return invokeLII.floatValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00ac  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b4  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b1  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -396,28 +395,28 @@ public class SegAR extends c {
                 this.oU = 2;
                 this.vz = 11;
                 this.bD = "ability_image_segmentation";
-                String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                if (TextUtils.isEmpty(a2)) {
+                String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+                if (TextUtils.isEmpty(a)) {
                     return;
                 }
-                this.va = a2;
+                this.va = a;
                 return;
             }
-            String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), (String) null);
-            if (a3 == null) {
+            String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), (String) null);
+            if (a2 == null) {
                 return;
             }
-            if (a3.equals("start_hair_segmentation")) {
+            if (a2.equals("start_hair_segmentation")) {
                 StatisticApi.onEvent(StatisticConstants.MDL_HAIR_SEG_OPEN);
                 m(hashMap);
                 this.oU = 4;
                 str = "ability_hair_segmentation";
-            } else if (!a3.equals("start_sky_segmentation")) {
-                if (a3.equals("start_image_segmentation")) {
+            } else if (!a2.equals("start_sky_segmentation")) {
+                if (a2.equals("start_image_segmentation")) {
                     StatisticApi.onEvent(StatisticConstants.MDL_IMG_SEG_OPEN);
-                    String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                    if (!TextUtils.isEmpty(a4)) {
-                        this.va = a4;
+                    String a3 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+                    if (!TextUtils.isEmpty(a3)) {
+                        this.va = a3;
                     }
                     this.oU = 2;
                     this.bD = "ability_image_segmentation";
@@ -436,9 +435,9 @@ public class SegAR extends c {
                 this.vz = i3;
             } else {
                 StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
-                String a5 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
-                if (!TextUtils.isEmpty(a5)) {
-                    this.va = a5;
+                String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+                if (!TextUtils.isEmpty(a4)) {
+                    this.va = a4;
                 }
                 this.oU = 5;
                 str = "ability_sky_segmentation";
@@ -455,7 +454,7 @@ public class SegAR extends c {
     public void m(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65565, this, hashMap) == null) {
-            String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
+            String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
             this.vd = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_threshold"), 0.0f);
             this.ve = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_alpha"), 0.0f);
             this.vf = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_blend_type"), 0);
@@ -465,8 +464,8 @@ public class SegAR extends c {
             this.vj = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_r"), 0.0f);
             this.vk = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_g"), 0.0f);
             this.vl = com.baidu.ar.arplay.c.c.a(hashMap.get("hair_top_color_b"), 0.0f);
-            if (!TextUtils.isEmpty(a2)) {
-                this.va = a2;
+            if (!TextUtils.isEmpty(a)) {
+                this.va = a;
             }
             SegDetector segDetector = this.uY;
             if (segDetector != null) {
@@ -476,15 +475,15 @@ public class SegAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j) {
+    public void a(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != this.vz) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            super.a(j2);
+            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != this.vz) {
                 return;
             }
-            b(j);
+            b(j2);
         }
     }
 
@@ -659,9 +658,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f37296io = gd.gc();
+                                    this.vA.f33392io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f37296io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f33392io == null) {
                                         return;
                                     }
                                     j jVar = new j();

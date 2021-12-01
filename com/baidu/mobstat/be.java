@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.mobstat.bk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +16,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class be implements bk.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,18 +50,18 @@ public class be implements bk.b {
             bh c3 = bh.c();
             c3.a("OnEvent view:" + view.getClass().getName() + "; content:" + bj.h(view) + "; activity:" + activity.getClass().getName());
         }
-        JSONArray a2 = bj.a(activity, view);
+        JSONArray a = bj.a(activity, view);
         String f2 = bj.f(view);
         Map<String, String> g2 = bj.g(view);
-        String a3 = bj.a(view);
+        String a2 = bj.a(view);
         Context applicationContext = activity.getApplicationContext();
         long currentTimeMillis = System.currentTimeMillis();
         JSONArray jSONArray = new JSONArray();
         String name = activity.getClass().getName();
         if (z) {
-            BDStatCore.instance().onEvent(applicationContext, "", a3, 1, currentTimeMillis, a2, jSONArray, name, "", f2, g2);
+            BDStatCore.instance().onEvent(applicationContext, "", a2, 1, currentTimeMillis, a, jSONArray, name, "", f2, g2);
         }
-        aw.a().a(applicationContext, "", bj.k(view), 1, currentTimeMillis, name, a2, "", jSONArray, f2, g2, a(activity, view, az.a().b()), a(activity, view));
+        aw.a().a(applicationContext, "", bj.k(view), 1, currentTimeMillis, name, a, "", jSONArray, f2, g2, a(activity, view, az.a().b()), a(activity, view));
     }
 
     private JSONObject a(Activity activity, View view, PointF pointF) {
@@ -84,21 +83,21 @@ public class be implements bk.b {
             }
             float b2 = ah.b(activity, f2);
             float b3 = ah.b(activity, f3);
-            float a2 = ah.a(activity, bj.o(view));
-            float a3 = ah.a(activity, bj.p(view));
-            if (a2 == 0.0f || a3 == 0.0f) {
+            float a = ah.a(activity, bj.o(view));
+            float a2 = ah.a(activity, bj.p(view));
+            if (a == 0.0f || a2 == 0.0f) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
+                DecimalFormat decimalFormat = new DecimalFormat("0.0");
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
                 decimalFormatSymbols.setDecimalSeparator('.');
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
                 jSONObject.put("x", decimalFormat.format(b2));
                 jSONObject.put("y", decimalFormat.format(b3));
-                jSONObject.put("xp", decimalFormat.format((b2 * 100.0f) / a2));
-                jSONObject.put("yp", decimalFormat.format((b3 * 100.0f) / a3));
+                jSONObject.put("xp", decimalFormat.format((b2 * 100.0f) / a));
+                jSONObject.put("yp", decimalFormat.format((b3 * 100.0f) / a2));
             } catch (Exception unused) {
             }
             return jSONObject;
@@ -108,15 +107,15 @@ public class be implements bk.b {
 
     private String a(Activity activity, View view) {
         InterceptResult invokeLL;
-        View a2;
+        View a;
         View n;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, activity, view)) == null) {
-            if (activity == null || view == null || (n = bj.n((a2 = bj.a(view, activity)))) == null) {
+            if (activity == null || view == null || (n = bj.n((a = bj.a(view, activity)))) == null) {
                 return "";
             }
-            String a3 = at.a().a(activity, a2, n);
-            return !TextUtils.isEmpty(a3) ? a3 : "";
+            String a2 = at.a().a(activity, a, n);
+            return !TextUtils.isEmpty(a2) ? a2 : "";
         }
         return (String) invokeLL.objValue;
     }

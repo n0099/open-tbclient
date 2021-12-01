@@ -24,9 +24,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static c f69511a;
+        public static c a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +40,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
                     return;
                 }
             }
-            f69511a = new c(null);
+            a = new c(null);
         }
     }
 
@@ -53,7 +51,7 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f69511a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,18 +81,18 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
         put(Long.valueOf(bVar.a()), bVar);
     }
 
-    public com.ss.android.downloadlib.addownload.b.b a(long j, long j2) {
+    public com.ss.android.downloadlib.addownload.b.b a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return get(get(Long.valueOf(j)) != null ? Long.valueOf(j) : Long.valueOf(j2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return get(get(Long.valueOf(j2)) != null ? Long.valueOf(j2) : Long.valueOf(j3));
         }
         return (com.ss.android.downloadlib.addownload.b.b) invokeCommon.objValue;
     }
 
-    public com.ss.android.downloadlib.addownload.b.b a(long j) {
+    public com.ss.android.downloadlib.addownload.b.b a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? get(Long.valueOf(j)) : (com.ss.android.downloadlib.addownload.b.b) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? get(Long.valueOf(j2)) : (com.ss.android.downloadlib.addownload.b.b) invokeJ.objValue;
     }
 }

@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BinderHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BinderHolder> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public IBinder f44074a;
+    public IBinder a;
 
     static {
         InterceptResult invokeClinit;
@@ -80,7 +78,7 @@ public class BinderHolder implements Parcelable {
                 return;
             }
         }
-        this.f44074a = iBinder;
+        this.a = iBinder;
     }
 
     @Override // android.os.Parcelable
@@ -97,7 +95,7 @@ public class BinderHolder implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.f44074a);
+            parcel.writeStrongBinder(this.a);
         }
     }
 
@@ -116,6 +114,6 @@ public class BinderHolder implements Parcelable {
                 return;
             }
         }
-        this.f44074a = parcel.readStrongBinder();
+        this.a = parcel.readStrongBinder();
     }
 }

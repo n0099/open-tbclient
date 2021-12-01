@@ -2,7 +2,6 @@ package org.apache.commons.lang3.text.translate;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +57,7 @@ public class UnicodeEscaper extends CodePointTranslator {
     public static UnicodeEscaper outsideOf(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) ? new UnicodeEscaper(i2, i3, false) : (UnicodeEscaper) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) ? new UnicodeEscaper(i2, i3, false) : (UnicodeEscaper) invokeII.objValue;
     }
 
     public String toUtf16Escape(int i2) {

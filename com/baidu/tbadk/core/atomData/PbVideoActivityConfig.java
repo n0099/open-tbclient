@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.q.d2;
+import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PbVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -239,10 +239,10 @@ public class PbVideoActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", d2Var.t1());
-            intent.putExtra("is_good", d2Var.q0());
-            intent.putExtra("is_top", d2Var.r0());
-            intent.putExtra("thread_time", d2Var.v0());
+            intent.putExtra("thread_id", d2Var.v1());
+            intent.putExtra("is_good", d2Var.r0());
+            intent.putExtra("is_top", d2Var.s0());
+            intent.putExtra("thread_time", d2Var.w0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -252,7 +252,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = d2Var.L0() == null ? 0L : d2Var.L0().getNum();
+            long num = d2Var.M0() == null ? 0L : d2Var.M0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (d2Var.J() != null && d2Var.J().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", d2Var.J().getFansNum());
@@ -344,10 +344,10 @@ public class PbVideoActivityConfig extends IntentConfig {
         return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
-    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
+    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j2, String str4, String str5, String str6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j2), str4, str5, str6})) == null) {
             if (str == null) {
                 return this;
             }
@@ -356,7 +356,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("is_pv", true);
-            intent.putExtra("msg_id", j);
+            intent.putExtra("msg_id", j2);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (str4 != null) {
                 intent.putExtra("op_url", str4);

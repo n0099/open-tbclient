@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.provider.MessageConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISingleton {
     void setMainConfig(MessageConfig messageConfig);
 }

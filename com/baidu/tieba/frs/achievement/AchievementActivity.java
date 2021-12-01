@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.achievement;
 
 import android.os.Bundle;
 import android.view.View;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.g1;
-import b.a.r0.x0.q1.c;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.g1;
+import c.a.r0.d1.q1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -12,21 +12,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b.a.r0.x0.q1.a inviteLetter;
+    public c.a.r0.d1.q1.a inviteLetter;
     public View.OnClickListener onShareClickListener;
     public c thanksLetter;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementActivity f49225e;
+        public final /* synthetic */ AchievementActivity f44133e;
 
         public a(AchievementActivity achievementActivity) {
             Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class AchievementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49225e = achievementActivity;
+            this.f44133e = achievementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49225e.thanksLetter.h(false);
-                this.f49225e.inviteLetter.h(true);
+                this.f44133e.thanksLetter.h(false);
+                this.f44133e.inviteLetter.h(true);
             }
         }
     }
@@ -109,7 +109,7 @@ public class AchievementActivity extends BaseActivity {
             this.thanksLetter = cVar;
             cVar.h(true);
             this.thanksLetter.j(this.onShareClickListener);
-            b.a.r0.x0.q1.a aVar = new b.a.r0.x0.q1.a(getPageContext(), findViewById(f1.layout_invite_letter));
+            c.a.r0.d1.q1.a aVar = new c.a.r0.d1.q1.a(getPageContext(), findViewById(f1.layout_invite_letter));
             this.inviteLetter = aVar;
             aVar.h(false);
         }

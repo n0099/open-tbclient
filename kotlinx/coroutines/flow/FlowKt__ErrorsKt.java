@@ -30,7 +30,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch */
-    public static final <T> Flow<T> m1992catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+    public static final <T> Flow<T> m2107catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
         return new FlowKt__ErrorsKt$catch$$inlined$unsafeFlow$1(flow, function3);
     }
 
@@ -126,7 +126,7 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emitAll(fallback) else throw e }", imports = {}))
     public static final <T> Flow<T> onErrorCollect(Flow<? extends T> flow, Flow<? extends T> flow2, Function1<? super Throwable, Boolean> function1) {
-        return FlowKt.m1987catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
+        return FlowKt.m2102catch(flow, new FlowKt__ErrorsKt$onErrorCollect$2(function1, flow2, null));
     }
 
     public static /* synthetic */ Flow onErrorCollect$default(Flow flow, Flow flow2, Function1 function1, int i2, Object obj) {
@@ -137,21 +137,21 @@ public final /* synthetic */ class FlowKt__ErrorsKt {
     }
 
     @ExperimentalCoroutinesApi
-    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
-        if (j > 0) {
-            return FlowKt.retryWhen(flow, new FlowKt__ErrorsKt$retry$3(j, function2, null));
+    public static final <T> Flow<T> retry(Flow<? extends T> flow, long j2, Function2<? super Throwable, ? super Continuation<? super Boolean>, ? extends Object> function2) {
+        if (j2 > 0) {
+            return FlowKt.retryWhen(flow, new FlowKt__ErrorsKt$retry$3(j2, function2, null));
         }
-        throw new IllegalArgumentException(("Expected positive amount of retries, but had " + j).toString());
+        throw new IllegalArgumentException(("Expected positive amount of retries, but had " + j2).toString());
     }
 
-    public static /* synthetic */ Flow retry$default(Flow flow, long j, Function2 function2, int i2, Object obj) {
+    public static /* synthetic */ Flow retry$default(Flow flow, long j2, Function2 function2, int i2, Object obj) {
         if ((i2 & 1) != 0) {
-            j = Long.MAX_VALUE;
+            j2 = Long.MAX_VALUE;
         }
         if ((i2 & 2) != 0) {
             function2 = new FlowKt__ErrorsKt$retry$1(null);
         }
-        return FlowKt.retry(flow, j, function2);
+        return FlowKt.retry(flow, j2, function2);
     }
 
     @ExperimentalCoroutinesApi

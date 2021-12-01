@@ -11,21 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final g f70109a;
+    public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f70110b;
+    public static final g f61679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f70111c;
+    public static final g f61680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f70112d;
+    public static final g f61681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ g[] f70113e;
+    public static final /* synthetic */ g[] f61682e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +39,12 @@ public final class g {
                 return;
             }
         }
-        f70109a = new g("DELAY_RETRY_NONE", 0);
-        f70110b = new g("DELAY_RETRY_WAITING", 1);
-        f70111c = new g("DELAY_RETRY_DOWNLOADING", 2);
+        a = new g("DELAY_RETRY_NONE", 0);
+        f61679b = new g("DELAY_RETRY_WAITING", 1);
+        f61680c = new g("DELAY_RETRY_DOWNLOADING", 2);
         g gVar = new g("DELAY_RETRY_DOWNLOADED", 3);
-        f70112d = gVar;
-        f70113e = new g[]{f70109a, f70110b, f70111c, gVar};
+        f61681d = gVar;
+        f61682e = new g[]{a, f61679b, f61680c, gVar};
     }
 
     public g(String str, int i2) {
@@ -77,6 +75,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f70113e.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f61682e.clone() : (g[]) invokeV.objValue;
     }
 }

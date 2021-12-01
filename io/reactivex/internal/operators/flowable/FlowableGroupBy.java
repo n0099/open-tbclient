@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream<T, GroupedFlowable<K, V>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
     public final Function<? super Consumer<Object>, ? extends Map<K, Object>> mapFactory;
     public final Function<? super T, ? extends V> valueSelector;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class EvictionAction<K, V> implements Consumer<GroupedUnicast<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupBySubscriber<T, K, V> extends BasicIntQueueSubscription<GroupedFlowable<K, V>> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Object NULL_KEY;
@@ -254,10 +254,10 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
                 Subscriber<? super GroupedFlowable<K, V>> subscriber = this.actual;
                 int i3 = 1;
                 do {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         }
@@ -271,16 +271,16 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
                             break;
                         }
                         subscriber.onNext(poll);
-                        j2++;
+                        j3++;
                     }
                     if (i2 == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                         return;
                     }
-                    if (j2 != 0) {
-                        if (j != Long.MAX_VALUE) {
-                            this.requested.addAndGet(-j2);
+                    if (j3 != 0) {
+                        if (j2 != Long.MAX_VALUE) {
+                            this.requested.addAndGet(-j3);
                         }
-                        this.s.request(j2);
+                        this.s.request(j3);
                     }
                     i3 = addAndGet(-i3);
                 } while (i3 != 0);
@@ -395,10 +395,10 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048590, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }
@@ -426,13 +426,13 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.queue.poll() : (GroupedFlowable) invokeV.objValue;
         }
 
-        public void cancel(K k) {
+        public void cancel(K k2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k) == null) {
-                if (k == null) {
-                    k = (K) NULL_KEY;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2) == null) {
+                if (k2 == null) {
+                    k2 = (K) NULL_KEY;
                 }
-                this.groups.remove(k);
+                this.groups.remove(k2);
                 if (this.groupCount.decrementAndGet() == 0) {
                     this.s.cancel();
                     if (getAndIncrement() == 0) {
@@ -443,20 +443,20 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupedUnicast<K, T> extends GroupedFlowable<K, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final State<T, K> state;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public GroupedUnicast(K k, State<T, K> state) {
-            super(k);
+        public GroupedUnicast(K k2, State<T, K> state) {
+            super(k2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k, state};
+                Object[] objArr = {k2, state};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -470,10 +470,10 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
             this.state = state;
         }
 
-        public static <T, K> GroupedUnicast<K, T> createWith(K k, int i2, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
+        public static <T, K> GroupedUnicast<K, T> createWith(K k2, int i2, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k, Integer.valueOf(i2), groupBySubscriber, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k, new State(i2, groupBySubscriber, k, z)) : (GroupedUnicast) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k2, Integer.valueOf(i2), groupBySubscriber, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k2, new State(i2, groupBySubscriber, k2, z)) : (GroupedUnicast) invokeCommon.objValue;
         }
 
         public void onComplete() {
@@ -506,7 +506,7 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State<T, K> extends BasicIntQueueSubscription<T> implements Publisher<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3852313036005250360L;
@@ -524,12 +524,12 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         public final SpscLinkedArrayQueue<T> queue;
         public final AtomicLong requested;
 
-        public State(int i2, GroupBySubscriber<?, K, T> groupBySubscriber, K k, boolean z) {
+        public State(int i2, GroupBySubscriber<?, K, T> groupBySubscriber, K k2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), groupBySubscriber, k, Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i2), groupBySubscriber, k2, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -545,7 +545,7 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
             this.once = new AtomicBoolean();
             this.queue = new SpscLinkedArrayQueue<>(i2);
             this.parent = groupBySubscriber;
-            this.key = k;
+            this.key = k2;
             this.delayError = z;
         }
 
@@ -669,10 +669,10 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
             int i3 = 1;
             while (true) {
                 if (subscriber != null) {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         }
@@ -686,16 +686,16 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
                             break;
                         }
                         subscriber.onNext(obj);
-                        j2++;
+                        j3++;
                     }
                     if (i2 == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, z)) {
                         return;
                     }
-                    if (j2 != 0) {
-                        if (j != Long.MAX_VALUE) {
-                            this.requested.addAndGet(-j2);
+                    if (j3 != 0) {
+                        if (j2 != Long.MAX_VALUE) {
+                            this.requested.addAndGet(-j3);
                         }
-                        this.parent.s.request(j2);
+                        this.parent.s.request(j3);
                     }
                 }
                 i3 = addAndGet(-i3);
@@ -763,10 +763,10 @@ public final class FlowableGroupBy<T, K, V> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

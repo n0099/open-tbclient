@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.pb.godreply;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +65,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             }
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.g0(post, TbadkCoreApplication.getInst());
+                postData.g0(post);
                 postData.Q = 102;
                 this.list.add(postData);
             }

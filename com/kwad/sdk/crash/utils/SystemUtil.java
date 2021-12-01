@@ -9,8 +9,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.adsdk.DeviceInfo;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,24 +31,22 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SystemUtil {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile String f66398a;
+    public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f66399b;
+    public static volatile Boolean f58186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f66400c;
+    public static long f58187c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f66401d;
+    public static long f58188d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f66402e;
+    public static int f58189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f66403f;
+    public static LEVEL f58190f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -133,24 +130,22 @@ public class SystemUtil {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f66404a;
+        public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66405b;
+        public long f58191b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f66406c;
+        public long f58192c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f66407d;
+        public long f58193d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f66408e;
+        public long f58194e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f66409f;
+        public int f58195f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -256,7 +251,7 @@ public class SystemUtil {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x000f */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x0040 */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0037, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f66398a = r1.processName;
+        com.kwad.sdk.crash.utils.SystemUtil.a = r1.processName;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v12, types: [java.io.Reader] */
@@ -277,9 +272,9 @@ public class SystemUtil {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            ?? isEmpty = TextUtils.isEmpty(f66398a);
+            ?? isEmpty = TextUtils.isEmpty(a);
             if (isEmpty == 0) {
-                return f66398a;
+                return a;
             }
             try {
                 isEmpty = Process.myPid();
@@ -299,7 +294,7 @@ public class SystemUtil {
             } catch (Exception e3) {
                 com.kwad.sdk.core.d.a.b(e3);
             }
-            if (TextUtils.isEmpty(f66398a)) {
+            if (TextUtils.isEmpty(a)) {
                 try {
                     try {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ProcessUtils.CMD_LINE_NAME)));
@@ -329,21 +324,21 @@ public class SystemUtil {
                         }
                         sb.append((char) read);
                     }
-                    f66398a = sb.toString();
+                    a = sb.toString();
                 } catch (FileNotFoundException e6) {
                     e2 = e6;
                     com.kwad.sdk.core.d.a.b(e2);
                     b.a((Reader) bufferedReader);
-                    return f66398a;
+                    return a;
                 } catch (IOException e7) {
                     e2 = e7;
                     com.kwad.sdk.core.d.a.b(e2);
                     b.a((Reader) bufferedReader);
-                    return f66398a;
+                    return a;
                 }
                 b.a((Reader) bufferedReader);
             }
-            return f66398a;
+            return a;
         }
         return (String) invokeL.objValue;
     }
@@ -389,18 +384,18 @@ public class SystemUtil {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f66399b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (f58186b == null) {
                 String a2 = a(context);
-                f66399b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+                f58186b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
             }
-            return f66399b.booleanValue();
+            return f58186b.booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -428,7 +423,7 @@ public class SystemUtil {
             RandomAccessFile randomAccessFile = null;
             try {
                 try {
-                    RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f41000a);
+                    RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", "r");
                     while (true) {
                         try {
                             readLine = randomAccessFile2.readLine();
@@ -438,15 +433,15 @@ public class SystemUtil {
                                 if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                     String a3 = a(readLine, "VmSize");
                                     if (a3 != null) {
-                                        aVar.f66405b = Long.valueOf(a3).longValue();
+                                        aVar.f58191b = Long.valueOf(a3).longValue();
                                     }
                                 } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                     String a4 = a(readLine, "VmRSS:");
                                     if (a4 != null) {
-                                        aVar.f66406c = Long.valueOf(a4).longValue();
+                                        aVar.f58192c = Long.valueOf(a4).longValue();
                                     }
                                 } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                    aVar.f66409f = Integer.valueOf(a2).intValue();
+                                    aVar.f58195f = Integer.valueOf(a2).intValue();
                                 }
                             }
                         } catch (IOException e2) {
@@ -480,6 +475,9 @@ public class SystemUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (com.kwad.sdk.b.a.booleanValue()) {
+                return (int) DeviceInfo.getScreenBrightness(context);
+            }
             try {
                 return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
             } catch (Exception e2) {

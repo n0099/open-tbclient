@@ -11,30 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, WeakReference<C1945a>> f65664a;
+    public static Map<String, WeakReference<C2019a>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1945a {
+    public static class C2019a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public HandlerThread f65665a;
+        public HandlerThread a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f65666b;
+        public Handler f57471b;
 
-        public C1945a(String str) {
+        public C2019a(String str) {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,18 +50,18 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HandlerThread";
             } else {
-                str2 = "ksad-" + str;
+                str2 = DiskLruCache.KS_THREAD_PREFIX + str;
             }
             HandlerThread handlerThread = new HandlerThread(str2);
-            this.f65665a = handlerThread;
+            this.a = handlerThread;
             handlerThread.start();
-            this.f65666b = new Handler(this.f65665a.getLooper());
+            this.f57471b = new Handler(this.a.getLooper());
         }
 
         public Handler a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65666b : (Handler) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57471b : (Handler) invokeV.objValue;
         }
     }
 
@@ -81,7 +78,7 @@ public class a {
                 return;
             }
         }
-        f65664a = new ConcurrentHashMap();
+        a = new ConcurrentHashMap();
     }
 
     public static synchronized Handler a() {
@@ -98,22 +95,22 @@ public class a {
     }
 
     @NonNull
-    public static C1945a a(String str) {
+    public static C2019a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (str == null) {
-                return new C1945a(null);
+                return new C2019a(null);
             }
-            WeakReference<C1945a> weakReference = f65664a.get(str);
+            WeakReference<C2019a> weakReference = a.get(str);
             if (weakReference == null || weakReference.get() == null) {
-                C1945a c1945a = new C1945a(str);
-                f65664a.put(str, new WeakReference<>(c1945a));
-                return c1945a;
+                C2019a c2019a = new C2019a(str);
+                a.put(str, new WeakReference<>(c2019a));
+                return c2019a;
             }
             return weakReference.get();
         }
-        return (C1945a) invokeL.objValue;
+        return (C2019a) invokeL.objValue;
     }
 
     public static synchronized Handler b() {

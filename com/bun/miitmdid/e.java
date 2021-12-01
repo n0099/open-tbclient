@@ -15,26 +15,22 @@ import com.bun.miitmdid.core.InfoCode;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62061b;
+    public static boolean f54390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f62062c;
+    public static boolean f54391c;
     public transient /* synthetic */ FieldHolder $fh;
+    public IIdentifierListener a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public IIdentifierListener f62063a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f62064a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,77 +47,77 @@ public class e {
                 }
             }
             int[] iArr = new int[c.values().length];
-            f62064a = iArr;
+            a = iArr;
             try {
-                iArr[c.f62057i.ordinal()] = 1;
+                iArr[c.f54385i.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f62064a[c.p.ordinal()] = 2;
+                a[c.p.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f62064a[c.f62051c.ordinal()] = 3;
+                a[c.f54379c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f62064a[c.s.ordinal()] = 4;
+                a[c.s.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f62064a[c.f62056h.ordinal()] = 5;
+                a[c.f54384h.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f62064a[c.f62055g.ordinal()] = 6;
+                a[c.f54383g.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f62064a[c.k.ordinal()] = 7;
+                a[c.f54387k.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f62064a[c.l.ordinal()] = 8;
+                a[c.l.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f62064a[c.f62054f.ordinal()] = 9;
+                a[c.f54382f.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f62064a[c.n.ordinal()] = 10;
+                a[c.n.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f62064a[c.r.ordinal()] = 11;
+                a[c.r.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f62064a[c.j.ordinal()] = 12;
+                a[c.f54386j.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f62064a[c.f62053e.ordinal()] = 13;
+                a[c.f54381e.ordinal()] = 13;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f62064a[c.f62052d.ordinal()] = 14;
+                a[c.f54380d.ordinal()] = 14;
             } catch (NoSuchFieldError unused14) {
             }
             try {
-                f62064a[c.o.ordinal()] = 15;
+                a[c.o.ordinal()] = 15;
             } catch (NoSuchFieldError unused15) {
             }
             try {
-                f62064a[c.m.ordinal()] = 16;
+                a[c.m.ordinal()] = 16;
             } catch (NoSuchFieldError unused16) {
             }
             try {
-                f62064a[c.q.ordinal()] = 17;
+                a[c.q.ordinal()] = 17;
             } catch (NoSuchFieldError unused17) {
             }
             try {
-                f62064a[c.t.ordinal()] = 18;
+                a[c.t.ordinal()] = 18;
             } catch (NoSuchFieldError unused18) {
             }
         }
@@ -176,8 +172,8 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (e.class) {
                 verifyCert = CertChecker.a().verifyCert(context, str);
-                f62061b = verifyCert;
-                f62062c = true;
+                f54390b = verifyCert;
+                f54391c = true;
             }
             return verifyCert;
         }
@@ -202,8 +198,8 @@ public class e {
         IIdProvider iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iIdentifierListener)) == null) {
-            if (f62062c && f62061b) {
-                this.f62063a = iIdentifierListener;
+            if (f54391c && f54390b) {
+                this.a = iIdentifierListener;
                 Context applicationContext = context.getApplicationContext();
                 com.bun.miitmdid.a.a(applicationContext);
                 StringBuilder sb = new StringBuilder();
@@ -212,7 +208,7 @@ public class e {
                 sb.append(str);
                 e0.c("MainMdidSdk", sb.toString());
                 c a2 = c.a(str);
-                c cVar = c.f62050b;
+                c cVar = c.f54378b;
                 if (a2 == cVar && (a2 = d.a(applicationContext)) == cVar) {
                     e0.d("MainMdidSdk", "OnInit: manufacturer not support");
                     return a(InfoCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, (IdSupplier) null);
@@ -228,7 +224,7 @@ public class e {
                     e0.d("MainMdidSdk", "OnInit: config file not loaded");
                     return a(InfoCode.INIT_ERROR_LOAD_CONFIGFILE, (IdSupplier) null);
                 }
-                switch (a.f62064a[a2.ordinal()]) {
+                switch (a.a[a2.ordinal()]) {
                     case 1:
                         iVar = new i(applicationContext);
                         break;

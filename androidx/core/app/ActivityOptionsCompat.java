@@ -15,7 +15,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,7 +168,7 @@ public class ActivityOptionsCompat {
     public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, activity, view, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, activity, view, str)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view, str));
             }
@@ -247,7 +246,7 @@ public class ActivityOptionsCompat {
     public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, Pair<View, String>... pairArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, activity, pairArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, activity, pairArr)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 android.util.Pair[] pairArr2 = null;
                 if (pairArr != null) {

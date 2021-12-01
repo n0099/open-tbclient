@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +66,7 @@ public class RandomUtils {
     public static double nextDouble(double d2, double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) {
             Validate.isTrue(d3 >= d2, "Start value must be smaller or equal to end value.", new Object[0]);
             Validate.isTrue(d2 >= 0.0d, "Both range values must be non-negative.", new Object[0]);
             return d2 == d3 ? d2 : d2 + ((d3 - d2) * RANDOM.nextDouble());
@@ -97,13 +96,13 @@ public class RandomUtils {
         return invokeII.intValue;
     }
 
-    public static long nextLong(long j, long j2) {
+    public static long nextLong(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Validate.isTrue(j2 >= j, "Start value must be smaller or equal to end value.", new Object[0]);
-            Validate.isTrue(j >= 0, "Both range values must be non-negative.", new Object[0]);
-            return j == j2 ? j : (long) nextDouble(j, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            Validate.isTrue(j3 >= j2, "Start value must be smaller or equal to end value.", new Object[0]);
+            Validate.isTrue(j2 >= 0, "Both range values must be non-negative.", new Object[0]);
+            return j2 == j3 ? j2 : (long) nextDouble(j2, j3);
         }
         return invokeCommon.longValue;
     }
@@ -117,7 +116,7 @@ public class RandomUtils {
     public static float nextFloat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? nextFloat(0.0f, Float.MAX_VALUE) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? nextFloat(0.0f, Float.MAX_VALUE) : invokeV.floatValue;
     }
 
     public static int nextInt() {

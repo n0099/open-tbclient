@@ -10,7 +10,6 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SevenZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
@@ -149,7 +148,7 @@ public class SevenZipUtils {
     private synchronized int createDir(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             synchronized (this) {
                 File file = new File(str);
                 if (file.exists() || file.mkdirs()) {
@@ -309,13 +308,13 @@ public class SevenZipUtils {
 
     private native int init(String str, String str2, int i2, int i3, int i4, int i5);
 
-    private boolean isEnoughSpace(long j) {
+    private boolean isEnoughSpace(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j2)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
+                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j2;
             } catch (Exception e2) {
                 Log.i(TAG, "[WARNING]get available blocks failed : " + e2.toString());
                 return true;

@@ -1,11 +1,7 @@
 package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.widget.player.PlayerEvent;
 import com.baidu.pass.face.platform.utils.FileUtils;
-import com.baidu.searchbox.live.interfaces.player.VideoInfoConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,9 +20,10 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Code39Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
@@ -52,7 +49,7 @@ public final class Code39Reader extends OneDReader {
                 return;
             }
         }
-        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, VideoInfoConstants.VIDEO_MPD_VID, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, 268, 76, 28, 259, 67, 322, 19, 274, 82, 7, PlayerEvent.PLAY_LOADING_END, 70, 22, 385, 193, FileUtils.S_IRWXU, 145, 400, 208, 133, 388, 196, Opcodes.LCMP, 168, 162, 138, 42};
+        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, w0.n, 400, 208, 133, 388, 196, 148, w0.d0, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }
@@ -134,7 +131,7 @@ public final class Code39Reader extends OneDReader {
     public static int[] findAsteriskPattern(BitArray bitArray, int[] iArr) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bitArray, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitArray, iArr)) == null) {
             int size = bitArray.getSize();
             int nextSet = bitArray.getNextSet(0);
             int length = iArr.length;
@@ -171,7 +168,7 @@ public final class Code39Reader extends OneDReader {
     public static char patternToChar(int i2) throws NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65542, null, i2)) != null) {
             return invokeI.charValue;
         }
         int i3 = 0;

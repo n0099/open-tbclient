@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +31,14 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b implements com.ss.android.downloadad.api.b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f69598a = "b";
+    public static String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f69599b;
+    public static volatile b f61328b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f69600c;
+    public g f61329c;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +68,7 @@ public class b implements com.ss.android.downloadad.api.b {
                 return;
             }
         }
-        this.f69600c = g.a(j.getContext());
+        this.f61329c = g.a(j.getContext());
     }
 
     public static DownloadEventConfig c() {
@@ -94,7 +91,7 @@ public class b implements com.ss.android.downloadad.api.b {
             } else if (context == null || TextUtils.isEmpty(downloadModel.getDownloadUrl())) {
                 return null;
             } else {
-                this.f69600c.a(context, i2, downloadStatusChangeListener, downloadModel);
+                this.f61329c.a(context, i2, downloadStatusChangeListener, downloadModel);
                 boolean z3 = true;
                 DownloadEventConfig downloadEventConfig2 = (DownloadEventConfig) l.a(downloadEventConfig, c());
                 DownloadController downloadController2 = (DownloadController) l.a(downloadController, b());
@@ -104,26 +101,24 @@ public class b implements com.ss.android.downloadad.api.b {
                     z3 = z4;
                 }
                 if (z3) {
-                    this.f69600c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
+                    this.f61329c.a(downloadModel.getDownloadUrl(), downloadModel.getId(), 2, downloadEventConfig2, downloadController2);
                     return null;
                 }
-                String str2 = f69598a;
+                String str2 = a;
                 k.a(str2, "tryStartDownload show dialog appName:" + downloadModel.getDownloadUrl(), null);
-                Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d("取消").a(new b.InterfaceC2003b(this, downloadModel, downloadEventConfig2, downloadController2) { // from class: com.ss.android.downloadlib.b.2
+                Dialog b2 = j.c().b(new b.a(context).a(downloadModel.getName()).b("确认要下载此应用吗？").c("确认").d("取消").a(new b.InterfaceC2094b(this, downloadModel, downloadEventConfig2, downloadController2) { // from class: com.ss.android.downloadlib.b.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DownloadModel f69610a;
+                    public final /* synthetic */ DownloadModel a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ DownloadEventConfig f69611b;
+                    public final /* synthetic */ DownloadEventConfig f61339b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ DownloadController f69612c;
+                    public final /* synthetic */ DownloadController f61340c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ b f69613d;
+                    public final /* synthetic */ b f61341d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -140,36 +135,36 @@ public class b implements com.ss.android.downloadad.api.b {
                                 return;
                             }
                         }
-                        this.f69613d = this;
-                        this.f69610a = downloadModel;
-                        this.f69611b = downloadEventConfig2;
-                        this.f69612c = downloadController2;
+                        this.f61341d = this;
+                        this.a = downloadModel;
+                        this.f61339b = downloadEventConfig2;
+                        this.f61340c = downloadController2;
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2003b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2094b
                     public void a(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f69613d.f69600c.a(this.f69610a.getDownloadUrl(), this.f69610a.getId(), 2, this.f69611b, this.f69612c);
-                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_confirm", this.f69610a, this.f69611b, this.f69612c);
+                            this.f61341d.f61329c.a(this.a.getDownloadUrl(), this.a.getId(), 2, this.f61339b, this.f61340c);
+                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_confirm", this.a, this.f61339b, this.f61340c);
                             dialogInterface.dismiss();
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2003b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2094b
                     public void b(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", this.f69610a, this.f69611b, this.f69612c);
+                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", this.a, this.f61339b, this.f61340c);
                             dialogInterface.dismiss();
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2003b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2094b
                     public void c(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", this.f69610a, this.f69611b, this.f69612c);
+                            com.ss.android.downloadlib.d.a.a().a("landing_download_dialog_cancel", this.a, this.f61339b, this.f61340c);
                         }
                     }
                 }).a(0).a());
@@ -184,14 +179,14 @@ public class b implements com.ss.android.downloadad.api.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f69599b == null) {
+            if (f61328b == null) {
                 synchronized (b.class) {
-                    if (f69599b == null) {
-                        f69599b = new b();
+                    if (f61328b == null) {
+                        f61328b = new b();
                     }
                 }
             }
-            return f69599b;
+            return f61328b;
         }
         return (b) invokeV.objValue;
     }
@@ -209,34 +204,34 @@ public class b implements com.ss.android.downloadad.api.b {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Boolean.valueOf(z), downloadModel, downloadEventConfig, downloadController, downloadStatusChangeListener, Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) ? (Dialog) com.ss.android.downloadlib.e.b.a(new b.a<Dialog>(this, context, str, z, downloadModel, downloadEventConfig, downloadController, downloadStatusChangeListener, i2, z2) { // from class: com.ss.android.downloadlib.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f69601a;
+            public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f69602b;
+            public final /* synthetic */ String f61330b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ boolean f69603c;
+            public final /* synthetic */ boolean f61331c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ DownloadModel f69604d;
+            public final /* synthetic */ DownloadModel f61332d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DownloadEventConfig f69605e;
+            public final /* synthetic */ DownloadEventConfig f61333e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DownloadController f69606f;
+            public final /* synthetic */ DownloadController f61334f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ DownloadStatusChangeListener f69607g;
+            public final /* synthetic */ DownloadStatusChangeListener f61335g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ int f69608h;
+            public final /* synthetic */ int f61336h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ boolean f69609i;
-            public final /* synthetic */ b j;
+            public final /* synthetic */ boolean f61337i;
+
+            /* renamed from: j  reason: collision with root package name */
+            public final /* synthetic */ b f61338j;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -253,16 +248,16 @@ public class b implements com.ss.android.downloadad.api.b {
                         return;
                     }
                 }
-                this.j = this;
-                this.f69601a = context;
-                this.f69602b = str;
-                this.f69603c = z;
-                this.f69604d = downloadModel;
-                this.f69605e = downloadEventConfig;
-                this.f69606f = downloadController;
-                this.f69607g = downloadStatusChangeListener;
-                this.f69608h = i2;
-                this.f69609i = z2;
+                this.f61338j = this;
+                this.a = context;
+                this.f61330b = str;
+                this.f61331c = z;
+                this.f61332d = downloadModel;
+                this.f61333e = downloadEventConfig;
+                this.f61334f = downloadController;
+                this.f61335g = downloadStatusChangeListener;
+                this.f61336h = i2;
+                this.f61337i = z2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -271,24 +266,24 @@ public class b implements com.ss.android.downloadad.api.b {
             public Dialog b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.j.b(this.f69601a, this.f69602b, this.f69603c, this.f69604d, this.f69605e, this.f69606f, this.f69607g, this.f69608h, this.f69609i) : (Dialog) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f61338j.b(this.a, this.f61330b, this.f61331c, this.f61332d, this.f61333e, this.f61334f, this.f61335g, this.f61336h, this.f61337i) : (Dialog) invokeV.objValue;
             }
         }) : (Dialog) invokeCommon.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.b
-    public boolean a(Context context, long j, String str, DownloadStatusChangeListener downloadStatusChangeListener, int i2) {
+    public boolean a(Context context, long j2, String str, DownloadStatusChangeListener downloadStatusChangeListener, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), str, downloadStatusChangeListener, Integer.valueOf(i2)})) == null) {
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j2), str, downloadStatusChangeListener, Integer.valueOf(i2)})) == null) {
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j2);
             if (d2 != null) {
-                this.f69600c.a(context, i2, downloadStatusChangeListener, d2.af());
+                this.f61329c.a(context, i2, downloadStatusChangeListener, d2.af());
                 return true;
             }
-            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
+            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j2);
             if (a2 != null) {
-                this.f69600c.a(context, i2, downloadStatusChangeListener, a2);
+                this.f61329c.a(context, i2, downloadStatusChangeListener, a2);
                 return true;
             }
             return false;
@@ -296,11 +291,11 @@ public class b implements com.ss.android.downloadad.api.b {
         return invokeCommon.booleanValue;
     }
 
-    public void a(long j, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
+    public void a(long j2, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), downloadEventConfig, downloadController}) == null) {
-            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), downloadEventConfig, downloadController}) == null) {
+            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j2);
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j2);
             if (a2 == null && d2 != null) {
                 a2 = d2.af();
             }
@@ -309,26 +304,26 @@ public class b implements com.ss.android.downloadad.api.b {
             }
             if (downloadEventConfig != null && downloadController != null && !(downloadEventConfig instanceof com.ss.android.download.api.download.c) && !(downloadController instanceof com.ss.android.download.api.download.b)) {
                 downloadEventConfig.setDownloadScene(1);
-                this.f69600c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, downloadController);
+                this.f61329c.a(a2.getDownloadUrl(), j2, 2, downloadEventConfig, downloadController);
                 return;
             }
-            a(j);
+            a(j2);
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j);
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            DownloadModel a2 = com.ss.android.downloadlib.addownload.b.f.a().a(j2);
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j2);
             if (a2 == null && d2 != null) {
                 a2 = d2.af();
             }
             if (a2 == null) {
                 return;
             }
-            DownloadEventConfig b2 = com.ss.android.downloadlib.addownload.b.f.a().b(j);
-            DownloadController c2 = com.ss.android.downloadlib.addownload.b.f.a().c(j);
+            DownloadEventConfig b2 = com.ss.android.downloadlib.addownload.b.f.a().b(j2);
+            DownloadController c2 = com.ss.android.downloadlib.addownload.b.f.a().c(j2);
             if (b2 instanceof com.ss.android.download.api.download.c) {
                 b2 = null;
             }
@@ -352,14 +347,14 @@ public class b implements com.ss.android.downloadad.api.b {
             }
             DownloadEventConfig downloadEventConfig = b2;
             downloadEventConfig.setDownloadScene(1);
-            this.f69600c.a(a2.getDownloadUrl(), j, 2, downloadEventConfig, c2);
+            this.f61329c.a(a2.getDownloadUrl(), j2, 2, downloadEventConfig, c2);
         }
     }
 
-    public boolean b(long j) {
+    public boolean b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? (com.ss.android.downloadlib.addownload.b.f.a().a(j) == null && com.ss.android.downloadlib.addownload.b.f.a().d(j) == null) ? false : true : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? (com.ss.android.downloadlib.addownload.b.f.a().a(j2) == null && com.ss.android.downloadlib.addownload.b.f.a().d(j2) == null) ? false : true : invokeJ.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -388,9 +383,9 @@ public class b implements com.ss.android.downloadad.api.b {
                     downloadController2 = b();
                 }
                 com.ss.android.downloadlib.addownload.b.e eVar = new com.ss.android.downloadlib.addownload.b.e(downloadModel.getId(), downloadModel, (DownloadEventConfig) l.a(downloadEventConfig, c()), downloadController2);
-                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.f69434b);
-                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.f69433a, eVar.f69435c);
-                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.f69433a, eVar.f69436d);
+                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.f61223b);
+                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.f61224c);
+                com.ss.android.downloadlib.addownload.b.f.a().a(eVar.a, eVar.f61225d);
                 if (l.a(downloadModel) && com.ss.android.socialbase.downloader.g.a.c().b("app_link_opt") == 1 && com.ss.android.downloadlib.b.a.a(eVar)) {
                     return true;
                 }
@@ -423,24 +418,22 @@ public class b implements com.ss.android.downloadad.api.b {
         return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, context, uri, downloadModel, downloadEventConfig, downloadController)) == null) ? ((Boolean) com.ss.android.downloadlib.e.b.a(new b.a<Boolean>(this, context, uri, downloadModel, downloadEventConfig, downloadController) { // from class: com.ss.android.downloadlib.b.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f69614a;
+            public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Uri f69615b;
+            public final /* synthetic */ Uri f61342b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ DownloadModel f69616c;
+            public final /* synthetic */ DownloadModel f61343c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ DownloadEventConfig f69617d;
+            public final /* synthetic */ DownloadEventConfig f61344d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DownloadController f69618e;
+            public final /* synthetic */ DownloadController f61345e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f69619f;
+            public final /* synthetic */ b f61346f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -457,12 +450,12 @@ public class b implements com.ss.android.downloadad.api.b {
                         return;
                     }
                 }
-                this.f69619f = this;
-                this.f69614a = context;
-                this.f69615b = uri;
-                this.f69616c = downloadModel;
-                this.f69617d = downloadEventConfig;
-                this.f69618e = downloadController;
+                this.f61346f = this;
+                this.a = context;
+                this.f61342b = uri;
+                this.f61343c = downloadModel;
+                this.f61344d = downloadEventConfig;
+                this.f61345e = downloadController;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -471,7 +464,7 @@ public class b implements com.ss.android.downloadad.api.b {
             public Boolean b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(this.f69619f.b(this.f69614a, this.f69615b, this.f69616c, this.f69617d, this.f69618e)) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(this.f61346f.b(this.a, this.f61342b, this.f61343c, this.f61344d, this.f61345e)) : (Boolean) invokeV.objValue;
             }
         })).booleanValue() : invokeLLLLL.booleanValue;
     }
@@ -494,6 +487,6 @@ public class b implements com.ss.android.downloadad.api.b {
     public static DownloadController b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? a(false) : (DownloadController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a(false) : (DownloadController) invokeV.objValue;
     }
 }

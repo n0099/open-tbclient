@@ -64,16 +64,16 @@ public class MPushMessage implements Serializable {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
                     } catch (JSONException e2) {
-                        b.j.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
+                        c.k.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
                     }
                     jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
         } catch (JSONException e3) {
-            b.j.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
+            c.k.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
         }
-        b.j.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
+        c.k.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 

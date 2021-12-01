@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceDetect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceDetect";
@@ -65,39 +65,39 @@ public class FaceDetect {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeAlignModelInit(long j, int i2, int i3, byte[] bArr);
+    public native int nativeAlignModelInit(long j2, int i2, int i3, byte[] bArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeAttributeModelInit(long j, byte[] bArr);
+    public native int nativeAttributeModelInit(long j2, byte[] bArr);
 
-    private native BDFaceImageInstance nativeCropFace(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
+    private native BDFaceImageInstance nativeCropFace(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
 
-    private native FaceInfo[] nativeDetect(long j, int i2, int i3, BDFaceImageInstance bDFaceImageInstance);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeDetectModelInit(long j, byte[] bArr, int i2);
+    private native FaceInfo[] nativeDetect(long j2, int i2, int i3, BDFaceImageInstance bDFaceImageInstance);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeEmotionsModelInit(long j, byte[] bArr);
+    public native int nativeDetectModelInit(long j2, byte[] bArr, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeFaceCloseModelInit(long j, byte[] bArr, int i2);
-
-    private native FaceInfo[] nativeFastTrack(long j, int i2, int i3, BDFaceImageInstance bDFaceImageInstance);
-
-    private native FaceInfo[] nativeFlexibleDetect(long j, int i2, int i3, BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr, BDFaceDetectListConf bDFaceDetectListConf);
-
-    private native void nativeLoadConfig(long j, BDFaceSDKConfig bDFaceSDKConfig);
+    public native int nativeEmotionsModelInit(long j2, byte[] bArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeLoadTrack(long j, int i2, int i3);
+    public native int nativeFaceCloseModelInit(long j2, byte[] bArr, int i2);
+
+    private native FaceInfo[] nativeFastTrack(long j2, int i2, int i3, BDFaceImageInstance bDFaceImageInstance);
+
+    private native FaceInfo[] nativeFlexibleDetect(long j2, int i2, int i3, BDFaceImageInstance bDFaceImageInstance, FaceInfo[] faceInfoArr, BDFaceDetectListConf bDFaceDetectListConf);
+
+    private native void nativeLoadConfig(long j2, BDFaceSDKConfig bDFaceSDKConfig);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeQualityModelInit(long j, byte[] bArr, int i2);
+    public native int nativeLoadTrack(long j2, int i2, int i3);
 
-    private native FaceInfo[] nativeTrack(long j, int i2, BDFaceImageInstance bDFaceImageInstance);
+    /* JADX INFO: Access modifiers changed from: private */
+    public native int nativeQualityModelInit(long j2, byte[] bArr, int i2);
 
-    private native int nativeUninitModel(long j);
+    private native FaceInfo[] nativeTrack(long j2, int i2, BDFaceImageInstance bDFaceImageInstance);
+
+    private native int nativeUninitModel(long j2);
 
     public BDFaceImageInstance cropFace(BDFaceImageInstance bDFaceImageInstance, float[] fArr) {
         InterceptResult invokeLL;

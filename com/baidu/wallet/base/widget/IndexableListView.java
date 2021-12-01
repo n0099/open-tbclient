@@ -13,19 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IndexableListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f58493a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IndexScroller f58494b;
+    public IndexScroller f52105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GestureDetector f58495c;
+    public GestureDetector f52106c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IndexableListView(Context context) {
@@ -45,9 +43,9 @@ public class IndexableListView extends ListView {
                 return;
             }
         }
-        this.f58493a = false;
-        this.f58494b = null;
-        this.f58495c = null;
+        this.a = false;
+        this.f52105b = null;
+        this.f52106c = null;
     }
 
     @Override // android.widget.AbsListView, android.view.View
@@ -55,7 +53,7 @@ public class IndexableListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.draw(canvas);
-            IndexScroller indexScroller = this.f58494b;
+            IndexScroller indexScroller = this.f52105b;
             if (indexScroller != null) {
                 indexScroller.draw(canvas);
             }
@@ -66,7 +64,7 @@ public class IndexableListView extends ListView {
     public boolean isFastScrollEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58493a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
@@ -74,7 +72,7 @@ public class IndexableListView extends ListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (this.f58494b.contains(motionEvent.getX(), motionEvent.getY())) {
+            if (this.f52105b.contains(motionEvent.getX(), motionEvent.getY())) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -87,7 +85,7 @@ public class IndexableListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            IndexScroller indexScroller = this.f58494b;
+            IndexScroller indexScroller = this.f52105b;
             if (indexScroller != null) {
                 indexScroller.onSizeChanged(i2, i3, i4, i5);
             }
@@ -99,15 +97,13 @@ public class IndexableListView extends ListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            IndexScroller indexScroller = this.f58494b;
+            IndexScroller indexScroller = this.f52105b;
             if (indexScroller == null || !indexScroller.onTouchEvent(motionEvent)) {
-                if (this.f58495c == null) {
-                    this.f58495c = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.wallet.base.widget.IndexableListView.1
+                if (this.f52106c == null) {
+                    this.f52106c = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(this) { // from class: com.baidu.wallet.base.widget.IndexableListView.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IndexableListView f58496a;
+                        public final /* synthetic */ IndexableListView a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -124,7 +120,7 @@ public class IndexableListView extends ListView {
                                     return;
                                 }
                             }
-                            this.f58496a = this;
+                            this.a = this;
                         }
 
                         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -132,8 +128,8 @@ public class IndexableListView extends ListView {
                             InterceptResult invokeCommon;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent2, motionEvent3, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                                if (this.f58496a.f58494b != null) {
-                                    this.f58496a.f58494b.show();
+                                if (this.a.f52105b != null) {
+                                    this.a.f52105b.show();
                                 }
                                 return super.onFling(motionEvent2, motionEvent3, f2, f3);
                             }
@@ -141,7 +137,7 @@ public class IndexableListView extends ListView {
                         }
                     });
                 }
-                this.f58495c.onTouchEvent(motionEvent);
+                this.f52106c.onTouchEvent(motionEvent);
                 return super.onTouchEvent(motionEvent);
             }
             return true;
@@ -153,18 +149,18 @@ public class IndexableListView extends ListView {
     public void setFastScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f58493a = z;
+            this.a = z;
             if (z) {
-                if (this.f58494b == null) {
-                    this.f58494b = new IndexScroller(getContext(), this);
+                if (this.f52105b == null) {
+                    this.f52105b = new IndexScroller(getContext(), this);
                     return;
                 }
                 return;
             }
-            IndexScroller indexScroller = this.f58494b;
+            IndexScroller indexScroller = this.f52105b;
             if (indexScroller != null) {
                 indexScroller.hide();
-                this.f58494b = null;
+                this.f52105b = null;
             }
         }
     }
@@ -175,7 +171,7 @@ public class IndexableListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, listAdapter) == null) {
             super.setAdapter(listAdapter);
-            IndexScroller indexScroller = this.f58494b;
+            IndexScroller indexScroller = this.f52105b;
             if (indexScroller != null) {
                 indexScroller.setAdapter(listAdapter);
             }
@@ -201,9 +197,9 @@ public class IndexableListView extends ListView {
                 return;
             }
         }
-        this.f58493a = false;
-        this.f58494b = null;
-        this.f58495c = null;
+        this.a = false;
+        this.f52105b = null;
+        this.f52106c = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -225,8 +221,8 @@ public class IndexableListView extends ListView {
                 return;
             }
         }
-        this.f58493a = false;
-        this.f58494b = null;
-        this.f58495c = null;
+        this.a = false;
+        this.f52105b = null;
+        this.f52106c = null;
     }
 }

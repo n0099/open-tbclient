@@ -19,7 +19,7 @@ public interface d {
 
     boolean h();
 
-    void l();
+    void k();
 
     void setKsPlayLogParam(com.kwad.sdk.contentalliance.detail.video.b bVar);
 }

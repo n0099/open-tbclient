@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,28 +18,26 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61980b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
+    public static String f54330b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61981c = "1_0";
+    public static String f54331c = "1_0";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f61982a;
+    public String a;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, a> f61983d;
+    public HashMap<String, a> f54332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f61984e;
+    public HashMap<String, String> f54333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, c> f61985f;
+    public HashMap<String, c> f54334f;
 
     static {
         InterceptResult invokeClinit;
@@ -70,11 +67,11 @@ public final class b {
                 return;
             }
         }
-        this.f61983d = new HashMap<>();
-        this.f61984e = new HashMap<>();
-        this.f61985f = new HashMap<>();
-        this.f61983d.clear();
-        this.f61984e.clear();
+        this.f54332d = new HashMap<>();
+        this.f54333e = new HashMap<>();
+        this.f54334f = new HashMap<>();
+        this.f54332d.clear();
+        this.f54333e.clear();
     }
 
     public static SharedPreferences a() {
@@ -88,15 +85,15 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, str, i2, jSONObject)) == null) {
             a aVar = new a(str);
-            aVar.f61978d = d();
-            aVar.f61977c = f();
+            aVar.f54328d = d();
+            aVar.f54327c = f();
             String str2 = "full";
             if (jSONObject != null && jSONObject.length() > 0) {
                 i2 = jSONObject.optInt("log_level", i2);
                 str2 = jSONObject.optString(EditNickNameActivityConfig.PARAM_TYPE, "full");
             }
-            aVar.f61976b = i2;
-            aVar.f61979e = str2;
+            aVar.f54326b = i2;
+            aVar.f54329e = str2;
             com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createConfig type = " + str + ", level = " + i2 + ", params = " + str2);
             if (i2 == 3) {
                 com.baidu.webkit.logsdk.a.b.a().h().b().a(str, false);
@@ -106,11 +103,11 @@ public final class b {
         return (a) invokeLIL.objValue;
     }
 
-    public static void a(String str, long j) {
+    public static void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) {
             SharedPreferences.Editor edit = a().edit();
-            edit.putLong("upload_".concat(String.valueOf(str)), j);
+            edit.putLong("upload_".concat(String.valueOf(str)), j2);
             edit.apply();
         }
     }
@@ -118,25 +115,25 @@ public final class b {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a().getInt(DpStatConstants.KEY_NET_LEVEL, 3) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a().getInt(DpStatConstants.KEY_NET_LEVEL, 3) : invokeV.intValue;
     }
 
     public static long b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? a().getLong("upload_".concat(String.valueOf(str)), 0L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? a().getLong("upload_".concat(String.valueOf(str)), 0L) : invokeL.longValue;
     }
 
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong("timeout", 604800000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong(com.alipay.sdk.data.a.O, 604800000L) : invokeV.longValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a().getString("publickey", f61980b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a().getString("publickey", f54330b) : (String) invokeV.objValue;
     }
 
     public static String e() {
@@ -148,7 +145,7 @@ public final class b {
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a().getString("f2", f61981c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a().getString("f2", f54331c) : (String) invokeV.objValue;
     }
 
     public static String g() {
@@ -162,10 +159,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String str2 = "";
-            if (this.f61983d.containsKey(str)) {
-                return this.f61983d.get(str);
+            if (this.f54332d.containsKey(str)) {
+                return this.f54332d.get(str);
             }
-            SharedPreferences a2 = a();
+            SharedPreferences a = a();
             int i2 = 1;
             if ("frame_pv".equals(str)) {
                 i2 = 2;
@@ -173,10 +170,10 @@ public final class b {
                 i2 = 3;
             }
             try {
-                str2 = a2.getString(str, "");
+                str2 = a.getString(str, "");
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = ".concat(String.valueOf(str2)));
             } catch (ClassCastException unused) {
-                i2 = a2.getInt(str, i2);
+                i2 = a.getInt(str, i2);
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = ".concat(String.valueOf(str2)));
             }
             JSONObject jSONObject = null;
@@ -185,9 +182,9 @@ public final class b {
             } catch (JSONException e2) {
                 com.baidu.webkit.logsdk.d.c.a(e2);
             }
-            a a3 = a(str, i2, jSONObject);
-            this.f61983d.put(str, a3);
-            return a3;
+            a a2 = a(str, i2, jSONObject);
+            this.f54332d.put(str, a2);
+            return a2;
         }
         return (a) invokeL.objValue;
     }
@@ -195,7 +192,7 @@ public final class b {
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f61983d.put(aVar.f61975a, aVar);
+            this.f54332d.put(aVar.a, aVar);
         }
     }
 
@@ -204,7 +201,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f61984e.put(str, str2);
+        this.f54333e.put(str, str2);
     }
 
     public final void a(JSONObject jSONObject, SharedPreferences.Editor editor) throws JSONException {
@@ -226,7 +223,7 @@ public final class b {
                     cVar.a(jSONArray2);
                     editor.putString(next + "@url", jSONArray2.toString());
                 }
-                this.f61985f.put(next, cVar);
+                this.f54334f.put(next, cVar);
             }
         }
     }
@@ -264,7 +261,7 @@ public final class b {
                                 }
                                 editor.putString(string, jSONObject3.toString());
                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject3);
-                                this.f61983d.put(string, a(string, i4, jSONObject3));
+                                this.f54332d.put(string, a(string, i4, jSONObject3));
                             }
                         }
                         i2 = z ? 1 : 0;
@@ -277,7 +274,7 @@ public final class b {
                         }
                         editor.putString(string, jSONObject32.toString());
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject32);
-                        this.f61983d.put(string, a(string, i4, jSONObject32));
+                        this.f54332d.put(string, a(string, i4, jSONObject32));
                     }
                 }
             }
@@ -287,25 +284,25 @@ public final class b {
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f61984e.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f54333e.get(str) : (String) invokeL.objValue;
     }
 
     public final c d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f61985f.containsKey(str)) {
-                return this.f61985f.get(str);
+            if (this.f54334f.containsKey(str)) {
+                return this.f54334f.get(str);
             }
-            SharedPreferences a2 = a();
-            String string = a2.getString(str + "@body", "");
-            String string2 = a2.getString(str + "@url", "");
+            SharedPreferences a = a();
+            String string = a.getString(str + "@body", "");
+            String string2 = a.getString(str + "@url", "");
             if (!TextUtils.isEmpty(string) || !TextUtils.isEmpty(string2)) {
                 try {
                     c cVar = new c(str);
                     cVar.b(new JSONArray(string));
                     cVar.a(new JSONArray(string2));
-                    this.f61985f.put(str, cVar);
+                    this.f54334f.put(str, cVar);
                     return cVar;
                 } catch (JSONException e2) {
                     com.baidu.webkit.logsdk.d.c.a(e2);

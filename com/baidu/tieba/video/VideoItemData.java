@@ -9,15 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.b;
-import b.a.q0.e1.n.e;
-import b.a.q0.s.q.c1;
-import b.a.q0.s.q.d2;
-import b.a.q0.s.q.x0;
+import c.a.d.f.m.b;
+import c.a.q0.f1.n.e;
+import c.a.q0.s.q.c1;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.x0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -52,7 +51,7 @@ import tbclient.PbContent;
 import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.WorkCreatorInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<VideoItemData> CREATOR;
@@ -115,7 +114,7 @@ public class VideoItemData implements Serializable, Parcelable {
     public String video_url;
     public String video_width;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<VideoItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +210,7 @@ public class VideoItemData implements Serializable, Parcelable {
     public static boolean isBarOwner(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 == 2 : invokeI.booleanValue;
     }
 
     public VideoItemData buildWithFlutterMap(Map<String, Object> map) {
@@ -281,7 +280,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 d2 d2Var = new d2();
                 this.threadData = d2Var;
                 try {
-                    d2Var.Z2(new JSONObject(DataExt.f(map)));
+                    d2Var.b3(new JSONObject(DataExt.f(map)));
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
@@ -301,7 +300,7 @@ public class VideoItemData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, originalThreadInfo)) == null) {
             if (originalThreadInfo != null) {
-                this.thread_id = originalThreadInfo.f45889f;
+                this.thread_id = originalThreadInfo.f40904f;
                 this.post_id = originalThreadInfo.n;
                 VideoInfo videoInfo = originalThreadInfo.r;
                 if (videoInfo != null) {
@@ -318,14 +317,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.comment_num = String.valueOf(originalThreadInfo.z);
                 this.agree_num = String.valueOf(originalThreadInfo.y.agree_num);
                 this.share_num = String.valueOf(originalThreadInfo.A);
-                String str = originalThreadInfo.f45890g;
+                String str = originalThreadInfo.f40905g;
                 this.title = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.title = originalThreadInfo.f45885b;
+                    this.title = originalThreadInfo.f40900b;
                 }
-                this.forum_id = String.valueOf(originalThreadInfo.f45888e);
+                this.forum_id = String.valueOf(originalThreadInfo.f40903e);
                 this.baijiahaoData = originalThreadInfo.p;
-                this.forum_name = originalThreadInfo.f45887d;
+                this.forum_name = originalThreadInfo.f40902d;
                 this.is_agreed = String.valueOf(originalThreadInfo.y.has_agree);
                 if (originalThreadInfo.x != null) {
                     UserItemData userItemData = new UserItemData();
@@ -360,32 +359,32 @@ public class VideoItemData implements Serializable, Parcelable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
             if (d2Var != null) {
                 this.threadData = d2Var;
-                this.thread_id = d2Var.t1();
-                this.is_manager = d2Var.k0();
-                this.is_origin_manager = d2Var.p0();
-                this.nid = d2Var.F0();
-                this.post_id = d2Var.X();
-                if (d2Var.r1() != null) {
-                    this.thumbnail_url = d2Var.r1().thumbnail_url;
-                    this.video_url = d2Var.r1().video_url;
-                    this.video_height = String.valueOf(d2Var.r1().video_height);
-                    this.video_width = String.valueOf(d2Var.r1().video_width);
-                    this.mMd5 = d2Var.r1().video_md5;
-                    this.video_duration = d2Var.r1().video_duration.intValue();
-                    this.play_count = d2Var.r1().play_count.intValue();
-                    this.isVerticalVideo = d2Var.r1().is_vertical.intValue();
+                this.thread_id = d2Var.v1();
+                this.is_manager = d2Var.l0();
+                this.is_origin_manager = d2Var.q0();
+                this.nid = d2Var.G0();
+                this.post_id = d2Var.Y();
+                if (d2Var.t1() != null) {
+                    this.thumbnail_url = d2Var.t1().thumbnail_url;
+                    this.video_url = d2Var.t1().video_url;
+                    this.video_height = String.valueOf(d2Var.t1().video_height);
+                    this.video_width = String.valueOf(d2Var.t1().video_width);
+                    this.mMd5 = d2Var.t1().video_md5;
+                    this.video_duration = d2Var.t1().video_duration.intValue();
+                    this.play_count = d2Var.t1().play_count.intValue();
+                    this.isVerticalVideo = d2Var.t1().is_vertical.intValue();
                 }
-                this.comment_num = String.valueOf(d2Var.U0());
+                this.comment_num = String.valueOf(d2Var.V0());
                 this.agree_num = String.valueOf(d2Var.C());
-                this.share_num = String.valueOf(d2Var.c1());
+                this.share_num = String.valueOf(d2Var.d1());
                 this.title = d2Var.getTitle();
-                this.richTitle = d2Var.X0();
-                this.mRichAbstractList = d2Var.W0();
+                this.richTitle = d2Var.Y0();
+                this.mRichAbstractList = d2Var.X0();
                 this.abstext = d2Var.o();
-                this.forum_id = String.valueOf(d2Var.T());
+                this.forum_id = String.valueOf(d2Var.U());
                 this.baijiahaoData = d2Var.L();
-                this.forum_name = d2Var.Z();
-                this.is_agreed = String.valueOf(d2Var.d0());
+                this.forum_name = d2Var.a0();
+                this.is_agreed = String.valueOf(d2Var.e0());
                 if (d2Var.J() != null) {
                     UserItemData userItemData = new UserItemData();
                     userItemData.user_name = d2Var.J().getUserName();
@@ -402,16 +401,16 @@ public class VideoItemData implements Serializable, Parcelable {
                     this.author_info = userItemData;
                 }
                 this.act_info = d2Var.y();
-                this.mRecomAbTag = d2Var.Z0;
-                this.mRecomSource = d2Var.X0;
-                this.mRecomWeight = d2Var.Y0;
-                this.mRecomExtra = d2Var.a1;
-                this.isBjhVideo = d2Var.F2();
-                this.forbidComment = d2Var.l2;
-                this.noCommetStr = d2Var.m2;
-                this.mWorksInfoData = d2Var.M2;
-                this.feedBackReasonMap = d2Var.S();
-                this.feedBackExtraMap = d2Var.l1;
+                this.mRecomAbTag = d2Var.b1;
+                this.mRecomSource = d2Var.Z0;
+                this.mRecomWeight = d2Var.a1;
+                this.mRecomExtra = d2Var.c1;
+                this.isBjhVideo = d2Var.G2();
+                this.forbidComment = d2Var.o2;
+                this.noCommetStr = d2Var.p2;
+                this.mWorksInfoData = d2Var.P2;
+                this.feedBackReasonMap = d2Var.T();
+                this.feedBackExtraMap = d2Var.n1;
                 if (d2Var.J() != null && d2Var.J().getAlaInfo() != null && d2Var.J().getAlaInfo().isLegalYYLiveData()) {
                     this.mAlaInfoData = d2Var.J().getAlaInfo();
                 }
@@ -460,9 +459,9 @@ public class VideoItemData implements Serializable, Parcelable {
             x0Var.o(this.thread_id);
             x0Var.l(this.forum_id);
             x0Var.j(this.feedBackReasonMap);
-            x0Var.f14266g = this.feedBackExtraMap;
+            x0Var.f13089g = this.feedBackExtraMap;
             x0Var.p = this.mRecomAbTag;
-            x0Var.k = this.mRecomWeight;
+            x0Var.f13093k = this.mRecomWeight;
             x0Var.m = this.mRecomExtra;
             x0Var.l = this.mRecomSource;
             return x0Var;
@@ -488,7 +487,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                     for (PbContent pbContent : this.richTitle) {
                         if (pbContent.type.intValue() == 18) {
-                            b.a.q0.i0.d.b f2 = b.a.q0.i0.d.b.f(this.threadData, pbContent);
+                            c.a.q0.j0.d.b f2 = c.a.q0.j0.d.b.f(this.threadData, pbContent);
                             f2.d(R.color.CAM_X0101);
                             f2.e(R.color.CAM_X0113);
                             f2.b(HotTopicStat.Locate.VIDEO_MIDDLE);
@@ -682,14 +681,14 @@ public class VideoItemData implements Serializable, Parcelable {
             }
             d2 d2Var = new d2();
             this.threadData = d2Var;
-            d2Var.Z2(jSONObject);
+            d2Var.b3(jSONObject);
             if (this.feedBackReasonMap == null) {
-                this.feedBackReasonMap = this.threadData.k1;
-                this.feedBackExtraMap = this.threadData.l1;
-                this.mRecomAbTag = this.threadData.Z0;
-                this.mRecomSource = this.threadData.X0;
-                this.mRecomWeight = this.threadData.Y0;
-                this.mRecomExtra = this.threadData.a1;
+                this.feedBackReasonMap = this.threadData.m1;
+                this.feedBackExtraMap = this.threadData.n1;
+                this.mRecomAbTag = this.threadData.b1;
+                this.mRecomSource = this.threadData.Z0;
+                this.mRecomWeight = this.threadData.a1;
+                this.mRecomExtra = this.threadData.c1;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -788,20 +787,20 @@ public class VideoItemData implements Serializable, Parcelable {
             }
             d2 d2Var = new d2();
             this.threadData = d2Var;
-            d2Var.Z2(jSONObject);
+            d2Var.b3(jSONObject);
             this.threadData.E = this.thread_id;
-            this.threadData.i0 = 40;
-            this.threadData.p4(b.e(this.comment_num, 0));
+            this.threadData.d0 = 40;
+            this.threadData.r4(b.e(this.comment_num, 0));
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_width = Integer.valueOf(this.video_width);
             builder.video_height = Integer.valueOf(this.video_height);
             builder.video_url = this.video_url;
             builder.thumbnail_url = this.thumbnail_url;
             builder.video_md5 = this.mMd5;
-            this.threadData.I4(builder.build(true));
+            this.threadData.K4(builder.build(true));
             if (this.feedBackReasonMap == null) {
-                this.feedBackReasonMap = this.threadData.k1;
-                this.feedBackExtraMap = this.threadData.l1;
+                this.feedBackReasonMap = this.threadData.m1;
+                this.feedBackExtraMap = this.threadData.n1;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -814,26 +813,26 @@ public class VideoItemData implements Serializable, Parcelable {
             return;
         }
         this.thread_id = d2Var.E;
-        this.nid = d2Var.F0();
-        this.post_id = d2Var.W();
-        VideoInfo r1 = d2Var.r1();
-        if (r1 != null) {
-            this.thumbnail_url = r1.thumbnail_url;
-            this.video_url = r1.video_url;
-            this.video_height = String.valueOf(r1.video_height);
-            this.video_width = String.valueOf(r1.video_width);
-            this.mMd5 = r1.video_md5;
-            this.isVerticalVideo = r1.is_vertical.intValue();
+        this.nid = d2Var.G0();
+        this.post_id = d2Var.X();
+        VideoInfo t1 = d2Var.t1();
+        if (t1 != null) {
+            this.thumbnail_url = t1.thumbnail_url;
+            this.video_url = t1.video_url;
+            this.video_height = String.valueOf(t1.video_height);
+            this.video_width = String.valueOf(t1.video_width);
+            this.mMd5 = t1.video_md5;
+            this.isVerticalVideo = t1.is_vertical.intValue();
         }
-        this.comment_num = String.valueOf(d2Var.K0());
+        this.comment_num = String.valueOf(d2Var.L0());
         this.agree_num = String.valueOf(d2Var.C());
-        this.share_num = String.valueOf(d2Var.c1());
+        this.share_num = String.valueOf(d2Var.d1());
         this.title = d2Var.getTitle();
-        this.richTitle = d2Var.X0();
+        this.richTitle = d2Var.Y0();
         this.abstext = d2Var.o();
-        this.forum_id = String.valueOf(d2Var.T());
-        this.forum_name = d2Var.Z();
-        this.is_agreed = String.valueOf(d2Var.d0());
+        this.forum_id = String.valueOf(d2Var.U());
+        this.forum_name = d2Var.a0();
+        this.is_agreed = String.valueOf(d2Var.e0());
         MetaData J = d2Var.J();
         if (J != null) {
             UserItemData userItemData = new UserItemData();
@@ -854,21 +853,21 @@ public class VideoItemData implements Serializable, Parcelable {
         BaijiahaoData L = d2Var.L();
         this.baijiahaoData = L;
         this.isBjhVideo = L != null && UtilHelper.isUgcThreadType(L.oriUgcType);
-        this.mRecomAbTag = d2Var.Z0;
-        this.mRecomSource = d2Var.X0;
-        this.mRecomWeight = d2Var.Y0;
-        this.mRecomExtra = d2Var.a1;
-        this.forbidComment = d2Var.l2;
-        this.noCommetStr = d2Var.P0().if_comment_info;
-        this.mWorksInfoData = d2Var.M2;
-        this.feedBackReasonMap = d2Var.S();
-        this.feedBackExtraMap = d2Var.l1;
+        this.mRecomAbTag = d2Var.b1;
+        this.mRecomSource = d2Var.Z0;
+        this.mRecomWeight = d2Var.a1;
+        this.mRecomExtra = d2Var.c1;
+        this.forbidComment = d2Var.o2;
+        this.noCommetStr = d2Var.Q0().if_comment_info;
+        this.mWorksInfoData = d2Var.P2;
+        this.feedBackReasonMap = d2Var.T();
+        this.feedBackExtraMap = d2Var.n1;
     }
 
-    public void setVideoWatchDuration(long j) {
+    public void setVideoWatchDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mVideoWatchDuration = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mVideoWatchDuration = j2;
         }
     }
 

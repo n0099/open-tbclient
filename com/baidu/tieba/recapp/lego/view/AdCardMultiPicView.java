@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.a3.i0.b.d;
-import b.a.r0.q1.o.k.a;
+import c.a.r0.h3.i0.b.d;
+import c.a.r0.w1.o.k.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class AdCardMultiPicView extends AdCardBaseView {
         this.y = 0.0f;
     }
 
-    public final void S(TbImageView tbImageView, int i2, int i3) {
+    public final void Q(TbImageView tbImageView, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i2, i3) == null) || tbImageView == null) {
             return;
@@ -61,7 +61,7 @@ public class AdCardMultiPicView extends AdCardBaseView {
         tbImageView.setLayoutParams(layoutParams);
     }
 
-    public final void T(XfremodeRoundLayout xfremodeRoundLayout, int i2) {
+    public final void S(XfremodeRoundLayout xfremodeRoundLayout, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xfremodeRoundLayout, i2) == null) {
             if (i2 == 1) {
@@ -87,33 +87,33 @@ public class AdCardMultiPicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
             d dVar = adCard.picInfo;
-            List<String> list = dVar == null ? null : dVar.f15742c;
+            List<String> list = dVar == null ? null : dVar.f17747c;
             if (!a.e(list) && dVar != null) {
-                int k = a.k(dVar.f15742c);
+                int k2 = a.k(dVar.f17747c);
                 int dimensionPixelSize = (int) ((this.mMaxWidth - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = dVar.f15744e;
-                int i3 = dVar.f15743d;
+                int i2 = dVar.f17749e;
+                int i3 = dVar.f17748d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
                 this.mAdvertAppImgLeft.setVisibility(4);
                 this.mAdvertAppImgCenter.setVisibility(4);
                 this.mAdvertAppImgRight.setVisibility(4);
-                T(this.mRlImgLeft, 1);
-                T(this.mRlImgCenter, 2);
-                T(this.mRlImgRight, 3);
-                S(this.mAdvertAppImgLeft, dimensionPixelSize, max);
-                S(this.mAdvertAppImgCenter, dimensionPixelSize, max);
-                S(this.mAdvertAppImgRight, dimensionPixelSize, max);
-                if (k == 1) {
+                S(this.mRlImgLeft, 1);
+                S(this.mRlImgCenter, 2);
+                S(this.mRlImgRight, 3);
+                Q(this.mAdvertAppImgLeft, dimensionPixelSize, max);
+                Q(this.mAdvertAppImgCenter, dimensionPixelSize, max);
+                Q(this.mAdvertAppImgRight, dimensionPixelSize, max);
+                if (k2 == 1) {
                     this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
                     this.mAdvertAppImgLeft.setVisibility(0);
-                    T(this.mRlImgLeft, 4);
-                } else if (k == 2) {
+                    S(this.mRlImgLeft, 4);
+                } else if (k2 == 2) {
                     this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
                     this.mAdvertAppImgLeft.setVisibility(0);
                     this.mAdvertAppImgCenter.startLoad((String) a.d(list, 1), 30, false);
                     this.mAdvertAppImgCenter.setVisibility(0);
-                    T(this.mRlImgCenter, 3);
-                } else if (k >= 3) {
+                    S(this.mRlImgCenter, 3);
+                } else if (k2 >= 3) {
                     this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
                     this.mAdvertAppImgLeft.setVisibility(0);
                     this.mAdvertAppImgCenter.startLoad((String) a.d(list, 1), 30, false);

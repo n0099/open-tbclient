@@ -11,7 +11,6 @@ import com.alipay.sdk.app.statistic.a;
 import com.alipay.sdk.util.c;
 import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "H5PayNetworkError";
@@ -74,7 +73,9 @@ public class b {
     public static final String h0 = "StartLaunchAppTransEx";
     public static final String i0 = "CheckLaunchAppExistEx";
     public static final String j0 = "LogCurrentAppLaunchSwitch";
-    public static final String k = "net";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f31282k = "net";
     public static final String k0 = "LogCurrentQueryTime";
     public static final String l = "biz";
     public static final String l0 = "LogCalledPackage";
@@ -107,34 +108,34 @@ public class b {
     public static final String z = "GetPublicKeyFromSignEx";
     public static final String z0 = "TbStart";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f34888a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34889b;
+    public String f31283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34890c;
+    public String f31284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34891d;
+    public String f31285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34892e;
+    public String f31286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34893f;
+    public String f31287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34894g;
+    public String f31288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34895h;
+    public String f31289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f34896i;
-    public String j;
+    public String f31290i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f31291j;
 
     public b(Context context, boolean z2) {
         Interceptable interceptable = $ic;
@@ -151,16 +152,16 @@ public class b {
                 return;
             }
         }
-        this.f34895h = "";
-        this.f34896i = "";
+        this.f31289h = "";
+        this.f31290i = "";
         context = context != null ? context.getApplicationContext() : context;
-        this.f34888a = b();
-        this.f34890c = a(context);
-        this.f34891d = a(z2 ? 0L : a.c.a(context));
-        this.f34892e = a();
-        this.f34893f = b(context);
-        this.f34894g = "-";
-        this.j = "-";
+        this.a = b();
+        this.f31284c = a(context);
+        this.f31285d = a(z2 ? 0L : a.c.a(context));
+        this.f31286e = a();
+        this.f31287f = b(context);
+        this.f31288g = "-";
+        this.f31291j = "-";
     }
 
     private synchronized void c(String str, String str2, String str3) {
@@ -169,7 +170,7 @@ public class b {
             synchronized (this) {
                 c.d(com.alipay.sdk.cons.a.x, String.format("event %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f34895h)) {
+                if (!TextUtils.isEmpty(this.f31289h)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -180,7 +181,7 @@ public class b {
                 objArr[2] = c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,-,-,-,-,-,-,-,-,-,-,%s", objArr));
-                this.f34895h += sb.toString();
+                this.f31289h += sb.toString();
             }
         }
     }
@@ -188,7 +189,7 @@ public class b {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f34896i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f31290i) : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -222,7 +223,7 @@ public class b {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? String.format("%s,%s", e(), new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date())) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? String.format("%s,%s", e(), new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date())) : (String) invokeV.objValue;
     }
 
     private synchronized void d(String str, String str2, String str3) {
@@ -231,7 +232,7 @@ public class b {
             synchronized (this) {
                 c.c(com.alipay.sdk.cons.a.x, String.format("err %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f34896i)) {
+                if (!TextUtils.isEmpty(this.f31290i)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -242,7 +243,7 @@ public class b {
                 objArr[2] = TextUtils.isEmpty(str3) ? "-" : c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,%s", objArr));
-                this.f34896i += sb.toString();
+                this.f31290i += sb.toString();
             }
         }
     }
@@ -250,8 +251,8 @@ public class b {
     public void a(String str, String str2, Throwable th, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, th, str3) == null) {
-            String a2 = a(th);
-            d(str, str2, str3 + ": " + a2);
+            String a = a(th);
+            d(str, str2, str3 + ": " + a);
         }
     }
 
@@ -317,7 +318,7 @@ public class b {
     public static String a(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, th)) == null) {
             if (th == null) {
                 return "";
             }
@@ -369,8 +370,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            this.f34889b = b2;
-            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f34888a, b2, this.f34890c, this.f34891d, this.f34892e, this.f34893f, this.f34894g, d(this.f34895h), d(this.f34896i), this.j);
+            this.f31283b = b2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.a, b2, this.f31284c, this.f31285d, this.f31286e, this.f31287f, this.f31288g, d(this.f31289h), d(this.f31290i), this.f31291j);
         }
         return (String) invokeL.objValue;
     }
@@ -404,7 +405,7 @@ public class b {
         InterceptResult invokeL;
         Signature[] signatureArr;
         String str;
-        String a2;
+        String a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, packageInfo)) == null) {
             if (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length == 0) {
@@ -415,15 +416,15 @@ public class b {
                 sb.append(packageInfo.signatures.length);
                 for (Signature signature : packageInfo.signatures) {
                     try {
-                        a2 = l.a((com.alipay.sdk.sys.a) null, signature.toByteArray());
+                        a = l.a((com.alipay.sdk.sys.a) null, signature.toByteArray());
                     } catch (Throwable unused) {
                     }
-                    if (TextUtils.isEmpty(a2)) {
+                    if (TextUtils.isEmpty(a)) {
                         str = "?";
                         sb.append("-");
                         sb.append(str);
                     } else {
-                        str = l.e(a2).substring(0, 8);
+                        str = l.e(a).substring(0, 8);
                         sb.append("-");
                         sb.append(str);
                     }
@@ -442,13 +443,13 @@ public class b {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", c(com.alipay.sdk.util.a.c(context)), "android", c(Build.VERSION.RELEASE), c(Build.MODEL), "-", c(com.alipay.sdk.util.a.b(context).c()), c(com.alipay.sdk.util.a.d(context).b()), "gw", c(com.alipay.sdk.util.a.b(context).b())) : (String) invokeL.objValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
             String c2 = c("15.8.02");
             String c3 = c("h.a.3.8.02");
-            return String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,%s,-", c2, c3, com.xiaomi.mipush.sdk.Constants.WAVE_SEPARATOR + j);
+            return String.format("android,3,%s,%s,com.alipay.mcpay,5.0,-,%s,-", c2, c3, com.xiaomi.mipush.sdk.Constants.WAVE_SEPARATOR + j2);
         }
         return (String) invokeJ.objValue;
     }

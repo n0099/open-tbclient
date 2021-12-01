@@ -1,7 +1,6 @@
 package com.xiaomi.push;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,12 +15,10 @@ import com.xiaomi.push.fl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class fj implements fx {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f71863a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -40,15 +37,13 @@ public class fj implements fx {
     public SimpleDateFormat f393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f71864b;
+    public a f62884b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements fq, fy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ fj f71865a;
+        public final /* synthetic */ fj a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f394a;
@@ -71,7 +66,7 @@ public class fj implements fx {
                     return;
                 }
             }
-            this.f71865a = fjVar;
+            this.a = fjVar;
             this.f395a = true;
             this.f395a = z;
             this.f394a = z ? " RCV " : " Sent ";
@@ -83,19 +78,19 @@ public class fj implements fx {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, faVar) == null) {
-                if (fj.f71863a) {
+                if (fj.a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f71865a.f393a.format(new Date()));
+                    sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     str = faVar.toString();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f71865a.f393a.format(new Date()));
+                    sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     sb.append(" Blob [");
-                    sb.append(faVar.m305a());
+                    sb.append(faVar.m354a());
                     sb.append(",");
                     sb.append(faVar.a());
                     sb.append(",");
@@ -107,18 +102,18 @@ public class fj implements fx {
                 if (faVar == null || faVar.a() != 99999) {
                     return;
                 }
-                String m305a = faVar.m305a();
+                String m354a = faVar.m354a();
                 fa faVar2 = null;
                 if (!this.f395a) {
-                    if ("BIND".equals(m305a)) {
-                        com.xiaomi.channel.commonutils.logger.b.m73a("build binded result for loopback.");
+                    if ("BIND".equals(m354a)) {
+                        com.xiaomi.channel.commonutils.logger.b.m122a("build binded result for loopback.");
                         du.d dVar = new du.d();
                         dVar.a(true);
                         dVar.c("login success.");
                         dVar.b("success");
                         dVar.a("success");
                         fa faVar3 = new fa();
-                        faVar3.a(dVar.m284a(), (String) null);
+                        faVar3.a(dVar.m333a(), (String) null);
                         faVar3.a((short) 2);
                         faVar3.a(VideoItemModel.TYPE_LOADING);
                         faVar3.a("BIND", (String) null);
@@ -126,21 +121,21 @@ public class fj implements fx {
                         faVar3.b(null);
                         faVar3.c(faVar.g());
                         faVar2 = faVar3;
-                    } else if (!"UBND".equals(m305a) && "SECMSG".equals(m305a)) {
+                    } else if (!"UBND".equals(m354a) && "SECMSG".equals(m354a)) {
                         fa faVar4 = new fa();
                         faVar4.a(VideoItemModel.TYPE_LOADING);
                         faVar4.a("SECMSG", (String) null);
                         faVar4.c(faVar.g());
                         faVar4.a(faVar.e());
-                        faVar4.a(faVar.m307a());
+                        faVar4.a(faVar.m356a());
                         faVar4.b(faVar.f());
-                        faVar4.a(faVar.m310a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f72349h), (String) null);
+                        faVar4.a(faVar.m359a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f63246h), (String) null);
                         faVar2 = faVar4;
                     }
                 }
                 if (faVar2 != null) {
-                    for (Map.Entry<fq, fl.a> entry : this.f71865a.f390a.m325a().entrySet()) {
-                        if (this.f71865a.f389a != entry.getKey()) {
+                    for (Map.Entry<fq, fl.a> entry : this.a.f390a.m374a().entrySet()) {
+                        if (this.a.f389a != entry.getKey()) {
                             entry.getValue().a(faVar2);
                         }
                     }
@@ -154,17 +149,17 @@ public class fj implements fx {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar) == null) {
-                if (fj.f71863a) {
+                if (fj.a) {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f71865a.f393a.format(new Date()));
+                    sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     sb.append(" PKT ");
-                    str = gcVar.m348a();
+                    str = gcVar.m397a();
                 } else {
                     sb = new StringBuilder();
                     sb.append("[Slim] ");
-                    sb.append(this.f71865a.f393a.format(new Date()));
+                    sb.append(this.a.f393a.format(new Date()));
                     sb.append(this.f394a);
                     sb.append(" PKT [");
                     sb.append(gcVar.k());
@@ -221,7 +216,7 @@ public class fj implements fx {
         this.f393a = new SimpleDateFormat("hh:mm:ss aaa");
         this.f390a = null;
         this.f389a = null;
-        this.f71864b = null;
+        this.f62884b = null;
         this.f391a = null;
         this.f392a = "[Slim] ";
         this.f390a = flVar;
@@ -230,14 +225,14 @@ public class fj implements fx {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.f389a = new a(this, true);
-            this.f71864b = new a(this, false);
+            this.f62884b = new a(this, false);
             fl flVar = this.f390a;
             a aVar = this.f389a;
             flVar.a(aVar, aVar);
             fl flVar2 = this.f390a;
-            a aVar2 = this.f71864b;
+            a aVar2 = this.f62884b;
             flVar2.b(aVar2, aVar2);
             this.f391a = new fk(this);
         }

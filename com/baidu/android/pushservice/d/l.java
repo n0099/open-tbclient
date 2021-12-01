@@ -8,43 +8,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f36103a;
+        public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f36104b;
+        public static final a f32425b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f36105c;
+        public static final a f32426c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f36106d;
+        public static final a f32427d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f36107e;
+        public static final a f32428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f36108f;
+        public static final a f32429f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f36109g;
+        public static final a f32430g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f36110i;
+        public static final /* synthetic */ a[] f32431i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f36111h;
+        public int f32432h;
 
         static {
             InterceptResult invokeClinit;
@@ -59,15 +57,15 @@ public class l {
                     return;
                 }
             }
-            f36103a = new a("MODEL_O", 0, 1);
-            f36104b = new a("MODEL_C", 1, 2);
-            f36105c = new a("MODEL_HW", 2, 3);
-            f36106d = new a("MODEL_XM", 3, 4);
-            f36107e = new a("MODEL_MZ", 4, 5);
-            f36108f = new a("MODEL_OP", 5, 6);
+            a = new a("MODEL_O", 0, 1);
+            f32425b = new a("MODEL_C", 1, 2);
+            f32426c = new a("MODEL_HW", 2, 3);
+            f32427d = new a("MODEL_XM", 3, 4);
+            f32428e = new a("MODEL_MZ", 4, 5);
+            f32429f = new a("MODEL_OP", 5, 6);
             a aVar = new a("MODEL_VI", 6, 7);
-            f36109g = aVar;
-            f36110i = new a[]{f36103a, f36104b, f36105c, f36106d, f36107e, f36108f, aVar};
+            f32430g = aVar;
+            f32431i = new a[]{a, f32425b, f32426c, f32427d, f32428e, f32429f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -88,14 +86,14 @@ public class l {
                     return;
                 }
             }
-            this.f36111h = i3;
+            this.f32432h = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f36111h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f32432h : invokeV.intValue;
         }
     }
 
@@ -104,22 +102,22 @@ public class l {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int a2 = a.f36103a.a();
+            int a2 = a.a.a();
             int b2 = com.baidu.android.pushservice.b.d.a(context).b();
             if (com.baidu.android.pushservice.b.d.l(context)) {
-                aVar = a.f36105c;
+                aVar = a.f32426c;
             } else if (com.baidu.android.pushservice.b.d.k(context)) {
-                aVar = a.f36106d;
+                aVar = a.f32427d;
             } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f36108f;
+                aVar = a.f32429f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
-                aVar = a.f36109g;
+                aVar = a.f32430g;
             } else if (com.baidu.android.pushservice.b.d.j(context)) {
-                aVar = a.f36107e;
+                aVar = a.f32428e;
             } else if (b2 != 2 && b2 != 4 && b2 != 3) {
                 return a2;
             } else {
-                aVar = a.f36104b;
+                aVar = a.f32425b;
             }
             return aVar.a();
         }

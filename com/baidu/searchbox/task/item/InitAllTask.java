@@ -2,13 +2,13 @@ package com.baidu.searchbox.task.item;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.q0.c1.a0;
-import b.a.q0.s.k;
-import b.a.q0.s.q.z0;
-import b.a.q0.t.j.c;
-import b.a.q0.y0.a;
-import b.a.r0.a4.h;
-import b.a.r0.r3.d;
+import c.a.q0.d1.a0;
+import c.a.q0.s.k;
+import c.a.q0.s.q.z0;
+import c.a.q0.t.j.c;
+import c.a.q0.z0.a;
+import c.a.r0.h4.h;
+import c.a.r0.y3.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InitAllTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,20 +93,20 @@ public class InitAllTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             try {
-                b.a.e.f.i.a.n().q();
+                c.a.d.f.i.a.n().q();
                 if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                    b.a.e.f.i.a.n().j(false);
+                    c.a.d.f.i.a.n().j(false);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (PermissionUtil.checkLocationForGoogle(AppRuntime.getAppContext())) {
-                b.a.e.f.i.a.n().j(false);
+                c.a.d.f.i.a.n().j(false);
             }
             try {
                 a0.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    b.a.q0.g.a.d().f();
+                    c.a.q0.g.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -163,14 +163,14 @@ public class InitAllTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            b.a.q0.t.e.d dVar = new b.a.q0.t.e.d();
+            c.a.q0.t.e.d dVar = new c.a.q0.t.e.d();
             dVar.e(loadString);
-            c a2 = c.a();
-            a2.g(dVar.b() == 1);
-            a2.h(dVar.c());
-            a2.i(dVar.d() * 1000);
+            c a = c.a();
+            a.g(dVar.b() == 1);
+            a.h(dVar.c());
+            a.i(dVar.d() * 1000);
             if (dVar.a() != null) {
-                a2.j(dVar.a());
+                a.j(dVar.a());
             }
         }
     }

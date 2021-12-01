@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetUserYbDetailsRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +22,12 @@ public class GetUserYbDetailsRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    public GetUserYbDetailsRequest(long j, int i2, int i3, int i4, String str, int i5) {
+    public GetUserYbDetailsRequest(long j2, int i2, int i3, int i4, String str, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -39,7 +38,7 @@ public class GetUserYbDetailsRequest implements IRequestProtocol {
             }
         }
         this.pagesize = 20;
-        this.uid = j;
+        this.uid = j2;
         this.appId = i2;
         this.pagesize = i3;
         this.page = i4;
@@ -58,7 +57,7 @@ public class GetUserYbDetailsRequest implements IRequestProtocol {
                 jSONObject.put("uid", this.uid);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
                 jSONObject.put("pagesize", this.pagesize);
-                jSONObject.put(IAdRequestParam.SEQ, this.seq);
+                jSONObject.put("seq", this.seq);
                 jSONObject.put("page", this.page);
                 jSONObject.put("usedChannel", this.usedChannel);
                 return jSONObject.toString().replaceAll("", "");

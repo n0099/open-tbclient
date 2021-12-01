@@ -28,7 +28,7 @@ import java.util.Properties;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Statistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AS_FILE_NAME = "as";
@@ -49,7 +49,7 @@ public class Statistics {
     public Handler workerHandler;
     public HandlerThread workerThread;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final Statistics instance;
@@ -86,7 +86,7 @@ public class Statistics {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class StatisticsResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

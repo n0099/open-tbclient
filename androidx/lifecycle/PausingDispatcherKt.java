@@ -2,7 +2,6 @@ package androidx.lifecycle;
 
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +44,7 @@ public final class PausingDispatcherKt {
     public static final <T> Object whenStarted(LifecycleOwner lifecycleOwner, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, lifecycleOwner, function2, continuation)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, lifecycleOwner, function2, continuation)) == null) {
             Lifecycle lifecycle = lifecycleOwner.getLifecycle();
             Intrinsics.checkExpressionValueIsNotNull(lifecycle, "lifecycle");
             return whenStarted(lifecycle, function2, continuation);
@@ -56,7 +55,7 @@ public final class PausingDispatcherKt {
     public static final <T> Object whenStateAtLeast(Lifecycle lifecycle, Lifecycle.State state, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, lifecycle, state, function2, continuation)) == null) ? BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new PausingDispatcherKt$whenStateAtLeast$2(lifecycle, state, function2, null), continuation) : invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, lifecycle, state, function2, continuation)) == null) ? BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new PausingDispatcherKt$whenStateAtLeast$2(lifecycle, state, function2, null), continuation) : invokeLLLL.objValue;
     }
 
     public static final <T> Object whenCreated(Lifecycle lifecycle, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {

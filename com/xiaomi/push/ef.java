@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ef implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class ef implements ed {
         if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
             String b2 = dzVar.b();
             String d2 = dzVar.d();
-            int a2 = dzVar.a();
+            int a = dzVar.a();
             if (context == null || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
                 if (TextUtils.isEmpty(d2)) {
                     dw.a(context, "provider", 1008, "argument error");
@@ -76,14 +76,14 @@ public class ef implements ed {
             } else {
                 dw.a(context, d2, 1002, "B is ready");
                 dw.a(context, d2, 1004, "A is ready");
-                String a3 = dv.a(d2);
+                String a2 = dv.a(d2);
                 try {
-                    if (TextUtils.isEmpty(a3)) {
+                    if (TextUtils.isEmpty(a2)) {
                         dw.a(context, d2, 1008, "info is empty");
-                    } else if (a2 == 1 && !ea.m285a(context)) {
+                    } else if (a == 1 && !ea.m334a(context)) {
                         dw.a(context, d2, 1008, "A not in foreground");
                     } else {
-                        String type = context.getContentResolver().getType(dv.a(b2, a3));
+                        String type = context.getContentResolver().getType(dv.a(b2, a2));
                         if (TextUtils.isEmpty(type) || !"success".equals(type)) {
                             dw.a(context, d2, 1008, "A is fail to help B's provider");
                             return;

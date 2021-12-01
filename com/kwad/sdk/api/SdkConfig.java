@@ -60,6 +60,10 @@ public class SdkConfig {
     @Nullable
     @KsAdSdkApi
     @Keep
+    public KsCustomController ksCustomController;
+    @Nullable
+    @KsAdSdkApi
+    @Keep
     public String nightThemeStyleAssetsFileName;
     @Nullable
     @KsAdSdkApi
@@ -91,6 +95,8 @@ public class SdkConfig {
         public boolean canReadMacAddress;
         public boolean canReadNearbyWifiList;
         public boolean enableDebug;
+        @Nullable
+        public KsCustomController ksCustomController;
         public String nightThemeStyleAssetsFileName;
         public boolean showNotification;
 
@@ -210,10 +216,22 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        public Builder customController(KsCustomController ksCustomController) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ksCustomController)) == null) {
+                this.ksCustomController = ksCustomController;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder debug(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
                 this.enableDebug = z;
                 return this;
             }
@@ -225,7 +243,7 @@ public class SdkConfig {
         public Builder nightThemeStyleAssetsFileName(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
                 this.nightThemeStyleAssetsFileName = str;
                 return this;
             }
@@ -237,7 +255,7 @@ public class SdkConfig {
         public Builder showNotification(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.showNotification = z;
                 return this;
             }
@@ -272,6 +290,7 @@ public class SdkConfig {
         this.canReadNearbyWifiList = builder.canReadNearbyWifiList;
         this.canReadICCID = builder.canReadICCID;
         this.nightThemeStyleAssetsFileName = builder.nightThemeStyleAssetsFileName;
+        this.ksCustomController = builder.ksCustomController;
     }
 
     public /* synthetic */ SdkConfig(Builder builder, AnonymousClass1 anonymousClass1) {

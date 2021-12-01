@@ -2,7 +2,7 @@ package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.e.a.g.b.b;
+import c.f.a.g.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,13 +26,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f63472a;
+    public long a;
     public int mRetCode;
     public String mRetMsg;
 
@@ -54,7 +52,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                 return;
             }
         }
-        this.f63472a = 0L;
+        this.a = 0L;
         this.mRetCode = -1;
         this.mRetMsg = "";
     }
@@ -62,7 +60,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, this, i2, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f63472a;
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
             try {
                 URL url = new URL(getUrl());
                 ArrayList arrayList = new ArrayList();
@@ -88,7 +86,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
-            this.f63472a = System.currentTimeMillis();
+            this.a = System.currentTimeMillis();
             super.execBean(cls, cls2);
         }
     }

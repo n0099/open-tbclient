@@ -18,7 +18,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Streams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,14 +85,14 @@ public final class Streams {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appendable)) == null) ? appendable instanceof Writer ? (Writer) appendable : new AppendableWriter(appendable) : (Writer) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class AppendableWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Appendable appendable;
         public final CurrentWrite currentWrite;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static class CurrentWrite implements CharSequence {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

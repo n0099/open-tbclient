@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import b.a.e.a.e;
-import b.a.r0.d3.c.d;
-import b.a.r0.d3.c.i;
+import c.a.d.a.e;
+import c.a.r0.k3.c.d;
+import c.a.r0.k3.c.i;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -24,25 +24,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON;
-    public b.a.r0.d3.c.j.a collectorManager;
+    public c.a.r0.k3.c.j.a collectorManager;
     public String functionIntroUrl;
     public AboutModel mModel;
-    public b.a.r0.d3.c.a mView;
+    public c.a.r0.k3.c.a mView;
     public i mVisitPreviewServerDialog;
     public c receiver;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f54755a;
+        public final /* synthetic */ AboutActivity a;
 
         public a(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -59,38 +57,38 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f54755a = aboutActivity;
+            this.a = aboutActivity;
         }
 
-        @Override // b.a.r0.d3.c.d
+        @Override // c.a.r0.k3.c.d
         public void a(int i2) {
             String str;
             String fileDireciory;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f54755a.finish();
+                    this.a.finish();
                 } else if (i2 == 1) {
-                    this.f54755a.checkUpdata();
+                    this.a.checkUpdata();
                 } else if (i2 == 2) {
-                    this.f54755a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.f54755a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
+                    this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i2 == 3) {
-                    b.a.q0.s.e0.b.j().t(SettingTextFunctionIntroView.HAS_SHOWN_FUNCTION_INTRO, true);
-                    b.a.q0.m.a.q(this.f54755a.getPageContext().getPageActivity(), this.f54755a.getPageContext().getString(R.string.function_intro), this.f54755a.functionIntroUrl, true, false, false);
+                    c.a.q0.s.e0.b.j().t(SettingTextFunctionIntroView.HAS_SHOWN_FUNCTION_INTRO, true);
+                    c.a.q0.m.a.q(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.functionIntroUrl, true, false, false);
                 } else if (i2 != 4) {
                     if (i2 == 5) {
-                        if (this.f54755a.mVisitPreviewServerDialog == null) {
-                            AboutActivity aboutActivity = this.f54755a;
+                        if (this.a.mVisitPreviewServerDialog == null) {
+                            AboutActivity aboutActivity = this.a;
                             aboutActivity.mVisitPreviewServerDialog = new i(aboutActivity.getActivity());
-                            this.f54755a.mVisitPreviewServerDialog.create(this.f54755a.getPageContext());
+                            this.a.mVisitPreviewServerDialog.create(this.a.getPageContext());
                         }
-                        this.f54755a.mVisitPreviewServerDialog.show();
+                        this.a.mVisitPreviewServerDialog.show();
                     } else if (i2 == 6) {
-                        if (PermissionUtil.checkWriteExternalStorage(this.f54755a)) {
-                            this.f54755a.startCollectLog();
+                        if (PermissionUtil.checkWriteExternalStorage(this.a)) {
+                            this.a.startCollectLog();
                             return;
                         }
-                        AboutActivity aboutActivity2 = this.f54755a;
+                        AboutActivity aboutActivity2 = this.a;
                         PermissionUtil.requestWriteExternalStorgePermission(aboutActivity2, aboutActivity2.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON);
                     }
                 } else {
@@ -111,13 +109,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AboutActivity f54756a;
+        public final /* synthetic */ AboutActivity a;
 
         public b(AboutActivity aboutActivity) {
             Interceptable interceptable = $ic;
@@ -134,19 +130,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     return;
                 }
             }
-            this.f54756a = aboutActivity;
+            this.a = aboutActivity;
         }
 
-        @Override // b.a.e.a.e
+        @Override // c.a.d.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f54756a.handlCallBack(obj);
+                this.a.handlCallBack(obj);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +202,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void checkUpdata() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            b.a.r0.p1.c.b().a(true);
+            c.a.r0.v1.c.b().a(true);
             AboutModel aboutModel = this.mModel;
             if (aboutModel == null) {
                 this.mModel = new AboutModel(this, new b(this));
@@ -214,7 +210,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.mModel.A();
-            b.a.r0.d3.c.a aVar = this.mView;
+            c.a.r0.k3.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.n();
             }
@@ -225,11 +221,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void handlCallBack(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, obj) == null) {
-            b.a.r0.d3.c.a aVar = this.mView;
+            c.a.r0.k3.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.o();
             }
-            b.a.q0.t.e.e eVar = obj != null ? (b.a.q0.t.e.e) obj : null;
+            c.a.q0.t.e.e eVar = obj != null ? (c.a.q0.t.e.e) obj : null;
             if (eVar != null) {
                 TbadkCoreApplication.getInst().setVersionData(eVar.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
@@ -243,7 +239,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                b.a.r0.d3.c.a aVar2 = this.mView;
+                c.a.r0.k3.c.a aVar2 = this.mView;
                 if (aVar2 != null) {
                     aVar2.s();
                     return;
@@ -287,7 +283,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b.a.r0.d3.c.a aVar = this.mView;
+            c.a.r0.k3.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.u(i2);
             }
@@ -299,8 +295,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.collectorManager = new b.a.r0.d3.c.j.a(this);
-            b.a.r0.d3.c.a aVar = new b.a.r0.d3.c.a(this, new a(this));
+            this.collectorManager = new c.a.r0.k3.c.j.a(this);
+            c.a.r0.k3.c.a aVar = new c.a.r0.k3.c.a(this, new a(this));
             this.mView = aVar;
             aVar.s();
             regReceiver();
@@ -317,7 +313,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            b.a.r0.d3.c.a aVar = this.mView;
+            c.a.r0.k3.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.o();
             }
@@ -325,7 +321,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (iVar != null) {
                 iVar.dismiss();
             }
-            b.a.r0.d3.c.j.a aVar2 = this.collectorManager;
+            c.a.r0.k3.c.j.a aVar2 = this.collectorManager;
             if (aVar2 != null) {
                 aVar2.i();
                 this.collectorManager = null;
@@ -350,7 +346,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            b.a.r0.d3.c.a aVar = this.mView;
+            c.a.r0.k3.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.s();
             }

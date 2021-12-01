@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +18,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40859a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f40859a = Build.VERSION.SDK_INT >= 8;
+        a = Build.VERSION.SDK_INT >= 8;
     }
 
     public a() {
@@ -203,12 +200,12 @@ public class a {
         File file2;
         ZipEntry entry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, context)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, context)) == null) {
             StringBuilder sb = new StringBuilder(context.getFilesDir().getAbsolutePath());
             ZipFile zipFile2 = null;
             try {
                 try {
-                    zipFile = new ZipFile(f40859a ? context.getPackageCodePath() : "");
+                    zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
                 } catch (IOException unused) {
                 }
                 try {

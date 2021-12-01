@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TraceLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INIT_FAILED = -1;
@@ -347,12 +347,12 @@ public class TraceLog {
                             }
                         });
                         if (arrayList.size() > 2) {
-                            long j = 0;
+                            long j2 = 0;
                             for (int size = arrayList.size() - 2; size > 0; size--) {
                                 File file = (File) arrayList.get(size);
-                                j += file.length();
-                                if (j > 104857600 && file.delete()) {
-                                    j -= file.length();
+                                j2 += file.length();
+                                if (j2 > 104857600 && file.delete()) {
+                                    j2 -= file.length();
                                 }
                             }
                         }

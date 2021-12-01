@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements com.baidu.mapsdkplatform.comapi.map.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f40402a;
+    public final /* synthetic */ BaiduMap a;
 
     public d(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
                 return;
             }
         }
-        this.f40402a = baiduMap;
+        this.a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.o
@@ -43,22 +41,22 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
         HeatMap heatMap2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            lock = this.f40402a.I;
+            lock = this.a.I;
             lock.lock();
             try {
-                heatMap = this.f40402a.H;
+                heatMap = this.a.H;
                 if (heatMap != null) {
-                    heatMap2 = this.f40402a.H;
-                    Tile a2 = heatMap2.a(i2, i3, i4);
-                    if (a2 != null) {
-                        return a2.toBundle();
+                    heatMap2 = this.a.H;
+                    Tile a = heatMap2.a(i2, i3, i4);
+                    if (a != null) {
+                        return a.toBundle();
                     }
                 }
-                lock3 = this.f40402a.I;
+                lock3 = this.a.I;
                 lock3.unlock();
                 return null;
             } finally {
-                lock2 = this.f40402a.I;
+                lock2 = this.a.I;
                 lock2.unlock();
             }
         }

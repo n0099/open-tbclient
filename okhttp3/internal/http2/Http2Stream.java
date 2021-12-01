@@ -1,6 +1,7 @@
 package okhttp3.internal.http2;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -156,10 +157,10 @@ public final class Http2Stream {
         }
 
         @Override // okio.Sink
-        public void write(Buffer buffer, long j) throws IOException {
+        public void write(Buffer buffer, long j2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
-                this.sendBuffer.write(buffer, j);
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
+                this.sendBuffer.write(buffer, j2);
                 while (this.sendBuffer.size() >= 16384) {
                     emitFrame(false);
                 }
@@ -194,12 +195,12 @@ public final class Http2Stream {
             }
         }
 
-        public FramingSource(Http2Stream http2Stream, long j) {
+        public FramingSource(Http2Stream http2Stream, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {http2Stream, Long.valueOf(j)};
+                Object[] objArr = {http2Stream, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -212,13 +213,13 @@ public final class Http2Stream {
             this.this$0 = http2Stream;
             this.receiveBuffer = new Buffer();
             this.readBuffer = new Buffer();
-            this.maxByteCount = j;
+            this.maxByteCount = j2;
         }
 
-        private void updateConnectionFlowControl(long j) {
+        private void updateConnectionFlowControl(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
-                this.this$0.connection.updateConnectionFlowControl(j);
+            if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+                this.this$0.connection.updateConnectionFlowControl(j2);
             }
         }
 
@@ -255,22 +256,22 @@ public final class Http2Stream {
         }
 
         @Override // okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
+        public long read(Buffer buffer, long j2) throws IOException {
             InterceptResult invokeLJ;
             ErrorCode errorCode;
-            long j2;
+            long j3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-                if (j >= 0) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+                if (j2 >= 0) {
                     synchronized (this.this$0) {
                         waitUntilReadable();
                         if (!this.closed) {
                             errorCode = this.this$0.errorCode;
                             if (this.readBuffer.size() > 0) {
-                                j2 = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
-                                this.this$0.unacknowledgedBytesRead += j2;
+                                j3 = this.readBuffer.read(buffer, Math.min(j2, this.readBuffer.size()));
+                                this.this$0.unacknowledgedBytesRead += j3;
                             } else {
-                                j2 = -1;
+                                j3 = -1;
                             }
                             if (errorCode == null && this.this$0.unacknowledgedBytesRead >= this.this$0.connection.okHttpSettings.getInitialWindowSize() / 2) {
                                 this.this$0.connection.writeWindowUpdateLater(this.this$0.id, this.this$0.unacknowledgedBytesRead);
@@ -280,43 +281,43 @@ public final class Http2Stream {
                             throw new IOException("stream closed");
                         }
                     }
-                    if (j2 != -1) {
-                        updateConnectionFlowControl(j2);
-                        return j2;
+                    if (j3 != -1) {
+                        updateConnectionFlowControl(j3);
+                        return j3;
                     } else if (errorCode == null) {
                         return -1L;
                     } else {
                         throw new StreamResetException(errorCode);
                     }
                 }
-                throw new IllegalArgumentException("byteCount < 0: " + j);
+                throw new IllegalArgumentException("byteCount < 0: " + j2);
             }
             return invokeLJ.longValue;
         }
 
-        public void receive(BufferedSource bufferedSource, long j) throws IOException {
+        public void receive(BufferedSource bufferedSource, long j2) throws IOException {
             boolean z;
             boolean z2;
             boolean z3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferedSource, j) == null) {
-                while (j > 0) {
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferedSource, j2) == null) {
+                while (j2 > 0) {
                     synchronized (this.this$0) {
                         z = this.finished;
                         z2 = true;
-                        z3 = this.readBuffer.size() + j > this.maxByteCount;
+                        z3 = this.readBuffer.size() + j2 > this.maxByteCount;
                     }
                     if (z3) {
-                        bufferedSource.skip(j);
+                        bufferedSource.skip(j2);
                         this.this$0.closeLater(ErrorCode.FLOW_CONTROL_ERROR);
                         return;
                     } else if (z) {
-                        bufferedSource.skip(j);
+                        bufferedSource.skip(j2);
                         return;
                     } else {
-                        long read = bufferedSource.read(this.receiveBuffer, j);
+                        long read = bufferedSource.read(this.receiveBuffer, j2);
                         if (read != -1) {
-                            j -= read;
+                            j2 -= read;
                             synchronized (this.this$0) {
                                 if (this.readBuffer.size() != 0) {
                                     z2 = false;
@@ -378,7 +379,7 @@ public final class Http2Stream {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
-                SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
+                SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.O);
                 if (iOException != null) {
                     socketTimeoutException.initCause(iOException);
                 }
@@ -468,11 +469,11 @@ public final class Http2Stream {
         return invokeL.booleanValue;
     }
 
-    public void addBytesToWriteWindow(long j) {
+    public void addBytesToWriteWindow(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.bytesLeftInWriteWindow += j;
-            if (j > 0) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.bytesLeftInWriteWindow += j2;
+            if (j2 > 0) {
                 notifyAll();
             }
         }

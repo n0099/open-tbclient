@@ -16,7 +16,6 @@ import android.view.KeyEvent;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -189,13 +188,13 @@ public class MediaControllerCompatApi21 {
         public static int getPlaybackType(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getPlaybackType() : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getPlaybackType() : invokeL.intValue;
         }
 
         public static int getVolumeControl(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getVolumeControl() : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaController.PlaybackInfo) obj).getVolumeControl() : invokeL.intValue;
         }
 
         public static int toLegacyStreamType(AudioAttributes audioAttributes) {
@@ -284,22 +283,22 @@ public class MediaControllerCompatApi21 {
 
         public static void playFromSearch(Object obj, String str, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, bundle) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, bundle) == null) {
                 ((MediaController.TransportControls) obj).playFromSearch(str, bundle);
             }
         }
 
         public static void rewind(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
                 ((MediaController.TransportControls) obj).rewind();
             }
         }
 
-        public static void seekTo(Object obj, long j) {
+        public static void seekTo(Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j) == null) {
-                ((MediaController.TransportControls) obj).seekTo(j);
+            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j2) == null) {
+                ((MediaController.TransportControls) obj).seekTo(j2);
             }
         }
 
@@ -331,10 +330,10 @@ public class MediaControllerCompatApi21 {
             }
         }
 
-        public static void skipToQueueItem(Object obj, long j) {
+        public static void skipToQueueItem(Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j) == null) {
-                ((MediaController.TransportControls) obj).skipToQueueItem(j);
+            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j2) == null) {
+                ((MediaController.TransportControls) obj).skipToQueueItem(j2);
             }
         }
 
@@ -388,13 +387,13 @@ public class MediaControllerCompatApi21 {
     public static Bundle getExtras(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((MediaController) obj).getExtras() : (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? ((MediaController) obj).getExtras() : (Bundle) invokeL.objValue;
     }
 
     public static long getFlags(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaController) obj).getFlags() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaController) obj).getFlags() : invokeL.longValue;
     }
 
     public static Object getMediaController(Activity activity) {

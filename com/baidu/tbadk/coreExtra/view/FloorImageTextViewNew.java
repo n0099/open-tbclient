@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import b.a.e.f.p.l;
-import b.a.r0.d4.b;
+import c.a.d.f.p.l;
+import c.a.r0.k4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,24 +23,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f41623j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final int f41624k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f46583f;
+    public TbRichTextView f41625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorScrollView f46584g;
+    public EditorScrollView f41626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46585h;
+    public int f41627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f46586i;
+    public boolean f41628i;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +59,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        j = l.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        k = l.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        f41623j = l.f(TbadkApplication.getInst(), R.dimen.tbds348);
+        f41624k = l.f(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +81,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        this.f46586i = false;
+        this.f41628i = false;
         b(context);
     }
 
@@ -87,9 +91,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (layoutParams = getLayoutParams()) == null) {
             return;
         }
-        setVisibility(this.f46586i ? 0 : 8);
+        setVisibility(this.f41628i ? 0 : 8);
         if (z) {
-            layoutParams.height = this.f46585h;
+            layoutParams.height = this.f41627h;
             setLayoutParams(layoutParams);
             return;
         }
@@ -104,14 +108,14 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (c()) {
-                this.f46585h = k + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+                this.f41627h = f41624k + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
             } else {
-                this.f46585h = j + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+                this.f41627h = f41623j + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
             }
         } else {
-            this.f46585h = -2;
+            this.f41627h = -2;
         }
-        checkAndSetViewHeight(this.f46585h);
+        checkAndSetViewHeight(this.f41627h);
     }
 
     public final void b(Context context) {
@@ -119,16 +123,16 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
             TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.textview);
-            this.f46583f = tbRichTextView;
+            this.f41625f = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
-            this.f46583f.setTextSize(AbsFloorImageTextView.TEXT_SIZE);
-            this.f46583f.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-            this.f46583f.hasShadow = true;
+            this.f41625f.setTextSize(AbsFloorImageTextView.TEXT_SIZE);
+            this.f41625f.setTextColor(SkinManager.getColor(R.color.white_alpha83));
+            this.f41625f.hasShadow = true;
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
-            this.f46584g = editorScrollView;
-            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.BOTTOM);
-            this.f46584g.setOnTouchListener(this.mTbGestureDetector);
-            ((ViewGroup.MarginLayoutParams) this.f46584g.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            this.f41626g = editorScrollView;
+            editorScrollView.setPadding(0, l.f(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.BOTTOM);
+            this.f41626g.setOnTouchListener(this.mTbGestureDetector);
+            ((ViewGroup.MarginLayoutParams) this.f41626g.getLayoutParams()).topMargin = l.f(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -177,15 +181,15 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 }
             }
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
-                this.f46586i = true;
+                this.f41628i = true;
                 b.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                TbRichText parse = TbRichTextView.parse(getContext(), jSONArray, false);
+                TbRichText parse = TbRichTextView.parse(jSONArray, false);
                 a(measureTextViewHeightAndLine(parse.toString()));
-                this.f46583f.setText(parse);
+                this.f41625f.setText(parse);
             } else {
-                this.f46586i = false;
+                this.f41628i = false;
             }
-            setVisibility(this.f46586i ? 0 : 8);
+            setVisibility(this.f41628i ? 0 : 8);
         }
     }
 }

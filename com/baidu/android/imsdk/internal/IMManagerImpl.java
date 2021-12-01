@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMManagerImpl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile IMManagerImpl mInstance;
@@ -103,13 +102,13 @@ public class IMManagerImpl {
     private boolean isKickOffMsg(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, chatMsg)) == null) ? chatMsg.getMsgType() == 3 && chatMsg.getNotifyCmd() == 50 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, chatMsg)) == null) ? chatMsg.getMsgType() == 3 && chatMsg.getNotifyCmd() == 50 : invokeL.booleanValue;
     }
 
     private void loadClassForName(String str) {
         Method method;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             try {
                 Class<?> cls = Class.forName(str);
                 if (cls == null || (method = cls.getMethod("init", Context.class)) == null) {

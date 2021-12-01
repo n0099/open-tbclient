@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,12 +26,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f72442a = 1;
+    public static int a = 1;
 
     /* renamed from: a  reason: collision with other field name */
     public static BlockingQueue<Runnable> f975a = null;
@@ -44,10 +41,10 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean f977a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f72443b = 1;
+    public static int f63288b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f72444c = 2;
+    public static int f63289c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
@@ -67,7 +64,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             }
         }
         f975a = new LinkedBlockingQueue();
-        f976a = new ThreadPoolExecutor(f72442a, f72443b, f72444c, TimeUnit.SECONDS, f975a);
+        f976a = new ThreadPoolExecutor(a, f63288b, f63289c, TimeUnit.SECONDS, f975a);
         f977a = false;
     }
 
@@ -111,7 +108,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m107a() && b.m114a(context).m123c() && !b.m114a(context).m126f()) {
+            if (!an.a(context).m156a() && b.m163a(context).m172c() && !b.m163a(context).m175f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -121,27 +118,27 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
             }
-            gq.m362a(context);
-            if (bg.b(context) && an.a(context).m110b()) {
-                an.a(context).m111c();
+            gq.m411a(context);
+            if (bg.b(context) && an.a(context).m159b()) {
+                an.a(context).m160c();
             }
             if (bg.b(context)) {
-                if ("syncing".equals(ae.a(context).a(at.f71525a))) {
+                if ("syncing".equals(ae.a(context).a(at.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f71526b))) {
+                if ("syncing".equals(ae.a(context).a(at.f62691b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f71527c))) {
+                if ("syncing".equals(ae.a(context).a(at.f62692c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f71528d))) {
+                if ("syncing".equals(ae.a(context).a(at.f62693d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f71529e))) {
+                if ("syncing".equals(ae.a(context).a(at.f62694e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f71530f))) {
+                if ("syncing".equals(ae.a(context).a(at.f62695f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
@@ -157,7 +154,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f977a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f977a : invokeV.booleanValue;
     }
 
     @Override // android.content.BroadcastReceiver

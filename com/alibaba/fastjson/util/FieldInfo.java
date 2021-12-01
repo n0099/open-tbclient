@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FieldInfo implements Comparable<FieldInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +131,7 @@ public class FieldInfo implements Comparable<FieldInfo> {
     public static Type getFieldType(Class<?> cls, Type type, Type type2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, cls, type, type2)) == null) ? getFieldType(cls, type, type2, null) : (Type) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, type, type2)) == null) ? getFieldType(cls, type, type2, null) : (Type) invokeLLL.objValue;
     }
 
     public static Type getInheritGenericType(Class<?> cls, Type type, TypeVariable<?> typeVariable) {
@@ -307,7 +306,7 @@ public class FieldInfo implements Comparable<FieldInfo> {
         TypeVariable<Class<?>>[] typeParameters;
         ParameterizedType parameterizedType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, type, type2, map)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, cls, type, type2, map)) == null) {
             if (cls != null && type != null) {
                 if (type2 instanceof GenericArrayType) {
                     Type genericComponentType = ((GenericArrayType) type2).getGenericComponentType();

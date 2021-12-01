@@ -10,9 +10,8 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.g.a.a;
+import c.a.d.g.a.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BarImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +34,12 @@ public class BarImageView extends TbClipImageView {
     public boolean a0;
     public boolean b0;
     public Bitmap c0;
-    public Bitmap i0;
-    public Bitmap j0;
-    public Canvas k0;
-    public PaintFlagsDrawFilter l0;
-    public PorterDuffXfermode m0;
-    public PorterDuffXfermode n0;
+    public Bitmap d0;
+    public Bitmap e0;
+    public Canvas f0;
+    public PaintFlagsDrawFilter g0;
+    public PorterDuffXfermode h0;
+    public PorterDuffXfermode i0;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BarImageView(Context context) {
@@ -95,14 +94,14 @@ public class BarImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             a aVar = this.mDrawer;
-            if (aVar != null && aVar.f2175b != null) {
+            if (aVar != null && aVar.f2745b != null) {
                 if (!this.W) {
                     super.onDraw(canvas);
                     return;
                 }
                 int measuredWidth = getMeasuredWidth();
                 int measuredHeight = getMeasuredHeight();
-                float f6 = (measuredWidth * 14) / IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
+                float f6 = (measuredWidth * 14) / 130;
                 this.S.reset();
                 float f7 = measuredWidth;
                 float f8 = (f7 + 0.0f) / 2.0f;
@@ -115,9 +114,9 @@ public class BarImageView extends TbClipImageView {
                 this.S.cubicTo(f6, f7, 0.0f, f11, 0.0f, f10);
                 this.S.cubicTo(0.0f, f6, f6, 0.0f, f8, 0.0f);
                 this.S.close();
-                this.mDrawer.f2176c.setStyle(Paint.Style.FILL);
-                this.mDrawer.f2176c.setColor(SkinManager.getColor(this.V));
-                this.j0 = u(measuredWidth, measuredHeight, true);
+                this.mDrawer.f2746c.setStyle(Paint.Style.FILL);
+                this.mDrawer.f2746c.setColor(SkinManager.getColor(this.V));
+                this.e0 = u(measuredWidth, measuredHeight, true);
                 this.S.reset();
                 float strokeWith = getStrokeWith();
                 float f12 = measuredWidth / 2;
@@ -130,31 +129,31 @@ public class BarImageView extends TbClipImageView {
                 this.S.cubicTo(f15, f13, strokeWith, f14, strokeWith, f12);
                 this.S.cubicTo(strokeWith, f15, f15, strokeWith, f12, strokeWith);
                 this.S.close();
-                if (this.l0 == null) {
-                    this.l0 = new PaintFlagsDrawFilter(0, 3);
+                if (this.g0 == null) {
+                    this.g0 = new PaintFlagsDrawFilter(0, 3);
                 }
-                canvas.setDrawFilter(this.l0);
+                canvas.setDrawFilter(this.g0);
                 if (this.c0 == null) {
                     this.c0 = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888);
                 }
-                if (this.k0 == null) {
-                    this.k0 = new Canvas(this.c0);
+                if (this.f0 == null) {
+                    this.f0 = new Canvas(this.c0);
                 }
-                this.mDrawer.f2176c.setStyle(Paint.Style.STROKE);
-                super.onDraw(this.k0);
-                this.i0 = u(measuredWidth, measuredHeight, false);
+                this.mDrawer.f2746c.setStyle(Paint.Style.STROKE);
+                super.onDraw(this.f0);
+                this.d0 = u(measuredWidth, measuredHeight, false);
                 if (this.b0) {
                     f2 = f9;
                     f5 = 0.0f;
                     f3 = f7;
                     f4 = f6;
                     int saveLayer = canvas.saveLayer(0.0f, 0.0f, f7, f2, null, 31);
-                    this.mDrawer.f2176c.setStyle(Paint.Style.FILL);
-                    this.mDrawer.f2176c.setColor(SkinManager.getColor(this.V));
-                    canvas.drawBitmap(this.i0, 0.0f, 0.0f, this.mDrawer.f2176c);
-                    this.mDrawer.f2176c.setXfermode(this.n0);
-                    canvas.drawBitmap(this.j0, 0.0f, 0.0f, this.mDrawer.f2176c);
-                    this.mDrawer.f2176c.setXfermode(null);
+                    this.mDrawer.f2746c.setStyle(Paint.Style.FILL);
+                    this.mDrawer.f2746c.setColor(SkinManager.getColor(this.V));
+                    canvas.drawBitmap(this.d0, 0.0f, 0.0f, this.mDrawer.f2746c);
+                    this.mDrawer.f2746c.setXfermode(this.i0);
+                    canvas.drawBitmap(this.e0, 0.0f, 0.0f, this.mDrawer.f2746c);
+                    this.mDrawer.f2746c.setXfermode(null);
                     if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                         canvas.restoreToCount(saveLayer);
                     }
@@ -165,10 +164,10 @@ public class BarImageView extends TbClipImageView {
                     f5 = 0.0f;
                 }
                 int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, f3, f2, null, 31);
-                canvas.drawBitmap(this.i0, f5, f5, this.mDrawer.f2175b);
-                this.mDrawer.f2175b.setXfermode(this.m0);
-                canvas.drawBitmap(this.c0, f5, f5, this.mDrawer.f2175b);
-                this.mDrawer.f2175b.setXfermode(null);
+                canvas.drawBitmap(this.d0, f5, f5, this.mDrawer.f2745b);
+                this.mDrawer.f2745b.setXfermode(this.h0);
+                canvas.drawBitmap(this.c0, f5, f5, this.mDrawer.f2745b);
+                this.mDrawer.f2745b.setXfermode(null);
                 if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
                     canvas.restoreToCount(saveLayer2);
                 }
@@ -232,12 +231,12 @@ public class BarImageView extends TbClipImageView {
             this.T.cubicTo(f6, f4, strokeWith, f5, strokeWith, f3);
             this.T.cubicTo(strokeWith, f6, f6, strokeWith, f3, strokeWith);
             this.T.close();
-            float strokeWidth = this.mDrawer.f2176c.getStrokeWidth();
-            this.mDrawer.f2176c.setStyle(Paint.Style.STROKE);
-            this.mDrawer.f2176c.setStrokeWidth(getStrokeWith() + 0.5f);
-            this.mDrawer.f2176c.setColor(SkinManager.getColor(getStrokeColorResId()));
-            canvas.drawPath(this.T, this.mDrawer.f2176c);
-            this.mDrawer.f2176c.setStrokeWidth(strokeWidth);
+            float strokeWidth = this.mDrawer.f2746c.getStrokeWidth();
+            this.mDrawer.f2746c.setStyle(Paint.Style.STROKE);
+            this.mDrawer.f2746c.setStrokeWidth(getStrokeWith() + 0.5f);
+            this.mDrawer.f2746c.setColor(SkinManager.getColor(getStrokeColorResId()));
+            canvas.drawPath(this.T, this.mDrawer.f2746c);
+            this.mDrawer.f2746c.setStrokeWidth(strokeWidth);
         }
     }
 
@@ -246,7 +245,7 @@ public class BarImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawPath(this.S, z ? this.mDrawer.f2176c : this.mDrawer.f2175b);
+            new Canvas(createBitmap).drawPath(this.S, z ? this.mDrawer.f2746c : this.mDrawer.f2745b);
             return createBitmap;
         }
         return (Bitmap) invokeCommon.objValue;
@@ -301,8 +300,8 @@ public class BarImageView extends TbClipImageView {
         this.W = false;
         this.a0 = false;
         this.b0 = true;
-        this.m0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-        this.n0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+        this.h0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+        this.i0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
         init();
     }
 }

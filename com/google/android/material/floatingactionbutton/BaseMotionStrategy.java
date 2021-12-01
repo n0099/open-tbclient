@@ -17,9 +17,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.animation.MotionSpec;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseMotionStrategy implements MotionStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,9 +155,9 @@ public abstract class BaseMotionStrategy implements MotionStrategy {
             if (motionSpec.hasPropertyValues("opacity")) {
                 arrayList.add(motionSpec.getAnimator("opacity", this.fab, View.ALPHA));
             }
-            if (motionSpec.hasPropertyValues("scale")) {
-                arrayList.add(motionSpec.getAnimator("scale", this.fab, View.SCALE_Y));
-                arrayList.add(motionSpec.getAnimator("scale", this.fab, View.SCALE_X));
+            if (motionSpec.hasPropertyValues(AnimationProperty.SCALE)) {
+                arrayList.add(motionSpec.getAnimator(AnimationProperty.SCALE, this.fab, View.SCALE_Y));
+                arrayList.add(motionSpec.getAnimator(AnimationProperty.SCALE, this.fab, View.SCALE_X));
             }
             if (motionSpec.hasPropertyValues("width")) {
                 arrayList.add(motionSpec.getAnimator("width", this.fab, ExtendedFloatingActionButton.WIDTH));

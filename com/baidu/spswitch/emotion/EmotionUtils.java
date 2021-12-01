@@ -7,7 +7,6 @@ import android.media.MediaPlayer;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.spswitch.R;
 import com.baidu.spswitch.emotion.resource.EmotionDownloadRuntime;
@@ -35,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -59,7 +58,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +86,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +204,7 @@ public class EmotionUtils {
 
     private void initEmotionSound(IResourceProvider iResourceProvider) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, iResourceProvider) == null) && iResourceProvider != null && iResourceProvider.getEmotionSoundFile() != null && iResourceProvider.getEmotionSoundFile().exists() && this.mMediaPlayer == null) {
+        if ((interceptable == null || interceptable.invokeL(65541, this, iResourceProvider) == null) && iResourceProvider != null && iResourceProvider.getEmotionSoundFile() != null && iResourceProvider.getEmotionSoundFile().exists() && this.mMediaPlayer == null) {
             try {
                 MediaPlayer mediaPlayer = new MediaPlayer();
                 this.mMediaPlayer = mediaPlayer;
@@ -221,7 +220,7 @@ public class EmotionUtils {
     private String queryEmotionNameById(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? queryEmotionNameById(this.mEmotionClassicList, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? queryEmotionNameById(this.mEmotionClassicList, str) : (String) invokeL.objValue;
     }
 
     public String getAllZoneTitle() {
@@ -463,19 +462,19 @@ public class EmotionUtils {
         this.mMediaPlayer.start();
     }
 
-    public void waitForEmotionLoadedIfNeeded(long j) {
+    public void waitForEmotionLoadedIfNeeded(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
             return;
         }
-        if (j <= 0) {
-            j = 350;
+        if (j2 <= 0) {
+            j2 = 350;
         }
         if (DEBUG) {
             String str = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------";
         }
         try {
-            this.mSync.tryAcquire(j, TimeUnit.MILLISECONDS);
+            this.mSync.tryAcquire(j2, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

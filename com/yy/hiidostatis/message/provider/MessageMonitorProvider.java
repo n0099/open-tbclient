@@ -9,7 +9,7 @@ import com.yy.hiidostatis.message.MessageMonitor;
 import com.yy.hiidostatis.message.monitor.MessageMonitorImpl;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageMonitorProvider implements Provider<MessageMonitor> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

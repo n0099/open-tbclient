@@ -19,13 +19,11 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b extends BaseBean<OpenFingerprintResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f60666a;
+    public PwdRequest a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -45,7 +43,7 @@ public class b extends BaseBean<OpenFingerprintResponse> {
                 return;
             }
         }
-        this.f60666a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -62,11 +60,11 @@ public class b extends BaseBean<OpenFingerprintResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            PwdRequest pwdRequest = this.f60666a;
+            PwdRequest pwdRequest = this.a;
             if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
                 String seed = PasswordController.getSeed();
                 String encryptProxy = SecurePay.getInstance().encryptProxy(seed);
-                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f60666a.mPayPass, seed)));
+                arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.a.mPayPass, seed)));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             }
             return arrayList;

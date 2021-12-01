@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserFreeChance.DataRes;
 import tbclient.GetUserFreeChance.GetUserFreeChanceResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FreeGiftChanceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,10 +51,10 @@ public class FreeGiftChanceHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sceneId : invokeV.longValue;
     }
 
-    public void setSceneId(long j) {
+    public void setSceneId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.sceneId = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.sceneId = j2;
         }
     }
 

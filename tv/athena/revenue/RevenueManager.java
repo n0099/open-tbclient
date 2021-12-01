@@ -16,25 +16,23 @@ import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes3.dex */
-public class RevenueManager implements i.a.a.b.a {
+/* loaded from: classes4.dex */
+public class RevenueManager implements j.a.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public i.a.a.b.a revenueService;
+    public j.a.a.b.a revenueService;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f74029a;
+        public static final RevenueManager a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +48,7 @@ public class RevenueManager implements i.a.a.b.a {
                     return;
                 }
             }
-            f74029a = new RevenueManager(null);
+            a = new RevenueManager(null);
         }
     }
 
@@ -61,10 +59,10 @@ public class RevenueManager implements i.a.a.b.a {
     public static RevenueManager instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f74029a : (RevenueManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (RevenueManager) invokeV.objValue;
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
@@ -73,7 +71,7 @@ public class RevenueManager implements i.a.a.b.a {
         }
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
@@ -83,7 +81,7 @@ public class RevenueManager implements i.a.a.b.a {
         }
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public List<IRevenue> getAllRevenue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +92,7 @@ public class RevenueManager implements i.a.a.b.a {
         return (List) invokeV.objValue;
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public IMiddleRevenue getMiddleRevenue(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -105,14 +103,14 @@ public class RevenueManager implements i.a.a.b.a {
         return (IMiddleRevenue) invokeII.objValue;
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public IRevenue getRevenue(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) ? this.revenueService.getRevenue(i2, i3) : (IRevenue) invokeII.objValue;
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public void removeRevenueConfig(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
@@ -121,7 +119,7 @@ public class RevenueManager implements i.a.a.b.a {
         }
     }
 
-    @Override // i.a.a.b.a
+    @Override // j.a.a.b.a
     public void updateMiddleRevenueConfig(int i2, int i3, Long l, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), l, str}) == null) {
@@ -145,6 +143,6 @@ public class RevenueManager implements i.a.a.b.a {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new i.a.a.f.b();
+        this.revenueService = new j.a.a.f.b();
     }
 }

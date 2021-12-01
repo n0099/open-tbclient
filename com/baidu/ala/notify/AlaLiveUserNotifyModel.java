@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlaLiveUserNotifyModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +26,7 @@ public class AlaLiveUserNotifyModel {
     public boolean mIsNeedShowDialog;
     public TbPageContext mTbPageContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface AlaLiveNotifyCallBack {
         void onCallBack(AlaLiveUserNotifyData alaLiveUserNotifyData);
     }
@@ -104,7 +103,7 @@ public class AlaLiveUserNotifyModel {
     public void addNotifyToImList(AlaLiveUserNotifyData alaLiveUserNotifyData) {
         AlaLiveNotifyCallBack alaLiveNotifyCallBack;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, alaLiveUserNotifyData) == null) || (alaLiveNotifyCallBack = this.mCallBack) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, alaLiveUserNotifyData) == null) || (alaLiveNotifyCallBack = this.mCallBack) == null) {
             return;
         }
         alaLiveNotifyCallBack.onCallBack(alaLiveUserNotifyData);
@@ -113,7 +112,7 @@ public class AlaLiveUserNotifyModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void showNextNotifyDialog(int i2, ArrayList<AlaLiveUserNotifyData> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, arrayList) == null) || i2 >= ListUtils.getCount(arrayList)) {
+        if (!(interceptable == null || interceptable.invokeIL(65542, this, i2, arrayList) == null) || i2 >= ListUtils.getCount(arrayList)) {
             return;
         }
         int i3 = i2;

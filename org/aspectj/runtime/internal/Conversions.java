@@ -1,7 +1,6 @@
 package org.aspectj.runtime.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,13 +76,13 @@ public final class Conversions {
     public static Object charObject(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? new Character(c2) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) ? new Character(c2) : invokeCommon.objValue;
     }
 
     public static char charValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
             if (obj == null) {
                 return (char) 0;
             }
@@ -170,10 +169,10 @@ public final class Conversions {
         return invokeL.intValue;
     }
 
-    public static Object longObject(long j) {
+    public static Object longObject(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) ? new Long(j) : invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) ? new Long(j2) : invokeJ.objValue;
     }
 
     public static long longValue(Object obj) {

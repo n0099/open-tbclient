@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class a {
 
     public static String a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
-        String a2;
+        String a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
             synchronized (a.class) {
@@ -37,13 +37,13 @@ public class a {
                     try {
                         if (!com.alipay.security.mobile.module.a.a.a(str) && !com.alipay.security.mobile.module.a.a.a(str2)) {
                             try {
-                                a2 = e.a(context, str, str2, "");
+                                a = e.a(context, str, str2, "");
                             } catch (Throwable unused) {
                             }
-                            if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                            if (com.alipay.security.mobile.module.a.a.a(a)) {
                                 return null;
                             }
-                            str3 = com.alipay.security.mobile.module.a.a.c.b(com.alipay.security.mobile.module.a.a.c.a(), a2);
+                            str3 = com.alipay.security.mobile.module.a.a.c.b(com.alipay.security.mobile.module.a.a.c.a(), a);
                             return str3;
                         }
                     } catch (Throwable th) {
@@ -64,9 +64,9 @@ public class a {
                     return;
                 }
                 try {
-                    String a2 = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
+                    String a = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
                     HashMap hashMap = new HashMap();
-                    hashMap.put(str2, a2);
+                    hashMap.put(str2, a);
                     e.a(context, str, hashMap);
                 } catch (Throwable unused) {
                 }

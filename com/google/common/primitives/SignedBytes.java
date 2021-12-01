@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class SignedBytes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<byte[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,12 +98,12 @@ public final class SignedBytes {
         }
     }
 
-    public static byte a(long j) {
+    public static byte a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            byte b2 = (byte) j;
-            n.h(((long) b2) == j, "Out of range: %s", j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) {
+            byte b2 = (byte) j2;
+            n.h(((long) b2) == j2, "Out of range: %s", j2);
             return b2;
         }
         return invokeJ.byteValue;

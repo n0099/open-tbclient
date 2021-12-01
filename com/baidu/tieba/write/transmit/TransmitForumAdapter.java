@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import b.a.e.m.e.n;
-import b.a.e.m.e.w;
+import c.a.d.m.e.n;
+import c.a.d.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class TransmitForumAdapter extends b.a.e.m.e.a<TransmitForumData, TransmitForumViewHolder> {
+/* loaded from: classes11.dex */
+public class TransmitForumAdapter extends c.a.d.m.e.a<TransmitForumData, TransmitForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b.a.r0.e4.q.a m;
+    public c.a.r0.l4.q.a m;
     public w n;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +58,13 @@ public class TransmitForumAdapter extends b.a.e.m.e.a<TransmitForumData, Transmi
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumAdapter f56768e;
+        public final /* synthetic */ TransmitForumAdapter f50848e;
 
         public a(TransmitForumAdapter transmitForumAdapter) {
             Interceptable interceptable = $ic;
@@ -81,24 +81,24 @@ public class TransmitForumAdapter extends b.a.e.m.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.f56768e = transmitForumAdapter;
+            this.f50848e = transmitForumAdapter;
         }
 
-        @Override // b.a.e.m.e.w
-        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // c.a.d.m.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof TransmitForumData)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof TransmitForumData)) {
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = this.f56768e.m != null ? this.f56768e.m.c() : false;
+                boolean c2 = this.f50848e.m != null ? this.f50848e.m.c() : false;
                 if (!isChecked && c2) {
-                    this.f56768e.m.b();
+                    this.f50848e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (this.f56768e.m != null) {
-                        this.f56768e.m.a();
+                    if (this.f50848e.m != null) {
+                        this.f50848e.m.a();
                     }
                 }
             }
@@ -130,19 +130,19 @@ public class TransmitForumAdapter extends b.a.e.m.e.a<TransmitForumData, Transmi
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
         i0(i2, view, viewGroup, transmitForumData, transmitForumViewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: h0 */
-    public TransmitForumViewHolder T(ViewGroup viewGroup) {
+    public TransmitForumViewHolder S(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f2907e).inflate(R.layout.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
     }
 
     public View i0(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {
@@ -157,7 +157,7 @@ public class TransmitForumAdapter extends b.a.e.m.e.a<TransmitForumData, Transmi
         return (View) invokeCommon.objValue;
     }
 
-    public void j0(b.a.r0.e4.q.a aVar) {
+    public void j0(c.a.r0.l4.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.m = aVar;

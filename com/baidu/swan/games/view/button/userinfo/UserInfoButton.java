@@ -2,7 +2,7 @@ package com.baidu.swan.games.view.button.userinfo;
 
 import android.content.Context;
 import android.view.View;
-import b.a.p0.j.p0.d.b.c;
+import c.a.p0.j.p0.d.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
@@ -11,18 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UserInfoButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserInfoButton f45518a;
+        public final /* synthetic */ UserInfoButton a;
 
         public a(UserInfoButton userInfoButton) {
             Interceptable interceptable = $ic;
@@ -39,14 +37,14 @@ public class UserInfoButton extends ApiButton {
                     return;
                 }
             }
-            this.f45518a = userInfoButton;
+            this.a = userInfoButton;
         }
 
-        @Override // b.a.p0.j.p0.d.b.c.b
+        @Override // c.a.p0.j.p0.d.b.c.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f45518a.dispatchData(jSONObject);
+                this.a.dispatchData(jSONObject);
             }
         }
     }
@@ -74,7 +72,7 @@ public class UserInfoButton extends ApiButton {
     public void dispatchData(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            b.a.p0.j.p0.d.b.a aVar = new b.a.p0.j.p0.d.b.a();
+            c.a.p0.j.p0.d.b.a aVar = new c.a.p0.j.p0.d.b.a();
             aVar.data = jSONObject;
             dispatchEvent(aVar);
         }

@@ -1,13 +1,13 @@
 package com.baidu.fsg.face.base.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
     void a(k kVar);
 
-    void a(k kVar, long j);
+    void a(k kVar, long j2);
 
     void b(k kVar);
 
-    void b(k kVar, long j);
+    void b(k kVar, long j2);
 
     void c(k kVar);
 }

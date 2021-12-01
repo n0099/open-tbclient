@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.live_tab.fragment;
 import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
-import b.a.q0.g0.h;
+import c.a.d.f.p.k;
+import c.a.q0.g0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARG_AFTER_LAZY_LOADED = "arg_after_lazy_loaded";
@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f47758e;
+    public h f42757e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -35,13 +35,11 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public CustomMessageListener mTopHeaderListener;
     public int tabId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabBaseSubFragment f47759a;
+        public final /* synthetic */ LiveTabBaseSubFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LiveTabBaseSubFragment liveTabBaseSubFragment, int i2) {
@@ -61,7 +59,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47759a = liveTabBaseSubFragment;
+            this.a = liveTabBaseSubFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +68,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.f47759a.isHideTopHeader = false;
+                this.a.isHideTopHeader = false;
             }
         }
     }
@@ -124,7 +122,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f47758e;
+            h hVar = this.f42757e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -145,18 +143,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f47758e == null) {
-                this.f47758e = new h(this.mContext, null);
+            if (this.f42757e == null) {
+                this.f42757e = new h(this.mContext, null);
             }
-            this.f47758e.e();
-            this.f47758e.i(R.drawable.new_pic_emotion_03);
-            this.f47758e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f47758e.onChangeSkinType();
+            this.f42757e.e();
+            this.f42757e.i(R.drawable.new_pic_emotion_03);
+            this.f42757e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f42757e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f47758e.b() == null || this.f47758e.b().getParent() != null) {
+            if (this.f42757e.b() == null || this.f42757e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f47758e.b(), layoutParams);
+            this.mTopContainer.addView(this.f42757e.b(), layoutParams);
         }
     }
 }

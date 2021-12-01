@@ -23,7 +23,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HandlerMessenger implements IMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY_MESSAGE_EVENT = 153;
@@ -36,7 +36,7 @@ public class HandlerMessenger implements IMessenger {
     public ConcurrentHashMap<Integer, CopyOnWriteArrayList<INeuron>> mSubscribers;
     public VideoSession mVideoSession;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

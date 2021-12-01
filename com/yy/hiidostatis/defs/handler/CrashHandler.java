@@ -4,7 +4,6 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -33,7 +32,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static IStatisAPI mStatisAPI;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnHandlerListener {
         void handler(int i2, String str, String str2);
     }
@@ -87,7 +86,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static String generateCrashLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65541, null)) != null) {
             return (String) invokeV.objValue;
         }
         try {
@@ -115,7 +114,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static String getCurrentStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             StringBuilder sb = new StringBuilder();
             for (StackTraceElement stackTraceElement : new Throwable("").getStackTrace()) {
                 sb.append(stackTraceElement.toString());

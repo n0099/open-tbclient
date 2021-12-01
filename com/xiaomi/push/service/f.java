@@ -12,7 +12,7 @@ import com.xiaomi.push.gj;
 import com.xiaomi.push.gn;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements gi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public class f implements gi {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
                 }
-                fz a2 = a(xmlPullParser);
-                if (a2 != null) {
-                    arrayList.add(a2);
+                fz a = a(xmlPullParser);
+                if (a != null) {
+                    arrayList.add(a);
                 }
             }
         }

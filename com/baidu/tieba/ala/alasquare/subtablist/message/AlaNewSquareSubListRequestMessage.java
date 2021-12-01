@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
-import b.a.e.f.p.l;
+import c.a.d.f.p.j;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,13 +64,13 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = l.k(TbadkCoreApplication.getInst());
+            int k2 = l.k(TbadkCoreApplication.getInst());
             int i2 = l.i(TbadkCoreApplication.getInst());
             float h2 = l.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
-            addParam("scr_w", k);
+            addParam("scr_w", k2);
             addParam("scr_h", i2);
             addParam("q_type", 0);
             addParam("scr_dip", String.valueOf(h2));
@@ -91,7 +91,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
                 }
             }
             addParam("network", str);
-            addParam("ua_str", k + "_" + i2 + "_android_" + TbConfig.getVersion());
+            addParam("ua_str", k2 + "_" + i2 + "_android_" + TbConfig.getVersion());
             addParam("tab_id", this.tabId);
             addParam("refresh_type", this.refreshType);
             addParam("session_id", this.sessionId);

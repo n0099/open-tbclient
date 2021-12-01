@@ -2,7 +2,6 @@ package androidx.collection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,13 +61,13 @@ public final class SparseArrayKt {
     public static final <T> boolean isNotEmpty(SparseArrayCompat<T> sparseArrayCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, sparseArrayCompat)) == null) ? !sparseArrayCompat.isEmpty() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sparseArrayCompat)) == null) ? !sparseArrayCompat.isEmpty() : invokeL.booleanValue;
     }
 
     public static final <T> IntIterator keyIterator(final SparseArrayCompat<T> sparseArrayCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sparseArrayCompat)) == null) ? new IntIterator(sparseArrayCompat) { // from class: androidx.collection.SparseArrayKt$keyIterator$1
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseArrayCompat)) == null) ? new IntIterator(sparseArrayCompat) { // from class: androidx.collection.SparseArrayKt$keyIterator$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SparseArrayCompat $this_keyIterator;

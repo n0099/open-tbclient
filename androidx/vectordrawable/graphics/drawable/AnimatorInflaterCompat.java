@@ -27,7 +27,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,7 +159,7 @@ public class AnimatorInflaterCompat {
 
     public static void dumpKeyframes(Object[] objArr, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, objArr, str) == null) || objArr == null || objArr.length == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, objArr, str) == null) || objArr == null || objArr.length == 0) {
             return;
         }
         int length = objArr.length;
@@ -193,7 +192,7 @@ public class AnimatorInflaterCompat {
         float f4;
         PropertyValuesHolder ofObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{typedArray, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{typedArray, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
             TypedValue peekValue = typedArray.peekValue(i3);
             boolean z = peekValue != null;
             int i8 = z ? peekValue.type : 0;
@@ -605,7 +604,7 @@ public class AnimatorInflaterCompat {
 
     /* JADX DEBUG: Multi-variable search result rejected for r15v0, resolved type: android.animation.AnimatorSet */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00bc  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

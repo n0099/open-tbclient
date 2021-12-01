@@ -35,7 +35,6 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -296,7 +295,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     private DecorToolbar getDecorToolbar(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, view)) == null) {
             if (view instanceof DecorToolbar) {
                 return (DecorToolbar) view;
             }
@@ -310,7 +309,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     private void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(ATTRS);
             this.mActionBarHeight = obtainStyledAttributes.getDimensionPixelSize(0, 0);
             Drawable drawable = obtainStyledAttributes.getDrawable(1);

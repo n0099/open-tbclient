@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class aj extends com.vivo.push.v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,27 +40,27 @@ public final class aj extends com.vivo.push.v {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            Context context = this.f71347a;
+            Context context = this.a;
             if (context == null) {
                 com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; mContext is Null");
             } else if (yVar == null) {
                 com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask pushCommand is Null");
             } else {
-                com.vivo.push.model.b a2 = com.vivo.push.util.s.a(context);
+                com.vivo.push.model.b a = com.vivo.push.util.s.a(context);
                 int b2 = yVar.b();
                 if (b2 != 0) {
                     if (b2 == 2009) {
-                        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f71347a).isDebug());
+                        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug());
                         if (com.vivo.push.util.p.a()) {
                             com.vivo.push.p.a().k();
                             com.vivo.push.util.a aVar = new com.vivo.push.util.a();
-                            aVar.a(this.f71347a, "com.vivo.push_preferences.hybridapptoken_v1");
+                            aVar.a(this.a, "com.vivo.push_preferences.hybridapptoken_v1");
                             aVar.a();
                             com.vivo.push.util.a aVar2 = new com.vivo.push.util.a();
-                            aVar2.a(this.f71347a, "com.vivo.push_preferences.appconfig_v1");
+                            aVar2.a(this.a, "com.vivo.push_preferences.appconfig_v1");
                             aVar2.a();
                             if (!com.vivo.push.p.a().e()) {
-                                ClientConfigManagerImpl.getInstance(this.f71347a).clearPush();
+                                ClientConfigManagerImpl.getInstance(this.a).clearPush();
                             }
                         }
                     } else if (b2 != 2011) {
@@ -69,11 +69,11 @@ public final class aj extends com.vivo.push.v {
                             case 2003:
                             case 2004:
                             case 2005:
-                                if (a2 != null && !a2.c()) {
+                                if (a != null && !a.c()) {
                                     com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-                                    int a3 = com.vivo.push.util.r.a(cVar);
-                                    if (a3 != 0) {
-                                        com.vivo.push.p.a().a(cVar.h(), a3);
+                                    int a2 = com.vivo.push.util.r.a(cVar);
+                                    if (a2 != 0) {
+                                        com.vivo.push.p.a().a(cVar.h(), a2);
                                         return;
                                     }
                                 } else {
@@ -83,10 +83,10 @@ public final class aj extends com.vivo.push.v {
                                 break;
                         }
                     } else {
-                        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f71347a).isDebug(((com.vivo.push.b.z) yVar).d()));
+                        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug(((com.vivo.push.b.z) yVar).d()));
                     }
                 } else if (com.vivo.push.p.a().e()) {
-                    Context context2 = this.f71347a;
+                    Context context2 = this.a;
                     Intent intent = new Intent();
                     intent.setPackage(context2.getPackageName());
                     intent.setClassName(context2.getPackageName(), "com.vivo.push.sdk.service.CommandService");
@@ -100,7 +100,7 @@ public final class aj extends com.vivo.push.v {
                     } else {
                         com.vivo.push.util.p.d("ModuleUtil", "disableDeprecatedService is null");
                     }
-                    Context context3 = this.f71347a;
+                    Context context3 = this.a;
                     Intent intent2 = new Intent();
                     intent2.setPackage(context3.getPackageName());
                     intent2.setClassName(context3.getPackageName(), "com.vivo.push.sdk.service.LinkProxyActivity");
@@ -115,17 +115,17 @@ public final class aj extends com.vivo.push.v {
                         com.vivo.push.util.p.d("ModuleUtil", "disableDeprecatedActivity is null");
                     }
                 }
-                if (a2 == null) {
+                if (a == null) {
                     com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; pushPkgInfo is Null");
                     return;
                 }
-                String a4 = a2.a();
-                if (a2.c()) {
+                String a3 = a.a();
+                if (a.c()) {
                     com.vivo.push.p.a().a(((com.vivo.push.b.c) yVar).h(), 1004);
                     yVar = new com.vivo.push.b.e();
                     com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; pkgName is InBlackList ");
                 }
-                com.vivo.push.a.a.a(this.f71347a, a4, yVar);
+                com.vivo.push.a.a.a(this.a, a3, yVar);
             }
         }
     }

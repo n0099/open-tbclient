@@ -2,7 +2,6 @@ package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,11 +49,11 @@ public class XXHash32 implements Checksum {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i2, i3)) == null) {
             if (i3 <= 8) {
-                long j = 0;
+                long j2 = 0;
                 for (int i4 = 0; i4 < i3; i4++) {
-                    j |= (bArr[i2 + i4] & 255) << (i4 * 8);
+                    j2 |= (bArr[i2 + i4] & 255) << (i4 * 8);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("can't read more than eight bytes into a long value");
         }
@@ -81,7 +80,7 @@ public class XXHash32 implements Checksum {
 
     private void process(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, this, bArr, i2) == null) {
             int[] iArr = this.state;
             int i3 = iArr[0];
             int i4 = iArr[1];

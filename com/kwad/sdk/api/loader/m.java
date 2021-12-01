@@ -1,9 +1,9 @@
 package com.kwad.sdk.api.loader;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.Resources;
-import android.view.LayoutInflater;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,19 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
+@SuppressLint({"RestrictedApi"})
 /* loaded from: classes2.dex */
 public class m extends ContextThemeWrapper implements ResContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final ContextThemeWrapper f64901a;
+    public final ContextThemeWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f64902b;
+    public Resources.Theme f57031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64903c;
+    public int f57032c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(ContextThemeWrapper contextThemeWrapper) {
@@ -46,8 +45,8 @@ public class m extends ContextThemeWrapper implements ResContext {
                 return;
             }
         }
-        this.f64901a = contextThemeWrapper;
-        this.f64903c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.a = contextThemeWrapper;
+        this.f57032c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -68,45 +67,28 @@ public class m extends ContextThemeWrapper implements ResContext {
     public ClassLoader getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ClassLoader externalClassLoader = Loader.get().getExternalClassLoader();
-            return externalClassLoader != null ? externalClassLoader : super.getClassLoader();
-        }
-        return (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Wrapper.replaceExternalClassLoader(super.getClassLoader()) : (ClassLoader) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.ResContext
     public Context getDelegatedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64901a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Resources externalResource = Loader.get().getExternalResource();
-            return externalResource != null ? externalResource : super.getResources();
-        }
-        return (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Wrapper.replaceExternalResources(super.getResources()) : (Resources) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            boolean equals = "layout_inflater".equals(str);
-            Object systemService = super.getSystemService(str);
-            if (equals) {
-                LayoutInflater layoutInflater = (LayoutInflater) systemService;
-                return !(layoutInflater.getContext() instanceof ResContext) ? layoutInflater.cloneInContext(this) : layoutInflater;
-            }
-            return systemService;
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? Wrapper.wrapSystemService(this.a.getSystemService(str), str, this) : invokeL.objValue;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -121,16 +103,11 @@ public class m extends ContextThemeWrapper implements ResContext {
                 e2.printStackTrace();
                 theme = null;
             }
-            Resources externalResource = Loader.get().getExternalResource();
-            if (externalResource != null) {
-                if (this.f64902b == null) {
-                    Resources.Theme newTheme = externalResource.newTheme();
-                    this.f64902b = newTheme;
-                    newTheme.applyStyle(this.f64903c, true);
-                }
-                return this.f64902b;
+            Resources.Theme theme2 = this.f57031b;
+            if (theme2 == null || theme2 == theme) {
+                this.f57031b = Wrapper.replaceTheme(theme, this.f57031b, this.f57032c);
             }
-            return theme;
+            return this.f57031b;
         }
         return (Resources.Theme) invokeV.objValue;
     }
@@ -139,15 +116,24 @@ public class m extends ContextThemeWrapper implements ResContext {
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.f64901a.registerComponentCallbacks(componentCallbacks);
+            this.a.registerComponentCallbacks(componentCallbacks);
+        }
+    }
+
+    @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public void setTheme(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f57032c = i2;
+            super.setTheme(i2);
         }
     }
 
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentCallbacks) == null) {
-            this.f64901a.unregisterComponentCallbacks(componentCallbacks);
+        if (interceptable == null || interceptable.invokeL(1048585, this, componentCallbacks) == null) {
+            this.a.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

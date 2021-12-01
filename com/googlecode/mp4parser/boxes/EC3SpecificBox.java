@@ -190,11 +190,11 @@ public class EC3SpecificBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            long j = 2;
+            long j2 = 2;
             for (Entry entry : this.entries) {
-                j += entry.num_dep_sub > 0 ? 4L : 3L;
+                j2 += entry.num_dep_sub > 0 ? 4L : 3L;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

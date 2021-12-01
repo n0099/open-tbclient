@@ -2,7 +2,6 @@ package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ByteString implements Iterable<Byte> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,18 +30,18 @@ public abstract class ByteString implements Iterable<Byte> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.protobuf.ByteString$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class CodedBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -366,7 +365,7 @@ public abstract class ByteString implements Iterable<Byte> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Output extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] EMPTY_BYTE_ARRAY;
@@ -563,7 +562,7 @@ public abstract class ByteString implements Iterable<Byte> {
     public static ByteString copyFrom(ByteBuffer byteBuffer, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, byteBuffer, i2)) == null) {
             byte[] bArr = new byte[i2];
             byteBuffer.get(bArr);
             return new LiteralByteString(bArr);
@@ -574,7 +573,7 @@ public abstract class ByteString implements Iterable<Byte> {
     public static ByteString copyFrom(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, byteBuffer)) == null) ? copyFrom(byteBuffer, byteBuffer.remaining()) : (ByteString) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) ? copyFrom(byteBuffer, byteBuffer.remaining()) : (ByteString) invokeL.objValue;
     }
 
     public static ByteString copyFrom(String str, String str2) throws UnsupportedEncodingException {

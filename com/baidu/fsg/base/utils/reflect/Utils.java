@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,21 +16,19 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object[] f38456a;
+    public static final Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f38457b;
+    public static final Class<?>[] f34385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38458c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public static final String f34386c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f38459d;
+    public static final Pattern f34387d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +44,9 @@ public class Utils {
                 return;
             }
         }
-        f38456a = new Object[0];
-        f38457b = new Class[0];
-        f38459d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        a = new Object[0];
+        f34385b = new Class[0];
+        f34387d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
     }
 
     public Utils() {
@@ -90,24 +87,24 @@ public class Utils {
     public static Class<?>[] a(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f38457b : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f34385b : clsArr : (Class[]) invokeL.objValue;
     }
 
     public static Object[] a(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? f38456a : objArr : (Object[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? a : objArr : (Object[]) invokeL.objValue;
     }
 
     public static Class<?>[] b(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
             if (objArr == null) {
                 return null;
             }
             if (objArr.length == 0) {
-                return f38457b;
+                return f34385b;
             }
             Class<?>[] clsArr = new Class[objArr.length];
             for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -132,8 +129,8 @@ public class Utils {
         return (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0049 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x004e  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0048 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x004d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -183,6 +180,6 @@ public class Utils {
     public static boolean validateJavaIdentifier(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f38459d.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f34387d.matcher(str).matches() : invokeL.booleanValue;
     }
 }

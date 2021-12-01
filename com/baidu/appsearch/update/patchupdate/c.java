@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public RandomAccessFile f37266a;
+    public RandomAccessFile a;
 
     public c(RandomAccessFile randomAccessFile) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class c implements d {
         if (randomAccessFile == null) {
             throw new NullPointerException("input RandomAccessFile is null");
         }
-        this.f37266a = randomAccessFile;
+        this.a = randomAccessFile;
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
@@ -42,7 +40,7 @@ public class c implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            int read = this.f37266a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+            int read = this.a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
             if (read == -1) {
                 return -1;
             }
@@ -53,10 +51,10 @@ public class c implements d {
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f37266a.seek(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.a.seek(j2);
         }
     }
 
@@ -64,7 +62,7 @@ public class c implements d {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f37266a.close();
+            this.a.close();
         }
     }
 }

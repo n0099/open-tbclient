@@ -11,13 +11,11 @@ import com.xiaomi.push.hf;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ie f72371a;
+    public ie a;
 
     /* renamed from: a  reason: collision with other field name */
     public WeakReference<XMPushService> f925a;
@@ -41,14 +39,14 @@ public class b extends ai.a {
             }
         }
         this.f926a = false;
-        this.f72371a = ieVar;
+        this.a = ieVar;
         this.f925a = weakReference;
         this.f926a = z;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Constants.VIA_REPORT_TYPE_DATALINE : (String) invokeV.objValue;
@@ -59,15 +57,15 @@ public class b extends ai.a {
         WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f925a) == null || this.f72371a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f925a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.f72371a.a(at.a());
-        this.f72371a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f72371a.m468a());
+        this.a.a(at.a());
+        this.a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m517a());
         try {
-            String c2 = this.f72371a.c();
-            xMPushService.a(c2, ip.a(y.a(c2, this.f72371a.b(), this.f72371a, hf.f71998i)), this.f926a);
+            String c2 = this.a.c();
+            xMPushService.a(c2, ip.a(y.a(c2, this.a.b(), this.a, hf.f62975i)), this.f926a);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }

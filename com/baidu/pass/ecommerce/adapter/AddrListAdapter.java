@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
@@ -43,7 +43,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public Drawable mEditIcon;
     public List<String> nuomiAddressIds;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface EditAddressListener {
         void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
     }

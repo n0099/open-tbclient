@@ -16,11 +16,9 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.m;
-import b.a.e.m.d.a;
+import c.a.d.f.p.m;
+import c.a.d.m.d.a;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -39,7 +37,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitmapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_2_BITMAP_MUL = 10;
@@ -179,7 +177,7 @@ public class BitmapHelper {
     public static int calcNearestSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             int i3 = 1;
             for (int i4 = 1; i4 <= i2; i4 *= 2) {
                 int i5 = i2 - i4;
@@ -198,7 +196,7 @@ public class BitmapHelper {
     public static Bitmap checkBitmapSize(Bitmap bitmap, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bitmap, i2, i3)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bitmap, i2, i3)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
     public static a checkIsValidPhotoMemoryCache(String str, a aVar, int i2, int i3) {
@@ -1348,7 +1346,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f41000a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "r");
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

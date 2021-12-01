@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
@@ -33,6 +33,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String idCardNum;
     public String imageFlag;
     public PassFaceRecogType livenessType;
+    public boolean needAuthorizeCertInfo;
     public String passProductId;
     public String phoneNum;
     public List<HeadPose> poseList;
@@ -66,9 +67,9 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            PassBiometricDto a2 = a.b().a("request_data");
-            if (a2 instanceof PassFaceRecogDTO) {
-                PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) a2;
+            PassBiometricDto a = a.b().a("request_data");
+            if (a instanceof PassFaceRecogDTO) {
+                PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) a;
                 if (TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
                     return 0;
                 }

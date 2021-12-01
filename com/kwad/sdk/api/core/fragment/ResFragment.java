@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes2.dex */
 public class ResFragment extends DelegateFragment {
@@ -83,7 +84,7 @@ public class ResFragment extends DelegateFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;
@@ -107,6 +108,7 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
+    @Deprecated
     public /* bridge */ /* synthetic */ void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
     }
@@ -180,6 +182,7 @@ public class ResFragment extends DelegateFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
+            ComponentDestroyer.destroyFragment(this);
         }
     }
 
@@ -256,7 +259,7 @@ public class ResFragment extends DelegateFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i2, strArr, iArr);
     }

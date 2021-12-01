@@ -7,11 +7,11 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.kuaishou.weapon.un.x;
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,14 +19,14 @@ public class i {
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? context.getSharedPreferences("pst", 0).getString(str, "") : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getString(str, "") : (String) invokeLL.objValue;
     }
 
     public static void a(Context context, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, context, str, i2) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putInt(str, i2);
                 edit.commit();
             } catch (Exception e2) {
@@ -35,12 +35,12 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
-                edit.putLong(str, j);
+                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
+                edit.putLong(str, j2);
                 edit.commit();
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -48,13 +48,13 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j, String str6, String str7) {
+    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j2, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j), str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j2), str6, str7}) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
-                if (j != 0) {
-                    edit.putLong("currbindtime", j);
+                if (j2 != 0) {
+                    edit.putLong("currbindtime", j2);
                 }
                 if (!TextUtils.isEmpty(str6)) {
                     edit.putString("access_token", str6);
@@ -70,7 +70,7 @@ public class i {
                 edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
                 edit.putString("user_id", str5);
                 edit.putBoolean("bind_status", true);
-                m.f36548a = 1;
+                m.a = 1;
                 edit.putLong("version_code", m.c(context, context.getPackageName()));
                 edit.apply();
             } catch (Exception e2) {
@@ -84,7 +84,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putString(str, str2);
                 edit.commit();
                 return true;
@@ -99,20 +99,20 @@ public class i {
     public static int b(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, context, str, i2)) == null) ? context.getSharedPreferences("pst", 0).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, context, str, i2)) == null) ? context.getSharedPreferences(x.y, 0).getInt(str, i2) : invokeLLI.intValue;
     }
 
     public static long b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? context.getSharedPreferences("pst", 0).getLong(str, 0L) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, 0L) : invokeLL.longValue;
     }
 
     public static void b(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, str2) == null) {
             try {
-                SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
                 edit.putString(str, str2);
                 edit.apply();
             } catch (Exception e2) {

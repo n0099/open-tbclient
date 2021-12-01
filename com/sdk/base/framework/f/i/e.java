@@ -14,12 +14,10 @@ import java.security.MessageDigest;
 /* loaded from: classes2.dex */
 public class e extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69174a = "com.sdk.base.framework.f.i.e";
+    public static final String a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69175b;
+    public static boolean f61020b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +33,7 @@ public class e extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f69175b = f.f69125b;
+        f61020b = f.f60988b;
     }
 
     public e() {
@@ -73,7 +71,7 @@ public class e extends com.sdk.base.framework.f.a {
                 }
                 return sb.toString();
             } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(f69174a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f69175b);
+                com.sdk.base.framework.f.a.a(a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f61020b);
                 return null;
             }
         }

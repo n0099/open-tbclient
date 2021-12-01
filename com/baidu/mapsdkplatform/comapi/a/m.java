@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l f40842a;
+    public final /* synthetic */ l a;
 
     public m(l lVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class m implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.f40842a = lVar;
+        this.a = lVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -39,9 +37,9 @@ public class m implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            animationListener = this.f40842a.f40836d;
+            animationListener = this.a.f36346d;
             if (animationListener != null) {
-                animationListener2 = this.f40842a.f40836d;
+                animationListener2 = this.a.f36346d;
                 animationListener2.onAnimationCancel();
             }
         }
@@ -53,9 +51,9 @@ public class m implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            animationListener = this.f40842a.f40836d;
+            animationListener = this.a.f36346d;
             if (animationListener != null) {
-                animationListener2 = this.f40842a.f40836d;
+                animationListener2 = this.a.f36346d;
                 animationListener2.onAnimationEnd();
             }
         }
@@ -67,9 +65,9 @@ public class m implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            animationListener = this.f40842a.f40836d;
+            animationListener = this.a.f36346d;
             if (animationListener != null) {
-                animationListener2 = this.f40842a.f40836d;
+                animationListener2 = this.a.f36346d;
                 animationListener2.onAnimationRepeat();
             }
         }
@@ -81,9 +79,9 @@ public class m implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            animationListener = this.f40842a.f40836d;
+            animationListener = this.a.f36346d;
             if (animationListener != null) {
-                animationListener2 = this.f40842a.f40836d;
+                animationListener2 = this.a.f36346d;
                 animationListener2.onAnimationStart();
             }
         }

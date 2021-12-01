@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
-public class TabInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class TabInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3683264952192459982L;
     public transient /* synthetic */ FieldHolder $fh;

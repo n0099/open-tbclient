@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class l implements k {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0064  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0063  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -64,10 +64,10 @@ public class l implements k {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, strArr)) == null) {
             String aT = com.baidu.ar.h.l.aT(context.getPackageName());
             if (this.kd > 0) {
-                long[] a2 = m.a(10, 50L);
-                if (a2[0] != 1) {
-                    com.baidu.ar.h.b.b("ARAuth", "time err. " + a2[1]);
-                } else if (a2[1] > this.kd) {
+                long[] a = m.a(10, 50L);
+                if (a[0] != 1) {
+                    com.baidu.ar.h.b.b("ARAuth", "time err. " + a[1]);
+                } else if (a[1] > this.kd) {
                     z = false;
                     boolean z2 = !z && this.kc.contains(aT);
                     if (strArr != null && strArr.length >= 1) {

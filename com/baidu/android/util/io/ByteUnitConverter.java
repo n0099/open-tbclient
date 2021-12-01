@@ -1,7 +1,6 @@
 package com.baidu.android.util.io;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ByteUnitConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GB = 1073741824;
@@ -22,7 +21,7 @@ public class ByteUnitConverter {
     public String convertStr;
 
     /* renamed from: com.baidu.android.util.io.ByteUnitConverter$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS;
         public static /* synthetic */ Interceptable $ic;
@@ -63,7 +62,7 @@ public class ByteUnitConverter {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class UNITS {
         public static final /* synthetic */ UNITS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +185,7 @@ public class ByteUnitConverter {
 
     private void convertMegaByte(double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Double.valueOf(d2)}) == null) {
             convertKiloByte(d2 * 1024.0d);
         }
     }

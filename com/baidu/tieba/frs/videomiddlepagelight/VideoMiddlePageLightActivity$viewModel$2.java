@@ -12,8 +12,8 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+@Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;"}, k = 3, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes10.dex */
 public final class VideoMiddlePageLightActivity$viewModel$2 extends Lambda implements Function0<VideoMiddlePageViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public final class VideoMiddlePageLightActivity$viewModel$2 extends Lambda imple
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VideoMiddlePageLightActivity videoMiddlePageLightActivity = this.this$0;
             TbPageContext<BaseFragmentActivity> pageContext = videoMiddlePageLightActivity.getPageContext();
-            Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
+            Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             return (VideoMiddlePageViewModel) ViewModelProviders.of(videoMiddlePageLightActivity, new VideoMiddlePageViewModelFactory(pageContext)).get(VideoMiddlePageViewModel.class);
         }
         return (VideoMiddlePageViewModel) invokeV.objValue;

@@ -2,7 +2,6 @@ package okhttp3.internal.cache;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,12 +104,12 @@ public final class CacheInterceptor implements Interceptor {
                 }
 
                 @Override // okio.Source
-                public long read(Buffer buffer, long j) throws IOException {
+                public long read(Buffer buffer, long j2) throws IOException {
                     InterceptResult invokeLJ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                         try {
-                            long read = this.val$source.read(buffer, j);
+                            long read = this.val$source.read(buffer, j2);
                             if (read == -1) {
                                 if (!this.cacheRequestClosed) {
                                     this.cacheRequestClosed = true;
@@ -183,7 +182,7 @@ public final class CacheInterceptor implements Interceptor {
     public static Response stripBody(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, response)) == null) ? (response == null || response.body() == null) ? response : response.newBuilder().body(null).build() : (Response) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, response)) == null) ? (response == null || response.body() == null) ? response : response.newBuilder().body(null).build() : (Response) invokeL.objValue;
     }
 
     @Override // okhttp3.Interceptor

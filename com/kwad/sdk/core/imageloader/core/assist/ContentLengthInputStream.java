@@ -94,9 +94,9 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) {
+    public long skip(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? this.stream.skip(j) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? this.stream.skip(j2) : invokeJ.longValue;
     }
 }

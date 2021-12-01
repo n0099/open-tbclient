@@ -11,8 +11,6 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-import e.a.k;
+import com.kuaishou.weapon.un.s;
+import f.a.k;
 import java.lang.reflect.Constructor;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,18 +31,16 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SensorsDataUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f72568a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f72569b;
+    public static final SimpleDateFormat f63402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f72570c;
+    public static final List<String> f63403c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,7 +56,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f72569b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f63402b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +86,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f72570c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f63403c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,15 +144,15 @@ public final class SensorsDataUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f72568a)) {
-                return f72568a;
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
             try {
-                f72568a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                a = Settings.Secure.getString(context.getContentResolver(), "android_id");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f72568a;
+            return a;
         }
         return (String) invokeL.objValue;
     }
@@ -170,7 +166,7 @@ public final class SensorsDataUtils {
     public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 SharedPreferences d2 = d(context);
                 String string = d2.getString("sensorsdata.user.agent", null);
@@ -213,8 +209,8 @@ public final class SensorsDataUtils {
     public static boolean f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (a(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (a(context, "android.permission.ACCESS_NETWORK_STATE")) {
                 try {
                     NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                     if (activeNetworkInfo != null) {
@@ -236,7 +232,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f72570c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f63403c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -247,8 +243,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f72569b) {
-                        jSONObject2.put(next, f72569b.format((Date) obj));
+                    synchronized (f63402b) {
+                        jSONObject2.put(next, f63402b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);
@@ -262,10 +258,10 @@ public final class SensorsDataUtils {
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (a(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)) {
+            if (a(context, "android.permission.ACCESS_NETWORK_STATE")) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null || (networkInfo = connectivityManager.getNetworkInfo(1)) == null || !networkInfo.isConnectedOrConnecting()) {
-                    if (Build.VERSION.SDK_INT < 30 || a(context, "android.permission.READ_PHONE_STATE")) {
+                    if (Build.VERSION.SDK_INT < 30 || a(context, s.f56838c)) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                             case 1:
                             case 2:

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.q0.e.c;
-import b.a.q0.e.d;
-import b.a.q0.e.e;
+import c.a.d.f.p.l;
+import c.a.q0.e.c;
+import c.a.q0.e.d;
+import c.a.q0.e.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PersonListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,20 +45,20 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // b.a.q0.e.e
+        @Override // c.a.q0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a2 = d.a(context);
-                if (a2 != null) {
+                TextView a = d.a(context);
+                if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
-                    layoutParams.setMargins(l.g(context, R.dimen.ds8), 0, l.g(context, R.dimen.ds8), 0);
+                    SkinManager.setViewTextColor(a, R.color.CAM_X0302);
+                    layoutParams.setMargins(l.f(context, R.dimen.ds8), 0, l.f(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
-                    a2.setLayoutParams(layoutParams);
+                    a.setLayoutParams(layoutParams);
                 }
-                return a2;
+                return a;
             }
             return (View) invokeL.objValue;
         }

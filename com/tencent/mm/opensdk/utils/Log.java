@@ -1,12 +1,11 @@
 package com.tencent.mm.opensdk.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic;
     public static ILog logImpl;
@@ -63,7 +62,7 @@ public class Log {
     public static void v(String str, String str2) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || (iLog = logImpl) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (iLog = logImpl) == null) {
             return;
         }
         iLog.v(str, str2);
@@ -72,7 +71,7 @@ public class Log {
     public static void w(String str, String str2) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || (iLog = logImpl) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || (iLog = logImpl) == null) {
             return;
         }
         iLog.w(str, str2);

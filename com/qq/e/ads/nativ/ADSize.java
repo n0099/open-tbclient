@@ -12,12 +12,10 @@ public class ADSize {
     public static final int AUTO_HEIGHT = -2;
     public static final int FULL_WIDTH = -1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f68797a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68798b;
+    public int f60731b;
 
     public ADSize(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -34,19 +32,19 @@ public class ADSize {
                 return;
             }
         }
-        this.f68798b = i3;
-        this.f68797a = i2;
+        this.f60731b = i3;
+        this.a = i2;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68798b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60731b : invokeV.intValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68797a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 }

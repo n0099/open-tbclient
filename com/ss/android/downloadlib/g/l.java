@@ -18,7 +18,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,18 +37,16 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f69786a;
+    public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f69787b;
+    public static Object[] f61447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f69788c;
+    public static Object[] f61448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f69789d;
+    public static String f61449d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,10 +62,10 @@ public class l {
                 return;
             }
         }
-        f69787b = new Object[0];
-        f69788c = new Object[73];
-        f69786a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f69789d = null;
+        f61447b = new Object[0];
+        f61448c = new Object[73];
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f61449d = null;
     }
 
     public static boolean a(String str) {
@@ -231,7 +228,7 @@ public class l {
     public static long a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, str)) == null) ? com.ss.android.download.api.c.b.a(jSONObject, str) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, str)) == null) ? com.ss.android.download.api.c.b.a(jSONObject, str) : invokeLL.longValue;
     }
 
     public static int b(Context context, String str) {
@@ -452,10 +449,10 @@ public class l {
                 PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
                     cVar.b(packageInfo.versionCode);
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f69416b);
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f61208b);
                     n g2 = com.ss.android.downloadlib.addownload.j.g();
                     if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f69417c);
+                        cVar.a(com.ss.android.downloadlib.addownload.b.c.f61209c);
                     }
                 }
             } catch (Exception e2) {
@@ -622,32 +619,32 @@ public class l {
         return (T) invokeL.objValue;
     }
 
-    public static long a(long j) {
+    public static long a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
             try {
-                return a(Environment.getExternalStorageDirectory(), j);
+                return a(Environment.getExternalStorageDirectory(), j2);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return j;
+                return j2;
             }
         }
         return invokeJ.longValue;
     }
 
-    public static long a(File file, long j) {
+    public static long a(File file, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, file, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, file, j2)) == null) {
             if (file == null) {
-                return j;
+                return j2;
             }
             try {
                 return com.ss.android.socialbase.downloader.i.f.d(file.getAbsolutePath());
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;

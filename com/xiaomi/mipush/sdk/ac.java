@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ NotificationClickedActivity f71503a;
+    public final /* synthetic */ NotificationClickedActivity a;
 
     public ac(NotificationClickedActivity notificationClickedActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class ac extends BroadcastReceiver {
                 return;
             }
         }
-        this.f71503a = notificationClickedActivity;
+        this.a = notificationClickedActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -38,7 +36,7 @@ public class ac extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("clicked activity finish by normal.");
-            this.f71503a.finish();
+            this.a.finish();
         }
     }
 }

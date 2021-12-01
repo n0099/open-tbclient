@@ -13,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.kuaishou.weapon.un.w0;
+/* loaded from: classes10.dex */
 public class ImageViewerActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements CustomMessageTask.CustomRunnable<ImageViewerConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public class ImageViewerActivityStatic {
                         if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
                             data.startActivityForRemote(ImageViewerActivity.class);
                         } else {
-                            data.startActivityForResultForRemote(14001, ImageViewerActivity.class);
+                            data.startActivityForResultForRemote(w0.P1, ImageViewerActivity.class);
                         }
                     }
                 }

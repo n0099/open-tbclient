@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.db;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dc extends db.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f71708a;
+    public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f229a;
@@ -32,7 +30,7 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f71709b;
+    public final /* synthetic */ String f62777b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f234b;
@@ -56,11 +54,11 @@ public class dc extends db.b {
             }
         }
         this.f229a = dbVar;
-        this.f71708a = i2;
+        this.a = i2;
         this.f232a = date;
         this.f234b = date2;
         this.f231a = str;
-        this.f71709b = str2;
+        this.f62777b = str2;
         this.f233a = z;
     }
 
@@ -73,7 +71,7 @@ public class dc extends db.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     da daVar = new da();
-                    daVar.a(this.f71708a);
+                    daVar.a(this.a);
                     this.f230a = daVar.a(this.f229a.f222a, this.f232a, this.f234b, file);
                 }
             } catch (NullPointerException unused) {
@@ -83,12 +81,12 @@ public class dc extends db.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo245c() {
+    public void mo294c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f230a;
             if (file != null && file.exists()) {
-                this.f229a.f223a.add(new db.c(this.f229a, this.f231a, this.f71709b, this.f230a, this.f233a));
+                this.f229a.f223a.add(new db.c(this.f229a, this.f231a, this.f62777b, this.f230a, this.f233a));
             }
             this.f229a.a(0L);
         }

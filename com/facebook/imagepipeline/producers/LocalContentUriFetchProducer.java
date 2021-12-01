@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocalContentUriFetchProducer extends LocalFetchProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "LocalContentUriFetchProducer";
@@ -122,7 +121,7 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
                 createInputStream = this.mContentResolver.openInputStream(sourceUri);
             } else if (sourceUri.toString().endsWith("/display_photo")) {
                 try {
-                    createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, r.f41000a).createInputStream();
+                    createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, "r").createInputStream();
                 } catch (IOException unused) {
                     throw new IOException("Contact photo does not exist: " + sourceUri);
                 }

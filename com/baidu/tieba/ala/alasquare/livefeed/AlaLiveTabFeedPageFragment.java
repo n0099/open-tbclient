@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.w.f.d.a;
-import b.a.r0.x0.o0;
-import b.a.w.d.b.c;
+import c.a.r0.a0.f.d.a;
+import c.a.r0.d1.o0;
+import c.a.w.d.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f47838e;
+    public c f42838e;
 
     public AlaLiveTabFeedPageFragment() {
         Interceptable interceptable = $ic;
@@ -44,28 +44,28 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
         }
     }
 
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            LiveFeedPageSdk.l("TbLiveFeedPage   " + str);
-        }
-    }
-
-    @Override // b.a.r0.x0.o0
+    @Override // c.a.r0.d1.o0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(CommonTbJsBridge.CHANGE_SKIN_TYPE);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d(CommonTbJsBridge.CHANGE_SKIN_TYPE);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, b.a.q0.o0.a
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            LiveFeedPageSdk.l("TbLiveFeedPage   " + str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c("getCurrentPageKey");
+            d("getCurrentPageKey");
             return "a083";
         }
         return (String) invokeV.objValue;
@@ -75,11 +75,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            c("onChangeSkinType");
+            d("onChangeSkinType");
             super.onChangeSkinType(i2);
             String str = i2 == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i2 == 4 ? SkinManager.SKIN_TYPE_STR_DARK : "day";
             LiveFeedPageSdk.e().o(str);
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.a(str);
             }
@@ -92,9 +92,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
-            c("onCreate");
+            d("onCreate");
             a.a().c(TbadkCoreApplication.getInst());
-            this.f47838e = new b.a.w.d.a();
+            this.f42838e = new c.a.w.d.a();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -105,11 +105,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
-            c("onCreateView");
-            if (this.f47838e == null) {
-                this.f47838e = new b.a.w.d.a();
+            d("onCreateView");
+            if (this.f42838e == null) {
+                this.f42838e = new c.a.w.d.a();
             }
-            View i2 = this.f47838e.i(getFragmentActivity(), this, "live_tab");
+            View i2 = this.f42838e.i(getFragmentActivity(), this, "live_tab");
             if (i2.getParent() instanceof ViewGroup) {
                 ((ViewGroup) i2.getParent()).removeView(i2);
             }
@@ -127,9 +127,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c(MissionEvent.MESSAGE_DESTROY);
+            d(MissionEvent.MESSAGE_DESTROY);
             super.onDestroy();
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.b();
             }
@@ -141,25 +141,25 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c("onLazyLoad");
+            d("onLazyLoad");
             super.onLazyLoad();
-            this.f47838e.f();
+            this.f42838e.f();
         }
     }
 
-    @Override // b.a.r0.x0.o0
+    @Override // c.a.r0.d1.o0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c("onPageOutEnd");
+            d("onPageOutEnd");
         }
     }
 
-    @Override // b.a.r0.x0.o0
+    @Override // c.a.r0.d1.o0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c("onPageStartIn");
+            d("onPageStartIn");
         }
     }
 
@@ -167,14 +167,14 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            c(MissionEvent.MESSAGE_PAUSE);
+            d(MissionEvent.MESSAGE_PAUSE);
             super.onPause();
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.e();
             }
             if (isPrimary()) {
-                this.f47838e.onUserVisibleHint(false);
+                this.f42838e.onUserVisibleHint(false);
             }
         }
     }
@@ -184,8 +184,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
-            c("onPrimary " + isPrimary());
-            c cVar = this.f47838e;
+            d("onPrimary " + isPrimary());
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.onUserVisibleHint(isPrimary());
             }
@@ -197,14 +197,14 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5040);
-            c("onResume");
+            d("onResume");
             super.onResume();
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.g();
             }
             if (isPrimary()) {
-                this.f47838e.onUserVisibleHint(true);
+                this.f42838e.onUserVisibleHint(true);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(5041);
         }
@@ -214,9 +214,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            c("onStart");
+            d("onStart");
             super.onStart();
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.d();
             }
@@ -227,21 +227,21 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c(MissionEvent.MESSAGE_STOP);
+            d(MissionEvent.MESSAGE_STOP);
             super.onStop();
-            c cVar = this.f47838e;
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.c();
             }
         }
     }
 
-    @Override // b.a.r0.x0.o0
+    @Override // c.a.r0.d1.o0
     public void refreshPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            c("refreshPage");
-            c cVar = this.f47838e;
+            d("refreshPage");
+            c cVar = this.f42838e;
             if (cVar != null) {
                 cVar.h();
             }
@@ -251,7 +251,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements o0 {
     public void setVideoThreadId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            c("setVideoThreadId");
+            d("setVideoThreadId");
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ApplyJoinGroupActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALREADY_JOIN_COUNT = "alreadJoinCount";
@@ -64,13 +64,13 @@ public class ApplyJoinGroupActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApplyJoinGroupActivityConfig(Context context, String str, int i2, int i3, long j, String str2) {
+    public ApplyJoinGroupActivityConfig(Context context, String str, int i2, int i3, long j2, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str2};
+            Object[] objArr = {context, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -87,19 +87,19 @@ public class ApplyJoinGroupActivityConfig extends IntentConfig {
         getIntent().putExtra(GROUP_ID, str);
         getIntent().putExtra(ALREADY_JOIN_COUNT, i2);
         getIntent().putExtra(CAN_JOIN_COUNT, i3);
-        getIntent().putExtra(INVITE_USER_ID, j);
+        getIntent().putExtra(INVITE_USER_ID, j2);
         getIntent().putExtra(DEFAULT_USER_MSG, str2);
         getIntent().putExtra(JOIN_TYPE, JOINTYPE_INVITE);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApplyJoinGroupActivityConfig(Context context, String str, long j, String str2) {
+    public ApplyJoinGroupActivityConfig(Context context, String str, long j2, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2};
+            Object[] objArr = {context, str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -114,7 +114,7 @@ public class ApplyJoinGroupActivityConfig extends IntentConfig {
             return;
         }
         getIntent().putExtra(GROUP_ID, str);
-        getIntent().putExtra(INVITE_USER_ID, j);
+        getIntent().putExtra(INVITE_USER_ID, j2);
         getIntent().putExtra(DEFAULT_USER_MSG, str2);
         getIntent().putExtra(JOIN_TYPE, JOINTYPE_INVITE);
     }

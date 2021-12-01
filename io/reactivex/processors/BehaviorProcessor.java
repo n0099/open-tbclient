@@ -27,7 +27,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorSubscription[] EMPTY;
@@ -42,7 +42,7 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
     public final AtomicReference<Object> value;
     public final Lock writeLock;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BehaviorSubscription<T> extends AtomicLong implements Subscription, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3293175281126227086L;
@@ -130,9 +130,9 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
             }
         }
 
-        public void emitNext(Object obj, long j) {
+        public void emitNext(Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j) == null) || this.cancelled) {
+            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j2) == null) || this.cancelled) {
                 return;
             }
             if (!this.fastPath) {
@@ -140,7 +140,7 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                     if (this.cancelled) {
                         return;
                     }
-                    if (this.index == j) {
+                    if (this.index == j2) {
                         return;
                     }
                     if (this.emitting) {
@@ -166,10 +166,10 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this, j);
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this, j2);
             }
         }
 
@@ -188,10 +188,10 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                     this.actual.onError(NotificationLite.getError(obj));
                     return true;
                 } else {
-                    long j = get();
-                    if (j != 0) {
+                    long j2 = get();
+                    if (j2 != 0) {
                         this.actual.onNext((Object) NotificationLite.getValue(obj));
-                        if (j != Long.MAX_VALUE) {
+                        if (j2 != Long.MAX_VALUE) {
                             decrementAndGet();
                             return false;
                         }

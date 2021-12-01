@@ -10,9 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a */
-    public static final PushManager f64614a;
+    public static final PushManager a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +26,7 @@ public final class e {
                 return;
             }
         }
-        f64614a = new PushManager(null);
+        a = new PushManager(null);
     }
 
     public e() {
@@ -47,6 +45,6 @@ public final class e {
 
     /* JADX DEBUG: Method not inlined, still used in: [com.heytap.mcssdk.PushManager.getInstance():com.heytap.mcssdk.PushManager] */
     public static /* synthetic */ PushManager a() {
-        return f64614a;
+        return a;
     }
 }

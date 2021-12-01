@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -49,7 +48,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,11 +116,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j) {
+        public long skip(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                int min = (int) Math.min(this.byteBuffer.remaining(), j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+                int min = (int) Math.min(this.byteBuffer.remaining(), j2);
                 ByteBuffer byteBuffer = this.byteBuffer;
                 byteBuffer.position(byteBuffer.position() + min);
                 return min;
@@ -130,7 +129,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +197,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -208,10 +207,10 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         int read(byte[] bArr, int i2) throws IOException;
 
-        long skip(long j) throws IOException;
+        long skip(long j2) throws IOException;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,25 +274,25 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j) throws IOException {
+        public long skip(long j2) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                if (j < 0) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+                if (j2 < 0) {
                     return 0L;
                 }
-                long j2 = j;
-                while (j2 > 0) {
-                    long skip = this.is.skip(j2);
+                long j3 = j2;
+                while (j3 > 0) {
+                    long skip = this.is.skip(j3);
                     if (skip <= 0) {
                         if (this.is.read() == -1) {
                             break;
                         }
                         skip = 1;
                     }
-                    j2 -= skip;
+                    j3 -= skip;
                 }
-                return j - j2;
+                return j2 - j3;
             }
             return invokeJ.longValue;
         }
@@ -339,13 +338,13 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static boolean handles(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? (i2 & EXIF_MAGIC_NUMBER) == 65496 || i2 == 19789 || i2 == 18761 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 & EXIF_MAGIC_NUMBER) == 65496 || i2 == 19789 || i2 == 18761 : invokeI.booleanValue;
     }
 
     private boolean hasJpegExifPreamble(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, bArr, i2)) == null) {
             boolean z = bArr != null && i2 > JPEG_EXIF_SEGMENT_PREAMBLE_BYTES.length;
             if (z) {
                 int i3 = 0;
@@ -369,7 +368,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         short uInt8;
         short uInt82;
         int uInt16;
-        long j;
+        long j2;
         long skip;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -393,9 +392,9 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 if (uInt82 == 225) {
                     return uInt16;
                 }
-                j = uInt16;
-                skip = reader.skip(j);
-            } while (skip == j);
+                j2 = uInt16;
+                skip = reader.skip(j2);
+            } while (skip == j2);
             if (Log.isLoggable(TAG, 3)) {
                 String str2 = "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip;
             }

@@ -14,13 +14,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int count;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7240042530241604978L;
@@ -67,11 +67,11 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = this.actual;
-                long j = this.requested.get();
+                long j2 = this.requested.get();
                 while (!this.cancelled) {
                     if (this.done) {
-                        long j2 = 0;
-                        while (j2 != j) {
+                        long j3 = 0;
+                        while (j3 != j2) {
                             if (this.cancelled) {
                                 return;
                             }
@@ -81,11 +81,11 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
                                 return;
                             } else {
                                 subscriber.onNext(obj);
-                                j2++;
+                                j3++;
                             }
                         }
-                        if (j2 != 0 && j != Long.MAX_VALUE) {
-                            j = this.requested.addAndGet(-j2);
+                        if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                            j2 = this.requested.addAndGet(-j3);
                         }
                     }
                     if (this.wip.decrementAndGet() == 0) {
@@ -134,10 +134,10 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

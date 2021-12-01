@@ -3,7 +3,6 @@ package com.baidu.android.util.soloader;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class SoUtils implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -30,7 +29,7 @@ public final class SoUtils implements NoProGuard {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -55,7 +54,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }
@@ -97,15 +96,15 @@ public final class SoUtils implements NoProGuard {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[i2 * 1024];
-                    long j = 0;
+                    long j2 = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j += read;
+                            j2 += read;
                         } else {
                             outputStream.flush();
-                            return j;
+                            return j2;
                         }
                     }
                 } catch (IOException e2) {
@@ -149,7 +148,7 @@ public final class SoUtils implements NoProGuard {
     public static String getUriName(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
             return uris[i2] + File.separator + str;
         }
         return (String) invokeLI.objValue;
@@ -158,7 +157,7 @@ public final class SoUtils implements NoProGuard {
     public static boolean hasGingerbread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
     }
 
     public static void init(SoUbcLoggable soUbcLoggable) {

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a implements TakePictureCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class a implements TakePictureCallback {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.TakePictureCallback
-    public void onPictureTake(boolean z, Bitmap bitmap, long j) {
+    public void onPictureTake(boolean z, Bitmap bitmap, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), bitmap, Long.valueOf(j)}) == null) || this.tC == null || TextUtils.isEmpty(this.tB)) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), bitmap, Long.valueOf(j2)}) == null) || this.tC == null || TextUtils.isEmpty(this.tB)) {
             return;
         }
         i.d(new File(this.tB));

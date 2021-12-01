@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MsgLocalData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6687040214263261976L;
@@ -64,24 +64,24 @@ public class MsgLocalData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upload_offset : (String) invokeV.objValue;
     }
 
-    public void setErrno(long j) {
+    public void setErrno(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.errno = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.errno = j2;
         }
     }
 
-    public void setRetry(long j) {
+    public void setRetry(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.retry = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.retry = j2;
         }
     }
 
-    public void setRid(long j) {
+    public void setRid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.rid = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.rid = j2;
         }
     }
 

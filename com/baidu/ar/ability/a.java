@@ -3,7 +3,6 @@ package com.baidu.ar.ability;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Map<String, Integer> bv;
@@ -98,7 +97,7 @@ public class a {
     public static boolean q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (bw.containsKey(str)) {
                 return ARAuth.enableFeature(bw.get(str).intValue());
             }

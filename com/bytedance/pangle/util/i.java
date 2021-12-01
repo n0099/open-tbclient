@@ -8,7 +8,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,12 +20,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f62421a;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +60,7 @@ public final class i {
     public static String b(AssetManager assetManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, assetManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, assetManager)) == null) {
             List<String> a2 = a(assetManager);
             StringBuilder sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT);
             if (a2.size() > 0) {
@@ -118,7 +115,7 @@ public final class i {
     public static List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             ArrayList arrayList = new ArrayList();
             boolean z = false;
             if (h.b()) {

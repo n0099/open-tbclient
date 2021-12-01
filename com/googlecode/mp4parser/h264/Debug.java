@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.h264;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +54,7 @@ public class Debug {
 
     public static final void print8x8(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, iArr) == null) {
             int i2 = 0;
             for (int i3 = 0; i3 < 8; i3++) {
                 for (int i4 = 0; i4 < 8; i4++) {
@@ -81,7 +80,7 @@ public class Debug {
 
     public static final void print8x8(short[] sArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sArr) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, sArr) == null) {
             int i2 = 0;
             for (int i3 = 0; i3 < 8; i3++) {
                 for (int i4 = 0; i4 < 8; i4++) {

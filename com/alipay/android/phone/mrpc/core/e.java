@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.DefaultRedirectHandler;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e extends DefaultRedirectHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f34688a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f34689b;
+    public final /* synthetic */ d f31131b;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public final class e extends DefaultRedirectHandler {
                 return;
             }
         }
-        this.f34689b = dVar;
+        this.f31131b = dVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler
@@ -43,9 +41,9 @@ public final class e extends DefaultRedirectHandler {
         int statusCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpResponse, httpContext)) == null) {
-            this.f34688a++;
+            this.a++;
             boolean isRedirectRequested = super.isRedirectRequested(httpResponse, httpContext);
-            if (isRedirectRequested || this.f34688a >= 5 || !((statusCode = httpResponse.getStatusLine().getStatusCode()) == 301 || statusCode == 302)) {
+            if (isRedirectRequested || this.a >= 5 || !((statusCode = httpResponse.getStatusLine().getStatusCode()) == 301 || statusCode == 302)) {
                 return isRedirectRequested;
             }
             return true;

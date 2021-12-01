@@ -1,7 +1,6 @@
 package com.alipay.sdk.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,18 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f35062a = "resultStatus";
+    public static final String a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35063b = "memo";
+    public static final String f31438b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35064c = "result";
+    public static final String f31439c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -57,7 +54,7 @@ public class j {
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             String str3 = str2 + "={";
             return str.substring(str.indexOf(str3) + str3.length(), str.lastIndexOf("}"));
         }
@@ -68,7 +65,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f34873e.b());
+            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31272e.b());
             HashMap hashMap = new HashMap();
             hashMap.put("resultStatus", Integer.toString(b2.b()));
             hashMap.put("memo", b2.a());

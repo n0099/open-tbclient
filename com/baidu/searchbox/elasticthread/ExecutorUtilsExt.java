@@ -3,7 +3,6 @@ package com.baidu.searchbox.elasticthread;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ExecutorUtilsExt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,10 +38,10 @@ public class ExecutorUtilsExt {
         }
     }
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j) {
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || runnable == null) {
             return;
         }
         if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
@@ -53,22 +52,22 @@ public class ExecutorUtilsExt {
         }
         ElasticConfig.updateConfig();
         if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postThreadPoolTask(runnable, j);
+            BackupExecutors.getInstance().postThreadPoolTask(runnable, j2);
         } else {
-            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j);
+            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j2);
         }
     }
 
-    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
+    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) || runnable == null) {
             return;
         }
         ElasticConfig.updateConfig();
         if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postSerialTask(runnable, j);
+            BackupExecutors.getInstance().postSerialTask(runnable, j2);
         } else {
-            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j);
+            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j2);
         }
     }
 
@@ -102,7 +101,7 @@ public class ExecutorUtilsExt {
     public static Executor getSerialExecutor(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (ElasticConfig.elasticExecutorDisabled()) {
                 return BackupExecutors.getInstance().getSerialExecutor();
             }
@@ -114,7 +113,7 @@ public class ExecutorUtilsExt {
     public static String getStandardTaskName(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 str = "default";
             }

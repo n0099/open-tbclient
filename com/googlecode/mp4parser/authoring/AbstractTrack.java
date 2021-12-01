@@ -44,11 +44,11 @@ public abstract class AbstractTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = 0;
-            for (long j2 : getSampleDurations()) {
-                j += j2;
+            long j2 = 0;
+            for (long j3 : getSampleDurations()) {
+                j2 += j3;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

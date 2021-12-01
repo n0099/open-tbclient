@@ -2,7 +2,6 @@ package com.google.zxing.common;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class CharacterSetECI {
     public static final /* synthetic */ CharacterSetECI[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -138,7 +137,7 @@ public final class CharacterSetECI {
     public static CharacterSetECI getCharacterSetECIByValue(int i2) throws FormatException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 >= 0 && i2 < 900) {
                 return VALUE_TO_ECI.get(Integer.valueOf(i2));
             }
@@ -150,7 +149,7 @@ public final class CharacterSetECI {
     public static CharacterSetECI valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (CharacterSetECI) Enum.valueOf(CharacterSetECI.class, str) : (CharacterSetECI) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (CharacterSetECI) Enum.valueOf(CharacterSetECI.class, str) : (CharacterSetECI) invokeL.objValue;
     }
 
     public static CharacterSetECI[] values() {

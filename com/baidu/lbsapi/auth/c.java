@@ -10,21 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f39408a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f39409b;
+    public HashMap<String, String> f35142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f39410c;
+    public a<String> f35143c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -44,9 +42,9 @@ public class c {
                 return;
             }
         }
-        this.f39409b = null;
-        this.f39410c = null;
-        this.f39408a = context;
+        this.f35142b = null;
+        this.f35143c = null;
+        this.a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -84,7 +82,7 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f39410c;
+            a<String> aVar = this.f35143c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -94,8 +92,8 @@ public class c {
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
-            this.f39409b = a(hashMap);
-            this.f39410c = aVar;
+            this.f35142b = a(hashMap);
+            this.f35143c = aVar;
             new Thread(new d(this)).start();
         }
     }

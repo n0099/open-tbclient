@@ -45,14 +45,14 @@ public class RetryJobSchedulerService extends JobService {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(DownloadInfo downloadInfo, long j, boolean z, int i2) {
+    public static void a(DownloadInfo downloadInfo, long j2, boolean z, int i2) {
         Context N;
-        long j2;
+        long j3;
         int schedule;
         r reserveWifiStatusListener;
         r reserveWifiStatusListener2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{downloadInfo, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || downloadInfo == null || j <= 0 || (N = com.ss.android.socialbase.downloader.downloader.c.N()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{downloadInfo, Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || downloadInfo == null || j2 <= 0 || (N = com.ss.android.socialbase.downloader.downloader.c.N()) == null) {
             return;
         }
         int i3 = 2;
@@ -66,14 +66,14 @@ public class RetryJobSchedulerService extends JobService {
             }
             jobScheduler.cancel(downloadInfo.getId());
             if (i2 != 0 && (!z || i2 == 2)) {
-                j2 = 60000 + j;
-                JobInfo.Builder minimumLatency = new JobInfo.Builder(downloadInfo.getId(), new ComponentName(N.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j);
+                j3 = 60000 + j2;
+                JobInfo.Builder minimumLatency = new JobInfo.Builder(downloadInfo.getId(), new ComponentName(N.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j2);
                 if (z) {
                     i3 = 1;
                 }
                 JobInfo.Builder requiresDeviceIdle = minimumLatency.setRequiredNetworkType(i3).setRequiresCharging(false).setRequiresDeviceIdle(false);
-                if (j2 > 0) {
-                    requiresDeviceIdle.setOverrideDeadline(j2);
+                if (j3 > 0) {
+                    requiresDeviceIdle.setOverrideDeadline(j3);
                 }
                 schedule = jobScheduler.schedule(requiresDeviceIdle.build());
                 if (schedule > 0 && downloadInfo.isPauseReserveOnWifi() && (reserveWifiStatusListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getReserveWifiStatusListener()) != null) {
@@ -85,13 +85,13 @@ public class RetryJobSchedulerService extends JobService {
                 }
                 return;
             }
-            j = 1000;
-            j2 = 0;
-            JobInfo.Builder minimumLatency2 = new JobInfo.Builder(downloadInfo.getId(), new ComponentName(N.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j);
+            j2 = 1000;
+            j3 = 0;
+            JobInfo.Builder minimumLatency2 = new JobInfo.Builder(downloadInfo.getId(), new ComponentName(N.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j2);
             if (z) {
             }
             JobInfo.Builder requiresDeviceIdle2 = minimumLatency2.setRequiredNetworkType(i3).setRequiresCharging(false).setRequiresDeviceIdle(false);
-            if (j2 > 0) {
+            if (j3 > 0) {
             }
             schedule = jobScheduler.schedule(requiresDeviceIdle2.build());
             if (schedule > 0) {

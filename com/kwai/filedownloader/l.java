@@ -6,9 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f67917a;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -25,7 +23,7 @@ public class l {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f67917a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (a) invokeV.objValue;
     }
 
     public static boolean b() {

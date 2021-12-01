@@ -87,10 +87,10 @@ public class WebViewProviderAdapter {
         return (WebViewRenderProcessClient) invokeV.objValue;
     }
 
-    public void insertVisualStateCallback(long j, WebViewCompat.VisualStateCallback visualStateCallback) {
+    public void insertVisualStateCallback(long j2, WebViewCompat.VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j, visualStateCallback) == null) {
-            this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j2, visualStateCallback) == null) {
+            this.mImpl.insertVisualStateCallback(j2, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
         }
     }
 

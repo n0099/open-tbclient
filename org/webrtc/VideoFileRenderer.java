@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.c.i0;
+import h.c.i0;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -131,7 +131,7 @@ public class VideoFileRenderer implements VideoSink {
             videoFrame.release();
             final VideoFrame.I420Buffer i420 = cropAndScale.toI420();
             cropAndScale.release();
-            this.fileThreadHandler.post(new Runnable() { // from class: g.c.d0
+            this.fileThreadHandler.post(new Runnable() { // from class: h.c.d0
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoFrame) == null) {
             videoFrame.retain();
-            this.renderThreadHandler.post(new Runnable() { // from class: g.c.c0
+            this.renderThreadHandler.post(new Runnable() { // from class: h.c.c0
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public class VideoFileRenderer implements VideoSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             final CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.renderThreadHandler.post(new Runnable() { // from class: g.c.b0
+            this.renderThreadHandler.post(new Runnable() { // from class: h.c.b0
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +212,7 @@ public class VideoFileRenderer implements VideoSink {
                 }
             });
             ThreadUtils.awaitUninterruptibly(countDownLatch);
-            this.fileThreadHandler.post(new Runnable() { // from class: g.c.a0
+            this.fileThreadHandler.post(new Runnable() { // from class: h.c.a0
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

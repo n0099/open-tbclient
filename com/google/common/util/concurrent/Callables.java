@@ -1,16 +1,15 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.a.r;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.i.d.a.n;
+import c.i.d.a.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Callables {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +110,7 @@ public final class Callables {
     public static <T> Callable<T> threadRenaming(Callable<T> callable, r<String> rVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, callable, rVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, callable, rVar)) == null) {
             n.p(rVar);
             n.p(callable);
             return new Callable<T>(rVar, callable) { // from class: com.google.common.util.concurrent.Callables.3
@@ -167,7 +166,7 @@ public final class Callables {
     public static boolean trySetName(String str, Thread thread) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, thread)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, thread)) == null) {
             try {
                 thread.setName(str);
                 return true;

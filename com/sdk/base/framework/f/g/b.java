@@ -27,7 +27,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = com.sdk.base.framework.c.f.f69125b;
+        boolean z = com.sdk.base.framework.c.f.f60988b;
     }
 
     public b() {
@@ -48,7 +48,7 @@ public class b extends com.sdk.base.framework.f.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, arrayList)) == null) {
-            c cVar = c.f69159c;
+            c cVar = c.f61012c;
             return a.a(context);
         }
         return (c) invokeLL.objValue;

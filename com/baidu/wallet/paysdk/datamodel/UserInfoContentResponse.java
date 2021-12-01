@@ -14,7 +14,7 @@ import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class UserInfoContentResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class UserInfoContentResponse implements IBeanResponse, Serializable {
     public String token;
     public UserBean user_info;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class BindCardListBean implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class UserInfoContentResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class CardExtInfoBean implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class UserInfoContentResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class UserBean implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class UserInfoContentResponse implements IBeanResponse, Serializable {
         public String pay_type_default;
         public String true_name;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public static class AccountBean implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class UserInfoContentResponse implements IBeanResponse, Serializable {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes12.dex */
         public static class DisplayFlagBean implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

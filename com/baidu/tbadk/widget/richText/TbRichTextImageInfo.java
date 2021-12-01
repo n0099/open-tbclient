@@ -13,27 +13,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.Domains;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbRichTextImageInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47246e;
+    public String f42311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47247f;
+    public String f42312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f47248g;
+    public String f42313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47249h;
+    public int f42314h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47250i;
-    public boolean j;
-    public boolean k;
+    public int f42315i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f42316j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f42317k;
     public String l;
     public long m;
     public boolean n;
@@ -54,13 +58,13 @@ public class TbRichTextImageInfo extends OrmObject {
                 return;
             }
         }
-        this.f47246e = null;
-        this.f47247f = null;
-        this.f47248g = null;
-        this.f47249h = 1;
-        this.f47250i = 1;
-        this.j = false;
-        this.k = false;
+        this.f42311e = null;
+        this.f42312f = null;
+        this.f42313g = null;
+        this.f42314h = 1;
+        this.f42315i = 1;
+        this.f42316j = false;
+        this.f42317k = false;
         this.l = null;
         this.m = 0L;
         this.n = false;
@@ -77,19 +81,19 @@ public class TbRichTextImageInfo extends OrmObject {
     public String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47246e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42311e : (String) invokeV.objValue;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42317k : invokeV.booleanValue;
     }
 
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42316j : invokeV.booleanValue;
     }
 
     public boolean E() {
@@ -121,14 +125,14 @@ public class TbRichTextImageInfo extends OrmObject {
     public void I(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f47246e = str;
+            this.f42311e = str;
         }
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f47250i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42315i : invokeV.intValue;
     }
 
     public long getOriginalSize() {
@@ -140,27 +144,27 @@ public class TbRichTextImageInfo extends OrmObject {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f47249h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42314h : invokeV.intValue;
     }
 
     public void setHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f47250i = i2;
+            this.f42315i = i2;
         }
     }
 
     public void setWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f47249h = i2;
+            this.f42314h = i2;
         }
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f47248g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f42313g : (String) invokeV.objValue;
     }
 
     public String x() {
@@ -172,7 +176,7 @@ public class TbRichTextImageInfo extends OrmObject {
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f47247f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f42312f : (String) invokeV.objValue;
     }
 
     public String z() {
@@ -196,13 +200,13 @@ public class TbRichTextImageInfo extends OrmObject {
                 return;
             }
         }
-        this.f47246e = null;
-        this.f47247f = null;
-        this.f47248g = null;
-        this.f47249h = 1;
-        this.f47250i = 1;
-        this.j = false;
-        this.k = false;
+        this.f42311e = null;
+        this.f42312f = null;
+        this.f42313g = null;
+        this.f42314h = 1;
+        this.f42315i = 1;
+        this.f42316j = false;
+        this.f42317k = false;
         this.l = null;
         this.m = 0L;
         this.n = false;
@@ -211,37 +215,37 @@ public class TbRichTextImageInfo extends OrmObject {
         if (pbContent == null) {
             return;
         }
-        this.f47246e = pbContent.src;
+        this.f42311e = pbContent.src;
         String str = pbContent.cdn_src;
-        this.f47247f = str;
+        this.f42312f = str;
         if (str == null || str.length() == 0) {
-            this.f47247f = this.f47246e;
+            this.f42312f = this.f42311e;
         }
         String str2 = pbContent.big_cdn_src;
-        this.f47248g = str2;
+        this.f42313g = str2;
         this.q = pbContent.big_src;
         if (StringUtils.isNull(str2)) {
-            this.f47248g = this.q;
+            this.f42313g = this.q;
         }
         String str3 = pbContent.bsize;
         if (str3 != null) {
             try {
                 String[] split = str3.split(",");
-                this.f47249h = Integer.valueOf(split[0]).intValue();
-                this.f47250i = Integer.valueOf(split[1]).intValue();
+                this.f42314h = Integer.valueOf(split[0]).intValue();
+                this.f42315i = Integer.valueOf(split[1]).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f47249h <= 0) {
-            this.f47249h = 1;
+        if (this.f42314h <= 0) {
+            this.f42314h = 1;
         }
-        if (this.f47250i <= 0) {
-            this.f47250i = 1;
+        if (this.f42315i <= 0) {
+            this.f42315i = 1;
         }
-        String str4 = this.f47247f;
+        String str4 = this.f42312f;
         if (str4 != null && str4.indexOf(Domains.BAIDU) != -1) {
-            this.j = true;
+            this.f42316j = true;
         }
         this.l = pbContent.origin_src;
         this.m = pbContent.origin_size.intValue();
@@ -265,13 +269,13 @@ public class TbRichTextImageInfo extends OrmObject {
                 return;
             }
         }
-        this.f47246e = null;
-        this.f47247f = null;
-        this.f47248g = null;
-        this.f47249h = 1;
-        this.f47250i = 1;
-        this.j = false;
-        this.k = false;
+        this.f42311e = null;
+        this.f42312f = null;
+        this.f42313g = null;
+        this.f42314h = 1;
+        this.f42315i = 1;
+        this.f42316j = false;
+        this.f42317k = false;
         this.l = null;
         this.m = 0L;
         this.n = false;
@@ -280,30 +284,30 @@ public class TbRichTextImageInfo extends OrmObject {
         if (jSONObject == null) {
             return;
         }
-        this.f47246e = jSONObject.optString("src");
+        this.f42311e = jSONObject.optString("src");
         String optString = jSONObject.optString("cdn_src", "");
-        this.f47247f = optString;
+        this.f42312f = optString;
         if (optString == null || optString.length() == 0) {
-            this.f47247f = this.f47246e;
+            this.f42312f = this.f42311e;
         }
-        this.f47248g = jSONObject.optString("big_cdn_src", null);
+        this.f42313g = jSONObject.optString("big_cdn_src", null);
         try {
             String[] split = jSONObject.optString("bsize").split(",");
-            this.f47249h = Integer.valueOf(split[0]).intValue();
-            this.f47250i = Integer.valueOf(split[1]).intValue();
+            this.f42314h = Integer.valueOf(split[0]).intValue();
+            this.f42315i = Integer.valueOf(split[1]).intValue();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.f47249h <= 0) {
-            this.f47249h = 1;
+        if (this.f42314h <= 0) {
+            this.f42314h = 1;
         }
-        if (this.f47250i <= 0) {
-            this.f47250i = 1;
+        if (this.f42315i <= 0) {
+            this.f42315i = 1;
         }
-        String str = this.f47247f;
+        String str = this.f42312f;
         if (str == null || str.indexOf(Domains.BAIDU) == -1) {
             return;
         }
-        this.j = true;
+        this.f42316j = true;
     }
 }

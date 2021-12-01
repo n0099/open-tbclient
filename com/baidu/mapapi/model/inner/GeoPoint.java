@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GeoPoint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public double f40452a;
+    public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f40453b;
+    public double f36046b;
 
     public GeoPoint(double d2, double d3) {
         Interceptable interceptable = $ic;
@@ -32,8 +30,8 @@ public class GeoPoint {
                 return;
             }
         }
-        this.f40452a = d2;
-        this.f40453b = d3;
+        this.a = d2;
+        this.f36046b = d3;
     }
 
     public boolean equals(Object obj) {
@@ -42,7 +40,7 @@ public class GeoPoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj != null && obj.getClass() == GeoPoint.class) {
                 GeoPoint geoPoint = (GeoPoint) obj;
-                return this.f40452a == geoPoint.f40452a && this.f40453b == geoPoint.f40453b;
+                return this.a == geoPoint.a && this.f36046b == geoPoint.f36046b;
             }
             return false;
         }
@@ -52,26 +50,26 @@ public class GeoPoint {
     public double getLatitudeE6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40452a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.doubleValue;
     }
 
     public double getLongitudeE6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40453b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36046b : invokeV.doubleValue;
     }
 
     public void setLatitudeE6(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f40452a = d2;
+            this.a = d2;
         }
     }
 
     public void setLongitudeE6(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f40453b = d2;
+            this.f36046b = d2;
         }
     }
 
@@ -79,7 +77,7 @@ public class GeoPoint {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "GeoPoint: Latitude: " + this.f40452a + ", Longitude: " + this.f40453b;
+            return "GeoPoint: Latitude: " + this.a + ", Longitude: " + this.f36046b;
         }
         return (String) invokeV.objValue;
     }

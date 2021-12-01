@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.f;
 import com.baidu.sofire.mutiprocess.a;
@@ -26,24 +25,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Context f44077a;
+    public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, a> f44078b;
+    public static Map<Integer, a> f39163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<Integer, List<String>> f44079c;
+    public static Map<Integer, List<String>> f39164c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static List<String> f44080d;
+    public static List<String> f39165d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f44081e;
+    public static a f39166e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,10 +56,10 @@ public class b {
                 return;
             }
         }
-        f44078b = new HashMap();
-        f44079c = new HashMap();
-        f44080d = new ArrayList();
-        f44081e = new a.AbstractBinderC1717a() { // from class: com.baidu.sofire.mutiprocess.b.1
+        f39163b = new HashMap();
+        f39164c = new HashMap();
+        f39165d = new ArrayList();
+        f39166e = new a.AbstractBinderC1787a() { // from class: com.baidu.sofire.mutiprocess.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,15 +170,15 @@ public class b {
                 bundle.setClassLoader(b.class.getClassLoader());
                 int i2 = bundle.getInt("bundle_key_pid");
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
-                if (i2 > 0 && binderHolder != null && binderHolder.f44074a != null) {
-                    f44078b.put(Integer.valueOf(i2), a.AbstractBinderC1717a.a(binderHolder.f44074a));
-                    if (f44080d.size() <= 0) {
+                if (i2 > 0 && binderHolder != null && binderHolder.a != null) {
+                    f39163b.put(Integer.valueOf(i2), a.AbstractBinderC1787a.a(binderHolder.a));
+                    if (f39165d.size() <= 0) {
                         return a(0);
                     }
                     com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a();
                     f a3 = f.a();
                     if (a2 != null && a3 != null) {
-                        for (String str : f44080d) {
+                        for (String str : f39165d) {
                             ApkInfo d2 = a3.d(str);
                             if (d2 == null) {
                                 return a(0);
@@ -227,14 +224,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bundle)) == null) {
             try {
-                if (f44077a == null) {
+                if (a == null) {
                     return a(-104);
                 }
                 String string = bundle.getString("bundle_key_plugin_package_name");
                 if (TextUtils.isEmpty(string)) {
                     return a(-101);
                 }
-                com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a(f44077a);
+                com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a(a);
                 if (a2 == null) {
                     return a(-105);
                 }
@@ -255,7 +252,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bundle)) == null) {
             try {
-                if (f44077a == null) {
+                if (a == null) {
                     return a(-104);
                 }
                 String string = bundle.getString("bundle_key_plugin_package_name");
@@ -298,7 +295,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             try {
-                if (f44079c == null || (entrySet = f44079c.entrySet()) == null) {
+                if (f39164c == null || (entrySet = f39164c.entrySet()) == null) {
                     return;
                 }
                 for (Map.Entry<Integer, List<String>> entry : entrySet) {
@@ -329,10 +326,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                if (f44078b == null) {
+                if (f39163b == null) {
                     return null;
                 }
-                return f44078b.keySet();
+                return f39163b.keySet();
             } catch (Throwable unused) {
                 c.a();
                 return null;
@@ -348,10 +345,10 @@ public class b {
         }
         try {
             if (c.b(context, "ampf")) {
-                f44077a = context.getApplicationContext();
+                a = context.getApplicationContext();
                 Bundle bundle = new Bundle();
                 bundle.putInt("bundle_key_pid", Process.myPid());
-                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f44081e.asBinder()));
+                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(f39166e.asBinder()));
                 w.a(context, "sub_process_register_sub_process", bundle);
             }
         } catch (Throwable unused) {
@@ -367,10 +364,10 @@ public class b {
                 if (TextUtils.isEmpty(str)) {
                     return -201;
                 }
-                if (f44078b == null) {
+                if (f39163b == null) {
                     return -200;
                 }
-                a aVar = f44078b.get(Integer.valueOf(i2));
+                a aVar = f39163b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return -202;
                 }
@@ -378,11 +375,11 @@ public class b {
                 bundle.putInt("bundle_key_ctrl_action", z ? 1 : 2);
                 bundle.putString("bundle_key_plugin_package_name", str);
                 int i3 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
-                if (i3 == 0 && f44079c != null) {
-                    List<String> list = f44079c.get(Integer.valueOf(i2));
+                if (i3 == 0 && f39164c != null) {
+                    List<String> list = f39164c.get(Integer.valueOf(i2));
                     if (list == null) {
                         list = new ArrayList<>();
-                        f44079c.put(Integer.valueOf(i2), list);
+                        f39164c.put(Integer.valueOf(i2), list);
                     }
                     if (z && !list.contains(str)) {
                         list.add(str);
@@ -441,11 +438,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
-                if (TextUtils.isEmpty(str) || f44078b == null) {
+                if (TextUtils.isEmpty(str) || f39163b == null) {
                     return null;
                 }
                 HashMap hashMap = new HashMap();
-                for (Integer num : f44078b.keySet()) {
+                for (Integer num : f39163b.keySet()) {
                     hashMap.put(num, Integer.valueOf(a(num.intValue(), str, true)));
                 }
                 return hashMap;
@@ -460,15 +457,15 @@ public class b {
     public static Bundle a(int i2, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, bundle)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, bundle)) == null) {
             try {
                 if (bundle == null) {
                     return a(-201);
                 }
-                if (f44078b == null) {
+                if (f39163b == null) {
                     return a(-200);
                 }
-                a aVar = f44078b.get(Integer.valueOf(i2));
+                a aVar = f39163b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return a(-202);
                 }
@@ -493,13 +490,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, str, z) == null) {
             try {
-                if (TextUtils.isEmpty(str) || f44080d == null) {
+                if (TextUtils.isEmpty(str) || f39165d == null) {
                     return;
                 }
                 if (z) {
-                    f44080d.add(str);
+                    f39165d.add(str);
                 } else {
-                    f44080d.remove(str);
+                    f39165d.remove(str);
                 }
             } catch (Throwable unused) {
                 c.a();
@@ -510,15 +507,15 @@ public class b {
     public static Bundle a(int i2, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, str)) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     return a(-201);
                 }
-                if (f44078b == null) {
+                if (f39163b == null) {
                     return a(-200);
                 }
-                a aVar = f44078b.get(Integer.valueOf(i2));
+                a aVar = f39163b.get(Integer.valueOf(i2));
                 if (aVar == null) {
                     return a(-202);
                 }
@@ -539,13 +536,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) {
             try {
-                if (f44077a == null) {
+                if (a == null) {
                     return a(-204);
                 }
                 if (bundle == null) {
                     return a(-201);
                 }
-                return w.a(f44077a, "sub_process_call_main_plugin", bundle);
+                return w.a(a, "sub_process_call_main_plugin", bundle);
             } catch (Throwable unused) {
                 c.a();
                 return a(-200);

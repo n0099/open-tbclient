@@ -18,22 +18,20 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile i f62335d;
+    public static volatile i f54603d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f62336a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusParam f62337b;
+    public ZeusParam f54604b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ZeusPluginStateListener> f62338c;
+    public List<ZeusPluginStateListener> f54605c;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -48,21 +46,21 @@ public class i {
                 return;
             }
         }
-        this.f62338c = Collections.emptyList();
+        this.f54605c = Collections.emptyList();
     }
 
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f62335d == null) {
+            if (f54603d == null) {
                 synchronized (i.class) {
-                    if (f62335d == null) {
-                        f62335d = new i();
+                    if (f54603d == null) {
+                        f54603d = new i();
                     }
                 }
             }
-            return f62335d;
+            return f54603d;
         }
         return (i) invokeV.objValue;
     }
@@ -75,7 +73,7 @@ public class i {
             try {
                 for (ProviderInfo providerInfo : Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 8).providers) {
                     if (!TextUtils.isEmpty(providerInfo.authority)) {
-                        if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f62127a)) {
+                        if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.a)) {
                             if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
                                 str = providerInfo.processName.split(":")[1];
                                 Zeus.getServerManagerHashMap().put(str, providerInfo);
@@ -95,26 +93,24 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, application, zeusParam) == null) {
             synchronized (this) {
-                if (this.f62336a) {
+                if (this.a) {
                     ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager zeus has been inited!");
                 } else if (application != null) {
                     if (zeusParam == null) {
                         zeusParam = new ZeusParam.Builder().build();
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
                     }
-                    this.f62337b = zeusParam;
+                    this.f54604b = zeusParam;
                     ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f62337b);
-                    if (!this.f62337b.isCloseDefaultReport()) {
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f54604b);
+                    if (!this.f54604b.isCloseDefaultReport()) {
                         com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
                     }
-                    com.bytedance.pangle.b.b a2 = com.bytedance.pangle.b.b.a();
+                    com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
                     com.bytedance.pangle.b.a aVar = new com.bytedance.pangle.b.a(this) { // from class: com.bytedance.pangle.i.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ i f62339a;
+                        public final /* synthetic */ i a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -131,7 +127,7 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f62339a = this;
+                            this.a = this;
                         }
 
                         @Override // com.bytedance.pangle.b.a
@@ -142,18 +138,16 @@ public class i {
                             }
                         }
                     };
-                    synchronized (a2.f62150a) {
-                        a2.f62150a.add(aVar);
+                    synchronized (a.a) {
+                        a.a.add(aVar);
                     }
-                    if (this.f62337b.isEnable()) {
+                    if (this.f54604b.isEnable()) {
                         c.a();
                         if (com.bytedance.pangle.util.h.e()) {
-                            com.bytedance.pangle.helper.e.f62332a.execute(new Runnable(this) { // from class: com.bytedance.pangle.i.2
+                            com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.i.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ i f62340a;
+                                public final /* synthetic */ i a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -170,7 +164,7 @@ public class i {
                                             return;
                                         }
                                     }
-                                    this.f62340a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -196,7 +190,7 @@ public class i {
                         b();
                         ContentProviderManager.getInstance().initSystemContentProviderInfo();
                         if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.f62337b.autoFetch()) {
+                            if (this.f54604b.autoFetch()) {
                                 com.bytedance.pangle.download.g.a();
                                 com.bytedance.pangle.download.g.b();
                             }
@@ -204,7 +198,7 @@ public class i {
                         }
                         com.bytedance.pangle.receiver.b.a(application);
                     }
-                    this.f62336a = true;
+                    this.a = true;
                 } else {
                     throw new IllegalArgumentException("context must be not null !!!");
                 }

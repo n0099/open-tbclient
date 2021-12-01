@@ -7,8 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.h0.b.a.a;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.i0.b.a.a;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LogSystemServiceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogSystemServiceUtil";
@@ -50,7 +49,7 @@ public class LogSystemServiceUtil {
 
     public static void startLogHandlerService(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, context, logType, str, file, logExtra) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, context, logType, str, file, logExtra) == null) {
             try {
                 if (logType == LogType.NONE) {
                     if (LLog.sDebug) {
@@ -76,7 +75,7 @@ public class LogSystemServiceUtil {
 
     public static void startService(@NonNull Context context, @NonNull LogType logType, @Nullable String str, @Nullable File file, @Nullable File file2, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, logType, str, file, file2, logExtra}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, logType, str, file, file2, logExtra}) == null) {
             if (str == null && file == null) {
                 return;
             }

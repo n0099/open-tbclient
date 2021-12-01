@@ -11,14 +11,13 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialColors {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ALPHA_DISABLED = 0.38f;
@@ -81,7 +80,7 @@ public class MaterialColors {
     public static int getColor(@NonNull View view, @AttrRes int i2, @ColorInt int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, view, i2, i3)) == null) ? getColor(view.getContext(), i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, view, i2, i3)) == null) ? getColor(view.getContext(), i2, i3) : invokeLII.intValue;
     }
 
     @ColorInt
@@ -106,6 +105,6 @@ public class MaterialColors {
     public static int layer(@ColorInt int i2, @ColorInt int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) ? ColorUtils.compositeColors(i3, i2) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? ColorUtils.compositeColors(i3, i2) : invokeII.intValue;
     }
 }

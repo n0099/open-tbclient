@@ -12,7 +12,7 @@ import tbclient.Error;
 import tbclient.RedNotify.DataRes;
 import tbclient.RedNotify.RedNotify;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,30 +23,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static d f42102a;
+    public static d a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f42103a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42104b;
+        public String f37213b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42105c;
+        public String f37214c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f42106d;
+        public String f37215d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -68,10 +63,10 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f42103a = str;
-            this.f42104b = str2;
-            this.f42105c = str3;
-            this.f42106d = str4;
+            this.a = str;
+            this.f37213b = str2;
+            this.f37214c = str3;
+            this.f37215d = str4;
         }
 
         public JSONObject a() {
@@ -80,10 +75,10 @@ public class d {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f42103a);
-                    jSONObject.put("v", this.f42104b);
-                    jSONObject.put("c", this.f42105c);
-                    jSONObject.put("a", this.f42106d);
+                    jSONObject.put("n", this.a);
+                    jSONObject.put("v", this.f37213b);
+                    jSONObject.put("c", this.f37214c);
+                    jSONObject.put("a", this.f37215d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -107,7 +102,7 @@ public class d {
                 return;
             }
         }
-        f42102a = new d();
+        a = new d();
     }
 
     public d() {
@@ -157,7 +152,7 @@ public class d {
     private ArrayList<PackageInfo> d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             ArrayList<PackageInfo> arrayList = new ArrayList<>();
             PackageManager packageManager = context.getPackageManager();
             if (packageManager == null) {
@@ -216,7 +211,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f42459e.a(System.currentTimeMillis(), str);
+            k.f37502e.a(System.currentTimeMillis(), str);
         }
     }
 }

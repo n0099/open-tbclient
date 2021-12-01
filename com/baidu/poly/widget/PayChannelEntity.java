@@ -18,7 +18,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PayChannelEntity implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_FOLD_FALSE = 0;

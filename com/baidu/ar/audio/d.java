@@ -1,7 +1,6 @@
 package com.baidu.ar.audio;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "d";
@@ -59,17 +58,17 @@ public class d {
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Double.valueOf(d2)}) == null) {
             for (int i2 = 0; i2 < bArr.length; i2 += 2) {
                 int i3 = i2 + 1;
-                int a2 = a(bArr[i2], bArr[i3]);
-                int i4 = (int) (a2 * d2);
+                int a = a(bArr[i2], bArr[i3]);
+                int i4 = (int) (a * d2);
                 if (i4 < 32767 && i4 > -32768) {
-                    a2 = (short) i4;
+                    a = (short) i4;
                 } else if (i4 > 32767) {
-                    a2 = 32767;
+                    a = 32767;
                 } else if (i4 < -32768) {
-                    a2 = -32768;
+                    a = -32768;
                 }
-                bArr[i2] = (byte) (a2 & 255);
-                bArr[i3] = (byte) ((a2 >> 8) & 255);
+                bArr[i2] = (byte) (a & 255);
+                bArr[i3] = (byte) ((a >> 8) & 255);
             }
         }
     }
@@ -90,11 +89,11 @@ public class d {
     public static double c(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             double d2 = 0.0d;
             for (int i2 = 0; i2 < bArr.length; i2 += 2) {
-                int a2 = a(bArr[i2], bArr[i2 + 1]);
-                d2 += a2 * a2;
+                int a = a(bArr[i2], bArr[i2 + 1]);
+                d2 += a * a;
             }
             return Math.min(5000.0d, Math.sqrt((d2 / bArr.length) / 2.0d)) / 50.0d;
         }

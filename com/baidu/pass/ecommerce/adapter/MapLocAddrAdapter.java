@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewAdapter;
 import com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewHolder;
@@ -28,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDR_LOC_TYPE = 1;
@@ -45,7 +44,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public MapLocationPoiPresenter presenter;
     public String queryContent;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class AddrPoiInfoViewHolder extends BaseRecyclerViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +162,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class HeaderViewHolder extends BaseRecyclerViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +216,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     private int getDataCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             List<JSONObject> list = this.addrJsonObjs;
             if (list == null) {
                 return 0;

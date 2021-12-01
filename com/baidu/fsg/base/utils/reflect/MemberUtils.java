@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +13,19 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f38451a = 7;
+    public static final int a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f38452b;
+    public static final Class<?>[] f34382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f38453c;
+    public static final Map<Class<?>, Class<?>> f34383c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f38454d;
+    public static final Map<Class<?>, Class<?>> f34384d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,24 +41,24 @@ public class MemberUtils {
                 return;
             }
         }
-        f38452b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f38453c = new HashMap();
-        f38454d = new HashMap();
-        f38453c.put(Boolean.TYPE, Boolean.class);
-        f38453c.put(Byte.TYPE, Byte.class);
-        f38453c.put(Character.TYPE, Character.class);
-        f38453c.put(Short.TYPE, Short.class);
-        f38453c.put(Integer.TYPE, Integer.class);
-        f38453c.put(Long.TYPE, Long.class);
-        f38453c.put(Double.TYPE, Double.class);
-        f38453c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f38453c;
+        f34382b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+        f34383c = new HashMap();
+        f34384d = new HashMap();
+        f34383c.put(Boolean.TYPE, Boolean.class);
+        f34383c.put(Byte.TYPE, Byte.class);
+        f34383c.put(Character.TYPE, Character.class);
+        f34383c.put(Short.TYPE, Short.class);
+        f34383c.put(Integer.TYPE, Integer.class);
+        f34383c.put(Long.TYPE, Long.class);
+        f34383c.put(Double.TYPE, Double.class);
+        f34383c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f34383c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f38453c.keySet()) {
-            Class<?> cls3 = f38453c.get(cls2);
+        for (Class<?> cls2 : f34383c.keySet()) {
+            Class<?> cls3 = f34383c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f38454d.put(cls3, cls2);
+                f34384d.put(cls3, cls2);
             }
         }
     }
@@ -110,19 +107,19 @@ public class MemberUtils {
     public static Class<?> a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f38453c.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f34383c.get(cls) : (Class) invokeL.objValue;
     }
 
     public static boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? (i2 & 7) == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 & 7) == 0 : invokeI.booleanValue;
     }
 
     public static boolean a(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, cls2)) == null) ? a(cls, cls2, true) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, cls2)) == null) ? a(cls, cls2, true) : invokeLL.booleanValue;
     }
 
     public static boolean a(Class<?> cls, Class<?> cls2, boolean z) {
@@ -207,10 +204,10 @@ public class MemberUtils {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, clsArr, clsArr2, z)) == null) {
             if (Utils.a(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f38457b;
+                    clsArr = Utils.f34385b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f38457b;
+                    clsArr2 = Utils.f34385b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!a(clsArr[i2], clsArr2[i2], z)) {
@@ -252,7 +249,7 @@ public class MemberUtils {
     public static Class<?> b(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f38454d.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f34384d.get(cls) : (Class) invokeL.objValue;
     }
 
     public static float c(Class<?> cls, Class<?> cls2) {
@@ -268,7 +265,7 @@ public class MemberUtils {
             }
             int i2 = 0;
             while (cls != cls2) {
-                Class<?>[] clsArr = f38452b;
+                Class<?>[] clsArr = f34382b;
                 if (i2 >= clsArr.length) {
                     break;
                 }

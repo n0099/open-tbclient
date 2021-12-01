@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f71716a;
+    public final /* synthetic */ df a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f240a;
@@ -37,7 +35,7 @@ public class dg implements Runnable {
                 return;
             }
         }
-        this.f71716a = dfVar;
+        this.a = dfVar;
         this.f240a = str;
         this.f241a = th;
     }
@@ -60,7 +58,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f237a;
             simpleDateFormat = df.f236a;
-            str = this.f71716a.f71714b;
+            str = this.a.f62779b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f240a), this.f241a));
             list2 = df.f237a;
             if (list2.size() > 20000) {
@@ -78,17 +76,17 @@ public class dg implements Runnable {
                 }
                 list4 = df.f237a;
                 simpleDateFormat2 = df.f236a;
-                str2 = this.f71716a.f71714b;
+                str2 = this.a.f62779b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str2, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.f71716a.m247a();
+                    this.a.m296a();
                 } else {
-                    unused = this.f71716a.f71714b;
+                    unused = this.a.f62779b;
                 }
             } catch (Exception unused4) {
-                unused2 = this.f71716a.f71714b;
+                unused2 = this.a.f62779b;
             }
         }
     }

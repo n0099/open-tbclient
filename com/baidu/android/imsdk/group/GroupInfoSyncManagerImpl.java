@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GroupInfoSyncManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_FANSGROUPLIST_STATE = "get_all_fansgrouplist_state";
@@ -105,7 +104,7 @@ public class GroupInfoSyncManagerImpl {
         ArrayList<String> arrayList;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             synchronized (sUpdateGroupMembers) {
                 z = true;
                 if (sUpdateGroupMembers.containsKey(str)) {
@@ -136,7 +135,7 @@ public class GroupInfoSyncManagerImpl {
 
     public static void addSyncGroupInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             synchronized (sUpdateGroupInfo) {
                 if (!sUpdateGroupInfo.contains(str)) {
                     sUpdateGroupInfo.add(str);

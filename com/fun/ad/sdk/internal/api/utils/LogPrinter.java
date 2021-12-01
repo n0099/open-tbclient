@@ -2,7 +2,6 @@ package com.fun.ad.sdk.internal.api.utils;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,11 @@ import com.fun.ad.sdk.FunAdSdk;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class LogPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FunAdSdk";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f63763a;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +33,7 @@ public final class LogPrinter {
                 return;
             }
         }
-        f63763a = Pattern.compile("(\\$\\d+)+$");
+        a = Pattern.compile("(\\$\\d+)+$");
     }
 
     public LogPrinter() {
@@ -65,7 +62,7 @@ public final class LogPrinter {
                     str = String.format(str, objArr);
                 }
                 String className = stackTrace[2].getClassName();
-                Matcher matcher = f63763a.matcher(className);
+                Matcher matcher = a.matcher(className);
                 String str2 = "";
                 if (matcher.find()) {
                     className = matcher.replaceAll("");
@@ -100,14 +97,14 @@ public final class LogPrinter {
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             a(null, 6, null, new Object[0]);
         }
     }
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) {
             a(null, 6, str, objArr);
         }
     }

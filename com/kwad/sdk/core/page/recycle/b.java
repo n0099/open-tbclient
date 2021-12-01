@@ -20,30 +20,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Rect f65813a;
+    public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65814b;
+    public int f57595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65815c;
+    public int f57596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65816d;
+    public boolean f57597d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65817e;
+    public int f57598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f65818f;
+    public a f57599f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65819g;
+    public boolean f57600g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f65820h;
+    public boolean f57601h;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -111,17 +109,17 @@ public class b extends g {
                 return;
             }
         }
-        this.f65817e = Integer.MIN_VALUE;
-        this.f65820h = false;
+        this.f57598e = Integer.MIN_VALUE;
+        this.f57601h = false;
     }
 
     private void a(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65539, this, i2, i3, i4) == null) {
-            if (this.f65817e == Integer.MIN_VALUE) {
+            if (this.f57598e == Integer.MIN_VALUE) {
                 int[] iArr = new int[2];
                 getLocationOnScreen(iArr);
-                this.f65817e = iArr[1];
+                this.f57598e = iArr[1];
             }
             int a2 = f.a(this).a();
             int b2 = f.a(this).b();
@@ -141,7 +139,7 @@ public class b extends g {
             if (getChildCount() > i5) {
                 int[] iArr2 = new int[2];
                 getChildAt(i5).getLocationOnScreen(iArr2);
-                scrollBy(0, (iArr2[1] - this.f65817e) - i4);
+                scrollBy(0, (iArr2[1] - this.f57598e) - i4);
             }
         }
     }
@@ -149,9 +147,9 @@ public class b extends g {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            Rect rect = this.f65813a;
+            Rect rect = this.a;
             if (rect == null) {
-                this.f65813a = new Rect();
+                this.a = new Rect();
             } else {
                 rect.setEmpty();
             }
@@ -159,7 +157,7 @@ public class b extends g {
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt.getVisibility() == 0) {
-                    this.f65813a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+                    this.a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
                 }
             }
         }
@@ -195,13 +193,13 @@ public class b extends g {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            if (this.f65814b != 0) {
+            if (this.f57595b != 0) {
                 b();
-                Rect rect = this.f65813a;
+                Rect rect = this.a;
                 if (rect != null && !rect.isEmpty()) {
                     canvas.save();
-                    canvas.clipRect(this.f65813a);
-                    canvas.drawColor(this.f65814b);
+                    canvas.clipRect(this.a);
+                    canvas.drawColor(this.f57595b);
                     canvas.restore();
                 }
             }
@@ -214,13 +212,13 @@ public class b extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.f65819g) {
+            if (this.f57600g) {
                 return false;
             }
-            if (motionEvent.getAction() == 0 && this.f65820h) {
+            if (motionEvent.getAction() == 0 && this.f57601h) {
                 stopScroll();
             }
-            a aVar = this.f65818f;
+            a aVar = this.f57599f;
             if (aVar == null || !aVar.a(motionEvent)) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -234,9 +232,9 @@ public class b extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
-            int i4 = this.f65815c;
+            int i4 = this.f57596c;
             if (i4 > 0 && i4 < size) {
-                i3 = View.MeasureSpec.makeMeasureSpec(this.f65815c, View.MeasureSpec.getMode(i3));
+                i3 = View.MeasureSpec.makeMeasureSpec(this.f57596c, View.MeasureSpec.getMode(i3));
             }
             super.onMeasure(i2, i3);
         }
@@ -248,7 +246,7 @@ public class b extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f65819g) {
+            if (this.f57600g) {
                 return false;
             }
             return super.onTouchEvent(motionEvent);
@@ -260,7 +258,7 @@ public class b extends g {
     public void scrollToPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            if (this.f65816d) {
+            if (this.f57597d) {
                 a(i2, 0);
             } else {
                 super.scrollToPosition(i2);
@@ -271,28 +269,28 @@ public class b extends g {
     public void setDisableScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f65819g = z;
+            this.f57600g = z;
         }
     }
 
     public void setDownStop(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f65820h = z;
+            this.f57601h = z;
         }
     }
 
     public void setIgnoreTouchSwipeHandler(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f65818f = aVar;
+            this.f57599f = aVar;
         }
     }
 
     public void setUnderneathColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f65814b = i2;
+            this.f57595b = i2;
             b();
             invalidate();
         }
@@ -301,7 +299,7 @@ public class b extends g {
     public void setUseCustomScrollToPosition(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f65816d = z;
+            this.f57597d = z;
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class CtrlPointProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CtrlPointListener {
         void onComplete();
 
@@ -51,7 +51,7 @@ public abstract class CtrlPointProvider {
 
     public abstract void play();
 
-    public abstract void seek(long j);
+    public abstract void seek(long j2);
 
     public abstract void setAVTransportUrl(String str);
 

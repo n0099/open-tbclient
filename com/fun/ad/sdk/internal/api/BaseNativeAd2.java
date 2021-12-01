@@ -14,30 +14,28 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.NativeInflater;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public B f63719a;
+    public B a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FunNativeAd2.NativeType f63720b;
+    public final FunNativeAd2.NativeType f55705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunNativeInfo f63721c;
+    public final FunNativeInfo f55706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final FunNativeAd2Bridger<A, B> f63722d;
+    public final FunNativeAd2Bridger<A, B> f55707d;
     public final A mAd;
 
-    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a2, FunNativeInfo funNativeInfo, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
+    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeInfo funNativeInfo, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeType, a2, funNativeInfo, funNativeAd2Bridger};
+            Object[] objArr = {nativeType, a, funNativeInfo, funNativeAd2Bridger};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,20 +45,20 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
                 return;
             }
         }
-        this.f63720b = nativeType;
-        this.mAd = a2;
-        this.f63721c = funNativeInfo;
-        this.f63722d = funNativeAd2Bridger;
+        this.f55705b = nativeType;
+        this.mAd = a;
+        this.f55706c = funNativeInfo;
+        this.f55707d = funNativeAd2Bridger;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a2, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
-        this(nativeType, a2, null, funNativeAd2Bridger);
+    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
+        this(nativeType, a, null, funNativeAd2Bridger);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeType, a2, funNativeAd2Bridger};
+            Object[] objArr = {nativeType, a, funNativeAd2Bridger};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -78,10 +76,10 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f63719a == null) {
-                this.f63719a = this.f63722d.createExpressView(this.mAd);
+            if (this.a == null) {
+                this.a = this.f55707d.createExpressView(this.mAd);
             }
-            return this.f63719a;
+            return this.a;
         }
         return (B) invokeV.objValue;
     }
@@ -90,14 +88,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63721c : (FunNativeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55706c : (FunNativeInfo) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
     public FunNativeAd2.NativeType getNativeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63720b : (FunNativeAd2.NativeType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55705b : (FunNativeAd2.NativeType) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
@@ -125,14 +123,14 @@ public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public void showCustom(Activity activity, CustomInflater customInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, customInflater, str, funAdInteractionListener) == null) {
-            this.f63722d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f55707d.showCustom(activity, customInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 
     public void showExpress(Activity activity, ExpressInflater expressInflater, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, expressInflater, str, funAdInteractionListener) == null) {
-            this.f63722d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
+            this.f55707d.showExpress(activity, expressInflater, str, this.mAd, this, funAdInteractionListener);
         }
     }
 }

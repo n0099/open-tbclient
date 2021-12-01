@@ -7,19 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TTDownloadEventModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62603a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62604b;
+    public String f54774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f62605c;
+    public JSONObject f54775c;
 
     public TTDownloadEventModel() {
         Interceptable interceptable = $ic;
@@ -44,26 +42,26 @@ public class TTDownloadEventModel {
     public JSONObject getExtJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62605c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54775c : (JSONObject) invokeV.objValue;
     }
 
     public String getLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62604b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54774b : (String) invokeV.objValue;
     }
 
     public String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62603a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public TTDownloadEventModel setExtJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            this.f62605c = jSONObject;
+            this.f54775c = jSONObject;
             return this;
         }
         return (TTDownloadEventModel) invokeL.objValue;
@@ -73,7 +71,7 @@ public class TTDownloadEventModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f62604b = str;
+            this.f54774b = str;
             return this;
         }
         return (TTDownloadEventModel) invokeL.objValue;
@@ -83,7 +81,7 @@ public class TTDownloadEventModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f62603a = str;
+            this.a = str;
             return this;
         }
         return (TTDownloadEventModel) invokeL.objValue;

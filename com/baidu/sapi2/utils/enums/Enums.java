@@ -3,10 +3,9 @@ package com.baidu.sapi2.utils.enums;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Enums {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FingerprintAuthType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOGIN = 3;
@@ -42,7 +41,7 @@ public class Enums {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +86,7 @@ public class Enums {
                     return;
                 }
             }
-            NONE = new LastLoginType("NONE", 0, "none", 0);
+            NONE = new LastLoginType(PolyActivity.NONE_PANEL_TYPE, 0, "none", 0);
             PWD = new LastLoginType("PWD", 1, "pwd", 1);
             SMS = new LastLoginType("SMS", 2, "sms", 2);
             FACE = new LastLoginType("FACE", 3, "face", 3);
@@ -106,7 +105,7 @@ public class Enums {
             ONEKEYLOGIN_CM = new LastLoginType("ONEKEYLOGIN_CM", 16, "onekeylogin_cm", 16);
             ONEKEYLOGIN_CU = new LastLoginType("ONEKEYLOGIN_CU", 17, "onekeylogin_cu", 17);
             ONEKEYLOGIN_CT = new LastLoginType("ONEKEYLOGIN_CT", 18, "onekeylogin_ct", 18);
-            SWITCH = new LastLoginType("SWITCH", 19, SetImageWatermarkTypeReqMsg.SWITCH, 19);
+            SWITCH = new LastLoginType("SWITCH", 19, "switch", 19);
             QR = new LastLoginType("QR", 20, "qr", 20);
             HISTORY = new LastLoginType("HISTORY", 21, "history", 21);
             IQIYI = new LastLoginType("IQIYI", 22, "iqiyi", 22);
@@ -179,7 +178,7 @@ public class Enums {
         public static LastLoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (LastLoginType[]) $VALUES.clone() : (LastLoginType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LastLoginType[]) $VALUES.clone() : (LastLoginType[]) invokeV.objValue;
         }
 
         public String getName() {
@@ -195,7 +194,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class NormalizeWay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NONE = 0;
@@ -219,7 +218,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PreLoginType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CHINA_MOBILE_OAUTH = 12;

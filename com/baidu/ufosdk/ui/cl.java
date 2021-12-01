@@ -4,13 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class cl implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ck f57791a;
+    public final /* synthetic */ ck a;
 
     public cl(ck ckVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +25,7 @@ public final class cl implements Runnable {
                 return;
             }
         }
-        this.f57791a = ckVar;
+        this.a = ckVar;
     }
 
     @Override // java.lang.Runnable
@@ -35,10 +33,10 @@ public final class cl implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f57791a.f57790b.f57783a.B) {
-                    this.f57791a.f57790b.f57783a.a(this.f57791a.f57790b.f57783a, this.f57791a.f57790b.f57783a.f57685f, this.f57791a.f57790b.f57783a.A);
+                if (this.a.f51651b.a.B) {
+                    this.a.f51651b.a.a(this.a.f51651b.a, this.a.f51651b.a.f51608f, this.a.f51651b.a.A);
                 }
-                com.baidu.ufosdk.e.a.a(this.f57791a.f57790b.f57783a.f57685f, 9);
+                com.baidu.ufosdk.e.a.a(this.a.f51651b.a.f51608f, 9);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -6,8 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import b.a.r.b;
-import b.a.r.d;
+import c.a.q.b;
+import c.a.q.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.kuaishou.weapon.un.s;
+/* loaded from: classes9.dex */
 public class DeviceUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -81,7 +82,7 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // b.a.r.d
+                    @Override // c.a.q.d
                     public void onError(int i2, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -92,7 +93,7 @@ public class DeviceUtil {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // b.a.r.d
+                    @Override // c.a.q.d
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -117,7 +118,7 @@ public class DeviceUtil {
             if (i2 >= 29) {
                 return "";
             }
-            if (i2 < 23 || context.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
+            if (i2 < 23 || context.checkSelfPermission(s.f56838c) == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

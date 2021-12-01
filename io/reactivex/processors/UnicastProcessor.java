@@ -2,7 +2,6 @@ package io.reactivex.processors;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public final AtomicLong requested;
     public final BasicIntQueueSubscription<T> wip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class UnicastQueueSubscription extends BasicIntQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4896760517184205454L;
@@ -105,10 +104,10 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.this$0.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.this$0.requested, j2);
                 this.this$0.drain();
             }
         }
@@ -256,7 +255,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
 
     public void drainRegular(Subscriber<? super T> subscriber) {
         int i2;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048580, this, subscriber) != null) {
             return;
@@ -265,18 +264,18 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
         boolean z = !this.delayError;
         int i3 = 1;
         while (true) {
-            long j2 = this.requested.get();
-            long j3 = 0;
+            long j3 = this.requested.get();
+            long j4 = 0;
             while (true) {
-                i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
+                i2 = (j3 > j4 ? 1 : (j3 == j4 ? 0 : -1));
                 if (i2 == 0) {
-                    j = j3;
+                    j2 = j4;
                     break;
                 }
                 boolean z2 = this.done;
                 T poll = spscLinkedArrayQueue.poll();
                 boolean z3 = poll == null;
-                j = j3;
+                j2 = j4;
                 if (checkTerminated(z, z2, z3, subscriber, spscLinkedArrayQueue)) {
                     return;
                 }
@@ -284,13 +283,13 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
                     break;
                 }
                 subscriber.onNext(poll);
-                j3 = 1 + j;
+                j4 = 1 + j2;
             }
             if (i2 == 0 && checkTerminated(z, this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                 return;
             }
-            if (j != 0 && j2 != Long.MAX_VALUE) {
-                this.requested.addAndGet(-j);
+            if (j2 != 0 && j3 != Long.MAX_VALUE) {
+                this.requested.addAndGet(-j2);
             }
             i3 = this.wip.addAndGet(-i3);
             if (i3 == 0) {
@@ -468,7 +467,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static <T> UnicastProcessor<T> create(int i2, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, runnable)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, runnable)) == null) {
             ObjectHelper.requireNonNull(runnable, "onTerminate");
             return new UnicastProcessor<>(i2, runnable);
         }
@@ -480,7 +479,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static <T> UnicastProcessor<T> create(int i2, Runnable runnable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), runnable, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), runnable, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(runnable, "onTerminate");
             return new UnicastProcessor<>(i2, runnable, z);
         }

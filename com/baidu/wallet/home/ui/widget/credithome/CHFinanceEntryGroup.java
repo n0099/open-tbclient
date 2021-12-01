@@ -9,7 +9,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.credithome.CHFinanceEntryItem;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHFinanceEntryGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BOTTOM_PANEL_HEIGHT_DP = 28.0f;
@@ -55,10 +54,10 @@ public class CHFinanceEntryGroup extends BaseItemLayout {
     private void a(LinearLayout linearLayout, HomeCfgResponse.DataItem dataItem, HomeCfgResponse.DataItem dataItem2, HomeCfgResponse.DataItem dataItem3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linearLayout, dataItem, dataItem2, dataItem3) == null) {
-            LinearLayout a2 = a(linearLayout, 93.0f);
-            a(a2, dataItem, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
-            a(a2, dataItem2, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
-            a(a2, dataItem3, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
+            LinearLayout a = a(linearLayout, 93.0f);
+            a(a, dataItem, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
+            a(a, dataItem2, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
+            a(a, dataItem3, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
         }
     }
 
@@ -160,9 +159,9 @@ public class CHFinanceEntryGroup extends BaseItemLayout {
     private void a(LinearLayout linearLayout, HomeCfgResponse.DataItem dataItem, HomeCfgResponse.DataItem dataItem2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, linearLayout, dataItem, dataItem2) == null) {
-            LinearLayout a2 = a(linearLayout, 93.0f);
-            a(a2, dataItem, CHFinanceEntryItem.EntryType.ENTRY_TYPE_LARGE);
-            a(a2, dataItem2, CHFinanceEntryItem.EntryType.ENTRY_TYPE_LARGE);
+            LinearLayout a = a(linearLayout, 93.0f);
+            a(a, dataItem, CHFinanceEntryItem.EntryType.ENTRY_TYPE_LARGE);
+            a(a, dataItem2, CHFinanceEntryItem.EntryType.ENTRY_TYPE_LARGE);
         }
     }
 
@@ -181,7 +180,7 @@ public class CHFinanceEntryGroup extends BaseItemLayout {
 
     private void a(LinearLayout linearLayout, HomeCfgResponse.DataItem dataItem, CHFinanceEntryItem.EntryType entryType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, linearLayout, dataItem, entryType) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, linearLayout, dataItem, entryType) == null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.weight = 1.0f;
             if (dataItem != null) {

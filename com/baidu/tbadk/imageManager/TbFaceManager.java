@@ -6,10 +6,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.c0.a;
-import b.a.q0.c0.c;
-import b.a.q0.e1.d;
-import b.a.q0.s.g0.e;
+import c.a.q0.c0.a;
+import c.a.q0.c0.c;
+import c.a.q0.f1.d;
+import c.a.q0.s.g0.e;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -24,31 +24,29 @@ import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbFaceManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static TbFaceManager f46795c = null;
+    public static TbFaceManager f41843c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f46796d = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]|#[\\(]+[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+[\\)]";
+    public static String f41844d = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]|#[\\(]+[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+[\\)]";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f46797a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.q0.c0.a f46798b;
+    public c.a.q0.c0.a f41845b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class RichUnit extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3736301305777944719L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46799c;
+        public String f41846c;
         public String text;
         public Integer type;
 
@@ -67,7 +65,7 @@ public class TbFaceManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         ImageSpan a(String str);
     }
@@ -100,85 +98,85 @@ public class TbFaceManager {
                 return;
             }
         }
-        this.f46797a = null;
-        this.f46798b = null;
+        this.a = null;
+        this.f41845b = null;
     }
 
     public static TbFaceManager e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f46795c == null) {
-                f46795c = new TbFaceManager();
+            if (f41843c == null) {
+                f41843c = new TbFaceManager();
             }
-            return f46795c;
+            return f41843c;
         }
         return (TbFaceManager) invokeV.objValue;
     }
 
-    public b.a.e.m.d.a a(String str) {
+    public c.a.d.m.d.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? d(b(str), str) : (b.a.e.m.d.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? d(b(str), str) : (c.a.d.m.d.a) invokeL.objValue;
     }
 
     public int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f46798b.d(str) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f41845b.d(str) : invokeL.intValue;
     }
 
-    public a.C0674a c(String str) {
+    public a.C0757a c(String str) {
         InterceptResult invokeL;
-        b.a.e.m.d.a a2;
+        c.a.d.m.d.a a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            a.C0674a c2 = this.f46798b.c(this.f46797a, str);
-            return (c2 != null || (a2 = a(str)) == null) ? c2 : new a.C0674a(a2.r(), a2.m());
+            a.C0757a c2 = this.f41845b.c(this.a, str);
+            return (c2 != null || (a2 = a(str)) == null) ? c2 : new a.C0757a(a2.r(), a2.m());
         }
-        return (a.C0674a) invokeL.objValue;
+        return (a.C0757a) invokeL.objValue;
     }
 
-    public final b.a.e.m.d.a d(int i2, String str) {
+    public final c.a.d.m.d.a d(int i2, String str) {
         InterceptResult invokeIL;
         Bitmap resBitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, str)) == null) {
-            b.a.e.m.d.a m = c.k().m(str);
-            if (m != null || (resBitmap = BitmapHelper.getResBitmap(this.f46797a, i2)) == null) {
+            c.a.d.m.d.a m = c.k().m(str);
+            if (m != null || (resBitmap = BitmapHelper.getResBitmap(this.a, i2)) == null) {
                 return m;
             }
-            b.a.e.m.d.a aVar = new b.a.e.m.d.a(resBitmap, false, str);
+            c.a.d.m.d.a aVar = new c.a.d.m.d.a(resBitmap, false, str);
             c.k().d(str, aVar);
             return aVar;
         }
-        return (b.a.e.m.d.a) invokeIL.objValue;
+        return (c.a.d.m.d.a) invokeIL.objValue;
     }
 
     public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f46798b.b(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f41845b.b(str) : (String) invokeL.objValue;
     }
 
     public int g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f46798b.e(str) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f41845b.e(str) : invokeL.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f46798b.a() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41845b.a() : invokeV.intValue;
     }
 
-    public void i(Context context, b.a.q0.c0.a aVar) {
+    public void i(Context context, c.a.q0.c0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, aVar) == null) {
             if (context != null && aVar != null) {
-                this.f46797a = context;
-                this.f46798b = aVar;
+                this.a = context;
+                this.f41845b = aVar;
                 return;
             }
             throw new InvalidParameterException("TbFaceManager initial error");
@@ -187,23 +185,23 @@ public class TbFaceManager {
 
     public SpannableString j(Context context, String str) {
         InterceptResult invokeLL;
-        b.a.e.m.d.a d2;
+        c.a.d.m.d.a d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str)) == null) {
             if (str == null) {
                 return null;
             }
             SpannableString spannableString = new SpannableString(str);
-            Matcher matcher = Pattern.compile(f46796d).matcher(str);
+            Matcher matcher = Pattern.compile(f41844d).matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
-                int e2 = this.f46798b.e(group);
+                int e2 = this.f41845b.e(group);
                 if (e2 > 0 && (d2 = d(e2, String.valueOf(e2))) != null) {
                     int length = group.length();
                     int start = matcher.start();
-                    BitmapDrawable j = d2.j();
-                    j.setBounds(0, 0, 55, 55);
-                    spannableString.setSpan(new e(j, 0), start, length + start, 33);
+                    BitmapDrawable j2 = d2.j();
+                    j2.setBounds(0, 0, 55, 55);
+                    spannableString.setSpan(new e(j2, 0), start, length + start, 33);
                 }
             }
             return spannableString;
@@ -213,23 +211,23 @@ public class TbFaceManager {
 
     public SpannableString k(Context context, String str, int i2, int i3) {
         InterceptResult invokeLLII;
-        b.a.e.m.d.a d2;
+        c.a.d.m.d.a d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, context, str, i2, i3)) == null) {
             if (str == null) {
                 return null;
             }
             SpannableString spannableString = new SpannableString(str);
-            Matcher matcher = Pattern.compile(f46796d).matcher(str);
+            Matcher matcher = Pattern.compile(f41844d).matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
-                int e2 = this.f46798b.e(group);
+                int e2 = this.f41845b.e(group);
                 if (e2 > 0 && (d2 = d(e2, String.valueOf(e2))) != null) {
                     int length = group.length();
                     int start = matcher.start();
-                    BitmapDrawable j = d2.j();
-                    j.setBounds(0, 0, i2 > 0 ? i2 : d2.r(), i3 > 0 ? i3 : d2.m());
-                    spannableString.setSpan(new d(j), start, length + start, 33);
+                    BitmapDrawable j2 = d2.j();
+                    j2.setBounds(0, 0, i2 > 0 ? i2 : d2.r(), i3 > 0 ? i3 : d2.m());
+                    spannableString.setSpan(new d(j2), start, length + start, 33);
                 }
             }
             return spannableString;
@@ -249,17 +247,17 @@ public class TbFaceManager {
                 return null;
             }
             SpannableString spannableString = new SpannableString(str);
-            Matcher matcher = Pattern.compile(f46796d).matcher(str);
+            Matcher matcher = Pattern.compile(f41844d).matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
-                int e2 = this.f46798b.e(group);
+                int e2 = this.f41845b.e(group);
                 if (e2 > 0) {
-                    b.a.e.m.d.a d3 = d(e2, String.valueOf(e2));
+                    c.a.d.m.d.a d3 = d(e2, String.valueOf(e2));
                     if (d3 != null) {
                         int length = group.length();
                         int start = matcher.start();
-                        BitmapDrawable j = d3.j();
-                        if (b.a.q0.b.d.V()) {
+                        BitmapDrawable j2 = d3.j();
+                        if (c.a.q0.b.d.Z()) {
                             d2 = 0.4d;
                             r = d3.r();
                         } else {
@@ -267,8 +265,8 @@ public class TbFaceManager {
                             r = d3.r();
                         }
                         int i2 = (int) (r * d2);
-                        j.setBounds(0, 0, i2, i2);
-                        spannableString.setSpan(new ImageSpan(j, 0), start, length + start, 33);
+                        j2.setBounds(0, 0, i2, i2);
+                        spannableString.setSpan(new ImageSpan(j2, 0), start, length + start, 33);
                     }
                 } else if (aVar != null && (a3 = aVar.a(group)) != null) {
                     int length2 = group.length();

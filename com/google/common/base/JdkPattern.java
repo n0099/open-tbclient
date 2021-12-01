@@ -1,8 +1,8 @@
 package com.google.common.base;
 
-import b.h.d.a.d;
-import b.h.d.a.e;
-import b.h.d.a.n;
+import c.i.d.a.d;
+import c.i.d.a.e;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,20 +12,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class JdkPattern extends e implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pattern pattern;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Matcher f64044a;
+        public final Matcher a;
 
         public a(Matcher matcher) {
             Interceptable interceptable = $ic;
@@ -43,14 +41,14 @@ public final class JdkPattern extends e implements Serializable {
                 }
             }
             n.p(matcher);
-            this.f64044a = matcher;
+            this.a = matcher;
         }
 
-        @Override // b.h.d.a.d
+        @Override // c.i.d.a.d
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64044a.find() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.find() : invokeV.booleanValue;
         }
     }
 
@@ -73,28 +71,28 @@ public final class JdkPattern extends e implements Serializable {
         this.pattern = pattern;
     }
 
-    @Override // b.h.d.a.e
+    @Override // c.i.d.a.e
     public int flags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pattern.flags() : invokeV.intValue;
     }
 
-    @Override // b.h.d.a.e
+    @Override // c.i.d.a.e
     public d matcher(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) ? new a(this.pattern.matcher(charSequence)) : (d) invokeL.objValue;
     }
 
-    @Override // b.h.d.a.e
+    @Override // c.i.d.a.e
     public String pattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pattern.pattern() : (String) invokeV.objValue;
     }
 
-    @Override // b.h.d.a.e
+    @Override // c.i.d.a.e
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

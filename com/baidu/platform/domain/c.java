@@ -1,5 +1,5 @@
 package com.baidu.platform.domain;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface c {
     String a();
 

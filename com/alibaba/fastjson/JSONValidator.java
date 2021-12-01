@@ -2,7 +2,6 @@ package com.alibaba.fastjson;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class JSONValidator implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +25,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     public Type type;
     public Boolean valiateResult;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class ReaderValidator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public static final ThreadLocal<char[]> bufLocal;
@@ -132,7 +131,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -193,7 +192,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class UTF16Validator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +272,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class UTF8InputStreamValidator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public static final ThreadLocal<byte[]> bufLocal;
@@ -378,7 +377,7 @@ public abstract class JSONValidator implements Cloneable, Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class UTF8Validator extends JSONValidator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -705,13 +704,13 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     public static JSONValidator fromUtf8(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? new UTF8Validator(bArr) : (JSONValidator) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? new UTF8Validator(bArr) : (JSONValidator) invokeL.objValue;
     }
 
     public static final boolean isWhiteSpace(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 == ' ' || c2 == '\t' || c2 == '\r' || c2 == '\n' || c2 == '\f' || c2 == '\b' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 == ' ' || c2 == '\t' || c2 == '\r' || c2 == '\n' || c2 == '\f' || c2 == '\b' : invokeCommon.booleanValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable

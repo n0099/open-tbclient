@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FriendListUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_TIME = 0;
@@ -89,40 +88,40 @@ public class FriendListUtils {
     public static boolean isNeedGetInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            long j = mLastTime;
-            long j2 = mPenultTime;
-            return j != j2 || j2 == 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            long j2 = mLastTime;
+            long j3 = mPenultTime;
+            return j2 != j3 || j3 == 0;
         }
         return invokeL.booleanValue;
     }
 
-    public static void setLastTimeStamp(Context context, long j) {
+    public static void setLastTimeStamp(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65542, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(LAST_TIMESTAMP_PREFIX + mUk + mAppid, j).commit();
+            edit.putLong(LAST_TIMESTAMP_PREFIX + mUk + mAppid, j2).commit();
         }
     }
 
-    public static void setPenultTimeStamp(Context context, long j) {
+    public static void setPenultTimeStamp(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(PENULT_TIMESTAMP_PREFIX + mUk + mAppid, j).commit();
+            edit.putLong(PENULT_TIMESTAMP_PREFIX + mUk + mAppid, j2).commit();
         }
     }
 
-    public static void updateGetFriendListTime(Context context, long j) {
+    public static void updateGetFriendListTime(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, null, context, j) == null) {
-            mCurTime = j;
-            long j2 = mLastTime;
-            mPenultTime = j2;
-            setPenultTimeStamp(context, j2);
-            long j3 = mCurTime;
-            mLastTime = j3;
-            setLastTimeStamp(context, j3);
+        if (interceptable == null || interceptable.invokeLJ(65544, null, context, j2) == null) {
+            mCurTime = j2;
+            long j3 = mLastTime;
+            mPenultTime = j3;
+            setPenultTimeStamp(context, j3);
+            long j4 = mCurTime;
+            mLastTime = j4;
+            setLastTimeStamp(context, j4);
         }
     }
 }

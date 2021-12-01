@@ -1,7 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class TimeoutFuture<V> extends FluentFuture.TrustedFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,13 +22,13 @@ public final class TimeoutFuture<V> extends FluentFuture.TrustedFuture<V> {
     public ScheduledFuture<?> timer;
 
     /* renamed from: com.google.common.util.concurrent.TimeoutFuture$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Fire<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class TimeoutFuture<V> extends FluentFuture.TrustedFuture<V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class TimeoutFutureException extends TimeoutException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,13 +144,13 @@ public final class TimeoutFuture<V> extends FluentFuture.TrustedFuture<V> {
         this.delegateRef = listenableFuture;
     }
 
-    public static <V> ListenableFuture<V> create(ListenableFuture<V> listenableFuture, long j, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
+    public static <V> ListenableFuture<V> create(ListenableFuture<V> listenableFuture, long j2, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{listenableFuture, Long.valueOf(j), timeUnit, scheduledExecutorService})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{listenableFuture, Long.valueOf(j2), timeUnit, scheduledExecutorService})) == null) {
             TimeoutFuture timeoutFuture = new TimeoutFuture(listenableFuture);
             Fire fire = new Fire(timeoutFuture);
-            timeoutFuture.timer = scheduledExecutorService.schedule(fire, j, timeUnit);
+            timeoutFuture.timer = scheduledExecutorService.schedule(fire, j2, timeUnit);
             listenableFuture.addListener(fire, MoreExecutors.directExecutor());
             return timeoutFuture;
         }

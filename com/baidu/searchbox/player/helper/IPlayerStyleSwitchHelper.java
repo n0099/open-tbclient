@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.helper;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IPlayerStyleSwitchHelper {
     void switchToFullStyle();
 

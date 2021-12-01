@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DATA_TIME_AlternateIso8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -93,13 +92,13 @@ public class DateUtils {
     public static String rfc822DateFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? rfc822DateFormat(new Date()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? rfc822DateFormat(new Date()) : (String) invokeV.objValue;
     }
 
     public static String rfc822DateFormat(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, date)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, date)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_TIME_Rfc822_FORMAT, Locale.ENGLISH);

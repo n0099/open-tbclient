@@ -11,22 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.c.d;
 import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.h.d;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes2.dex */
 public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Presenter f65119a;
+    public Presenter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f65120b;
+    public T f57155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f65121c;
+    public ViewGroup f57156c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,11 +43,11 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Presenter presenter = this.f65119a;
+            Presenter presenter = this.a;
             if (presenter != null) {
-                presenter.h();
+                presenter.k();
             }
-            this.f65121c = null;
+            this.f57156c = null;
         }
     }
 
@@ -65,13 +63,13 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.f65120b = c();
-            if (this.f65119a == null) {
+            this.f57155b = c();
+            if (this.a == null) {
                 Presenter d2 = d();
-                this.f65119a = d2;
-                d2.a((View) this.f65121c);
+                this.a = d2;
+                d2.c(this.f57156c);
             }
-            this.f65119a.a(this.f65120b);
+            this.a.a(this.f57155b);
         }
     }
 
@@ -81,10 +79,10 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f65121c == null) {
-                this.f65121c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
+            if (this.f57156c == null) {
+                this.f57156c = (ViewGroup) layoutInflater.inflate(b(), viewGroup, false);
             }
-            return this.f65121c;
+            return this.f57156c;
         }
         return (View) invokeLLL.objValue;
     }
@@ -94,7 +92,7 @@ public abstract class a<T extends com.kwad.sdk.core.e.b> extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroyView();
-            T t = this.f65120b;
+            T t = this.f57155b;
             if (t != null) {
                 t.a();
             }

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -107,7 +106,7 @@ public class Utility {
     public static String getSign(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
                 for (int i2 = 0; i2 < packageInfo.signatures.length; i2++) {
@@ -126,7 +125,7 @@ public class Utility {
     public static String getWeiBoVersion(Context context) throws PackageManager.NameNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
             if (packageInfo == null) {
                 return null;

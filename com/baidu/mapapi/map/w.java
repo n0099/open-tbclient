@@ -5,25 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40437a;
+    public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f40438b;
+    public final /* synthetic */ int f36038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f40439c;
+    public final /* synthetic */ int f36039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f40440d;
+    public final /* synthetic */ String f36040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f40441e;
+    public final /* synthetic */ TileOverlay f36041e;
 
     public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +38,11 @@ public class w implements Runnable {
                 return;
             }
         }
-        this.f40441e = tileOverlay;
-        this.f40437a = i2;
-        this.f40438b = i3;
-        this.f40439c = i4;
-        this.f40440d = str;
+        this.f36041e = tileOverlay;
+        this.a = i2;
+        this.f36038b = i3;
+        this.f36039c = i4;
+        this.f36040d = str;
     }
 
     @Override // java.lang.Runnable
@@ -54,15 +52,15 @@ public class w implements Runnable {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tileProvider = this.f40441e.f40372g;
-            Tile tile = ((FileTileProvider) tileProvider).getTile(this.f40437a, this.f40438b, this.f40439c);
+            tileProvider = this.f36041e.f35999g;
+            Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.f36038b, this.f36039c);
             if (tile != null && tile.width == 256 && tile.height == 256) {
-                this.f40441e.a(this.f40437a + "_" + this.f40438b + "_" + this.f40439c, tile);
+                this.f36041e.a(this.a + "_" + this.f36038b + "_" + this.f36039c, tile);
             } else {
-                unused = TileOverlay.f40366b;
+                unused = TileOverlay.f35994b;
             }
-            hashSet = this.f40441e.f40371e;
-            hashSet.remove(this.f40440d);
+            hashSet = this.f36041e.f35998e;
+            hashSet.remove(this.f36040d);
         }
     }
 }

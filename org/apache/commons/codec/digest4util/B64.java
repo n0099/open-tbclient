@@ -5,6 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class B64 {
@@ -31,7 +32,7 @@ public class B64 {
         if (interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Integer.valueOf(i2), sb}) != null) {
             return;
         }
-        int i3 = ((b2 << 16) & 16777215) | ((b3 << 8) & 65535) | (b4 & 255);
+        int i3 = ((b2 << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16777215) | ((b3 << 8) & 65535) | (b4 & 255);
         while (true) {
             int i4 = i2 - 1;
             if (i2 <= 0) {

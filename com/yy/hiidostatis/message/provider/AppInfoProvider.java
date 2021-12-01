@@ -9,7 +9,7 @@ import com.yy.hiidostatis.message.AppInfo;
 import com.yy.hiidostatis.message.sender.AppInfoManager;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppInfoProvider implements Provider<AppInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

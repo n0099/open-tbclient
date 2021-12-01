@@ -3,7 +3,6 @@ package com.facebook.fresco.animation.backend;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -33,7 +32,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public final MonotonicClock mMonotonicClock;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface InactivityListener {
         void onInactive();
     }
@@ -107,7 +106,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public static <T extends AnimationBackend & InactivityListener> AnimationBackendDelegate<T> createForBackend(T t, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, t, monotonicClock, scheduledExecutorService)) == null) ? createForBackend(t, (InactivityListener) t, monotonicClock, scheduledExecutorService) : (AnimationBackendDelegate) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, t, monotonicClock, scheduledExecutorService)) == null) ? createForBackend(t, (InactivityListener) t, monotonicClock, scheduledExecutorService) : (AnimationBackendDelegate) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,10 +154,10 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInactivityThresholdMs : invokeV.longValue;
     }
 
-    public void setInactivityCheckPollingTimeMs(long j) {
+    public void setInactivityCheckPollingTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mInactivityCheckPollingTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mInactivityCheckPollingTimeMs = j2;
         }
     }
 
@@ -169,16 +168,16 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         }
     }
 
-    public void setInactivityThresholdMs(long j) {
+    public void setInactivityThresholdMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.mInactivityThresholdMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.mInactivityThresholdMs = j2;
         }
     }
 
     public static <T extends AnimationBackend> AnimationBackendDelegate<T> createForBackend(T t, InactivityListener inactivityListener, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, t, inactivityListener, monotonicClock, scheduledExecutorService)) == null) ? new AnimationBackendDelegateWithInactivityCheck(t, inactivityListener, monotonicClock, scheduledExecutorService) : (AnimationBackendDelegate) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, t, inactivityListener, monotonicClock, scheduledExecutorService)) == null) ? new AnimationBackendDelegateWithInactivityCheck(t, inactivityListener, monotonicClock, scheduledExecutorService) : (AnimationBackendDelegate) invokeLLLL.objValue;
     }
 }

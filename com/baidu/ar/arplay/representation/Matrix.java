@@ -1,7 +1,6 @@
 package com.baidu.ar.arplay.representation;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Matrix {
     public static /* synthetic */ Interceptable $ic;
     public static final float[] TEMP_MATRIX_ARRAY;
@@ -179,7 +178,7 @@ public final class Matrix {
 
     public static void multiplyMM(float[] fArr, int i2, float[] fArr2, int i3, float[] fArr3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{fArr, Integer.valueOf(i2), fArr2, Integer.valueOf(i3), fArr3, Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Integer.valueOf(i2), fArr2, Integer.valueOf(i3), fArr3, Integer.valueOf(i4)}) == null) {
             int i5 = i3 + 0;
             int i6 = i4 + 0;
             int i7 = i3 + 4;
@@ -238,7 +237,7 @@ public final class Matrix {
 
     public static void multiplyMM(float[] fArr, float[] fArr2, float[] fArr3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, fArr, fArr2, fArr3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, fArr, fArr2, fArr3) == null) {
             fArr[0] = (fArr2[0] * fArr3[0]) + (fArr2[4] * fArr3[1]) + (fArr2[8] * fArr3[2]) + (fArr2[12] * fArr3[3]);
             fArr[1] = (fArr2[1] * fArr3[0]) + (fArr2[5] * fArr3[1]) + (fArr2[9] * fArr3[2]) + (fArr2[13] * fArr3[3]);
             fArr[2] = (fArr2[2] * fArr3[0]) + (fArr2[6] * fArr3[1]) + (fArr2[10] * fArr3[2]) + (fArr2[14] * fArr3[3]);

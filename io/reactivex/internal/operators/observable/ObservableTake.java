@@ -12,13 +12,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long limit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TakeObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T
         public long remaining;
         public Disposable subscription;
 
-        public TakeObserver(Observer<? super T> observer, long j) {
+        public TakeObserver(Observer<? super T> observer, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j)};
+                Object[] objArr = {observer, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T
                 }
             }
             this.actual = observer;
-            this.remaining = j;
+            this.remaining = j2;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -92,11 +92,11 @@ public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j = this.remaining;
-            long j2 = j - 1;
-            this.remaining = j2;
-            if (j > 0) {
-                boolean z = j2 == 0;
+            long j2 = this.remaining;
+            long j3 = j2 - 1;
+            this.remaining = j3;
+            if (j2 > 0) {
+                boolean z = j3 == 0;
                 this.actual.onNext(t);
                 if (z) {
                     onComplete();
@@ -121,13 +121,13 @@ public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTake(ObservableSource<T> observableSource, long j) {
+    public ObservableTake(ObservableSource<T> observableSource, long j2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j)};
+            Object[] objArr = {observableSource, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -138,7 +138,7 @@ public final class ObservableTake<T> extends AbstractObservableWithUpstream<T, T
                 return;
             }
         }
-        this.limit = j;
+        this.limit = j2;
     }
 
     @Override // io.reactivex.Observable

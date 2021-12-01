@@ -1,6 +1,7 @@
 package com.baidu.swan.game.ad.jsbridge;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CommandType {
     public static final /* synthetic */ CommandType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +50,7 @@ public final class CommandType {
         INSTALL_APP = new CommandType("INSTALL_APP", 5, "installApp");
         GET_APP_STATUS = new CommandType("GET_APP_STATUS", 6, "getAppStatus");
         OPEN_APP = new CommandType("OPEN_APP", 7, "openApp");
-        BANNER_VIEW = new CommandType("BANNER_VIEW", 8, "banner");
+        BANNER_VIEW = new CommandType("BANNER_VIEW", 8, SpeedStatsUtils.UBC_VALUE_BANNER);
         DOWNLOAD_PERMISSION_CLICK = new CommandType("DOWNLOAD_PERMISSION_CLICK", 9, "setPermissionActionUrl");
         DOWNLOAD_PRIVACY_CLICK = new CommandType("DOWNLOAD_PRIVACY_CLICK", 10, "setPrivacyActionUrl");
         CommandType commandType = new CommandType("UNSPECIFIED", 11, "");

@@ -22,15 +22,19 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f68804g;
+    public volatile boolean f60738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f68805h;
+    public volatile boolean f60739h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NativeExpressMediaListener f68806i;
-    public volatile boolean j;
-    public final NEADI k;
+    public NativeExpressMediaListener f60740i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile boolean f60741j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public final NEADI f60742k;
     public final NEADVI l;
     public final NativeExpressADData2 m;
     public ADSize n;
@@ -54,11 +58,11 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
                 return;
             }
         }
-        this.f68804g = false;
-        this.f68805h = false;
-        this.j = false;
+        this.f60738g = false;
+        this.f60739h = false;
+        this.f60741j = false;
         this.q = nativeExpressADView;
-        this.k = neadi;
+        this.f60742k = neadi;
         this.l = neadvi;
         this.m = nativeExpressADData2;
         this.n = aDSize;
@@ -70,7 +74,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public NEADVI a(Context context, POFactory pOFactory, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getNativeExpressADView(this.k, this.l, this.m, context, this.q, this.n, str, str2, this.o, this.p) : (NEADVI) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, pOFactory, str, str2)) == null) ? pOFactory.getNativeExpressADView(this.f60742k, this.l, this.m, context, this.q, this.n, str, str2, this.o, this.p) : (NEADVI) invokeLLLL.objValue;
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -81,8 +85,8 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void a(NativeExpressMediaListener nativeExpressMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressMediaListener) == null) {
-            this.f68806i = nativeExpressMediaListener;
-            T t = this.f68719a;
+            this.f60740i = nativeExpressMediaListener;
+            T t = this.a;
             if (t == 0 || nativeExpressMediaListener == null) {
                 return;
             }
@@ -106,21 +110,21 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            NativeExpressMediaListener nativeExpressMediaListener = this.f68806i;
+            NativeExpressMediaListener nativeExpressMediaListener = this.f60740i;
             if (nativeExpressMediaListener != null) {
-                this.f68806i = nativeExpressMediaListener;
-                T t = this.f68719a;
+                this.f60740i = nativeExpressMediaListener;
+                T t = this.a;
                 if (t != 0 && nativeExpressMediaListener != null) {
                     ((NEADVI) t).setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
                 }
             }
-            if (this.f68804g) {
+            if (this.f60738g) {
                 preloadVideo();
             }
-            if (this.f68805h) {
+            if (this.f60739h) {
                 render();
             }
-            if (this.j) {
+            if (this.f60741j) {
                 negativeFeedback();
             }
         }
@@ -129,7 +133,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void destroy() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (t = this.f68719a) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (t = this.a) == 0) {
             return;
         }
         ((NEADVI) t).destroy();
@@ -140,7 +144,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (b()) {
-                T t = this.f68719a;
+                T t = this.a;
                 if (t == 0) {
                     a("negativeFeedback");
                     return;
@@ -151,7 +155,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
             } else {
                 z = true;
             }
-            this.j = z;
+            this.f60741j = z;
         }
     }
 
@@ -159,10 +163,10 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!b()) {
-                this.f68804g = true;
+                this.f60738g = true;
                 return;
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((NEADVI) t).preloadVideo();
             } else {
@@ -175,10 +179,10 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f68805h = true;
+                this.f60739h = true;
                 return;
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((NEADVI) t).render();
             } else {
@@ -191,7 +195,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public void setAdSize(ADSize aDSize) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, aDSize) == null) || (t = this.f68719a) == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, aDSize) == null) || (t = this.a) == 0) {
             return;
         }
         ((NEADVI) t).setAdSize(aDSize);

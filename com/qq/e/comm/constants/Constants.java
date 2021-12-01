@@ -68,7 +68,7 @@ public class Constants {
     /* loaded from: classes2.dex */
     public static final class PLUGIN {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int ASSET_PLUGIN_VERSION = 1280;
+        public static final int ASSET_PLUGIN_VERSION = 1292;
         public transient /* synthetic */ FieldHolder $fh;
 
         public PLUGIN() {

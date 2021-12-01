@@ -23,17 +23,15 @@ public interface u extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.u$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2038a implements u {
+        public static class C2129a implements u {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: a  reason: collision with root package name */
-            public static u f70151a;
+            public static u a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f70152b;
+            public IBinder f61705b;
 
-            public C2038a(IBinder iBinder) {
+            public C2129a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +46,7 @@ public interface u extends IInterface {
                         return;
                     }
                 }
-                this.f70152b = iBinder;
+                this.f61705b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.u
@@ -61,7 +59,7 @@ public interface u extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                         obtain.writeStrongBinder(tVar != null ? tVar.asBinder() : null);
-                        if (!this.f70152b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61705b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(tVar);
                         }
                         obtain2.readException();
@@ -78,7 +76,7 @@ public interface u extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70152b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61705b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -109,7 +107,7 @@ public interface u extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof u)) {
                     return (u) queryLocalInterface;
                 }
-                return new C2038a(iBinder);
+                return new C2129a(iBinder);
             }
             return (u) invokeL.objValue;
         }
@@ -134,9 +132,9 @@ public interface u extends IInterface {
                     return true;
                 }
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
-                boolean a2 = a(t.a.a(parcel.readStrongBinder()));
+                boolean a = a(t.a.a(parcel.readStrongBinder()));
                 parcel2.writeNoException();
-                parcel2.writeInt(a2 ? 1 : 0);
+                parcel2.writeInt(a ? 1 : 0);
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -145,7 +143,7 @@ public interface u extends IInterface {
         public static u a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2038a.f70151a : (u) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2129a.a : (u) invokeV.objValue;
         }
     }
 }

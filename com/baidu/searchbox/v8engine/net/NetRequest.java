@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.Log;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -25,12 +24,12 @@ public class NetRequest extends Observable {
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface RedirectInterceptor {
         boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface RequestInterceptor {
         boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam);
     }
@@ -50,7 +49,7 @@ public class NetRequest extends Observable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeExecute(long j, NetRequestParam netRequestParam);
+    public native void nativeExecute(long j2, NetRequestParam netRequestParam);
 
     private synchronized void receiveRequestCallback(NetRequestParam netRequestParam, int i2, String str, int i3, String[] strArr, int i4, String str2) {
         Interceptable interceptable = $ic;
@@ -83,7 +82,7 @@ public class NetRequest extends Observable {
     private boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, netRequestParam, netRedirectInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, netRequestParam, netRedirectInfo)) == null) {
             RedirectInterceptor redirectInterceptor = this.mRedirectInterceptor;
             if (redirectInterceptor != null) {
                 return redirectInterceptor.shouldInterceptRedirect(netRequestParam, netRedirectInfo);
@@ -96,7 +95,7 @@ public class NetRequest extends Observable {
     private boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, netRequestResult, netRequestParam)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, netRequestResult, netRequestParam)) == null) {
             RequestInterceptor requestInterceptor = this.mRequestInterceptor;
             if (requestInterceptor != null) {
                 return requestInterceptor.shouldInterceptRequest(netRequestResult, netRequestParam);

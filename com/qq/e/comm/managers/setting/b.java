@@ -12,9 +12,7 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONObject f68946a;
+    public JSONObject a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -53,13 +51,13 @@ public class b {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f68946a = new JSONObject(str);
+                this.a = new JSONObject(str);
             } catch (JSONException unused) {
                 GDTLogger.d("JsonException While build" + simpleName + " Instance from JSON");
             }
         }
-        if (this.f68946a == null) {
-            this.f68946a = new JSONObject();
+        if (this.a == null) {
+            this.a = new JSONObject();
         }
     }
 }

@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class jj extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f72266a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public it f822a;
@@ -40,13 +38,13 @@ public class jj extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            byte[] m519a = this.f822a.m519a();
-            if (i3 > this.f822a.a() - this.f72266a) {
-                i3 = this.f822a.a() - this.f72266a;
+            byte[] m568a = this.f822a.m568a();
+            if (i3 > this.f822a.a() - this.a) {
+                i3 = this.f822a.a() - this.a;
             }
             if (i3 > 0) {
-                System.arraycopy(m519a, this.f72266a, bArr, i2, i3);
-                this.f72266a += i3;
+                System.arraycopy(m568a, this.a, bArr, i2, i3);
+                this.a += i3;
             }
             return i3;
         }

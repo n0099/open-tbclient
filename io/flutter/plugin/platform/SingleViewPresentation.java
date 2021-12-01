@@ -1,6 +1,7 @@
 package io.flutter.plugin.platform;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.Presentation;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -27,13 +28,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
 @TargetApi(17)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SingleViewPresentation extends Presentation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +43,14 @@ public class SingleViewPresentation extends Presentation {
     public FrameLayout container;
     public Object createParams;
     public final View.OnFocusChangeListener focusChangeListener;
+    public final Context outerContext;
     public AccessibilityDelegatingFrameLayout rootView;
     public boolean startFocused;
     public PresentationState state;
     public final PlatformViewFactory viewFactory;
     public int viewId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +87,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +149,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ImmContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,23 +219,24 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PresentationContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Context flutterAppWindowContext;
         @Nullable
         public WindowManager windowManager;
         @NonNull
         public final WindowManagerHandler windowManagerHandler;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PresentationContext(Context context, @NonNull WindowManagerHandler windowManagerHandler) {
+        public PresentationContext(Context context, @NonNull WindowManagerHandler windowManagerHandler, Context context2) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, windowManagerHandler};
+                Object[] objArr = {context, windowManagerHandler, context2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -244,6 +248,7 @@ public class SingleViewPresentation extends Presentation {
                 }
             }
             this.windowManagerHandler = windowManagerHandler;
+            this.flutterAppWindowContext = context2;
         }
 
         private WindowManager getWindowManager() {
@@ -258,12 +263,30 @@ public class SingleViewPresentation extends Presentation {
             return (WindowManager) invokeV.objValue;
         }
 
+        private boolean isCalledFromAlertDialog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                for (int i2 = 0; i2 < stackTrace.length && i2 < 11; i2++) {
+                    if (stackTrace[i2].getClassName().equals(AlertDialog.class.getCanonicalName()) && stackTrace[i2].getMethodName().equals("<init>")) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         @Override // android.content.ContextWrapper, android.content.Context
         public Object getSystemService(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if ("window".equals(str)) {
+                    if (isCalledFromAlertDialog()) {
+                        return this.flutterAppWindowContext.getSystemService(str);
+                    }
                     return getWindowManager();
                 }
                 return super.getSystemService(str);
@@ -272,7 +295,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PresentationState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +318,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "PlatformViewsController";
@@ -323,40 +346,52 @@ public class SingleViewPresentation extends Presentation {
         }
 
         private void addView(Object[] objArr) {
-            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65537, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(65537, this, objArr) == null) {
+                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
+                if (fakeWindowViewGroup == null) {
+                    Log.w("PlatformViewsController", "Embedded view called addView while detached from presentation");
+                } else {
+                    fakeWindowViewGroup.addView((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
+                }
             }
-            fakeWindowViewGroup.addView((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
         }
 
         private void removeView(Object[] objArr) {
-            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(65538, this, objArr) == null) {
+                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
+                if (fakeWindowViewGroup == null) {
+                    Log.w("PlatformViewsController", "Embedded view called removeView while detached from presentation");
+                } else {
+                    fakeWindowViewGroup.removeView((View) objArr[0]);
+                }
             }
-            fakeWindowViewGroup.removeView((View) objArr[0]);
         }
 
         private void removeViewImmediate(Object[] objArr) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65539, this, objArr) == null) || this.fakeWindowRootView == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(65539, this, objArr) == null) {
+                if (this.fakeWindowRootView == null) {
+                    Log.w("PlatformViewsController", "Embedded view called removeViewImmediate while detached from presentation");
+                    return;
+                }
+                View view = (View) objArr[0];
+                view.clearAnimation();
+                this.fakeWindowRootView.removeView(view);
             }
-            View view = (View) objArr[0];
-            view.clearAnimation();
-            this.fakeWindowRootView.removeView(view);
         }
 
         private void updateViewLayout(Object[] objArr) {
-            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objArr) == null) {
+                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
+                if (fakeWindowViewGroup == null) {
+                    Log.w("PlatformViewsController", "Embedded view called updateViewLayout while detached from presentation");
+                } else {
+                    fakeWindowViewGroup.updateViewLayout((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
+                }
             }
-            fakeWindowViewGroup.updateViewLayout((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
         }
 
         public WindowManager getWindowManager() {
@@ -455,6 +490,7 @@ public class SingleViewPresentation extends Presentation {
         this.viewId = i2;
         this.createParams = obj;
         this.focusChangeListener = onFocusChangeListener;
+        this.outerContext = context;
         this.state = new PresentationState();
         getWindow().setFlags(8, 8);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -499,7 +535,7 @@ public class SingleViewPresentation extends Presentation {
                 presentationState.windowManagerHandler = new WindowManagerHandler((WindowManager) getContext().getSystemService("window"), presentationState.fakeWindowViewGroup);
             }
             this.container = new FrameLayout(getContext());
-            PresentationContext presentationContext = new PresentationContext(getContext(), this.state.windowManagerHandler);
+            PresentationContext presentationContext = new PresentationContext(getContext(), this.state.windowManagerHandler, this.outerContext);
             if (this.state.platformView == null) {
                 this.state.platformView = this.viewFactory.create(presentationContext, this.viewId, this.createParams);
             }
@@ -544,6 +580,7 @@ public class SingleViewPresentation extends Presentation {
         this.viewFactory = null;
         this.state = presentationState;
         this.focusChangeListener = onFocusChangeListener;
+        this.outerContext = context;
         getWindow().setFlags(8, 8);
         this.startFocused = z;
     }

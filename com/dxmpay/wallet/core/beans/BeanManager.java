@@ -12,26 +12,22 @@ import com.dxmpay.apollon.beans.ApollonBean;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BeanManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, ArrayList<ApollonBean<?>>> a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, ArrayList<ApollonBean<?>>> f63469a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static BeanManager f63470a;
+        public static BeanManager a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +43,7 @@ public final class BeanManager {
                     return;
                 }
             }
-            f63470a = new BeanManager(null);
+            a = new BeanManager(null);
         }
     }
 
@@ -58,17 +54,17 @@ public final class BeanManager {
     public static BeanManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f63470a : (BeanManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (BeanManager) invokeV.objValue;
     }
 
     public synchronized void addBean(String str, ApollonBean<?> apollonBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, apollonBean) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f63469a.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.a.get(str);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f63469a.put(str, arrayList);
+                    this.a.put(str, arrayList);
                 }
                 arrayList.add(apollonBean);
             }
@@ -79,13 +75,13 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f63469a.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.a.get(str);
                 if (arrayList != null) {
                     Iterator<ApollonBean<?>> it = arrayList.iterator();
                     while (it.hasNext()) {
                         it.next().destroyBean();
                     }
-                    this.f63469a.remove(str);
+                    this.a.remove(str);
                 }
             }
         }
@@ -95,8 +91,8 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseBean) == null) {
             synchronized (this) {
-                for (String str : this.f63469a.keySet()) {
-                    ArrayList<ApollonBean<?>> arrayList = this.f63469a.get(str);
+                for (String str : this.a.keySet()) {
+                    ArrayList<ApollonBean<?>> arrayList = this.a.get(str);
                     if (arrayList != null && arrayList.size() > 0) {
                         Iterator<ApollonBean<?>> it = arrayList.iterator();
                         while (true) {
@@ -129,6 +125,6 @@ public final class BeanManager {
                 return;
             }
         }
-        this.f63469a = new HashMap<>();
+        this.a = new HashMap<>();
     }
 }

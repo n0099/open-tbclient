@@ -16,31 +16,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.channel.jy.R;
 import com.win.opensdk.PBMediaView;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class JYNativeAdView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f63671a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f63672b;
+    public FrameLayout f55658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f63673c;
+    public View f55659c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f63674d;
+    public TextView f55660d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f63675e;
+    public ImageView f55661e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f63676f;
+    public Button f55662f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f63677g;
+    public float f55663g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public JYNativeAdView(Context context) {
@@ -60,7 +58,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f63677g = 1.78f;
+        this.f55663g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,7 +80,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f63677g = 1.78f;
+        this.f55663g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,7 +102,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f63677g = 1.78f;
+        this.f55663g = 1.78f;
     }
 
     @Override // android.view.View
@@ -112,15 +110,15 @@ public final class JYNativeAdView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
-            this.f63671a = (TextView) findViewById(R.id.ad_description);
-            this.f63672b = (FrameLayout) findViewById(R.id.ad_img_container);
+            this.a = (TextView) findViewById(R.id.ad_description);
+            this.f55658b = (FrameLayout) findViewById(R.id.ad_img_container);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
-            this.f63673c = pBMediaView;
-            this.f63672b.addView(pBMediaView, layoutParams);
-            this.f63674d = (TextView) findViewById(R.id.ad_title);
-            this.f63675e = (ImageView) findViewById(R.id.ad_icon);
-            this.f63676f = (Button) findViewById(R.id.ad_creative);
+            this.f55659c = pBMediaView;
+            this.f55658b.addView(pBMediaView, layoutParams);
+            this.f55660d = (TextView) findViewById(R.id.ad_title);
+            this.f55661e = (ImageView) findViewById(R.id.ad_icon);
+            this.f55662f = (Button) findViewById(R.id.ad_creative);
         }
     }
 
@@ -129,11 +127,11 @@ public final class JYNativeAdView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f63672b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55658b.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f63677g);
-            this.f63672b.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f55663g);
+            this.f55658b.setLayoutParams(layoutParams);
         }
     }
 }

@@ -14,7 +14,6 @@ import com.baidu.android.pushservice.i.a.b;
 import com.baidu.android.pushservice.j.f;
 import com.baidu.android.pushservice.j.i;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,15 +28,13 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static b f36162a;
+    public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f36163b;
+    public static volatile c f32462b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -74,14 +71,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f36163b == null) {
+            if (f32462b == null) {
                 synchronized (c.class) {
-                    if (f36163b == null) {
-                        f36163b = new c();
+                    if (f32462b == null) {
+                        f32462b = new c();
                     }
                 }
             }
-            return f36163b;
+            return f32462b;
         }
         return (c) invokeV.objValue;
     }
@@ -106,12 +103,12 @@ public class c {
     public HashMap<String, String> a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, str, str2)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             hashMap.put("timestamp", currentTimeMillis + "");
-            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, f36162a.a() + "");
+            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, a.a() + "");
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(DeviceId.getCUID(context));
             hashMap.put("cuids", jSONArray.toString());
@@ -139,19 +136,19 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLI(65543, this, context, i2) == null) || context == null) {
             return;
         }
-        if (f36162a == null) {
+        if (a == null) {
             b(context);
         }
-        if (f36162a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
+        if (a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
             return;
         }
-        f36162a.a(context, launchIntentForPackage.getComponent(), i2);
+        a.a(context, launchIntentForPackage.getComponent(), i2);
     }
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, context) == null) && Build.VERSION.SDK_INT >= 26 && d.l(context)) {
-            f36162a = new a();
+            a = new a();
         }
     }
 
@@ -162,15 +159,13 @@ public class c {
             com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, context, a2 + "/rest/3.0/clientfile/clearbadge") { // from class: com.baidu.android.pushservice.f.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f36164a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f36165b;
+                public final /* synthetic */ String f32463b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f36166c;
+                public final /* synthetic */ c f32464c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -187,23 +182,23 @@ public class c {
                             return;
                         }
                     }
-                    this.f36166c = this;
-                    this.f36164a = context;
-                    this.f36165b = r8;
+                    this.f32464c = this;
+                    this.a = context;
+                    this.f32463b = r8;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HashMap a3 = this.f36166c.a(this.f36164a, "POST", this.f36165b);
+                        HashMap a3 = this.f32464c.a(this.a, "POST", this.f32463b);
                         int i2 = 2;
                         do {
-                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.f36164a, this.f36165b, "POST", a3, "BCCS_SDK/3.0", h.c());
+                            com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.a, this.f32463b, "POST", a3, "BCCS_SDK/3.0", h.c());
                             if (b2 != null) {
                                 int b3 = b2.b();
-                                String a4 = m.a(this.f36164a, b2.a());
-                                if (b3 == 200 && this.f36166c.a(a4) == 0) {
+                                String a4 = m.a(this.a, b2.a());
+                                if (b3 == 200 && this.f32464c.a(a4) == 0) {
                                     return;
                                 }
                             }

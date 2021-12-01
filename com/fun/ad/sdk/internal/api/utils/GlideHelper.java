@@ -14,24 +14,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class GlideHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.fun.ad.sdk.internal.api.utils.GlideHelper$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class GlideHelperHolder {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final GlideHelper f63762a;
+        public static final GlideHelper a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +45,7 @@ public final class GlideHelper {
                     return;
                 }
             }
-            f63762a = new GlideHelper();
+            a = new GlideHelper();
         }
 
         public GlideHelperHolder() {
@@ -82,7 +80,7 @@ public final class GlideHelper {
     public static GlideHelper get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? GlideHelperHolder.f63762a : (GlideHelper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? GlideHelperHolder.a : (GlideHelper) invokeV.objValue;
     }
 
     public void load(Activity activity, String str, ImageView imageView) {

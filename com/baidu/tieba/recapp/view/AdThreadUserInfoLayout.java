@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AfterAdjustChildWidthListener I;
+    public AfterAdjustChildWidthListener J;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }
@@ -61,7 +61,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.adjustChildWidth();
-            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.I;
+            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.J;
             if (afterAdjustChildWidthListener != null) {
                 afterAdjustChildWidthListener.afterChildWidth();
             }
@@ -77,7 +77,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, afterAdjustChildWidthListener) == null) {
-            this.I = afterAdjustChildWidthListener;
+            this.J = afterAdjustChildWidthListener;
         }
     }
 

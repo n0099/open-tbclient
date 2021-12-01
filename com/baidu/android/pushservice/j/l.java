@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,9 +96,7 @@ public class l {
                     new Handler(context.getMainLooper()).postDelayed(new Runnable(context) { // from class: com.baidu.android.pushservice.j.l.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f36546a;
+                        public final /* synthetic */ Context a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,15 +113,15 @@ public class l {
                                     return;
                                 }
                             }
-                            this.f36546a = context;
+                            this.a = context;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                com.baidu.android.pushservice.job.a.a(this.f36546a);
-                                com.baidu.android.pushservice.job.a.a(this.f36546a, true);
+                                com.baidu.android.pushservice.job.a.a(this.a);
+                                com.baidu.android.pushservice.job.a.a(this.a, true);
                             }
                         }
                     }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -131,9 +129,7 @@ public class l {
                 com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("checkAndStartPushService", (short) 98, context.getApplicationContext()) { // from class: com.baidu.android.pushservice.j.l.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f36547a;
+                    public final /* synthetic */ Context a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -154,14 +150,14 @@ public class l {
                                 return;
                             }
                         }
-                        this.f36547a = r10;
+                        this.a = r10;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.a(this.f36547a, new Intent());
+                            l.a(this.a, new Intent());
                         }
                     }
                 });

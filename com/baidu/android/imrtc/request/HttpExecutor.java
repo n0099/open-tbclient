@@ -21,7 +21,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpExecutor";
@@ -29,7 +29,7 @@ public class HttpExecutor {
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient okHttpClient;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class HttpExecutorLogger implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,10 +66,10 @@ public class HttpExecutor {
                     BIMRtcEvent bIMRtcEvent = BIMRtcManager.mBIMRtcEvent;
                     StringBuilder sb = new StringBuilder();
                     sb.append("req_time=");
-                    long j = currentTimeMillis2 - currentTimeMillis;
-                    sb.append(j);
+                    long j2 = currentTimeMillis2 - currentTimeMillis;
+                    sb.append(j2);
                     bIMRtcEvent.ext = sb.toString();
-                    LogUtils.d("HttpExecutor", ">>>>>request time=" + j + ", url=" + request.url().toString());
+                    LogUtils.d("HttpExecutor", ">>>>>request time=" + j2 + ", url=" + request.url().toString());
                     return proceed;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -80,7 +80,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -95,7 +95,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface ResponseHandler {
         void onFailure(int i2, String str);
 

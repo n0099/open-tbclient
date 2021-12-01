@@ -20,7 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String n = "GoogleSSOLoginActivity";
@@ -45,17 +45,17 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, task) == null) {
             try {
-                b(((GoogleSignInAccount) task.getResult(ApiException.class)).getIdToken());
+                c(((GoogleSignInAccount) task.getResult(ApiException.class)).getIdToken());
             } catch (ApiException e2) {
                 int statusCode = e2.getStatusCode();
                 String message = e2.getMessage();
                 Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-                a(((BaseSSOLoginActivity) this).f43481g, statusCode, message);
+                a(((BaseSSOLoginActivity) this).f38705g, statusCode, message);
             }
         }
     }
 
-    private void b(String str) {
+    private void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             SapiConfiguration sapiConfiguration = this.configuration;
@@ -63,17 +63,17 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(b.a.c0.a.j.a.sapi_sdk_google_loging));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(c.a.d0.a.j.a.sapi_sdk_google_loging));
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && a("com.google.android.gms.auth.api.signin.GoogleSignInAccount").booleanValue()) {
             GoogleSignInAccount lastSignedInAccount = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
             String idToken = lastSignedInAccount != null ? lastSignedInAccount.getIdToken() : null;
             if (!TextUtils.isEmpty(idToken)) {
-                b(idToken);
+                c(idToken);
             } else {
                 startActivityForResult(GoogleSignIn.getClient(this, e()).getSignInIntent(), 1000);
             }
@@ -111,7 +111,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(b.a.c0.a.j.a.sapi_sdk_title_login_google);
+            setTitleText(c.a.d0.a.j.a.sapi_sdk_title_login_google);
             d();
         }
     }

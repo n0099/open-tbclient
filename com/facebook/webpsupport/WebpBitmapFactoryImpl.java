@@ -9,7 +9,6 @@ import android.os.Build;
 import android.util.TypedValue;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;
@@ -116,7 +115,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         InterceptResult invokeLL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, options)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, inputStream, options)) == null) {
             inputStream.mark(20);
             if (options == null || (bArr = options.inTempStorage) == null || bArr.length < 20) {
                 bArr = new byte[20];
@@ -301,7 +300,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
 
     @DoNotStrip
-    public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
+    public static native long nativeSeek(FileDescriptor fileDescriptor, long j2, boolean z);
 
     @DoNotStrip
     public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
@@ -537,7 +536,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static Bitmap hookDecodeByteArray(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) ? hookDecodeByteArray(bArr, i2, i3, null) : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) ? hookDecodeByteArray(bArr, i2, i3, null) : (Bitmap) invokeLII.objValue;
     }
 
     @DoNotStrip

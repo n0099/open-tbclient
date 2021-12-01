@@ -17,17 +17,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.d.a;
-import com.kwad.sdk.utils.v;
+import com.kwad.sdk.utils.z;
 /* loaded from: classes2.dex */
 public class AdBaseFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final v.a f66112b;
+    public static final z.a f57936b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f66113a;
+    public View.OnTouchListener a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +40,7 @@ public class AdBaseFrameLayout extends FrameLayout {
                 return;
             }
         }
-        f66112b = new v.a();
+        f57936b = new z.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,7 +113,7 @@ public class AdBaseFrameLayout extends FrameLayout {
                 super.dispatchRestoreInstanceState(sparseArray);
             } catch (Throwable th) {
                 a.a(th);
-                com.kwad.sdk.core.a.a.a(th);
+                com.kwad.sdk.core.kwai.a.a(th);
             }
         }
     }
@@ -132,16 +130,16 @@ public class AdBaseFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            View.OnTouchListener onTouchListener = this.f66113a;
+            View.OnTouchListener onTouchListener = this.a;
             if (onTouchListener != null) {
                 onTouchListener.onTouch(this, motionEvent);
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                f66112b.a(getWidth(), getHeight());
-                f66112b.a(motionEvent.getX(), motionEvent.getY());
+                f57936b.a(getWidth(), getHeight());
+                f57936b.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                f66112b.b(motionEvent.getX(), motionEvent.getY());
+                f57936b.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -149,10 +147,10 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     @MainThread
-    public v.a getTouchCoords() {
+    public z.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f66112b : (v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f57936b : (z.a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -165,7 +163,7 @@ public class AdBaseFrameLayout extends FrameLayout {
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onTouchListener) == null) {
-            this.f66113a = onTouchListener;
+            this.a = onTouchListener;
         }
     }
 }

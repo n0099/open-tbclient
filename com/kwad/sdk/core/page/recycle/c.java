@@ -11,12 +11,10 @@ import com.kwad.sdk.mvp.Presenter;
 public class c extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Presenter f65821a;
+    public final Presenter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f65822b;
+    public final e f57602b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view, Presenter presenter, e eVar) {
@@ -36,8 +34,8 @@ public class c extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f65822b = eVar;
-        this.f65821a = presenter;
-        presenter.a(view);
+        this.f57602b = eVar;
+        this.a = presenter;
+        presenter.c(view);
     }
 }

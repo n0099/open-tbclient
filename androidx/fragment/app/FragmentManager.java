@@ -39,7 +39,6 @@ import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -577,7 +576,7 @@ public abstract class FragmentManager {
 
     private void cleanupExec() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mExecutingActions = false;
             this.mTmpIsPop.clear();
             this.mTmpRecords.clear();
@@ -587,7 +586,7 @@ public abstract class FragmentManager {
     private void completeShowHideFragment(@NonNull Fragment fragment) {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fragment) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, fragment) == null) {
             if (fragment.mView != null) {
                 FragmentAnim.AnimationOrAnimator loadAnimation = FragmentAnim.loadAnimation(this.mHost.getContext(), this.mContainer, fragment, !fragment.mHidden);
                 if (loadAnimation != null && (animator = loadAnimation.animator) != null) {

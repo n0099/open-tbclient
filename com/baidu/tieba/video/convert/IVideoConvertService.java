@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface IVideoConvertService extends IInterface {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Stub extends Binder implements IVideoConvertService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoConvertService";
@@ -26,7 +26,7 @@ public interface IVideoConvertService extends IInterface {
         public static final int TRANSACTION_setIVideoConvertListener = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public static class Proxy implements IVideoConvertService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

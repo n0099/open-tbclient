@@ -28,7 +28,6 @@ import android.text.format.Formatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -42,6 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.permission.PermissionManager;
+import com.kuaishou.weapon.un.s;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -61,32 +61,30 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_API_ARM_V7A = "armeabi-v7a";
     public static final String CPU_API_ARM_V8A = "arm64-v8a";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static CPUInfo f63129a;
+    public static CPUInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f63130b;
+    public static ArrayList<String> f55186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f63131c;
+    public static final Pattern f55187c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f63132d;
+    public static final Pattern f55188d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f63133e;
+    public static final Pattern f55189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f63134f;
+    public static final Pattern f55190f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -124,7 +122,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,16 +162,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f63130b = new ArrayList<>();
-        f63131c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f63132d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f63133e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f63134f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f63130b.add("card_no");
-        f63130b.add("valid_date");
-        f63130b.add("cvv2");
-        f63130b.add("identity_code");
-        f63130b.add("phone_number");
+        f55186b = new ArrayList<>();
+        f55187c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f55188d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f55189e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f55190f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f55186b.add("card_no");
+        f55186b.add("valid_date");
+        f55186b.add("cvv2");
+        f55186b.add("identity_code");
+        f55186b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -208,10 +206,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f63131c.matcher(deviceID);
+            Matcher matcher = f55187c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f63132d.matcher(deviceID);
+                Matcher matcher2 = f55188d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -230,9 +228,9 @@ public final class PhoneUtils {
     public static String encrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f63130b.contains(str)) {
+            if (f55186b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -248,7 +246,7 @@ public final class PhoneUtils {
     public static int getAppVersionCode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (context == null) {
                 return 0;
             }
@@ -341,11 +339,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f63133e.matcher(cuid).matches()) {
+            if (f55189e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f63134f.matcher(cuid).matches()) {
+                if (f55190f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -365,12 +363,12 @@ public final class PhoneUtils {
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, "android.permission.READ_PHONE_STATE")) {
+        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f56838c)) {
             return "";
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((hasPermission(context, "android.permission.ACCESS_FINE_LOCATION") || hasPermission(context, "android.permission.ACCESS_COARSE_LOCATION")) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((hasPermission(context, s.f56842g) || hasPermission(context, s.f56843h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -396,7 +394,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             try {
-                if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                if (hasPermission(context, s.f56842g)) {
                     Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
                     LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
                     return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
@@ -612,7 +610,7 @@ public final class PhoneUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            CPUInfo cPUInfo = f63129a;
+            CPUInfo cPUInfo = a;
             if (cPUInfo != null) {
                 return cPUInfo;
             }
@@ -641,7 +639,7 @@ public final class PhoneUtils {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            f63129a = cPUInfo2;
+            a = cPUInfo2;
             return cPUInfo2;
         }
         return (CPUInfo) invokeV.objValue;
@@ -661,18 +659,18 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
-            long j = 0;
+            long j2 = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
                 String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
                     String str2 = str + TrackUI.SEPERATOR;
                 }
-                j = Long.valueOf(split[1]).longValue() * 1024;
+                j2 = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();
             } catch (IOException unused) {
             }
-            return Formatter.formatFileSize(context, j);
+            return Formatter.formatFileSize(context, j2);
         }
         return (String) invokeL.objValue;
     }
@@ -704,7 +702,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (hasPermission(context, s.f56839d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;

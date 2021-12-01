@@ -22,7 +22,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHNewCreditItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,7 @@ public class NHNewCreditItem extends BaseItemView {
                     this.mMainPanel.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHNewCreditItem.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHNewCreditItem f59458a;
+                        public final /* synthetic */ NHNewCreditItem a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -141,14 +139,14 @@ public class NHNewCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f59458a = this;
+                            this.a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f59458a.getWalletInterface().jump(this.f59458a.getData().getName(), this.f59458a.getData().getType(), this.f59458a.getData().getLinkAddr(), this.f59458a.getData().getPrevlogin());
+                                this.a.getWalletInterface().jump(this.a.getData().getName(), this.a.getData().getType(), this.a.getData().getLinkAddr(), this.a.getData().getPrevlogin());
                             }
                         }
                     });
@@ -165,9 +163,7 @@ public class NHNewCreditItem extends BaseItemView {
                         this.mButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHNewCreditItem.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ NHNewCreditItem f59459a;
+                            public final /* synthetic */ NHNewCreditItem a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,14 +180,14 @@ public class NHNewCreditItem extends BaseItemView {
                                         return;
                                     }
                                 }
-                                this.f59459a = this;
+                                this.a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    this.f59459a.getWalletInterface().jump(this.f59459a.getData().buttons[0].name, this.f59459a.getData().buttons[0].type, this.f59459a.getData().buttons[0].link_addr, this.f59459a.getData().getPrevlogin());
+                                    this.a.getWalletInterface().jump(this.a.getData().buttons[0].name, this.a.getData().buttons[0].type, this.a.getData().buttons[0].link_addr, this.a.getData().getPrevlogin());
                                 }
                             }
                         });
@@ -242,9 +238,7 @@ public class NHNewCreditItem extends BaseItemView {
                     this.mNoticePanel.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHNewCreditItem.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHNewCreditItem f59460a;
+                        public final /* synthetic */ NHNewCreditItem a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -261,14 +255,14 @@ public class NHNewCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f59460a = this;
+                            this.a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f59460a.getWalletInterface().jump(this.f59460a.getData().buttons[1].name, this.f59460a.getData().buttons[1].type, this.f59460a.getData().buttons[1].link_addr, this.f59460a.getData().getPrevlogin());
+                                this.a.getWalletInterface().jump(this.a.getData().buttons[1].name, this.a.getData().buttons[1].type, this.a.getData().buttons[1].link_addr, this.a.getData().getPrevlogin());
                             }
                         }
                     });

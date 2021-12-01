@@ -4,7 +4,6 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f35058a;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +66,7 @@ public class h {
 
     public static synchronized void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             synchronized (h.class) {
                 try {
                     PreferenceManager.getDefaultSharedPreferences(context).edit().remove(str).apply();
@@ -103,7 +100,7 @@ public class h {
 
     public static synchronized void b(com.alipay.sdk.sys.a aVar, Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, aVar, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, aVar, context, str, str2) == null) {
             synchronized (h.class) {
                 try {
                     String b2 = com.alipay.sdk.encrypt.e.b(a(context), str2, str);
@@ -123,16 +120,16 @@ public class h {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f35058a)) {
+            if (TextUtils.isEmpty(a)) {
                 try {
                     str = context.getApplicationContext().getPackageName();
                 } catch (Throwable th) {
                     c.a(th);
                     str = "";
                 }
-                f35058a = (str + "0000000000000000000000000000").substring(0, 24);
+                a = (str + "0000000000000000000000000000").substring(0, 24);
             }
-            return f35058a;
+            return a;
         }
         return (String) invokeL.objValue;
     }

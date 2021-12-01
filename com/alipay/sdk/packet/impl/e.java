@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e extends com.alipay.sdk.packet.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,21 +61,21 @@ public class e extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) {
             com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "mdap post");
-            byte[] a2 = com.alipay.sdk.encrypt.b.a(str.getBytes(Charset.forName("UTF-8")));
+            byte[] a = com.alipay.sdk.encrypt.b.a(str.getBytes(Charset.forName("UTF-8")));
             HashMap hashMap = new HashMap();
             hashMap.put("utdId", com.alipay.sdk.sys.b.d().c());
             hashMap.put("logHeader", "RAW");
-            hashMap.put("bizCode", com.alipay.sdk.util.c.f35025b);
+            hashMap.put("bizCode", com.alipay.sdk.util.c.f31407b);
             hashMap.put("productId", "alipaysdk_android");
             hashMap.put("Content-Encoding", "Gzip");
             hashMap.put("productVersion", "15.8.02");
-            a.b a3 = com.alipay.sdk.net.a.a(context, new a.C1563a(com.alipay.sdk.cons.a.f34900d, hashMap, a2));
-            com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "mdap got " + a3);
-            if (a3 != null) {
-                boolean a4 = com.alipay.sdk.packet.e.a(a3);
+            a.b a2 = com.alipay.sdk.net.a.a(context, new a.C1639a(com.alipay.sdk.cons.a.f31294d, hashMap, a));
+            com.alipay.sdk.util.c.d(com.alipay.sdk.cons.a.x, "mdap got " + a2);
+            if (a2 != null) {
+                boolean a3 = com.alipay.sdk.packet.e.a(a2);
                 try {
-                    byte[] bArr = a3.f34971c;
-                    if (a4) {
+                    byte[] bArr = a2.f31359c;
+                    if (a3) {
                         bArr = com.alipay.sdk.encrypt.b.b(bArr);
                     }
                     return new com.alipay.sdk.packet.b("", new String(bArr, Charset.forName("UTF-8")));

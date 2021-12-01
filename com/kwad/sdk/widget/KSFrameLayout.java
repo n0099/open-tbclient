@@ -13,38 +13,38 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-import com.kwad.sdk.utils.v;
+import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public class KSFrameLayout extends FrameLayout implements c {
+public class KSFrameLayout extends FrameLayout implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f67666a;
+    public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f67667b;
+    public h f59708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f67668c;
+    public j f59709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f67669d;
+    public i f59710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f67670e;
+    public float f59711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final v.a f67671f;
+    public final z.a f59712f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f59713g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSFrameLayout(@NonNull Context context) {
@@ -64,9 +64,10 @@ public class KSFrameLayout extends FrameLayout implements c {
                 return;
             }
         }
-        this.f67666a = new AtomicBoolean(true);
-        this.f67670e = 0.0f;
-        this.f67671f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59711e = 0.0f;
+        this.f59712f = new z.a();
+        this.f59713g = true;
         a(context, null);
     }
 
@@ -89,9 +90,10 @@ public class KSFrameLayout extends FrameLayout implements c {
                 return;
             }
         }
-        this.f67666a = new AtomicBoolean(true);
-        this.f67670e = 0.0f;
-        this.f67671f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59711e = 0.0f;
+        this.f59712f = new z.a();
+        this.f59713g = true;
         a(context, attributeSet);
     }
 
@@ -114,9 +116,10 @@ public class KSFrameLayout extends FrameLayout implements c {
                 return;
             }
         }
-        this.f67666a = new AtomicBoolean(true);
-        this.f67670e = 0.0f;
-        this.f67671f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59711e = 0.0f;
+        this.f59712f = new z.a();
+        this.f59713g = true;
         a(context, attributeSet);
     }
 
@@ -128,21 +131,27 @@ public class KSFrameLayout extends FrameLayout implements c {
                 int[] iArr = {i2};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f67670e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+                this.f59711e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
                 obtainStyledAttributes.recycle();
             }
-            a aVar = new a(this, this);
-            this.f67667b = aVar;
-            aVar.a(n());
-            b bVar = new b();
-            this.f67669d = bVar;
-            bVar.a(context, attributeSet);
+            h hVar = new h(this, this);
+            this.f59708b = hVar;
+            hVar.a(n());
+            i iVar = new i();
+            this.f59710d = iVar;
+            iVar.a(context, attributeSet);
         }
+    }
+
+    private float[] b(float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? new float[]{f2, f2, f3, f3, f4, f4, f5, f5} : (float[]) invokeCommon.objValue;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f67666a.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("KSFrameLayout", "onViewAttached");
             a();
         }
@@ -150,7 +159,7 @@ public class KSFrameLayout extends FrameLayout implements c {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f67666a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("KSFrameLayout", "onViewDetached");
@@ -161,36 +170,43 @@ public class KSFrameLayout extends FrameLayout implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f67667b.b();
+            this.f59708b.b();
         }
     }
 
-    @Override // com.kwad.sdk.widget.c
+    public void a(float f2, float f3, float f4, float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            this.f59710d.a(b(f2, f3, f4, f5));
+            postInvalidate();
+        }
+    }
+
     @CallSuper
     public void a(View view) {
-        c cVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (cVar = this.f67668c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (jVar = this.f59709c) == null) {
             return;
         }
-        cVar.a(view);
+        jVar.a(view);
     }
 
     @CallSuper
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f67667b.c();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f59708b.c();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            this.f67669d.c(canvas);
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            this.f59710d.c(canvas);
             super.dispatchDraw(canvas);
-            this.f67669d.d(canvas);
+            this.f59710d.d(canvas);
         }
     }
 
@@ -198,13 +214,13 @@ public class KSFrameLayout extends FrameLayout implements c {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f67671f.a(getWidth(), getHeight());
-                this.f67671f.a(motionEvent.getX(), motionEvent.getY());
+                this.f59712f.a(getWidth(), getHeight());
+                this.f59712f.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                this.f67671f.b(motionEvent.getX(), motionEvent.getY());
+                this.f59712f.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -214,30 +230,30 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            this.f67669d.a(canvas);
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            this.f59710d.a(canvas);
             super.draw(canvas);
-            this.f67669d.b(canvas);
+            this.f59710d.b(canvas);
         }
     }
 
     @MainThread
-    public v.a getTouchCoords() {
+    public z.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67671f : (v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59712f : (z.a) invokeV.objValue;
     }
 
     public float getVisiblePercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67667b.a() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59708b.a() : invokeV.floatValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -247,7 +263,7 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Deprecated
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onAttachedToWindow();
             c();
         }
@@ -257,7 +273,7 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Deprecated
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
             d();
         }
@@ -266,7 +282,7 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onFinishTemporaryDetach();
             c();
         }
@@ -275,9 +291,13 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            if (this.f67670e != 0.0f) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f67670e), 1073741824);
+        if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
+            if (this.f59711e != 0.0f) {
+                if (this.f59713g) {
+                    i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f59711e), 1073741824);
+                } else {
+                    i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i3) / this.f59711e), 1073741824);
+                }
             }
             super.onMeasure(i2, i3);
         }
@@ -286,18 +306,18 @@ public class KSFrameLayout extends FrameLayout implements c {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
-            this.f67667b.a(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
+            this.f59708b.a(i2, i3, i4, i5);
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f67667b.b(i2, i3, i4, i5);
-            this.f67669d.a(i2, i3);
+            this.f59708b.b(i2, i3, i4, i5);
+            this.f59710d.a(i2, i3);
         }
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onStartTemporaryDetach();
             d();
         }
@@ -305,30 +325,37 @@ public class KSFrameLayout extends FrameLayout implements c {
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.f67669d.a(f2);
+        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
+            this.f59710d.a(f2);
             postInvalidate();
         }
     }
 
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f67670e = f2;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
+            this.f59711e = f2;
         }
     }
 
-    public void setViewVisibleListener(c cVar) {
+    public void setViewVisibleListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
-            this.f67668c = cVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, jVar) == null) {
+            this.f59709c = jVar;
         }
     }
 
     public void setVisiblePercent(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f67667b.a(f2);
+        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
+            this.f59708b.a(f2);
+        }
+    }
+
+    public void setWidthBasedRatio(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.f59713g = z;
         }
     }
 }

@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AuthoritySharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FIRSTSHOT_CONFIG = "firstshot_config";
@@ -89,13 +88,13 @@ public class AuthoritySharedPreferences {
     public static long getAuthorityConfigTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sPref.getLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sPref.getLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, 0L) : invokeV.longValue;
     }
 
     public static boolean getAuthorityStorageResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true) : invokeV.booleanValue;
     }
 
     public static String getFirstShotConfig() {
@@ -150,10 +149,10 @@ public class AuthoritySharedPreferences {
         }
     }
 
-    public static void setAuthorityConfigTimestamp(long j) {
+    public static void setAuthorityConfigTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
-            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j).apply();
+        if (interceptable == null || interceptable.invokeJ(65549, null, j2) == null) {
+            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j2).apply();
         }
     }
 

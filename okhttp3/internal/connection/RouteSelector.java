@@ -2,7 +2,6 @@ package okhttp3.internal.connection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -195,7 +194,7 @@ public final class RouteSelector {
 
     private void resetNextProxy(HttpUrl httpUrl, Proxy proxy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, httpUrl, proxy) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, httpUrl, proxy) == null) {
             if (proxy != null) {
                 this.proxies = Collections.singletonList(proxy);
             } else {

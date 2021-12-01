@@ -16,25 +16,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f35766a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f35767b;
+    public Handler f32133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35768c;
+    public boolean f32134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Runnable f35769d;
+    public final Runnable f32135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Runnable f35770e;
+    public final Runnable f32136e;
 
     public PushService() {
         Interceptable interceptable = $ic;
@@ -49,15 +47,13 @@ public class PushService extends Service {
                 return;
             }
         }
-        this.f35766a = false;
-        this.f35767b = new Handler();
-        this.f35768c = false;
-        this.f35769d = new Runnable(this) { // from class: com.baidu.android.pushservice.PushService.1
+        this.a = false;
+        this.f32133b = new Handler();
+        this.f32134c = false;
+        this.f32135d = new Runnable(this) { // from class: com.baidu.android.pushservice.PushService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PushService f35771a;
+            public final /* synthetic */ PushService a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -74,7 +70,7 @@ public class PushService extends Service {
                         return;
                     }
                 }
-                this.f35771a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
@@ -82,16 +78,14 @@ public class PushService extends Service {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     g.b();
-                    this.f35771a.stopSelf();
+                    this.a.stopSelf();
                 }
             }
         };
-        this.f35770e = new Runnable(this) { // from class: com.baidu.android.pushservice.PushService.2
+        this.f32136e = new Runnable(this) { // from class: com.baidu.android.pushservice.PushService.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PushService f35772a;
+            public final /* synthetic */ PushService a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -108,7 +102,7 @@ public class PushService extends Service {
                         return;
                     }
                 }
-                this.f35772a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
@@ -124,14 +118,14 @@ public class PushService extends Service {
     private void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f35766a = z;
+            this.a = z;
             com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
             if (z2) {
-                this.f35769d.run();
+                this.f32135d.run();
                 return;
             }
-            this.f35767b.removeCallbacks(this.f35769d);
-            this.f35767b.postDelayed(this.f35769d, 1000L);
+            this.f32133b.removeCallbacks(this.f32135d);
+            this.f32133b.postDelayed(this.f32135d, 1000L);
         }
     }
 
@@ -152,9 +146,9 @@ public class PushService extends Service {
             super.onCreate();
             com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
             m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-            boolean a2 = g.a(this).a();
-            this.f35768c = a2;
-            if (a2) {
+            boolean a = g.a(this).a();
+            this.f32134c = a;
+            if (a) {
                 return;
             }
             a(true, false);
@@ -169,11 +163,11 @@ public class PushService extends Service {
             com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
             m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
             g.b();
-            if (this.f35766a) {
-                this.f35767b.removeCallbacks(this.f35770e);
-                this.f35767b.postDelayed(this.f35770e, 1000L);
+            if (this.a) {
+                this.f32133b.removeCallbacks(this.f32136e);
+                this.f32133b.postDelayed(this.f32136e, 1000L);
             }
-            if (!this.f35768c || g.a(this).e()) {
+            if (!this.f32134c || g.a(this).e()) {
                 return;
             }
             try {
@@ -208,12 +202,12 @@ public class PushService extends Service {
                     new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
                 }
             }
-            this.f35767b.removeCallbacks(this.f35769d);
-            this.f35767b.removeCallbacks(this.f35770e);
+            this.f32133b.removeCallbacks(this.f32135d);
+            this.f32133b.removeCallbacks(this.f32136e);
             try {
-                boolean a2 = g.a(this).a(intent);
-                this.f35768c = a2;
-                if (a2) {
+                boolean a = g.a(this).a(intent);
+                this.f32134c = a;
+                if (a) {
                     return 1;
                 }
                 a(true, true);

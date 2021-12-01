@@ -5,7 +5,6 @@ import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +23,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -118,7 +117,7 @@ public class L {
 
     public static void errorOn(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, objArr) == null) {
             try {
                 String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
                 getTag();
@@ -133,7 +132,7 @@ public class L {
     public static String formatErrorMsg(String str, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr)) == null) ? (objArr.length <= 0 || !(objArr[objArr.length + (-1)] instanceof Throwable)) ? str : logToFile(str, (Throwable) objArr[objArr.length - 1]) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) ? (objArr.length <= 0 || !(objArr[objArr.length + (-1)] instanceof Throwable)) ? str : logToFile(str, (Throwable) objArr[objArr.length - 1]) : (String) invokeLL.objValue;
     }
 
     public static String formatLog(int i2, String str) {

@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +26,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JSONSerializer extends SerializeFilterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +74,7 @@ public class JSONSerializer extends SerializeFilterable {
 
     public static void write(Writer writer, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, writer, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, writer, obj) == null) {
             SerializeWriter serializeWriter = new SerializeWriter();
             try {
                 try {
@@ -394,7 +392,7 @@ public class JSONSerializer extends SerializeFilterable {
                 }
             } else if (obj instanceof byte[]) {
                 byte[] bArr = (byte[]) obj;
-                if (!AsyncHttpClient.ENCODING_GZIP.equals(str) && !"gzip,base64".equals(str)) {
+                if (!"gzip".equals(str) && !"gzip,base64".equals(str)) {
                     if ("hex".equals(str)) {
                         this.out.writeHex(bArr);
                         return;
@@ -416,11 +414,11 @@ public class JSONSerializer extends SerializeFilterable {
                         gZIPOutputStream2.write(bArr);
                         gZIPOutputStream2.finish();
                         this.out.writeByteArray(byteArrayOutputStream.toByteArray());
-                    } finally {
-                        IOUtils.close(gZIPOutputStream2);
+                    } catch (IOException e2) {
+                        throw new JSONException("write gzipBytes error", e2);
                     }
-                } catch (IOException e2) {
-                    throw new JSONException("write gzipBytes error", e2);
+                } finally {
+                    IOUtils.close(gZIPOutputStream2);
                 }
             } else if (obj instanceof Collection) {
                 Collection collection = (Collection) obj;
@@ -559,7 +557,7 @@ public class JSONSerializer extends SerializeFilterable {
 
     public static void write(SerializeWriter serializeWriter, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, serializeWriter, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, serializeWriter, obj) == null) {
             new JSONSerializer(serializeWriter).write(obj);
         }
     }

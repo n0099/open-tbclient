@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,12 +24,10 @@ import java.util.List;
 public class b implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<Integer> f69873a;
+    public List<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f69874b;
+    public BroadcastReceiver f61508b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -64,16 +61,14 @@ public class b implements l {
         for (DownloadInfo downloadInfo : list) {
             a(N, downloadInfo, b2, i2);
         }
-        List<Integer> list2 = this.f69873a;
-        if (list2 == null || list2.isEmpty() || this.f69874b != null) {
+        List<Integer> list2 = this.a;
+        if (list2 == null || list2.isEmpty() || this.f61508b != null) {
             return;
         }
-        this.f69874b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f61508b = new BroadcastReceiver(this) { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f69878a;
+            public final /* synthetic */ b a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -90,7 +85,7 @@ public class b implements l {
                         return;
                     }
                 }
-                this.f69878a = this;
+                this.a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -103,12 +98,10 @@ public class b implements l {
                         c.l().execute(new Runnable(this, applicationContext) { // from class: com.ss.android.socialbase.appdownloader.d.b.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f69879a;
+                            public final /* synthetic */ Context a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f69880b;
+                            public final /* synthetic */ AnonymousClass2 f61511b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -125,8 +118,8 @@ public class b implements l {
                                         return;
                                     }
                                 }
-                                this.f69880b = this;
-                                this.f69879a = applicationContext;
+                                this.f61511b = this;
+                                this.a = applicationContext;
                             }
 
                             @Override // java.lang.Runnable
@@ -134,15 +127,15 @@ public class b implements l {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     try {
-                                        if (this.f69880b.f69878a.f69873a != null && !this.f69880b.f69878a.f69873a.isEmpty()) {
-                                            int size = this.f69880b.f69878a.f69873a.size();
+                                        if (this.f61511b.a.a != null && !this.f61511b.a.a.isEmpty()) {
+                                            int size = this.f61511b.a.a.size();
                                             Integer[] numArr = new Integer[size];
-                                            this.f69880b.f69878a.f69873a.toArray(numArr);
-                                            this.f69880b.f69878a.f69873a.clear();
+                                            this.f61511b.a.a.toArray(numArr);
+                                            this.f61511b.a.a.clear();
                                             for (int i3 = 0; i3 < size; i3++) {
-                                                DownloadInfo downloadInfo2 = Downloader.getInstance(this.f69879a).getDownloadInfo(numArr[i3].intValue());
+                                                DownloadInfo downloadInfo2 = Downloader.getInstance(this.a).getDownloadInfo(numArr[i3].intValue());
                                                 if (downloadInfo2 != null && (downloadInfo2.getRealStatus() == -5 || (downloadInfo2.getRealStatus() == -2 && downloadInfo2.isPauseReserveOnWifi()))) {
-                                                    this.f69880b.f69878a.a(this.f69879a, downloadInfo2, true, 2);
+                                                    this.f61511b.a.a(this.a, downloadInfo2, true, 2);
                                                 }
                                             }
                                         }
@@ -153,11 +146,11 @@ public class b implements l {
                             }
                         });
                         try {
-                            applicationContext.unregisterReceiver(this.f69878a.f69874b);
+                            applicationContext.unregisterReceiver(this.a.f61508b);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.f69878a.f69874b = null;
+                        this.a.f61508b = null;
                     }
                 }
             }
@@ -165,10 +158,10 @@ public class b implements l {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f69874b, intentFilter);
+            N.registerReceiver(this.f61508b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f69874b = null;
+            this.f61508b = null;
         }
     }
 
@@ -187,15 +180,13 @@ public class b implements l {
                 c.l().execute(new Runnable(this, list, i2) { // from class: com.ss.android.socialbase.appdownloader.d.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ List f69875a;
+                    public final /* synthetic */ List a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f69876b;
+                    public final /* synthetic */ int f61509b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ b f69877c;
+                    public final /* synthetic */ b f61510c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,9 +203,9 @@ public class b implements l {
                                 return;
                             }
                         }
-                        this.f69877c = this;
-                        this.f69875a = list;
-                        this.f69876b = i2;
+                        this.f61510c = this;
+                        this.a = list;
+                        this.f61509b = i2;
                     }
 
                     @Override // java.lang.Runnable
@@ -222,7 +213,7 @@ public class b implements l {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f69877c.b(this.f69875a, this.f69876b);
+                                this.f61510c.b(this.a, this.f61509b);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
@@ -259,29 +250,29 @@ public class b implements l {
         }
         int realStatus = downloadInfo.getRealStatus();
         if (realStatus == -5 && ("application/ttpatch".equalsIgnoreCase(downloadInfo.getMimeType()) || !downloadInfo.isDownloaded())) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-            int a3 = a2.a("failed_resume_max_count", 0);
-            double a4 = a2.a("failed_resume_max_hours", 72.0d);
-            double a5 = a2.a("failed_resume_min_hours", 12.0d);
+            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+            int a2 = a.a("failed_resume_max_count", 0);
+            double a3 = a.a("failed_resume_max_hours", 72.0d);
+            double a4 = a.a("failed_resume_min_hours", 12.0d);
             long currentTimeMillis = System.currentTimeMillis();
-            if (downloadInfo.getFailedResumeCount() < a3) {
+            if (downloadInfo.getFailedResumeCount() < a2) {
                 str2 = ", canShowNotification = ";
                 str3 = "LaunchResume";
-                if (currentTimeMillis - downloadInfo.getLastDownloadTime() < a4 * 3600000.0d && currentTimeMillis - downloadInfo.getLastFailedResumeTime() > a5 * 3600000.0d) {
+                if (currentTimeMillis - downloadInfo.getLastDownloadTime() < a3 * 3600000.0d && currentTimeMillis - downloadInfo.getLastFailedResumeTime() > a4 * 3600000.0d) {
                     z3 = true;
                     if (downloadInfo.isPauseReserveOnWifi() && z) {
                         z3 = true;
                     }
                     if (z3) {
-                        boolean z5 = a2.a("failed_resume_need_wifi", 1) == 1;
-                        boolean z6 = a2.a("failed_resume_need_wait_wifi", 0) == 1;
+                        boolean z5 = a.a("failed_resume_need_wifi", 1) == 1;
+                        boolean z6 = a.a("failed_resume_need_wait_wifi", 0) == 1;
                         if (!z && z5 && z6) {
-                            if (this.f69873a == null) {
-                                this.f69873a = new ArrayList();
+                            if (this.a == null) {
+                                this.a = new ArrayList();
                             }
                             int id = downloadInfo.getId();
-                            if (!this.f69873a.contains(Integer.valueOf(id))) {
-                                this.f69873a.add(Integer.valueOf(id));
+                            if (!this.a.contains(Integer.valueOf(id))) {
+                                this.a.add(Integer.valueOf(id));
                             }
                             downloadInfo.setOnlyWifi(true);
                             r.a().a(downloadInfo);
@@ -345,29 +336,29 @@ public class b implements l {
                         m2.a(downloadInfo, 5, i2);
                     }
                 } else {
-                    if (this.f69873a == null) {
-                        this.f69873a = new ArrayList();
+                    if (this.a == null) {
+                        this.a = new ArrayList();
                     }
                     int id2 = downloadInfo.getId();
-                    if (!this.f69873a.contains(Integer.valueOf(id2))) {
-                        this.f69873a.add(Integer.valueOf(id2));
+                    if (!this.a.contains(Integer.valueOf(id2))) {
+                        this.a.add(Integer.valueOf(id2));
                     }
                     r.a().a(downloadInfo);
                     a(downloadInfo, context);
                 }
             }
         } else {
-            com.ss.android.socialbase.downloader.g.a a6 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+            com.ss.android.socialbase.downloader.g.a a5 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
             if (com.ss.android.socialbase.appdownloader.c.a(context, downloadInfo)) {
                 return;
             }
-            int a7 = a6.a("uninstall_resume_max_count", 0);
-            double a8 = a6.a("uninstall_resume_max_hours", 72.0d);
-            double a9 = a6.a("uninstall_resume_min_hours", 12.0d);
+            int a6 = a5.a("uninstall_resume_max_count", 0);
+            double a7 = a5.a("uninstall_resume_max_hours", 72.0d);
+            double a8 = a5.a("uninstall_resume_min_hours", 12.0d);
             long currentTimeMillis2 = System.currentTimeMillis();
-            if (downloadInfo.getUninstallResumeCount() < a7) {
+            if (downloadInfo.getUninstallResumeCount() < a6) {
                 str = "LaunchResume";
-                if (currentTimeMillis2 - downloadInfo.getLastDownloadTime() < a8 * 3600000.0d && currentTimeMillis2 - downloadInfo.getLastUninstallResumeTime() > a9 * 3600000.0d) {
+                if (currentTimeMillis2 - downloadInfo.getLastDownloadTime() < a7 * 3600000.0d && currentTimeMillis2 - downloadInfo.getLastUninstallResumeTime() > a8 * 3600000.0d) {
                     z2 = true;
                     com.ss.android.socialbase.downloader.c.a.c(str, "uninstallResume, name = " + downloadInfo.getTitle() + ", canShowNotification = " + z2);
                     if (z2) {
@@ -403,12 +394,12 @@ public class b implements l {
 
     private void a(DownloadInfo downloadInfo, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, context) == null) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-            int a3 = a2.a("paused_resume_max_count", 0);
-            double a4 = a2.a("paused_resume_max_hours", 72.0d);
+        if (interceptable == null || interceptable.invokeLL(65542, this, downloadInfo, context) == null) {
+            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+            int a2 = a.a("paused_resume_max_count", 0);
+            double a3 = a.a("paused_resume_max_hours", 72.0d);
             int pausedResumeCount = downloadInfo.getPausedResumeCount();
-            if (pausedResumeCount < a3 && ((double) (System.currentTimeMillis() - downloadInfo.getLastDownloadTime())) < a4 * 3600000.0d) {
+            if (pausedResumeCount < a2 && ((double) (System.currentTimeMillis() - downloadInfo.getLastDownloadTime())) < a3 * 3600000.0d) {
                 com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
                 if (e2 == null) {
                     e2 = new com.ss.android.socialbase.appdownloader.e.a(context, downloadInfo.getId(), downloadInfo.getTitle(), downloadInfo.getSavePath(), downloadInfo.getName(), downloadInfo.getExtra());

@@ -12,15 +12,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public c f55661a;
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -47,13 +45,13 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +120,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void onMixComplete();
 
@@ -183,8 +181,8 @@ public abstract class MultiAudioMixer {
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        if (this.f55661a != null) {
-                            this.f55661a.onMixError(1);
+                        if (this.a != null) {
+                            this.a.onMixError(1);
                         }
                         while (i2 < length) {
                             FileInputStream fileInputStream2 = fileInputStreamArr[i2];
@@ -211,8 +209,8 @@ public abstract class MultiAudioMixer {
                     }
                 }
                 byte[] c2 = c(bArr);
-                if (c2 != null && this.f55661a != null) {
-                    this.f55661a.onMixing(c2);
+                if (c2 != null && this.a != null) {
+                    this.a.onMixing(c2);
                 }
                 z = true;
                 for (int i5 = 0; i5 < length; i5++) {
@@ -221,8 +219,8 @@ public abstract class MultiAudioMixer {
                     }
                 }
             } while (!z);
-            if (this.f55661a != null) {
-                this.f55661a.onMixComplete();
+            if (this.a != null) {
+                this.a.onMixComplete();
             }
             while (i2 < length) {
                 FileInputStream fileInputStream4 = fileInputStreamArr[i2];
@@ -239,7 +237,7 @@ public abstract class MultiAudioMixer {
     public void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f55661a = cVar;
+            this.a = cVar;
         }
     }
 }

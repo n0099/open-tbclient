@@ -1,6 +1,5 @@
 package kotlinx.coroutines.selects;
 
-import com.baidu.mobads.container.util.XAdRemoteEvent;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import java.util.concurrent.CancellationException;
@@ -51,7 +50,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
     public volatile Object _result = SelectKt.access$getUNDECIDED$p();
     public volatile Object _parentHandle = null;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0007\b\u0002\u0018\u00002\u00020\u0001B\u001b\u0012\n\u0010\u0017\u001a\u0006\u0012\u0002\b\u00030\u0016\u0012\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u001e\u0010\u001fJ#\u0010\u0006\u001a\u00020\u00052\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\b\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\b\u0010\tJ\u001b\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u0011\u0010\f\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0014\u001a\u00020\u00138\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0017\u001a\u0006\u0012\u0002\b\u00030\u00168\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018R\u001c\u0010\u001a\u001a\u00020\u00198\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001d¨\u0006 "}, d2 = {"Lkotlinx/coroutines/selects/SelectBuilderImpl$AtomicSelectOp;", "Lkotlinx/coroutines/internal/AtomicOp;", "", "affected", SmsLoginView.f.l, "", XAdRemoteEvent.COMPLETE, "(Ljava/lang/Object;Ljava/lang/Object;)V", "completeSelect", "(Ljava/lang/Object;)V", "prepare", "(Ljava/lang/Object;)Ljava/lang/Object;", "prepareSelectOp", "()Ljava/lang/Object;", "", "toString", "()Ljava/lang/String;", "undoPrepare", "()V", "Lkotlinx/coroutines/internal/AtomicDesc;", "desc", "Lkotlinx/coroutines/internal/AtomicDesc;", "Lkotlinx/coroutines/selects/SelectBuilderImpl;", "impl", "Lkotlinx/coroutines/selects/SelectBuilderImpl;", "", "opSequence", "J", "getOpSequence", "()J", "<init>", "(Lkotlinx/coroutines/selects/SelectBuilderImpl;Lkotlinx/coroutines/internal/AtomicDesc;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0007\b\u0002\u0018\u00002\u00020\u0001B\u001b\u0012\n\u0010\u0017\u001a\u0006\u0012\u0002\b\u00030\u0016\u0012\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u001e\u0010\u001fJ#\u0010\u0006\u001a\u00020\u00052\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\b\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\b\u0010\tJ\u001b\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u0011\u0010\f\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0014\u001a\u00020\u00138\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0017\u001a\u0006\u0012\u0002\b\u00030\u00168\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0018R\u001c\u0010\u001a\u001a\u00020\u00198\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001d¨\u0006 "}, d2 = {"Lkotlinx/coroutines/selects/SelectBuilderImpl$AtomicSelectOp;", "Lkotlinx/coroutines/internal/AtomicOp;", "", "affected", SmsLoginView.f.l, "", "complete", "(Ljava/lang/Object;Ljava/lang/Object;)V", "completeSelect", "(Ljava/lang/Object;)V", "prepare", "(Ljava/lang/Object;)Ljava/lang/Object;", "prepareSelectOp", "()Ljava/lang/Object;", "", "toString", "()Ljava/lang/String;", "undoPrepare", "()V", "Lkotlinx/coroutines/internal/AtomicDesc;", "desc", "Lkotlinx/coroutines/internal/AtomicDesc;", "Lkotlinx/coroutines/selects/SelectBuilderImpl;", "impl", "Lkotlinx/coroutines/selects/SelectBuilderImpl;", "", "opSequence", "J", "getOpSequence", "()J", "<init>", "(Lkotlinx/coroutines/selects/SelectBuilderImpl;Lkotlinx/coroutines/internal/AtomicDesc;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class AtomicSelectOp extends AtomicOp<Object> {
         @JvmField
@@ -326,7 +325,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
     public final void handleBuilderException(Throwable th) {
         if (trySelect()) {
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m652constructorimpl(ResultKt.createFailure(th)));
+            resumeWith(Result.m702constructorimpl(ResultKt.createFailure(th)));
         } else if (th instanceof CancellationException) {
         } else {
             Object result = getResult();
@@ -363,15 +362,15 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public void onTimeout(long j, final Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        if (j <= 0) {
+    public void onTimeout(long j2, final Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        if (j2 <= 0) {
             if (trySelect()) {
                 UndispatchedKt.startCoroutineUnintercepted(function1, getCompletion());
                 return;
             }
             return;
         }
-        disposeOnSelect(DelayKt.getDelay(getContext()).invokeOnTimeout(j, new Runnable() { // from class: kotlinx.coroutines.selects.SelectBuilderImpl$onTimeout$$inlined$Runnable$1
+        disposeOnSelect(DelayKt.getDelay(getContext()).invokeOnTimeout(j2, new Runnable() { // from class: kotlinx.coroutines.selects.SelectBuilderImpl$onTimeout$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
                 if (SelectBuilderImpl.this.trySelect()) {
@@ -404,7 +403,7 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
                     Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(this.uCont);
                     Result.Companion companion = Result.Companion;
-                    intercepted.resumeWith(Result.m652constructorimpl(ResultKt.createFailure(th)));
+                    intercepted.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(th)));
                     return;
                 }
             }
@@ -426,17 +425,17 @@ public final class SelectBuilderImpl<R> extends LockFreeLinkedListHead implement
                 throw new IllegalStateException("Already resumed");
             } else {
                 if (_result$FU.compareAndSet(this, IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED(), SelectKt.access$getRESUMED$p())) {
-                    if (Result.m658isFailureimpl(obj)) {
+                    if (Result.m708isFailureimpl(obj)) {
                         Continuation<R> continuation = this.uCont;
-                        Throwable m655exceptionOrNullimpl = Result.m655exceptionOrNullimpl(obj);
-                        if (m655exceptionOrNullimpl == null) {
+                        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
+                        if (m705exceptionOrNullimpl == null) {
                             Intrinsics.throwNpe();
                         }
                         Result.Companion companion = Result.Companion;
                         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
-                            m655exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m655exceptionOrNullimpl, (CoroutineStackFrame) continuation);
+                            m705exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m705exceptionOrNullimpl, (CoroutineStackFrame) continuation);
                         }
-                        continuation.resumeWith(Result.m652constructorimpl(ResultKt.createFailure(m655exceptionOrNullimpl)));
+                        continuation.resumeWith(Result.m702constructorimpl(ResultKt.createFailure(m705exceptionOrNullimpl)));
                         return;
                     }
                     this.uCont.resumeWith(obj);

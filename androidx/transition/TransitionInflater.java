@@ -15,7 +15,6 @@ import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -99,7 +98,7 @@ public class TransitionInflater {
         return invokeLLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0185, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0181, code lost:
         return r3;
      */
     /*
@@ -182,7 +181,7 @@ public class TransitionInflater {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
         return r1;
      */
     /*
@@ -217,13 +216,13 @@ public class TransitionInflater {
     public static TransitionInflater from(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? new TransitionInflater(context) : (TransitionInflater) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new TransitionInflater(context) : (TransitionInflater) invokeL.objValue;
     }
 
     @SuppressLint({"RestrictedApi"})
     private void getTargetIds(XmlPullParser xmlPullParser, AttributeSet attributeSet, Transition transition) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, xmlPullParser, attributeSet, transition) != null) {
+        if (interceptable != null && interceptable.invokeLLL(65542, this, xmlPullParser, attributeSet, transition) != null) {
             return;
         }
         int depth = xmlPullParser.getDepth();

@@ -1,25 +1,27 @@
 package com.kwad.sdk.c.a;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.kwad.sdk.c.a.b;
+import com.kwad.sdk.c.kwai.d;
+import com.kwad.sdk.utils.i;
 /* loaded from: classes2.dex */
-public class a {
+public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final com.kwad.sdk.c.c a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final List<b> f65021a;
-
-    public a() {
+    public a(@NonNull com.kwad.sdk.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,44 +31,56 @@ public class a {
                 return;
             }
         }
-        this.f65021a = new ArrayList();
+        this.a = cVar;
     }
 
-    public void a(b bVar) {
+    @Override // com.kwad.sdk.c.a.b.a
+    public void a(d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
-            return;
-        }
-        this.f65021a.add(bVar);
-    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            i.a(new Runnable(this, dVar) { // from class: com.kwad.sdk.c.a.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ d a;
 
-    public void a(b bVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2) == null) || bVar == null) {
-            return;
-        }
-        this.f65021a.add(i2, bVar);
-    }
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ a f57050b;
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (b bVar : this.f65021a) {
-                if (bVar.a_()) {
-                    return true;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, dVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f57050b = this;
+                    this.a = dVar;
                 }
-            }
-            return false;
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.f57050b.a.b(this.a);
+                    }
+                }
+            });
         }
-        return invokeV.booleanValue;
     }
 
-    public void b(b bVar) {
+    @Override // com.kwad.sdk.c.a.b.a
+    public void b(d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.a.c(dVar);
         }
-        this.f65021a.remove(bVar);
     }
 }

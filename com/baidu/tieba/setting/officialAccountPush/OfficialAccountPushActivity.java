@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
-import b.a.e.f.p.l;
-import b.a.r0.d3.d.a;
+import c.a.d.f.p.j;
+import c.a.d.f.p.l;
+import c.a.r0.k3.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCEPT_MSG = 0;
@@ -92,9 +92,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
             this.mList = (BdListView) findViewById(R.id.list);
-            NoDataView a2 = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.e.a(R.string.no_data_text), null);
-            this.mNoDataView = a2;
-            a2.setVisibility(0);
+            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            this.mNoDataView = a;
+            a.setVisibility(0);
             this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
         }
     }
@@ -108,9 +108,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
     }
 
-    private void updateSwitchStatus(boolean z, long j) {
+    private void updateSwitchStatus(boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.list == null || this.mAdapter == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || this.list == null || this.mAdapter == null) {
             return;
         }
         if (!j.z()) {
@@ -118,7 +118,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             return;
         }
         for (int i2 = 0; i2 < this.list.size(); i2++) {
-            if (this.list.get(i2).uid == j) {
+            if (this.list.get(i2).uid == j2) {
                 if (z) {
                     this.list.get(i2).is_on = 1;
                 } else {
@@ -194,12 +194,12 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
     }
 
-    public void switchSingleMask(boolean z, long j) {
+    public void switchSingleMask(boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(j);
+            requestUpdateMaskInfoMessage.setG_id(j2);
             if (z) {
                 requestUpdateMaskInfoMessage.setIsMask(0);
             } else {
@@ -207,7 +207,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             }
             requestUpdateMaskInfoMessage.setCallFrom(5);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-            updateSwitchStatus(z, j);
+            updateSwitchStatus(z, j2);
         }
     }
 }

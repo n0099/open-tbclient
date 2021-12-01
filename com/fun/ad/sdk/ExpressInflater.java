@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ExpressInflater implements NativeInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final BaseNativeAd2<?, ? extends View> f63613a;
+    public final BaseNativeAd2<?, ? extends View> a;
 
     public ExpressInflater(FunNativeAd2 funNativeAd2) {
         Interceptable interceptable = $ic;
@@ -33,12 +31,12 @@ public abstract class ExpressInflater implements NativeInflater {
         if (!(funNativeAd2 instanceof BaseNativeAd2) || !funNativeAd2.getNativeType().supportExpress()) {
             throw new IllegalArgumentException("ExpressInflater only support for NativeType.EXPRESS");
         }
-        this.f63613a = (BaseNativeAd2) funNativeAd2;
+        this.a = (BaseNativeAd2) funNativeAd2;
     }
 
     public final View getExpressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63613a.getExpressView() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getExpressView() : (View) invokeV.objValue;
     }
 }

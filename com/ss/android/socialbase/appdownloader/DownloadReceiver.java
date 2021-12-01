@@ -23,13 +23,11 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69801a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f69802b;
+    public Handler f61456b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +42,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f69801a = DownloadReceiver.class.getSimpleName();
+        a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -60,7 +58,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f69802b = new Handler(Looper.getMainLooper());
+        this.f61456b = new Handler(Looper.getMainLooper());
     }
 
     @Override // android.content.BroadcastReceiver
@@ -76,27 +74,25 @@ public class DownloadReceiver extends BroadcastReceiver {
         com.ss.android.socialbase.appdownloader.c.c a2 = d.j().a();
         if (action.equals("android.intent.action.BOOT_COMPLETED") && (a2 == null || a2.a())) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.a(f69801a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
+                com.ss.android.socialbase.downloader.c.a.a(a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.a(f69801a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
+                com.ss.android.socialbase.downloader.c.a.a(a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
             }
             a(context, action);
         } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL) || action.equals("android.intent.action.PACKAGE_REPLACED")) {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, intent, context) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Intent f69803a;
+                public final /* synthetic */ Intent a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f69804b;
+                public final /* synthetic */ Context f61457b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadReceiver f69805c;
+                public final /* synthetic */ DownloadReceiver f61458c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -113,28 +109,28 @@ public class DownloadReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f69805c = this;
-                    this.f69803a = intent;
-                    this.f69804b = context;
+                    this.f61458c = this;
+                    this.a = intent;
+                    this.f61457b = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Uri data;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (data = this.f69803a.getData()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (data = this.a.getData()) == null) {
                         return;
                     }
                     String schemeSpecificPart = data.getSchemeSpecificPart();
                     com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
                     if (b2 != null) {
-                        b2.a(this.f69804b, schemeSpecificPart);
+                        b2.a(this.f61457b, schemeSpecificPart);
                     }
-                    List<DownloadInfo> successedDownloadInfosWithMimeType = Downloader.getInstance(this.f69804b).getSuccessedDownloadInfosWithMimeType("application/vnd.android.package-archive");
+                    List<DownloadInfo> successedDownloadInfosWithMimeType = Downloader.getInstance(this.f61457b).getSuccessedDownloadInfosWithMimeType("application/vnd.android.package-archive");
                     if (successedDownloadInfosWithMimeType != null) {
                         for (DownloadInfo downloadInfo : successedDownloadInfosWithMimeType) {
                             if (downloadInfo != null && c.a(downloadInfo, schemeSpecificPart)) {
-                                z downloadNotificationEventListener = Downloader.getInstance(this.f69804b).getDownloadNotificationEventListener(downloadInfo.getId());
+                                z downloadNotificationEventListener = Downloader.getInstance(this.f61457b).getDownloadNotificationEventListener(downloadInfo.getId());
                                 if (downloadNotificationEventListener != null && com.ss.android.socialbase.downloader.i.f.f(downloadNotificationEventListener.a())) {
                                     downloadNotificationEventListener.a(9, downloadInfo, schemeSpecificPart, "");
                                 }
@@ -145,15 +141,13 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_queue_enable", 0) == 1) {
                                     h.a().a(downloadInfo, schemeSpecificPart);
                                 }
-                                this.f69805c.f69802b.postDelayed(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
+                                this.f61458c.f61456b.postDelayed(new Runnable(this, downloadInfo) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-
-                                    /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ DownloadInfo f69806a;
+                                    public final /* synthetic */ DownloadInfo a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass1 f69807b;
+                                    public final /* synthetic */ AnonymousClass1 f61459b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -170,8 +164,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                                                 return;
                                             }
                                         }
-                                        this.f69807b = this;
-                                        this.f69806a = downloadInfo;
+                                        this.f61459b = this;
+                                        this.a = downloadInfo;
                                     }
 
                                     @Override // java.lang.Runnable
@@ -181,9 +175,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                                             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                                /* renamed from: a  reason: collision with root package name */
-                                                public final /* synthetic */ RunnableC20161 f69808a;
+                                                public final /* synthetic */ RunnableC21071 a;
 
                                                 {
                                                     Interceptable interceptable4 = $ic;
@@ -200,7 +192,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                                                             return;
                                                         }
                                                     }
-                                                    this.f69808a = this;
+                                                    this.a = this;
                                                 }
 
                                                 @Override // java.lang.Runnable
@@ -208,8 +200,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                                                     Interceptable interceptable4 = $ic;
                                                     if (interceptable4 == null || interceptable4.invokeV(1048576, this) == null) {
                                                         try {
-                                                            if (this.f69808a.f69806a.isSavePathRedirected()) {
-                                                                com.ss.android.socialbase.downloader.i.f.b(this.f69808a.f69806a);
+                                                            if (this.a.a.isSavePathRedirected()) {
+                                                                com.ss.android.socialbase.downloader.i.f.b(this.a.a);
                                                             }
                                                         } catch (Throwable th) {
                                                             th.printStackTrace();
@@ -232,18 +224,16 @@ public class DownloadReceiver extends BroadcastReceiver {
     private void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) && com.ss.android.socialbase.downloader.downloader.c.G()) {
-            this.f69802b.postDelayed(new Runnable(this, context, str) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
+            this.f61456b.postDelayed(new Runnable(this, context, str) { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f69809a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f69810b;
+                public final /* synthetic */ String f61460b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadReceiver f69811c;
+                public final /* synthetic */ DownloadReceiver f61461c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -260,9 +250,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f69811c = this;
-                    this.f69809a = context;
-                    this.f69810b = str;
+                    this.f61461c = this;
+                    this.a = context;
+                    this.f61460b = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -270,9 +260,9 @@ public class DownloadReceiver extends BroadcastReceiver {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Intent intent = new Intent(this.f69809a, DownloadHandlerService.class);
-                            intent.setAction(this.f69810b);
-                            this.f69809a.startService(intent);
+                            Intent intent = new Intent(this.a, DownloadHandlerService.class);
+                            intent.setAction(this.f61460b);
+                            this.a.startService(intent);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }

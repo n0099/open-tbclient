@@ -1,13 +1,13 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.c.g.a;
-import b.a.e.c.g.c;
-import b.a.e.f.m.e;
-import b.a.e.f.p.l;
-import b.a.q0.k0.b.g;
-import b.a.q0.k0.b.h;
-import b.a.q0.y0.b;
+import c.a.d.c.g.a;
+import c.a.d.c.g.c;
+import c.a.d.f.m.e;
+import c.a.d.f.p.l;
+import c.a.q0.l0.b.g;
+import c.a.q0.l0.b.h;
+import c.a.q0.z0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -70,7 +70,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     public BdUniqueId unique_id;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto$11  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass11 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType;
         public static /* synthetic */ Interceptable $ic;
@@ -106,22 +106,22 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NetModelCallback<T extends g, D extends h> extends NetModelHttpCallback<T, D>, NetModelSocketCallback<T, D> {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NetModelHttpCallback<T extends g, D extends h> {
         void onHttpResponseMessage(String str, HashMap<String, String> hashMap, MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NetModelSocketCallback<T extends g, D extends h> {
         void onSocketResponseMessage(String str, HashMap<String, String> hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NetModelType {
         public static final /* synthetic */ NetModelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -269,7 +269,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
                     this.this$0 = this;
                 }
 
-                @Override // b.a.e.c.g.a
+                @Override // c.a.d.c.g.a
                 public void onMessage(ResponsedMessage<?> responsedMessage) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) {
@@ -758,7 +758,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             if (this.socketCallback == null && this.httpCallback == null && TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("NetModel must have callback");
             }
-            this.isNetOk = l.D();
+            this.isNetOk = l.C();
             if (this.timeout >= 10) {
                 e.a().postDelayed(getTimeoutRunnable(), this.timeout * 1000);
             }

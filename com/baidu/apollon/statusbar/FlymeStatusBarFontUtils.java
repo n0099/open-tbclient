@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FlymeStatusBarFontUtils {
     public static /* synthetic */ Interceptable $ic;
     public static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -131,7 +130,7 @@ public class FlymeStatusBarFontUtils {
 
     public static void setStatusBarDarkIcon(Activity activity, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, null, activity, i2) == null) {
             Method method = mSetStatusBarColorIcon;
             if (method != null) {
                 try {
@@ -177,7 +176,7 @@ public class FlymeStatusBarFontUtils {
 
     public static void setStatusBarDarkIcon(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, activity, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65542, null, activity, z) == null) {
             setStatusBarDarkIcon(activity, z, true);
         }
     }

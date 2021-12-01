@@ -2,15 +2,14 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.j.b;
-import b.a.x0.t.h;
-import b.a.x0.t.w;
+import c.a.x0.j.b;
+import c.a.x0.t.h;
+import c.a.x0.t.w;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TemplateInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TEMPLATE_FILE_NAME = "theme_config.json";
@@ -45,7 +44,7 @@ public class TemplateInfo implements Serializable {
     public String version;
     public String zipPath;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class TemplateFiler implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +156,7 @@ public class TemplateInfo implements Serializable {
 
     public static void packageShaderConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, mediaTrackConfig, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, mediaTrackConfig, str) == null) {
             HashMap hashMap = new HashMap();
             if (TextUtils.isEmpty(str) || mediaTrackConfig == null) {
                 return;
@@ -209,7 +208,7 @@ public class TemplateInfo implements Serializable {
 
     public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || h.e(mediaTrackConfig.transitionResourceList)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || h.e(mediaTrackConfig.transitionResourceList)) {
             return;
         }
         ArrayList arrayList = new ArrayList();

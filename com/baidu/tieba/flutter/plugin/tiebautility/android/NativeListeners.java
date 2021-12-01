@@ -3,14 +3,14 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.b0.b;
-import b.a.q0.s.q.l1;
-import b.a.q0.s.q.n2;
-import b.a.r0.b3.a;
-import b.a.r0.m3.j0.e;
-import b.a.r0.m3.s0.g;
-import b.a.r0.m3.s0.k;
-import b.a.r0.m3.x;
+import c.a.q0.s.b0.b;
+import c.a.q0.s.q.l1;
+import c.a.q0.s.q.n2;
+import c.a.r0.i3.a;
+import c.a.r0.t3.j0.e;
+import c.a.r0.t3.s0.g;
+import c.a.r0.t3.s0.k;
+import c.a.r0.t3.x;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,7 +24,6 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.data.VideoNotifyPersonalPageData;
@@ -52,7 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NativeListeners {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NEW_CATEGORY_FORUM = 2;
@@ -632,7 +631,7 @@ public class NativeListeners {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 AgreeData agreeData;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f22452b) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f23811b) == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -1061,7 +1060,7 @@ public class NativeListeners {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
-                b.f13677c = b.f13678d;
+                b.f12573c = b.f12574d;
                 this.this$0.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
             }
         };
@@ -1174,9 +1173,9 @@ public class NativeListeners {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put("status", workPostNotifyFlutterData.f45899a);
-                hashMap.put("videoId", workPostNotifyFlutterData.f45900b);
-                hashMap.put("errorMessage", workPostNotifyFlutterData.f45901c);
+                hashMap.put("status", workPostNotifyFlutterData.a);
+                hashMap.put("videoId", workPostNotifyFlutterData.f40915b);
+                hashMap.put("errorMessage", workPostNotifyFlutterData.f40916c);
                 hashMap.put("fid", workPostNotifyFlutterData.b());
                 hashMap.put("fname", workPostNotifyFlutterData.c());
                 hashMap.put("videoItem", workPostNotifyFlutterData.d());
@@ -1219,12 +1218,12 @@ public class NativeListeners {
                 }
                 n2 n2Var = (n2) customResponsedMessage.getData();
                 HashMap hashMap = new HashMap();
-                if (n2Var.f14188a) {
+                if (n2Var.a) {
                     hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "1");
                 } else {
                     hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "0");
                 }
-                hashMap.put("pageId", n2Var.f14189b);
+                hashMap.put("pageId", n2Var.f13021b);
                 this.this$0.notifyFlutter("SendWorkBackToFlutter", null, hashMap);
             }
         };
@@ -1304,8 +1303,8 @@ public class NativeListeners {
 
     private void dealBeforeAttachNotification(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f13677c == b.f13679e) {
-            b.a.e.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.2
+        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f12573c == b.f12575e) {
+            c.a.d.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NativeListeners this$0;
@@ -1644,7 +1643,7 @@ public class NativeListeners {
     private Message getMessageFromName(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, obj)) == null) {
             if (((str.hashCode() == 406924293 && str.equals("kTBCCancleLikeFrsNotification")) ? (char) 0 : (char) 65535) != 0) {
                 return null;
             }
@@ -1662,7 +1661,7 @@ public class NativeListeners {
         InterceptResult invokeLL;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, obj)) == null) {
             switch (str.hashCode()) {
                 case -1789920843:
                     if (str.equals("kTBCBroadcastEdditPageResume")) {
@@ -1717,8 +1716,8 @@ public class NativeListeners {
                 xVar.v(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
                 k kVar = new k();
-                kVar.f22724a = b.a.e.f.m.b.g(str2, 0L);
-                kVar.f22725b = true;
+                kVar.a = c.a.d.f.m.b.g(str2, 0L);
+                kVar.f24044b = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, kVar));
                 return null;
             } else if (c2 == 1) {

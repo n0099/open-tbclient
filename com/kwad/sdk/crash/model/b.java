@@ -8,24 +8,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f66381a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66382b;
+    public String f58177b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66383c;
+    public int f58178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66384d;
+    public String f58179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66385e;
+    public int f58180e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66386f;
+    public int f58181f;
 
     public b() {
         Interceptable interceptable = $ic;

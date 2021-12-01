@@ -13,7 +13,6 @@ import androidx.core.view.VelocityTrackerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ScrollerCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ViewDragHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_SETTLE_DURATION = 256;
@@ -67,7 +66,7 @@ public class ViewDragHelper {
     public int mTrackingEdges;
     public VelocityTracker mVelocityTracker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -330,7 +329,7 @@ public class ViewDragHelper {
     private int clampMag(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.AD_TEXT_ID, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65541, this, i2, i3, i4)) == null) {
             int abs = Math.abs(i2);
             if (abs < i3) {
                 return 0;
@@ -343,7 +342,7 @@ public class ViewDragHelper {
     private void clearMotionHistory() {
         float[] fArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (fArr = this.mInitialMotionX) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (fArr = this.mInitialMotionX) == null) {
             return;
         }
         Arrays.fill(fArr, 0.0f);

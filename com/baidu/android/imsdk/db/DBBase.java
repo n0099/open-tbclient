@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBBase";
@@ -27,7 +27,7 @@ public class DBBase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class UpdateArgs {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class DBBase {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, INVOKE, SGET, INVOKE] complete} */
     public Long querymax(String str) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             Cursor cursor = null;
@@ -283,7 +283,7 @@ public class DBBase {
                 try {
                     cursor = openDatabase().rawQuery(str, null);
                     cursor.moveToFirst();
-                    j = cursor.getLong(0);
+                    j2 = cursor.getLong(0);
                     if (cursor != null) {
                         try {
                             cursor.close();
@@ -312,9 +312,9 @@ public class DBBase {
                         LogUtils.e(TAG, "close curse exception");
                     }
                 }
-                j = 0;
+                j2 = 0;
             }
-            return Long.valueOf(j);
+            return Long.valueOf(j2);
         }
         return (Long) invokeL.objValue;
     }

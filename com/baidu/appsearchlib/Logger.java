@@ -3,7 +3,6 @@ package com.baidu.appsearchlib;
 import android.app.ActivityManager;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.util.concurrent.Executors;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
@@ -157,7 +156,7 @@ public class Logger {
     public static boolean isAppOnForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             if (runningAppProcesses == null) {
                 return false;
@@ -174,7 +173,7 @@ public class Logger {
 
     public static void onAlive(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if (lastCallTime < 1) {
                 recordClientAction(context, Info.kBaiduClient_Alive_On_Noraml, Long.valueOf(Util.getTime() - lastStartTime));
             } else {

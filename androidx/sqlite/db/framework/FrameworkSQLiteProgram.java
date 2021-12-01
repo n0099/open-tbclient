@@ -48,10 +48,10 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindLong(int i2, long j) {
+    public void bindLong(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.mDelegate.bindLong(i2, j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            this.mDelegate.bindLong(i2, j2);
         }
     }
 

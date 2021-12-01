@@ -22,7 +22,7 @@ import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.FragmentResultReceiver;
 import com.baidu.wallet.core.utils.FragmentUtils;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaseFragment extends SDKBaseFragment implements FragmentResultReceiver.a, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -195,7 +195,7 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         }
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // androidx.fragment.app.Fragment
     public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048588, this, i2, strArr, iArr) == null) {

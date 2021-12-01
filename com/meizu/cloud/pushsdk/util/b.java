@@ -25,8 +25,8 @@ public class b {
         l(context, str).edit().putInt(str2, i2).apply();
     }
 
-    public static void a(Context context, String str, String str2, long j) {
-        l(context, str).edit().putLong(str2, j).apply();
+    public static void a(Context context, String str, String str2, long j2) {
+        l(context, str).edit().putLong(str2, j2).apply();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
@@ -126,7 +126,7 @@ public class b {
     public static int j(Context context, String str) {
         int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
         c(context, str, b2);
-        b.j.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
+        c.k.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
         return b2;
     }
 

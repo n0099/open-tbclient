@@ -5,6 +5,8 @@ public interface b {
 
     void a(int i2, int i3);
 
+    void a(long j2);
+
     void a(boolean z);
 
     void b();

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SafeConcurrentHashMap<K, V> extends ConcurrentHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,17 +27,17 @@ public class SafeConcurrentHashMap<K, V> extends ConcurrentHashMap<K, V> {
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public V put(@NonNull K k, @NonNull V v) {
+    public V put(@NonNull K k2, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {
-            if (k == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k2, v)) == null) {
+            if (k2 == null) {
                 return null;
             }
             if (v == null) {
-                return remove(k);
+                return remove(k2);
             }
-            return (V) super.put(k, v);
+            return (V) super.put(k2, v);
         }
         return (V) invokeLL.objValue;
     }

@@ -9,31 +9,31 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e0.c;
-import b.a.e0.g;
-import b.a.e0.h;
+import c.a.f0.c;
+import c.a.f0.g;
+import c.a.f0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ToastLoadingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f43094e;
+    public ImageView f38527e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43095f;
+    public TextView f38528f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f43096g;
+    public Animation f38529g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43097h;
+    public boolean f38530h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ToastLoadingView(Context context) {
@@ -60,9 +60,9 @@ public class ToastLoadingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.view_toast_loading, (ViewGroup) this, true);
-            this.f43094e = (ImageView) findViewById(g.toast_loading_view);
-            this.f43095f = (TextView) findViewById(g.toast_text_view);
-            this.f43096g = AnimationUtils.loadAnimation(context, c.loading_rotate);
+            this.f38527e = (ImageView) findViewById(g.toast_loading_view);
+            this.f38528f = (TextView) findViewById(g.toast_text_view);
+            this.f38529g = AnimationUtils.loadAnimation(context, c.loading_rotate);
             setClickable(true);
         }
     }
@@ -83,20 +83,20 @@ public class ToastLoadingView extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43097h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38530h : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f43097h = z;
+            this.f38530h = z;
             if (z) {
                 setVisibility(0);
-                this.f43094e.startAnimation(this.f43096g);
+                this.f38527e.startAnimation(this.f38529g);
                 return;
             }
-            this.f43094e.clearAnimation();
+            this.f38527e.clearAnimation();
             setVisibility(8);
         }
     }
@@ -104,7 +104,7 @@ public class ToastLoadingView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f43095f.setText(str);
+            this.f38528f.setText(str);
         }
     }
 

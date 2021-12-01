@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterTextureView extends TextureView implements RenderSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterTextureView";
@@ -84,8 +84,12 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
             FlutterRenderer flutterRenderer = this.flutterRenderer;
             if (flutterRenderer != null) {
                 flutterRenderer.stopRenderingToSurface();
-                this.renderSurface.release();
-                this.renderSurface = null;
+                Surface surface = this.renderSurface;
+                if (surface != null) {
+                    surface.release();
+                    this.renderSurface = null;
+                    return;
+                }
                 return;
             }
             throw new IllegalStateException("disconnectSurfaceFromRenderer() should only be called when flutterRenderer is non-null.");
@@ -140,6 +144,19 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flutterRenderer : (FlutterRenderer) invokeV.objValue;
+    }
+
+    @Override // io.flutter.embedding.engine.renderer.RenderSurface
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.flutterRenderer != null) {
+                this.flutterRenderer = null;
+                this.isAttachedToFlutterRenderer = false;
+                return;
+            }
+            Log.w(TAG, "pause() invoked when no FlutterRenderer was attached.");
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

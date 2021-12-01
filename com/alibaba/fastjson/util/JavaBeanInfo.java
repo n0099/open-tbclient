@@ -10,12 +10,12 @@ import com.alibaba.fastjson.annotation.JSONPOJOBuilder;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.InputType;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JavaBeanInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class JavaBeanInfo {
     public final JSONType jsonType;
 
     /* renamed from: kotlin  reason: collision with root package name */
-    public boolean f34657kotlin;
+    public boolean f31113kotlin;
     public Constructor<?> kotlinDefaultConstructor;
     public String[] orders;
     public final int parserFeatures;
@@ -141,7 +141,7 @@ public class JavaBeanInfo {
         if (constructor2 != null) {
             this.creatorConstructorParameterTypes = constructor2.getParameterTypes();
             boolean isKotlin = TypeUtils.isKotlin(cls);
-            this.f34657kotlin = isKotlin;
+            this.f31113kotlin = isKotlin;
             if (isKotlin) {
                 this.creatorConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
                 try {
@@ -228,7 +228,7 @@ public class JavaBeanInfo {
     public static Map<TypeVariable, Type> buildGenericInfo(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
             Class<? super Object> superclass = cls.getSuperclass();
             HashMap hashMap = null;
             if (superclass == null) {
@@ -275,7 +275,7 @@ public class JavaBeanInfo {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, type, propertyNamingStrategy, list, fieldArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65542, null, cls, type, propertyNamingStrategy, list, fieldArr) == null) {
             Map<TypeVariable, Type> buildGenericInfo = buildGenericInfo(cls);
             int length = fieldArr.length;
             int i7 = 0;
@@ -501,17 +501,17 @@ public class JavaBeanInfo {
         return (Class) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:402:0x0887, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:402:0x0885, code lost:
         if (r3 == null) goto L268;
      */
     /* JADX WARN: Removed duplicated region for block: B:127:0x0276  */
     /* JADX WARN: Removed duplicated region for block: B:185:0x033d  */
     /* JADX WARN: Removed duplicated region for block: B:186:0x0343  */
-    /* JADX WARN: Removed duplicated region for block: B:277:0x05bc  */
-    /* JADX WARN: Removed duplicated region for block: B:413:0x08c8  */
-    /* JADX WARN: Removed duplicated region for block: B:420:0x08fa  */
-    /* JADX WARN: Removed duplicated region for block: B:431:0x0975  */
-    /* JADX WARN: Removed duplicated region for block: B:434:0x0988  */
+    /* JADX WARN: Removed duplicated region for block: B:277:0x05ba  */
+    /* JADX WARN: Removed duplicated region for block: B:413:0x08c6  */
+    /* JADX WARN: Removed duplicated region for block: B:420:0x08f8  */
+    /* JADX WARN: Removed duplicated region for block: B:431:0x0973  */
+    /* JADX WARN: Removed duplicated region for block: B:434:0x0986  */
     /* JADX WARN: Removed duplicated region for block: B:50:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:94:0x01c9  */
     /*
@@ -903,7 +903,7 @@ public class JavaBeanInfo {
                                             jSONField3 = (JSONField) TypeUtils.getAnnotation(field6, JSONField.class);
                                         }
                                         if (jSONField3 == null) {
-                                            if ("org.springframework.security.core.userdetails.User".equals(name) && "password".equals(str12)) {
+                                            if ("org.springframework.security.core.userdetails.User".equals(name) && InputType.PASSWORD.equals(str12)) {
                                                 of = Feature.InitStringFieldAsEmpty.mask;
                                                 i16 = 0;
                                                 i15 = 0;

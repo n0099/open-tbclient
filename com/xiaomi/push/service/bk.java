@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class bk implements ai {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile bk f72388a;
+    public static volatile bk a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -32,23 +30,21 @@ public final class bk implements ai {
     /* renamed from: a  reason: collision with other field name */
     public volatile boolean f943a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f72389a;
+        public long a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f944a;
 
-        public a(String str, long j) {
+        public a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j)};
+                Object[] objArr = {str, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -59,7 +55,7 @@ public final class bk implements ai {
                 }
             }
             this.f944a = str;
-            this.f72389a = j;
+            this.a = j2;
         }
 
         public abstract void a(bk bkVar);
@@ -67,17 +63,17 @@ public final class bk implements ai {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f72388a == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.a == null) {
                 return;
             }
-            Context context = bk.f72388a.f940a;
+            Context context = bk.a.f940a;
             if (com.xiaomi.push.bg.d(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bk.f72388a.f941a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f944a, 0L) > this.f72389a || com.xiaomi.push.af.a(context)) {
-                    SharedPreferences.Editor edit = bk.f72388a.f941a.edit();
+                SharedPreferences sharedPreferences = bk.a.f941a;
+                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f944a, 0L) > this.a || com.xiaomi.push.af.a(context)) {
+                    SharedPreferences.Editor edit = bk.a.f941a.edit();
                     com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f944a, System.currentTimeMillis()));
-                    a(bk.f72388a);
+                    a(bk.a);
                 }
             }
         }
@@ -108,14 +104,14 @@ public final class bk implements ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f72388a == null) {
+            if (a == null) {
                 synchronized (bk.class) {
-                    if (f72388a == null) {
-                        f72388a = new bk(context);
+                    if (a == null) {
+                        a = new bk(context);
                     }
                 }
             }
-            return f72388a;
+            return a;
         }
         return (bk) invokeL.objValue;
     }
@@ -132,7 +128,7 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo622a() {
+    public void mo671a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f943a) {
             return;
@@ -156,7 +152,7 @@ public final class bk implements ai {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = f72388a.f941a.edit();
+            SharedPreferences.Editor edit = a.f941a.edit();
             com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
         }
     }

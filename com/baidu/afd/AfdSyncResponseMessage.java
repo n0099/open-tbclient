@@ -1,15 +1,15 @@
 package com.baidu.afd;
 
-import b.a.f.a;
-import b.a.f.e;
-import b.a.f.f;
+import c.a.e.a;
+import c.a.e.e;
+import c.a.e.f;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
                     return;
                 } catch (ParseError e2) {
                     e2.printStackTrace();
-                    e a2 = a.a("", "1517888290046");
-                    this.adModel = a2;
-                    a2.f2824d = e2;
+                    e a = a.a("", "1517888290046");
+                    this.adModel = a;
+                    a.f3046d = e2;
                     return;
                 }
             }

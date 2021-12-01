@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -138,7 +137,7 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             RequestResult requestResult = new RequestResult();
             if (!NetStateManager.isNetworkConnected(this.param.getContext())) {
                 LogUtil.e("Task", "FixRequestTask:android.permission.ACCESS_NETWORK_STATE");
-                requestResult.setE(new SdkException(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION));
+                requestResult.setE(new SdkException("android.permission.ACCESS_NETWORK_STATE"));
             }
             if (this.param.needIntercept()) {
                 try {

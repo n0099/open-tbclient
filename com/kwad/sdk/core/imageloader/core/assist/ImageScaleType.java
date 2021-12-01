@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.assist;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ public final class ImageScaleType {
                 return;
             }
         }
-        NONE = new ImageScaleType("NONE", 0);
+        NONE = new ImageScaleType(PolyActivity.NONE_PANEL_TYPE, 0);
         NONE_SAFE = new ImageScaleType("NONE_SAFE", 1);
         IN_SAMPLE_POWER_OF_2 = new ImageScaleType("IN_SAMPLE_POWER_OF_2", 2);
         IN_SAMPLE_INT = new ImageScaleType("IN_SAMPLE_INT", 3);

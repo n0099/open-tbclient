@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPacket {
     void marshall(ByteBuffer byteBuffer);
 

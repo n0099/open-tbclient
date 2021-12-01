@@ -42,7 +42,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DLG_BANK_SIGN_GUIDE = 64;
@@ -55,31 +55,29 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
     public static final String TAG = "BusinessSignedGuideActivity";
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f61047g;
+    public static boolean f53728g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public WalletBaseButtonWithImage f61048a;
+    public WalletBaseButtonWithImage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f61049b;
+    public Runnable f53729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f61050c;
+    public Handler f53730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61051d;
+    public boolean f53731d;
 
     /* renamed from: e  reason: collision with root package name */
-    public QueryResponse f61052e;
+    public QueryResponse f53732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61053f;
+    public String f53733f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61054h;
+    public int f53734h;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,28 +148,26 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                 return;
             }
         }
-        this.f61050c = new Handler();
-        this.f61051d = false;
-        this.f61053f = "";
-        this.f61054h = 0;
+        this.f53730c = new Handler();
+        this.f53731d = false;
+        this.f53733f = "";
+        this.f53734h = 0;
     }
 
     private void d() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            if (TextUtils.isEmpty(this.f61052e.toast_msg) || !this.f61053f.equals("pay")) {
+            if (TextUtils.isEmpty(this.f53732e.toast_msg) || !this.f53733f.equals("pay")) {
                 i2 = 0;
             } else {
-                GlobalUtils.toast(this, this.f61052e.toast_msg);
+                GlobalUtils.toast(this, this.f53732e.toast_msg);
                 i2 = 2000;
             }
-            this.f61050c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.8
+            this.f53730c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BusinessSignedGuideActivity f61063a;
+                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -188,14 +184,14 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f61063a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61063a.e();
+                        this.a.e();
                     }
                 }
             }, i2);
@@ -206,24 +202,24 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            String str = this.f61052e.form_data;
+            String str = this.f53732e.form_data;
             com.baidu.wallet.paysdk.banksign.a.a.a().a(str == null ? null : str.getBytes());
-            com.baidu.wallet.paysdk.banksign.a.a.a().d(this.f61052e.form_url);
-            com.baidu.wallet.paysdk.banksign.a.a.a().e(this.f61052e.webview_title);
-            this.f61054h = 0;
-            this.f61051d = true;
+            com.baidu.wallet.paysdk.banksign.a.a.a().d(this.f53732e.form_url);
+            com.baidu.wallet.paysdk.banksign.a.a.a().e(this.f53732e.webview_title);
+            this.f53734h = 0;
+            this.f53731d = true;
             f();
             BankSignPayFlow a2 = BankSignPayFlow.a();
             a2.a(BankSignPayFlow.Action.JumpResign);
             a2.a(this.mAct);
-            this.f61050c.post(this.f61049b);
+            this.f53730c.post(this.f53729b);
         }
     }
 
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            if (f61047g && !PayRequestCache.getInstance().isPaying()) {
+            if (f53728g && !PayRequestCache.getInstance().isPaying()) {
                 StatisticManager.onEventWithValues(PayStatServiceEvent.INITIATIVE_BANKSIGN_ENETR, StatHelper.collectData(StatHelper.getBankCode(), StatHelper.getCardType()));
                 return;
             }
@@ -295,20 +291,18 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
             boolean z = true;
             if (i2 == 769) {
                 PollingResponse pollingResponse = (PollingResponse) obj;
-                Handler handler = this.f61050c;
+                Handler handler = this.f53730c;
                 if (handler == null || pollingResponse == null || pollingResponse.has_sign_result != 1) {
                     return;
                 }
-                handler.removeCallbacks(this.f61049b);
+                handler.removeCallbacks(this.f53729b);
                 if (!TextUtils.isEmpty(pollingResponse.toast_msg)) {
                     GlobalUtils.toast(this.mAct, pollingResponse.toast_msg, 2000);
                 }
-                this.f61050c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.2
+                this.f53730c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BusinessSignedGuideActivity f61057a;
+                    public final /* synthetic */ BusinessSignedGuideActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -325,14 +319,14 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                                 return;
                             }
                         }
-                        this.f61057a = this;
+                        this.a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            BaseActivity.clearTasksTopOf(this.f61057a);
+                            BaseActivity.clearTasksTopOf(this.a);
                         }
                     }
                 }, 5000L);
@@ -357,20 +351,20 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                 WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
                 StatHelper.cacheCodeAndMsg("0", StatHelper.SENSOR_OK);
                 QueryResponse queryResponse = (QueryResponse) obj;
-                this.f61052e = queryResponse;
+                this.f53732e = queryResponse;
                 if (queryResponse != null) {
-                    this.f61054h++;
+                    this.f53734h++;
                     int i4 = queryResponse.sign_state;
                     b(true, i4, queryResponse.agreement_trans_id);
-                    if (this.f61054h == 1 && i4 == 2) {
+                    if (this.f53734h == 1 && i4 == 2) {
                         z = false;
                     }
-                    if (!TextUtils.isEmpty(this.f61052e.agreement_trans_id) && z) {
-                        com.baidu.wallet.paysdk.banksign.a.a.a().f(this.f61052e.agreement_trans_id);
+                    if (!TextUtils.isEmpty(this.f53732e.agreement_trans_id) && z) {
+                        com.baidu.wallet.paysdk.banksign.a.a.a().f(this.f53732e.agreement_trans_id);
                     }
                     switch (i4) {
                         case 1:
-                            if (this.f61054h == 2) {
+                            if (this.f53734h == 2) {
                                 d();
                                 return;
                             }
@@ -379,10 +373,10 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             a3.a(this.mAct);
                             return;
                         case 2:
-                            if (this.f61054h == 2) {
+                            if (this.f53734h == 2) {
                                 d();
                                 return;
-                            } else if (this.f61052e.isGuidanceAvilable()) {
+                            } else if (this.f53732e.isGuidanceAvilable()) {
                                 WalletGlobalUtils.safeShowDialog(this, 64, "");
                                 return;
                             } else {
@@ -391,17 +385,15 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                         case 3:
                         case 5:
                         case 6:
-                            if (this.f61054h != 2 || TextUtils.isEmpty(this.f61052e.toast_msg)) {
+                            if (this.f53734h != 2 || TextUtils.isEmpty(this.f53732e.toast_msg)) {
                                 i3 = 0;
                             } else {
-                                GlobalUtils.toast(this, this.f61052e.toast_msg);
+                                GlobalUtils.toast(this, this.f53732e.toast_msg);
                             }
-                            this.f61050c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.3
+                            this.f53730c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ BusinessSignedGuideActivity f61058a;
+                                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -418,30 +410,28 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                                             return;
                                         }
                                     }
-                                    this.f61058a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable2 = $ic;
-                                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f61058a.f61052e.isGuidanceAvilable()) {
-                                        WalletGlobalUtils.safeShowDialog(this.f61058a, 64, "");
+                                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.f53732e.isGuidanceAvilable()) {
+                                        WalletGlobalUtils.safeShowDialog(this.a, 64, "");
                                     }
                                 }
                             }, i3);
                             return;
                         case 4:
-                            if (this.f61054h == 2 && !TextUtils.isEmpty(this.f61052e.toast_msg) && this.f61053f.equals(QueryResponse.Options.JUMP_RESIGN)) {
-                                GlobalUtils.toast(this, this.f61052e.toast_msg);
+                            if (this.f53734h == 2 && !TextUtils.isEmpty(this.f53732e.toast_msg) && this.f53733f.equals(QueryResponse.Options.JUMP_RESIGN)) {
+                                GlobalUtils.toast(this, this.f53732e.toast_msg);
                             } else {
                                 i3 = 0;
                             }
-                            this.f61050c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.4
+                            this.f53730c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.4
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ BusinessSignedGuideActivity f61059a;
+                                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -458,7 +448,7 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                                             return;
                                         }
                                     }
-                                    this.f61059a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -467,8 +457,8 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         BankSignPayFlow a4 = BankSignPayFlow.a();
                                         a4.a(BankSignPayFlow.Action.Pay);
-                                        a4.a(this.f61059a.mAct);
-                                        this.f61059a.finishWithoutAnim();
+                                        a4.a(this.a.mAct);
+                                        this.a.finishWithoutAnim();
                                     }
                                 }
                             }, i3);
@@ -496,15 +486,15 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             if (view == this.mLeftImg) {
                 onBackPressed();
-            } else if (view != this.f61048a || CheckUtils.isFastDoubleClick()) {
+            } else if (view != this.a || CheckUtils.isFastDoubleClick()) {
             } else {
                 f();
-                this.f61052e = null;
+                this.f53732e = null;
                 BankSignPayFlow a2 = BankSignPayFlow.a();
                 a2.a(BankSignPayFlow.Action.JumpResign);
                 a2.a(this.mAct);
-                this.f61051d = true;
-                this.f61048a.setEnabled(false);
+                this.f53731d = true;
+                this.a.setEnabled(false);
                 b();
             }
         }
@@ -515,7 +505,7 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            f61047g = getIntent().getBooleanExtra("isActiveSign", false);
+            f53728g = getIntent().getBooleanExtra("isActiveSign", false);
             StatisticManager.onEventStart(PayStatServiceEvent.PAY_BANK_SIGN_DURATION);
             a();
             showLikeDismissLadingPage();
@@ -540,12 +530,12 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            Handler handler = this.f61050c;
+            Handler handler = this.f53730c;
             if (handler != null) {
-                handler.removeCallbacks(this.f61049b);
+                handler.removeCallbacks(this.f53729b);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(StatHelper.BANK_SIGN_TYPE, f61047g ? "1" : "0");
+            hashMap.put(StatHelper.BANK_SIGN_TYPE, f53728g ? "1" : "0");
             StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_BANK_SIGN_DURATION, hashMap, new String[0]);
             com.baidu.wallet.paysdk.banksign.a.a.a().m();
             BeanManager.getInstance().removeAllBeans(TAG);
@@ -569,10 +559,10 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            if (this.f61051d) {
-                Handler handler = this.f61050c;
+            if (this.f53731d) {
+                Handler handler = this.f53730c;
                 if (handler != null) {
-                    handler.removeCallbacks(this.f61049b);
+                    handler.removeCallbacks(this.f53729b);
                 }
                 c();
             }
@@ -592,12 +582,10 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
             Runnable runnable = new Runnable(this, (com.baidu.wallet.paysdk.banksign.beans.c) BankSignFactory.getInstance().getBean((Context) getActivity(), 769, TAG)) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.paysdk.banksign.beans.c f61055a;
+                public final /* synthetic */ com.baidu.wallet.paysdk.banksign.beans.c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BusinessSignedGuideActivity f61056b;
+                public final /* synthetic */ BusinessSignedGuideActivity f53735b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -614,32 +602,32 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f61056b = this;
-                    this.f61055a = r7;
+                    this.f53735b = this;
+                    this.a = r7;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61055a.setResponseCallback(this.f61056b);
-                        this.f61055a.execBean();
-                        this.f61056b.f61050c.postDelayed(this, 3000L);
+                        this.a.setResponseCallback(this.f53735b);
+                        this.a.execBean();
+                        this.f53735b.f53730c.postDelayed(this, 3000L);
                     }
                 }
             };
-            this.f61049b = runnable;
-            this.f61050c.post(runnable);
+            this.f53729b = runnable;
+            this.f53730c.post(runnable);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.f61051d = false;
+            this.f53731d = false;
             WalletGlobalUtils.safeShowDialog(this.mAct, -1, "");
             d dVar = (d) BankSignFactory.getInstance().getBean((Context) getActivity(), BankSignFactory.BEAN_ID_QUERY, TAG);
-            if (!f61047g) {
+            if (!f53728g) {
                 com.baidu.wallet.paysdk.banksign.a.a.a().a("");
                 dVar.setResponseCallback(this);
                 dVar.execBean();
@@ -658,14 +646,14 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
             this.mActionBar.setVisibility(0);
             this.mLeftImg.setOnClickListener(this);
             WalletBaseButtonWithImage walletBaseButtonWithImage = (WalletBaseButtonWithImage) findViewById(ResUtils.id(getActivity(), "bd_wallet_sign_btn"));
-            this.f61048a = walletBaseButtonWithImage;
-            if (f61047g) {
+            this.a = walletBaseButtonWithImage;
+            if (f53728g) {
                 walletBaseButtonWithImage.setText(ResUtils.getString(getActivity(), "dxmpay_banksign_guide_sgin_btn"));
             } else {
                 walletBaseButtonWithImage.setText(ResUtils.getString(getActivity(), "dxmpay_banksign_guide_pay_btn"));
             }
-            this.f61048a.setDrawableLeftVisible(false);
-            this.f61048a.setOnClickListener(this);
+            this.a.setDrawableLeftVisible(false);
+            this.a.setOnClickListener(this);
         }
     }
 
@@ -673,14 +661,14 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
             if (z) {
-                if (f61047g && !PayRequestCache.getInstance().isPaying()) {
+                if (f53728g && !PayRequestCache.getInstance().isPaying()) {
                     String bankCode = StatHelper.getBankCode();
                     StatisticManager.onEventWithValues(PayStatServiceEvent.INITIATIVE_BANKSIGN_RESULT, StatHelper.collectData(bankCode, StatHelper.getCardType(), i2 + "", str));
                     return;
                 }
                 String orderNo = StatHelper.getOrderNo();
                 StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BANKSIGN_RESULT, StatHelper.collectData(orderNo, StatHelper.getBankCode(), StatHelper.getCardType(), i2 + "", str));
-            } else if (f61047g && !PayRequestCache.getInstance().isPaying()) {
+            } else if (f53728g && !PayRequestCache.getInstance().isPaying()) {
                 String bankCode2 = StatHelper.getBankCode();
                 StatisticManager.onEventWithValues("pay_banksign_error", StatHelper.collectData(bankCode2, StatHelper.getCardType(), i2 + "", str));
             } else {
@@ -694,24 +682,22 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dialog) == null) {
             PromptMultiBtnDialog promptMultiBtnDialog = (PromptMultiBtnDialog) dialog;
-            QueryResponse queryResponse = this.f61052e;
+            QueryResponse queryResponse = this.f53732e;
             if (queryResponse == null) {
                 return;
             }
             if (!TextUtils.isEmpty(queryResponse.dialog_title)) {
-                promptMultiBtnDialog.setTitleMessage(this.f61052e.dialog_title);
+                promptMultiBtnDialog.setTitleMessage(this.f53732e.dialog_title);
             } else {
                 promptMultiBtnDialog.setTitleMessage(ResUtils.getString(this.mAct, "dxmpay_banksign_dialog_title"));
             }
-            if (!TextUtils.isEmpty(this.f61052e.dialog_hint)) {
-                promptMultiBtnDialog.setMessage(this.f61052e.dialog_hint);
+            if (!TextUtils.isEmpty(this.f53732e.dialog_hint)) {
+                promptMultiBtnDialog.setMessage(this.f53732e.dialog_hint);
             }
-            promptMultiBtnDialog.setFirstBtn(this.f61052e.dialog_options[0].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.5
+            promptMultiBtnDialog.setFirstBtn(this.f53732e.dialog_options[0].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BusinessSignedGuideActivity f61060a;
+                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -728,25 +714,23 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f61060a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f61060a, 64);
-                        BusinessSignedGuideActivity businessSignedGuideActivity = this.f61060a;
-                        businessSignedGuideActivity.a(businessSignedGuideActivity.f61052e.dialog_options[0].type);
+                        WalletGlobalUtils.safeDismissDialog(this.a, 64);
+                        BusinessSignedGuideActivity businessSignedGuideActivity = this.a;
+                        businessSignedGuideActivity.a(businessSignedGuideActivity.f53732e.dialog_options[0].type);
                     }
                 }
             });
-            promptMultiBtnDialog.setSecondBtn(this.f61052e.dialog_options[1].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.6
+            promptMultiBtnDialog.setSecondBtn(this.f53732e.dialog_options[1].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BusinessSignedGuideActivity f61061a;
+                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -763,25 +747,23 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f61061a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f61061a, 64);
-                        BusinessSignedGuideActivity businessSignedGuideActivity = this.f61061a;
-                        businessSignedGuideActivity.a(businessSignedGuideActivity.f61052e.dialog_options[1].type);
+                        WalletGlobalUtils.safeDismissDialog(this.a, 64);
+                        BusinessSignedGuideActivity businessSignedGuideActivity = this.a;
+                        businessSignedGuideActivity.a(businessSignedGuideActivity.f53732e.dialog_options[1].type);
                     }
                 }
             });
-            promptMultiBtnDialog.setThirdBtn(this.f61052e.dialog_options[2].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.7
+            promptMultiBtnDialog.setThirdBtn(this.f53732e.dialog_options[2].msg, new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BusinessSignedGuideActivity f61062a;
+                public final /* synthetic */ BusinessSignedGuideActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -798,16 +780,16 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                             return;
                         }
                     }
-                    this.f61062a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f61062a, 64);
-                        BusinessSignedGuideActivity businessSignedGuideActivity = this.f61062a;
-                        businessSignedGuideActivity.a(businessSignedGuideActivity.f61052e.dialog_options[2].type);
+                        WalletGlobalUtils.safeDismissDialog(this.a, 64);
+                        BusinessSignedGuideActivity businessSignedGuideActivity = this.a;
+                        businessSignedGuideActivity.a(businessSignedGuideActivity.f53732e.dialog_options[2].type);
                     }
                 }
             });
@@ -823,7 +805,7 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
             BankSignPayFlow a2 = BankSignPayFlow.a();
-            this.f61053f = str;
+            this.f53733f = str;
             switch (str.hashCode()) {
                 case -1367724422:
                     if (str.equals(QueryResponse.Options.CANCEL)) {
@@ -865,18 +847,18 @@ public class BusinessSignedGuideActivity extends HalfScreenBaseActivity implemen
                     break;
             }
             if (c2 == 0) {
-                if (this.f61054h == 1 && this.f61052e.sign_state == 2) {
+                if (this.f53734h == 1 && this.f53732e.sign_state == 2) {
                     c();
                 } else {
                     e();
                 }
             } else if (c2 == 1) {
-                if (this.f61054h == 1 && this.f61052e.sign_state == 2) {
+                if (this.f53734h == 1 && this.f53732e.sign_state == 2) {
                     c();
                     return;
                 }
-                QueryResponse queryResponse = this.f61052e;
-                if (queryResponse.sign_state == 5 && !TextUtils.isEmpty(queryResponse.sign_card_no) && (cardByCardNo = (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).getCardByCardNo(this.f61052e.sign_card_no)) != null) {
+                QueryResponse queryResponse = this.f53732e;
+                if (queryResponse.sign_state == 5 && !TextUtils.isEmpty(queryResponse.sign_card_no) && (cardByCardNo = (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).getCardByCardNo(this.f53732e.sign_card_no)) != null) {
                     payRequest.mBondCard = cardByCardNo;
                 }
                 a2.a(BankSignPayFlow.Action.Pay);

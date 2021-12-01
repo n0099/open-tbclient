@@ -15,9 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f70427a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +31,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f70427a = DownloadHandleService.class.getSimpleName();
+        a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {
@@ -64,12 +62,10 @@ public class DownloadHandleService extends Service {
             com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable(this, intExtra) { // from class: com.ss.android.socialbase.downloader.impls.DownloadHandleService.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f70428a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DownloadHandleService f70429b;
+                public final /* synthetic */ DownloadHandleService f61906b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,8 +82,8 @@ public class DownloadHandleService extends Service {
                             return;
                         }
                     }
-                    this.f70429b = this;
-                    this.f70428a = intExtra;
+                    this.f61906b = this;
+                    this.a = intExtra;
                 }
 
                 @Override // java.lang.Runnable
@@ -95,7 +91,7 @@ public class DownloadHandleService extends Service {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.ss.android.socialbase.downloader.downloader.d.a().o(this.f70428a);
+                            com.ss.android.socialbase.downloader.downloader.d.a().o(this.a);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }

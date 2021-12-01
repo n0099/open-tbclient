@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,21 +22,17 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f72330a;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f72331a;
+        public int a;
 
         /* renamed from: a  reason: collision with other field name */
         public byte[] f896a;
@@ -58,27 +53,25 @@ public class an {
                 }
             }
             this.f896a = bArr;
-            this.f72331a = i2;
+            this.a = i2;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f72332a;
+        public long a;
 
         /* renamed from: a  reason: collision with other field name */
         public Bitmap f897a;
 
-        public b(Bitmap bitmap, long j) {
+        public b(Bitmap bitmap, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, Long.valueOf(j)};
+                Object[] objArr = {bitmap, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -89,7 +82,7 @@ public class an {
                 }
             }
             this.f897a = bitmap;
-            this.f72332a = j;
+            this.a = j2;
         }
     }
 
@@ -102,7 +95,7 @@ public class an {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, options);
             if (options.outWidth == -1 || options.outHeight == -1) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("decode dimension failed for bitmap.");
+                com.xiaomi.channel.commonutils.logger.b.m122a("decode dimension failed for bitmap.");
                 return 1;
             }
             int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
@@ -233,7 +226,7 @@ public class an {
             httpURLConnection.connect();
             int contentLength = httpURLConnection.getContentLength();
             if (z && contentLength > 102400) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                com.xiaomi.channel.commonutils.logger.b.m122a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -242,7 +235,7 @@ public class an {
             }
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 200) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("Invalid Http Response Code " + responseCode + " received");
+                com.xiaomi.channel.commonutils.logger.b.m122a("Invalid Http Response Code " + responseCode + " received");
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -263,7 +256,7 @@ public class an {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 if (i2 <= 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("length 102400 exhausted.");
+                    com.xiaomi.channel.commonutils.logger.b.m122a("length 102400 exhausted.");
                     a aVar = new a(null, 102400);
                     com.xiaomi.push.y.a(inputStream);
                     if (httpURLConnection != null) {
@@ -325,7 +318,7 @@ public class an {
                 com.xiaomi.push.y.a((Closeable) null);
                 return bVar;
             }
-            bVar.f72332a = a2.f72331a;
+            bVar.a = a2.a;
             byte[] bArr = a2.f896a;
             if (bArr != null) {
                 if (z) {
@@ -365,10 +358,10 @@ public class an {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
             if (file.exists()) {
-                if (f72330a == 0) {
-                    f72330a = com.xiaomi.push.x.a(file);
+                if (a == 0) {
+                    a = com.xiaomi.push.x.a(file);
                 }
-                if (f72330a > 15728640) {
+                if (a > 15728640) {
                     try {
                         File[] listFiles = file.listFiles();
                         for (int i2 = 0; i2 < listFiles.length; i2++) {
@@ -379,7 +372,7 @@ public class an {
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    f72330a = 0L;
+                    a = 0L;
                 }
             }
         }
@@ -394,9 +387,9 @@ public class an {
         FileOutputStream fileOutputStream;
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, bArr, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, bArr, str) == null) {
             if (bArr == null) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("cannot save small icon cause bitmap is null");
+                com.xiaomi.channel.commonutils.logger.b.m122a("cannot save small icon cause bitmap is null");
                 return;
             }
             a(context);
@@ -430,7 +423,7 @@ public class an {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
                     com.xiaomi.push.y.a(fileOutputStream);
-                    if (f72330a != 0) {
+                    if (a != 0) {
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -447,8 +440,8 @@ public class an {
                 fileOutputStream = null;
             }
             com.xiaomi.push.y.a(fileOutputStream);
-            if (f72330a != 0) {
-                f72330a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+            if (a != 0) {
+                a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
             }
         }
     }
@@ -459,7 +452,7 @@ public class an {
         FileInputStream fileInputStream;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon", com.xiaomi.push.bm.a(str));
             FileInputStream fileInputStream2 = null;
             Bitmap bitmap2 = null;

@@ -5,7 +5,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<K, A> {
     public final LottieFrameInfo<A> frameInfo;
     public final A valueCallbackValue;
@@ -22,8 +22,8 @@ public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
     public A getValue() {
         LottieValueCallback<A> lottieValueCallback = this.valueCallback;
-        A a2 = this.valueCallbackValue;
-        return lottieValueCallback.getValueInternal(0.0f, 0.0f, a2, a2, getProgress(), getProgress(), getProgress());
+        A a = this.valueCallbackValue;
+        return lottieValueCallback.getValueInternal(0.0f, 0.0f, a, a, getProgress(), getProgress(), getProgress());
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
@@ -38,11 +38,11 @@ public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<
         this.progress = f2;
     }
 
-    public ValueCallbackKeyframeAnimation(LottieValueCallback<A> lottieValueCallback, @Nullable A a2) {
+    public ValueCallbackKeyframeAnimation(LottieValueCallback<A> lottieValueCallback, @Nullable A a) {
         super(Collections.emptyList());
         this.frameInfo = new LottieFrameInfo<>();
         setValueCallback(lottieValueCallback);
-        this.valueCallbackValue = a2;
+        this.valueCallbackValue = a;
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation

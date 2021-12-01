@@ -2,7 +2,6 @@ package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +11,17 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bh {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f71636a;
+    public static final Map<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f71637a;
+        public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
         public final T f157a;
@@ -46,37 +41,37 @@ public class bh {
             }
         }
         HashMap hashMap = new HashMap();
-        f71636a = hashMap;
+        a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f71636a.put(Byte.class, Byte.TYPE);
-        f71636a.put(Character.class, Character.TYPE);
-        f71636a.put(Short.class, Short.TYPE);
-        f71636a.put(Integer.class, Integer.TYPE);
-        f71636a.put(Float.class, Float.TYPE);
-        f71636a.put(Long.class, Long.TYPE);
-        f71636a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f71636a;
+        a.put(Byte.class, Byte.TYPE);
+        a.put(Character.class, Character.TYPE);
+        a.put(Short.class, Short.TYPE);
+        a.put(Integer.class, Integer.TYPE);
+        a.put(Float.class, Float.TYPE);
+        a.put(Long.class, Long.TYPE);
+        a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f71636a;
+        Map<Class<?>, Class<?>> map2 = a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f71636a;
+        Map<Class<?>, Class<?>> map3 = a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f71636a;
+        Map<Class<?>, Class<?>> map4 = a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f71636a;
+        Map<Class<?>, Class<?>> map5 = a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f71636a;
+        Map<Class<?>, Class<?>> map6 = a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f71636a;
+        Map<Class<?>, Class<?>> map7 = a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f71636a;
+        Map<Class<?>, Class<?>> map8 = a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -136,7 +131,7 @@ public class bh {
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m179a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m228a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static <T> T a(Object obj, String str) {
@@ -156,7 +151,7 @@ public class bh {
     public static <T> T a(Object obj, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, objArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, str, objArr)) == null) {
             try {
                 return (T) b(obj, str, objArr);
             } catch (Exception e2) {
@@ -170,7 +165,7 @@ public class bh {
     public static <T> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             try {
                 return (T) a((Class<? extends Object>) t.a(null, str), (Object) null, str2);
             } catch (Exception e2) {
@@ -252,7 +247,7 @@ public class bh {
                 return false;
             } else {
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f71636a.containsKey(clsArr[i2]) || !f71636a.get(clsArr[i2]).equals(f71636a.get(clsArr2[i2])))) {
+                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!a.containsKey(clsArr[i2]) || !a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
                         return false;
                     }
                 }
@@ -275,7 +270,7 @@ public class bh {
                 if (obj == null || !(obj instanceof a)) {
                     clsArr[i2] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).f71637a;
+                    clsArr[i2] = ((a) obj).a;
                 }
             }
             return clsArr;
@@ -284,7 +279,7 @@ public class bh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m179a(Object... objArr) {
+    public static Object[] m228a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, objArr)) == null) {
@@ -308,7 +303,7 @@ public class bh {
     public static <T> T b(Object obj, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m179a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m228a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static void b(Object obj, String str, Object obj2) {

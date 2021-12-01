@@ -3,8 +3,6 @@ package com.google.zxing.oned;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mobads.container.info.XDeviceInfo;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
@@ -18,9 +16,10 @@ import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
+import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +58,12 @@ public final class EANManufacturerOrgSupport {
                 if (this.ranges.isEmpty()) {
                     add(new int[]{0, 19}, "US/CA");
                     add(new int[]{30, 39}, "US");
-                    add(new int[]{60, 139}, "US/CA");
+                    add(new int[]{60, w0.o}, "US/CA");
                     add(new int[]{300, 379}, "FR");
                     add(new int[]{380}, "BG");
-                    add(new int[]{SDKLogTypeConstants.SPLASH_VIDEO_MONITOR}, "SI");
+                    add(new int[]{383}, "SI");
                     add(new int[]{385}, "HR");
-                    add(new int[]{SDKLogTypeConstants.TYPE_SEND_INFO}, "BA");
+                    add(new int[]{387}, "BA");
                     add(new int[]{400, 440}, "DE");
                     add(new int[]{450, 459}, "JP");
                     add(new int[]{460, 469}, "RU");
@@ -75,7 +74,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{477}, "LT");
                     add(new int[]{478}, "UZ");
                     add(new int[]{479}, "LK");
-                    add(new int[]{480}, XDeviceInfo.PH);
+                    add(new int[]{480}, "PH");
                     add(new int[]{481}, "BY");
                     add(new int[]{482}, "UA");
                     add(new int[]{484}, "MD");
@@ -86,8 +85,8 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
                     add(new int[]{500, 509}, "GB");
                     add(new int[]{520}, "GR");
-                    add(new int[]{SDKLogTypeConstants.TYPE_DOWNLOAD_COMPLETED_ACTION}, ExpandedProductParsedResult.POUND);
-                    add(new int[]{529}, "CY");
+                    add(new int[]{528}, ExpandedProductParsedResult.POUND);
+                    add(new int[]{PayBeanFactory.BEAN_ID_CHECK_PWD}, "CY");
                     add(new int[]{531}, "MK");
                     add(new int[]{535}, "MT");
                     add(new int[]{539}, "IE");
@@ -117,7 +116,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{629}, "AE");
                     add(new int[]{640, 649}, "FI");
                     add(new int[]{690, 695}, "CN");
-                    add(new int[]{700, SDKLogTypeConstants.ADSERV_AD_CLICK_TYPE}, "NO");
+                    add(new int[]{700, 709}, "NO");
                     add(new int[]{729}, "IL");
                     add(new int[]{730, 739}, "SE");
                     add(new int[]{740}, "GT");

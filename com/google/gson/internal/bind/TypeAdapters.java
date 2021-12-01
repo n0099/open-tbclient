@@ -3,7 +3,6 @@ package com.google.gson.internal.bind;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,7 +51,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -110,7 +109,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -174,7 +173,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1870,7 +1869,7 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory newFactoryForMultipleTypes(Class<TT> cls, Class<? extends TT> cls2, TypeAdapter<? super TT> typeAdapter) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.34
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.34
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Class val$base;
@@ -1925,7 +1924,7 @@ public final class TypeAdapters {
     public static <T1> TypeAdapterFactory newTypeHierarchyFactory(Class<T1> cls, TypeAdapter<T1> typeAdapter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, typeAdapter)) == null) ? new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.35
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, typeAdapter)) == null) ? new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.35
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Class val$clazz;

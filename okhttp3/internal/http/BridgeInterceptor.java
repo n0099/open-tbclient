@@ -1,7 +1,6 @@
 package okhttp3.internal.http;
 
 import com.alipay.sdk.encrypt.a;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +56,7 @@ public final class BridgeInterceptor implements Interceptor {
                 }
                 Cookie cookie = list.get(i2);
                 sb.append(cookie.name());
-                sb.append(a.f34958h);
+                sb.append(a.f31351h);
                 sb.append(cookie.value());
             }
             return sb.toString();
@@ -96,7 +95,7 @@ public final class BridgeInterceptor implements Interceptor {
             }
             if (request.header("Accept-Encoding") == null && request.header("Range") == null) {
                 z = true;
-                newBuilder.header("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                newBuilder.header("Accept-Encoding", "gzip");
             }
             List<Cookie> loadForRequest = this.cookieJar.loadForRequest(request.url());
             if (!loadForRequest.isEmpty()) {
@@ -108,7 +107,7 @@ public final class BridgeInterceptor implements Interceptor {
             Response proceed = chain.proceed(newBuilder.build());
             HttpHeaders.receiveHeaders(this.cookieJar, request.url(), proceed.headers());
             Response.Builder request2 = proceed.newBuilder().request(request);
-            if (z && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(proceed.header("Content-Encoding")) && HttpHeaders.hasBody(proceed)) {
+            if (z && "gzip".equalsIgnoreCase(proceed.header("Content-Encoding")) && HttpHeaders.hasBody(proceed)) {
                 GzipSource gzipSource = new GzipSource(proceed.body().source());
                 request2.headers(proceed.headers().newBuilder().removeAll("Content-Encoding").removeAll("Content-Length").build());
                 request2.body(new RealResponseBody(proceed.header("Content-Type"), -1L, Okio.buffer(gzipSource)));

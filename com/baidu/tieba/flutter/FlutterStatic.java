@@ -6,8 +6,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.c.f.b;
-import b.a.r0.m3.j0.n;
+import c.a.d.c.f.b;
+import c.a.r0.t3.j0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,10 +21,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
+import com.baidu.tieba.flutter.base.view.FlutterBoostExtender;
 import com.baidu.tieba.flutter.base.view.FlutterDelegateStatic;
 import com.baidu.tieba.flutter.base.view.FlutterEnterForumDelegateStatic;
 import com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic;
 import com.baidu.tieba.flutter.base.view.PageRouter;
+import com.baidu.tieba.flutter.base.view.TbFlutterView;
 import com.baidu.tieba.flutter.plugin.FlutterPluginInit;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +41,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,6 +116,7 @@ public class FlutterStatic {
             FlutterBoost.BoostLifecycleListener boostLifecycleListener = new FlutterBoost.BoostLifecycleListener() { // from class: com.baidu.tieba.flutter.FlutterStatic.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+                public long startEngineBegin;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,6 +136,7 @@ public class FlutterStatic {
                 public void beforeCreateEngine() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.startEngineBegin = System.currentTimeMillis();
                     }
                 }
 
@@ -140,7 +144,12 @@ public class FlutterStatic {
                 public void onEngineCreated() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("seb", String.valueOf(this.startEngineBegin));
+                        hashMap.put("see", String.valueOf(System.currentTimeMillis()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921451, hashMap));
                         FlutterPluginInit.init(FlutterBoost.instance().engineProvider());
+                        FlutterBoostExtender.instance().init();
                     }
                 }
 
@@ -160,8 +169,9 @@ public class FlutterStatic {
             FlutterBoost.ConfigBuilder configBuilder = new FlutterBoost.ConfigBuilder(TbadkCoreApplication.getInst(), iNativeRouter);
             configBuilder.isDebug(isDebugMode());
             configBuilder.whenEngineStart(FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED);
-            configBuilder.renderMode(FlutterView.RenderMode.surface);
+            configBuilder.renderMode(FlutterView.RenderMode.texture);
             configBuilder.lifecycleListener(boostLifecycleListener);
+            configBuilder.setFlutterViewClass(TbFlutterView.class);
             FlutterBoost.instance().init(configBuilder.build());
         }
     }
@@ -206,7 +216,7 @@ public class FlutterStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.e.c.f.f
+                @Override // c.a.d.c.f.f
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -238,13 +248,13 @@ public class FlutterStatic {
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (customMessage != null && customMessage.getData() != null) {
                             Context context = customMessage.getData().getContext();
-                            String a2 = customMessage.getData().a();
+                            String a = customMessage.getData().a();
                             HashMap b2 = customMessage.getData().b();
                             if (b2 == null || b2.isEmpty()) {
                                 b2 = new HashMap();
                             }
-                            if (context != null && !TextUtils.isEmpty(a2)) {
-                                OpenFlutter.openFlutterPage(context, a2, b2);
+                            if (context != null && !TextUtils.isEmpty(a)) {
+                                OpenFlutter.openFlutterPage(context, a, b2);
                             }
                         }
                         return null;

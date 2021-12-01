@@ -1,89 +1,193 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
-import android.os.PowerManager;
-import android.os.SystemClock;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.core.fragment.FileProvider;
+import java.io.File;
 /* loaded from: classes2.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile ag f67530a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f67531b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public volatile long f67532c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile PowerManager f67533d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734204, "Lcom/kwad/sdk/utils/ag;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(408734204, "Lcom/kwad/sdk/utils/ag;");
-                return;
-            }
-        }
-        f67530a = new ag();
-    }
-
-    public ag() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f67532c = 0L;
-    }
-
-    public static ag a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f67530a : (ag) invokeV.objValue;
-    }
-
-    public boolean a(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f67532c <= 0 || SystemClock.elapsedRealtime() - this.f67532c >= 600) {
-                if (this.f67533d == null && context != null) {
-                    synchronized (this) {
-                        if (this.f67533d == null) {
-                            this.f67533d = (PowerManager) context.getApplicationContext().getSystemService("power");
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!new File(str).exists()) {
+                com.kwad.sdk.core.d.a.d("PackageUtil", "cannot save package, download apk is not exists.");
+                return null;
+            }
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
+                return null;
+            }
+            return packageArchiveInfo.applicationInfo.packageName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void a(String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            com.kwad.sdk.core.d.a.d("PackageUtil", "saveDownloadFile " + str2);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                str3 = "cannot save package, has no download apk info.";
+            } else {
+                File file = new File(str);
+                if (file.exists()) {
+                    Context context = KsAdSDKImpl.get().getContext();
+                    if (context == null) {
+                        return;
+                    }
+                    as.b(context, str2, file.length());
+                    try {
+                        as.a(context, str2, c.b(file));
+                        return;
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        return;
                     }
                 }
-                this.f67531b = this.f67533d != null ? Build.VERSION.SDK_INT >= 20 ? this.f67533d.isInteractive() : this.f67533d.isScreenOn() : false;
-                this.f67532c = SystemClock.elapsedRealtime();
-                return this.f67531b;
+                str3 = "cannot save package, download apk is not exists.";
             }
-            return this.f67531b;
+            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
         }
-        return invokeL.booleanValue;
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0) != null;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int b(@Nullable Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return -1;
+            }
+            if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56844i) == 0) {
+                String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                File file = new File(absolutePath + "/Android/data/" + str);
+                return (file.exists() && file.isDirectory()) ? 1 : 0;
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            com.kwad.sdk.core.d.a.d("PackageUtil", "isPackageChanged " + str + " packageName " + str2);
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
+                return 0;
+            }
+            long b2 = as.b(context, str);
+            String c2 = as.c(context, str);
+            if (TextUtils.isEmpty(c2) || b2 <= 0) {
+                str3 = "cannot judge package, has no download apk info.";
+            } else {
+                try {
+                    PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str2, 0);
+                    if (TextUtils.isEmpty(str2) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
+                        str3 = "cannot judge package, cannot get installed apk info.";
+                    } else {
+                        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+                        if (!file.exists()) {
+                            str3 = "cannot judge package, insgtalled apk is not exists.";
+                        } else if (b2 != file.length()) {
+                            return 1;
+                        } else {
+                            if (TextUtils.isEmpty(c2)) {
+                                str3 = "cannot judge package, cannot calculate md5 of download file.";
+                            } else {
+                                String b3 = c.b(file);
+                                if (!TextUtils.isEmpty(b3)) {
+                                    return c2.equalsIgnoreCase(b3) ? 2 : 1;
+                                }
+                                str3 = "cannot judge package, cannot calculate md5 of installed file.";
+                            }
+                        }
+                    }
+                } catch (PackageManager.NameNotFoundException e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    return 0;
+                }
+            }
+            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean c(@Nullable Context context, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
+                if (launchIntentForPackage == null) {
+                    return false;
+                }
+                launchIntentForPackage.setFlags(337641472);
+                context.startActivity(launchIntentForPackage);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) && context != null && !TextUtils.isEmpty(str)) {
+            try {
+                File file = new File(str);
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.addFlags(268435456);
+                intent.addFlags(3);
+                Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
+                intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
+                for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 65536)) {
+                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 3);
+                }
+                context.startActivity(intent);
+            } catch (Exception unused) {
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Coder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "UTF-8";
@@ -74,7 +73,7 @@ public final class Coder {
     public static String decryptDES(String str, String str2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             if (str == null) {
                 return null;
             }
@@ -164,7 +163,7 @@ public final class Coder {
     public static byte[] decryptDES(byte[] bArr, byte[] bArr2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
             SecureRandom secureRandom = new SecureRandom();
             SecretKey generateSecret = SecretKeyFactory.getInstance(KEY_DES).generateSecret(new DESKeySpec(bArr2));
             Cipher cipher = Cipher.getInstance(KEY_DES);

@@ -174,9 +174,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mDecodeRunnable = new Runnable(this) { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f66746a;
+            public final /* synthetic */ FrameSequenceDrawable a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -193,7 +191,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f66746a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
@@ -202,46 +200,46 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 Bitmap bitmap;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f66746a.mLock) {
-                        if (this.f66746a.mDestroyed) {
+                    synchronized (this.a.mLock) {
+                        if (this.a.mDestroyed) {
                             return;
                         }
-                        int i4 = this.f66746a.mNextFrameToDecode;
+                        int i4 = this.a.mNextFrameToDecode;
                         if (i4 < 0) {
                             return;
                         }
-                        Bitmap bitmap2 = this.f66746a.mBackBitmap;
-                        this.f66746a.mState = 2;
-                        long j = 0;
+                        Bitmap bitmap2 = this.a.mBackBitmap;
+                        this.a.mState = 2;
+                        long j2 = 0;
                         boolean z2 = true;
                         try {
-                            j = this.f66746a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
+                            j2 = this.a.mFrameSequenceState.getFrame(i4, bitmap2, i4 - 2);
                             z = false;
                         } catch (Exception e2) {
                             String str = "exception during decode: " + e2;
                             z = true;
                         }
-                        if (j < 20) {
-                            j = 100;
+                        if (j2 < 20) {
+                            j2 = 100;
                         }
-                        synchronized (this.f66746a.mLock) {
+                        synchronized (this.a.mLock) {
                             bitmap = null;
-                            if (this.f66746a.mDestroyed) {
-                                Bitmap bitmap3 = this.f66746a.mBackBitmap;
-                                this.f66746a.mBackBitmap = null;
+                            if (this.a.mDestroyed) {
+                                Bitmap bitmap3 = this.a.mBackBitmap;
+                                this.a.mBackBitmap = null;
                                 bitmap = bitmap3;
-                            } else if (this.f66746a.mNextFrameToDecode >= 0 && this.f66746a.mState == 2) {
-                                this.f66746a.mNextSwap = z ? Long.MAX_VALUE : j + this.f66746a.mLastSwap;
-                                this.f66746a.mState = 3;
+                            } else if (this.a.mNextFrameToDecode >= 0 && this.a.mState == 2) {
+                                this.a.mNextSwap = z ? Long.MAX_VALUE : j2 + this.a.mLastSwap;
+                                this.a.mState = 3;
                             }
                             z2 = false;
                         }
                         if (z2) {
-                            FrameSequenceDrawable frameSequenceDrawable = this.f66746a;
+                            FrameSequenceDrawable frameSequenceDrawable = this.a;
                             frameSequenceDrawable.scheduleSelf(frameSequenceDrawable, frameSequenceDrawable.mNextSwap);
                         }
                         if (bitmap != null) {
-                            this.f66746a.mBitmapProvider.a(bitmap);
+                            this.a.mBitmapProvider.a(bitmap);
                         }
                     }
                 }
@@ -250,9 +248,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mFinishedCallbackRunnable = new Runnable(this) { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FrameSequenceDrawable f66747a;
+            public final /* synthetic */ FrameSequenceDrawable a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -269,19 +265,19 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                         return;
                     }
                 }
-                this.f66747a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f66747a.mLock) {
-                        this.f66747a.mNextFrameToDecode = -1;
-                        this.f66747a.mState = 0;
+                    synchronized (this.a.mLock) {
+                        this.a.mNextFrameToDecode = -1;
+                        this.a.mState = 0;
                     }
-                    if (this.f66747a.mOnFinishedListener != null) {
-                        this.f66747a.mOnFinishedListener.a(this.f66747a);
+                    if (this.a.mOnFinishedListener != null) {
+                        this.a.mOnFinishedListener.a(this.a);
                     }
                 }
             }

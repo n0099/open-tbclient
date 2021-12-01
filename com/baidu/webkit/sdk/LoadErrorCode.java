@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APK_FILE_NOT_EXIST = 1009;
@@ -96,7 +95,7 @@ public class LoadErrorCode {
     public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
@@ -116,7 +115,7 @@ public class LoadErrorCode {
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -314,7 +313,7 @@ public class LoadErrorCode {
 
         public static synchronized void addInfo(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+            if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
                 synchronized (Statistics.class) {
                     if (mInfo == null) {
                         mInfo = new StringBuilder();
@@ -330,7 +329,7 @@ public class LoadErrorCode {
 
         public static void cleanBkupList() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || sBkupList == null) {
+            if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || sBkupList == null) {
                 return;
             }
             for (ErrorItem errorItem : sBkupList) {

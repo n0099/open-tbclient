@@ -1,6 +1,7 @@
 package com.kwad.sdk.feed.widget.base;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,50 +10,50 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.j.d;
-import com.kwad.sdk.core.j.e;
+import com.kwad.sdk.core.j.f;
 import com.kwad.sdk.core.page.widget.a;
-import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public abstract class a extends KSFrameLayout implements d {
+public abstract class a extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public e f66629a;
+    public f a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f66630b;
+    public AdTemplate f58528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f66631c;
+    public AdInfo f58529c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC1965a f66632d;
+    public InterfaceC2042a f58530d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f66633e;
+    public Context f58531e;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC1965a {
+    public interface InterfaceC2042a {
         void a();
 
         void b();
 
         void c();
+
+        void d();
+
+        void e();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -116,7 +117,7 @@ public abstract class a extends KSFrameLayout implements d {
                 return;
             }
         }
-        this.f66633e = context;
+        this.f58531e = context;
         d();
     }
 
@@ -128,12 +129,10 @@ public abstract class a extends KSFrameLayout implements d {
                 b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(b2);
             }
-            b2.setViewCallback(new a.InterfaceC1949a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
+            b2.setViewCallback(new a.InterfaceC2024a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f66634a;
+                public final /* synthetic */ a a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,32 +149,32 @@ public abstract class a extends KSFrameLayout implements d {
                             return;
                         }
                     }
-                    this.f66634a = this;
+                    this.a = this;
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        this.f66634a.j();
+                        this.a.j();
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC2024a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
@@ -203,11 +202,11 @@ public abstract class a extends KSFrameLayout implements d {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            FrameLayout.inflate(this.f66633e, getLayoutId(), this);
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            FrameLayout.inflate(this.f58531e, getLayoutId(), this);
             setRatio(getHWRatio());
             c();
-            this.f66629a = new e(this, 70);
+            this.a = new f(this, 70);
             a((ViewGroup) this);
         }
     }
@@ -217,16 +216,16 @@ public abstract class a extends KSFrameLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f66629a.a(this);
-            this.f66629a.a();
+            this.a.a(this);
+            this.a.a();
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f66630b = adTemplate;
-            this.f66631c = c.i(adTemplate);
+            this.f58528b = adTemplate;
+            this.f58529c = com.kwad.sdk.core.response.a.d.j(adTemplate);
         }
     }
 
@@ -235,8 +234,8 @@ public abstract class a extends KSFrameLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
-            this.f66629a.b(this);
-            this.f66629a.b();
+            this.a.b(this);
+            this.a.b();
         }
     }
 
@@ -267,57 +266,77 @@ public abstract class a extends KSFrameLayout implements d {
     public abstract int getLayoutId();
 
     public void j() {
-        InterfaceC1965a interfaceC1965a;
+        InterfaceC2042a interfaceC2042a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.f66630b.mPvReported && (interfaceC1965a = this.f66632d) != null) {
-                interfaceC1965a.b();
+            if (!this.f58528b.mPvReported && (interfaceC2042a = this.f58530d) != null) {
+                interfaceC2042a.b();
             }
-            com.kwad.sdk.core.report.a.a(this.f66630b, (JSONObject) null);
+            com.kwad.sdk.core.report.a.a(this.f58528b, (JSONObject) null);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f66630b, getTouchCoords());
-            InterfaceC1965a interfaceC1965a = this.f66632d;
-            if (interfaceC1965a != null) {
-                interfaceC1965a.a();
+            com.kwad.sdk.core.report.a.a(this.f58528b, getTouchCoords());
+            InterfaceC2042a interfaceC2042a = this.f58530d;
+            if (interfaceC2042a != null) {
+                interfaceC2042a.a();
             }
         }
     }
 
     public void l() {
-        InterfaceC1965a interfaceC1965a;
+        InterfaceC2042a interfaceC2042a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC1965a = this.f66632d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC2042a = this.f58530d) == null) {
             return;
         }
-        interfaceC1965a.a();
+        interfaceC2042a.a();
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f66630b);
-            InterfaceC1965a interfaceC1965a = this.f66632d;
-            if (interfaceC1965a != null) {
-                interfaceC1965a.c();
+            com.kwad.sdk.core.report.a.a(this.f58528b);
+            InterfaceC2042a interfaceC2042a = this.f58530d;
+            if (interfaceC2042a != null) {
+                interfaceC2042a.c();
             }
         }
     }
 
-    public void setAdClickListener(InterfaceC1965a interfaceC1965a) {
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        InterfaceC2042a interfaceC2042a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC1965a) == null) {
-            this.f66632d = interfaceC1965a;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, dialogInterface) == null) || (interfaceC2042a = this.f58530d) == null) {
+            return;
+        }
+        interfaceC2042a.e();
+    }
+
+    @Override // android.content.DialogInterface.OnShowListener
+    public void onShow(DialogInterface dialogInterface) {
+        InterfaceC2042a interfaceC2042a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || (interfaceC2042a = this.f58530d) == null) {
+            return;
+        }
+        interfaceC2042a.d();
+    }
+
+    public void setInnerAdInteractionListener(InterfaceC2042a interfaceC2042a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, interfaceC2042a) == null) {
+            this.f58530d = interfaceC2042a;
         }
     }
 
     public void setMargin(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             setPadding(i2, i2, i2, i2);
             setBackgroundColor(-1);
         }

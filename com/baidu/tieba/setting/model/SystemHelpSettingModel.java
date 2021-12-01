@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.model;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.e.a.f;
+import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,36 +23,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54747e;
+    public b f48930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f54748f;
+    public c f48931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f54749g;
+    public Context f48932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f54750h;
+    public BaseActivity.LoadDataCallBack f48933h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingModel f54751a;
+        public final /* synthetic */ SystemHelpSettingModel a;
 
         public b(SystemHelpSettingModel systemHelpSettingModel) {
             Interceptable interceptable = $ic;
@@ -69,7 +67,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54751a = systemHelpSettingModel;
+            this.a = systemHelpSettingModel;
         }
 
         public /* synthetic */ b(SystemHelpSettingModel systemHelpSettingModel, a aVar) {
@@ -83,7 +81,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                b.a.q0.s.h0.b.b.a();
+                c.a.q0.s.h0.b.b.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -104,21 +102,19 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f54751a.f54747e = null;
-                if (this.f54751a.f54750h != null) {
-                    this.f54751a.f54750h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+                this.a.f48930e = null;
+                if (this.a.f48933h != null) {
+                    this.a.f48933h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingModel f54752a;
+        public final /* synthetic */ SystemHelpSettingModel a;
 
         public c(SystemHelpSettingModel systemHelpSettingModel) {
             Interceptable interceptable = $ic;
@@ -135,7 +131,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54752a = systemHelpSettingModel;
+            this.a = systemHelpSettingModel;
         }
 
         public /* synthetic */ c(SystemHelpSettingModel systemHelpSettingModel, a aVar) {
@@ -148,20 +144,20 @@ public class SystemHelpSettingModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                b.a.e.f.a.b bVar = new b.a.e.f.a.b();
-                String a2 = bVar.a("image", true, false, true);
+                c.a.d.f.a.b bVar = new c.a.d.f.a.b();
+                String a = bVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a3 = bVar.a("images", true, false, true);
+                String a2 = bVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
-                long directorySize = FileHelper.getDirectorySize(a2, false);
-                long directorySize2 = FileHelper.getDirectorySize(a3, false);
+                long directorySize = FileHelper.getDirectorySize(a, false);
+                long directorySize2 = FileHelper.getDirectorySize(a2, false);
                 long directorySize3 = FileHelper.getDirectorySize(str, false);
                 long fileSize = FileHelper.getFileSize(cacheDir + TbConfig.TMP_DATABASE_NAME);
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921548, Long.class);
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f2 = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.f54752a.f54749g.getString(R.string.mebibyte);
+                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.a.f48932g.getString(R.string.mebibyte);
                 }
                 return "";
             }
@@ -174,9 +170,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.f54752a.f54748f = null;
-                if (this.f54752a.f54750h != null) {
-                    this.f54752a.f54750h.callback(MoreModel.TaskType.GET_SIZE, str);
+                this.a.f48931f = null;
+                if (this.a.f48933h != null) {
+                    this.a.f48933h.callback(MoreModel.TaskType.GET_SIZE, str);
                 }
             }
         }
@@ -200,18 +196,18 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54747e = null;
-        this.f54748f = null;
-        this.f54749g = null;
-        this.f54750h = null;
-        this.f54749g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.f48930e = null;
+        this.f48931f = null;
+        this.f48932g = null;
+        this.f48933h = null;
+        this.f48932g = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54747e == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f48930e == null) {
             b bVar = new b(this, null);
-            this.f54747e = bVar;
+            this.f48930e = bVar;
             bVar.execute(new String[0]);
         }
     }
@@ -229,9 +225,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
 
     public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f54748f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f48931f == null) {
             c cVar = new c(this, null);
-            this.f54748f = cVar;
+            this.f48931f = cVar;
             cVar.execute(new String[0]);
         }
     }
@@ -246,7 +242,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public void E(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
-            this.f54750h = loadDataCallBack;
+            this.f48933h = loadDataCallBack;
         }
     }
 

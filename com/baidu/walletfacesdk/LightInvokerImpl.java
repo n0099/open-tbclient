@@ -3,7 +3,6 @@ package com.baidu.walletfacesdk;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LightInvokerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE = "callNativeVoice";
@@ -39,7 +38,7 @@ public class LightInvokerImpl {
     public static final String VOICE_PRODUCTID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface IResultListener {
         void onResult(int i2, JSONObject jSONObject);
     }
@@ -156,12 +155,10 @@ public class LightInvokerImpl {
             new LivenessManager(context, z, optString).livenessRecognize(hashMap, new LivenessManager.IvoiceListener(jSONObject2, iResultListener) { // from class: com.baidu.walletfacesdk.LightInvokerImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f61850a;
+                public final /* synthetic */ JSONObject a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f61851b;
+                public final /* synthetic */ IResultListener f54237b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,8 +175,8 @@ public class LightInvokerImpl {
                             return;
                         }
                     }
-                    this.f61850a = jSONObject2;
-                    this.f61851b = iResultListener;
+                    this.a = jSONObject2;
+                    this.f54237b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -188,14 +185,14 @@ public class LightInvokerImpl {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str2, obj}) == null) {
                         if (obj != null) {
                             try {
-                                this.f61850a.put("data", obj);
+                                this.a.put("data", obj);
                             } catch (Exception unused3) {
                                 return;
                             }
                         }
-                        this.f61850a.put("errCode", i3);
-                        this.f61850a.put("des", str2);
-                        this.f61851b.onResult(i2, this.f61850a);
+                        this.a.put("errCode", i3);
+                        this.a.put("des", str2);
+                        this.f54237b.onResult(i2, this.a);
                     }
                 }
             });
@@ -204,7 +201,7 @@ public class LightInvokerImpl {
 
     public static void invokeBdWalletNative(Context context, String str, boolean z, LightInvokerCallback lightInvokerCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Boolean.valueOf(z), lightInvokerCallback}) == null) || context == null || str == null || lightInvokerCallback == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, Boolean.valueOf(z), lightInvokerCallback}) == null) || context == null || str == null || lightInvokerCallback == null) {
             return;
         }
         try {
@@ -212,9 +209,7 @@ public class LightInvokerImpl {
                 callNativeVoice(context, str, z, new IResultListener(lightInvokerCallback) { // from class: com.baidu.walletfacesdk.LightInvokerImpl.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LightInvokerCallback f61849a;
+                    public final /* synthetic */ LightInvokerCallback a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -231,7 +226,7 @@ public class LightInvokerImpl {
                                 return;
                             }
                         }
-                        this.f61849a = lightInvokerCallback;
+                        this.a = lightInvokerCallback;
                     }
 
                     @Override // com.baidu.walletfacesdk.LightInvokerImpl.IResultListener
@@ -240,7 +235,7 @@ public class LightInvokerImpl {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
                             return;
                         }
-                        this.f61849a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
+                        this.a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
                     }
                 });
             }
@@ -251,7 +246,7 @@ public class LightInvokerImpl {
 
     public static void setProduct(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
             KEY_PASS_TPL = str;
             KEY_PASS_APIKEY = str2;
         }

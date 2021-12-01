@@ -1,8 +1,8 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -117,10 +117,10 @@ public final class Okio {
             }
 
             @Override // okio.Sink
-            public void write(Buffer buffer, long j) throws IOException {
+            public void write(Buffer buffer, long j2) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j) == null) {
-                    buffer.skip(j);
+                if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j2) == null) {
+                    buffer.skip(j2);
                 }
             }
         } : (Sink) invokeV.objValue;
@@ -129,13 +129,13 @@ public final class Okio {
     public static BufferedSource buffer(Source source) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, source)) == null) ? new RealBufferedSource(source) : (BufferedSource) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) ? new RealBufferedSource(source) : (BufferedSource) invokeL.objValue;
     }
 
     public static boolean isAndroidGetsocknameError(AssertionError assertionError) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, assertionError)) == null) ? (assertionError.getCause() == null || assertionError.getMessage() == null || !assertionError.getMessage().contains("getsockname failed")) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, assertionError)) == null) ? (assertionError.getCause() == null || assertionError.getMessage() == null || !assertionError.getMessage().contains("getsockname failed")) ? false : true : invokeL.booleanValue;
     }
 
     public static Sink sink(OutputStream outputStream) {
@@ -181,7 +181,7 @@ public final class Okio {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, iOException)) == null) {
-                    SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
+                    SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.O);
                     if (iOException != null) {
                         socketTimeoutException.initCause(iOException);
                     }
@@ -284,20 +284,20 @@ public final class Okio {
                         }
 
                         @Override // okio.Sink
-                        public void write(Buffer buffer, long j) throws IOException {
+                        public void write(Buffer buffer, long j2) throws IOException {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLJ(1048580, this, buffer, j) == null) {
-                                Util.checkOffsetAndCount(buffer.size, 0L, j);
-                                while (j > 0) {
+                            if (interceptable2 == null || interceptable2.invokeLJ(1048580, this, buffer, j2) == null) {
+                                Util.checkOffsetAndCount(buffer.size, 0L, j2);
+                                while (j2 > 0) {
                                     this.val$timeout.throwIfReached();
                                     Segment segment = buffer.head;
-                                    int min = (int) Math.min(j, segment.limit - segment.pos);
+                                    int min = (int) Math.min(j2, segment.limit - segment.pos);
                                     this.val$out.write(segment.data, segment.pos, min);
                                     int i2 = segment.pos + min;
                                     segment.pos = i2;
-                                    long j2 = min;
-                                    j -= j2;
-                                    buffer.size -= j2;
+                                    long j3 = min;
+                                    j2 -= j3;
+                                    buffer.size -= j3;
                                     if (i2 == segment.limit) {
                                         buffer.head = segment.pop();
                                         SegmentPool.recycle(segment);
@@ -354,27 +354,27 @@ public final class Okio {
                         }
 
                         @Override // okio.Source
-                        public long read(Buffer buffer, long j) throws IOException {
+                        public long read(Buffer buffer, long j2) throws IOException {
                             InterceptResult invokeLJ;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-                                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+                                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                                 if (i2 < 0) {
-                                    throw new IllegalArgumentException("byteCount < 0: " + j);
+                                    throw new IllegalArgumentException("byteCount < 0: " + j2);
                                 } else if (i2 == 0) {
                                     return 0L;
                                 } else {
                                     try {
                                         this.val$timeout.throwIfReached();
                                         Segment writableSegment = buffer.writableSegment(1);
-                                        int read = this.val$in.read(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
+                                        int read = this.val$in.read(writableSegment.data, writableSegment.limit, (int) Math.min(j2, 8192 - writableSegment.limit));
                                         if (read == -1) {
                                             return -1L;
                                         }
                                         writableSegment.limit += read;
-                                        long j2 = read;
-                                        buffer.size += j2;
-                                        return j2;
+                                        long j3 = read;
+                                        buffer.size += j3;
+                                        return j3;
                                     } catch (AssertionError e2) {
                                         if (Okio.isAndroidGetsocknameError(e2)) {
                                             throw new IOException(e2);

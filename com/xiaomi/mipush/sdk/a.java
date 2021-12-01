@@ -17,13 +17,11 @@ import com.xiaomi.push.el;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Set<String> f71500a;
+    public Set<String> a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +36,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f71500a = new HashSet();
+        this.a = new HashSet();
     }
 
     public static void a(Application application) {
@@ -79,9 +77,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         Intent intent;
-        el a2;
+        el a;
         String packageName;
-        String m289a;
+        String m338a;
         int i2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -89,24 +87,24 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f71500a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.a.contains(stringExtra)) {
             return;
         }
-        this.f71500a.add(stringExtra);
+        this.a.add(stringExtra);
         if (intExtra == 3000) {
-            a2 = el.a(activity.getApplicationContext());
+            a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m289a = ek.m289a(intExtra);
+            m338a = ek.m338a(intExtra);
             i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
         } else if (intExtra != 1000) {
             return;
         } else {
-            a2 = el.a(activity.getApplicationContext());
+            a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m289a = ek.m289a(intExtra);
+            m338a = ek.m338a(intExtra);
             i2 = 1008;
         }
-        a2.a(packageName, m289a, stringExtra, i2, null);
+        a.a(packageName, m338a, stringExtra, i2, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

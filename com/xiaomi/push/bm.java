@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +14,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public class bm {
             }
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(m185a(str));
+                messageDigest.update(m234a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;
@@ -133,7 +132,7 @@ public class bm {
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
@@ -149,7 +148,7 @@ public class bm {
     public static String a(Object[] objArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, objArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, objArr, str)) == null) {
             if (objArr == null) {
                 return null;
             }
@@ -187,7 +186,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m184a(String str) {
+    public static boolean m233a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -206,7 +205,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m185a(String str) {
+    public static byte[] m234a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -226,7 +225,7 @@ public class bm {
             if (str != null) {
                 try {
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                    messageDigest.update(m185a(str));
+                    messageDigest.update(m234a(str));
                     return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
                 } catch (NoSuchAlgorithmException unused) {
                     return str;
@@ -238,7 +237,7 @@ public class bm {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m186b(String str) {
+    public static boolean m235b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {

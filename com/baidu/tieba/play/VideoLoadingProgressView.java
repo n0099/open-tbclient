@@ -10,34 +10,38 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoLoadingProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f54206e;
+    public float f48433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54207f;
+    public int f48434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f54208g;
+    public float f48435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54209h;
+    public int f48436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f54210i;
-    public int j;
-    public RectF k;
+    public float f48437i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f48438j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public RectF f48439k;
     public Paint l;
     public int m;
     public int n;
@@ -52,13 +56,13 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator.AnimatorUpdateListener w;
     public AnimatorListenerAdapter x;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoLoadingProgressView f54211e;
+        public final /* synthetic */ VideoLoadingProgressView f48440e;
 
         public a(VideoLoadingProgressView videoLoadingProgressView) {
             Interceptable interceptable = $ic;
@@ -75,34 +79,34 @@ public class VideoLoadingProgressView extends View {
                     return;
                 }
             }
-            this.f54211e = videoLoadingProgressView;
+            this.f48440e = videoLoadingProgressView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (this.f54211e.r != 1 && this.f54211e.r != 2) {
-                    if (this.f54211e.r == 3) {
-                        this.f54211e.q = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
+                if (this.f48440e.r != 1 && this.f48440e.r != 2) {
+                    if (this.f48440e.r == 3) {
+                        this.f48440e.q = ((Float) valueAnimator.getAnimatedValue()).floatValue() + 60.0f;
                     }
                 } else {
-                    VideoLoadingProgressView videoLoadingProgressView = this.f54211e;
+                    VideoLoadingProgressView videoLoadingProgressView = this.f48440e;
                     videoLoadingProgressView.p = videoLoadingProgressView.o + ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    this.f54211e.q = 60.0f;
+                    this.f48440e.q = 60.0f;
                 }
-                this.f54211e.invalidate();
+                this.f48440e.invalidate();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoLoadingProgressView f54212e;
+        public final /* synthetic */ VideoLoadingProgressView f48441e;
 
         public b(VideoLoadingProgressView videoLoadingProgressView) {
             Interceptable interceptable = $ic;
@@ -119,24 +123,24 @@ public class VideoLoadingProgressView extends View {
                     return;
                 }
             }
-            this.f54212e = videoLoadingProgressView;
+            this.f48441e = videoLoadingProgressView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                if (this.f54212e.r == 2) {
-                    this.f54212e.i();
-                } else if (this.f54212e.r != 3 || this.f54212e.s == null) {
+                if (this.f48441e.r == 2) {
+                    this.f48441e.i();
+                } else if (this.f48441e.r != 3 || this.f48441e.s == null) {
                 } else {
-                    this.f54212e.s.onAnimationEnd();
+                    this.f48441e.s.onAnimationEnd();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void onAnimationEnd();
     }
@@ -159,12 +163,12 @@ public class VideoLoadingProgressView extends View {
                 return;
             }
         }
-        this.f54206e = 7200.0f;
-        this.f54207f = 10000;
-        this.f54208g = 30.0f;
-        this.f54209h = 50;
-        this.f54210i = 300.0f;
-        this.j = 400;
+        this.f48433e = 7200.0f;
+        this.f48434f = 10000;
+        this.f48435g = 30.0f;
+        this.f48436h = 50;
+        this.f48437i = 300.0f;
+        this.f48438j = 400;
         this.o = -90.0f;
         this.p = -90.0f;
         this.q = 60.0f;
@@ -202,10 +206,10 @@ public class VideoLoadingProgressView extends View {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.k = new RectF();
+            this.f48439k = new RectF();
             this.l = new Paint(1);
             this.m = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.n = l.g(getContext(), R.dimen.ds2);
+            this.n = l.f(getContext(), R.dimen.ds2);
             this.l.setColor(this.m);
             this.l.setStrokeWidth(this.n);
             this.l.setStyle(Paint.Style.STROKE);
@@ -219,9 +223,9 @@ public class VideoLoadingProgressView extends View {
             g();
             this.r = 3;
             this.o = this.p;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f54210i);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f48437i);
             this.v = ofFloat;
-            ofFloat.setDuration(this.j);
+            ofFloat.setDuration(this.f48438j);
             this.v.addListener(this.x);
             this.v.addUpdateListener(this.w);
             this.v.start();
@@ -234,9 +238,9 @@ public class VideoLoadingProgressView extends View {
             g();
             this.r = 2;
             this.o = this.p;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f54208g);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f48435g);
             this.u = ofFloat;
-            ofFloat.setDuration(this.f54209h);
+            ofFloat.setDuration(this.f48436h);
             this.u.addListener(this.x);
             this.u.addUpdateListener(this.w);
             this.u.start();
@@ -257,13 +261,13 @@ public class VideoLoadingProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             super.onDraw(canvas);
-            RectF rectF = this.k;
+            RectF rectF = this.f48439k;
             float f2 = 1;
             rectF.left = f2;
             rectF.top = f2;
             rectF.right = getWidth() - 1;
-            this.k.bottom = getHeight() - 1;
-            canvas.drawArc(this.k, this.p, this.q, false, this.l);
+            this.f48439k.bottom = getHeight() - 1;
+            canvas.drawArc(this.f48439k, this.p, this.q, false, this.l);
         }
     }
 
@@ -281,9 +285,9 @@ public class VideoLoadingProgressView extends View {
             this.r = 1;
             this.p = -90.0f;
             this.o = -90.0f;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f54206e);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f48433e);
             this.t = ofFloat;
-            ofFloat.setDuration(this.f54207f);
+            ofFloat.setDuration(this.f48434f);
             this.t.addListener(this.x);
             this.t.addUpdateListener(this.w);
             this.t.start();
@@ -311,12 +315,12 @@ public class VideoLoadingProgressView extends View {
                 return;
             }
         }
-        this.f54206e = 7200.0f;
-        this.f54207f = 10000;
-        this.f54208g = 30.0f;
-        this.f54209h = 50;
-        this.f54210i = 300.0f;
-        this.j = 400;
+        this.f48433e = 7200.0f;
+        this.f48434f = 10000;
+        this.f48435g = 30.0f;
+        this.f48436h = 50;
+        this.f48437i = 300.0f;
+        this.f48438j = 400;
         this.o = -90.0f;
         this.p = -90.0f;
         this.q = 60.0f;
@@ -344,12 +348,12 @@ public class VideoLoadingProgressView extends View {
                 return;
             }
         }
-        this.f54206e = 7200.0f;
-        this.f54207f = 10000;
-        this.f54208g = 30.0f;
-        this.f54209h = 50;
-        this.f54210i = 300.0f;
-        this.j = 400;
+        this.f48433e = 7200.0f;
+        this.f48434f = 10000;
+        this.f48435g = 30.0f;
+        this.f48436h = 50;
+        this.f48437i = 300.0f;
+        this.f48438j = 400;
         this.o = -90.0f;
         this.p = -90.0f;
         this.q = 60.0f;

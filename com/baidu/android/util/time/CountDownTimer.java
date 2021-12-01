@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CountDownTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG = 1;
@@ -26,7 +26,7 @@ public class CountDownTimer {
     public long mPauseTime;
     public long mStopTimeInFuture;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,19 +75,19 @@ public class CountDownTimer {
             }
         }
 
-        public void onTick(long j) {
+        public void onTick(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
             }
         }
     }
 
-    public CountDownTimer(long j, long j2) {
+    public CountDownTimer(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -162,19 +162,19 @@ public class CountDownTimer {
                 }
             }
         };
-        this.mCountdownMillis = j;
-        this.mCountdownInterval = j2;
+        this.mCountdownMillis = j2;
+        this.mCountdownInterval = j3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleCountDownMessage(Message message) {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, message) == null) {
             synchronized (this) {
                 if (!this.mIsCancelled && !this.mIsPaused) {
                     long elapsedRealtime = this.mStopTimeInFuture - SystemClock.elapsedRealtime();
-                    long j2 = 0;
+                    long j3 = 0;
                     if (elapsedRealtime <= 0) {
                         this.mIsFinished = true;
                         this.mListener.onFinish();
@@ -183,18 +183,18 @@ public class CountDownTimer {
                         this.mListener.onTick(elapsedRealtime);
                         long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
                         if (elapsedRealtime < this.mCountdownInterval) {
-                            j = elapsedRealtime - elapsedRealtime3;
-                            if (j < 0) {
-                                this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), j2);
+                            j2 = elapsedRealtime - elapsedRealtime3;
+                            if (j2 < 0) {
+                                this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), j3);
                             }
                         } else {
-                            j = this.mCountdownInterval - elapsedRealtime3;
-                            while (j < 0) {
-                                j += this.mCountdownInterval;
+                            j2 = this.mCountdownInterval - elapsedRealtime3;
+                            while (j2 < 0) {
+                                j2 += this.mCountdownInterval;
                             }
                         }
-                        j2 = j;
-                        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), j2);
+                        j3 = j2;
+                        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), j3);
                     }
                 }
             }
@@ -240,10 +240,10 @@ public class CountDownTimer {
         }
     }
 
-    public void setCountDownMillis(long j) {
+    public void setCountDownMillis(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mCountdownMillis = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mCountdownMillis = j2;
         }
     }
 

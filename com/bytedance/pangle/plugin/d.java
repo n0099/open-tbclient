@@ -1,7 +1,7 @@
 package com.bytedance.pangle.plugin;
 
 import android.text.TextUtils;
-import com.baidu.mobads.container.util.XAdSimpleImageLoader;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,11 @@ import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public File f62358a;
+    public File a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,7 +37,7 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f62358a = null;
+        this.a = null;
     }
 
     private void a(File file) {
@@ -51,9 +49,7 @@ public final class d implements Runnable {
             file.listFiles(new FileFilter(this) { // from class: com.bytedance.pangle.plugin.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f62359a;
+                public final /* synthetic */ d a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,7 +66,7 @@ public final class d implements Runnable {
                             return;
                         }
                     }
-                    this.f62359a = this;
+                    this.a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -78,10 +74,10 @@ public final class d implements Runnable {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
-                        if (file2 != null && (file2.getName().endsWith(".apk") || file2.getName().endsWith(".jar"))) {
+                        if (file2 != null && (file2.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) || file2.getName().endsWith(".jar"))) {
                             PluginManager.getInstance().asyncInstall(file2);
                             return true;
-                        } else if (file2.getAbsolutePath().endsWith(XAdSimpleImageLoader.TEMP_SUFFIX) && System.currentTimeMillis() - file2.lastModified() < 259200000) {
+                        } else if (file2.getAbsolutePath().endsWith(".temp") && System.currentTimeMillis() - file2.lastModified() < 259200000) {
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir find : ".concat(String.valueOf(file2)));
                             return false;
                         } else {
@@ -93,7 +89,7 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.f62358a) || (pluginProvider = i.a().f62337b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
+            if (file.equals(this.a) || (pluginProvider = i.a().f54604b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
                 return;
             }
             PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);
@@ -108,7 +104,7 @@ public final class d implements Runnable {
             try {
                 String downloadDir = PluginDirHelper.getDownloadDir();
                 for (String str : Zeus.getAppApplication().getAssets().list("plugins/")) {
-                    if (str.endsWith(".apk")) {
+                    if (str.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                         String concat = "plugins/".concat(String.valueOf(str));
                         File file = new File(downloadDir, str);
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusScanRunnable releaseCopyFile " + concat + " --> " + file.getAbsolutePath());
@@ -126,7 +122,7 @@ public final class d implements Runnable {
                 return;
             }
             File file2 = new File(pushDir);
-            this.f62358a = file2;
+            this.a = file2;
             a(file2);
         }
     }

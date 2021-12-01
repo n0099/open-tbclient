@@ -4,39 +4,41 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TYPE_NORMAL = "normal_log";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f37051a = "wallet_stastics";
+    public static final String a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f37052b = false;
+    public static final boolean f33188b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37053c = 204800;
+    public static final int f33189c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37054d = 51200;
+    public static final int f33190d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f37055e = 604800000;
+    public static final long f33191e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f37056f = 86400000;
+    public static final long f33192f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37057g = "publish_data";
+    public static final String f33193g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37058h = "sign";
+    public static final String f33194h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37059i = "mk";
-    public static final String j = "array";
-    public static final String k = "exception";
+    public static final String f33195i = "mk";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f33196j = "array";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f33197k = "exception";
     public static final String l = "dim_excep_time";
     public static final String m = "dim_excep_owner";
     public static final String n = "dim_excep_key";

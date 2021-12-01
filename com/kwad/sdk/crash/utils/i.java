@@ -11,27 +11,25 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f66425a;
+    public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f66426b;
+    public static final Object f58208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f66427c;
+    public static List<String> f58209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66428d;
+    public static String f58210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static SimpleDateFormat f66429e;
+    public static SimpleDateFormat f58211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f66430f;
+    public static char[] f58212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static char[] f66431g;
+    public static char[] f58213g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,16 +45,16 @@ public class i {
                 return;
             }
         }
-        f66425a = new Object();
-        f66426b = new Object();
-        f66429e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        f66430f = new char[29];
-        f66431g = new char[29];
+        a = new Object();
+        f58208b = new Object();
+        f58211e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        f58212f = new char[29];
+        f58213g = new char[29];
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? j <= 0 ? "unknown" : f66429e.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) ? j2 <= 0 ? "unknown" : f58211e.format(new Date(j2)) : (String) invokeJ.objValue;
     }
 }

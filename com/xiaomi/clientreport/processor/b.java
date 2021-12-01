@@ -14,13 +14,11 @@ import com.xiaomi.push.bq;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements IPerfProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71487a;
+    public Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f48a;
@@ -40,7 +38,7 @@ public class b implements IPerfProcessor {
                 return;
             }
         }
-        this.f71487a = context;
+        this.a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -64,7 +62,7 @@ public class b implements IPerfProcessor {
             } else {
                 str = String.valueOf(i2) + "#" + str2;
             }
-            File externalFilesDir = this.f71487a.getExternalFilesDir(PerformerBox.TYPE);
+            File externalFilesDir = this.a.getExternalFilesDir(PerformerBox.TYPE);
             if (externalFilesDir == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
                 return null;
@@ -87,7 +85,7 @@ public class b implements IPerfProcessor {
             }
             for (int i2 = 0; i2 < 20; i2++) {
                 String str = b2 + i2;
-                if (bq.m189a(this.f71487a, str)) {
+                if (bq.m238a(this.a, str)) {
                     return str;
                 }
             }
@@ -100,16 +98,16 @@ public class b implements IPerfProcessor {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bq.a(this.f71487a, PerformerBox.TYPE, "perfUploading");
-            File[] m190a = bq.m190a(this.f71487a, "perfUploading");
-            if (m190a == null || m190a.length <= 0) {
+            bq.a(this.a, PerformerBox.TYPE, "perfUploading");
+            File[] m239a = bq.m239a(this.a, "perfUploading");
+            if (m239a == null || m239a.length <= 0) {
                 return;
             }
-            for (File file : m190a) {
+            for (File file : m239a) {
                 if (file != null) {
-                    List<String> a2 = e.a(this.f71487a, file.getAbsolutePath());
+                    List<String> a = e.a(this.a, file.getAbsolutePath());
                     file.delete();
-                    a(a2);
+                    a(a);
                 }
             }
         }
@@ -117,30 +115,30 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo81a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo130a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f48a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
-            String a2 = a((com.xiaomi.clientreport.data.a) perfClientReport);
-            String a3 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f48a.get(a2);
+            String a = a((com.xiaomi.clientreport.data.a) perfClientReport);
+            String a2 = e.a(perfClientReport);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f48a.get(a);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
             }
-            PerfClientReport perfClientReport2 = (PerfClientReport) hashMap.get(a3);
+            PerfClientReport perfClientReport2 = (PerfClientReport) hashMap.get(a2);
             if (perfClientReport2 != null) {
                 perfClientReport.perfCounts += perfClientReport2.perfCounts;
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
-            hashMap.put(a3, perfClientReport);
-            this.f48a.put(a2, hashMap);
+            hashMap.put(a2, perfClientReport);
+            this.f48a.put(a, hashMap);
         }
     }
 
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            bq.a(this.f71487a, list);
+            bq.a(this.a, list);
         }
     }
 

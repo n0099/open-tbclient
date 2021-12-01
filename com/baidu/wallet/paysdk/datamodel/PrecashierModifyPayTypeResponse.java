@@ -14,19 +14,17 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -936968920336557051L;
     public transient /* synthetic */ FieldHolder $fh;
     public String mOriginHttpResponse;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static PrecashierModifyPayTypeResponse f60566a;
+        public static PrecashierModifyPayTypeResponse a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +40,7 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
                     return;
                 }
             }
-            f60566a = new PrecashierModifyPayTypeResponse();
+            a = new PrecashierModifyPayTypeResponse();
         }
     }
 
@@ -63,16 +61,16 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
     public static PrecashierModifyPayTypeResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f60566a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
             if (obj instanceof PrecashierModifyPayTypeResponse) {
-                PrecashierModifyPayTypeResponse unused = a.f60566a = (PrecashierModifyPayTypeResponse) obj;
+                PrecashierModifyPayTypeResponse unused = a.a = (PrecashierModifyPayTypeResponse) obj;
             } else if (obj == null) {
-                PrecashierModifyPayTypeResponse unused2 = a.f60566a = null;
+                PrecashierModifyPayTypeResponse unused2 = a.a = null;
             }
         }
     }

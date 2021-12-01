@@ -3,7 +3,6 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] IDENTITY_MATRIX;
@@ -88,7 +87,7 @@ public class GlUtil {
     public static int createImageTexture(ByteBuffer byteBuffer, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.AD_TEXT_ID, null, byteBuffer, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65541, null, byteBuffer, i2, i3, i4)) == null) {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             int i5 = iArr[0];
@@ -108,7 +107,7 @@ public class GlUtil {
         InterceptResult invokeLL;
         int loadShader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             int loadShader2 = loadShader(35633, str);
             if (loadShader2 == 0 || (loadShader = loadShader(35632, str2)) == 0) {
                 return 0;

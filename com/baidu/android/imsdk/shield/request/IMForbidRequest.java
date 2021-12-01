@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMForbidRequest";
@@ -26,12 +26,12 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public int type;
     public long uid;
 
-    public IMForbidRequest(Context context, long j, long j2, int i2, String str) {
+    public IMForbidRequest(Context context, long j2, long j3, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -42,10 +42,10 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.uid = j2;
+        this.uid = j3;
         this.type = i2;
         this.key = str;
-        this.touk = j;
+        this.touk = j2;
     }
 
     private int getReportType() {

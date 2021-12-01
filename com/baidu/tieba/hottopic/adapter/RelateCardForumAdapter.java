@@ -3,8 +3,8 @@ package com.baidu.tieba.hottopic.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.m.e.a;
-import b.a.r0.j1.l.n;
+import c.a.d.m.e.a;
+import c.a.r0.p1.l.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,18 +23,16 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public boolean n;
     public BdUniqueId o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f50903a;
-        public b.a.r0.j1.o.a mCardView;
+        public int a;
+        public c.a.r0.p1.o.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, b.a.r0.j1.o.a aVar) {
-            super(aVar.i());
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.r0.p1.o.a aVar) {
+            super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,20 +48,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f50903a = 3;
+            this.a = 3;
             this.mCardView = aVar;
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f50903a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a == i2) {
                 return;
             }
-            b.a.r0.j1.o.a aVar = this.mCardView;
+            c.a.r0.p1.o.a aVar = this.mCardView;
             if (aVar != null) {
-                aVar.k(aVar.h(), i2);
+                aVar.l(aVar.i(), i2);
             }
-            this.f50903a = i2;
+            this.a = i2;
         }
     }
 
@@ -99,14 +97,14 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: h0 */
-    public CardGroupRelateForumHolder T(ViewGroup viewGroup) {
+    public CardGroupRelateForumHolder S(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            b.a.r0.j1.o.a aVar = new b.a.r0.j1.o.a(this.m.getPageContext());
-            aVar.m(g0());
+            c.a.r0.p1.o.a aVar = new c.a.r0.p1.o.a(this.m.getPageContext());
+            aVar.n(g0());
             aVar.setFrom("home");
             this.n = true;
             return new CardGroupRelateForumHolder(this, aVar);
@@ -115,18 +113,18 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        b.a.r0.j1.o.a aVar;
+        c.a.r0.p1.o.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
             if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.mCardView) == null) {
                 return null;
             }
             if (this.n) {
-                aVar.q(nVar);
+                aVar.s(nVar);
                 this.n = false;
             }
             cardGroupRelateForumHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PassBiometricDefaultFactory extends PassBiometricFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int VERSION_CODE = 8;
-    public static final String VERSION_NAME = "1.2.2";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static PassBiometricDefaultFactory f42546a;
+    public static final String VERSION_NAME = "1.5.7";
+    public static PassBiometricDefaultFactory a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public PassBiometricDefaultFactory() {
@@ -40,9 +38,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new PassBiometric(this) { // from class: com.baidu.pass.biometrics.base.PassBiometricDefaultFactory.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PassBiometricDefaultFactory f42547a;
+            public final /* synthetic */ PassBiometricDefaultFactory a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -59,7 +55,7 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
                         return;
                     }
                 }
-                this.f42547a = this;
+                this.a = this;
             }
 
             @Override // com.baidu.pass.biometrics.base.PassBiometric
@@ -92,14 +88,14 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f42546a == null) {
+            if (a == null) {
                 synchronized (PassBiometricDefaultFactory.class) {
-                    if (f42546a == null) {
-                        f42546a = new PassBiometricDefaultFactory();
+                    if (a == null) {
+                        a = new PassBiometricDefaultFactory();
                     }
                 }
             }
-            return f42546a;
+            return a;
         }
         return (PassBiometricDefaultFactory) invokeV.objValue;
     }

@@ -15,13 +15,11 @@ import com.sdk.base.framework.c.f;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f69180a;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f69181b;
+    public Context f61023b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +34,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f69125b;
+        boolean z = f.f60988b;
     }
 
     public a(Context context) {
@@ -54,19 +52,19 @@ public class a {
                 return;
             }
         }
-        this.f69181b = context;
+        this.f61023b = context;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f69180a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    f69180a = new a(context);
+                    a = new a(context);
                 }
             }
-            return f69180a;
+            return a;
         }
         return (a) invokeL.objValue;
     }
@@ -74,9 +72,9 @@ public class a {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            com.sdk.base.framework.f.b.a.a(this.f69181b, e.o, str2);
+            com.sdk.base.framework.f.b.a.a(this.f61023b, e.o, str2);
             if (c.b(str).booleanValue()) {
-                com.sdk.base.framework.f.b.a.a(this.f69181b, Constants.API_KEY, str);
+                com.sdk.base.framework.f.b.a.a(this.f61023b, Constants.API_KEY, str);
             }
         }
     }

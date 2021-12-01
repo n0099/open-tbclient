@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
+import i.f;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public final class BackpressureDrainManager extends AtomicLong implements f {
@@ -137,13 +137,13 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
             boolean z = true;
             this.emitting = true;
             boolean z2 = this.terminated;
-            long j = get();
+            long j2 = get();
             try {
                 a aVar = this.actual;
                 while (true) {
                     int i2 = 0;
                     while (true) {
-                        int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                         try {
                             if (i3 > 0 || z2) {
                                 if (z2) {
@@ -157,7 +157,7 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
                                     if (aVar.accept(poll)) {
                                         return;
                                     }
-                                    j--;
+                                    j2--;
                                     i2++;
                                 }
                             }
@@ -190,28 +190,28 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         boolean z;
-        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j == 0) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || j2 == 0) {
             return;
         }
         while (true) {
-            long j3 = get();
+            long j4 = get();
             boolean z2 = true;
-            z = j3 == 0;
-            if (j3 == Long.MAX_VALUE) {
+            z = j4 == 0;
+            if (j4 == Long.MAX_VALUE) {
                 break;
             }
-            if (j == Long.MAX_VALUE) {
-                j2 = j;
+            if (j2 == Long.MAX_VALUE) {
+                j3 = j2;
             } else {
-                j2 = j3 <= Long.MAX_VALUE - j ? j3 + j : Long.MAX_VALUE;
+                j3 = j4 <= Long.MAX_VALUE - j2 ? j4 + j2 : Long.MAX_VALUE;
                 z2 = z;
             }
-            if (compareAndSet(j3, j2)) {
+            if (compareAndSet(j4, j3)) {
                 z = z2;
                 break;
             }

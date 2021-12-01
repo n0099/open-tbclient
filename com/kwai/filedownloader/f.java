@@ -22,9 +22,7 @@ public class f extends com.kwai.filedownloader.event.a {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final f f67880a;
+        public static final f a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +38,7 @@ public class f extends com.kwai.filedownloader.event.a {
                     return;
                 }
             }
-            f67880a = new f(null);
+            a = new f(null);
         }
     }
 
@@ -65,6 +63,6 @@ public class f extends com.kwai.filedownloader.event.a {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f67880a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (f) invokeV.objValue;
     }
 }

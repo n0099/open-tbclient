@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import b.a.q0.c1.o;
-import b.a.q0.s.q.d2;
-import b.a.r0.f0.i;
+import c.a.q0.d1.o;
+import c.a.q0.s.q.d2;
+import c.a.r0.k0.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -23,16 +23,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37673e;
+    public int f33777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37674f;
+    public int f33778f;
     public i mViewController;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -75,7 +75,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
             this.mViewController.h(d2Var);
-            if (!ThreadCardUtils.isSelf(d2Var) && d2Var.Z1()) {
+            if (!ThreadCardUtils.isSelf(d2Var) && d2Var.a2()) {
                 setVisibility(0);
             } else {
                 setVisibility(8);
@@ -86,7 +86,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f37673e, SkinManager.getColor(this.f37674f), WebPManager.ResourceStateType.NORMAL_PRESS));
+            setImageDrawable(WebPManager.getPureDrawable(this.f33777e, SkinManager.getColor(this.f33778f), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -103,9 +103,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int i2 = R.drawable.icon_pure_card_more22;
-            this.f37673e = i2;
+            this.f33777e = i2;
             int i3 = R.color.CAM_X0111;
-            this.f37674f = i3;
+            this.f33778f = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -113,8 +113,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void setWebPResId(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f37673e = i2;
-            this.f37674f = i3;
+            this.f33777e = i2;
+            this.f33778f = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -159,8 +159,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.f37673e = R.drawable.icon_pure_card_more22;
-        this.f37674f = R.color.CAM_X0111;
+        this.f33777e = R.drawable.icon_pure_card_more22;
+        this.f33778f = R.color.CAM_X0111;
         this.mViewController = new i(a((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);

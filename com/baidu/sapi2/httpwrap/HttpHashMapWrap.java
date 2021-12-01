@@ -6,8 +6,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HttpHashMapWrap extends HttpHashMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +33,9 @@ public class HttpHashMapWrap extends HttpHashMap {
     public void doSign(String str) {
         Map map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (map = getMap()) == null || map.containsKey("sig")) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (map = getMap()) == null || map.containsKey(FunAdSdk.PLATFORM_SIG)) {
             return;
         }
-        put("sig", SapiUtils.calculateSig(getMap(), str));
+        put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
     }
 }

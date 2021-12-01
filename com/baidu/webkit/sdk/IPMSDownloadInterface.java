@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IPMSDownloadInterface {
     void addPackage(String str);
 

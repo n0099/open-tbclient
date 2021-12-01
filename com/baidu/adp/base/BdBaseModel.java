@@ -1,9 +1,9 @@
 package com.baidu.adp.base;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.e;
-import b.a.e.a.f;
-import b.a.e.c.g.a;
+import c.a.d.a.e;
+import c.a.d.a.f;
+import c.a.d.c.g.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public static final int MODE_INVALID = 0;

@@ -126,12 +126,10 @@ public class e implements com.ss.android.download.api.a {
             com.ss.android.socialbase.downloader.a.a.a().a(new a.c(this, bVar) { // from class: com.ss.android.downloadlib.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.download.api.config.b f69689a;
+                public final /* synthetic */ com.ss.android.download.api.config.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f69690b;
+                public final /* synthetic */ e f61382b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,8 +146,8 @@ public class e implements com.ss.android.download.api.a {
                             return;
                         }
                     }
-                    this.f69690b = this;
-                    this.f69689a = bVar;
+                    this.f61382b = this;
+                    this.a = bVar;
                 }
             });
             return this;
@@ -166,9 +164,7 @@ public class e implements com.ss.android.download.api.a {
                 downloaderBuilder.notificationClickCallback(new af(this) { // from class: com.ss.android.downloadlib.e.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f69691a;
+                    public final /* synthetic */ e a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -185,26 +181,26 @@ public class e implements com.ss.android.download.api.a {
                                 return;
                             }
                         }
-                        this.f69691a = this;
+                        this.a = this;
                     }
 
                     private boolean d(DownloadInfo downloadInfo) {
                         InterceptResult invokeL2;
-                        String a2;
+                        String a;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(65537, this, downloadInfo)) == null) {
                             t r = j.r();
                             if (r != null) {
-                                com.ss.android.downloadad.api.a.b a3 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-                                if (a3 != null && a3.c()) {
-                                    a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("ad_notification_jump_url", (String) null);
+                                com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+                                if (a2 != null && a2.c()) {
+                                    a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("ad_notification_jump_url", (String) null);
                                 } else {
-                                    a2 = com.ss.android.downloadlib.addownload.h.a(downloadInfo);
+                                    a = com.ss.android.downloadlib.addownload.h.a(downloadInfo);
                                 }
-                                if (TextUtils.isEmpty(a2)) {
+                                if (TextUtils.isEmpty(a)) {
                                     return false;
                                 }
-                                return r.a(j.getContext(), a2);
+                                return r.a(j.getContext(), a);
                             }
                             return false;
                         }
@@ -216,15 +212,15 @@ public class e implements com.ss.android.download.api.a {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, downloadInfo)) == null) {
-                            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-                            if (a2.b("notification_opt_2") == 1) {
+                            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+                            if (a.b("notification_opt_2") == 1) {
                                 if (downloadInfo.getStatus() == -2) {
                                     DownloadHandlerService.a(j.getContext(), downloadInfo, com.ss.android.socialbase.appdownloader.d.j().b(), Downloader.getInstance(j.getContext()).getDownloadNotificationEventListener(downloadInfo.getId()));
                                 }
                                 return true;
                             }
                             boolean d2 = d(downloadInfo);
-                            if (a2.a("disable_delete_dialog", 0) == 1) {
+                            if (a.a("disable_delete_dialog", 0) == 1) {
                                 return true;
                             }
                             return d2;
@@ -250,9 +246,9 @@ public class e implements com.ss.android.download.api.a {
                             if (downloadInfo == null) {
                                 return false;
                             }
-                            com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-                            if (a2 != null) {
-                                com.ss.android.downloadlib.b.a.a(a2);
+                            com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+                            if (a != null) {
+                                com.ss.android.downloadlib.b.a.a(a);
                             } else {
                                 com.ss.android.downloadlib.g.i.b(j.getContext(), downloadInfo.getPackageName());
                             }
@@ -298,9 +294,7 @@ public class e implements com.ss.android.download.api.a {
             d.a().b(new Runnable(this) { // from class: com.ss.android.downloadlib.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f69692a;
+                public final /* synthetic */ e a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -317,7 +311,7 @@ public class e implements com.ss.android.download.api.a {
                             return;
                         }
                     }
-                    this.f69692a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable

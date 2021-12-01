@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.agent.provider.MainProcessDelegateProvider;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -25,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.j;
-/* loaded from: classes7.dex */
+import i.d;
+import i.j;
+/* loaded from: classes9.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
     public static Handler sMainHandler;
@@ -74,7 +73,7 @@ public final class DelegateUtils implements DelegateDef {
     public static DelegateResult callOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, cls, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, cls, bundle)) == null) {
             try {
                 Bundle call = context.getContentResolver().call(MainProcessDelegateProvider.PROVIDER_URI, cls.getName(), (String) null, bundle);
                 if (call != null) {
@@ -95,7 +94,7 @@ public final class DelegateUtils implements DelegateDef {
 
     public static void callOnMainWithContentProviderASync(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, bundle, delegateListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, cls, bundle, delegateListener) == null) {
             notifyResult(delegateListener, new DelegateResult(1, cls, bundle).addDesc("agent is not implement"));
         }
     }
@@ -171,7 +170,7 @@ public final class DelegateUtils implements DelegateDef {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // h.d.a, h.n.b
+            @Override // i.d.a, i.n.b
             public void call(j<? super DelegateResult> jVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, jVar) == null) {

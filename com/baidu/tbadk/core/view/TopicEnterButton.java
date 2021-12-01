@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import b.a.e.f.p.k;
-import b.a.e.f.p.l;
-import b.a.q0.s.u.c;
+import c.a.d.f.p.k;
+import c.a.d.f.p.l;
+import c.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
@@ -23,22 +23,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f46318f;
+    public static final int f41362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f46319g;
+    public static final int f41363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f46320h;
+    public static final int f41364h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f46321e;
+    public RecommendTopicData.RecommendTopicListData f41365e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        f46318f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        f46319g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        f46320h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f46318f) - f46319g;
+        f41362f = l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        f41363g = l.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        f41364h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f41362f) - f41363g;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,14 +82,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void bindData(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) {
-            this.f46321e = recommendTopicListData;
+            this.f41365e = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
                 if (k.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
-                setText(TextUtils.ellipsize(topicName, getPaint(), f46320h, TextUtils.TruncateAt.END));
+                setText(TextUtils.ellipsize(topicName, getPaint(), f41364h, TextUtils.TruncateAt.END));
                 setVisibility(0);
                 onChangeSkinType();
                 return;
@@ -122,9 +122,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
             Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-            setCompoundDrawablePadding(f46318f);
+            setCompoundDrawablePadding(f41362f);
             if (maskDrawable != null) {
-                int i2 = f46319g;
+                int i2 = f41363g;
                 maskDrawable.setBounds(0, 0, i2, i2);
             }
             setCompoundDrawables(maskDrawable, null, null, null);
@@ -135,10 +135,10 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f46321e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f41365e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f46321e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f41365e.getTopicName(), "2").start();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

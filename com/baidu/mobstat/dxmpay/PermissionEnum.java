@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PermissionEnum {
     public static /* synthetic */ Interceptable $ic;
     public static final PermissionEnum APP_LIST;
     public static final PermissionEnum LOCATION;
     public static final PermissionEnum READ_PHONE_STATE;
     public static final PermissionEnum STORAGE;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ PermissionEnum[] f42344a;
+    public static final /* synthetic */ PermissionEnum[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public final class PermissionEnum {
         APP_LIST = new PermissionEnum("APP_LIST", 2);
         PermissionEnum permissionEnum = new PermissionEnum("READ_PHONE_STATE", 3);
         READ_PHONE_STATE = permissionEnum;
-        f42344a = new PermissionEnum[]{LOCATION, STORAGE, APP_LIST, permissionEnum};
+        a = new PermissionEnum[]{LOCATION, STORAGE, APP_LIST, permissionEnum};
     }
 
     public PermissionEnum(String str, int i2) {
@@ -69,6 +67,6 @@ public final class PermissionEnum {
     public static PermissionEnum[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PermissionEnum[]) f42344a.clone() : (PermissionEnum[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PermissionEnum[]) a.clone() : (PermissionEnum[]) invokeV.objValue;
     }
 }

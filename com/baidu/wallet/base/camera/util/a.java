@@ -10,24 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f58282a;
+    public int a;
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C1822a implements FileFilter {
+    /* loaded from: classes11.dex */
+    public class C1894a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Pattern a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public Pattern f58283a;
-
-        public C1822a() {
+        public C1894a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,23 +36,21 @@ public class a {
                     return;
                 }
             }
-            this.f58283a = Pattern.compile("cpu\\d{1,2}");
+            this.a = Pattern.compile("cpu\\d{1,2}");
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f58283a.matcher(file.getName()).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.a.matcher(file.getName()).matches() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f58284a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,7 +66,7 @@ public class a {
                     return;
                 }
             }
-            f58284a = new a();
+            a = new a();
         }
 
         public b() {
@@ -103,22 +97,22 @@ public class a {
                 return;
             }
         }
-        this.f58282a = -1;
+        this.a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (-1 == b.f58284a.f58282a) {
+            if (-1 == b.a.a) {
                 try {
-                    b.f58284a.f58282a = new File("/sys/devices/system/cpu/").listFiles(new C1822a()).length;
+                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1894a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    b.f58284a.f58282a = 1;
+                    b.a.a = 1;
                 }
             }
-            return b.f58284a.f58282a;
+            return b.a.a;
         }
         return invokeV.intValue;
     }

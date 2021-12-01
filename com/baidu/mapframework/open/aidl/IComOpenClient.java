@@ -12,24 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IComOpenClient extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements IComOpenClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C1662a implements IComOpenClient {
+        /* loaded from: classes8.dex */
+        public static class C1739a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f40767a;
-
-            public C1662a(IBinder iBinder) {
+            public C1739a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +42,7 @@ public interface IComOpenClient extends IInterface {
                         return;
                     }
                 }
-                this.f40767a = iBinder;
+                this.a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -57,7 +55,7 @@ public interface IComOpenClient extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                         obtain.writeString(str);
-                        this.f40767a.transact(1, obtain, obtain2, 0);
+                        this.a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -85,7 +83,7 @@ public interface IComOpenClient extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f40767a.transact(2, obtain, obtain2, 0);
+                        this.a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -100,7 +98,7 @@ public interface IComOpenClient extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40767a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -112,7 +110,7 @@ public interface IComOpenClient extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C1662a(iBinder) : (IComOpenClient) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C1739a(iBinder) : (IComOpenClient) queryLocalInterface;
             }
             return (IComOpenClient) invokeL.objValue;
         }
@@ -124,9 +122,9 @@ public interface IComOpenClient extends IInterface {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1) {
                     parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                    String a2 = a(parcel.readString());
+                    String a = a(parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeString(a2);
+                    parcel2.writeString(a);
                     return true;
                 } else if (i2 != 2) {
                     if (i2 != 1598968902) {
@@ -136,9 +134,9 @@ public interface IComOpenClient extends IInterface {
                     return true;
                 } else {
                     parcel.enforceInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                    boolean a3 = a(parcel.readString(), parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+                    boolean a2 = a(parcel.readString(), parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
-                    parcel2.writeInt(a3 ? 1 : 0);
+                    parcel2.writeInt(a2 ? 1 : 0);
                     return true;
                 }
             }

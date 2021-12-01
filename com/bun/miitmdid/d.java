@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class d {
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a() ? c.p : b(context) ? c.t : b() ? c.q : c.f62050b : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a() ? c.p : b(context) ? c.t : b() ? c.q : c.f54378b : (c) invokeL.objValue;
     }
 
     public static String a(String str, String str2) {
@@ -39,11 +39,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a("ro.build.freeme.label", "");
-            if (TextUtils.isEmpty(a2)) {
+            String a = a("ro.build.freeme.label", "");
+            if (TextUtils.isEmpty(a)) {
                 return false;
             }
-            return a2.equalsIgnoreCase("FreemeOS");
+            return a.equalsIgnoreCase("FreemeOS");
         }
         return invokeV.booleanValue;
     }
@@ -52,11 +52,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String a2 = a("ro.odm.manufacturer", "");
-            if (TextUtils.isEmpty(a2)) {
+            String a = a("ro.odm.manufacturer", "");
+            if (TextUtils.isEmpty(a)) {
                 return false;
             }
-            return a2.equalsIgnoreCase("prize");
+            return a.equalsIgnoreCase("prize");
         }
         return invokeV.booleanValue;
     }

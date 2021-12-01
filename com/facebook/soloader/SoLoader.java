@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +37,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -76,7 +75,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +112,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +242,7 @@ public class SoLoader {
         UnsatisfiedLinkError unsatisfiedLinkError;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, str, i2, threadPolicy) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65541, null, str, i2, threadPolicy) == null) {
             sSoSourcesLock.readLock().lock();
             try {
                 if (sSoSources != null) {
@@ -332,7 +331,7 @@ public class SoLoader {
     public static Method getNativeLoadRuntimeMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 23 && i2 <= 27) {
                 try {

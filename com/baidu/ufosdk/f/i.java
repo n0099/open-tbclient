@@ -15,7 +15,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,12 +26,10 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f57617a;
+    public static SimpleDateFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -73,7 +70,7 @@ public final class i {
     public static Bitmap a(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawable)) == null) {
             Bitmap bitmap = null;
             if (drawable == null) {
                 c.a("unknown resourse, drawable null!");
@@ -102,17 +99,17 @@ public final class i {
     public static Drawable a(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) ? context.getResources().getDrawable(i2) : (Drawable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) ? context.getResources().getDrawable(i2) : (Drawable) invokeLI.objValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (f57617a == null) {
-                f57617a = new SimpleDateFormat("MM-dd HH:mm");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
+            if (a == null) {
+                a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f57617a.format(new Date(j));
+            return a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -222,14 +219,14 @@ public final class i {
         return (View) invokeLL.objValue;
     }
 
-    public static String b(long j) {
+    public static String b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (f57617a == null) {
-                f57617a = new SimpleDateFormat("yy-MM-dd");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) {
+            if (a == null) {
+                a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f57617a.format(new Date(j));
+            return a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -246,14 +243,14 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String c(long j) {
+    public static String c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f57617a = simpleDateFormat;
-            String format = simpleDateFormat.format(new Date(j));
-            f57617a = null;
+            a = simpleDateFormat;
+            String format = simpleDateFormat.format(new Date(j2));
+            a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;
@@ -271,27 +268,27 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String d(long j) {
+    public static String d(long j2) {
         InterceptResult invokeJ;
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) {
-            if (j / 1000000000 > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) {
+            if (j2 / 1000000000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100000000)) / 10.0f);
+                sb.append(((float) (j2 / 100000000)) / 10.0f);
                 str = "G";
-            } else if (j / 1000000 > 0) {
+            } else if (j2 / 1000000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100000)) / 10.0f);
+                sb.append(((float) (j2 / 100000)) / 10.0f);
                 str = "M";
-            } else if (j / 1000 > 0) {
+            } else if (j2 / 1000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100)) / 10.0f);
+                sb.append(((float) (j2 / 100)) / 10.0f);
                 str = "K";
             } else {
                 sb = new StringBuilder();
-                sb.append(j);
+                sb.append(j2);
                 str = "B";
             }
             sb.append(str);

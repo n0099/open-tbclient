@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +25,7 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Ast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AS_FILE_NAME = "ast";
@@ -152,7 +153,7 @@ public class Ast {
                                 jSONObject2.put("appid", this.this$0.dev.getPackagename());
                                 jSONObject2.put("device", this.this$0.dev.getBrand());
                                 jSONObject2.put("imei", this.this$0.dev.getUniqueID());
-                                jSONObject2.put("os", "Android");
+                                jSONObject2.put(UrlOcrConfig.IdCardKey.OS, "Android");
                                 jSONObject2.put(ConstantHelper.LOG_OS, this.this$0.dev.getSysVersion());
                                 jSONObject2.put("version", this.this$0.dev.getSdkVersion());
                                 if (str.contains("liveness")) {
@@ -328,9 +329,9 @@ public class Ast {
         }
     }
 
-    public void faceHit(String str, long j, int i2) {
+    public void faceHit(String str, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2)}) == null) || this.properties == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.properties == null) {
             return;
         }
         String generateFaceHitKey = generateFaceHitKey(str);
@@ -349,7 +350,7 @@ public class Ast {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j) {
+        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j2) {
             sendData();
         }
     }

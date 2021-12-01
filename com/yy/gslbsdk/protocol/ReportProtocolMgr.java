@@ -15,7 +15,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ReportProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ReportProtocolMgr";
@@ -52,7 +52,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());
-                    jSONObject.put(k.f38358h, reportInfo.getLc());
+                    jSONObject.put(k.f34316h, reportInfo.getLc());
                     JSONArray jSONArray = new JSONArray();
                     StatsInfo stats0 = reportInfo.getStats0();
                     JSONObject jSONObject2 = new JSONObject();

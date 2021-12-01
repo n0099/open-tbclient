@@ -1,6 +1,7 @@
 package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -647,11 +648,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder connectTimeout(long j, TimeUnit timeUnit) {
+        public Builder connectTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) {
-                this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) {
+                this.connectTimeout = Util.checkDuration(a.O, j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -790,11 +791,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.networkInterceptors : (List) invokeV.objValue;
         }
 
-        public Builder pingInterval(long j, TimeUnit timeUnit) {
+        public Builder pingInterval(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j, timeUnit)) == null) {
-                this.pingInterval = Util.checkDuration("interval", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j2, timeUnit)) == null) {
+                this.pingInterval = Util.checkDuration("interval", j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -856,11 +857,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder readTimeout(long j, TimeUnit timeUnit) {
+        public Builder readTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048600, this, j, timeUnit)) == null) {
-                this.readTimeout = Util.checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048600, this, j2, timeUnit)) == null) {
+                this.readTimeout = Util.checkDuration(a.O, j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -911,11 +912,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder writeTimeout(long j, TimeUnit timeUnit) {
+        public Builder writeTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j, timeUnit)) == null) {
-                this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j2, timeUnit)) == null) {
+                this.writeTimeout = Util.checkDuration(a.O, j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;

@@ -3,32 +3,32 @@ package com.baidu.tieba.person.holder;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.m.e.n;
-import b.a.r0.m2.h.c;
+import c.a.d.m.e.n;
+import c.a.r0.s2.h.c;
+import c.a.r0.w2.a;
+import c.a.r0.w2.d;
+import c.a.r0.w2.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f53909a;
+    public int a;
     public ImageView addView;
 
     /* renamed from: b  reason: collision with root package name */
-    public n f53910b;
+    public n f48170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f53911c;
+    public View.OnClickListener f48171c;
     public TextView numberTipView;
     public View rootView;
 
@@ -50,22 +50,22 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f53909a = 3;
-        this.rootView = view.findViewById(R.id.add_pic_root);
-        this.addView = (ImageView) view.findViewById(R.id.add_image_view);
-        this.numberTipView = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.a = 3;
+        this.rootView = view.findViewById(d.add_pic_root);
+        this.addView = (ImageView) view.findViewById(d.add_image_view);
+        this.numberTipView = (TextView) view.findViewById(d.tip_left_count_view);
     }
 
     public void bindDataToView(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof c)) {
-            this.f53910b = nVar;
+            this.f48170b = nVar;
             c cVar = (c) nVar;
-            SkinManager.setImageResource(this.addView, R.drawable.icon_mine_pic_add);
+            SkinManager.setImageResource(this.addView, c.a.r0.w2.c.icon_mine_pic_add);
             if (cVar.a() > 0) {
-                this.numberTipView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.a())));
+                this.numberTipView.setText(String.format(TbadkCoreApplication.getInst().getString(g.have_left_some_picture_upload), Integer.valueOf(cVar.a())));
             }
-            getView().setOnClickListener(this.f53911c);
+            getView().setOnClickListener(this.f48171c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -73,23 +73,23 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public n getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53910b : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48170b : (n) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f53909a == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.a == i2) {
             return;
         }
-        SkinManager.setViewTextColor(this.numberTipView, R.color.CAM_X0110, 1);
-        SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
-        this.f53909a = i2;
+        SkinManager.setViewTextColor(this.numberTipView, a.CAM_X0110, 1);
+        SkinManager.setBackgroundColor(getView(), a.CAM_X0205);
+        this.a = i2;
     }
 
     public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f53911c = onClickListener;
+            this.f48171c = onClickListener;
         }
     }
 }

@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.downloader.b;
 import com.baidu.cyberplayer.sdk.o;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,36 +17,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f37898a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC1641a f37899b;
+    public InterfaceC1718a f33960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37900c;
+    public String f33961c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37901d;
+    public String f33962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f37902e;
+    public ArrayList<String> f33963e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1641a {
-        void a(String str, long j);
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1718a {
+        void a(String str, long j2);
 
-        void a(String str, long j, int i2, String str2);
+        void a(String str, long j2, int i2, String str2);
 
-        void a(String str, long j, long j2);
+        void a(String str, long j2, long j3);
 
-        void a(String str, long j, ArrayList<String> arrayList);
+        void a(String str, long j2, ArrayList<String> arrayList);
     }
 
     static {
@@ -63,7 +60,7 @@ public class a implements b.a {
                 return;
             }
         }
-        f37898a = Boolean.toString(true);
+        a = Boolean.toString(true);
     }
 
     public a() {
@@ -79,7 +76,7 @@ public class a implements b.a {
                 return;
             }
         }
-        this.f37902e = null;
+        this.f33963e = null;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
@@ -103,17 +100,17 @@ public class a implements b.a {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, this)) != null) {
             return (String) invokeV.objValue;
         }
-        String str = f37898a;
+        String str = a;
         File file3 = null;
         try {
             try {
-                file = new File(this.f37901d, this.f37900c);
+                file = new File(this.f33962d, this.f33961c);
                 try {
-                    this.f37902e = o.a(file, this.f37901d);
-                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.f37902e);
+                    this.f33963e = o.a(file, this.f33962d);
+                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.f33963e);
                 } catch (Exception e2) {
                     e = e2;
-                    this.f37902e = null;
+                    this.f33963e = null;
                     str = e.toString();
                     if (file != null) {
                     }
@@ -183,7 +180,7 @@ public class a implements b.a {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, arrayList)) == null) {
-            String str2 = f37898a;
+            String str2 = a;
             if (arrayList != null) {
                 int i2 = 0;
                 while (true) {
@@ -223,16 +220,16 @@ public class a implements b.a {
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            String str = f37898a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            String str = a;
             try {
-                if (this.f37902e != null) {
+                if (this.f33963e != null) {
                     CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
-                    for (int i2 = 0; i2 < this.f37902e.size(); i2++) {
-                        String str2 = this.f37902e.get(i2);
+                    for (int i2 = 0; i2 < this.f33963e.size(); i2++) {
+                        String str2 = this.f33963e.get(i2);
                         if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
                             String substring = str2.substring(4, 36);
-                            if (!o.a(substring, this.f37901d + File.separator + str2)) {
+                            if (!o.a(substring, this.f33962d + File.separator + str2)) {
                                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
                                 return "md5 check fail.";
                             }
@@ -249,70 +246,70 @@ public class a implements b.a {
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
-    public void a(String str, long j) {
+    public void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            this.f37899b.a(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+            this.f33960b.a(str, j2);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
-    public void a(String str, long j, long j2) {
+    public void a(String str, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f37899b.a(str, j, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.f33960b.a(str, j2, j3);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
-    public void a(String str, long j, String str2) {
+    public void a(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
-            this.f37899b.a(str, j, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
+            this.f33960b.a(str, j2, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
         }
     }
 
-    public void a(String str, String str2, String str3, InterfaceC1641a interfaceC1641a) {
+    public void a(String str, String str2, String str3, InterfaceC1718a interfaceC1718a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC1641a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC1641a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC1718a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC1718a == null) {
             return;
         }
-        this.f37900c = str2;
-        this.f37899b = interfaceC1641a;
-        this.f37901d = str3;
+        this.f33961c = str2;
+        this.f33960b = interfaceC1718a;
+        this.f33962d = str3;
         o.b(str3);
-        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.f37901d);
+        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.f33962d);
         HashMap hashMap = new HashMap();
-        hashMap.put("url", str + File.separator + this.f37900c);
-        hashMap.put("file-folder", this.f37901d);
-        hashMap.put("file-name", this.f37900c);
+        hashMap.put("url", str + File.separator + this.f33961c);
+        hashMap.put("file-folder", this.f33962d);
+        hashMap.put("file-name", this.f33961c);
         hashMap.put("is-asyn", "0");
         b.a(hashMap, this);
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.b.a
-    public void b(String str, long j) {
+    public void b(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j2) == null) {
             String a2 = a();
-            if (!f37898a.equals(a2)) {
-                o.a(this.f37901d, this.f37902e);
-                this.f37899b.a(str, j, -2, a2);
+            if (!a.equals(a2)) {
+                o.a(this.f33962d, this.f33963e);
+                this.f33960b.a(str, j2, -2, a2);
                 return;
             }
             String b2 = b();
-            if (!f37898a.equals(b2)) {
-                o.a(this.f37901d, this.f37902e);
-                this.f37899b.a(str, j, -3, b2);
+            if (!a.equals(b2)) {
+                o.a(this.f33962d, this.f33963e);
+                this.f33960b.a(str, j2, -3, b2);
                 return;
             }
-            String a3 = a(this.f37901d, this.f37902e);
-            if (f37898a.equals(a3)) {
-                this.f37899b.a(str, j, this.f37902e);
+            String a3 = a(this.f33962d, this.f33963e);
+            if (a.equals(a3)) {
+                this.f33960b.a(str, j2, this.f33963e);
                 return;
             }
-            o.a(this.f37901d, this.f37902e);
-            this.f37899b.a(str, j, -6, a3);
+            o.a(this.f33962d, this.f33963e);
+            this.f33960b.a(str, j2, -6, a3);
         }
     }
 }

@@ -8,20 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PassFaceOperation implements PassBiometricOperation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OperationType operationType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class OperationType {
         public static /* synthetic */ Interceptable $ic;
         public static final OperationType RECOGNIZE;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ OperationType[] f42633a;
+        public static final /* synthetic */ OperationType[] a;
         public transient /* synthetic */ FieldHolder $fh;
         public String operateName;
 
@@ -40,7 +38,7 @@ public class PassFaceOperation implements PassBiometricOperation {
             }
             OperationType operationType = new OperationType("RECOGNIZE", 0, "RECOGNIZE");
             RECOGNIZE = operationType;
-            f42633a = new OperationType[]{operationType};
+            a = new OperationType[]{operationType};
         }
 
         public OperationType(String str, int i2, String str2) {
@@ -73,7 +71,7 @@ public class PassFaceOperation implements PassBiometricOperation {
         public static OperationType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) f42633a.clone() : (OperationType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) a.clone() : (OperationType[]) invokeV.objValue;
         }
     }
 

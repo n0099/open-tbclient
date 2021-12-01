@@ -1,7 +1,6 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +31,10 @@ public class VideoEncoderWrapper {
     }
 
     @CalledByNative
-    public static VideoEncoder.Callback createEncoderCallback(final long j) {
+    public static VideoEncoder.Callback createEncoderCallback(final long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: g.c.z
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new VideoEncoder.Callback() { // from class: h.c.z
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +42,7 @@ public class VideoEncoderWrapper {
             public final void onEncodedFrame(EncodedImage encodedImage, VideoEncoder.CodecSpecificInfo codecSpecificInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, encodedImage, codecSpecificInfo) == null) {
-                    VideoEncoderWrapper.nativeOnEncodedFrame(j, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
+                    VideoEncoderWrapper.nativeOnEncodedFrame(j2, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
                 }
             }
         } : (VideoEncoder.Callback) invokeJ.objValue;
@@ -69,8 +68,8 @@ public class VideoEncoderWrapper {
     public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
     }
 
-    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i2, int i3, long j2, int i4, int i5, boolean z, Integer num);
+    public static native void nativeOnEncodedFrame(long j2, ByteBuffer byteBuffer, int i2, int i3, long j3, int i4, int i5, boolean z, Integer num);
 }

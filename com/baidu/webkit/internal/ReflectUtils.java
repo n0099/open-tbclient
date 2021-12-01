@@ -1,7 +1,6 @@
 package com.baidu.webkit.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ReflectUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String sReflectErrorDetail = "none";
@@ -91,7 +90,7 @@ public class ReflectUtils implements INoProGuard {
     public static Field getField(Class cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
             try {
                 Field declaredField = cls.getDeclaredField(str);
                 declaredField.setAccessible(true);
@@ -107,7 +106,7 @@ public class ReflectUtils implements INoProGuard {
     public static Method getMethod(Class cls, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, str, clsArr)) == null) {
             try {
                 Method method = cls.getMethod(str, clsArr);
                 method.setAccessible(true);

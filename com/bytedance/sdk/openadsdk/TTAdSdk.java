@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,16 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TTAdSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final TTInitializer f62472a;
+    public static final TTInitializer a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface InitCallback {
         void fail(int i2, String str);
 
@@ -45,7 +42,7 @@ public final class TTAdSdk {
                 return;
             }
         }
-        f62472a = new g();
+        a = new g();
     }
 
     public TTAdSdk() {
@@ -73,7 +70,7 @@ public final class TTAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            TTInitializer tTInitializer = f62472a;
+            TTInitializer tTInitializer = a;
             if (tTInitializer != null) {
                 return tTInitializer.getAdManager();
             }
@@ -98,7 +95,7 @@ public final class TTAdSdk {
                 d.a();
             }
             tTAdConfig.setExtra(TTAdConstant.PANGLE_INIT_START_TIME, Long.valueOf(SystemClock.elapsedRealtime()));
-            TTInitializer tTInitializer = f62472a;
+            TTInitializer tTInitializer = a;
             if (tTInitializer != null) {
                 return tTInitializer.init(context, tTAdConfig);
             }
@@ -110,8 +107,8 @@ public final class TTAdSdk {
     public static boolean isInitSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            TTInitializer tTInitializer = f62472a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            TTInitializer tTInitializer = a;
             if (tTInitializer != null) {
                 return tTInitializer.isInitSuccess();
             }
@@ -123,7 +120,7 @@ public final class TTAdSdk {
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
         TTAdManager adManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, tTAdConfig) == null) || tTAdConfig == null || (adManager = f62472a.getAdManager()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, tTAdConfig) == null) || tTAdConfig == null || (adManager = a.getAdManager()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -142,7 +139,7 @@ public final class TTAdSdk {
     public static void updatePaid(boolean z) {
         TTAdManager adManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65544, null, z) == null) || (adManager = f62472a.getAdManager()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65544, null, z) == null) || (adManager = a.getAdManager()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -155,7 +152,7 @@ public final class TTAdSdk {
 
     public static void init(Context context, TTAdConfig tTAdConfig, InitCallback initCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, tTAdConfig, initCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, tTAdConfig, initCallback) == null) {
             if (Looper.getMainLooper() != Looper.myLooper()) {
                 d.a("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
             }
@@ -166,7 +163,7 @@ public final class TTAdSdk {
                 d.a();
             }
             tTAdConfig.setExtra(TTAdConstant.PANGLE_INIT_START_TIME, Long.valueOf(SystemClock.elapsedRealtime()));
-            TTInitializer tTInitializer = f62472a;
+            TTInitializer tTInitializer = a;
             if (tTInitializer == null) {
                 initCallback.fail(4100, "Load initializer failed");
             } else {

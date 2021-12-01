@@ -5,14 +5,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.livesdk.R;
 import com.baidu.livesdk.api.im.live.LiveMessageBean;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MessageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,21 +117,21 @@ public class MessageUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j) {
+    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
             int size = list.size() - 1;
             int i2 = 0;
             while (i2 <= size) {
                 int i3 = (i2 + size) / 2;
-                if (j < list.get(i3).msgId) {
+                if (j2 < list.get(i3).msgId) {
                     if (z) {
                         size = i3 - 1;
                     } else {
                         i2 = i3 + 1;
                     }
-                } else if (j <= list.get(i3).msgId) {
+                } else if (j2 <= list.get(i3).msgId) {
                     return i3;
                 } else {
                     if (z) {
@@ -151,7 +150,7 @@ public class MessageUtils {
         InterceptResult invokeL;
         LiveMessageBean.Link link;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, messageBody)) == null) ? (messageBody == null || (link = messageBody.link) == null || TextUtils.isEmpty(link.url)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageBody)) == null) ? (messageBody == null || (link = messageBody.link) == null || TextUtils.isEmpty(link.url)) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean hasPic(LiveMessageBean.MessageBody messageBody) {

@@ -4,14 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import b.a.r0.r.e.e;
+import c.a.r0.v.g.e;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class AppNotificationReceiver extends BroadcastReceiver {
         if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
             String extractPackageName2 = extractPackageName(intent);
             if (extractPackageName2 != null) {
-                e.c().d(context, extractPackageName2);
+                e.d().e(context, extractPackageName2);
             }
         } else if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction()) || (extractPackageName = extractPackageName(intent)) == null) {
         } else {
-            e.c().p(context, extractPackageName);
+            e.d().q(context, extractPackageName);
         }
     }
 }

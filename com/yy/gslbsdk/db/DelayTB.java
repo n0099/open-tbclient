@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DelayTB implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DELAY = "delay";
@@ -64,10 +64,10 @@ public class DelayTB implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ip : (String) invokeV.objValue;
     }
 
-    public void setDelay(long j) {
+    public void setDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.delay = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.delay = j2;
         }
     }
 

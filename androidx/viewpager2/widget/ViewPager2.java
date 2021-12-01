@@ -32,7 +32,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.R;
 import androidx.viewpager2.adapter.StatefulAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1097,7 +1096,7 @@ public final class ViewPager2 extends ViewGroup {
     private RecyclerView.OnChildAttachStateChangeListener enforceChildFillListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? new RecyclerView.OnChildAttachStateChangeListener(this) { // from class: androidx.viewpager2.widget.ViewPager2.4
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new RecyclerView.OnChildAttachStateChangeListener(this) { // from class: androidx.viewpager2.widget.ViewPager2.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ViewPager2 this$0;
@@ -1142,7 +1141,7 @@ public final class ViewPager2 extends ViewGroup {
 
     private void initialize(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
             this.mAccessibilityProvider = sFeatureEnhancedA11yEnabled ? new PageAwareAccessibilityProvider(this) : new BasicAccessibilityProvider(this);
             RecyclerViewImpl recyclerViewImpl = new RecyclerViewImpl(this, context);
             this.mRecyclerView = recyclerViewImpl;

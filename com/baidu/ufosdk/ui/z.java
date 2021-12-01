@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class z implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f57977a;
+    public final /* synthetic */ FeedbackEditActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57978b;
+    public long f51754b;
 
     public z(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -33,8 +31,8 @@ public final class z implements View.OnClickListener {
                 return;
             }
         }
-        this.f57977a = feedbackEditActivity;
-        this.f57978b = 0L;
+        this.a = feedbackEditActivity;
+        this.f51754b = 0L;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,25 +43,25 @@ public final class z implements View.OnClickListener {
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f57978b < 3000) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || System.currentTimeMillis() - this.f51754b < 3000) {
             return;
         }
-        z = this.f57977a.v;
+        z = this.a.v;
         if (z) {
             return;
         }
-        this.f57978b = System.currentTimeMillis();
-        editText = this.f57977a.n;
+        this.f51754b = System.currentTimeMillis();
+        editText = this.a.n;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f57977a.f57652b;
+            editor = this.a.f51573b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f57977a.f57652b;
+            editor3 = this.a.f51573b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f57977a.f57652b;
+        editor2 = this.a.f51573b;
         editor2.commit();
-        FeedbackEditActivity.h(this.f57977a);
+        FeedbackEditActivity.h(this.a);
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public final class UserInfo extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BJHAVATAR = "";
+    public static final Integer DEFAULT_BUSINESSACCOUNT;
     public static final String DEFAULT_FANSNICKNAME = "";
     public static final Integer DEFAULT_FANSNUM;
     public static final Integer DEFAULT_INTIME;
@@ -36,6 +37,8 @@ public final class UserInfo extends Message {
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 19, type = Message.Datatype.STRING)
     public final String bjhAvatar;
+    @ProtoField(tag = 20, type = Message.Datatype.INT32)
+    public final Integer businessaccount;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String fansNickname;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
@@ -78,6 +81,7 @@ public final class UserInfo extends Message {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String bjhAvatar;
+        public Integer businessaccount;
         public String fansNickname;
         public Integer fansNum;
         public Integer inTime;
@@ -151,6 +155,7 @@ public final class UserInfo extends Message {
             this.fansNickname = userInfo.fansNickname;
             this.userNameShow = userInfo.userNameShow;
             this.bjhAvatar = userInfo.bjhAvatar;
+            this.businessaccount = userInfo.businessaccount;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -193,6 +198,7 @@ public final class UserInfo extends Message {
         DEFAULT_TSHOWICON = Collections.emptyList();
         DEFAULT_USERTYPE = 0;
         DEFAULT_FANSNUM = 0;
+        DEFAULT_BUSINESSACCOUNT = 0;
     }
 
     public /* synthetic */ UserInfo(Builder builder, boolean z, a aVar) {
@@ -324,9 +330,15 @@ public final class UserInfo extends Message {
             String str7 = builder.bjhAvatar;
             if (str7 == null) {
                 this.bjhAvatar = "";
-                return;
             } else {
                 this.bjhAvatar = str7;
+            }
+            Integer num8 = builder.businessaccount;
+            if (num8 == null) {
+                this.businessaccount = DEFAULT_BUSINESSACCOUNT;
+                return;
+            } else {
+                this.businessaccount = num8;
                 return;
             }
         }
@@ -349,5 +361,6 @@ public final class UserInfo extends Message {
         this.fansNickname = builder.fansNickname;
         this.userNameShow = builder.userNameShow;
         this.bjhAvatar = builder.bjhAvatar;
+        this.businessaccount = builder.businessaccount;
     }
 }

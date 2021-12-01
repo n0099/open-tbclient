@@ -10,13 +10,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SubscriberCompletableObserver<T> implements CompletableObserver, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f73404d;
+    public Disposable f63965d;
     public final Subscriber<? super T> subscriber;
 
     public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
@@ -41,7 +41,7 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73404d.dispose();
+            this.f63965d.dispose();
         }
     }
 
@@ -64,16 +64,16 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     @Override // io.reactivex.CompletableObserver
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f73404d, disposable)) {
-            this.f73404d = disposable;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f63965d, disposable)) {
+            this.f63965d = disposable;
             this.subscriber.onSubscribe(this);
         }
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
         }
     }
 }

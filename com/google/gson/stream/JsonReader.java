@@ -3,7 +3,6 @@ package com.google.gson.stream;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.io.IOException;
 import java.io.Reader;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
@@ -237,7 +236,7 @@ public class JsonReader implements Closeable {
     private boolean isLiteral(char c2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c2)})) == null) {
             if (c2 == '\t' || c2 == '\n' || c2 == '\f' || c2 == '\r' || c2 == ' ') {
                 return false;
             }
@@ -271,7 +270,7 @@ public class JsonReader implements Closeable {
     private int nextNonWhitespace(boolean z) throws IOException {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeZ = interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z)) != null) {
+        if (interceptable != null && (invokeZ = interceptable.invokeZ(65542, this, z)) != null) {
             return invokeZ.intValue;
         }
         char[] cArr = this.buffer;
@@ -588,7 +587,7 @@ public class JsonReader implements Closeable {
         int i5 = 0;
         char c2 = 0;
         boolean z = true;
-        long j = 0;
+        long j2 = 0;
         boolean z2 = false;
         while (true) {
             if (i2 + i5 == i3) {
@@ -626,18 +625,18 @@ public class JsonReader implements Closeable {
                 } else if (c3 < '0' || c3 > '9') {
                     break;
                 } else if (c2 == 1 || c2 == 0) {
-                    j = -(c3 - '0');
+                    j2 = -(c3 - '0');
                     i4 = 0;
                     c2 = 2;
                 } else {
                     if (c2 == 2) {
-                        if (j == 0) {
+                        if (j2 == 0) {
                             return 0;
                         }
-                        long j2 = (10 * j) - (c3 - '0');
-                        int i6 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
-                        z &= i6 > 0 || (i6 == 0 && j2 < j);
-                        j = j2;
+                        long j3 = (10 * j2) - (c3 - '0');
+                        int i6 = (j2 > (-922337203685477580L) ? 1 : (j2 == (-922337203685477580L) ? 0 : -1));
+                        z &= i6 > 0 || (i6 == 0 && j3 < j2);
+                        j2 = j3;
                     } else if (c2 == 3) {
                         i4 = 0;
                         c2 = 4;
@@ -1240,9 +1239,9 @@ public class JsonReader implements Closeable {
                 i2 = doPeek();
             }
             if (i2 == 15) {
-                long j = this.peekedLong;
-                int i3 = (int) j;
-                if (j == i3) {
+                long j2 = this.peekedLong;
+                int i3 = (int) j2;
+                if (j2 == i3) {
                     this.peeked = 0;
                     int[] iArr = this.pathIndices;
                     int i4 = this.stackSize - 1;
@@ -1326,14 +1325,14 @@ public class JsonReader implements Closeable {
             }
             this.peeked = 11;
             double parseDouble = Double.parseDouble(this.peekedString);
-            long j = (long) parseDouble;
-            if (j == parseDouble) {
+            long j2 = (long) parseDouble;
+            if (j2 == parseDouble) {
                 this.peekedString = null;
                 this.peeked = 0;
                 int[] iArr3 = this.pathIndices;
                 int i5 = this.stackSize - 1;
                 iArr3[i5] = iArr3[i5] + 1;
-                return j;
+                return j2;
             }
             throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
         }

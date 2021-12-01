@@ -10,10 +10,9 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.i.j.g.c;
-import b.a.e.i.j.g.e;
+import c.a.d.i.j.f.b;
+import c.a.d.i.j.f.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginSettingIOService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ENABLE = "key_enable";
@@ -47,13 +46,11 @@ public class PluginSettingIOService extends Service {
     public Messenger mMessenger;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginSettingIOService f35310a;
+        public final /* synthetic */ PluginSettingIOService a;
 
         public a(PluginSettingIOService pluginSettingIOService) {
             Interceptable interceptable = $ic;
@@ -70,7 +67,7 @@ public class PluginSettingIOService extends Service {
                     return;
                 }
             }
-            this.f35310a = pluginSettingIOService;
+            this.a = pluginSettingIOService;
         }
 
         @Override // android.os.Handler
@@ -87,10 +84,10 @@ public class PluginSettingIOService extends Service {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 1:
-                        this.f35310a.mClients.add(message.replyTo);
+                        this.a.mClients.add(message.replyTo);
                         return;
                     case 2:
-                        this.f35310a.mClients.remove(message.replyTo);
+                        this.a.mClients.remove(message.replyTo);
                         return;
                     case 3:
                     case 5:
@@ -102,79 +99,79 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         PluginSettings pluginSettings = (PluginSettings) data8.getSerializable("plugin_settings");
-                        this.f35310a.save(pluginSettings, null);
-                        this.f35310a.sendUpdateMsg(pluginSettings);
+                        this.a.save(pluginSettings, null);
+                        this.a.sendUpdateMsg(pluginSettings);
                         return;
                     case 6:
-                        if (c.b().d() == null || (data = message.getData()) == null) {
+                        if (b.b().d() == null || (data = message.getData()) == null) {
                             return;
                         }
                         boolean z = data.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
-                        PluginSetting findPluginSetting = c.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting = b.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting != null) {
                             findPluginSetting.forbidden = z;
-                            this.f35310a.save(c.b().d(), null);
-                            this.f35310a.sendUpdateMsg(6, data);
+                            this.a.save(b.b().d(), null);
+                            this.a.sendUpdateMsg(6, data);
                             return;
                         }
                         return;
                     case 7:
-                        if (c.b().d() == null || (data2 = message.getData()) == null) {
+                        if (b.b().d() == null || (data2 = message.getData()) == null) {
                             return;
                         }
-                        c.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                        this.f35310a.save(c.b().d(), null);
-                        this.f35310a.sendUpdateMsg(7, data2);
+                        b.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        this.a.save(b.b().d(), null);
+                        this.a.sendUpdateMsg(7, data2);
                         return;
                     case 8:
-                        if (c.b().d() == null || (data3 = message.getData()) == null) {
+                        if (b.b().d() == null || (data3 = message.getData()) == null) {
                             return;
                         }
-                        c.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
-                        this.f35310a.save(c.b().d(), null);
-                        this.f35310a.sendUpdateMsg(8, data3);
+                        b.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
+                        this.a.save(b.b().d(), null);
+                        this.a.sendUpdateMsg(8, data3);
                         return;
                     case 9:
-                        if (c.b().d() == null || (data4 = message.getData()) == null) {
+                        if (b.b().d() == null || (data4 = message.getData()) == null) {
                             return;
                         }
                         boolean z2 = data4.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                        PluginSetting findPluginSetting2 = c.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting2 = b.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting2 != null) {
                             findPluginSetting2.enable = z2;
-                            this.f35310a.save(c.b().d(), null);
-                            this.f35310a.sendUpdateMsg(9, data4);
+                            this.a.save(b.b().d(), null);
+                            this.a.sendUpdateMsg(9, data4);
                             return;
                         }
                         return;
                     case 10:
-                        if (c.b().d() == null || (data5 = message.getData()) == null) {
+                        if (b.b().d() == null || (data5 = message.getData()) == null) {
                             return;
                         }
-                        c.b().d().setContainerSetting(data5.getString("key_version"));
-                        this.f35310a.save(c.b().d(), null);
-                        this.f35310a.sendUpdateMsg(10, data5);
+                        b.b().d().setContainerSetting(data5.getString("key_version"));
+                        this.a.save(b.b().d(), null);
+                        this.a.sendUpdateMsg(10, data5);
                         return;
                     case 11:
-                        if (c.b().d() == null || (data6 = message.getData()) == null) {
+                        if (b.b().d() == null || (data6 = message.getData()) == null) {
                             return;
                         }
                         int i2 = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
-                        PluginSetting findPluginSetting3 = c.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting3 = b.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
                             findPluginSetting3.installStatus = i2;
-                            this.f35310a.save(c.b().d(), null);
-                            this.f35310a.sendUpdateMsg(11, data6);
+                            this.a.save(b.b().d(), null);
+                            this.a.sendUpdateMsg(11, data6);
                             return;
                         }
                         return;
                     case 12:
-                        if (c.b().d() == null || (data7 = message.getData()) == null) {
+                        if (b.b().d() == null || (data7 = message.getData()) == null) {
                             return;
                         }
-                        c.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
-                        this.f35310a.save(c.b().d(), null);
-                        this.f35310a.sendUpdateMsg(12, data7);
+                        b.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
+                        this.a.save(b.b().d(), null);
+                        this.a.sendUpdateMsg(12, data7);
                         return;
                 }
             }
@@ -199,17 +196,17 @@ public class PluginSettingIOService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void save(PluginSettings pluginSettings, e eVar) {
+    public void save(PluginSettings pluginSettings, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginSettings, eVar) == null) {
-            c.b().h(pluginSettings, eVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginSettings, dVar) == null) {
+            b.b().e(pluginSettings, dVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendUpdateMsg(int i2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i2, bundle) == null) {
             Iterator<Messenger> it = this.mClients.iterator();
             while (it.hasNext()) {
                 Messenger next = it.next();
@@ -244,7 +241,7 @@ public class PluginSettingIOService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void sendUpdateMsg(PluginSettings pluginSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, pluginSettings) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, pluginSettings) == null) {
             Iterator<Messenger> it = this.mClients.iterator();
             while (it.hasNext()) {
                 Messenger next = it.next();

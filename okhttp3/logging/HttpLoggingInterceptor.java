@@ -3,6 +3,7 @@ package okhttp3.logging;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +60,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
                     return;
                 }
             }
-            NONE = new Level("NONE", 0);
+            NONE = new Level(PolyActivity.NONE_PANEL_TYPE, 0);
             BASIC = new Level("BASIC", 1);
             HEADERS = new Level("HEADERS", 2);
             Level level = new Level("BODY", 3);

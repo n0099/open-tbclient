@@ -122,7 +122,7 @@ public class DataChannel {
     /* loaded from: classes3.dex */
     public interface Observer {
         @CalledByNative("Observer")
-        void onBufferedAmountChange(long j);
+        void onBufferedAmountChange(long j2);
 
         @CalledByNative("Observer")
         void onMessage(Buffer buffer);
@@ -203,12 +203,12 @@ public class DataChannel {
     }
 
     @CalledByNative
-    public DataChannel(long j) {
+    public DataChannel(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -218,7 +218,7 @@ public class DataChannel {
                 return;
             }
         }
-        this.nativeDataChannel = j;
+        this.nativeDataChannel = j2;
     }
 
     private void checkDataChannelExists() {
@@ -242,7 +242,7 @@ public class DataChannel {
 
     private native State nativeState();
 
-    private native void nativeUnregisterObserver(long j);
+    private native void nativeUnregisterObserver(long j2);
 
     public long bufferedAmount() {
         InterceptResult invokeV;
@@ -302,9 +302,9 @@ public class DataChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
             checkDataChannelExists();
-            long j = this.nativeObserver;
-            if (j != 0) {
-                nativeUnregisterObserver(j);
+            long j2 = this.nativeObserver;
+            if (j2 != 0) {
+                nativeUnregisterObserver(j2);
             }
             this.nativeObserver = nativeRegisterObserver(observer);
         }

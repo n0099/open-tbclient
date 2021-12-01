@@ -6,28 +6,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39422a;
+    public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f39423b;
+    public final /* synthetic */ boolean f35149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f39424c;
+    public final /* synthetic */ String f35150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39425d;
+    public final /* synthetic */ String f35151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f39426e;
+    public final /* synthetic */ Hashtable f35152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f39427f;
+    public final /* synthetic */ LBSAuthManager f35153f;
 
     public j(LBSAuthManager lBSAuthManager, int i2, boolean z, String str, String str2, Hashtable hashtable) {
         Interceptable interceptable = $ic;
@@ -44,12 +42,12 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f39427f = lBSAuthManager;
-        this.f39422a = i2;
-        this.f39423b = z;
-        this.f39424c = str;
-        this.f39425d = str2;
-        this.f39426e = hashtable;
+        this.f35153f = lBSAuthManager;
+        this.a = i2;
+        this.f35149b = z;
+        this.f35150c = str;
+        this.f35151d = str2;
+        this.f35152e = hashtable;
     }
 
     @Override // java.lang.Runnable
@@ -63,41 +61,41 @@ public class j implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("status = ");
-            sb.append(this.f39422a);
+            sb.append(this.a);
             sb.append("; forced = ");
-            sb.append(this.f39423b);
+            sb.append(this.f35149b);
             sb.append("checkAK = ");
-            b2 = this.f39427f.b(this.f39424c);
+            b2 = this.f35153f.b(this.f35150c);
             sb.append(b2);
             a.a(sb.toString());
-            int i2 = this.f39422a;
-            if (i2 != 601 && !this.f39423b && i2 != -1) {
-                b3 = this.f39427f.b(this.f39424c);
+            int i2 = this.a;
+            if (i2 != 601 && !this.f35149b && i2 != -1) {
+                b3 = this.f35153f.b(this.f35150c);
                 if (!b3) {
-                    if (602 == this.f39422a) {
+                    if (602 == this.a) {
                         a.a("authenticate wait ");
-                        mVar = LBSAuthManager.f39398d;
+                        mVar = LBSAuthManager.f35133d;
                         if (mVar != null) {
-                            mVar2 = LBSAuthManager.f39398d;
+                            mVar2 = LBSAuthManager.f35133d;
                             mVar2.b();
                         }
                     } else {
                         a.a("authenticate else");
                     }
-                    this.f39427f.a((String) null, this.f39424c);
+                    this.f35153f.a((String) null, this.f35150c);
                     return;
                 }
             }
             a.a("authenticate sendAuthRequest");
-            context = LBSAuthManager.f39397a;
+            context = LBSAuthManager.a;
             String[] b4 = b.b(context);
             a.a("authStrings.length:" + b4.length);
             if (b4 == null || b4.length <= 1) {
-                this.f39427f.a(this.f39423b, this.f39425d, this.f39426e, this.f39424c);
+                this.f35153f.a(this.f35149b, this.f35151d, this.f35152e, this.f35150c);
                 return;
             }
             a.a("more sha1 auth");
-            this.f39427f.a(this.f39423b, this.f39425d, this.f39426e, b4, this.f39424c);
+            this.f35153f.a(this.f35149b, this.f35151d, this.f35152e, b4, this.f35150c);
         }
     }
 }

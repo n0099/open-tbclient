@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.transcoder.ImageTranscoder;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

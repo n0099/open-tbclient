@@ -1,7 +1,6 @@
 package io.reactivex.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import io.reactivex.internal.schedulers.TrampolineScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -36,7 +35,7 @@ public final class Schedulers {
     public static final Scheduler TRAMPOLINE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ComputationHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -73,7 +72,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ComputationTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +101,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class IOTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +130,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class IoHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -168,7 +167,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NewThreadHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -205,7 +204,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NewThreadTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +233,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SingleHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
@@ -271,7 +270,7 @@ public final class Schedulers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SingleTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -361,12 +360,12 @@ public final class Schedulers {
     public static Scheduler newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? RxJavaPlugins.onNewThreadScheduler(NEW_THREAD) : (Scheduler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? RxJavaPlugins.onNewThreadScheduler(NEW_THREAD) : (Scheduler) invokeV.objValue;
     }
 
     public static void shutdown() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             computation().shutdown();
             io().shutdown();
             newThread().shutdown();

@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
@@ -53,14 +53,14 @@ public class DefaultDiskStorage implements DiskStorage {
     public final File mVersionDirectory;
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,13 +220,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,13 +234,13 @@ public class DefaultDiskStorage implements DiskStorage {
         public final long expected;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IncompleteFileException(long j, long j2) {
-            super("File was not written completely. Expected: " + j + ", found: " + j2);
+        public IncompleteFileException(long j2, long j3) {
+            super("File was not written completely. Expected: " + j2 + ", found: " + j3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -251,13 +251,13 @@ public class DefaultDiskStorage implements DiskStorage {
                     return;
                 }
             }
-            this.expected = j;
-            this.actual = j2;
+            this.expected = j2;
+            this.actual = j3;
         }
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -784,7 +784,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

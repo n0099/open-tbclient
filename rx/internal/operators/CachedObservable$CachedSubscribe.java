@@ -4,9 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.j;
-import h.o.a.b;
+import i.d;
+import i.j;
+import i.o.a.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements d.a<T> {
@@ -33,7 +33,7 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
         this.state = bVar;
     }
 
-    @Override // h.d.a, h.n.b
+    @Override // i.d.a, i.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }

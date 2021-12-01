@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebViewRendererService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
@@ -19,7 +19,7 @@ public class WebViewRendererService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceProvider mServiceImpl;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface ServiceProvider {
         IBinder bind(Intent intent);
 

@@ -10,7 +10,6 @@ import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.n;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,21 +20,19 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DpSessionDatasUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f38053a;
+    public static DpSessionDatasUploader a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f38054b;
+    public d f34079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f38055c;
+    public d f34080c;
 
     public DpSessionDatasUploader() {
         Interceptable interceptable = $ic;
@@ -50,18 +47,18 @@ public final class DpSessionDatasUploader {
                 return;
             }
         }
-        this.f38054b = new d();
-        this.f38055c = new d("live_show_session");
+        this.f34079b = new d();
+        this.f34080c = new d("live_show_session");
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            d dVar = this.f38054b;
+            d dVar = this.f34079b;
             if (dVar != null) {
                 dVar.a();
             }
-            d dVar2 = this.f38055c;
+            d dVar2 = this.f34080c;
             if (dVar2 != null) {
                 dVar2.a();
             }
@@ -95,12 +92,12 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2) == null) {
             if (i2 == 24) {
-                dVar = this.f38055c;
+                dVar = this.f34080c;
                 if (dVar == null) {
                     return;
                 }
             } else {
-                dVar = this.f38054b;
+                dVar = this.f34079b;
                 if (dVar == null) {
                     return;
                 }
@@ -112,7 +109,7 @@ public final class DpSessionDatasUploader {
     public static byte[] a(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, bArr, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, bArr, z)) == null) {
             if (z) {
                 try {
                     return n.b(bArr);
@@ -131,12 +128,12 @@ public final class DpSessionDatasUploader {
         InterceptResult invokeV;
         DpSessionDatasUploader dpSessionDatasUploader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (DpSessionDatasUploader.class) {
-                if (f38053a == null) {
-                    f38053a = new DpSessionDatasUploader();
+                if (a == null) {
+                    a = new DpSessionDatasUploader();
                 }
-                dpSessionDatasUploader = f38053a;
+                dpSessionDatasUploader = a;
             }
             return dpSessionDatasUploader;
         }
@@ -163,29 +160,29 @@ public final class DpSessionDatasUploader {
     public void a(Context context) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f38054b) == null || this.f38055c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f34079b) == null || this.f34080c == null) {
             return;
         }
         dVar.a(context);
-        this.f38055c.a(context);
+        this.f34080c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00e2 */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x008b, code lost:
-        if (r10 == null) goto L18;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00df */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0088, code lost:
+        if (r10 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x008d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x008a, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b8, code lost:
-        if (r10 == null) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b5, code lost:
+        if (r10 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d9, code lost:
-        if (r10 == null) goto L18;
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d6, code lost:
+        if (r10 == null) goto L17;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00e5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00ef A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
@@ -209,13 +206,55 @@ public final class DpSessionDatasUploader {
         try {
             try {
                 httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                try {
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                    httpURLConnection.setRequestProperty("Cache-Control", "no-cache");
+                    if (z) {
+                        httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
+                    }
+                    outputStream = httpURLConnection.getOutputStream();
+                    outputStream.write(bArr);
+                    outputStream.flush();
+                    i2 = httpURLConnection.getResponseCode();
+                    CyberLog.d("SessionDatasUploader", "upload response : " + i2);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } catch (Error e3) {
+                    e = e3;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                }
             } catch (Throwable th) {
                 th = th;
                 if (0 != 0) {
                     try {
                         outputStream.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
                     }
                 }
                 if (str != 0) {
@@ -226,11 +265,11 @@ public final class DpSessionDatasUploader {
                 }
                 throw th;
             }
-        } catch (Error e3) {
-            e = e3;
+        } catch (Error e8) {
+            e = e8;
             httpURLConnection = null;
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e9) {
+            e = e9;
             httpURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -240,48 +279,6 @@ public final class DpSessionDatasUploader {
             if (str != 0) {
             }
             throw th;
-        }
-        try {
-            httpURLConnection.setUseCaches(false);
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.setRequestProperty("Cache-Control", "no-cache");
-            if (z) {
-                httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-            }
-            outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(bArr);
-            outputStream.flush();
-            i2 = httpURLConnection.getResponseCode();
-            CyberLog.d("SessionDatasUploader", "upload response : " + i2);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
-            }
-        } catch (Error e6) {
-            e = e6;
-            CyberLog.e("SessionDatasUploader", "upload error " + e);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e7) {
-                    e7.printStackTrace();
-                }
-            }
-        } catch (Exception e8) {
-            e = e8;
-            CyberLog.e("SessionDatasUploader", "upload error " + e);
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (Exception e9) {
-                    e9.printStackTrace();
-                }
-            }
         }
         return i2 == 200;
     }
@@ -293,15 +290,13 @@ public final class DpSessionDatasUploader {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable(this, str, str2) { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f38056a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f38057b;
+                public final /* synthetic */ String f34081b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f38058c;
+                public final /* synthetic */ DpSessionDatasUploader f34082c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,16 +313,16 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f38058c = this;
-                    this.f38056a = str;
-                    this.f38057b = str2;
+                    this.f34082c = this;
+                    this.a = str;
+                    this.f34081b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f38058c.a(this.f38056a, this.f38057b, 1);
+                        this.f34082c.a(this.a, this.f34081b, 1);
                     }
                 }
             });
@@ -341,18 +336,16 @@ public final class DpSessionDatasUploader {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable(this, i2, str, str2) { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f38059a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f38060b;
+                public final /* synthetic */ String f34083b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f38061c;
+                public final /* synthetic */ String f34084c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f38062d;
+                public final /* synthetic */ DpSessionDatasUploader f34085d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -369,20 +362,20 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f38062d = this;
-                    this.f38059a = i2;
-                    this.f38060b = str;
-                    this.f38061c = str2;
+                    this.f34085d = this;
+                    this.a = i2;
+                    this.f34083b = str;
+                    this.f34084c = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f38059a == 24) {
-                            this.f38062d.a(this.f38060b, this.f38061c, 24);
+                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.a == 24) {
+                            this.f34085d.a(this.f34083b, this.f34084c, 24);
                         }
-                        this.f38062d.a(this.f38060b, this.f38061c, 1);
+                        this.f34085d.a(this.f34083b, this.f34084c, 1);
                     }
                 }
             });

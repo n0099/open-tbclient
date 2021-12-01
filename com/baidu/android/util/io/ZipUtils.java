@@ -3,7 +3,6 @@ package com.baidu.android.util.io;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -239,7 +238,7 @@ public final class ZipUtils {
 
     public static void zipFileOrDirectory(ZipOutputStream zipOutputStream, File file, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, zipOutputStream, file, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, zipOutputStream, file, str) == null) {
             FileInputStream fileInputStream = null;
             try {
                 try {
@@ -308,7 +307,7 @@ public final class ZipUtils {
     public static void zip(List<File> list, File file) throws IOException {
         ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, list, file) == null) || file == null || !file.exists() || list == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, list, file) == null) || file == null || !file.exists() || list == null || list.size() == 0) {
             return;
         }
         FileInputStream fileInputStream = null;

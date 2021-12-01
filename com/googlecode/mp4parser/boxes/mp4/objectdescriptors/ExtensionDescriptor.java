@@ -6,9 +6,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.apollon.a;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.down.manage.DownloadConstants;
-import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.pass.biometrics.face.liveness.activity.PassLivenessRecogActivity;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,11 +19,12 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.wallet.utils.ContactPermissionUtil;
 import com.coremedia.iso.Hex;
 import com.facebook.imageutils.JfifUtil;
+import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-@Descriptor(tags = {19, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, 132, 133, 134, 135, 136, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, 138, 139, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 141, 142, 143, 144, 145, 146, 147, Opcodes.LCMP, Opcodes.FCMPL, 150, Opcodes.DCMPL, 152, 153, Opcodes.IFNE, a.f36654e, 156, 157, 158, Opcodes.IF_ICMPEQ, 160, 161, 162, 163, 164, 165, 166, 167, 168, Opcodes.RET, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 172, 173, 174, 175, Opcodes.ARETURN, Opcodes.RETURN, 178, 179, 180, Opcodes.PUTFIELD, Opcodes.INVOKEVIRTUAL, 183, Opcodes.INVOKESTATIC, 185, 186, Opcodes.NEW, Opcodes.NEWARRAY, 189, 190, 191, 192, 193, 194, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.IFNULL, Opcodes.IFNONNULL, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, JfifUtil.MARKER_RST7, JfifUtil.MARKER_SOI, 217, 218, 219, PassLivenessRecogActivity.S, 221, 222, 223, 224, 225, Constants.METHOD_MEDIA_NOTIFY, 227, 228, 229, 230, 231, 232, WriteActivity.CONTENT_MAX_COUNT, 234, 235, 236, 237, 238, 239, 240, BaseActivity.DIALOG_PROMPT, BaseActivity.DIALOG_LOADING, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 244, 245, 246, GDiffPatcher.DATA_USHORT, GDiffPatcher.DATA_INT, 249, 250, GDiffPatcher.COPY_USHORT_INT, GDiffPatcher.COPY_INT_UBYTE, GDiffPatcher.COPY_INT_USHORT})
+@Descriptor(tags = {19, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER, 132, 133, 134, 135, 136, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, 138, w0.o, PbFullScreenEditorActivity.REPLY_MAX_SIZE, 141, 142, w0.x0, 144, w0.n, 146, 147, 148, Opcodes.FCMPL, 150, Opcodes.DCMPL, 152, 153, Opcodes.IFNE, a.f32872e, 156, w0.p0, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, w0.d0, 169, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 172, w0.f56897i, 174, 175, Opcodes.ARETURN, 177, 178, 179, 180, 181, Opcodes.INVOKEVIRTUAL, 183, Opcodes.INVOKESTATIC, 185, w0.e0, Opcodes.NEW, Opcodes.NEWARRAY, 189, 190, w0.M, 192, 193, 194, 195, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, Opcodes.IFNULL, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, w0.A, w0.f56896h, 213, w0.c0, JfifUtil.MARKER_RST7, 216, 217, 218, 219, 220, w0.h0, w0.f56899k, 223, w0.Q, 225, Constants.METHOD_MEDIA_NOTIFY, w0.z, 228, 229, 230, 231, w0.c1, WriteActivity.CONTENT_MAX_COUNT, 234, w0.k0, 236, 237, 238, 239, 240, 241, 242, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 244, 245, 246, GDiffPatcher.DATA_USHORT, 248, 249, 250, GDiffPatcher.COPY_USHORT_INT, 252, GDiffPatcher.COPY_INT_USHORT})
 /* loaded from: classes2.dex */
 public class ExtensionDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
@@ -68,7 +66,7 @@ public class ExtensionDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int[] iArr = new int[Opcodes.LCMP];
+            int[] iArr = new int[148];
             for (int i2 = 106; i2 < 254; i2++) {
                 int i3 = i2 - 106;
                 log.finest("pos:" + i3);

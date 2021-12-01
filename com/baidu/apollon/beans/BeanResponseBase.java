@@ -13,18 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BeanResponseBase implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f36726a = "系统开小差，等一会儿再试吧";
+    public static final String a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36727b = "content";
+    public static final String f32927b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36728c = "data";
+    public static final String f32928c = "data";
     public transient /* synthetic */ FieldHolder $fh;
     public Session cashdesk;
     public JSONObject content;
@@ -43,7 +41,7 @@ public class BeanResponseBase implements NoProguard {
     public String signature;
     public String token;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Session implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +139,7 @@ public class BeanResponseBase implements NoProguard {
                 return this.err_msg;
             }
             if (TextUtils.isEmpty(this.result_info)) {
-                return !TextUtils.isEmpty(this.result_string) ? this.result_string : f36726a;
+                return !TextUtils.isEmpty(this.result_string) ? this.result_string : a;
             }
             return this.result_info;
         }

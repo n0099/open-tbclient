@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import b.a.e.f.l.d;
-import b.a.e.f.p.j;
-import b.a.e.m.c.c;
-import b.a.e.m.e.a;
-import b.a.e.m.e.n;
-import b.a.e.m.e.o;
-import b.a.e.m.e.q;
-import b.a.e.m.e.r;
+import c.a.d.f.l.d;
+import c.a.d.f.p.j;
+import c.a.d.m.c.c;
+import c.a.d.m.e.a;
+import c.a.d.m.e.n;
+import c.a.d.m.e.o;
+import c.a.d.m.e.q;
+import c.a.d.m.e.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PreLoadImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
@@ -44,7 +44,7 @@ public class PreLoadImageHelper {
 
     public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
         a<n, TypeAdapter.ViewHolder> adapterByData;
-        c K;
+        c D;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, oVar, obj, preLoadImageInfo) == null) || oVar == null || obj == null || preLoadImageInfo == null) {
             return;
@@ -59,11 +59,11 @@ public class PreLoadImageHelper {
                     rVar = (r) bdRecyclerAdapter.getWrappedAdapter();
                 }
             }
-            if (rVar == null || !(obj instanceof n) || (adapterByData = rVar.getAdapterByData((n) obj)) == null || (K = adapterByData.K(preLoadImageInfo.preloadType)) == null || K.b() <= 0 || K.a() <= 0) {
+            if (rVar == null || !(obj instanceof n) || (adapterByData = rVar.getAdapterByData((n) obj)) == null || (D = adapterByData.D(preLoadImageInfo.preloadType)) == null || D.b() <= 0 || D.a() <= 0) {
                 return;
             }
-            preLoadImageInfo.width = K.b();
-            preLoadImageInfo.height = K.a();
+            preLoadImageInfo.width = D.b();
+            preLoadImageInfo.height = D.a();
         }
     }
 

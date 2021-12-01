@@ -6,12 +6,12 @@ import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.alipay.Result;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayFailMsg;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -30,7 +30,7 @@ import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONObject;
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u00108\u001a\u000207¢\u0006\u0004\b>\u0010=J1\u0010\n\u001a\u00020\t2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u000e\u0010\b\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\f\u001a\u00020\u00072\u000e\u0010\u000e\u001a\n\u0012\u0004\u0012\u00020\r\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u0019\u0010\u0012\u001a\u00020\u000f2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J'\u0010\u0017\u001a\u00020\t2\u0006\u0010\u0014\u001a\u00020\r2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0002¢\u0006\u0004\b\u0017\u0010\u0018J)\u0010\u0019\u001a\u00020\t2\b\u0010\u000e\u001a\u0004\u0018\u00010\r2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0002¢\u0006\u0004\b\u0019\u0010\u0018J)\u0010\u001b\u001a\u00020\u000f2\b\u0010\u001a\u001a\u0004\u0018\u00010\r2\u000e\u0010\b\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u001b\u0010\u001cJM\u0010\"\u001a\u00020\t2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\b\u0010\f\u001a\u0004\u0018\u00010\u001f2\b\u0010 \u001a\u0004\u0018\u00010\r2\u0006\u0010!\u001a\u00020\u000f2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0016¢\u0006\u0004\b\"\u0010#JM\u0010\"\u001a\u00020\t2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\b\u0010$\u001a\u0004\u0018\u00010\r2\b\u0010 \u001a\u0004\u0018\u00010\r2\u0006\u0010!\u001a\u00020\u000f2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0016¢\u0006\u0004\b\"\u0010%JM\u0010&\u001a\u00020\t2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\b\u0010$\u001a\u0004\u0018\u00010\r2\b\u0010 \u001a\u0004\u0018\u00010\r2\u0006\u0010!\u001a\u00020\u000f2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0016¢\u0006\u0004\b&\u0010%J\u001b\u0010)\u001a\u0004\u0018\u00010(2\b\u0010'\u001a\u0004\u0018\u00010\rH\u0002¢\u0006\u0004\b)\u0010*J%\u0010.\u001a\u00020-2\u0014\u0010,\u001a\u0010\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\r\u0018\u00010+H\u0002¢\u0006\u0004\b.\u0010/J_\u00103\u001a\u00020\t2\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\b\u00100\u001a\u0004\u0018\u00010\r2\b\u00101\u001a\u0004\u0018\u00010\r2\u0006\u00102\u001a\u00020\u00042\b\u0010 \u001a\u0004\u0018\u00010\r2\u0006\u0010!\u001a\u00020\u000f2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\u0015H\u0016¢\u0006\u0004\b3\u00104R\u0016\u00105\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00106R\"\u00108\u001a\u0002078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b8\u00109\u001a\u0004\b:\u0010;\"\u0004\b<\u0010=¨\u0006?"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/AlipayProxy;", "Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/DefaultPayMethod;", "Landroid/app/Activity;", "act", "", "type", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IResult;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;", "iResult", "", "clearHangPayJob", "(Landroid/app/Activity;ILcom/yy/mobile/framework/revenuesdk/baseapi/IResult;)V", "info", "", "result", "", "doHangJob", "(Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;Lcom/yy/mobile/framework/revenuesdk/baseapi/IResult;)Z", "isSupported", "(Landroid/app/Activity;)Z", "resultStatus", "Lcom/yy/mobile/framework/revenuesdk/payapi/IPayCallback;", "callback", "onPayResult", "(Ljava/lang/String;Lcom/yy/mobile/framework/revenuesdk/payapi/IPayCallback;)V", "onProxyPayResult", "product", "queryHistoryPurchaseByProductId", "(Ljava/lang/String;Lcom/yy/mobile/framework/revenuesdk/baseapi/IResult;)Z", "", "uid", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ProductInfo;", "payload", "isSetAccountId", "requestPay", "(Landroid/app/Activity;JLcom/yy/mobile/framework/revenuesdk/payapi/bean/ProductInfo;Ljava/lang/String;ZLcom/yy/mobile/framework/revenuesdk/payapi/IPayCallback;)V", "productId", "(Landroid/app/Activity;JLjava/lang/String;Ljava/lang/String;ZLcom/yy/mobile/framework/revenuesdk/payapi/IPayCallback;)V", "requestSubscription", "aliRecharge", "Lorg/json/JSONObject;", "splitPayResult", "(Ljava/lang/String;)Lorg/json/JSONObject;", "", "rawResult", "Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/PayResult;", "transToPayResult", "(Ljava/util/Map;)Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/PayResult;", "oldProductId", "newProductId", "prorationMode", "updateSubscription", "(Landroid/app/Activity;JLjava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLcom/yy/mobile/framework/revenuesdk/payapi/IPayCallback;)V", "TAG", "Ljava/lang/String;", "Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/IAlipaySdkServiceProxy;", "alipayServiceService", "Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/IAlipaySdkServiceProxy;", "getAlipayServiceService", "()Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/IAlipaySdkServiceProxy;", "setAlipayServiceService", "(Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/IAlipaySdkServiceProxy;)V", "<init>", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class AlipayProxy extends DefaultPayMethod {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public final class AlipayProxy extends DefaultPayMethod {
                 case 1656380:
                     if (str.equals(Result.RESULT_NETWROK_ERROR)) {
                         if (iPayCallback != null) {
-                            iPayCallback.onFail(6002, "网络连接出错", null);
+                            iPayCallback.onFail(w0.p6, "网络连接出错", null);
                             return;
                         }
                         return;
@@ -99,7 +99,7 @@ public final class AlipayProxy extends DefaultPayMethod {
                 case 1656382:
                     if (str.equals("6004")) {
                         if (iPayCallback != null) {
-                            iPayCallback.onFail(6004, "支付结果未知", null);
+                            iPayCallback.onFail(w0.h3, "支付结果未知", null);
                             return;
                         }
                         return;
@@ -138,7 +138,7 @@ public final class AlipayProxy extends DefaultPayMethod {
     public final void onProxyPayResult(String str, IPayCallback<PurchaseInfo> iPayCallback) {
         Map<String, Object> mapForJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, iPayCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, iPayCallback) == null) {
             if (str == null) {
                 RLog.error(this.TAG, "onPayResult result null", new Object[0]);
                 if (iPayCallback != null) {
@@ -193,7 +193,7 @@ public final class AlipayProxy extends DefaultPayMethod {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             String str3 = this.TAG;
             RLog.debug(str3, "aliRechargeResult " + str);
             if (str == null) {
@@ -290,11 +290,11 @@ public final class AlipayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, boolean z, final IPayCallback<PurchaseInfo> iPayCallback) {
+    public void requestPay(Activity activity, long j2, ProductInfo productInfo, String str, boolean z, final IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Long.valueOf(j), productInfo, str, Boolean.valueOf(z), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Long.valueOf(j2), productInfo, str, Boolean.valueOf(z), iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay1");
-            this.alipayServiceService.sendPay(j, activity, str, new IAlipayProxyCallback(this, iPayCallback) { // from class: com.yy.mobile.framework.revenuesdk.payapi.payproxy.AlipayProxy$requestPay$1
+            this.alipayServiceService.sendPay(j2, activity, str, new IAlipayProxyCallback(this, iPayCallback) { // from class: com.yy.mobile.framework.revenuesdk.payapi.payproxy.AlipayProxy$requestPay$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ IPayCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -348,9 +348,9 @@ public final class AlipayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestSubscription(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
+    public void requestSubscription(Activity activity, long j2, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{activity, Long.valueOf(j), str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{activity, Long.valueOf(j2), str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
             RLog.error(this.TAG, "Alipay can't requestSubscription", new Object[0]);
         }
     }
@@ -363,19 +363,19 @@ public final class AlipayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void updateSubscription(Activity activity, long j, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
+    public void updateSubscription(Activity activity, long j2, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Long.valueOf(j), str, str2, Integer.valueOf(i2), str3, Boolean.valueOf(z), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Long.valueOf(j2), str, str2, Integer.valueOf(i2), str3, Boolean.valueOf(z), iPayCallback}) == null) {
             RLog.error(this.TAG, "Alipay can't updateSubscription", new Object[0]);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, String str, String str2, boolean z, final IPayCallback<PurchaseInfo> iPayCallback) {
+    public void requestPay(Activity activity, long j2, String str, String str2, boolean z, final IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{activity, Long.valueOf(j), str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{activity, Long.valueOf(j2), str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay2");
-            this.alipayServiceService.sendPay(j, activity, str2, new IAlipayProxyCallback(this, iPayCallback) { // from class: com.yy.mobile.framework.revenuesdk.payapi.payproxy.AlipayProxy$requestPay$2
+            this.alipayServiceService.sendPay(j2, activity, str2, new IAlipayProxyCallback(this, iPayCallback) { // from class: com.yy.mobile.framework.revenuesdk.payapi.payproxy.AlipayProxy$requestPay$2
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ IPayCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;

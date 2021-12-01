@@ -3,7 +3,6 @@ package com.baidu.wallet.base.iddetect.utils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.room.RoomMasterTable;
 import com.baidu.location.Address;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class IdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHINA_ID_MAX_LENGTH = 18;
@@ -213,7 +212,7 @@ public final class IdcardUtils {
     public static String getBirthByIdCard(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -235,7 +234,7 @@ public final class IdcardUtils {
     public static String getCheckCode18(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             switch (i2 % 11) {
                 case 0:
                     return "1";

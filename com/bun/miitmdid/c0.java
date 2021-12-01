@@ -7,21 +7,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c0 extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context j;
-    public String k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Context f54388j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f54389k;
     public z l;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c0 f62059a;
+        public final /* synthetic */ c0 a;
 
         public a(c0 c0Var) {
             Interceptable interceptable = $ic;
@@ -38,45 +40,45 @@ public class c0 extends l {
                     return;
                 }
             }
-            this.f62059a = c0Var;
+            this.a = c0Var;
         }
 
         @Override // com.bun.miitmdid.a0
         public void a(MsaIdInterface msaIdInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, msaIdInterface) == null) || this.f62059a.d()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, msaIdInterface) == null) || this.a.d()) {
                 return;
             }
             try {
-                c0 c0Var = this.f62059a;
-                c0Var.f62092f = c0Var.l.d();
-                String b2 = this.f62059a.l.b();
-                String c2 = this.f62059a.l.c();
-                String a2 = this.f62059a.l.a();
+                c0 c0Var = this.a;
+                c0Var.f54418f = c0Var.l.d();
+                String b2 = this.a.l.b();
+                String c2 = this.a.l.c();
+                String a = this.a.l.a();
                 if (b2 == null) {
                     b2 = "";
                 }
-                this.f62059a.f62089c = b2;
-                c0 c0Var2 = this.f62059a;
+                this.a.f54415c = b2;
+                c0 c0Var2 = this.a;
                 if (c2 == null) {
                     c2 = "";
                 }
-                c0Var2.f62090d = c2;
-                c0 c0Var3 = this.f62059a;
-                if (a2 == null) {
-                    a2 = "";
+                c0Var2.f54416d = c2;
+                c0 c0Var3 = this.a;
+                if (a == null) {
+                    a = "";
                 }
-                c0Var3.f62091e = a2;
+                c0Var3.f54417e = a;
                 synchronized (c0.class) {
-                    this.f62059a.f62095i = true;
-                    this.f62059a.e();
+                    this.a.f54421i = true;
+                    this.a.e();
                 }
             } catch (Exception e2) {
                 synchronized (c0.class) {
                     e0.d("ZteProvider", "doStart: Exception: " + e2.getMessage());
-                    this.f62059a.a();
-                    this.f62059a.f62095i = true;
-                    this.f62059a.e();
+                    this.a.a();
+                    this.a.f54421i = true;
+                    this.a.e();
                 }
             }
         }
@@ -98,8 +100,8 @@ public class c0 extends l {
             }
         }
         e0.c("ZteProvider", "ZteProvider(Context)");
-        this.j = context;
-        this.k = context.getPackageName();
+        this.f54388j = context;
+        this.f54389k = context.getPackageName();
         try {
         } catch (Exception unused) {
             e0.d("ZteProvider", "Constructor: MsaService not found");
@@ -109,7 +111,7 @@ public class c0 extends l {
             throw new NullPointerException("Constructor: getPackageInfo is null");
         }
         try {
-            z.a(this.j, this.k);
+            z.a(this.f54388j, this.f54389k);
             e0.c("ZteProvider", "Constructor: MsaService start success");
         } catch (Exception e2) {
             e0.b("ZteProvider", "Constructor: MsaService start Exception: " + e2.getMessage());
@@ -122,11 +124,11 @@ public class c0 extends l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             e0.c("ZteProvider", "doStart()");
             try {
-                this.j = a(this.j);
+                this.f54388j = a(this.f54388j);
                 c();
-                z zVar = new z(this.j, new a(this));
+                z zVar = new z(this.f54388j, new a(this));
                 this.l = zVar;
-                zVar.a(this.k);
+                zVar.a(this.f54389k);
                 e0.c("ZteProvider", "doStart: BindService success");
                 b();
             } catch (Exception e2) {

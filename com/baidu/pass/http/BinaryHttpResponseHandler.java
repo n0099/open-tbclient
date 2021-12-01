@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String[] f42788a;
+    public String[] a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BinaryHttpResponseHandler(Looper looper) {
@@ -33,7 +31,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
                 return;
             }
         }
-        this.f42788a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
@@ -42,7 +40,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, hashMap, bArr) == null) {
             if (hashMap != null && hashMap.get("Content-Type") != null) {
                 String str = hashMap.get("Content-Type");
-                String[] strArr = this.f42788a;
+                String[] strArr = this.a;
                 int length = strArr.length;
                 boolean z = false;
                 int i3 = 0;
@@ -125,8 +123,8 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
                 return;
             }
         }
-        this.f42788a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
-        this.f42788a = strArr;
+        this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
+        this.a = strArr;
         this.executCallbackInChildThread = z;
     }
 }

@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.SequencesKt___SequencesKt;
 import org.apache.commons.lang3.StringUtils;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\b\u000f\u001a#\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020\u00000\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\u0002¢\u0006\u0004\b\u0003\u0010\u0004\u001a\u0013\u0010\t\u001a\u00020\u0006*\u00020\u0000H\u0002¢\u0006\u0004\b\u0007\u0010\b\u001a\u001b\u0010\n\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0001\u001a\u00020\u0000¢\u0006\u0004\b\n\u0010\u000b\u001aL\u0010\u0012\u001a\u00020\u0000*\b\u0012\u0004\u0012\u00020\u00000\f2\u0006\u0010\r\u001a\u00020\u00062\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020\u00000\u00022\u0014\u0010\u000f\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0006\u0012\u0004\u0018\u00010\u00000\u0002H\u0082\b¢\u0006\u0004\b\u0010\u0010\u0011\u001a\u001b\u0010\u0014\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0013\u001a\u00020\u0000¢\u0006\u0004\b\u0014\u0010\u000b\u001a%\u0010\u0016\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0013\u001a\u00020\u00002\b\b\u0002\u0010\u0015\u001a\u00020\u0000¢\u0006\u0004\b\u0016\u0010\u0017\u001a\u0011\u0010\u0018\u001a\u00020\u0000*\u00020\u0000¢\u0006\u0004\b\u0018\u0010\u0019\u001a\u001b\u0010\u001a\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0015\u001a\u00020\u0000¢\u0006\u0004\b\u001a\u0010\u000b¨\u0006\u001b"}, d2 = {"", "indent", "Lkotlin/Function1;", "getIndentFunction$StringsKt__IndentKt", "(Ljava/lang/String;)Lkotlin/Function1;", "getIndentFunction", "", "indentWidth$StringsKt__IndentKt", "(Ljava/lang/String;)I", "indentWidth", "prependIndent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "", "resultSizeEstimate", "indentAddFunction", "indentCutFunction", "reindent$StringsKt__IndentKt", "(Ljava/util/List;ILkotlin/Function1;Lkotlin/Function1;)Ljava/lang/String;", "reindent", "newIndent", "replaceIndent", "marginPrefix", "replaceIndentByMargin", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "trimIndent", "(Ljava/lang/String;)Ljava/lang/String;", "trimMargin", "kotlin-stdlib"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlin/text/StringsKt")
+@Metadata(d1 = {"\u0000\u001e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u000b\u001a!\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0002\b\u0004\u001a\u0011\u0010\u0005\u001a\u00020\u0006*\u00020\u0002H\u0002¢\u0006\u0002\b\u0007\u001a\u0014\u0010\b\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0003\u001a\u00020\u0002\u001aJ\u0010\t\u001a\u00020\u0002*\b\u0012\u0004\u0012\u00020\u00020\n2\u0006\u0010\u000b\u001a\u00020\u00062\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00020\u00012\u0014\u0010\r\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0001H\u0082\b¢\u0006\u0002\b\u000e\u001a\u0014\u0010\u000f\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0010\u001a\u00020\u0002\u001a\u001e\u0010\u0011\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u0002\u001a\n\u0010\u0013\u001a\u00020\u0002*\u00020\u0002\u001a\u0014\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u0002¨\u0006\u0015"}, d2 = {"getIndentFunction", "Lkotlin/Function1;", "", "indent", "getIndentFunction$StringsKt__IndentKt", "indentWidth", "", "indentWidth$StringsKt__IndentKt", "prependIndent", "reindent", "", "resultSizeEstimate", "indentAddFunction", "indentCutFunction", "reindent$StringsKt__IndentKt", "replaceIndent", "newIndent", "replaceIndentByMargin", "marginPrefix", "trimIndent", "trimMargin", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/text/StringsKt")
 /* loaded from: classes3.dex */
 public class StringsKt__IndentKt extends StringsKt__AppendableKt {
     public static final Function1<String, String> getIndentFunction$StringsKt__IndentKt(String str) {
@@ -50,6 +50,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final String reindent$StringsKt__IndentKt(List<String> list, int i2, Function1<? super String, String> function1, Function1<? super String, String> function12) {
         Appendable joinTo;
+        String str;
         String invoke;
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(list);
         ArrayList arrayList = new ArrayList();
@@ -62,14 +63,15 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            String str = (String) obj;
-            if ((i3 == 0 || i3 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str)) {
+            String str2 = (String) obj;
+            if ((i3 == 0 || i3 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str2)) {
                 str = null;
             } else {
-                String invoke2 = function12.invoke(str);
+                String invoke2 = function12.invoke(str2);
                 if (invoke2 != null && (invoke = function1.invoke(invoke2)) != null) {
-                    str = invoke;
+                    str2 = invoke;
                 }
+                str = str2;
             }
             if (str != null) {
                 arrayList.add(str);
@@ -84,6 +86,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final String replaceIndent(String replaceIndent, String newIndent) {
         Appendable joinTo;
+        String str;
         String invoke;
         Intrinsics.checkNotNullParameter(replaceIndent, "$this$replaceIndent");
         Intrinsics.checkNotNullParameter(newIndent, "newIndent");
@@ -95,8 +98,8 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             }
         }
         ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(arrayList, 10));
-        for (String str : arrayList) {
-            arrayList2.add(Integer.valueOf(indentWidth$StringsKt__IndentKt(str)));
+        for (String str2 : arrayList) {
+            arrayList2.add(Integer.valueOf(indentWidth$StringsKt__IndentKt(str2)));
         }
         Integer num = (Integer) CollectionsKt___CollectionsKt.minOrNull((Iterable<? extends Comparable>) arrayList2);
         int i2 = 0;
@@ -110,17 +113,18 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             if (i2 < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            String str2 = (String) obj2;
-            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str2)) {
-                str2 = null;
+            String str3 = (String) obj2;
+            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str3)) {
+                str = null;
             } else {
-                String drop = StringsKt___StringsKt.drop(str2, intValue);
+                String drop = StringsKt___StringsKt.drop(str3, intValue);
                 if (drop != null && (invoke = indentFunction$StringsKt__IndentKt.invoke(drop)) != null) {
-                    str2 = invoke;
+                    str3 = invoke;
                 }
+                str = str3;
             }
-            if (str2 != null) {
-                arrayList3.add(str2);
+            if (str != null) {
+                arrayList3.add(str);
             }
             i2 = i3;
         }
@@ -158,9 +162,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                 }
                 String str = (String) obj;
                 String str2 = null;
-                if ((i3 == 0 || i3 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str)) {
-                    str = null;
-                } else {
+                if ((i3 != 0 && i3 != lastIndex) || !StringsKt__StringsJVMKt.isBlank(str)) {
                     int length2 = str.length();
                     int i5 = 0;
                     while (true) {
@@ -188,9 +190,10 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                     if (str2 != null && (invoke = indentFunction$StringsKt__IndentKt.invoke(str2)) != null) {
                         str = invoke;
                     }
+                    str2 = str;
                 }
-                if (str != null) {
-                    arrayList.add(str);
+                if (str2 != null) {
+                    arrayList.add(str2);
                 }
                 i3 = i4;
             }

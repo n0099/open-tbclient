@@ -270,9 +270,9 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void setIdleDuration(long j, TimeUnit timeUnit) {
+    public void setIdleDuration(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048601, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048601, this, j2, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }

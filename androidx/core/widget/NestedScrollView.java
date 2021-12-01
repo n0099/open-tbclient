@@ -38,8 +38,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -351,7 +349,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     private boolean canScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (getChildCount() > 0) {
                 View childAt = getChildAt(0);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) childAt.getLayoutParams();
@@ -365,7 +363,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     public static int clamp(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
             if (i3 >= i4 || i2 < 0) {
                 return 0;
             }
@@ -962,9 +960,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, keyEvent)) == null) {
             this.mTempRect.setEmpty();
-            boolean canScroll = canScroll();
-            int i2 = IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
-            if (!canScroll) {
+            if (!canScroll()) {
                 if (!isFocused() || keyEvent.getKeyCode() == 4) {
                     return false;
                 }
@@ -972,8 +968,8 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
                 if (findFocus == this) {
                     findFocus = null;
                 }
-                View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
-                return (findNextFocus == null || findNextFocus == this || !findNextFocus.requestFocus(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER)) ? false : true;
+                View findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, 130);
+                return (findNextFocus == null || findNextFocus == this || !findNextFocus.requestFocus(130)) ? false : true;
             } else if (keyEvent.getAction() == 0) {
                 int keyCode = keyEvent.getKeyCode();
                 if (keyCode == 19) {
@@ -983,16 +979,13 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
                     return fullScroll(33);
                 } else if (keyCode == 20) {
                     if (!keyEvent.isAltPressed()) {
-                        return arrowScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+                        return arrowScroll(130);
                     }
-                    return fullScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+                    return fullScroll(130);
                 } else if (keyCode != 62) {
                     return false;
                 } else {
-                    if (keyEvent.isShiftPressed()) {
-                        i2 = 33;
-                    }
-                    pageScroll(i2);
+                    pageScroll(keyEvent.isShiftPressed() ? 33 : 130);
                     return false;
                 }
             } else {
@@ -1355,7 +1348,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048628, this, i2, rect)) == null) {
             if (i2 == 2) {
-                i2 = IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
+                i2 = 130;
             } else if (i2 == 1) {
                 i2 = 33;
             }

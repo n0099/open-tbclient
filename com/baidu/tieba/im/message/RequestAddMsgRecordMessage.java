@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
 import tbclient.AddMsgRecord.DataReq;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestAddMsgRecordMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLICK = 3;

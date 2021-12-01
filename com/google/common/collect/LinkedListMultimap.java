@@ -1,13 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.m;
-import b.h.d.c.n1;
-import b.h.d.c.p0;
-import b.h.d.c.q0;
-import b.h.d.c.s0;
-import b.h.d.c.y0;
+import c.i.d.a.n;
+import c.i.d.c.m;
+import c.i.d.c.n1;
+import c.i.d.c.p0;
+import c.i.d.c.q0;
+import c.i.d.c.s0;
+import c.i.d.c.y0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,8 +30,8 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes11.dex */
-public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V>, Serializable {
+/* loaded from: classes2.dex */
+public class LinkedListMultimap<K, V> extends c.i.d.c.c<K, V> implements p0<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,16 +41,16 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     public transient int size;
     public transient g<K, V> tail;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class a extends AbstractSequentialList<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f64323e;
+        public final /* synthetic */ Object f56265e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LinkedListMultimap f64324f;
+        public final /* synthetic */ LinkedListMultimap f56266f;
 
         public a(LinkedListMultimap linkedListMultimap, Object obj) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64324f = linkedListMultimap;
-            this.f64323e = obj;
+            this.f56266f = linkedListMultimap;
+            this.f56265e = obj;
         }
 
         @Override // java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
         public ListIterator<V> listIterator(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new i(this.f64324f, this.f64323e, i2) : (ListIterator) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new i(this.f56266f, this.f56265e, i2) : (ListIterator) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -83,23 +83,23 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                f fVar = (f) this.f64324f.keyToKeyList.get(this.f64323e);
+                f fVar = (f) this.f56266f.keyToKeyList.get(this.f56265e);
                 if (fVar == null) {
                     return 0;
                 }
-                return fVar.f64336c;
+                return fVar.f56277c;
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class b extends AbstractSequentialList<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LinkedListMultimap f64325e;
+        public final /* synthetic */ LinkedListMultimap f56267e;
 
         public b(LinkedListMultimap linkedListMultimap) {
             Interceptable interceptable = $ic;
@@ -116,31 +116,31 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64325e = linkedListMultimap;
+            this.f56267e = linkedListMultimap;
         }
 
         @Override // java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
         public ListIterator<Map.Entry<K, V>> listIterator(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new h(this.f64325e, i2) : (ListIterator) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new h(this.f56267e, i2) : (ListIterator) invokeI.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64325e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56267e.size : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class c extends Sets.c<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LinkedListMultimap f64326e;
+        public final /* synthetic */ LinkedListMultimap f56268e;
 
         public c(LinkedListMultimap linkedListMultimap) {
             Interceptable interceptable = $ic;
@@ -157,53 +157,53 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64326e = linkedListMultimap;
+            this.f56268e = linkedListMultimap;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f64326e.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f56268e.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new e(this.f64326e, null) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new e(this.f56268e, null) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? !this.f64326e.removeAll(obj).isEmpty() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? !this.f56268e.removeAll(obj).isEmpty() : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64326e.keyToKeyList.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56268e.keyToKeyList.size() : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class d extends AbstractSequentialList<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LinkedListMultimap f64327e;
+        public final /* synthetic */ LinkedListMultimap f56269e;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public class a extends n1<Map.Entry<K, V>, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f64328f;
+            public final /* synthetic */ h f56270f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(d dVar, ListIterator listIterator, h hVar) {
@@ -223,11 +223,11 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                         return;
                     }
                 }
-                this.f64328f = hVar;
+                this.f56270f = hVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.c.m1
+            @Override // c.i.d.c.m1
             /* renamed from: c */
             public V a(Map.Entry<K, V> entry) {
                 InterceptResult invokeL;
@@ -235,11 +235,11 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                 return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? entry.getValue() : (V) invokeL.objValue;
             }
 
-            @Override // b.h.d.c.n1, java.util.ListIterator
+            @Override // c.i.d.c.n1, java.util.ListIterator
             public void set(V v) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v) == null) {
-                    this.f64328f.f(v);
+                    this.f56270f.f(v);
                 }
             }
         }
@@ -259,7 +259,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64327e = linkedListMultimap;
+            this.f56269e = linkedListMultimap;
         }
 
         @Override // java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
@@ -267,7 +267,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                h hVar = new h(this.f64327e, i2);
+                h hVar = new h(this.f56269e, i2);
                 return new a(this, hVar, hVar);
             }
             return (ListIterator) invokeI.objValue;
@@ -277,23 +277,21 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64327e.size : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56269e.size : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class f<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public g<K, V> f64334a;
+        public g<K, V> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g<K, V> f64335b;
+        public g<K, V> f56276b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f64336c;
+        public int f56277c;
 
         public f(g<K, V> gVar) {
             Interceptable interceptable = $ic;
@@ -310,41 +308,43 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64334a = gVar;
-            this.f64335b = gVar;
-            gVar.j = null;
-            gVar.f64341i = null;
-            this.f64336c = 1;
+            this.a = gVar;
+            this.f56276b = gVar;
+            gVar.f56283j = null;
+            gVar.f56282i = null;
+            this.f56277c = 1;
         }
     }
 
-    /* loaded from: classes11.dex */
-    public static final class g<K, V> extends b.h.d.c.b<K, V> {
+    /* loaded from: classes2.dex */
+    public static final class g<K, V> extends c.i.d.c.b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f64337e;
+        public final K f56278e;
 
         /* renamed from: f  reason: collision with root package name */
-        public V f64338f;
+        public V f56279f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f64339g;
+        public g<K, V> f56280g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f64340h;
+        public g<K, V> f56281h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g<K, V> f64341i;
-        public g<K, V> j;
+        public g<K, V> f56282i;
 
-        public g(K k, V v) {
+        /* renamed from: j  reason: collision with root package name */
+        public g<K, V> f56283j;
+
+        public g(K k2, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k, v};
+                Object[] objArr = {k2, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -354,57 +354,59 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64337e = k;
-            this.f64338f = v;
+            this.f56278e = k2;
+            this.f56279f = v;
         }
 
-        @Override // b.h.d.c.b, java.util.Map.Entry
+        @Override // c.i.d.c.b, java.util.Map.Entry
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64337e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56278e : (K) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.b, java.util.Map.Entry
+        @Override // c.i.d.c.b, java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64338f : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56279f : (V) invokeV.objValue;
         }
 
-        @Override // b.h.d.c.b, java.util.Map.Entry
+        @Override // c.i.d.c.b, java.util.Map.Entry
         public V setValue(V v) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
-                V v2 = this.f64338f;
-                this.f64338f = v;
+                V v2 = this.f56279f;
+                this.f56279f = v;
                 return v2;
             }
             return (V) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class h implements ListIterator<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f64342e;
+        public int f56284e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f64343f;
+        public g<K, V> f56285f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f64344g;
+        public g<K, V> f56286g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f64345h;
+        public g<K, V> f56287h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f64346i;
-        public final /* synthetic */ LinkedListMultimap j;
+        public int f56288i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ LinkedListMultimap f56289j;
 
         public h(LinkedListMultimap linkedListMultimap, int i2) {
             Interceptable interceptable = $ic;
@@ -421,13 +423,13 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.j = linkedListMultimap;
-            this.f64346i = this.j.modCount;
+            this.f56289j = linkedListMultimap;
+            this.f56288i = this.f56289j.modCount;
             int size = linkedListMultimap.size();
             n.t(i2, size);
             if (i2 >= size / 2) {
-                this.f64345h = linkedListMultimap.tail;
-                this.f64342e = size;
+                this.f56287h = linkedListMultimap.tail;
+                this.f56284e = size;
                 while (true) {
                     int i5 = i2 + 1;
                     if (i2 >= size) {
@@ -437,7 +439,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     i2 = i5;
                 }
             } else {
-                this.f64343f = linkedListMultimap.head;
+                this.f56285f = linkedListMultimap.head;
                 while (true) {
                     int i6 = i2 - 1;
                     if (i2 <= 0) {
@@ -447,7 +449,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     i2 = i6;
                 }
             }
-            this.f64344g = null;
+            this.f56286g = null;
         }
 
         public void a(Map.Entry<K, V> entry) {
@@ -465,7 +467,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
 
         public final void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j.modCount != this.f64346i) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f56289j.modCount != this.f56288i) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -478,12 +480,12 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 b();
-                LinkedListMultimap.checkElement(this.f64343f);
-                g<K, V> gVar = this.f64343f;
-                this.f64344g = gVar;
-                this.f64345h = gVar;
-                this.f64343f = gVar.f64339g;
-                this.f64342e++;
+                LinkedListMultimap.checkElement(this.f56285f);
+                g<K, V> gVar = this.f56285f;
+                this.f56286g = gVar;
+                this.f56287h = gVar;
+                this.f56285f = gVar.f56280g;
+                this.f56284e++;
                 return gVar;
             }
             return (g) invokeV.objValue;
@@ -497,12 +499,12 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 b();
-                LinkedListMultimap.checkElement(this.f64345h);
-                g<K, V> gVar = this.f64345h;
-                this.f64344g = gVar;
-                this.f64343f = gVar;
-                this.f64345h = gVar.f64340h;
-                this.f64342e--;
+                LinkedListMultimap.checkElement(this.f56287h);
+                g<K, V> gVar = this.f56287h;
+                this.f56286g = gVar;
+                this.f56285f = gVar;
+                this.f56287h = gVar.f56281h;
+                this.f56284e--;
                 return gVar;
             }
             return (g) invokeV.objValue;
@@ -518,8 +520,8 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public void f(V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, v) == null) {
-                n.w(this.f64344g != null);
-                this.f64344g.f64338f = v;
+                n.w(this.f56286g != null);
+                this.f56286g.f56279f = v;
             }
         }
 
@@ -529,7 +531,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 b();
-                return this.f64343f != null;
+                return this.f56285f != null;
             }
             return invokeV.booleanValue;
         }
@@ -540,7 +542,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 b();
-                return this.f64345h != null;
+                return this.f56287h != null;
             }
             return invokeV.booleanValue;
         }
@@ -549,14 +551,14 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public int nextIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64342e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f56284e : invokeV.intValue;
         }
 
         @Override // java.util.ListIterator
         public int previousIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64342e - 1 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f56284e - 1 : invokeV.intValue;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
@@ -564,17 +566,17 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
                 b();
-                m.e(this.f64344g != null);
-                g<K, V> gVar = this.f64344g;
-                if (gVar != this.f64343f) {
-                    this.f64345h = gVar.f64340h;
-                    this.f64342e--;
+                m.e(this.f56286g != null);
+                g<K, V> gVar = this.f56286g;
+                if (gVar != this.f56285f) {
+                    this.f56287h = gVar.f56281h;
+                    this.f56284e--;
                 } else {
-                    this.f64343f = gVar.f64339g;
+                    this.f56285f = gVar.f56280g;
                 }
-                this.j.removeNode(this.f64344g);
-                this.f64344g = null;
-                this.f64346i = this.j.modCount;
+                this.f56289j.removeNode(this.f56286g);
+                this.f56286g = null;
+                this.f56288i = this.f56289j.modCount;
             }
         }
 
@@ -604,52 +606,52 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g<K, V> addNode(K k, V v, g<K, V> gVar) {
+    public g<K, V> addNode(K k2, V v, g<K, V> gVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, this, k, v, gVar)) == null) {
-            g<K, V> gVar2 = new g<>(k, v);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, this, k2, v, gVar)) == null) {
+            g<K, V> gVar2 = new g<>(k2, v);
             if (this.head == null) {
                 this.tail = gVar2;
                 this.head = gVar2;
-                this.keyToKeyList.put(k, new f<>(gVar2));
+                this.keyToKeyList.put(k2, new f<>(gVar2));
                 this.modCount++;
             } else if (gVar == null) {
                 g<K, V> gVar3 = this.tail;
-                gVar3.f64339g = gVar2;
-                gVar2.f64340h = gVar3;
+                gVar3.f56280g = gVar2;
+                gVar2.f56281h = gVar3;
                 this.tail = gVar2;
-                f<K, V> fVar = this.keyToKeyList.get(k);
+                f<K, V> fVar = this.keyToKeyList.get(k2);
                 if (fVar == null) {
-                    this.keyToKeyList.put(k, new f<>(gVar2));
+                    this.keyToKeyList.put(k2, new f<>(gVar2));
                     this.modCount++;
                 } else {
-                    fVar.f64336c++;
-                    g<K, V> gVar4 = fVar.f64335b;
-                    gVar4.f64341i = gVar2;
-                    gVar2.j = gVar4;
-                    fVar.f64335b = gVar2;
+                    fVar.f56277c++;
+                    g<K, V> gVar4 = fVar.f56276b;
+                    gVar4.f56282i = gVar2;
+                    gVar2.f56283j = gVar4;
+                    fVar.f56276b = gVar2;
                 }
             } else {
-                this.keyToKeyList.get(k).f64336c++;
-                gVar2.f64340h = gVar.f64340h;
-                gVar2.j = gVar.j;
-                gVar2.f64339g = gVar;
-                gVar2.f64341i = gVar;
-                g<K, V> gVar5 = gVar.j;
+                this.keyToKeyList.get(k2).f56277c++;
+                gVar2.f56281h = gVar.f56281h;
+                gVar2.f56283j = gVar.f56283j;
+                gVar2.f56280g = gVar;
+                gVar2.f56282i = gVar;
+                g<K, V> gVar5 = gVar.f56283j;
                 if (gVar5 == null) {
-                    this.keyToKeyList.get(k).f64334a = gVar2;
+                    this.keyToKeyList.get(k2).a = gVar2;
                 } else {
-                    gVar5.f64341i = gVar2;
+                    gVar5.f56282i = gVar2;
                 }
-                g<K, V> gVar6 = gVar.f64340h;
+                g<K, V> gVar6 = gVar.f56281h;
                 if (gVar6 == null) {
                     this.head = gVar2;
                 } else {
-                    gVar6.f64339g = gVar2;
+                    gVar6.f56280g = gVar2;
                 }
-                gVar.f64340h = gVar2;
-                gVar.j = gVar2;
+                gVar.f56281h = gVar2;
+                gVar.f56283j = gVar2;
             }
             this.size++;
             return gVar2;
@@ -702,35 +704,35 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     public void removeNode(g<K, V> gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, gVar) == null) {
-            g<K, V> gVar2 = gVar.f64340h;
+            g<K, V> gVar2 = gVar.f56281h;
             if (gVar2 != null) {
-                gVar2.f64339g = gVar.f64339g;
+                gVar2.f56280g = gVar.f56280g;
             } else {
-                this.head = gVar.f64339g;
+                this.head = gVar.f56280g;
             }
-            g<K, V> gVar3 = gVar.f64339g;
+            g<K, V> gVar3 = gVar.f56280g;
             if (gVar3 != null) {
-                gVar3.f64340h = gVar.f64340h;
+                gVar3.f56281h = gVar.f56281h;
             } else {
-                this.tail = gVar.f64340h;
+                this.tail = gVar.f56281h;
             }
-            if (gVar.j == null && gVar.f64341i == null) {
-                this.keyToKeyList.remove(gVar.f64337e).f64336c = 0;
+            if (gVar.f56283j == null && gVar.f56282i == null) {
+                this.keyToKeyList.remove(gVar.f56278e).f56277c = 0;
                 this.modCount++;
             } else {
-                f<K, V> fVar = this.keyToKeyList.get(gVar.f64337e);
-                fVar.f64336c--;
-                g<K, V> gVar4 = gVar.j;
+                f<K, V> fVar = this.keyToKeyList.get(gVar.f56278e);
+                fVar.f56277c--;
+                g<K, V> gVar4 = gVar.f56283j;
                 if (gVar4 == null) {
-                    fVar.f64334a = gVar.f64341i;
+                    fVar.a = gVar.f56282i;
                 } else {
-                    gVar4.f64341i = gVar.f64341i;
+                    gVar4.f56282i = gVar.f56282i;
                 }
-                g<K, V> gVar5 = gVar.f64341i;
+                g<K, V> gVar5 = gVar.f56282i;
                 if (gVar5 == null) {
-                    fVar.f64335b = gVar.j;
+                    fVar.f56276b = gVar.f56283j;
                 } else {
-                    gVar5.j = gVar.j;
+                    gVar5.f56283j = gVar.f56283j;
                 }
             }
             this.size--;
@@ -749,12 +751,12 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         }
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Map asMap() {
         return super.asMap();
     }
 
-    @Override // b.h.d.c.q0
+    @Override // c.i.d.c.q0
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -766,47 +768,47 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         }
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean containsEntry(Object obj, Object obj2) {
         return super.containsEntry(obj, obj2);
     }
 
-    @Override // b.h.d.c.q0
+    @Override // c.i.d.c.q0
     public boolean containsKey(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.keyToKeyList.containsKey(obj) : invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public boolean containsValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? values().contains(obj) : invokeL.booleanValue;
     }
 
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public Map<K, Collection<V>> createAsMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new Multimaps.a(this) : (Map) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public Set<K> createKeySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new c(this) : (Set) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public s0<K> createKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new Multimaps.c(this) : (s0) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public Iterator<Map.Entry<K, V>> entryIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -816,76 +818,76 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         return (Iterator) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.h.d.c.q0
+    @Override // c.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((LinkedListMultimap<K, V>) obj);
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.head == null : invokeV.booleanValue;
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Set keySet() {
         return super.keySet();
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ s0 keys() {
         return super.keys();
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
-    public boolean put(K k, V v) {
+    @Override // c.i.d.c.c, c.i.d.c.q0
+    public boolean put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, k, v)) == null) {
-            addNode(k, v, null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, k2, v)) == null) {
+            addNode(k2, v, null);
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean putAll(q0 q0Var) {
         return super.putAll(q0Var);
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean remove(Object obj, Object obj2) {
         return super.remove(obj, obj2);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((LinkedListMultimap<K, V>) obj, iterable);
     }
 
-    @Override // b.h.d.c.q0
+    @Override // c.i.d.c.q0
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.size : invokeV.intValue;
     }
 
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
@@ -915,7 +917,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public List<Map.Entry<K, V>> createEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -923,7 +925,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.c
+    @Override // c.i.d.c.c
     public List<V> createValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -931,29 +933,29 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public List<Map.Entry<K, V>> entries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (List) super.entries() : (List) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.q0
-    public List<V> get(K k) {
+    @Override // c.i.d.c.q0
+    public List<V> get(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k)) == null) ? new a(this, k) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, k2)) == null) ? new a(this, k2) : (List) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public /* bridge */ /* synthetic */ boolean putAll(Object obj, Iterable iterable) {
         return super.putAll(obj, iterable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.q0
+    @Override // c.i.d.c.q0
     public List<V> removeAll(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -965,13 +967,13 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         return (List) invokeL.objValue;
     }
 
-    @Override // b.h.d.c.c, b.h.d.c.q0
-    public List<V> replaceValues(K k, Iterable<? extends V> iterable) {
+    @Override // c.i.d.c.c, c.i.d.c.q0
+    public List<V> replaceValues(K k2, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, k, iterable)) == null) {
-            List<V> copy = getCopy(k);
-            i iVar = new i(this, k);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, k2, iterable)) == null) {
+            List<V> copy = getCopy(k2);
+            i iVar = new i(this, k2);
             Iterator<? extends V> it = iterable.iterator();
             while (iVar.hasNext() && it.hasNext()) {
                 iVar.next();
@@ -990,7 +992,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.c, b.h.d.c.q0
+    @Override // c.i.d.c.c, c.i.d.c.q0
     public List<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1003,25 +1005,25 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, q0Var)) == null) ? new LinkedListMultimap<>(q0Var) : (LinkedListMultimap) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class e implements Iterator<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Set<K> f64329e;
+        public final Set<K> f56271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g<K, V> f64330f;
+        public g<K, V> f56272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f64331g;
+        public g<K, V> f56273g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f64332h;
+        public int f56274h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ LinkedListMultimap f64333i;
+        public final /* synthetic */ LinkedListMultimap f56275i;
 
         public e(LinkedListMultimap linkedListMultimap) {
             Interceptable interceptable = $ic;
@@ -1038,15 +1040,15 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.f64333i = linkedListMultimap;
-            this.f64329e = Sets.g(this.f64333i.keySet().size());
-            this.f64330f = this.f64333i.head;
-            this.f64332h = this.f64333i.modCount;
+            this.f56275i = linkedListMultimap;
+            this.f56271e = Sets.g(this.f56275i.keySet().size());
+            this.f56272f = this.f56275i.head;
+            this.f56274h = this.f56275i.modCount;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64333i.modCount != this.f64332h) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56275i.modCount != this.f56274h) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -1057,7 +1059,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 a();
-                return this.f64330f != null;
+                return this.f56272f != null;
             }
             return invokeV.booleanValue;
         }
@@ -1069,18 +1071,18 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
-                LinkedListMultimap.checkElement(this.f64330f);
-                g<K, V> gVar2 = this.f64330f;
-                this.f64331g = gVar2;
-                this.f64329e.add(gVar2.f64337e);
+                LinkedListMultimap.checkElement(this.f56272f);
+                g<K, V> gVar2 = this.f56272f;
+                this.f56273g = gVar2;
+                this.f56271e.add(gVar2.f56278e);
                 do {
-                    gVar = this.f64330f.f64339g;
-                    this.f64330f = gVar;
+                    gVar = this.f56272f.f56280g;
+                    this.f56272f = gVar;
                     if (gVar == null) {
                         break;
                     }
-                } while (!this.f64329e.add(gVar.f64337e));
-                return this.f64331g.f64337e;
+                } while (!this.f56271e.add(gVar.f56278e));
+                return this.f56273g.f56278e;
             }
             return (K) invokeV.objValue;
         }
@@ -1090,10 +1092,10 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 a();
-                m.e(this.f64331g != null);
-                this.f64333i.removeAllNodes(this.f64331g.f64337e);
-                this.f64331g = null;
-                this.f64332h = this.f64333i.modCount;
+                m.e(this.f56273g != null);
+                this.f56275i.removeAllNodes(this.f56273g.f56278e);
+                this.f56273g = null;
+                this.f56274h = this.f56275i.modCount;
             }
         }
 
@@ -1102,26 +1104,28 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class i implements ListIterator<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f64347e;
+        public final Object f56290e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f64348f;
+        public int f56291f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g<K, V> f64349g;
+        public g<K, V> f56292g;
 
         /* renamed from: h  reason: collision with root package name */
-        public g<K, V> f64350h;
+        public g<K, V> f56293h;
 
         /* renamed from: i  reason: collision with root package name */
-        public g<K, V> f64351i;
-        public final /* synthetic */ LinkedListMultimap j;
+        public g<K, V> f56294i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ LinkedListMultimap f56295j;
 
         public i(LinkedListMultimap linkedListMultimap, Object obj) {
             Interceptable interceptable = $ic;
@@ -1138,19 +1142,19 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.j = linkedListMultimap;
-            this.f64347e = obj;
+            this.f56295j = linkedListMultimap;
+            this.f56290e = obj;
             f fVar = (f) linkedListMultimap.keyToKeyList.get(obj);
-            this.f64349g = fVar == null ? null : fVar.f64334a;
+            this.f56292g = fVar == null ? null : fVar.a;
         }
 
         @Override // java.util.ListIterator
         public void add(V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-                this.f64351i = this.j.addNode(this.f64347e, v, this.f64349g);
-                this.f64348f++;
-                this.f64350h = null;
+                this.f56294i = this.f56295j.addNode(this.f56290e, v, this.f56292g);
+                this.f56291f++;
+                this.f56293h = null;
             }
         }
 
@@ -1158,14 +1162,14 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64349g != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56292g != null : invokeV.booleanValue;
         }
 
         @Override // java.util.ListIterator
         public boolean hasPrevious() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64351i != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56294i != null : invokeV.booleanValue;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
@@ -1173,13 +1177,13 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                LinkedListMultimap.checkElement(this.f64349g);
-                g<K, V> gVar = this.f64349g;
-                this.f64350h = gVar;
-                this.f64351i = gVar;
-                this.f64349g = gVar.f64341i;
-                this.f64348f++;
-                return gVar.f64338f;
+                LinkedListMultimap.checkElement(this.f56292g);
+                g<K, V> gVar = this.f56292g;
+                this.f56293h = gVar;
+                this.f56294i = gVar;
+                this.f56292g = gVar.f56282i;
+                this.f56291f++;
+                return gVar.f56279f;
             }
             return (V) invokeV.objValue;
         }
@@ -1188,7 +1192,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public int nextIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64348f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56291f : invokeV.intValue;
         }
 
         @Override // java.util.ListIterator
@@ -1196,13 +1200,13 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                LinkedListMultimap.checkElement(this.f64351i);
-                g<K, V> gVar = this.f64351i;
-                this.f64350h = gVar;
-                this.f64349g = gVar;
-                this.f64351i = gVar.j;
-                this.f64348f--;
-                return gVar.f64338f;
+                LinkedListMultimap.checkElement(this.f56294i);
+                g<K, V> gVar = this.f56294i;
+                this.f56293h = gVar;
+                this.f56292g = gVar;
+                this.f56294i = gVar.f56283j;
+                this.f56291f--;
+                return gVar.f56279f;
             }
             return (V) invokeV.objValue;
         }
@@ -1211,23 +1215,23 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public int previousIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64348f - 1 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56291f - 1 : invokeV.intValue;
         }
 
         @Override // java.util.ListIterator, java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                m.e(this.f64350h != null);
-                g<K, V> gVar = this.f64350h;
-                if (gVar != this.f64349g) {
-                    this.f64351i = gVar.j;
-                    this.f64348f--;
+                m.e(this.f56293h != null);
+                g<K, V> gVar = this.f56293h;
+                if (gVar != this.f56292g) {
+                    this.f56294i = gVar.f56283j;
+                    this.f56291f--;
                 } else {
-                    this.f64349g = gVar.f64341i;
+                    this.f56292g = gVar.f56282i;
                 }
-                this.j.removeNode(this.f64350h);
-                this.f64350h = null;
+                this.f56295j.removeNode(this.f56293h);
+                this.f56293h = null;
             }
         }
 
@@ -1235,8 +1239,8 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
         public void set(V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v) == null) {
-                n.w(this.f64350h != null);
-                this.f64350h.f64338f = v;
+                n.w(this.f56293h != null);
+                this.f56293h.f56279f = v;
             }
         }
 
@@ -1255,13 +1259,13 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     return;
                 }
             }
-            this.j = linkedListMultimap;
+            this.f56295j = linkedListMultimap;
             f fVar = (f) linkedListMultimap.keyToKeyList.get(obj);
-            int i5 = fVar == null ? 0 : fVar.f64336c;
+            int i5 = fVar == null ? 0 : fVar.f56277c;
             n.t(i2, i5);
             if (i2 >= i5 / 2) {
-                this.f64351i = fVar == null ? null : fVar.f64335b;
-                this.f64348f = i5;
+                this.f56294i = fVar == null ? null : fVar.f56276b;
+                this.f56291f = i5;
                 while (true) {
                     int i6 = i2 + 1;
                     if (i2 >= i5) {
@@ -1271,7 +1275,7 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     i2 = i6;
                 }
             } else {
-                this.f64349g = fVar == null ? null : fVar.f64334a;
+                this.f56292g = fVar == null ? null : fVar.a;
                 while (true) {
                     int i7 = i2 - 1;
                     if (i2 <= 0) {
@@ -1281,8 +1285,8 @@ public class LinkedListMultimap<K, V> extends b.h.d.c.c<K, V> implements p0<K, V
                     i2 = i7;
                 }
             }
-            this.f64347e = obj;
-            this.f64350h = null;
+            this.f56290e = obj;
+            this.f56293h = null;
         }
     }
 

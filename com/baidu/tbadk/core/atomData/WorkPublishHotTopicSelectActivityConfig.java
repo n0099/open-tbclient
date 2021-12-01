@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WorkPublishHotTopicSelectActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_POST_WORK_THREAD = 3;
@@ -59,11 +59,11 @@ public class WorkPublishHotTopicSelectActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i3);
     }
 
-    public void setForumExtra(long j, String str, String str2) {
+    public void setForumExtra(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
             Intent intent = getIntent();
-            intent.putExtra("forum_id", j);
+            intent.putExtra("forum_id", j2);
             intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
             intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
         }

@@ -1,67 +1,109 @@
 package com.kwad.sdk.crash.a;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.kwad.sdk.crash.d;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Context f66330a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f66331b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            File file = !TextUtils.isEmpty(f66331b) ? new File(f66331b) : new File(a(f66330a), "kwad_ex");
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File a(Context context) {
+    public static boolean a(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            File dataDir = Build.VERSION.SDK_INT >= 24 ? context.getDataDir() : null;
-            if (dataDir == null) {
-                File file = new File(Environment.getDataDirectory().getPath() + "/data/" + context.getPackageName());
-                if (file.exists()) {
-                    return file;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            ArrayList arrayList = new ArrayList(5);
+            for (int i2 = 0; i2 < 5; i2++) {
+                arrayList.add(th.getStackTrace());
+                th = th.getCause();
+                if (th == null) {
+                    break;
                 }
-                return new File("/data/data/" + context.getPackageName());
             }
-            return dataDir;
+            return a(arrayList);
         }
-        return (File) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void a(@NonNull Context context, @Nullable String str) {
+    public static boolean a(@NonNull List<StackTraceElement[]> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f66330a = context;
-            f66331b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            for (StackTraceElement[] stackTraceElementArr : list) {
+                if (a(stackTraceElementArr)) {
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static File b() {
-        InterceptResult invokeV;
+    public static boolean a(StackTraceElement[] stackTraceElementArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(a(), "java_crash/dump") : (File) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, stackTraceElementArr)) == null) {
+            if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
+                return false;
+            }
+            String[] b2 = d.a().b();
+            if (b2 == null || b2.length == 0) {
+                return true;
+            }
+            boolean z = false;
+            for (String str : b2) {
+                z = a(stackTraceElementArr, str);
+                if (z) {
+                    break;
+                }
+            }
+            if (z) {
+                for (String str2 : d.a().c()) {
+                    if (b(stackTraceElementArr, str2)) {
+                        return false;
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, stackTraceElementArr, str)) == null) {
+            for (StackTraceElement stackTraceElement : stackTraceElementArr) {
+                String className = stackTraceElement.getClassName();
+                if (!TextUtils.isEmpty(className) && className.contains(str)) {
+                    com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter filterTags element className=" + className + " filter tag=" + str);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(StackTraceElement[] stackTraceElementArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, stackTraceElementArr, str)) == null) {
+            for (StackTraceElement stackTraceElement : stackTraceElementArr) {
+                String className = stackTraceElement.getClassName();
+                if (!TextUtils.isEmpty(className) && className.contains(str)) {
+                    com.kwad.sdk.core.d.a.a("ExceptionCollector", "CrashFilter excludeTags element className=" + className + " exclude tag=" + str);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

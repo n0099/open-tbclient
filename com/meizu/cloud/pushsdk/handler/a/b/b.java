@@ -23,43 +23,41 @@ public class b implements Parcelable {
             return new b[i2];
         }
     };
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f68515a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f68516b;
+    public a f60501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f68517c;
+    public f f60502c;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f68515a = parcel.readString();
-        this.f68516b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.f68517c = (f) parcel.readParcelable(f.class.getClassLoader());
+        this.a = parcel.readString();
+        this.f60501b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.f60502c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f68515a = str;
+        this.a = str;
         if (TextUtils.isEmpty(str)) {
-            this.f68516b = new a();
-            this.f68517c = new f();
+            this.f60501b = new a();
+            this.f60502c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f68516b = a.a(jSONObject.getJSONObject("ctl"));
-            f a2 = f.a(jSONObject.getJSONObject("statics"));
-            this.f68517c = a2;
-            a2.c(str2);
-            this.f68517c.d(str3);
+            this.f60501b = a.a(jSONObject.getJSONObject("ctl"));
+            f a = f.a(jSONObject.getJSONObject("statics"));
+            this.f60502c = a;
+            a.c(str2);
+            this.f60502c.d(str3);
         } catch (JSONException e2) {
-            this.f68516b = new a();
-            this.f68517c = new f();
-            b.j.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            this.f60501b = new a();
+            this.f60502c = new f();
+            c.k.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
         }
     }
 
@@ -70,7 +68,7 @@ public class b implements Parcelable {
             bVar.a(a.a(jSONObject.getJSONObject("ctl")));
             bVar.a(f.a(jSONObject.getJSONObject("statics")));
         } catch (Exception e2) {
-            b.j.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            c.k.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
             bVar.a(new f());
             bVar.a(new a());
         }
@@ -78,19 +76,19 @@ public class b implements Parcelable {
     }
 
     public a a() {
-        return this.f68516b;
+        return this.f60501b;
     }
 
     public void a(a aVar) {
-        this.f68516b = aVar;
+        this.f60501b = aVar;
     }
 
     public void a(f fVar) {
-        this.f68517c = fVar;
+        this.f60502c = fVar;
     }
 
     public f b() {
-        return this.f68517c;
+        return this.f60502c;
     }
 
     @Override // android.os.Parcelable
@@ -99,13 +97,13 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f68515a + ExtendedMessageFormat.QUOTE + ", control=" + this.f68516b + ", statics=" + this.f68517c + ExtendedMessageFormat.END_FE;
+        return "ControlMessage{controlMessage='" + this.a + ExtendedMessageFormat.QUOTE + ", control=" + this.f60501b + ", statics=" + this.f60502c + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f68515a);
-        parcel.writeParcelable(this.f68516b, i2);
-        parcel.writeParcelable(this.f68517c, i2);
+        parcel.writeString(this.a);
+        parcel.writeParcelable(this.f60501b, i2);
+        parcel.writeParcelable(this.f60502c, i2);
     }
 }

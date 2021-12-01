@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -139,7 +138,7 @@ public final class AnimatorKt {
     public static final Animator.AnimatorListener doOnEnd(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, animator, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, animator, function1)) == null) {
             Animator.AnimatorListener animatorListener = new Animator.AnimatorListener(function1) { // from class: androidx.core.animation.AnimatorKt$doOnEnd$$inlined$addListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +201,7 @@ public final class AnimatorKt {
     public static final Animator.AnimatorPauseListener doOnPause(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, animator, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, animator, function1)) == null) {
             Animator.AnimatorPauseListener animatorPauseListener = new Animator.AnimatorPauseListener(function1) { // from class: androidx.core.animation.AnimatorKt$doOnPause$$inlined$addPauseListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

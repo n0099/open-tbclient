@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;
@@ -22,7 +22,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public String tbs;
     public UserInfo user_info;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class GoodsInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NAME_LENGTH_MAX = 7;
@@ -153,15 +153,15 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             }
         }
 
-        public void setTdou_num(long j) {
+        public void setTdou_num(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-                this.tdou_num = j;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+                this.tdou_num = j2;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class OrderInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2732450616226807443L;
@@ -174,7 +174,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public long scene_id;
         public long timestamp;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Cpath extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7950965099930244673L;
@@ -186,7 +186,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int tip_days;
             public int tip_exist;
 
-            /* loaded from: classes9.dex */
+            /* loaded from: classes10.dex */
             public static final class Member extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final long serialVersionUID = 8094155826429200428L;
@@ -419,22 +419,22 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             }
         }
 
-        public void setScene_id(long j) {
+        public void setScene_id(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-                this.scene_id = j;
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+                this.scene_id = j2;
             }
         }
 
-        public void setTimestamp(long j) {
+        public void setTimestamp(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.timestamp = j;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.timestamp = j2;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4710995963160510207L;
@@ -448,7 +448,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String user_name_utf8;
         public String user_nickname;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class UserScores extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -667999598567432177L;
@@ -552,31 +552,31 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 }
             }
 
-            public void setScores_money(long j) {
+            public void setScores_money(long j2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-                    this.scores_money = j;
+                if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+                    this.scores_money = j2;
                 }
             }
 
-            public void setScores_other(long j) {
+            public void setScores_other(long j2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                    this.scores_other = j;
+                if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                    this.scores_other = j2;
                 }
             }
 
-            public void setScores_total(long j) {
+            public void setScores_total(long j2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-                    this.scores_total = j;
+                if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+                    this.scores_total = j2;
                 }
             }
 
-            public void setUpdate_time(long j) {
+            public void setUpdate_time(long j2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-                    this.update_time = j;
+                if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+                    this.update_time = j2;
                 }
             }
         }

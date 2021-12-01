@@ -3,7 +3,6 @@ package androidx.core.text.util;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,7 +279,7 @@ public class FindAddress {
     public static boolean isValidLocationName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? sLocationNameRe.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? sLocationNameRe.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static boolean isValidZipCode(String str, MatchResult matchResult) {
@@ -355,6 +354,6 @@ public class FindAddress {
     public static boolean isValidZipCode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? sZipCodeRe.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? sZipCodeRe.matcher(str).matches() : invokeL.booleanValue;
     }
 }

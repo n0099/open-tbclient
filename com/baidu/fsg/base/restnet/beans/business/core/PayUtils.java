@@ -13,7 +13,6 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.Md5Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_SECRET = "";
@@ -47,7 +46,7 @@ public final class PayUtils {
     public static ArrayList<String> keys;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ParamComparator implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +150,7 @@ public final class PayUtils {
     public static String getCookie(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             return null;
         }
         return (String) invokeL.objValue;
@@ -161,7 +160,7 @@ public final class PayUtils {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, list)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
             Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.fsg.base.restnet.beans.business.core.PayUtils.1
@@ -221,7 +220,7 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f34958h);
+                        sb.append(a.f31351h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
                             sb.append(Typography.amp);
@@ -299,7 +298,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f34958h);
+                    sb.append(a.f31351h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

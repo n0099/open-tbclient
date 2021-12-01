@@ -3,9 +3,9 @@ package com.baidu.ar.arplay.core.engine.engine3d;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arplay.representation.Vector4f;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IARPNode {
-    void bindInternal(long j);
+    void bindInternal(long j2);
 
     IARPNode getChildARPNode(String str);
 

@@ -1,7 +1,6 @@
 package com.coremedia.iso;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +78,7 @@ public final class IsoTypeWriter {
 
     public static void writeIso639(ByteBuffer byteBuffer, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, byteBuffer, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, byteBuffer, str) == null) {
             if (str.getBytes().length == 3) {
                 int i2 = 0;
                 for (int i3 = 0; i3 < 3; i3++) {
@@ -94,7 +93,7 @@ public final class IsoTypeWriter {
 
     public static void writePascalUtfString(ByteBuffer byteBuffer, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, byteBuffer, str) == null) {
             byte[] convert = Utf8.convert(str);
             writeUInt8(byteBuffer, convert.length);
             byteBuffer.put(convert);
@@ -128,25 +127,25 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeUInt32(ByteBuffer byteBuffer, long j) {
+    public static void writeUInt32(ByteBuffer byteBuffer, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, byteBuffer, j) == null) {
-            byteBuffer.putInt((int) j);
+        if (interceptable == null || interceptable.invokeLJ(65546, null, byteBuffer, j2) == null) {
+            byteBuffer.putInt((int) j2);
         }
     }
 
-    public static void writeUInt32BE(ByteBuffer byteBuffer, long j) {
+    public static void writeUInt32BE(ByteBuffer byteBuffer, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, byteBuffer, j) == null) {
-            writeUInt16BE(byteBuffer, ((int) j) & 65535);
-            writeUInt16BE(byteBuffer, (int) ((j >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+        if (interceptable == null || interceptable.invokeLJ(65547, null, byteBuffer, j2) == null) {
+            writeUInt16BE(byteBuffer, ((int) j2) & 65535);
+            writeUInt16BE(byteBuffer, (int) ((j2 >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
         }
     }
 
-    public static void writeUInt64(ByteBuffer byteBuffer, long j) {
+    public static void writeUInt64(ByteBuffer byteBuffer, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65548, null, byteBuffer, j) == null) {
-            byteBuffer.putLong(j);
+        if (interceptable == null || interceptable.invokeLJ(65548, null, byteBuffer, j2) == null) {
+            byteBuffer.putLong(j2);
         }
     }
 

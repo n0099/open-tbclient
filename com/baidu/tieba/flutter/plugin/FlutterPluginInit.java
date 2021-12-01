@@ -17,10 +17,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.idlefish.flutterboost.FlutterBoostPlugin;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterPluginInit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +46,6 @@ public class FlutterPluginInit {
         flutterEngine.getPlugins().add(new NetworkInfoPlugin());
         flutterEngine.getPlugins().add(new AudioPlayPlugin());
         flutterEngine.getPlugins().add(new CommonPlatformViewPlugin());
-        flutterEngine.getPlugins().add(new FlutterBoostPlugin());
         flutterEngine.getPlugins().add(new globalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
         flutterEngine.getPlugins().add(new ImagePickerPlugin());

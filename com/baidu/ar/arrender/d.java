@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends c implements IGLRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,10 +86,10 @@ public class d extends c implements IGLRenderer {
     }
 
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderFinishedListener
-    public void onRenderFinished(long j) {
+    public void onRenderFinished(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            super.onRenderFinished(j);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            super.onRenderFinished(j2);
             if (TextUtils.isEmpty(this.hb) || !this.hb.contains("qcom") || TextUtils.isEmpty(this.hc)) {
                 return;
             }

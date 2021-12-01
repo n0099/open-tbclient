@@ -1,5 +1,5 @@
 package com.bumptech.glide.module;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface GlideModule extends RegistersComponents, AppliesOptions {
 }

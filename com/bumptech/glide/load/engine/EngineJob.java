@@ -8,7 +8,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EngineResourceFactory DEFAULT_FACTORY;
@@ -60,7 +59,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     public boolean useUnlimitedSourceGeneratorPool;
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class EngineResourceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +85,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class MainThreadCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +192,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     private boolean isInIgnoredCallbacks(ResourceCallback resourceCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, resourceCallback)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, resourceCallback)) == null) {
             List<ResourceCallback> list = this.ignoredCallbacks;
             return list != null && list.contains(resourceCallback);
         }
@@ -202,7 +201,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
 
     private void release(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
             Util.assertMainThread();
             this.cbs.clear();
             this.key = null;

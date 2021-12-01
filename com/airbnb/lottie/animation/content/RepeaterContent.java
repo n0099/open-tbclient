@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RepeaterContent implements DrawingContent, PathContent, GreedyContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public ContentGroup contentGroup;
     public final BaseKeyframeAnimation<Float, Float> copies;

@@ -2,7 +2,6 @@ package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +44,7 @@ public class DigestUtils {
     public static byte[] digest(MessageDigest messageDigest, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, messageDigest, bArr)) == null) ? messageDigest.digest(bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, messageDigest, bArr)) == null) ? messageDigest.digest(bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static MessageDigest getDigest(String str) {
@@ -221,7 +220,7 @@ public class DigestUtils {
     public static byte[] digest(MessageDigest messageDigest, ByteBuffer byteBuffer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, messageDigest, byteBuffer)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, messageDigest, byteBuffer)) == null) {
             messageDigest.update(byteBuffer);
             return messageDigest.digest();
         }

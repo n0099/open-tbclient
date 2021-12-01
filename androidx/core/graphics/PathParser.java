@@ -3,7 +3,6 @@ package androidx.core.graphics;
 import android.graphics.Path;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +125,7 @@ public class PathParser {
     public static Path createPathFromPathData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             Path path = new Path();
             PathDataNode[] createNodesFromPathData = createNodesFromPathData(str);
             if (createNodesFromPathData != null) {
@@ -145,7 +144,7 @@ public class PathParser {
     public static PathDataNode[] deepCopyNodes(PathDataNode[] pathDataNodeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, pathDataNodeArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pathDataNodeArr)) == null) {
             if (pathDataNodeArr == null) {
                 return null;
             }
@@ -715,7 +714,7 @@ public class PathParser {
 
         public static void nodesToPath(PathDataNode[] pathDataNodeArr, Path path) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, pathDataNodeArr, path) == null) {
+            if (interceptable == null || interceptable.invokeLL(65541, null, pathDataNodeArr, path) == null) {
                 float[] fArr = new float[6];
                 char c2 = 'm';
                 for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {

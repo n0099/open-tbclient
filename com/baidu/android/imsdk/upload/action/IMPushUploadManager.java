@@ -6,8 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.android.imsdk.upload.action.logpb.BIMLogPb;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +33,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPushUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PING_INTERVAL_MS = 1000;
@@ -45,7 +43,7 @@ public class IMPushUploadManager {
     public Context mContext;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +135,7 @@ public class IMPushUploadManager {
                 try {
                     Request request = chain.request();
                     if (request.body() != null && request.header("Content-Encoding") == null) {
-                        return chain.proceed(request.newBuilder().header("Content-Encoding", AsyncHttpClient.ENCODING_GZIP).method(request.method(), gzip(request.body())).build());
+                        return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").method(request.method(), gzip(request.body())).build());
                     }
                     return chain.proceed(request);
                 } catch (Exception e2) {
@@ -197,7 +195,7 @@ public class IMPushUploadManager {
     public static IMPushUploadManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (sInstance == null) {
                 sInstance = new IMPushUploadManager(context);
             }
@@ -209,7 +207,7 @@ public class IMPushUploadManager {
     private Request getOkHttpRequest(byte[] bArr, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, bArr, str, str2)) == null) ? new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader(IMPushUploadConstants.BIM_LOG_ID, str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build() : (Request) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, bArr, str, str2)) == null) ? new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader(IMPushUploadConstants.BIM_LOG_ID, str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build() : (Request) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

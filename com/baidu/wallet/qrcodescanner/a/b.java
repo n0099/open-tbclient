@@ -7,25 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface b {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f61762a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61763b;
+        public String f54185b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f61764c;
+        public JSONObject f54186c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f61765d;
+        public JSONObject f54187d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,7 +43,7 @@ public interface b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ScannerResult [type=" + this.f61762a + ", linkaddr=" + this.f61763b + ", extJson=" + this.f61764c + PreferencesUtil.RIGHT_MOUNT;
+                return "ScannerResult [type=" + this.a + ", linkaddr=" + this.f54185b + ", extJson=" + this.f54186c + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

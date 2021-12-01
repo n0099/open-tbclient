@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f72319a;
+    public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ao f884a;
@@ -38,12 +36,12 @@ public final class ad extends ai.a {
         }
         this.f885a = str;
         this.f884a = aoVar;
-        this.f72319a = i2;
+        this.a = i2;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f885a : (String) invokeV.objValue;
@@ -53,7 +51,7 @@ public final class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f884a.a(this.f72319a);
+            this.f884a.a(this.a);
         }
     }
 }

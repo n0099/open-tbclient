@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class bz implements cb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public abstract class bz implements cb {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byVar)) == null) {
-            InetSocketAddress a2 = byVar.a();
-            if (a2 != null) {
-                return "<cross-domain-policy><allow-access-from domain=\"*\" to-ports=\"" + a2.getPort() + "\" /></cross-domain-policy>\u0000";
+            InetSocketAddress a = byVar.a();
+            if (a != null) {
+                return "<cross-domain-policy><allow-access-from domain=\"*\" to-ports=\"" + a.getPort() + "\" /></cross-domain-policy>\u0000";
             }
             throw new cj("socket not bound");
         }
@@ -67,7 +67,7 @@ public abstract class bz implements cb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, byVar, cqVar) == null) {
             cr crVar = new cr(cqVar);
-            crVar.a(cq.a.f42089e);
+            crVar.a(cq.a.f37204e);
             byVar.a(crVar);
         }
     }

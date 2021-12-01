@@ -3,6 +3,7 @@ package com.kwad.sdk.api;
 import android.app.Activity;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes2.dex */
@@ -22,6 +23,10 @@ public interface KsRewardVideoAd {
 
         @KsAdSdkApi
         @Keep
+        void onRewardStepVerify(int i2, int i3);
+
+        @KsAdSdkApi
+        @Keep
         void onRewardVerify();
 
         @KsAdSdkApi
@@ -35,6 +40,10 @@ public interface KsRewardVideoAd {
         @KsAdSdkApi
         @Keep
         void onVideoPlayStart();
+
+        @KsAdSdkApi
+        @Keep
+        void onVideoSkipToEnd(long j2);
     }
 
     @KsAdSdkApi
@@ -52,6 +61,10 @@ public interface KsRewardVideoAd {
     @KsAdSdkApi
     @Keep
     boolean isAdEnable();
+
+    @KsAdSdkApi
+    @Keep
+    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep

@@ -19,9 +19,9 @@ public final class FlowKt__MigrationKt$delayFlow$1 extends SuspendLambda impleme
     public FlowCollector p$;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__MigrationKt$delayFlow$1(long j, Continuation continuation) {
+    public FlowKt__MigrationKt$delayFlow$1(long j2, Continuation continuation) {
         super(2, continuation);
-        this.$timeMillis = j;
+        this.$timeMillis = j2;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -44,10 +44,10 @@ public final class FlowKt__MigrationKt$delayFlow$1 extends SuspendLambda impleme
         if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
             FlowCollector flowCollector = this.p$;
-            long j = this.$timeMillis;
+            long j2 = this.$timeMillis;
             this.L$0 = flowCollector;
             this.label = 1;
-            if (DelayKt.delay(j, this) == coroutine_suspended) {
+            if (DelayKt.delay(j2, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i2 != 1) {

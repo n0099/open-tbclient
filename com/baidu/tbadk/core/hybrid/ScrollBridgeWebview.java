@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScrollBridgeWebview extends BridgeWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46013e;
+    public a f41031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46014f;
+    public boolean f41032f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(int i2, int i3, int i4, int i5);
 
@@ -47,7 +47,7 @@ public class ScrollBridgeWebview extends BridgeWebView {
                 return;
             }
         }
-        this.f46014f = false;
+        this.f41032f = false;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -55,13 +55,13 @@ public class ScrollBridgeWebview extends BridgeWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            if (this.f46013e != null) {
+            if (this.f41031e != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.f46013e.b(i2, i3, i4, i5);
+                    this.f41031e.b(i2, i3, i4, i5);
                 } else if (getScrollY() == 0) {
-                    this.f46013e.a(i2, i3, i4, i5);
+                    this.f41031e.a(i2, i3, i4, i5);
                 } else {
-                    this.f46013e.onScrollChanged(i2, i3, i4, i5);
+                    this.f41031e.onScrollChanged(i2, i3, i4, i5);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class ScrollBridgeWebview extends BridgeWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (this.f46014f) {
+            if (this.f41032f) {
                 if (motionEvent.getAction() == 0) {
                     requestDisallowInterceptTouchEvent(false);
                 } else {
@@ -88,14 +88,14 @@ public class ScrollBridgeWebview extends BridgeWebView {
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f46014f = z;
+            this.f41032f = z;
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f46013e = aVar;
+            this.f41031e = aVar;
         }
     }
 
@@ -118,6 +118,6 @@ public class ScrollBridgeWebview extends BridgeWebView {
                 return;
             }
         }
-        this.f46014f = false;
+        this.f41032f = false;
     }
 }

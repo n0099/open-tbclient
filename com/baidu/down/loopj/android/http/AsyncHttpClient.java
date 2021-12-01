@@ -24,7 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AsyncHttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

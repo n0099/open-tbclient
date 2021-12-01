@@ -61,16 +61,16 @@ public final class HandlerCompat {
         return (Handler) invokeL.objValue;
     }
 
-    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j) {
+    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j2)})) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return handler.postDelayed(runnable, obj, j);
+                return handler.postDelayed(runnable, obj, j2);
             }
             Message obtain = Message.obtain(handler, runnable);
             obtain.obj = obj;
-            return handler.sendMessageDelayed(obtain, j);
+            return handler.sendMessageDelayed(obtain, j2);
         }
         return invokeCommon.booleanValue;
     }

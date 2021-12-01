@@ -12,7 +12,7 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SerializableItemInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL = "all";

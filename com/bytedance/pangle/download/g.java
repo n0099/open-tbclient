@@ -11,12 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile g f62243a;
+    public static volatile g a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -37,14 +35,14 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f62243a == null) {
+            if (a == null) {
                 synchronized (g.class) {
-                    if (f62243a == null) {
-                        f62243a = new g();
+                    if (a == null) {
+                        a = new g();
                     }
                 }
             }
-            return f62243a;
+            return a;
         }
         return (g) invokeV.objValue;
     }
@@ -54,12 +52,10 @@ public class g {
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             h a2 = h.a();
             b a3 = b.a();
-            a3.f62214b.add(new a(a2) { // from class: com.bytedance.pangle.download.h.1
+            a3.f54523b.add(new a(a2) { // from class: com.bytedance.pangle.download.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a */
-                public final /* synthetic */ h f62253a;
+                public final /* synthetic */ h a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,14 +72,14 @@ public class g {
                             return;
                         }
                     }
-                    this.f62253a = a2;
+                    this.a = a2;
                 }
 
                 @Override // com.bytedance.pangle.download.a
                 public final void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62253a.b();
+                        this.a.b();
                     }
                 }
 
@@ -91,16 +87,14 @@ public class g {
                 public final void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f62253a.a(1800L);
+                        this.a.a(1800L);
                     }
                 }
             });
             Zeus.getAppApplication().registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks(b.a()) { // from class: com.bytedance.pangle.download.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a */
-                public final /* synthetic */ b f62217a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,7 +111,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f62217a = r6;
+                    this.a = r6;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -159,20 +153,20 @@ public class g {
                 public final void onActivityStarted(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        if (this.f62217a.f62216e == 0) {
-                            this.f62217a.f62213a = false;
-                            b bVar = this.f62217a;
-                            if (!bVar.f62215c) {
-                                for (a aVar : bVar.f62214b) {
+                        if (this.a.f54525e == 0) {
+                            this.a.a = false;
+                            b bVar = this.a;
+                            if (!bVar.f54524c) {
+                                for (a aVar : bVar.f54523b) {
                                     aVar.b();
                                 }
-                                this.f62217a.f62215c = true;
+                                this.a.f54524c = true;
                             }
-                            for (a aVar2 : this.f62217a.f62214b) {
+                            for (a aVar2 : this.a.f54523b) {
                                 aVar2.a();
                             }
                         }
-                        b.c(this.f62217a);
+                        b.c(this.a);
                     }
                 }
 
@@ -180,10 +174,10 @@ public class g {
                 public final void onActivityStopped(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                        b.d(this.f62217a);
-                        if (this.f62217a.f62216e == 0) {
-                            this.f62217a.f62213a = true;
-                            Iterator it = this.f62217a.f62214b.iterator();
+                        b.d(this.a);
+                        if (this.a.f54525e == 0) {
+                            this.a.a = true;
+                            Iterator it = this.a.f54523b.iterator();
                             while (it.hasNext()) {
                                 it.next();
                             }

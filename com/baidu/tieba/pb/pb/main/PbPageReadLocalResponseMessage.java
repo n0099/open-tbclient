@@ -1,8 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import b.a.r0.k2.r.f;
+import c.a.r0.q2.r.f;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context context;
     public boolean markCache;
     public f pbData;
     public String postId;
@@ -52,7 +49,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
             this.pbData = fVar;
             fVar.y0(1);
             try {
-                this.pbData.x0(pbPageResIdl.data, this.context);
+                this.pbData.x0(pbPageResIdl.data);
                 if (!this.pbData.q0()) {
                     this.pbData = null;
                 } else if (!isMarkCache() || this.pbData.u() == null || this.pbData.u().equals(this.postId)) {
@@ -82,37 +79,30 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.markCache : invokeV.booleanValue;
     }
 
-    public void setContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.context = context;
-        }
-    }
-
     public void setMarkCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.markCache = z;
         }
     }
 
     public void setPbData(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
             this.pbData = fVar;
         }
     }
 
     public void setPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.postId = str;
         }
     }
 
     public void setUpdateType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             this.updateType = i2;
         }
     }

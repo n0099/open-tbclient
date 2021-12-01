@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int[] f47996a;
+    public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Fragment> f47997b;
+    public List<Fragment> f42970b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveTabAdapter(FragmentManager fragmentManager) {
@@ -39,7 +37,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f47996a = new int[]{0, 1};
+        this.a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -47,7 +45,7 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Fragment> list = this.f47997b;
+            List<Fragment> list = this.f42970b;
             if (list != null) {
                 return list.size();
             }
@@ -61,8 +59,8 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f47997b.size() > i2) {
-                return this.f47997b.get(i2);
+            if (this.f42970b.size() > i2) {
+                return this.f42970b.get(i2);
             }
             return null;
         }
@@ -72,13 +70,13 @@ public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f47996a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.a[i2] : invokeI.intValue;
     }
 
     public void setFragments(List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f47997b = list;
+            this.f42970b = list;
         }
     }
 }

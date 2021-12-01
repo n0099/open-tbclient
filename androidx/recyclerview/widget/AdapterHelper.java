@@ -5,13 +5,13 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.OpReorderer;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -91,7 +91,7 @@ public class AdapterHelper implements OpReorderer.Callback {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int i2 = this.cmd;
-                return i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? "??" : "mv" : "up" : "rm" : "add";
+                return i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? "??" : "mv" : "up" : x.C : "add";
             }
             return (String) invokeV.objValue;
         }
@@ -233,7 +233,7 @@ public class AdapterHelper implements OpReorderer.Callback {
 
     private void applyUpdate(UpdateOp updateOp) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, updateOp) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, updateOp) == null) {
             int i2 = updateOp.positionStart;
             int i3 = updateOp.itemCount + i2;
             int i4 = i2;
@@ -274,7 +274,7 @@ public class AdapterHelper implements OpReorderer.Callback {
     private boolean canFindInPreLayout(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
             int size = this.mPostponedList.size();
             for (int i3 = 0; i3 < size; i3++) {
                 UpdateOp updateOp = this.mPostponedList.get(i3);

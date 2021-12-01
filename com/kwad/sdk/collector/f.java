@@ -7,7 +7,8 @@ import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.utils.ad;
+import com.kuaishou.weapon.un.s;
+import com.kwad.sdk.utils.ah;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -32,9 +33,9 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean a2 = ad.a(context);
-            com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a2);
-            return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a2 ? g.f65079b : g.f65080c);
+            boolean a = ah.a(context);
+            com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
+            return new g(s.f56845j, a ? g.f57096b : g.f57097c);
         }
         return (g) invokeL.objValue;
     }
@@ -52,8 +53,8 @@ public class f {
                 String[] strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                 if (strArr != null) {
                     for (String str : strArr) {
-                        int a2 = ad.a(context, str);
-                        arrayList.add(new g(str, a2 == 0 ? g.f65079b : a2 == -1 ? g.f65080c : g.f65078a));
+                        int a = ah.a(context, str);
+                        arrayList.add(new g(str, a == 0 ? g.f57096b : a == -1 ? g.f57097c : g.a));
                     }
                 }
                 return arrayList;

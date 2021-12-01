@@ -2,7 +2,6 @@ package com.baidu.webkit.internal;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RC4 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "RC4";
@@ -26,7 +25,7 @@ public class RC4 implements INoProGuard {
     public int x;
     public int y;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +152,7 @@ public class RC4 implements INoProGuard {
 
     private void setKey(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bArr) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, bArr) == null) {
             this.x = 0;
             this.y = 0;
             if (this.engineState == null) {

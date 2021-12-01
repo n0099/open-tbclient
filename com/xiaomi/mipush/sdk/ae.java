@@ -12,12 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ae {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile ae f71505a;
+    public static volatile ae a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -68,14 +66,14 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f71505a == null) {
+            if (a == null) {
                 synchronized (ae.class) {
-                    if (f71505a == null) {
-                        f71505a = new ae(context);
+                    if (a == null) {
+                        a = new ae(context);
                     }
                 }
             }
-            return f71505a;
+            return a;
         }
         return (ae) invokeL.objValue;
     }
@@ -90,7 +88,7 @@ public class ae {
                 if (this.f65a.contains(wVar)) {
                     for (w wVar2 : this.f65a) {
                         if (wVar2.equals(wVar)) {
-                            return wVar2.f71562a;
+                            return wVar2.a;
                         }
                     }
                 }
@@ -124,12 +122,12 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m93a(String str) {
+    public void m142a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this.f65a) {
                 w wVar = new w();
-                wVar.f71562a = 0;
+                wVar.a = 0;
                 wVar.f103a = str;
                 if (this.f65a.contains(wVar)) {
                     this.f65a.remove(wVar);
@@ -140,7 +138,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m94a(String str) {
+    public boolean m143a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -172,7 +170,7 @@ public class ae {
                         }
                     }
                 }
-                wVar.f71562a++;
+                wVar.a++;
                 this.f65a.remove(wVar);
                 this.f65a.add(wVar);
             }

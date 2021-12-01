@@ -12,12 +12,10 @@ import com.qq.e.comm.util.StringUtil;
 public class APPStatus {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f68949a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f68950b;
+    public Context f60855b;
 
     public APPStatus(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -34,20 +32,20 @@ public class APPStatus {
                 return;
             }
         }
-        this.f68949a = str;
-        this.f68950b = context;
+        this.a = str;
+        this.f60855b = context;
     }
 
     public String getAPPID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68949a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public String getAPPName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68950b.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60855b.getPackageName() : (String) invokeV.objValue;
     }
 
     public String getAPPRealName() {
@@ -57,7 +55,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f68950b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f68950b.getPackageManager()).toString();
+                    return this.f60855b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f60855b.getPackageManager()).toString();
                 } catch (Exception unused) {
                 }
             }
@@ -73,7 +71,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f68950b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                    return this.f60855b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
                 } catch (Exception unused) {
                 }
             }

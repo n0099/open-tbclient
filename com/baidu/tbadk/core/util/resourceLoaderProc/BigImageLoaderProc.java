@@ -4,21 +4,19 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.a.d;
-import b.a.e.f.a.f.c;
-import b.a.e.f.l.b;
-import b.a.e.f.l.e;
-import b.a.e.f.p.j;
-import b.a.e.f.p.l;
-import b.a.e.m.d.a;
-import b.a.q0.c1.r;
+import c.a.d.f.a.d;
+import c.a.d.f.a.f.c;
+import c.a.d.f.l.b;
+import c.a.d.f.l.e;
+import c.a.d.f.p.j;
+import c.a.d.f.p.l;
+import c.a.d.m.d.a;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -38,7 +36,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BigImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NCDN_PER = "width=";
@@ -104,7 +102,7 @@ public class BigImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(newDiskPicOperate);
-                bVar.f1862a = diskCancelWorker;
+                bVar.a = diskCancelWorker;
             }
             if (d.f().a(newDiskPicOperate)) {
                 int i2 = j.H() ? 500 : 2000;
@@ -138,7 +136,7 @@ public class BigImageLoaderProc implements e<a> {
                 if (split2.length > 3) {
                     try {
                         for (String str2 : URLDecoder.decode(split2[split2.length - 3], "utf-8").split(";")) {
-                            if (str2.startsWith(IAdRequestParam.COST_NAME)) {
+                            if (str2.startsWith("q")) {
                                 String[] split3 = str2.split("=");
                                 if (Integer.valueOf(split3[split3.length - 1]).intValue() <= 50) {
                                     return false;
@@ -158,7 +156,7 @@ public class BigImageLoaderProc implements e<a> {
     public static String getNameMd5FromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String pidFromCDNURL = getPidFromCDNURL(str);
             if (pidFromCDNURL != null) {
                 str = pidFromCDNURL;
@@ -172,7 +170,7 @@ public class BigImageLoaderProc implements e<a> {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str != null && r.b(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
@@ -245,7 +243,7 @@ public class BigImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(newDiskPicOperate);
-                bVar.f1862a = diskCancelWorker;
+                bVar.a = diskCancelWorker;
             }
             d.f().a(newDiskPicOperate);
         }
@@ -253,7 +251,7 @@ public class BigImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m24decodeToResource(byte[] bArr, Object... objArr) {
+    public a m46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -262,7 +260,7 @@ public class BigImageLoaderProc implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -272,7 +270,7 @@ public class BigImageLoaderProc implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +282,7 @@ public class BigImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -300,7 +298,7 @@ public class BigImageLoaderProc implements e<a> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.procType : invokeV.intValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -316,7 +314,7 @@ public class BigImageLoaderProc implements e<a> {
         }
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {
@@ -325,7 +323,7 @@ public class BigImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -335,9 +333,9 @@ public class BigImageLoaderProc implements e<a> {
             Bitmap Bytes2Bitmap = bArr != null ? BitmapHelper.Bytes2Bitmap(bArr) : null;
             if (Bytes2Bitmap == null) {
                 if (booleanValue && str.startsWith("/")) {
-                    Bytes2Bitmap = b.a.e.f.p.d.d().c(str);
+                    Bytes2Bitmap = c.a.d.f.p.d.d().c(str);
                     if (Bytes2Bitmap != null && bArr == null) {
-                        bArr = b.a.e.f.p.d.d().a(Bytes2Bitmap, 100);
+                        bArr = c.a.d.f.p.d.d().a(Bytes2Bitmap, 100);
                     }
                 } else {
                     bArr = getFromLocalData(str, bVar);
@@ -347,7 +345,7 @@ public class BigImageLoaderProc implements e<a> {
                 }
             }
             if (Bytes2Bitmap != null) {
-                return new a(Bytes2Bitmap, l.B(bArr), str2, bArr);
+                return new a(Bytes2Bitmap, l.A(bArr), str2, bArr);
             }
             return null;
         }
@@ -356,8 +354,8 @@ public class BigImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00d4  */
-    @Override // b.a.e.f.l.e
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00d5  */
+    @Override // c.a.d.f.l.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -393,19 +391,19 @@ public class BigImageLoaderProc implements e<a> {
                         z = true;
                         webClient = new WebClient();
                         if (bVar != null) {
-                            bVar.f1862a = webClient;
+                            bVar.a = webClient;
                         }
                         downloadImageBytes = webClient.downloadImageBytes(str4, !booleanValue);
                         needCache = webClient.needCache();
                         if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                             BdLog.e("BIGIMAGE imagesize too big");
-                            b.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                            c.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                         }
                         if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                             try {
                                 InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                                downloadImageBytes = b.a.e.f.j.b.b.d(openRawResource);
-                                b.a.e.f.m.a.c(openRawResource);
+                                downloadImageBytes = c.a.d.f.j.b.b.d(openRawResource);
+                                c.a.d.f.m.a.c(openRawResource);
                             } catch (Throwable th) {
                                 BdLog.e(th);
                                 return null;
@@ -426,7 +424,7 @@ public class BigImageLoaderProc implements e<a> {
                         if (needCache && !webClient.isCrackPic) {
                             updateLocal(str, downloadImageBytes, false, bVar);
                         }
-                        a aVar = new a(bitmap, l.B(downloadImageBytes), str, downloadImageBytes);
+                        a aVar = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
                         aVar.y(needCache);
                         return aVar;
                     }
@@ -440,12 +438,12 @@ public class BigImageLoaderProc implements e<a> {
                 needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess()) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    b.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    c.a.q0.s.a0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302) {
                     InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
-                    downloadImageBytes = b.a.e.f.j.b.b.d(openRawResource2);
-                    b.a.e.f.m.a.c(openRawResource2);
+                    downloadImageBytes = c.a.d.f.j.b.b.d(openRawResource2);
+                    c.a.d.f.m.a.c(openRawResource2);
                 }
                 if (!webClient.IsRequestSuccess()) {
                 }
@@ -462,7 +460,7 @@ public class BigImageLoaderProc implements e<a> {
                 if (needCache) {
                     updateLocal(str, downloadImageBytes, false, bVar);
                 }
-                a aVar2 = new a(bitmap, l.B(downloadImageBytes), str, downloadImageBytes);
+                a aVar2 = new a(bitmap, l.A(downloadImageBytes), str, downloadImageBytes);
                 aVar2.y(needCache);
                 return aVar2;
             }

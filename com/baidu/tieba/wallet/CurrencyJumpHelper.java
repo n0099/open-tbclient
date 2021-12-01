@@ -3,11 +3,10 @@ package com.baidu.tieba.wallet;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.p0.b;
-import b.a.q0.p0.f;
+import c.a.q0.q0.b;
+import c.a.q0.q0.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class CurrencyJumpHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,16 +53,16 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, long j) {
+    public static void gotoBuyTBeanPage(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j2) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context);
                 return;
             }
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);
             buyTBeanActivityConfig.setFromDecreaseGiftStepStrategy(2);
-            buyTBeanActivityConfig.setTBeanLeftToBuyGift(j);
+            buyTBeanActivityConfig.setTBeanLeftToBuyGift(j2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));
         }
     }
@@ -149,14 +148,14 @@ public class CurrencyJumpHelper {
 
     public static void gotoBuyTBeanPage(Context context, float f2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Float.valueOf(f2), str, str2}) == null) {
             gotoBuyTBeanPage(context, f2, str, str2, null);
         }
     }
 
     public static void gotoBuyTBeanPage(Context context, float f2, String str, String str2, @Nullable b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Float.valueOf(f2), str, str2, bVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Float.valueOf(f2), str, str2, bVar}) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 goYYPay(context, bVar);
                 return;

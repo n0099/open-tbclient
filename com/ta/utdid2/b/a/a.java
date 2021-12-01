@@ -2,7 +2,6 @@ package com.ta.utdid2.b.a;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,9 +25,7 @@ import org.xmlpull.v1.XmlSerializer;
 /* loaded from: classes2.dex */
 public class a implements XmlSerializer {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f70682a = "xmlpull.org/v1/doc/features.html#indent-output";
+    public static String a = "xmlpull.org/v1/doc/features.html#indent-output";
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f10a;
@@ -50,7 +47,7 @@ public class a implements XmlSerializer {
     public final char[] f15a;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f70683e;
+    public boolean f62104e;
     public int mPos;
 
     static {
@@ -110,7 +107,7 @@ public class a implements XmlSerializer {
 
     private void append(char c2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Character.valueOf(c2)}) == null) {
             int i2 = this.mPos;
             if (i2 >= 8191) {
                 flush();
@@ -125,7 +122,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return "http://" + f70682a;
+            return "http://" + a;
         }
         return (String) invokeV.objValue;
     }
@@ -186,7 +183,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f70683e) {
+            if (this.f62104e) {
                 append(" />\n");
             } else {
                 append("</");
@@ -197,7 +194,7 @@ public class a implements XmlSerializer {
                 append(str2);
                 append(">\n");
             }
-            this.f70683e = false;
+            this.f62104e = false;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -373,7 +370,7 @@ public class a implements XmlSerializer {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, str2)) == null) {
-            if (this.f70683e) {
+            if (this.f62104e) {
                 append(">\n");
             }
             append(Typography.less);
@@ -382,7 +379,7 @@ public class a implements XmlSerializer {
                 append(':');
             }
             append(str2);
-            this.f70683e = true;
+            this.f62104e = true;
             return this;
         }
         return (XmlSerializer) invokeLL.objValue;
@@ -393,9 +390,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048600, this, cArr, i2, i3)) == null) {
-            if (this.f70683e) {
+            if (this.f62104e) {
                 append(">");
-                this.f70683e = false;
+                this.f62104e = false;
             }
             a(cArr, i2, i3);
             return this;
@@ -408,9 +405,9 @@ public class a implements XmlSerializer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (this.f70683e) {
+            if (this.f62104e) {
                 append(">");
-                this.f70683e = false;
+                this.f62104e = false;
             }
             a(str);
             return this;
@@ -484,7 +481,7 @@ public class a implements XmlSerializer {
     private void a(char[] cArr, int i2, int i3) throws IOException {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, this, cArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65541, this, cArr, i2, i3) == null) {
             String[] strArr = f10a;
             char length = (char) strArr.length;
             int i4 = i3 + i2;

@@ -12,7 +12,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.f;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JniInterface {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isJniOk;
@@ -65,10 +65,10 @@ public class JniInterface {
             return;
         }
         try {
-            Context a2 = f.a();
-            if (a2 != null) {
-                if (new File(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
-                    System.load(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
+            Context a = f.a();
+            if (a != null) {
+                if (new File(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
+                    System.load(a.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
                     isJniOk = true;
                     SLog.i("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
                 } else {

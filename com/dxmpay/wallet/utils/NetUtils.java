@@ -10,10 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.utils.LogUtil;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public final class NetUtils {
                         return null;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("mac", connectionInfo.getBSSID());
+                    jSONObject.put(BaseStatisContent.MAC, connectionInfo.getBSSID());
                     jSONObject.put("rssi", connectionInfo.getRssi());
                     jSONObject.put("ssid", connectionInfo.getSSID());
                     return jSONObject;
@@ -69,7 +70,7 @@ public final class NetUtils {
                     List<ScanResult> scanResults = wifiManager.getScanResults();
                     JSONObject jSONObject2 = new JSONObject();
                     if (connectionInfo != null) {
-                        jSONObject2.put("mac", connectionInfo.getBSSID());
+                        jSONObject2.put(BaseStatisContent.MAC, connectionInfo.getBSSID());
                         jSONObject2.put("rssi", connectionInfo.getRssi());
                         jSONObject2.put("ssid", connectionInfo.getSSID());
                         jSONObject.put("wifi_conn", jSONObject2);
@@ -79,7 +80,7 @@ public final class NetUtils {
                         JSONArray jSONArray = new JSONArray();
                         for (ScanResult scanResult : scanResults) {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("mac", scanResult.BSSID);
+                            jSONObject3.put(BaseStatisContent.MAC, scanResult.BSSID);
                             jSONObject3.put("rssi", scanResult.level);
                             jSONObject3.put("ssid", scanResult.SSID);
                             jSONArray.put(jSONObject3);

@@ -11,12 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f58881a = "HttpCache";
+    public static final String a = "HttpCache";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -38,14 +36,14 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             try {
                 if (context == null) {
-                    LogUtil.i(f58881a, "HTTP response cache installation failed, context is null");
+                    LogUtil.i(a, "HTTP response cache installation failed, context is null");
                 } else if (HttpResponseCache.getInstalled() == null) {
                     new URL("https://www.duxiaoman.com/index").openConnection().setDefaultUseCaches(false);
                     HttpResponseCache.install(new File(context.getCacheDir(), "http"), 10485760L);
                 }
             } catch (MalformedURLException unused) {
             } catch (IOException e2) {
-                LogUtil.i(f58881a, "HTTP response cache installation failed:" + e2);
+                LogUtil.i(a, "HTTP response cache installation failed:" + e2);
             }
         }
     }

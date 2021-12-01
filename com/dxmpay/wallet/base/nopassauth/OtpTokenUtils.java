@@ -3,8 +3,7 @@ package com.dxmpay.wallet.base.nopassauth;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.e.b.a.b.c;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.f.b.a.b.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,18 +25,16 @@ import java.net.URL;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class OtpTokenUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f63228a = 0;
+    public static long a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63229b = 10;
+    public static int f55267b = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +146,7 @@ public final class OtpTokenUtils {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String decryptProxy = SecurePay.getInstance().decryptProxy(str);
             if (TextUtils.isEmpty(decryptProxy) || (split = decryptProxy.split("\\|")) == null || split.length != 9) {
                 return null;
@@ -162,7 +159,7 @@ public final class OtpTokenUtils {
     public static String getSafeSavedData(String str, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, context)) == null) {
             String passUid = WalletLoginHelper.getInstance().getPassUid();
             String str2 = SecurePay.getInstance().tokenDecrypt(str);
             if (TextUtils.isEmpty(str2)) {
@@ -221,25 +218,25 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f58307b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f51960b, 0L)).longValue() : invokeL.longValue;
     }
 
-    public static void setmSyncWithServerTime(Context context, long j) {
+    public static void setmSyncWithServerTime(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f58307b, Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeLJ(65545, null, context, j2) == null) {
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f51960b, Long.valueOf(j2));
         }
     }
 
-    public static long syncTime(long j) {
+    public static long syncTime(long j2) {
         InterceptResult invokeJ;
         HttpsURLConnection httpsURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
             HttpsURLConnection httpsURLConnection2 = null;
             try {
                 try {
-                    f63228a = 0L;
+                    a = 0L;
                     httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
                 } catch (Throwable th) {
                     th = th;
@@ -251,10 +248,10 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f63229b * 1000);
+                httpsURLConnection.setConnectTimeout(f55267b * 1000);
                 httpsURLConnection.setHostnameVerifier(new a());
                 httpsURLConnection.connect();
-                f63228a = httpsURLConnection.getDate() / 1000;
+                a = httpsURLConnection.getDate() / 1000;
                 if (httpsURLConnection != null) {
                     try {
                         InputStream a2 = a(httpsURLConnection);
@@ -266,7 +263,7 @@ public final class OtpTokenUtils {
                     }
                     httpsURLConnection.disconnect();
                 }
-                return (System.currentTimeMillis() / 1000) - f63228a;
+                return (System.currentTimeMillis() / 1000) - a;
             } catch (Exception e4) {
                 e = e4;
                 httpsURLConnection2 = httpsURLConnection;
@@ -282,7 +279,7 @@ public final class OtpTokenUtils {
                     }
                     httpsURLConnection2.disconnect();
                 }
-                return j;
+                return j2;
             } catch (Throwable th2) {
                 th = th2;
                 httpsURLConnection2 = httpsURLConnection;

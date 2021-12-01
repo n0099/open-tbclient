@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.spswitch.emotion.EmotionUsageUtil;
 import com.baidu.spswitch.emotion.EmotionUtils;
@@ -27,7 +26,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EmotionAPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -46,12 +45,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i2, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
@@ -112,7 +111,7 @@ public class EmotionAPSManager {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, emotionResourceInfo, emotionInstallResultCb)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, emotionResourceInfo, emotionInstallResultCb)) == null) {
             File emotionResourceDir = getEmotionResourceDir(emotionResourceInfo.mPkgName, String.valueOf(emotionResourceInfo.mVersion));
             if (!emotionResourceDir.exists() && !emotionResourceDir.mkdirs()) {
                 emotionInstallResultCb.onResult(1, "make emotion resource dir failed.");
@@ -500,8 +499,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
+            for (long j2 : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j2))) {
                     return true;
                 }
             }
@@ -518,8 +517,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
+            for (long j2 : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j2))) {
                     return false;
                 }
             }

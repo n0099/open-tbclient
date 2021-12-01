@@ -5,7 +5,6 @@ import com.baidu.ar.algo.ARAlgoJniClient;
 import com.baidu.ar.algo.FrameType;
 import com.baidu.ar.slam.TrackModel;
 import com.baidu.ar.slam.TrackParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARVOJniClient {
     public static /* synthetic */ Interceptable $ic;
     public static List<String> sModelIds;
@@ -110,7 +109,7 @@ public class ARVOJniClient {
         InterceptResult invokeL;
         int removeModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             synchronized (ARVOJniClient.class) {
                 removeModel = ARAlgoJniClient.getAlgoInstance().removeModel(sTrackerId, str);
                 if (removeModel == 0 && sModelIds != null) {
@@ -134,7 +133,7 @@ public class ARVOJniClient {
 
     public static synchronized void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             synchronized (ARVOJniClient.class) {
                 if (sTrackerId >= 0) {
                     ARAlgoJniClient.getAlgoInstance().removeAllModels(sTrackerId);

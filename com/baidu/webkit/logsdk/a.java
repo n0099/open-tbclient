@@ -4,15 +4,13 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f61943a;
+    public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f61944b;
+    public static boolean f54297b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2) {

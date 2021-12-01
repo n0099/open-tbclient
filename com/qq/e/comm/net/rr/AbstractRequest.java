@@ -19,35 +19,37 @@ import java.util.Map;
 public abstract class AbstractRequest implements Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f68977a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68978b;
+    public int f60874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68979c;
+    public int f60875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68980d;
+    public int f60876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68981e;
+    public String f60877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f68982f;
+    public Map<String, String> f60878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f68983g;
+    public Map<String, String> f60879g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f68984h;
+    public Map<String, String> f60880h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f68985i;
-    public Request.Method j;
-    public byte[] k;
+    public Map<String, String> f60881i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Request.Method f60882j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public byte[] f60883k;
 
     public AbstractRequest(String str, Request.Method method, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -64,17 +66,17 @@ public abstract class AbstractRequest implements Request {
                 return;
             }
         }
-        this.f68977a = true;
-        this.f68982f = new HashMap();
-        this.f68983g = new HashMap();
-        this.f68984h = Collections.unmodifiableMap(this.f68982f);
-        this.f68985i = Collections.unmodifiableMap(this.f68983g);
-        this.f68981e = str;
-        this.j = method;
+        this.a = true;
+        this.f60878f = new HashMap();
+        this.f60879g = new HashMap();
+        this.f60880h = Collections.unmodifiableMap(this.f60878f);
+        this.f60881i = Collections.unmodifiableMap(this.f60879g);
+        this.f60877e = str;
+        this.f60882j = method;
         if (bArr == null) {
-            this.k = null;
+            this.f60883k = null;
         } else {
-            this.k = (byte[]) bArr.clone();
+            this.f60883k = (byte[]) bArr.clone();
         }
     }
 
@@ -93,13 +95,13 @@ public abstract class AbstractRequest implements Request {
                 return;
             }
         }
-        this.f68977a = true;
-        this.f68982f = new HashMap();
-        this.f68983g = new HashMap();
-        this.f68984h = Collections.unmodifiableMap(this.f68982f);
-        this.f68985i = Collections.unmodifiableMap(this.f68983g);
-        this.f68981e = str;
-        this.j = method;
+        this.a = true;
+        this.f60878f = new HashMap();
+        this.f60879g = new HashMap();
+        this.f60880h = Collections.unmodifiableMap(this.f60878f);
+        this.f60881i = Collections.unmodifiableMap(this.f60879g);
+        this.f60877e = str;
+        this.f60882j = method;
         if (Request.Method.POST == method) {
             StringBuilder sb = new StringBuilder();
             try {
@@ -114,7 +116,7 @@ public abstract class AbstractRequest implements Request {
                     sb.append(encode2);
                 }
                 if (sb.length() > 0) {
-                    this.k = sb.toString().getBytes("utf-8");
+                    this.f60883k = sb.toString().getBytes("utf-8");
                     addHeader("Content-Type", "application/x-www-form-urlencoded");
                 }
             } catch (UnsupportedEncodingException e2) {
@@ -129,14 +131,14 @@ public abstract class AbstractRequest implements Request {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        this.f68982f.put(str, str2);
+        this.f60878f.put(str, str2);
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public void addQuery(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            this.f68983g.put(str, str2);
+            this.f60879g.put(str, str2);
         }
     }
 
@@ -144,56 +146,56 @@ public abstract class AbstractRequest implements Request {
     public int getConnectionTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68979c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60875c : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68984h : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60880h : (Map) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Request.Method getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (Request.Method) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f60882j : (Request.Method) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public byte[] getPostData() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60883k : (byte[]) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68978b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60874b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public Map<String, String> getQuerys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68985i : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60881i : (Map) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getSocketTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68980d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60876d : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68981e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60877e : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -217,13 +219,13 @@ public abstract class AbstractRequest implements Request {
     public boolean isAutoClose() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f68977a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public void setAutoClose(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f68977a = z;
+            this.a = z;
         }
     }
 
@@ -231,14 +233,14 @@ public abstract class AbstractRequest implements Request {
     public void setConnectionTimeOut(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f68979c = i2;
+            this.f60875c = i2;
         }
     }
 
     public void setPriority(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f68978b = i2;
+            this.f60874b = i2;
         }
     }
 
@@ -246,7 +248,7 @@ public abstract class AbstractRequest implements Request {
     public void setSocketTimeOut(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f68980d = i2;
+            this.f60876d = i2;
         }
     }
 }

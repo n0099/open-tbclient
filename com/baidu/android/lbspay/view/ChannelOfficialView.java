@@ -24,7 +24,7 @@ import com.dxmpay.apollon.base.widget.NetImageView;
 import com.dxmpay.apollon.utils.DisplayUtils;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.utils.LogUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChannelOfficialView extends ChannelViewBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,7 +15,7 @@ import com.baidu.wallet.core.SDKBaseActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PermissionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERMISSION_REQUEST_CODE = 64;

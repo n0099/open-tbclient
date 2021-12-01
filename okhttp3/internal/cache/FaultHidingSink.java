@@ -70,15 +70,15 @@ public class FaultHidingSink extends ForwardingSink {
     }
 
     @Override // okio.ForwardingSink, okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
             if (this.hasErrors) {
-                buffer.skip(j);
+                buffer.skip(j2);
                 return;
             }
             try {
-                super.write(buffer, j);
+                super.write(buffer, j2);
             } catch (IOException e2) {
                 this.hasErrors = true;
                 onException(e2);

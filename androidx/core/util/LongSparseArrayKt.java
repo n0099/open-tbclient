@@ -4,7 +4,6 @@ import android.util.LongSparseArray;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +23,17 @@ public final class LongSparseArrayKt {
     public transient /* synthetic */ FieldHolder $fh;
 
     @RequiresApi(16)
-    public static final <T> boolean contains(LongSparseArray<T> longSparseArray, long j) {
+    public static final <T> boolean contains(LongSparseArray<T> longSparseArray, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, longSparseArray, j)) == null) ? longSparseArray.indexOfKey(j) >= 0 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, longSparseArray, j2)) == null) ? longSparseArray.indexOfKey(j2) >= 0 : invokeLJ.booleanValue;
     }
 
     @RequiresApi(16)
-    public static final <T> boolean containsKey(LongSparseArray<T> longSparseArray, long j) {
+    public static final <T> boolean containsKey(LongSparseArray<T> longSparseArray, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, longSparseArray, j)) == null) ? longSparseArray.indexOfKey(j) >= 0 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, longSparseArray, j2)) == null) ? longSparseArray.indexOfKey(j2) >= 0 : invokeLJ.booleanValue;
     }
 
     @RequiresApi(16)
@@ -56,22 +55,22 @@ public final class LongSparseArrayKt {
     }
 
     @RequiresApi(16)
-    public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j2, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) {
-            T t2 = longSparseArray.get(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{longSparseArray, Long.valueOf(j2), t})) == null) {
+            T t2 = longSparseArray.get(j2);
             return t2 != null ? t2 : t;
         }
         return (T) invokeCommon.objValue;
     }
 
     @RequiresApi(16)
-    public static final <T> T getOrElse(LongSparseArray<T> longSparseArray, long j, Function0<? extends T> function0) {
+    public static final <T> T getOrElse(LongSparseArray<T> longSparseArray, long j2, Function0<? extends T> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{longSparseArray, Long.valueOf(j), function0})) == null) {
-            T t = longSparseArray.get(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{longSparseArray, Long.valueOf(j2), function0})) == null) {
+            T t = longSparseArray.get(j2);
             return t != null ? t : function0.invoke();
         }
         return (T) invokeCommon.objValue;
@@ -81,7 +80,7 @@ public final class LongSparseArrayKt {
     public static final <T> int getSize(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, longSparseArray)) == null) ? longSparseArray.size() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, longSparseArray)) == null) ? longSparseArray.size() : invokeL.intValue;
     }
 
     @RequiresApi(16)
@@ -186,11 +185,11 @@ public final class LongSparseArrayKt {
     }
 
     @RequiresApi(16)
-    public static final <T> boolean remove(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> boolean remove(LongSparseArray<T> longSparseArray, long j2, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) {
-            int indexOfKey = longSparseArray.indexOfKey(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{longSparseArray, Long.valueOf(j2), t})) == null) {
+            int indexOfKey = longSparseArray.indexOfKey(j2);
             if (indexOfKey < 0 || !Intrinsics.areEqual(t, longSparseArray.valueAt(indexOfKey))) {
                 return false;
             }
@@ -201,10 +200,10 @@ public final class LongSparseArrayKt {
     }
 
     @RequiresApi(16)
-    public static final <T> void set(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> void set(LongSparseArray<T> longSparseArray, long j2, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{longSparseArray, Long.valueOf(j), t}) == null) {
-            longSparseArray.put(j, t);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{longSparseArray, Long.valueOf(j2), t}) == null) {
+            longSparseArray.put(j2, t);
         }
     }
 

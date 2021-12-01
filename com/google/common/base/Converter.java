@@ -1,7 +1,7 @@
 package com.google.common.base;
 
-import b.h.d.a.g;
-import b.h.d.a.n;
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class Converter<A, B> implements g<A, B> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean handleNullAutomatically;
     public transient Converter<B, A> reverse;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class ConverterComposition<A, B, C> extends Converter<A, C> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -56,10 +56,10 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
 
         @Override // com.google.common.base.Converter
-        public C correctedDoForward(A a2) {
+        public C correctedDoForward(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2)) == null) ? this.second.correctedDoForward(this.first.correctedDoForward(a2)) : (C) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a)) == null) ? this.second.correctedDoForward(this.first.correctedDoForward(a)) : (C) invokeL.objValue;
         }
 
         @Override // com.google.common.base.Converter
@@ -73,16 +73,16 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
 
         @Override // com.google.common.base.Converter
-        public C doForward(A a2) {
+        public C doForward(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a)) == null) {
                 throw new AssertionError();
             }
             return (C) invokeL.objValue;
         }
 
-        @Override // com.google.common.base.Converter, b.h.d.a.g
+        @Override // com.google.common.base.Converter, c.i.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class FunctionBasedConverter<A, B> extends Converter<A, B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,13 +131,13 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
 
         @Override // com.google.common.base.Converter
-        public B doForward(A a2) {
+        public B doForward(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2)) == null) ? this.forwardFunction.apply(a2) : (B) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a)) == null) ? this.forwardFunction.apply(a) : (B) invokeL.objValue;
         }
 
-        @Override // com.google.common.base.Converter, b.h.d.a.g
+        @Override // com.google.common.base.Converter, c.i.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class IdentityConverter<T> extends Converter<T, T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final IdentityConverter INSTANCE;
@@ -271,7 +271,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class ReverseConverter<A, B> extends Converter<B, A> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -297,10 +297,10 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
 
         @Override // com.google.common.base.Converter
-        public B correctedDoBackward(A a2) {
+        public B correctedDoBackward(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.original.correctedDoForward(a2) : (B) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a)) == null) ? this.original.correctedDoForward(a) : (B) invokeL.objValue;
         }
 
         @Override // com.google.common.base.Converter
@@ -311,10 +311,10 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
 
         @Override // com.google.common.base.Converter
-        public B doBackward(A a2) {
+        public B doBackward(A a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a2)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a)) == null) {
                 throw new AssertionError();
             }
             return (B) invokeL.objValue;
@@ -330,7 +330,7 @@ public abstract class Converter<A, B> implements g<A, B> {
             return (A) invokeL.objValue;
         }
 
-        @Override // com.google.common.base.Converter, b.h.d.a.g
+        @Override // com.google.common.base.Converter, c.i.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -366,30 +366,30 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class a implements Iterable<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f64038e;
+        public final /* synthetic */ Iterable f55975e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Converter f64039f;
+        public final /* synthetic */ Converter f55976f;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public class C1906a implements Iterator<B> {
+        /* loaded from: classes2.dex */
+        public class C1978a implements Iterator<B> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f64040e;
+            public final Iterator<? extends A> f55977e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f64041f;
+            public final /* synthetic */ a f55978f;
 
-            public C1906a(a aVar) {
+            public C1978a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -404,29 +404,29 @@ public abstract class Converter<A, B> implements g<A, B> {
                         return;
                     }
                 }
-                this.f64041f = aVar;
-                this.f64040e = this.f64041f.f64038e.iterator();
+                this.f55978f = aVar;
+                this.f55977e = this.f55978f.f55975e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64040e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55977e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public B next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f64041f.f64039f.convert(this.f64040e.next()) : (B) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f55978f.f55976f.convert(this.f55977e.next()) : (B) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f64040e.remove();
+                    this.f55977e.remove();
                 }
             }
         }
@@ -446,15 +446,15 @@ public abstract class Converter<A, B> implements g<A, B> {
                     return;
                 }
             }
-            this.f64039f = converter;
-            this.f64038e = iterable;
+            this.f55976f = converter;
+            this.f55975e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<B> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1906a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1978a(this) : (Iterator) invokeV.objValue;
         }
     }
 
@@ -494,7 +494,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, converter)) == null) ? doAndThen(converter) : (Converter) invokeL.objValue;
     }
 
-    @Override // b.h.d.a.g
+    @Override // c.i.d.a.g
     @Deprecated
     public final B apply(A a2) {
         InterceptResult invokeL;
@@ -566,7 +566,7 @@ public abstract class Converter<A, B> implements g<A, B> {
 
     public abstract B doForward(A a2);
 
-    @Override // b.h.d.a.g
+    @Override // c.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

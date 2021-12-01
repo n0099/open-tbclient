@@ -14,64 +14,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f38574a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1648a f38575b;
+    public C1725a f34484b;
 
     /* renamed from: com.baidu.fsg.face.base.b.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1648a {
+    /* loaded from: classes8.dex */
+    public class C1725a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f38576b = "load_so_zip_version";
+        public static final String f34485b = "load_so_zip_version";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f38577c = "load_so_modle_name";
+        public static final String f34486c = "load_so_modle_name";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f38578d = "load_default_so";
+        public static final String f34487d = "load_default_so";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f38579e = "load_so_success";
+        public static final String f34488e = "load_so_success";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f38580f = "load_download_so_suc";
+        public static final String f34489f = "load_download_so_suc";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f38581g = "load_so_exception_info";
+        public static final String f34490g = "load_so_exception_info";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f38582h = "load_so_execption_zip_version";
+        public static final String f34491h = "load_so_execption_zip_version";
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f38583a;
+        public final /* synthetic */ a a;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f38584i;
-        public String j;
-        public boolean k;
+        public String f34492i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public String f34493j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public boolean f34494k;
         public boolean l;
         public boolean m;
         public String n;
         public String o;
 
-        public C1648a(a aVar) {
+        public C1725a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,12 +86,12 @@ public class a {
                     return;
                 }
             }
-            this.f38583a = aVar;
+            this.a = aVar;
             this.l = false;
             this.m = true;
         }
 
-        public /* synthetic */ C1648a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1725a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -100,13 +100,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(f38576b, this.f38584i);
-                hashMap.put(f38577c, this.j);
-                hashMap.put(f38578d, this.l ? "1" : "-1");
-                hashMap.put(f38579e, this.k ? "1" : "-1");
-                hashMap.put(f38580f, this.m ? "1" : "-1");
-                hashMap.put(f38581g, this.n);
-                hashMap.put(f38582h, this.o);
+                hashMap.put(f34485b, this.f34492i);
+                hashMap.put(f34486c, this.f34493j);
+                hashMap.put(f34487d, this.l ? "1" : "-1");
+                hashMap.put(f34488e, this.f34494k ? "1" : "-1");
+                hashMap.put(f34489f, this.m ? "1" : "-1");
+                hashMap.put(f34490g, this.n);
+                hashMap.put(f34491h, this.o);
                 return hashMap;
             }
             return (Map) invokeV.objValue;
@@ -142,38 +142,38 @@ public class a {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, bundle)) == null) {
-            this.f38574a = context;
-            this.f38575b = new C1648a(this, null);
-            b.a a2 = b.a(i2);
-            c a3 = b.a(context).a(context.getApplicationContext(), a2.f38594a);
-            this.f38575b.j = a2.f38594a;
+            this.a = context;
+            this.f34484b = new C1725a(this, null);
+            b.a a = b.a(i2);
+            c a2 = b.a(context).a(context.getApplicationContext(), a.a);
+            this.f34484b.f34493j = a.a;
             try {
-                if (a3.q && a3.r) {
-                    if (a3.p) {
-                        if (a2.f38595b.compareTo(a3.n) > 0) {
-                            this.f38575b.f38584i = a2.f38595b;
-                            a(a2.f38597d, a2);
+                if (a2.q && a2.r) {
+                    if (a2.p) {
+                        if (a.f34504b.compareTo(a2.n) > 0) {
+                            this.f34484b.f34492i = a.f34504b;
+                            a(a.f34506d, a);
                         } else {
-                            a(a2, a3, a2.f38597d);
+                            a(a, a2, a.f34506d);
                         }
                     } else {
-                        a(a2, a3, a2.f38597d);
+                        a(a, a2, a.f34506d);
                     }
-                    this.f38575b.k = true;
+                    this.f34484b.f34494k = true;
                     return true;
                 }
-                this.f38575b.f38584i = a2.f38595b;
-                this.f38575b.k = true;
-                a(a2.f38597d, a2);
+                this.f34484b.f34492i = a.f34504b;
+                this.f34484b.f34494k = true;
+                a(a.f34506d, a);
                 return true;
             } catch (Throwable th) {
                 try {
-                    this.f38575b.n = Log.getStackTraceString(th);
-                    this.f38575b.o = this.f38575b.f38584i;
-                    this.f38575b.k = false;
+                    this.f34484b.n = Log.getStackTraceString(th);
+                    this.f34484b.o = this.f34484b.f34492i;
+                    this.f34484b.f34494k = false;
                     return false;
                 } finally {
-                    this.f38575b.b();
+                    this.f34484b.b();
                 }
             }
         }
@@ -184,13 +184,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, strArr, aVar) == null) {
             for (String str : strArr) {
-                String str2 = b.b(this.f38574a, aVar) + "/lib" + str + ".so";
+                String str2 = b.b(this.a, aVar) + "/lib" + str + ".so";
                 if (g.b(str2)) {
                     g.c(str2);
                 }
                 System.loadLibrary(str);
             }
-            this.f38575b.l = true;
+            this.f34484b.l = true;
         }
     }
 
@@ -200,15 +200,15 @@ public class a {
             boolean z = false;
             try {
                 for (String str : strArr) {
-                    System.load(b.b(this.f38574a, aVar) + "/lib" + str + ".so");
+                    System.load(b.b(this.a, aVar) + "/lib" + str + ".so");
                 }
-                this.f38575b.f38584i = cVar.n;
+                this.f34484b.f34492i = cVar.n;
                 z = true;
             } catch (Throwable th) {
-                this.f38575b.m = false;
-                this.f38575b.f38584i = aVar.f38595b;
-                this.f38575b.n = Log.getStackTraceString(th);
-                this.f38575b.o = cVar.n;
+                this.f34484b.m = false;
+                this.f34484b.f34492i = aVar.f34504b;
+                this.f34484b.n = Log.getStackTraceString(th);
+                this.f34484b.o = cVar.n;
             }
             if (z) {
                 return;

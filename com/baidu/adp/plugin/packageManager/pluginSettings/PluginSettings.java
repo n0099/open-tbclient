@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginSettings implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2213073735097926380L;
@@ -220,7 +220,7 @@ public class PluginSettings implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSettings m9clone() {
+    public PluginSettings m29clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -230,7 +230,7 @@ public class PluginSettings implements Serializable, Cloneable {
             for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
-                    pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m8clone());
+                    pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m28clone());
                 }
             }
             return pluginSettings;

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RequestLoggingListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestLoggingListener";
@@ -43,12 +43,12 @@ public class RequestLoggingListener implements RequestListener {
         this.mRequestStartTimeMap = new HashMap();
     }
 
-    public static long getElapsedTime(@Nullable Long l, long j) {
+    public static long getElapsedTime(@Nullable Long l, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, l, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, l, j2)) == null) {
             if (l != null) {
-                return j - l.longValue();
+                return j2 - l.longValue();
             }
             return -1L;
         }

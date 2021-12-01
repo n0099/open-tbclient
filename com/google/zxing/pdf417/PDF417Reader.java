@@ -2,7 +2,6 @@ package com.google.zxing.pdf417;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import com.google.zxing.pdf417.detector.Detector;
 import com.google.zxing.pdf417.detector.PDF417DetectorResult;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +70,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     public static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, resultPoint, resultPoint2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, resultPoint, resultPoint2)) == null) {
             if (resultPoint == null || resultPoint2 == null) {
                 return Integer.MAX_VALUE;
             }

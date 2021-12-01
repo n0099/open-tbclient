@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_DNS_HOST = "https://httpsdns.baidu.com/";

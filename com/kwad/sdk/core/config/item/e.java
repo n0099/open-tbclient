@@ -9,32 +9,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.utils.t;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f65245a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65246b;
+    public String f57253b;
 
     /* loaded from: classes2.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f65247a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f65248b;
+        public String f57254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f65249c;
+        public String f57255c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,9 +46,9 @@ public class e extends b<a> {
                     return;
                 }
             }
-            this.f65247a = "";
-            this.f65248b = "";
-            this.f65249c = "";
+            this.a = "";
+            this.f57254b = "";
+            this.f57255c = "";
         }
 
         public a(String str, String str2, String str3) {
@@ -69,9 +66,9 @@ public class e extends b<a> {
                     return;
                 }
             }
-            this.f65247a = str;
-            this.f65248b = str2;
-            this.f65249c = str3;
+            this.a = str;
+            this.f57254b = str2;
+            this.f57255c = str3;
         }
 
         @Override // com.kwad.sdk.core.b
@@ -80,9 +77,9 @@ public class e extends b<a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f65247a = jSONObject.optString("iconUrl", this.f65247a);
-            this.f65248b = jSONObject.optString("nightIconUrl", this.f65248b);
-            this.f65249c = jSONObject.optString("desc", this.f65249c);
+            this.a = jSONObject.optString("iconUrl", this.a);
+            this.f57254b = jSONObject.optString("nightIconUrl", this.f57254b);
+            this.f57255c = jSONObject.optString("desc", this.f57255c);
         }
 
         @Override // com.kwad.sdk.core.b
@@ -91,9 +88,9 @@ public class e extends b<a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "icon", this.f65247a);
-                com.kwad.sdk.utils.q.a(jSONObject, "nightIconUrl", this.f65248b);
-                com.kwad.sdk.utils.q.a(jSONObject, "desc", this.f65249c);
+                t.a(jSONObject, "icon", this.a);
+                t.a(jSONObject, "nightIconUrl", this.f57254b);
+                t.a(jSONObject, "desc", this.f57255c);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -119,14 +116,14 @@ public class e extends b<a> {
                 return;
             }
         }
-        this.f65245a = str2;
+        this.a = str2;
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putString(b(), this.f65246b);
+            editor.putString(b(), this.f57253b);
         }
     }
 
@@ -135,12 +132,12 @@ public class e extends b<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
             String string = sharedPreferences.getString(b(), null);
-            this.f65246b = string;
+            this.f57253b = string;
             if (TextUtils.isEmpty(string)) {
                 return;
             }
             try {
-                JSONObject jSONObject = new JSONObject(this.f65246b);
+                JSONObject jSONObject = new JSONObject(this.f57253b);
                 a aVar = new a();
                 aVar.parseJson(jSONObject);
                 a((e) aVar);
@@ -157,7 +154,7 @@ public class e extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject(b())) == null) {
             return;
         }
-        this.f65246b = optJSONObject.toString();
+        this.f57253b = optJSONObject.toString();
         a aVar = new a();
         aVar.parseJson(optJSONObject);
         a((e) aVar);

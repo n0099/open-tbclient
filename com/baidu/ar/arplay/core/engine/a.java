@@ -5,7 +5,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public class a {
     public boolean isScreenOrientationLandscape;
 
     /* renamed from: com.baidu.ar.arplay.core.engine.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] eL;
@@ -117,20 +116,20 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class EnumC1621a {
+    /* loaded from: classes8.dex */
+    public static final class EnumC1698a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC1621a eM;
-        public static final EnumC1621a eN;
-        public static final EnumC1621a eO;
-        public static final EnumC1621a eP;
-        public static final EnumC1621a eQ;
-        public static final EnumC1621a eR;
-        public static final EnumC1621a eS;
-        public static final EnumC1621a eT;
-        public static final EnumC1621a eU;
-        public static final EnumC1621a eV;
-        public static final /* synthetic */ EnumC1621a[] eW;
+        public static final EnumC1698a eM;
+        public static final EnumC1698a eN;
+        public static final EnumC1698a eO;
+        public static final EnumC1698a eP;
+        public static final EnumC1698a eQ;
+        public static final EnumC1698a eR;
+        public static final EnumC1698a eS;
+        public static final EnumC1698a eT;
+        public static final EnumC1698a eU;
+        public static final EnumC1698a eV;
+        public static final /* synthetic */ EnumC1698a[] eW;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,21 +145,21 @@ public class a {
                     return;
                 }
             }
-            eM = new EnumC1621a("EGESTURE_CLICK", 0);
-            eN = new EnumC1621a("EGESTURE_DOUBLE_CLICK", 1);
-            eO = new EnumC1621a("EGESTURE_LONG_PRESS", 2);
-            eP = new EnumC1621a("EGESTURE_SWIPE", 3);
-            eQ = new EnumC1621a("EGESTURE_SINGLE_FINGER_SCROLL", 4);
-            eR = new EnumC1621a("EGESTURE_TWO_FINGER_SCROLL", 5);
-            eS = new EnumC1621a("EGESTURE_TWO_FINGER_PINCH", 6);
-            eT = new EnumC1621a("EGESTURE_TWO_FINGER_UNPINCH", 7);
-            eU = new EnumC1621a("EGESTURE_TWO_FINGER_ROTATE", 8);
-            EnumC1621a enumC1621a = new EnumC1621a("EGESTURE_CLEAR", 9);
-            eV = enumC1621a;
-            eW = new EnumC1621a[]{eM, eN, eO, eP, eQ, eR, eS, eT, eU, enumC1621a};
+            eM = new EnumC1698a("EGESTURE_CLICK", 0);
+            eN = new EnumC1698a("EGESTURE_DOUBLE_CLICK", 1);
+            eO = new EnumC1698a("EGESTURE_LONG_PRESS", 2);
+            eP = new EnumC1698a("EGESTURE_SWIPE", 3);
+            eQ = new EnumC1698a("EGESTURE_SINGLE_FINGER_SCROLL", 4);
+            eR = new EnumC1698a("EGESTURE_TWO_FINGER_SCROLL", 5);
+            eS = new EnumC1698a("EGESTURE_TWO_FINGER_PINCH", 6);
+            eT = new EnumC1698a("EGESTURE_TWO_FINGER_UNPINCH", 7);
+            eU = new EnumC1698a("EGESTURE_TWO_FINGER_ROTATE", 8);
+            EnumC1698a enumC1698a = new EnumC1698a("EGESTURE_CLEAR", 9);
+            eV = enumC1698a;
+            eW = new EnumC1698a[]{eM, eN, eO, eP, eQ, eR, eS, eT, eU, enumC1698a};
         }
 
-        public EnumC1621a(String str, int i2) {
+        public EnumC1698a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,20 +178,20 @@ public class a {
             }
         }
 
-        public static EnumC1621a valueOf(String str) {
+        public static EnumC1698a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1621a) Enum.valueOf(EnumC1621a.class, str) : (EnumC1621a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1698a) Enum.valueOf(EnumC1698a.class, str) : (EnumC1698a) invokeL.objValue;
         }
 
-        public static EnumC1621a[] values() {
+        public static EnumC1698a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1621a[]) eW.clone() : (EnumC1621a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1698a[]) eW.clone() : (EnumC1698a[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +242,7 @@ public class a {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c eY;
@@ -323,7 +322,7 @@ public class a {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public static final d fl;
@@ -386,7 +385,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -443,7 +442,7 @@ public class a {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f fq;
@@ -587,7 +586,7 @@ public class a {
         return invokeCommon.doubleValue;
     }
 
-    private void a(int i2, float f2, float f3, float f4, float f5, long j, int i3, float f6) {
+    private void a(int i2, float f2, float f3, float f4, float f5, long j2, int i3, float f6) {
         float f7;
         float f8;
         float f9;
@@ -595,7 +594,7 @@ public class a {
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Integer.valueOf(i3), Float.valueOf(f6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f6)}) == null) {
             if (this.isScreenOrientationLandscape) {
                 f7 = this.ex - f3;
                 f9 = f4;
@@ -616,11 +615,11 @@ public class a {
                 f10 *= f12;
                 f9 *= f12;
             }
-            ARPEngine.getInstance().onTouchUpdate(i2, f7, f10, f8, f9, j, i3, f6);
+            ARPEngine.getInstance().onTouchUpdate(i2, f7, f10, f8, f9, j2, i3, f6);
         }
     }
 
-    private void a(int i2, long j, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10) {
+    private void a(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10) {
         float f11;
         float f12;
         float f13;
@@ -636,7 +635,7 @@ public class a {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10)}) == null) {
             if (this.isScreenOrientationLandscape) {
                 int i8 = this.ex;
                 f11 = i8 - f3;
@@ -671,39 +670,39 @@ public class a {
                 f15 = f4 * f23;
                 f16 = f5 * f24;
             }
-            ARPEngine.getInstance().onGestureUpdate(i2, j, i3, f20, f19, f15, f16, i4, f21, f22, f17, f18, i5, f10);
+            ARPEngine.getInstance().onGestureUpdate(i2, j2, i3, f20, f19, f15, f16, i4, f21, f22, f17, f18, i5, f10);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j, int i2, float f2, float f3) {
+    public void a(long j2, int i2, float f2, float f3) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aW()) {
-            a(EnumC1621a.eM.ordinal(), j, i2, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aW()) {
+            a(EnumC1698a.eM.ordinal(), j2, i2, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
             aS();
         }
     }
 
-    private void a(long j, int i2, float f2, float f3, float f4, float f5) {
+    private void a(long j2, int i2, float f2, float f3, float f4, float f5) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) && (bVar = this.es) != null && bVar.aZ()) {
-            a(EnumC1621a.eQ.ordinal(), j, i2, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) && (bVar = this.es) != null && bVar.aZ()) {
+            a(EnumC1698a.eQ.ordinal(), j2, i2, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 
-    private void a(long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9) {
+    private void a(long j2, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) && (bVar = this.es) != null && bVar.ba()) {
-            a(EnumC1621a.eR.ordinal(), j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, -1, 0.0f);
+        if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) && (bVar = this.es) != null && bVar.ba()) {
+            a(EnumC1698a.eR.ordinal(), j2, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, -1, 0.0f);
         }
     }
 
-    private void a(long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, boolean z) {
+    private void a(long j2, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Boolean.valueOf(z)}) == null) {
             com.baidu.ar.arplay.core.engine.b bVar = this.es;
             if (bVar == null || !bVar.bc()) {
                 return;
@@ -714,30 +713,30 @@ public class a {
                 }
                 this.eJ = z;
             }
-            int ordinal = EnumC1621a.eT.ordinal();
+            int ordinal = EnumC1698a.eT.ordinal();
             if (z) {
-                ordinal = EnumC1621a.eS.ordinal();
+                ordinal = EnumC1698a.eS.ordinal();
             }
-            a(ordinal, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, -1, 0.0f);
+            a(ordinal, j2, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, -1, 0.0f);
             if (this.eI) {
                 this.eJ = z;
             }
         }
     }
 
-    private void a(long j, int i2, float f2, float f3, int i3, float f4, float f5, float f6) {
+    private void a(long j2, int i2, float f2, float f3, int i3, float f4, float f5, float f6) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) && (bVar = this.es) != null && bVar.bd()) {
-            a(EnumC1621a.eU.ordinal(), j, i2, f2, f3, -1.0f, -1.0f, i3, f4, f5, -1.0f, -1.0f, -1, f6);
+        if ((interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) && (bVar = this.es) != null && bVar.bd()) {
+            a(EnumC1698a.eU.ordinal(), j2, i2, f2, f3, -1.0f, -1.0f, i3, f4, f5, -1.0f, -1.0f, -1, f6);
         }
     }
 
-    private void a(long j, int i2, int i3) {
+    private void a(long j2, int i2, int i3) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && (bVar = this.es) != null && bVar.bb()) {
-            a(EnumC1621a.eP.ordinal(), j, i2, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i3, 0.0f);
+        if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && (bVar = this.es) != null && bVar.bb()) {
+            a(EnumC1698a.eP.ordinal(), j2, i2, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i3, 0.0f);
             clearStatus();
         }
     }
@@ -836,14 +835,14 @@ public class a {
     private void aS() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            a(EnumC1621a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+            a(EnumC1698a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 
     private void aT() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC1621a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+            ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC1698a.eV.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
         }
     }
 
@@ -860,11 +859,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(long j, int i2, float f2, float f3) {
+    public void b(long j2, int i2, float f2, float f3) {
         com.baidu.ar.arplay.core.engine.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aY()) {
-            a(EnumC1621a.eO.ordinal(), j, i2, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        if ((interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) && (bVar = this.es) != null && bVar.aY()) {
+            a(EnumC1698a.eO.ordinal(), j2, i2, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         }
     }
 
@@ -964,16 +963,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65565, this, motionEvent) == null) {
             e eVar = this.eD;
-            double a2 = a(eVar.x, eVar.y, motionEvent.getX(), motionEvent.getY());
-            String str = "touchMoveInSingleFingerCandidate() distance = " + a2;
-            if (a2 < 20.0d) {
+            double a = a(eVar.x, eVar.y, motionEvent.getX(), motionEvent.getY());
+            String str = "touchMoveInSingleFingerCandidate() distance = " + a;
+            if (a < 20.0d) {
                 if (motionEvent.getEventTime() - motionEvent.getDownTime() > 600) {
                     this.ez = c.fa;
                     b(motionEvent.getDownTime(), this.eD.id, motionEvent.getX(), motionEvent.getY());
                     this.et.removeMessages(1);
                 }
                 this.eE.a(motionEvent, 0);
-            } else if (a2 < 50.0d) {
+            } else if (a < 50.0d) {
                 this.eC = false;
                 this.eE.a(motionEvent, 0);
             } else {
@@ -1042,22 +1041,22 @@ public class a {
             float w = w(motionEvent);
             float x = x(motionEvent);
             e eVar = this.eD;
-            double a2 = a(eVar.x, eVar.y, u, v);
+            double a = a(eVar.x, eVar.y, u, v);
             e eVar2 = this.eF;
-            double a3 = a(eVar2.x, eVar2.y, w, x);
-            if ((a2 > 50.0d || a3 > 50.0d) && a2 > 20.0d && a3 > 20.0d) {
+            double a2 = a(eVar2.x, eVar2.y, w, x);
+            if ((a > 50.0d || a2 > 50.0d) && a > 20.0d && a2 > 20.0d) {
                 e eVar3 = this.eD;
                 float f4 = eVar3.x;
                 float f5 = eVar3.y;
                 e eVar4 = this.eF;
-                double a4 = a(f4, f5, u, v, eVar4.x, eVar4.y, w, x);
-                if (a4 < 0.7853981633974483d) {
+                double a3 = a(f4, f5, u, v, eVar4.x, eVar4.y, w, x);
+                if (a3 < 0.7853981633974483d) {
                     this.ez = c.fd;
                     a(motionEvent.getDownTime(), this.eD.id, u, v, q(motionEvent), r(motionEvent), this.eF.id, w, x, s(motionEvent), t(motionEvent));
                     f2 = w;
                     f3 = x;
                 } else {
-                    if (a4 > 3.141592653589793d || a4 <= 1.5707963267948966d) {
+                    if (a3 > 3.141592653589793d || a3 <= 1.5707963267948966d) {
                         f2 = w;
                         f3 = x;
                         this.ez = c.fh;
@@ -1068,12 +1067,12 @@ public class a {
                         float f7 = (eVar6.x + f6) / 2.0f;
                         float f8 = eVar5.y;
                         float f9 = (eVar6.y + f8) / 2.0f;
-                        double a5 = a(f7, f9, f6, f8, f6, f8, u, v);
+                        double a4 = a(f7, f9, f6, f8, f6, f8, u, v);
                         e eVar7 = this.eF;
                         float f10 = eVar7.x;
                         float f11 = eVar7.y;
-                        double a6 = a(f7, f9, f10, f11, f10, f11, w, x);
-                        if (Math.abs(a5 - 1.5707963267948966d) < 0.6283185307179586d || Math.abs(a6 - 1.5707963267948966d) < 0.6283185307179586d) {
+                        double a5 = a(f7, f9, f10, f11, f10, f11, w, x);
+                        if (Math.abs(a4 - 1.5707963267948966d) < 0.6283185307179586d || Math.abs(a5 - 1.5707963267948966d) < 0.6283185307179586d) {
                             f2 = w;
                             f3 = x;
                             this.ez = c.fi;
@@ -1221,9 +1220,9 @@ public class a {
                 float v = v(motionEvent);
                 float w = w(motionEvent);
                 float x = x(motionEvent);
-                double a2 = a(u, v, w, x);
-                a(motionEvent.getEventTime(), this.eD.id, u, v, q(motionEvent), r(motionEvent), this.eF.id, w, x, s(motionEvent), t(motionEvent), a2 < this.eH);
-                this.eH = a2;
+                double a = a(u, v, w, x);
+                a(motionEvent.getEventTime(), this.eD.id, u, v, q(motionEvent), r(motionEvent), this.eF.id, w, x, s(motionEvent), t(motionEvent), a < this.eH);
+                this.eH = a;
                 e eVar2 = this.eD;
                 eVar2.x = u;
                 eVar2.y = v;

@@ -18,7 +18,6 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "im_track.db";
@@ -45,7 +44,7 @@ public class IMTrackDatabase {
     public Context context;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -114,7 +113,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -187,7 +186,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -254,7 +253,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -330,7 +329,7 @@ public class IMTrackDatabase {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
@@ -500,7 +499,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -573,7 +572,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -646,7 +645,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -819,7 +818,7 @@ public class IMTrackDatabase {
         InterceptResult invokeL;
         IMTrackDatabase iMTrackDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (myLock) {
                 if (instance == null) {
                     instance = new IMTrackDatabase(context.getApplicationContext());
@@ -920,7 +919,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (myLock) {
-                long j = 0;
+                long j2 = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -929,7 +928,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from connection", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
+                        j2 = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -941,7 +940,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j;
+                return j2;
             }
         }
         return invokeV.longValue;
@@ -994,7 +993,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (myLock) {
-                long j = 0;
+                long j2 = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -1003,7 +1002,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from crash", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
+                        j2 = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -1015,7 +1014,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j;
+                return j2;
             }
         }
         return invokeV.longValue;
@@ -1151,7 +1150,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (myLock) {
-                long j = 0;
+                long j2 = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -1160,7 +1159,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from request", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
+                        j2 = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -1172,7 +1171,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j;
+                return j2;
             }
         }
         return invokeV.longValue;

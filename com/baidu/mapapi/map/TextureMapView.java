@@ -35,42 +35,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TextureMapView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f40354a;
+    public static final String a;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f40355i;
-    public static int j;
-    public static int k;
+    public static String f35982i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f35983j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static int f35984k;
     public static final SparseArray<Integer> q;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
 
     /* renamed from: b  reason: collision with root package name */
-    public ac f40356b;
+    public ac f35985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMap f40357c;
+    public BaiduMap f35986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f40358d;
+    public ImageView f35987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f40359e;
+    public Bitmap f35988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ak f40360f;
+    public ak f35989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Point f40361g;
+    public Point f35990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Point f40362h;
+    public Point f35991h;
     public RelativeLayout l;
     public TextView m;
     public TextView n;
@@ -99,9 +101,9 @@ public final class TextureMapView extends ViewGroup {
                 return;
             }
         }
-        f40354a = TextureMapView.class.getSimpleName();
-        j = 0;
-        k = 0;
+        a = TextureMapView.class.getSimpleName();
+        f35983j = 0;
+        f35984k = 0;
         SparseArray<Integer> sparseArray = new SparseArray<>();
         q = sparseArray;
         sparseArray.append(3, 2000000);
@@ -242,12 +244,12 @@ public final class TextureMapView extends ViewGroup {
             matrix = new Matrix();
             f2 = 2.0f;
         } else if (densityDpi <= 320 || densityDpi > 480) {
-            this.f40359e = a2;
-            if (this.f40359e == null) {
+            this.f35988e = a2;
+            if (this.f35988e == null) {
                 ImageView imageView = new ImageView(context);
-                this.f40358d = imageView;
-                imageView.setImageBitmap(this.f40359e);
-                addView(this.f40358d);
+                this.f35987d = imageView;
+                imageView.setImageBitmap(this.f35988e);
+                addView(this.f35987d);
                 return;
             }
             return;
@@ -256,8 +258,8 @@ public final class TextureMapView extends ViewGroup {
             f2 = 1.5f;
         }
         matrix.postScale(f2, f2);
-        this.f40359e = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
-        if (this.f40359e == null) {
+        this.f35988e = Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+        if (this.f35988e == null) {
         }
     }
 
@@ -271,27 +273,27 @@ public final class TextureMapView extends ViewGroup {
             this.p = context;
             com.baidu.mapsdkplatform.comapi.map.i.a();
             BMapManager.init();
-            a(context, baiduMapOptions, j == 0 ? f40355i : CustomMapStyleLoader.getCustomStyleFilePath(), k);
-            this.f40357c = new BaiduMap(this.f40356b);
+            a(context, baiduMapOptions, f35983j == 0 ? f35982i : CustomMapStyleLoader.getCustomStyleFilePath(), f35984k);
+            this.f35986c = new BaiduMap(this.f35985b);
             a(context);
             b(context);
-            if (baiduMapOptions != null && !baiduMapOptions.f40134h) {
-                this.f40360f.setVisibility(4);
+            if (baiduMapOptions != null && !baiduMapOptions.f35777h) {
+                this.f35989f.setVisibility(4);
             }
             c(context);
-            if (baiduMapOptions != null && !baiduMapOptions.f40135i) {
+            if (baiduMapOptions != null && !baiduMapOptions.f35778i) {
                 this.l.setVisibility(4);
             }
-            if (baiduMapOptions != null && (logoPosition = baiduMapOptions.j) != null) {
+            if (baiduMapOptions != null && (logoPosition = baiduMapOptions.f35779j) != null) {
                 this.t = logoPosition.ordinal();
             }
             if (baiduMapOptions != null && (point2 = baiduMapOptions.l) != null) {
-                this.f40362h = point2;
+                this.f35991h = point2;
             }
-            if (baiduMapOptions == null || (point = baiduMapOptions.k) == null) {
+            if (baiduMapOptions == null || (point = baiduMapOptions.f35780k) == null) {
                 return;
             }
-            this.f40361g = point;
+            this.f35990g = point;
         }
     }
 
@@ -299,13 +301,13 @@ public final class TextureMapView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65546, this, context, baiduMapOptions, str, i2) == null) {
             if (baiduMapOptions == null) {
-                this.f40356b = new ac(context, null, str, i2);
+                this.f35985b = new ac(context, null, str, i2);
             } else {
-                this.f40356b = new ac(context, baiduMapOptions.a(), str, i2);
+                this.f35985b = new ac(context, baiduMapOptions.a(), str, i2);
             }
-            addView(this.f40356b);
+            addView(this.f35985b);
             this.s = new t(this);
-            this.f40356b.b().a(this.s);
+            this.f35985b.b().a(this.s);
         }
     }
 
@@ -326,10 +328,10 @@ public final class TextureMapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.f40360f.a()) {
-            float f2 = this.f40356b.b().E().f40899a;
-            this.f40360f.b(f2 > this.f40356b.b().f40947b);
-            this.f40360f.a(f2 < this.f40356b.b().f40946a);
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.f35989f.a()) {
+            float f2 = this.f35985b.b().E().a;
+            this.f35989f.b(f2 > this.f35985b.b().f36433b);
+            this.f35989f.a(f2 < this.f35985b.b().a);
         }
     }
 
@@ -337,11 +339,11 @@ public final class TextureMapView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, context) == null) {
             ak akVar = new ak(context);
-            this.f40360f = akVar;
+            this.f35989f = akVar;
             if (akVar.a()) {
-                this.f40360f.b(new u(this));
-                this.f40360f.a(new v(this));
-                addView(this.f40360f);
+                this.f35989f.b(new u(this));
+                this.f35989f.a(new v(this));
+                addView(this.f35989f);
             }
         }
     }
@@ -395,7 +397,7 @@ public final class TextureMapView extends ViewGroup {
             if (!new File(str).exists()) {
                 throw new RuntimeException("BDMapSDKException: please check whether the customMapStylePath file exits");
             }
-            f40355i = str;
+            f35982i = str;
         }
     }
 
@@ -403,14 +405,14 @@ public final class TextureMapView extends ViewGroup {
     public static void setIconCustom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65557, null, i2) == null) {
-            k = i2;
+            f35984k = i2;
         }
     }
 
     public static void setLoadCustomMapStyleFileMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65558, null, i2) == null) {
-            j = i2;
+            f35983j = i2;
         }
     }
 
@@ -444,8 +446,8 @@ public final class TextureMapView extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            BaiduMap baiduMap = this.f40357c;
-            baiduMap.f40120b = this;
+            BaiduMap baiduMap = this.f35986c;
+            baiduMap.f35762b = this;
             return baiduMap;
         }
         return (BaiduMap) invokeV.objValue;
@@ -454,7 +456,7 @@ public final class TextureMapView extends ViewGroup {
     public final int getMapLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q.get((int) this.f40356b.b().E().f40899a).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q.get((int) this.f35985b.b().E().a).intValue() : invokeV.intValue;
     }
 
     public int getScaleControlViewHeight() {
@@ -475,11 +477,11 @@ public final class TextureMapView extends ViewGroup {
             return;
         }
         MapStatus mapStatus = (MapStatus) bundle.getParcelable("mapstatus");
-        if (this.f40361g != null) {
-            this.f40361g = (Point) bundle.getParcelable("scalePosition");
+        if (this.f35990g != null) {
+            this.f35990g = (Point) bundle.getParcelable("scalePosition");
         }
-        if (this.f40362h != null) {
-            this.f40362h = (Point) bundle.getParcelable("zoomPosition");
+        if (this.f35991h != null) {
+            this.f35991h = (Point) bundle.getParcelable("zoomPosition");
         }
         this.u = bundle.getBoolean("mZoomControlEnabled");
         this.v = bundle.getBoolean("mScaleControlEnabled");
@@ -493,13 +495,13 @@ public final class TextureMapView extends ViewGroup {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Context context = this.p;
             if (context != null) {
-                this.f40356b.a(context.hashCode());
+                this.f35985b.a(context.hashCode());
             }
-            Bitmap bitmap = this.f40359e;
+            Bitmap bitmap = this.f35988e;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f40359e.recycle();
+                this.f35988e.recycle();
             }
-            this.f40360f.b();
+            this.f35989f.b();
             BMapManager.destroy();
             com.baidu.mapsdkplatform.comapi.map.i.b();
             this.p = null;
@@ -515,9 +517,9 @@ public final class TextureMapView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int childCount = getChildCount();
-            a(this.f40358d);
+            a(this.f35987d);
             float f3 = 1.0f;
-            if (((getWidth() - this.w) - this.x) - this.f40358d.getMeasuredWidth() <= 0 || ((getHeight() - this.y) - this.z) - this.f40358d.getMeasuredHeight() <= 0) {
+            if (((getWidth() - this.w) - this.x) - this.f35987d.getMeasuredWidth() <= 0 || ((getHeight() - this.y) - this.z) - this.f35987d.getMeasuredHeight() <= 0) {
                 this.w = 0;
                 this.x = 0;
                 this.z = 0;
@@ -529,11 +531,11 @@ public final class TextureMapView extends ViewGroup {
             }
             for (int i6 = 0; i6 < childCount; i6++) {
                 View childAt = getChildAt(i6);
-                ac acVar = this.f40356b;
+                ac acVar = this.f35985b;
                 if (childAt == acVar) {
                     acVar.layout(0, 0, getWidth(), getHeight());
                 } else {
-                    ImageView imageView = this.f40358d;
+                    ImageView imageView = this.f35987d;
                     if (childAt == imageView) {
                         float f4 = f3 * 5.0f;
                         int i7 = (int) (this.w + f4);
@@ -545,80 +547,80 @@ public final class TextureMapView extends ViewGroup {
                         if (i11 != 1) {
                             if (i11 == 2) {
                                 measuredHeight = getHeight() - i10;
-                                i9 = measuredHeight - this.f40358d.getMeasuredHeight();
+                                i9 = measuredHeight - this.f35987d.getMeasuredHeight();
                             } else if (i11 != 3) {
                                 if (i11 == 4) {
                                     measuredHeight = getHeight() - i10;
-                                    i9 = measuredHeight - this.f40358d.getMeasuredHeight();
+                                    i9 = measuredHeight - this.f35987d.getMeasuredHeight();
                                 } else if (i11 != 5) {
                                     measuredHeight = getHeight() - i10;
-                                    measuredWidth = this.f40358d.getMeasuredWidth() + i7;
-                                    i9 = measuredHeight - this.f40358d.getMeasuredHeight();
+                                    measuredWidth = this.f35987d.getMeasuredWidth() + i7;
+                                    i9 = measuredHeight - this.f35987d.getMeasuredHeight();
                                 } else {
                                     measuredHeight = i9 + imageView.getMeasuredHeight();
                                 }
                                 measuredWidth = getWidth() - i8;
-                                i7 = measuredWidth - this.f40358d.getMeasuredWidth();
+                                i7 = measuredWidth - this.f35987d.getMeasuredWidth();
                             } else {
                                 measuredHeight = i9 + imageView.getMeasuredHeight();
                             }
-                            i7 = (((getWidth() - this.f40358d.getMeasuredWidth()) + this.w) - this.x) / 2;
-                            measuredWidth = (((getWidth() + this.f40358d.getMeasuredWidth()) + this.w) - this.x) / 2;
+                            i7 = (((getWidth() - this.f35987d.getMeasuredWidth()) + this.w) - this.x) / 2;
+                            measuredWidth = (((getWidth() + this.f35987d.getMeasuredWidth()) + this.w) - this.x) / 2;
                         } else {
                             measuredHeight = imageView.getMeasuredHeight() + i9;
-                            measuredWidth = this.f40358d.getMeasuredWidth() + i7;
+                            measuredWidth = this.f35987d.getMeasuredWidth() + i7;
                         }
-                        this.f40358d.layout(i7, i9, measuredWidth, measuredHeight);
+                        this.f35987d.layout(i7, i9, measuredWidth, measuredHeight);
                     } else {
-                        ak akVar = this.f40360f;
+                        ak akVar = this.f35989f;
                         if (childAt != akVar) {
                             RelativeLayout relativeLayout = this.l;
                             if (childAt == relativeLayout) {
                                 a(relativeLayout);
-                                Point point = this.f40361g;
+                                Point point = this.f35990g;
                                 if (point == null) {
                                     this.B = this.l.getMeasuredWidth();
                                     this.A = this.l.getMeasuredHeight();
                                     int i12 = (int) (this.w + (5.0f * f3));
-                                    int height = (getHeight() - ((int) ((this.z + (f2 * 5.0f)) + 56.0f))) - this.f40358d.getMeasuredHeight();
+                                    int height = (getHeight() - ((int) ((this.z + (f2 * 5.0f)) + 56.0f))) - this.f35987d.getMeasuredHeight();
                                     this.l.layout(i12, height, this.B + i12, this.A + height);
                                 } else {
                                     RelativeLayout relativeLayout2 = this.l;
                                     int i13 = point.x;
-                                    relativeLayout2.layout(i13, point.y, relativeLayout2.getMeasuredWidth() + i13, this.f40361g.y + this.l.getMeasuredHeight());
+                                    relativeLayout2.layout(i13, point.y, relativeLayout2.getMeasuredWidth() + i13, this.f35990g.y + this.l.getMeasuredHeight());
                                 }
                             } else {
                                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                                 if (layoutParams instanceof MapViewLayoutParams) {
                                     MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                                    Point a2 = mapViewLayoutParams.f40254c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f40253b : this.f40356b.b().a(CoordUtil.ll2mc(mapViewLayoutParams.f40252a));
+                                    Point a2 = mapViewLayoutParams.f35886c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f35885b : this.f35985b.b().a(CoordUtil.ll2mc(mapViewLayoutParams.a));
                                     a(childAt);
                                     int measuredWidth2 = childAt.getMeasuredWidth();
                                     int measuredHeight2 = childAt.getMeasuredHeight();
-                                    float f6 = mapViewLayoutParams.f40255d;
-                                    float f7 = mapViewLayoutParams.f40256e;
+                                    float f6 = mapViewLayoutParams.f35887d;
+                                    float f7 = mapViewLayoutParams.f35888e;
                                     int i14 = (int) (a2.x - (f6 * measuredWidth2));
-                                    int i15 = ((int) (a2.y - (f7 * measuredHeight2))) + mapViewLayoutParams.f40257f;
+                                    int i15 = ((int) (a2.y - (f7 * measuredHeight2))) + mapViewLayoutParams.f35889f;
                                     childAt.layout(i14, i15, measuredWidth2 + i14, measuredHeight2 + i15);
                                 }
                             }
                         } else if (akVar.a()) {
-                            a(this.f40360f);
-                            Point point2 = this.f40362h;
+                            a(this.f35989f);
+                            Point point2 = this.f35991h;
                             if (point2 == null) {
                                 int height2 = (int) (((getHeight() - 15) * f2) + this.y);
                                 int width = (int) (((getWidth() - 15) * f3) + this.w);
-                                int measuredWidth3 = width - this.f40360f.getMeasuredWidth();
-                                int measuredHeight3 = height2 - this.f40360f.getMeasuredHeight();
+                                int measuredWidth3 = width - this.f35989f.getMeasuredWidth();
+                                int measuredHeight3 = height2 - this.f35989f.getMeasuredHeight();
                                 if (this.t == 4) {
-                                    height2 -= this.f40358d.getMeasuredHeight();
-                                    measuredHeight3 -= this.f40358d.getMeasuredHeight();
+                                    height2 -= this.f35987d.getMeasuredHeight();
+                                    measuredHeight3 -= this.f35987d.getMeasuredHeight();
                                 }
-                                this.f40360f.layout(measuredWidth3, measuredHeight3, width, height2);
+                                this.f35989f.layout(measuredWidth3, measuredHeight3, width, height2);
                             } else {
-                                ak akVar2 = this.f40360f;
+                                ak akVar2 = this.f35989f;
                                 int i16 = point2.x;
-                                akVar2.layout(i16, point2.y, akVar2.getMeasuredWidth() + i16, this.f40362h.y + this.f40360f.getMeasuredHeight());
+                                akVar2.layout(i16, point2.y, akVar2.getMeasuredWidth() + i16, this.f35991h.y + this.f35989f.getMeasuredHeight());
                             }
                         }
                     }
@@ -630,29 +632,29 @@ public final class TextureMapView extends ViewGroup {
     public final void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f40356b.d();
+            this.f35985b.d();
         }
     }
 
     public final void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f40356b.c();
+            this.f35985b.c();
         }
     }
 
     public void onSaveInstanceState(Bundle bundle) {
         BaiduMap baiduMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) || bundle == null || (baiduMap = this.f40357c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) || bundle == null || (baiduMap = this.f35986c) == null) {
             return;
         }
         bundle.putParcelable("mapstatus", baiduMap.getMapStatus());
-        Point point = this.f40361g;
+        Point point = this.f35990g;
         if (point != null) {
             bundle.putParcelable("scalePosition", point);
         }
-        Point point2 = this.f40362h;
+        Point point2 = this.f35991h;
         if (point2 != null) {
             bundle.putParcelable("zoomPosition", point2);
         }
@@ -668,7 +670,7 @@ public final class TextureMapView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, view) == null) || view == this.f40358d) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, view) == null) || view == this.f35987d) {
             return;
         }
         super.removeView(view);
@@ -702,7 +704,7 @@ public final class TextureMapView extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, point) == null) || point == null || (i2 = point.x) < 0 || point.y < 0 || i2 > getWidth() || point.y > getHeight()) {
             return;
         }
-        this.f40361g = point;
+        this.f35990g = point;
         requestLayout();
     }
 
@@ -712,7 +714,7 @@ public final class TextureMapView extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeL(1048592, this, point) == null) || point == null || (i2 = point.x) < 0 || point.y < 0 || i2 > getWidth() || point.y > getHeight()) {
             return;
         }
-        this.f40362h = point;
+        this.f35991h = point;
         requestLayout();
     }
 
@@ -726,8 +728,8 @@ public final class TextureMapView extends ViewGroup {
 
     public void showZoomControls(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && this.f40360f.a()) {
-            this.f40360f.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && this.f35989f.a()) {
+            this.f35989f.setVisibility(z ? 0 : 8);
             this.u = z;
         }
     }

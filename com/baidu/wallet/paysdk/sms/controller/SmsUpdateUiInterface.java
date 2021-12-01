@@ -1,5 +1,5 @@
 package com.baidu.wallet.paysdk.sms.controller;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public interface SmsUpdateUiInterface {
     void clearSmsEditText();
 

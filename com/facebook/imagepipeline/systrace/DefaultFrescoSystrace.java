@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f34958h);
+                sb.append(a.f31351h);
                 sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
                 return this;
             }
@@ -121,7 +121,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f34958h);
+                sb.append(a.f31351h);
                 sb.append(Integer.toString(i2));
                 return this;
             }
@@ -129,15 +129,15 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, long j) {
+        public FrescoSystrace.ArgsBuilder arg(String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f34958h);
-                sb.append(Long.toString(j));
+                sb.append(a.f31351h);
+                sb.append(Long.toString(j2));
                 return this;
             }
             return (FrescoSystrace.ArgsBuilder) invokeLJ.objValue;
@@ -151,7 +151,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f34958h);
+                sb.append(a.f31351h);
                 sb.append(Double.toString(d2));
                 return this;
             }

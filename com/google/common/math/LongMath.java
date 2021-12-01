@@ -1,10 +1,9 @@
 package com.google.common.math;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.f.e;
+import c.i.d.a.n;
+import c.i.d.f.e;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.UnsignedLongs;
 import java.math.RoundingMode;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class LongMath {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class MillerRabinTester {
         public static final /* synthetic */ MillerRabinTester[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -67,17 +66,17 @@ public final class LongMath {
                 }
 
                 @Override // com.google.common.math.LongMath.MillerRabinTester
-                public long mulMod(long j, long j2, long j3) {
+                public long mulMod(long j2, long j3, long j4) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (j * j2) % j3 : invokeCommon.longValue;
+                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? (j2 * j3) % j4 : invokeCommon.longValue;
                 }
 
                 @Override // com.google.common.math.LongMath.MillerRabinTester
-                public long squareMod(long j, long j2) {
+                public long squareMod(long j2, long j3) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j * j) % j2 : invokeCommon.longValue;
+                    return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (j2 * j2) % j3 : invokeCommon.longValue;
                 }
             };
             MillerRabinTester millerRabinTester = new MillerRabinTester("LARGE", 1) { // from class: com.google.common.math.LongMath.MillerRabinTester.2
@@ -105,64 +104,64 @@ public final class LongMath {
                     }
                 }
 
-                private long plusMod(long j, long j2, long j3) {
+                private long plusMod(long j2, long j3, long j4) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                        int i2 = (j > (j3 - j2) ? 1 : (j == (j3 - j2) ? 0 : -1));
-                        long j4 = j + j2;
-                        return i2 >= 0 ? j4 - j3 : j4;
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+                        int i2 = (j2 > (j4 - j3) ? 1 : (j2 == (j4 - j3) ? 0 : -1));
+                        long j5 = j2 + j3;
+                        return i2 >= 0 ? j5 - j4 : j5;
                     }
                     return invokeCommon.longValue;
                 }
 
-                private long times2ToThe32Mod(long j, long j2) {
+                private long times2ToThe32Mod(long j2, long j3) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
                         int i2 = 32;
                         do {
-                            int min = Math.min(i2, Long.numberOfLeadingZeros(j));
-                            j = UnsignedLongs.e(j << min, j2);
+                            int min = Math.min(i2, Long.numberOfLeadingZeros(j2));
+                            j2 = UnsignedLongs.e(j2 << min, j3);
                             i2 -= min;
                         } while (i2 > 0);
-                        return j;
+                        return j2;
                     }
                     return invokeCommon.longValue;
                 }
 
                 @Override // com.google.common.math.LongMath.MillerRabinTester
-                public long mulMod(long j, long j2, long j3) {
+                public long mulMod(long j2, long j3, long j4) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                        long j4 = j >>> 32;
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
                         long j5 = j2 >>> 32;
-                        long j6 = j & 4294967295L;
+                        long j6 = j3 >>> 32;
                         long j7 = j2 & 4294967295L;
-                        long times2ToThe32Mod = times2ToThe32Mod(j4 * j5, j3) + (j4 * j7);
+                        long j8 = j3 & 4294967295L;
+                        long times2ToThe32Mod = times2ToThe32Mod(j5 * j6, j4) + (j5 * j8);
                         if (times2ToThe32Mod < 0) {
-                            times2ToThe32Mod = UnsignedLongs.e(times2ToThe32Mod, j3);
+                            times2ToThe32Mod = UnsignedLongs.e(times2ToThe32Mod, j4);
                         }
-                        Long.signum(j6);
-                        return plusMod(times2ToThe32Mod(times2ToThe32Mod + (j5 * j6), j3), UnsignedLongs.e(j6 * j7, j3), j3);
+                        Long.signum(j7);
+                        return plusMod(times2ToThe32Mod(times2ToThe32Mod + (j6 * j7), j4), UnsignedLongs.e(j7 * j8, j4), j4);
                     }
                     return invokeCommon.longValue;
                 }
 
                 @Override // com.google.common.math.LongMath.MillerRabinTester
-                public long squareMod(long j, long j2) {
+                public long squareMod(long j2, long j3) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                        long j3 = j >>> 32;
-                        long j4 = j & 4294967295L;
-                        long times2ToThe32Mod = times2ToThe32Mod(j3 * j3, j2);
-                        long j5 = j3 * j4 * 2;
-                        if (j5 < 0) {
-                            j5 = UnsignedLongs.e(j5, j2);
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+                        long j4 = j2 >>> 32;
+                        long j5 = j2 & 4294967295L;
+                        long times2ToThe32Mod = times2ToThe32Mod(j4 * j4, j3);
+                        long j6 = j4 * j5 * 2;
+                        if (j6 < 0) {
+                            j6 = UnsignedLongs.e(j6, j3);
                         }
-                        return plusMod(times2ToThe32Mod(times2ToThe32Mod + j5, j2), UnsignedLongs.e(j4 * j4, j2), j2);
+                        return plusMod(times2ToThe32Mod(times2ToThe32Mod + j6, j3), UnsignedLongs.e(j5 * j5, j3), j3);
                     }
                     return invokeCommon.longValue;
                 }
@@ -190,54 +189,54 @@ public final class LongMath {
             }
         }
 
-        private long powMod(long j, long j2, long j3) {
+        private long powMod(long j2, long j3, long j4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                long j4 = 1;
-                while (j2 != 0) {
-                    if ((j2 & 1) != 0) {
-                        j4 = mulMod(j4, j, j3);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+                long j5 = 1;
+                while (j3 != 0) {
+                    if ((j3 & 1) != 0) {
+                        j5 = mulMod(j5, j2, j4);
                     }
-                    j = squareMod(j, j3);
-                    j2 >>= 1;
+                    j2 = squareMod(j2, j4);
+                    j3 >>= 1;
                 }
-                return j4;
+                return j5;
             }
             return invokeCommon.longValue;
         }
 
-        public static boolean test(long j, long j2) {
+        public static boolean test(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                return (j2 <= 3037000499L ? SMALL : LARGE).testWitness(j, j2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+                return (j3 <= 3037000499L ? SMALL : LARGE).testWitness(j2, j3);
             }
             return invokeCommon.booleanValue;
         }
 
-        private boolean testWitness(long j, long j2) {
+        private boolean testWitness(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                long j3 = j2 - 1;
-                int numberOfTrailingZeros = Long.numberOfTrailingZeros(j3);
-                long j4 = j3 >> numberOfTrailingZeros;
-                long j5 = j % j2;
-                if (j5 == 0) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+                long j4 = j3 - 1;
+                int numberOfTrailingZeros = Long.numberOfTrailingZeros(j4);
+                long j5 = j4 >> numberOfTrailingZeros;
+                long j6 = j2 % j3;
+                if (j6 == 0) {
                     return true;
                 }
-                long powMod = powMod(j5, j4, j2);
+                long powMod = powMod(j6, j5, j3);
                 if (powMod == 1) {
                     return true;
                 }
                 int i2 = 0;
-                while (powMod != j3) {
+                while (powMod != j4) {
                     i2++;
                     if (i2 == numberOfTrailingZeros) {
                         return false;
                     }
-                    powMod = squareMod(powMod, j2);
+                    powMod = squareMod(powMod, j3);
                 }
                 return true;
             }
@@ -247,7 +246,7 @@ public final class LongMath {
         public static MillerRabinTester valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (MillerRabinTester) Enum.valueOf(MillerRabinTester.class, str) : (MillerRabinTester) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (MillerRabinTester) Enum.valueOf(MillerRabinTester.class, str) : (MillerRabinTester) invokeL.objValue;
         }
 
         public static MillerRabinTester[] values() {
@@ -256,21 +255,19 @@ public final class LongMath {
             return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (MillerRabinTester[]) $VALUES.clone() : (MillerRabinTester[]) invokeV.objValue;
         }
 
-        public abstract long mulMod(long j, long j2, long j3);
+        public abstract long mulMod(long j2, long j3, long j4);
 
-        public abstract long squareMod(long j, long j2);
+        public abstract long squareMod(long j2, long j3);
 
         public /* synthetic */ MillerRabinTester(String str, int i2, a aVar) {
             this(str, i2);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64566a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -287,37 +284,37 @@ public final class LongMath {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f64566a = iArr;
+            a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f64566a[RoundingMode.DOWN.ordinal()] = 2;
+                a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f64566a[RoundingMode.FLOOR.ordinal()] = 3;
+                a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f64566a[RoundingMode.UP.ordinal()] = 4;
+                a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f64566a[RoundingMode.CEILING.ordinal()] = 5;
+                a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f64566a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f64566a[RoundingMode.HALF_UP.ordinal()] = 7;
+                a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f64566a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -351,20 +348,20 @@ public final class LongMath {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long a(long j, long j2, RoundingMode roundingMode) {
+    public static long a(long j2, long j3, RoundingMode roundingMode) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), roundingMode})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), roundingMode})) == null) {
             n.p(roundingMode);
-            long j3 = j / j2;
-            long j4 = j - (j2 * j3);
-            int i2 = (j4 > 0L ? 1 : (j4 == 0L ? 0 : -1));
+            long j4 = j2 / j3;
+            long j5 = j2 - (j3 * j4);
+            int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
             if (i2 == 0) {
-                return j3;
+                return j4;
             }
-            int i3 = (int) ((j ^ j2) >> 63);
+            int i3 = (int) ((j2 ^ j3) >> 63);
             int i4 = i3 | 1;
-            switch (a.f64566a[roundingMode.ordinal()]) {
+            switch (a.a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(i2 == 0);
                     r9 = false;
@@ -381,27 +378,27 @@ public final class LongMath {
                 case 6:
                 case 7:
                 case 8:
-                    long abs = Math.abs(j4);
-                    int i5 = ((abs - (Math.abs(j2) - abs)) > 0L ? 1 : ((abs - (Math.abs(j2) - abs)) == 0L ? 0 : -1));
+                    long abs = Math.abs(j5);
+                    int i5 = ((abs - (Math.abs(j3) - abs)) > 0L ? 1 : ((abs - (Math.abs(j3) - abs)) == 0L ? 0 : -1));
                     if (i5 == 0) {
-                        r9 = (((1 & j3) != 0) & (roundingMode == RoundingMode.HALF_EVEN)) | (roundingMode == RoundingMode.HALF_UP);
+                        r9 = (((1 & j4) != 0) & (roundingMode == RoundingMode.HALF_EVEN)) | (roundingMode == RoundingMode.HALF_UP);
                         break;
                     }
                     break;
                 default:
                     throw new AssertionError();
             }
-            return r9 ? j3 + i4 : j3;
+            return r9 ? j4 + i4 : j4;
         }
         return invokeCommon.longValue;
     }
 
-    public static long b(long j, long j2) {
+    public static long b(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j + j2;
-            return (((j2 ^ j) > 0L ? 1 : ((j2 ^ j) == 0L ? 0 : -1)) < 0) | ((j ^ j3) >= 0) ? j3 : ((j3 >>> 63) ^ 1) + Long.MAX_VALUE;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            long j4 = j2 + j3;
+            return (((j3 ^ j2) > 0L ? 1 : ((j3 ^ j2) == 0L ? 0 : -1)) < 0) | ((j2 ^ j4) >= 0) ? j4 : ((j4 >>> 63) ^ 1) + Long.MAX_VALUE;
         }
         return invokeCommon.longValue;
     }

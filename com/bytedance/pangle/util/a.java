@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.activity.IPluginActivity;
 import com.bytedance.pangle.log.ZeusLogger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,11 +19,11 @@ public final class a {
             try {
                 FieldUtils.writeField(aVar, "mTheme", (Object) null);
                 FieldUtils.writeField((Object) aVar, "mThemeResource", (Object) 0);
-                int[] a2 = a(activity);
-                if (a2 == null) {
+                int[] a = a(activity);
+                if (a == null) {
                     return;
                 }
-                for (int i2 : a2) {
+                for (int i2 : a) {
                     if (i2 != 0) {
                         aVar.setWrapperActivityTheme(i2);
                     }
@@ -94,11 +94,11 @@ public final class a {
             try {
                 FieldUtils.writeField(iPluginActivity, "mTheme", (Object) null);
                 FieldUtils.writeField((Object) iPluginActivity, "mThemeResource", (Object) 0);
-                int[] a2 = a(activity);
-                if (a2 == null) {
+                int[] a = a(activity);
+                if (a == null) {
                     return;
                 }
-                for (int i2 : a2) {
+                for (int i2 : a) {
                     if (i2 != 0) {
                         iPluginActivity.setProxyTheme2Plugin(i2);
                     }

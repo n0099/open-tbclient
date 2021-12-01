@@ -17,7 +17,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f70481e = "h";
+    public static final String f61944e = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,10 +54,10 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, intent, i2, i3) == null) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f70481e, "onStartCommand");
+                com.ss.android.socialbase.downloader.c.a.b(f61944e, "onStartCommand");
             }
             if (!com.ss.android.socialbase.downloader.i.a.a(262144)) {
-                this.f70168b = true;
+                this.f61714b = true;
             }
             e();
         }
@@ -67,10 +67,10 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.f70168b = true;
-            this.f70170d = false;
+            this.f61714b = true;
+            this.f61716d = false;
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f70481e, "onStartCommandOnMainThread");
+                com.ss.android.socialbase.downloader.c.a.b(f61944e, "onStartCommandOnMainThread");
             }
         }
     }
@@ -92,7 +92,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, serviceConnection) == null) {
             context.stopService(new Intent(context, DownloadService.class));
-            this.f70168b = false;
+            this.f61714b = false;
         }
     }
 }

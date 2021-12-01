@@ -1,10 +1,9 @@
 package com.baidu.lcp.sdk.connect;
 
 import android.content.Context;
-import b.a.u.a.c.b;
-import b.a.u.a.c.c;
-import b.a.u.a.c.d;
-import b.a.u.a.c.e;
+import c.a.t.a.c.b;
+import c.a.t.a.c.c;
+import c.a.t.a.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
-public class QuicMessageHandler extends d implements c {
+/* loaded from: classes8.dex */
+public class QuicMessageHandler extends c implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +57,7 @@ public class QuicMessageHandler extends d implements c {
         initGlobalRef(this);
     }
 
-    @Override // b.a.u.a.c.d
+    @Override // c.a.t.a.c.c
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,16 +67,16 @@ public class QuicMessageHandler extends d implements c {
         return (InputStream) invokeV.objValue;
     }
 
-    @Override // b.a.u.a.c.d
-    public void c(e eVar) {
+    @Override // c.a.t.a.c.c
+    public void c(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
         }
     }
 
     public native void closeStream(int i2);
 
-    @Override // b.a.u.a.c.d
+    @Override // c.a.t.a.c.c
     public boolean d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,26 +86,26 @@ public class QuicMessageHandler extends d implements c {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.u.a.c.d
-    public e e(String str, int i2) {
+    @Override // c.a.t.a.c.c
+    public d e(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i2)) == null) {
             return null;
         }
-        return (e) invokeLI.objValue;
+        return (d) invokeLI.objValue;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // b.a.u.a.c.d
+    @Override // c.a.t.a.c.c
     public void f(b bVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
         }
     }
 
-    public native void initGlobalRef(c cVar);
+    public native void initGlobalRef(QuicEventCallbackListener quicEventCallbackListener);
 
     public native int sendMsg(byte[] bArr);
 

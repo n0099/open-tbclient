@@ -12,7 +12,6 @@ import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,19 +30,19 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f69881b;
+    public final Context f61512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Resources f69882c;
+    public final Resources f61513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69883d;
+    public String f61514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69884e;
+    public String f61515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f69885f;
+    public String f61516f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, int i2, String str, String str2, String str3, String str4) {
@@ -64,12 +63,12 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                 return;
             }
         }
-        this.f69884e = str2;
-        this.f69883d = str3;
-        this.f69885f = str4;
+        this.f61515e = str2;
+        this.f61514d = str3;
+        this.f61516f = str4;
         Context applicationContext = context.getApplicationContext();
-        this.f69881b = applicationContext;
-        this.f69882c = applicationContext.getResources();
+        this.f61512b = applicationContext;
+        this.f61513c = applicationContext.getResources();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:175:0x04a0  */
@@ -100,7 +99,7 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         InterceptResult invokeLZ;
         boolean z2;
         String d2;
-        RemoteViews j;
+        RemoteViews j2;
         boolean z3;
         String str;
         int b2;
@@ -113,79 +112,79 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         int b4;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, this, baseException, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, this, baseException, z)) == null) {
             int e2 = e();
-            int a2 = com.ss.android.socialbase.appdownloader.c.a(e2);
-            if (a2 == 0) {
+            int a = com.ss.android.socialbase.appdownloader.c.a(e2);
+            if (a == 0) {
                 return null;
             }
-            NotificationCompat.Builder k = k();
-            k.setWhen(f());
-            int a3 = a();
-            com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(a3);
-            if (Build.VERSION.SDK_INT >= 24 && a4.a("set_notification_group", 0) == 1) {
-                k.setGroup("com.ss.android.socialbase.APP_DOWNLOADER");
-                k.setGroupSummary(false);
+            NotificationCompat.Builder k2 = k();
+            k2.setWhen(f());
+            int a2 = a();
+            com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(a2);
+            if (Build.VERSION.SDK_INT >= 24 && a3.a("set_notification_group", 0) == 1) {
+                k2.setGroup("com.ss.android.socialbase.APP_DOWNLOADER");
+                k2.setGroupSummary(false);
             }
-            int a5 = a(a2, a3);
-            if (a5 != 0) {
-                k.setSmallIcon(a5);
+            int a4 = a(a, a2);
+            if (a4 != 0) {
+                k2.setSmallIcon(a4);
             }
             String str5 = "android.ss.intent.action.DOWNLOAD_CLICK_CONTENT";
-            if (a2 == 1 || a2 == 4 || a2 == 2) {
-                k.setContentIntent(a("android.ss.intent.action.DOWNLOAD_CLICK_CONTENT", a2, a3));
-                k.setOngoing(a2 == 1 || a2 == 4);
-                k.setAutoCancel(false);
-            } else if (a2 == 3) {
-                k.setOngoing(false);
-                k.setAutoCancel(true);
+            if (a == 1 || a == 4 || a == 2) {
+                k2.setContentIntent(a("android.ss.intent.action.DOWNLOAD_CLICK_CONTENT", a, a2));
+                k2.setOngoing(a == 1 || a == 4);
+                k2.setAutoCancel(false);
+            } else if (a == 3) {
+                k2.setOngoing(false);
+                k2.setAutoCancel(true);
                 if (e2 != -1 && e2 != -4) {
-                    if (e2 == -3 && a4.a("notification_click_install_auto_cancel", 1) == 0) {
-                        k.setAutoCancel(false);
+                    if (e2 == -3 && a3.a("notification_click_install_auto_cancel", 1) == 0) {
+                        k2.setAutoCancel(false);
                         if (h() > 0) {
-                            k.setOngoing(false);
+                            k2.setOngoing(false);
                             str5 = "android.ss.intent.action.DOWNLOAD_OPEN";
                             z2 = false;
-                            k.setContentIntent(a(str5, a2, a3));
-                            k.setDeleteIntent(a("android.ss.intent.action.DOWNLOAD_HIDE", a2, a3));
+                            k2.setContentIntent(a(str5, a, a2));
+                            k2.setDeleteIntent(a("android.ss.intent.action.DOWNLOAD_HIDE", a, a2));
                             long b5 = b();
                             long c2 = c();
                             int i4 = c2 > 0 ? (int) ((b5 * 100) / c2) : 0;
                             d2 = d();
                             if (TextUtils.isEmpty(d2)) {
-                                d2 = this.f69882c.getString(i.b("tt_appdownloader_download_unknown_title"));
+                                d2 = this.f61513c.getString(i.b("tt_appdownloader_download_unknown_title"));
                             }
-                            j = j();
-                            int k2 = e.k();
-                            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("notification_opt_2") != 1) {
-                                j.setOnClickPendingIntent(k2, a("android.ss.intent.action.DOWNLOAD_CLICK_BTN", a2, a3));
+                            j2 = j();
+                            int k3 = e.k();
+                            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("notification_opt_2") != 1) {
+                                j2.setOnClickPendingIntent(k3, a("android.ss.intent.action.DOWNLOAD_CLICK_BTN", a, a2));
                             }
                             z3 = z2;
-                            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
-                                j.setInt(k2, "setBackgroundResource", e.s());
-                                j.setTextColor(k2, -1);
+                            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
+                                j2.setInt(k3, "setBackgroundResource", e.s());
+                                j2.setTextColor(k3, -1);
                             }
-                            j.setTextViewText(e.m(), d2);
-                            int a6 = a(a3);
-                            j.setViewVisibility(a6, 0);
-                            j.setProgressBar(a6, 100, i4, z);
+                            j2.setTextViewText(e.m(), d2);
+                            int a5 = a(a2);
+                            j2.setViewVisibility(a5, 0);
+                            j2.setProgressBar(a5, 100, i4, z);
                             int l = e.l();
-                            if (a5 != 0) {
-                                j.setImageViewResource(l, a5);
+                            if (a4 != 0) {
+                                j2.setImageViewResource(l, a4);
                             }
-                            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
-                                Bitmap a7 = c.a().a(a3);
-                                if (a7 != null) {
-                                    j.setInt(l, "setBackgroundColor", 0);
-                                    j.setImageViewBitmap(l, a7);
+                            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
+                                Bitmap a6 = c.a().a(a2);
+                                if (a6 != null) {
+                                    j2.setInt(l, "setBackgroundColor", 0);
+                                    j2.setImageViewBitmap(l, a6);
                                 } else {
-                                    j.setInt(l, "setBackgroundResource", e.s());
+                                    j2.setInt(l, "setBackgroundResource", e.s());
                                 }
                             }
                             str = "";
-                            if (a2 != 1 || a2 == 4) {
+                            if (a != 1 || a == 4) {
                                 str = com.ss.android.socialbase.appdownloader.c.a(b()) + "/" + com.ss.android.socialbase.appdownloader.c.a(c());
-                                if (a2 == 1) {
+                                if (a == 1) {
                                     if (e() == 11) {
                                         b2 = i.b("tt_appdownloader_notification_waiting_download_complete_handler");
                                     } else {
@@ -194,67 +193,67 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                                 } else {
                                     b2 = i.b("tt_appdownloader_notification_prepare");
                                 }
-                                String string = this.f69881b.getResources().getString(b2);
-                                String string2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
-                                j.setViewVisibility(a(a3), 0);
-                                j.setViewVisibility(e.i(), 8);
-                                j.setViewVisibility(e.j(), 0);
-                                int k3 = e.k();
-                                if (com.ss.android.socialbase.appdownloader.c.a(this.f69885f)) {
-                                    j.setViewVisibility(k3, 8);
+                                String string = this.f61512b.getResources().getString(b2);
+                                String string2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
+                                j2.setViewVisibility(a(a2), 0);
+                                j2.setViewVisibility(e.i(), 8);
+                                j2.setViewVisibility(e.j(), 0);
+                                int k4 = e.k();
+                                if (com.ss.android.socialbase.appdownloader.c.a(this.f61516f)) {
+                                    j2.setViewVisibility(k4, 8);
                                 } else {
-                                    j.setViewVisibility(k3, 0);
+                                    j2.setViewVisibility(k4, 0);
                                 }
-                                if (a4.b("enable_notification_ui") >= 2) {
-                                    j.setViewVisibility(k3, 8);
+                                if (a3.b("enable_notification_ui") >= 2) {
+                                    j2.setViewVisibility(k4, 8);
                                 }
                                 str2 = string;
                                 str3 = string2;
-                            } else if (a2 == 2) {
+                            } else if (a == 2) {
                                 String str6 = com.ss.android.socialbase.appdownloader.c.a(b()) + "/" + com.ss.android.socialbase.appdownloader.c.a(c());
-                                String string3 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_pausing"));
-                                String string4 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_resume"));
-                                if (a4.b("notification_opt_2") == 1) {
-                                    if (i4 >= a4.a("noti_progress_show_th", 70)) {
-                                        j.setViewVisibility(a(a3), 0);
-                                        j.setViewVisibility(e.j(), 0);
-                                        j.setViewVisibility(e.i(), 8);
+                                String string3 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_pausing"));
+                                String string4 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_resume"));
+                                if (a3.b("notification_opt_2") == 1) {
+                                    if (i4 >= a3.a("noti_progress_show_th", 70)) {
+                                        j2.setViewVisibility(a(a2), 0);
+                                        j2.setViewVisibility(e.j(), 0);
+                                        j2.setViewVisibility(e.i(), 8);
                                     } else {
-                                        j.setViewVisibility(a(a3), 8);
-                                        j.setViewVisibility(e.j(), 8);
-                                        j.setViewVisibility(e.i(), 0);
-                                        j.setViewVisibility(e.o(), 8);
-                                        string3 = this.f69882c.getString(i.b("tt_appdownloader_notification_download_continue"));
+                                        j2.setViewVisibility(a(a2), 8);
+                                        j2.setViewVisibility(e.j(), 8);
+                                        j2.setViewVisibility(e.i(), 0);
+                                        j2.setViewVisibility(e.o(), 8);
+                                        string3 = this.f61513c.getString(i.b("tt_appdownloader_notification_download_continue"));
                                     }
                                 } else {
-                                    j.setViewVisibility(e.j(), 0);
-                                    int a8 = a(a3);
-                                    if (a4.b("enable_notification_ui") >= 2) {
-                                        j.setViewVisibility(a8, 0);
+                                    j2.setViewVisibility(e.j(), 0);
+                                    int a7 = a(a2);
+                                    if (a3.b("enable_notification_ui") >= 2) {
+                                        j2.setViewVisibility(a7, 0);
                                     } else {
-                                        j.setViewVisibility(a8, 8);
+                                        j2.setViewVisibility(a7, 8);
                                     }
-                                    j.setViewVisibility(e.i(), 8);
+                                    j2.setViewVisibility(e.i(), 8);
                                 }
-                                int k4 = e.k();
-                                if (com.ss.android.socialbase.appdownloader.c.a(this.f69885f)) {
-                                    j.setViewVisibility(k4, 8);
+                                int k5 = e.k();
+                                if (com.ss.android.socialbase.appdownloader.c.a(this.f61516f)) {
+                                    j2.setViewVisibility(k5, 8);
                                 } else {
-                                    j.setViewVisibility(k4, 0);
-                                    if (a4.b("enable_notification_ui") >= 2) {
+                                    j2.setViewVisibility(k5, 0);
+                                    if (a3.b("enable_notification_ui") >= 2) {
                                         str6 = com.ss.android.socialbase.appdownloader.c.a(b(), false) + "/" + com.ss.android.socialbase.appdownloader.c.a(c(), false);
                                     }
                                 }
                                 str2 = string3;
                                 str3 = string4;
                                 str = str6;
-                            } else if (a2 == 3) {
-                                DownloadInfo downloadInfo = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadInfo(a3);
+                            } else if (a == 3) {
+                                DownloadInfo downloadInfo = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadInfo(a2);
                                 if (e() != -1 && e() != -4) {
                                     if (e() == -3) {
-                                        String a9 = com.ss.android.socialbase.appdownloader.c.a(c());
+                                        String a8 = com.ss.android.socialbase.appdownloader.c.a(c());
                                         if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals("application/vnd.android.package-archive")) {
-                                            if (com.ss.android.socialbase.appdownloader.c.a(this.f69881b, downloadInfo, !a4.b("fix_ui_thread_parser_apk_file", true))) {
+                                            if (com.ss.android.socialbase.appdownloader.c.a(this.f61512b, downloadInfo, !a3.b("fix_ui_thread_parser_apk_file", true))) {
                                                 b4 = i.b("tt_appdownloader_notification_install_finished_open");
                                                 i3 = i.b("tt_appdownloader_notification_download_open");
                                             } else {
@@ -263,71 +262,71 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                                             }
                                         } else {
                                             b4 = i.b("tt_appdownloader_notification_download_complete_without_install");
-                                            if (com.ss.android.socialbase.downloader.downloader.d.a().m(a3) != null) {
+                                            if (com.ss.android.socialbase.downloader.downloader.d.a().m(a2) != null) {
                                                 b4 = i.b("tt_appdownloader_notification_download_complete_open");
                                             }
                                             i3 = 0;
                                         }
-                                        str2 = this.f69882c.getString(b4);
-                                        k.setContentText(str2);
-                                        str = i3 != 0 ? this.f69882c.getString(i3) : "";
-                                        if (a4.b("notification_opt_2") == 1) {
-                                            j.setTextViewText(e.k(), str);
-                                            j.setViewVisibility(e.o(), 8);
+                                        str2 = this.f61513c.getString(b4);
+                                        k2.setContentText(str2);
+                                        str = i3 != 0 ? this.f61513c.getString(i3) : "";
+                                        if (a3.b("notification_opt_2") == 1) {
+                                            j2.setTextViewText(e.k(), str);
+                                            j2.setViewVisibility(e.o(), 8);
                                         } else {
-                                            j.setViewVisibility(e.k(), 8);
+                                            j2.setViewVisibility(e.k(), 8);
                                         }
                                         str3 = str;
-                                        str4 = a9;
+                                        str4 = a8;
                                     } else {
                                         str2 = "";
                                         str3 = str2;
                                         str4 = str3;
                                     }
                                 } else {
-                                    if (a4.b("enable_notification_ui") >= 2 && e() == -1 && (f.i(baseException) || f.h(baseException))) {
+                                    if (a3.b("enable_notification_ui") >= 2 && e() == -1 && (f.i(baseException) || f.h(baseException))) {
                                         str = com.ss.android.socialbase.appdownloader.c.a(b()) + "/" + com.ss.android.socialbase.appdownloader.c.a(c());
                                     }
-                                    j.setViewVisibility(e.o(), 8);
+                                    j2.setViewVisibility(e.o(), 8);
                                     if (baseException != null && baseException.getErrorCode() == 1006) {
-                                        str2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_space_failed"));
-                                    } else if (a(baseException, a4, downloadInfo)) {
+                                        str2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_space_failed"));
+                                    } else if (a(baseException, a3, downloadInfo)) {
                                         if (downloadInfo != null && downloadInfo.isOnlyWifi()) {
                                             b3 = i.b("tt_appdownloader_notification_download_waiting_wifi");
                                         } else {
                                             b3 = i.b("tt_appdownloader_notification_download_waiting_net");
                                         }
-                                        str2 = this.f69881b.getResources().getString(b3);
+                                        str2 = this.f61512b.getResources().getString(b3);
                                     } else {
-                                        str2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_failed"));
+                                        str2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_failed"));
                                     }
-                                    str3 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_restart"));
-                                    j.setViewVisibility(e.k(), 8);
-                                    if (a4.b("enable_notification_ui") >= 2 && e() == -1) {
+                                    str3 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_restart"));
+                                    j2.setViewVisibility(e.k(), 8);
+                                    if (a3.b("enable_notification_ui") >= 2 && e() == -1) {
                                         if (f.i(baseException)) {
                                             if (f.b(baseException, downloadInfo)) {
-                                                str2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_no_wifi_and_in_net"));
-                                                str3 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_resume"));
+                                                str2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_no_wifi_and_in_net"));
+                                                str3 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_resume"));
                                             } else {
-                                                str2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_no_internet_error"));
+                                                str2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_no_internet_error"));
                                             }
                                         } else if (f.h(baseException)) {
                                             str4 = str;
                                             i2 = 0;
-                                            str2 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_insufficient_space_error"), com.ss.android.socialbase.appdownloader.c.b(c() - b()));
-                                            j.setViewVisibility(a(a3), 8);
-                                            j.setViewVisibility(e.i(), i2);
-                                            j.setViewVisibility(e.j(), 8);
-                                            if (a4.b("enable_notification_ui") >= 2 && e() == -1 && (f.i(baseException) || f.h(baseException))) {
-                                                j.setViewVisibility(a(a3), 0);
-                                                j.setViewVisibility(e.i(), 8);
-                                                j.setViewVisibility(e.j(), 0);
-                                                int k5 = e.k();
+                                            str2 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_insufficient_space_error"), com.ss.android.socialbase.appdownloader.c.b(c() - b()));
+                                            j2.setViewVisibility(a(a2), 8);
+                                            j2.setViewVisibility(e.i(), i2);
+                                            j2.setViewVisibility(e.j(), 8);
+                                            if (a3.b("enable_notification_ui") >= 2 && e() == -1 && (f.i(baseException) || f.h(baseException))) {
+                                                j2.setViewVisibility(a(a2), 0);
+                                                j2.setViewVisibility(e.i(), 8);
+                                                j2.setViewVisibility(e.j(), 0);
+                                                int k6 = e.k();
                                                 if (!f.b(baseException, downloadInfo)) {
-                                                    j.setViewVisibility(k5, 0);
+                                                    j2.setViewVisibility(k6, 0);
                                                     str = com.ss.android.socialbase.appdownloader.c.a(b(), false) + "/" + com.ss.android.socialbase.appdownloader.c.a(c(), false);
                                                 } else {
-                                                    j.setViewVisibility(k5, 8);
+                                                    j2.setViewVisibility(k6, 8);
                                                 }
                                             }
                                             str = str4;
@@ -336,14 +335,14 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                                     str4 = str;
                                 }
                                 i2 = 0;
-                                j.setViewVisibility(a(a3), 8);
-                                j.setViewVisibility(e.i(), i2);
-                                j.setViewVisibility(e.j(), 8);
-                                if (a4.b("enable_notification_ui") >= 2) {
-                                    j.setViewVisibility(a(a3), 0);
-                                    j.setViewVisibility(e.i(), 8);
-                                    j.setViewVisibility(e.j(), 0);
-                                    int k52 = e.k();
+                                j2.setViewVisibility(a(a2), 8);
+                                j2.setViewVisibility(e.i(), i2);
+                                j2.setViewVisibility(e.j(), 8);
+                                if (a3.b("enable_notification_ui") >= 2) {
+                                    j2.setViewVisibility(a(a2), 0);
+                                    j2.setViewVisibility(e.i(), 8);
+                                    j2.setViewVisibility(e.j(), 0);
+                                    int k62 = e.k();
                                     if (!f.b(baseException, downloadInfo)) {
                                     }
                                 }
@@ -352,46 +351,46 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                                 str2 = "";
                                 str3 = str2;
                             }
-                            j.setTextViewText(e.n(), str);
-                            j.setTextViewText(e.p(), str2);
-                            j.setTextViewText(e.o(), str);
-                            j.setTextViewText(e.q(), str2);
-                            int k6 = e.k();
+                            j2.setTextViewText(e.n(), str);
+                            j2.setTextViewText(e.p(), str2);
+                            j2.setTextViewText(e.o(), str);
+                            j2.setTextViewText(e.q(), str2);
+                            int k7 = e.k();
                             if (TextUtils.isEmpty(str3)) {
-                                j.setViewVisibility(k6, 8);
+                                j2.setViewVisibility(k7, 8);
                             } else {
-                                j.setTextViewText(k6, str3);
+                                j2.setTextViewText(k7, str3);
                             }
-                            if (a4.b("notification_opt_2") == 1) {
-                                k.setAutoCancel(true);
+                            if (a3.b("notification_opt_2") == 1) {
+                                k2.setAutoCancel(true);
                                 z4 = false;
-                                if (a4.a("notification_ongoing", 0) == 1) {
-                                    k.setOngoing(true);
+                                if (a3.a("notification_ongoing", 0) == 1) {
+                                    k2.setOngoing(true);
                                     z3 = true;
                                 } else {
-                                    k.setOngoing(false);
+                                    k2.setOngoing(false);
                                     z3 = false;
                                 }
                             } else {
                                 z4 = false;
                             }
-                            Notification build = k.build();
+                            Notification build = k2.build();
                             if (z3) {
                                 build.flags |= 2;
                                 a(true);
                             } else {
                                 a(z4);
                             }
-                            build.contentView = j;
+                            build.contentView = j2;
                             return build;
                         }
-                        k.setOngoing(true);
+                        k2.setOngoing(true);
                     }
                     str5 = "android.ss.intent.action.DOWNLOAD_OPEN";
                 }
                 z2 = true;
-                k.setContentIntent(a(str5, a2, a3));
-                k.setDeleteIntent(a("android.ss.intent.action.DOWNLOAD_HIDE", a2, a3));
+                k2.setContentIntent(a(str5, a, a2));
+                k2.setDeleteIntent(a("android.ss.intent.action.DOWNLOAD_HIDE", a, a2));
                 long b52 = b();
                 long c22 = c();
                 if (c22 > 0) {
@@ -399,53 +398,53 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
                 d2 = d();
                 if (TextUtils.isEmpty(d2)) {
                 }
-                j = j();
-                int k22 = e.k();
-                if (com.ss.android.socialbase.downloader.g.a.a(a3).b("notification_opt_2") != 1) {
+                j2 = j();
+                int k32 = e.k();
+                if (com.ss.android.socialbase.downloader.g.a.a(a2).b("notification_opt_2") != 1) {
                 }
                 z3 = z2;
-                if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
+                if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
                 }
-                j.setTextViewText(e.m(), d2);
-                int a62 = a(a3);
-                j.setViewVisibility(a62, 0);
-                j.setProgressBar(a62, 100, i4, z);
+                j2.setTextViewText(e.m(), d2);
+                int a52 = a(a2);
+                j2.setViewVisibility(a52, 0);
+                j2.setProgressBar(a52, 100, i4, z);
                 int l2 = e.l();
-                if (a5 != 0) {
+                if (a4 != 0) {
                 }
-                if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
+                if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
                 }
                 str = "";
-                if (a2 != 1) {
+                if (a != 1) {
                 }
                 str = com.ss.android.socialbase.appdownloader.c.a(b()) + "/" + com.ss.android.socialbase.appdownloader.c.a(c());
-                if (a2 == 1) {
+                if (a == 1) {
                 }
-                String string5 = this.f69881b.getResources().getString(b2);
-                String string22 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
-                j.setViewVisibility(a(a3), 0);
-                j.setViewVisibility(e.i(), 8);
-                j.setViewVisibility(e.j(), 0);
-                int k32 = e.k();
-                if (com.ss.android.socialbase.appdownloader.c.a(this.f69885f)) {
+                String string5 = this.f61512b.getResources().getString(b2);
+                String string22 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
+                j2.setViewVisibility(a(a2), 0);
+                j2.setViewVisibility(e.i(), 8);
+                j2.setViewVisibility(e.j(), 0);
+                int k42 = e.k();
+                if (com.ss.android.socialbase.appdownloader.c.a(this.f61516f)) {
                 }
-                if (a4.b("enable_notification_ui") >= 2) {
+                if (a3.b("enable_notification_ui") >= 2) {
                 }
                 str2 = string5;
                 str3 = string22;
-                j.setTextViewText(e.n(), str);
-                j.setTextViewText(e.p(), str2);
-                j.setTextViewText(e.o(), str);
-                j.setTextViewText(e.q(), str2);
-                int k62 = e.k();
+                j2.setTextViewText(e.n(), str);
+                j2.setTextViewText(e.p(), str2);
+                j2.setTextViewText(e.o(), str);
+                j2.setTextViewText(e.q(), str2);
+                int k72 = e.k();
                 if (TextUtils.isEmpty(str3)) {
                 }
-                if (a4.b("notification_opt_2") == 1) {
+                if (a3.b("notification_opt_2") == 1) {
                 }
-                Notification build2 = k.build();
+                Notification build2 = k2.build();
                 if (z3) {
                 }
-                build2.contentView = j;
+                build2.contentView = j2;
                 return build2;
             }
             z2 = true;
@@ -456,53 +455,53 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
             d2 = d();
             if (TextUtils.isEmpty(d2)) {
             }
-            j = j();
-            int k222 = e.k();
-            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("notification_opt_2") != 1) {
+            j2 = j();
+            int k322 = e.k();
+            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("notification_opt_2") != 1) {
             }
             z3 = z2;
-            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
+            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
             }
-            j.setTextViewText(e.m(), d2);
-            int a622 = a(a3);
-            j.setViewVisibility(a622, 0);
-            j.setProgressBar(a622, 100, i4, z);
+            j2.setTextViewText(e.m(), d2);
+            int a522 = a(a2);
+            j2.setViewVisibility(a522, 0);
+            j2.setProgressBar(a522, 100, i4, z);
             int l22 = e.l();
-            if (a5 != 0) {
+            if (a4 != 0) {
             }
-            if (com.ss.android.socialbase.downloader.g.a.a(a3).b("enable_notification_ui") >= 1) {
+            if (com.ss.android.socialbase.downloader.g.a.a(a2).b("enable_notification_ui") >= 1) {
             }
             str = "";
-            if (a2 != 1) {
+            if (a != 1) {
             }
             str = com.ss.android.socialbase.appdownloader.c.a(b()) + "/" + com.ss.android.socialbase.appdownloader.c.a(c());
-            if (a2 == 1) {
+            if (a == 1) {
             }
-            String string52 = this.f69881b.getResources().getString(b2);
-            String string222 = this.f69881b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
-            j.setViewVisibility(a(a3), 0);
-            j.setViewVisibility(e.i(), 8);
-            j.setViewVisibility(e.j(), 0);
-            int k322 = e.k();
-            if (com.ss.android.socialbase.appdownloader.c.a(this.f69885f)) {
+            String string52 = this.f61512b.getResources().getString(b2);
+            String string222 = this.f61512b.getResources().getString(i.b("tt_appdownloader_notification_download_pause"));
+            j2.setViewVisibility(a(a2), 0);
+            j2.setViewVisibility(e.i(), 8);
+            j2.setViewVisibility(e.j(), 0);
+            int k422 = e.k();
+            if (com.ss.android.socialbase.appdownloader.c.a(this.f61516f)) {
             }
-            if (a4.b("enable_notification_ui") >= 2) {
+            if (a3.b("enable_notification_ui") >= 2) {
             }
             str2 = string52;
             str3 = string222;
-            j.setTextViewText(e.n(), str);
-            j.setTextViewText(e.p(), str2);
-            j.setTextViewText(e.o(), str);
-            j.setTextViewText(e.q(), str2);
-            int k622 = e.k();
+            j2.setTextViewText(e.n(), str);
+            j2.setTextViewText(e.p(), str2);
+            j2.setTextViewText(e.o(), str);
+            j2.setTextViewText(e.q(), str2);
+            int k722 = e.k();
             if (TextUtils.isEmpty(str3)) {
             }
-            if (a4.b("notification_opt_2") == 1) {
+            if (a3.b("notification_opt_2") == 1) {
             }
-            Notification build22 = k.build();
+            Notification build22 = k2.build();
             if (z3) {
             }
-            build22.contentView = j;
+            build22.contentView = j2;
             return build22;
         }
         return (Notification) invokeLZ.objValue;
@@ -511,12 +510,12 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
     private RemoteViews j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            RemoteViews remoteViews = new RemoteViews(this.f69881b.getPackageName(), e.a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            RemoteViews remoteViews = new RemoteViews(this.f61512b.getPackageName(), e.a());
             if (Build.VERSION.SDK_INT > 20) {
                 try {
-                    if (com.ss.android.socialbase.appdownloader.c.a(this.f69881b)) {
-                        remoteViews.setInt(e.f(), "setBackgroundColor", this.f69881b.getResources().getColor(e.r()));
+                    if (com.ss.android.socialbase.appdownloader.c.a(this.f61512b)) {
+                        remoteViews.setInt(e.f(), "setBackgroundColor", this.f61512b.getResources().getColor(e.r()));
                     }
                 } catch (Throwable unused) {
                 }
@@ -534,19 +533,19 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             String i2 = com.ss.android.socialbase.appdownloader.d.j().i();
             if (Build.VERSION.SDK_INT < 26) {
-                return new NotificationCompat.Builder(this.f69881b);
+                return new NotificationCompat.Builder(this.f61512b);
             }
             if (TextUtils.isEmpty(i2)) {
-                i2 = com.ss.android.socialbase.appdownloader.c.b(this.f69881b);
+                i2 = com.ss.android.socialbase.appdownloader.c.b(this.f61512b);
             }
             try {
                 if (com.ss.android.socialbase.appdownloader.d.j().k() != null) {
-                    builder = com.ss.android.socialbase.appdownloader.d.j().k().a(this.f69881b, i2);
+                    builder = com.ss.android.socialbase.appdownloader.d.j().k().a(this.f61512b, i2);
                 } else {
-                    builder = new NotificationCompat.Builder(this.f69881b, i2);
+                    builder = new NotificationCompat.Builder(this.f61512b, i2);
                 }
             } catch (NoSuchMethodError unused) {
-                builder = new NotificationCompat.Builder(this.f69881b);
+                builder = new NotificationCompat.Builder(this.f61512b);
             }
             return builder;
         }
@@ -558,21 +557,21 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
             super.a(downloadInfo);
-            this.f69884e = downloadInfo.getSavePath();
-            this.f69883d = downloadInfo.getName();
-            this.f69885f = downloadInfo.getExtra();
+            this.f61515e = downloadInfo.getSavePath();
+            this.f61514d = downloadInfo.getName();
+            this.f61516f = downloadInfo.getExtra();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.notification.a
     public void a(BaseException baseException, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, baseException, z) == null) || this.f69881b == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, baseException, z) == null) || this.f61512b == null) {
             return;
         }
         try {
             Notification b2 = b(baseException, z);
-            this.f70655a = b2;
+            this.a = b2;
             a(b2);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -610,12 +609,12 @@ public class a extends com.ss.android.socialbase.downloader.notification.a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, str, i2, i3)) == null) {
-            Intent intent = new Intent(this.f69881b, DownloadHandlerService.class);
+            Intent intent = new Intent(this.f61512b, DownloadHandlerService.class);
             intent.setAction(str);
             intent.putExtra("extra_click_download_ids", i3);
             intent.putExtra("extra_click_download_type", i2);
             intent.putExtra("extra_from_notification", true);
-            return PendingIntent.getService(this.f69881b, i3, intent, 134217728);
+            return PendingIntent.getService(this.f61512b, i3, intent, 134217728);
         }
         return (PendingIntent) invokeLII.objValue;
     }

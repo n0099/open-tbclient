@@ -20,13 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonPromotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f58672a;
+    public final int a;
     public NetImageView leftDraw;
     public View mView;
     public TextView promotionTxt;
@@ -50,7 +48,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f58672a = 33;
+        this.a = 33;
         initViews();
     }
 
@@ -135,9 +133,7 @@ public class CommonPromotionView extends FrameLayout {
             setRightImgClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.compromtion.CommonPromotionView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CommonPromotionView f58673a;
+                public final /* synthetic */ CommonPromotionView a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,14 +150,14 @@ public class CommonPromotionView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f58673a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f58673a.setVisibility(8);
+                        this.a.setVisibility(8);
                     }
                 }
             });
@@ -249,7 +245,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f58672a = 33;
+        this.a = 33;
         initViews();
     }
 
@@ -272,7 +268,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f58672a = 33;
+        this.a = 33;
         initViews();
     }
 }

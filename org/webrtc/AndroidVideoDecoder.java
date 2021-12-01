@@ -7,13 +7,12 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.c.k0;
+import h.c.k0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -79,12 +78,12 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         public final Integer decodeTimeMs;
         public final long presentationTimestampUs;
 
-        public DecodedTextureMetadata(long j, Integer num) {
+        public DecodedTextureMetadata(long j2, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), num};
+                Object[] objArr = {Long.valueOf(j2), num};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -94,7 +93,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.presentationTimestampUs = j;
+            this.presentationTimestampUs = j2;
             this.decodeTimeMs = num;
         }
     }
@@ -106,12 +105,12 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         public final long decodeStartTimeMs;
         public final int rotation;
 
-        public FrameInfo(long j, int i2) {
+        public FrameInfo(long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -121,7 +120,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.decodeStartTimeMs = j;
+            this.decodeStartTimeMs = j2;
             this.rotation = i2;
         }
     }
@@ -201,13 +200,13 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     private VideoFrame.Buffer copyNV12ToI420Buffer(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? new NV12Buffer(i4, i5, i2, i3, byteBuffer, null).toI420() : (VideoFrame.Buffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? new NV12Buffer(i4, i5, i2, i3, byteBuffer, null).toI420() : (VideoFrame.Buffer) invokeCommon.objValue;
     }
 
     private Thread createOutputThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? new Thread(this, "AndroidVideoDecoder.outputThread") { // from class: org.webrtc.AndroidVideoDecoder.1
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? new Thread(this, "AndroidVideoDecoder.outputThread") { // from class: org.webrtc.AndroidVideoDecoder.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AndroidVideoDecoder this$0;
@@ -655,20 +654,20 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        long j;
+        long j2;
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoFrame) == null) {
             synchronized (this.renderedTextureMetadataLock) {
                 if (this.renderedTextureMetadata != null) {
-                    j = this.renderedTextureMetadata.presentationTimestampUs * 1000;
+                    j2 = this.renderedTextureMetadata.presentationTimestampUs * 1000;
                     intValue = this.renderedTextureMetadata.decodeTimeMs.intValue();
                     this.renderedTextureMetadata = null;
                 } else {
                     throw new IllegalStateException("Rendered texture metadata was null in onTextureFrameAvailable.");
                 }
             }
-            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j), Integer.valueOf(intValue), null);
+            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j2), Integer.valueOf(intValue), null);
         }
     }
 

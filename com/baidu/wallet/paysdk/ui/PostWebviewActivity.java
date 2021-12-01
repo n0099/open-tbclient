@@ -19,21 +19,17 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.apollon.webmanager.SafeWebView;
 import com.dxmpay.wallet.base.widget.BdActionBar;
 import com.dxmpay.wallet.core.SDKBaseActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PostWebviewActivity extends DxmPayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SafeWebView a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public SafeWebView f61154a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PostWebviewActivity f61156a;
+        public final /* synthetic */ PostWebviewActivity a;
 
         public a(PostWebviewActivity postWebviewActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +46,7 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                     return;
                 }
             }
-            this.f61156a = postWebviewActivity;
+            this.a = postWebviewActivity;
         }
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
@@ -58,7 +54,7 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                PostWebviewActivity postWebviewActivity = this.f61156a;
+                PostWebviewActivity postWebviewActivity = this.a;
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
@@ -130,21 +126,21 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                 bArr = null;
                 str = "";
             }
-            this.f61154a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "dxm_cust_webview"));
+            this.a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "dxm_cust_webview"));
             if (TextUtils.isEmpty(str2)) {
-                this.f61154a.setWebChromeClient(new a());
+                this.a.setWebChromeClient(new a());
             }
-            this.f61154a.getSettings().setJavaScriptEnabled(true);
+            this.a.getSettings().setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT <= 18) {
-                this.f61154a.getSettings().setSavePassword(false);
+                this.a.getSettings().setSavePassword(false);
             }
-            this.f61154a.setScrollBarStyle(0);
-            this.f61154a.clearCache(false);
-            this.f61154a.resumeTimers();
+            this.a.setScrollBarStyle(0);
+            this.a.clearCache(false);
+            this.a.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f61154a.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f61154a.removeJavascriptInterface("accessibility");
-                this.f61154a.removeJavascriptInterface("accessibilityTraversal");
+                this.a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.a.removeJavascriptInterface("accessibility");
+                this.a.removeJavascriptInterface("accessibilityTraversal");
             }
             if (bArr != null) {
                 try {
@@ -152,11 +148,11 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                     e2.printStackTrace();
                 }
                 if (bArr.length != 0) {
-                    this.f61154a.postUrl(str.trim(), bArr);
+                    this.a.postUrl(str.trim(), bArr);
                     a(str2);
                 }
             }
-            this.f61154a.loadUrl(str.trim());
+            this.a.loadUrl(str.trim());
             a(str2);
         }
     }
@@ -172,9 +168,7 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PostWebviewActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PostWebviewActivity f61155a;
+            public final /* synthetic */ PostWebviewActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -191,15 +185,15 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                         return;
                     }
                 }
-                this.f61155a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f61155a.getActivity());
-                    this.f61155a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });

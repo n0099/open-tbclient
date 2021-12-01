@@ -10,19 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class x implements c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f71331a = "SpCache";
+    public static String a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71332b = "com.vivo.push.cache";
+    public static String f62567b = "com.vivo.push.cache";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f71333c;
+    public SharedPreferences f62568c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +56,8 @@ public final class x implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f71333c == null) {
-                this.f71333c = context.getSharedPreferences(f71332b, 0);
+            if (this.f62568c == null) {
+                this.f62568c = context.getSharedPreferences(f62567b, 0);
                 return true;
             }
             return true;
@@ -71,15 +69,15 @@ public final class x implements c {
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            SharedPreferences.Editor edit = this.f71333c.edit();
+            SharedPreferences.Editor edit = this.f62568c.edit();
             if (edit != null) {
                 edit.putString(str, str2);
                 a.a(edit);
-                String str3 = f71331a;
+                String str3 = a;
                 p.d(str3, "putString by " + str);
                 return;
             }
-            String str4 = f71331a;
+            String str4 = a;
             p.b(str4, "putString error by " + str);
         }
     }
@@ -89,8 +87,8 @@ public final class x implements c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String string = this.f71333c.getString(str, str2);
-            String str3 = f71331a;
+            String string = this.f62568c.getString(str, str2);
+            String str3 = a;
             p.d(str3, "getString " + str + " is " + string);
             return string;
         }
@@ -100,12 +98,12 @@ public final class x implements c {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences.Editor edit = this.f71333c.edit();
+            SharedPreferences.Editor edit = this.f62568c.edit();
             if (edit != null) {
                 edit.clear();
                 a.a(edit);
             }
-            p.d(f71331a, "system cache is cleared");
+            p.d(a, "system cache is cleared");
         }
     }
 }

@@ -1,42 +1,35 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.content.res.Resources;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.api.core.ResContext;
 /* loaded from: classes2.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context, String str) {
-        InterceptResult invokeLL;
+    public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            Resources a2 = a(context);
-            if (a2 == null) {
-                a2 = context.getResources();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Integer.valueOf(i2)})) == null) {
+            int i3 = z ? 1 : 0;
+            if (z2) {
+                i3 |= 2;
             }
-            return a2.getIdentifier(str, "drawable", context.getPackageName());
+            if (z3) {
+                i3 |= 4;
+            }
+            if (z4) {
+                i3 |= 8;
+            }
+            if (z5) {
+                i3 |= 16;
+            }
+            if (z6) {
+                i3 |= 32;
+            }
+            return i2 == 2 ? i3 | 64 : i3;
         }
-        return invokeLL.intValue;
-    }
-
-    public static Resources a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof ResContext) {
-                applicationContext = ((ResContext) applicationContext).getDelegatedContext();
-            }
-            return applicationContext.getResources();
-        }
-        return (Resources) invokeL.objValue;
+        return invokeCommon.intValue;
     }
 }

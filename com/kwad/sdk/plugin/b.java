@@ -2,8 +2,6 @@ package com.kwad.sdk.plugin;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import com.kwad.sdk.core.b.i;
-import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 /* loaded from: classes2.dex */
 public interface b extends d {
@@ -11,17 +9,11 @@ public interface b extends d {
 
     void a(Context context);
 
-    void a(Context context, AdTemplate adTemplate, int i2);
-
-    void a(Context context, String str);
-
     void a(@NonNull SdkConfigData sdkConfigData);
 
-    i b();
+    void b();
 
     void c();
 
-    void d();
-
-    int e();
+    int d();
 }

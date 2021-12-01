@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -106,19 +105,19 @@ public class ObjectUtils {
     public static float CONST(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) == null) ? f2 : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f2)) == null) ? f2 : invokeF.floatValue;
     }
 
     public static int CONST(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? i2 : invokeI.intValue;
     }
 
-    public static long CONST(long j) {
+    public static long CONST(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) ? j2 : invokeJ.longValue;
     }
 
     public static <T> T CONST(T t) {

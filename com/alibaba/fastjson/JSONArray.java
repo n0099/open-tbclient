@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

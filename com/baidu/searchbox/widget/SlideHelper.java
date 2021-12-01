@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SlideHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_MASK_COLOR = "#40000000";
@@ -69,12 +69,12 @@ public class SlideHelper {
             if (this.mMaskView == null) {
                 View view2 = new View(context);
                 this.mMaskView = view2;
-                view2.setBackgroundColor(Color.parseColor(DEFAULT_MASK_COLOR));
+                view2.setBackgroundColor(Color.parseColor("#40000000"));
             }
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, DEFAULT_SHADOW_DRAWABLE));
+            customSlidingPanelLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams2);
             this.mSlideLayout.addView(view, layoutParams2);
             this.mSlideLayout.setSliderFadeColor(0);
@@ -235,12 +235,12 @@ public class SlideHelper {
             if (this.mMaskView == null) {
                 View view2 = new View(context);
                 this.mMaskView = view2;
-                view2.setBackgroundColor(Color.parseColor(DEFAULT_MASK_COLOR));
+                view2.setBackgroundColor(Color.parseColor("#40000000"));
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, DEFAULT_SHADOW_DRAWABLE));
+            customSlidingPanelLayout.setShadowDrawable(SlideUtil.getImageFromFile(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view, layoutParams);
             if (slideInterceptor != null) {

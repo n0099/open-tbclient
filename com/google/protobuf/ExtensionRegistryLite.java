@@ -2,7 +2,6 @@ package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.google.protobuf.GeneratedMessageLite;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ExtensionRegistryLite {
     public static /* synthetic */ Interceptable $ic;
     public static final ExtensionRegistryLite EMPTY;
@@ -22,7 +21,7 @@ public class ExtensionRegistryLite {
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class ObjectIntPair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,13 +108,13 @@ public class ExtensionRegistryLite {
     public static boolean isEagerlyParseMessageSets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? eagerlyParseMessageSets : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? eagerlyParseMessageSets : invokeV.booleanValue;
     }
 
     public static ExtensionRegistryLite newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? new ExtensionRegistryLite() : (ExtensionRegistryLite) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new ExtensionRegistryLite() : (ExtensionRegistryLite) invokeV.objValue;
     }
 
     public static void setEagerlyParseMessageSets(boolean z) {

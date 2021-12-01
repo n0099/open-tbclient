@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.c.ab;
 import com.vivo.push.c.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class o implements IPushClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ai f71248a;
+    public ai a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public final class o implements IPushClientFactory {
                 return;
             }
         }
-        this.f71248a = new ai();
+        this.a = new ai();
     }
 
     @Override // com.vivo.push.IPushClientFactory
@@ -97,11 +95,11 @@ public final class o implements IPushClientFactory {
                 wVar = new com.vivo.push.b.n();
             }
             if (wVar != null) {
-                a a2 = a.a(intent);
-                if (a2 == null) {
+                a a = a.a(intent);
+                if (a == null) {
                     com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
                 } else {
-                    wVar.b(a2);
+                    wVar.b(a);
                 }
             }
             return wVar;

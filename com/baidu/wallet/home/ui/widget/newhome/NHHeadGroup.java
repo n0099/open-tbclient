@@ -19,13 +19,11 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHHeadGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f59435a;
+    public List<BaseItemView> a;
     public NetImageView mBackground;
     public LinearLayout mPanel;
 
@@ -47,7 +45,7 @@ public class NHHeadGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59435a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     private void a() {
@@ -59,14 +57,14 @@ public class NHHeadGroup extends BaseItemLayout {
         NHHeadItem nHHeadItem = new NHHeadItem(getContext());
         nHHeadItem.setData(dataItemArr[0], getWalletInterface());
         this.mPanel.addView(nHHeadItem);
-        this.f59435a.add(nHHeadItem);
+        this.a.add(nHHeadItem);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59435a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -125,6 +123,6 @@ public class NHHeadGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59435a = new ArrayList();
+        this.a = new ArrayList();
     }
 }

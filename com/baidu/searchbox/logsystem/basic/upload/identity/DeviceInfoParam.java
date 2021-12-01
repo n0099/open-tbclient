@@ -3,14 +3,13 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DeviceInfoParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +55,7 @@ public class DeviceInfoParam {
             String str3 = Build.VERSION.RELEASE;
             this.mOSVersion = str3;
             if (TextUtils.isEmpty(str3)) {
-                this.mOSVersion = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+                this.mOSVersion = "0.0";
             } else {
                 this.mOSVersion = this.mOSVersion.replace("_", "-");
             }

@@ -9,19 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Session f63994a;
+    public final Session a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LightEstimate f63995b;
+    public final LightEstimate f55941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f63996c;
+    public long f55942c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,54 +53,54 @@ public class Frame {
                 return;
             }
         }
-        this.f63996c = 0L;
-        this.f63994a = session;
-        this.f63996c = nativeCreateFrame(session.f64002a);
-        this.f63995b = new LightEstimate(session);
+        this.f55942c = 0L;
+        this.a = session;
+        this.f55942c = nativeCreateFrame(session.a);
+        this.f55941b = new LightEstimate(session);
     }
 
-    private native long nativeAcquireCameraImage(long j, long j2);
+    private native long nativeAcquireCameraImage(long j2, long j3);
 
-    private native long nativeAcquireImageMetadata(long j, long j2);
+    private native long nativeAcquireImageMetadata(long j2, long j3);
 
-    private native long[] nativeAcquireUpdatedAnchors(long j, long j2);
+    private native long[] nativeAcquireUpdatedAnchors(long j2, long j3);
 
-    public static native long nativeCreateFrame(long j);
+    public static native long nativeCreateFrame(long j2);
 
-    public static native void nativeDestroyFrame(long j);
+    public static native void nativeDestroyFrame(long j2);
 
-    private native long nativeGetAndroidCameraTimestamp(long j, long j2);
+    private native long nativeGetAndroidCameraTimestamp(long j2, long j3);
 
-    private native b.h.c.a.a nativeGetAndroidSensorPose(long j, long j2);
+    private native Pose nativeGetAndroidSensorPose(long j2, long j3);
 
-    private native void nativeGetLightEstimate(long j, long j2, long j3);
+    private native void nativeGetLightEstimate(long j2, long j3, long j4);
 
-    private native long nativeGetTimestamp(long j, long j2);
+    private native long nativeGetTimestamp(long j2, long j3);
 
-    private native boolean nativeHasDisplayGeometryChanged(long j, long j2);
+    private native boolean nativeHasDisplayGeometryChanged(long j2, long j3);
 
-    private native void nativeTransformCoordinates2dFloatArrayOrBuffer(long j, long j2, int i2, Object obj, int i3, Object obj2);
+    private native void nativeTransformCoordinates2dFloatArrayOrBuffer(long j2, long j3, int i2, Object obj, int i3, Object obj2);
 
-    private native void nativeTransformDisplayUvCoords(long j, long j2, FloatBuffer floatBuffer, FloatBuffer floatBuffer2);
+    private native void nativeTransformDisplayUvCoords(long j2, long j3, FloatBuffer floatBuffer, FloatBuffer floatBuffer2);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f63996c;
-            if (j != 0) {
-                nativeDestroyFrame(j);
+            long j2 = this.f55942c;
+            if (j2 != 0) {
+                nativeDestroyFrame(j2);
             }
             super.finalize();
         }
     }
 
-    public native long nativeAcquirePointCloud(long j, long j2);
+    public native long nativeAcquirePointCloud(long j2, long j3);
 
-    public native long[] nativeAcquireUpdatedTrackables(long j, long j2, int i2);
+    public native long[] nativeAcquireUpdatedTrackables(long j2, long j3, int i2);
 
-    public native long[] nativeHitTest(long j, long j2, float f2, float f3);
+    public native long[] nativeHitTest(long j2, long j3, float f2, float f3);
 
-    public native long[] nativeHitTestRay(long j, long j2, float[] fArr, int i2, float[] fArr2, int i3);
+    public native long[] nativeHitTestRay(long j2, long j3, float[] fArr, int i2, float[] fArr2, int i3);
 
     public Frame() {
         Interceptable interceptable = $ic;
@@ -117,7 +115,7 @@ public class Frame {
                 return;
             }
         }
-        this.f63996c = 0L;
-        this.f63996c = 0L;
+        this.f55942c = 0L;
+        this.f55942c = 0L;
     }
 }

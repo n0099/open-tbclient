@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class p extends Handler {
         }
         int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.j;
+        o oVar = q.f55774j;
         oVar.getClass();
         if (i2 != 0) {
             if (i2 == 1) {
@@ -64,15 +64,15 @@ public final class p extends Handler {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
             } else if (i2 != 4) {
                 parse = null;
-                query = oVar.f63809a.getContentResolver().query(parse, null, null, null, null);
+                query = oVar.a.getContentResolver().query(parse, null, null, null, null);
                 if (query != null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 }
-                q.f63816g = r2;
-                Context context = q.f63810a;
-                synchronized (q.f63813d) {
-                    q.f63813d.notify();
+                q.f55771g = r2;
+                Context context = q.a;
+                synchronized (q.f55768d) {
+                    q.f55768d.notify();
                 }
                 return;
             } else {
@@ -85,12 +85,12 @@ public final class p extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = oVar.f63809a.getContentResolver().query(parse, null, null, null, null);
+        query = oVar.a.getContentResolver().query(parse, null, null, null, null);
         if (query != null) {
         }
-        q.f63816g = r2;
-        Context context2 = q.f63810a;
-        synchronized (q.f63813d) {
+        q.f55771g = r2;
+        Context context2 = q.a;
+        synchronized (q.f55768d) {
         }
     }
 }

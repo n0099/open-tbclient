@@ -4,7 +4,6 @@ import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.Metrics;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -575,7 +574,7 @@ public class Optimizer {
     public static boolean optimizableMatchConstraint(ConstraintWidget constraintWidget, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, constraintWidget, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, constraintWidget, i2)) == null) {
             ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
             if (dimensionBehaviourArr[i2] != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
                 return false;
@@ -599,7 +598,7 @@ public class Optimizer {
 
     public static void setOptimizedWidget(ConstraintWidget constraintWidget, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, constraintWidget, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65542, null, constraintWidget, i2, i3) == null) {
             int i4 = i2 * 2;
             int i5 = i4 + 1;
             constraintWidget.mListAnchors[i4].getResolutionNode().resolvedTarget = constraintWidget.getParent().mLeft.getResolutionNode();

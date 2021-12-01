@@ -1,10 +1,10 @@
 package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.c1.z;
-import b.a.q0.s.k;
-import b.a.r0.m2.b;
+import c.a.d.f.p.l;
+import c.a.q0.d1.z;
+import c.a.q0.s.k;
+import c.a.r0.s2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,10 +73,10 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.has_plist = get_has_plist();
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
-                int k = l.k(TbadkCoreApplication.getInst().getApp());
+                int k2 = l.k(TbadkCoreApplication.getInst().getApp());
                 int i2 = l.i(TbadkCoreApplication.getInst().getApp());
                 int e2 = k.c().e();
-                builder.scr_w = Integer.valueOf(k);
+                builder.scr_w = Integer.valueOf(k2);
                 builder.scr_h = Integer.valueOf(i2);
                 builder.scr_dip = Double.valueOf(l.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);

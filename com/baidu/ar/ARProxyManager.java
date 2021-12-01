@@ -15,13 +15,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARProxyManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d> f37267a;
+    public HashMap<String, d> a;
 
     public ARProxyManager() {
         Interceptable interceptable = $ic;
@@ -36,7 +34,7 @@ public class ARProxyManager {
                 return;
             }
         }
-        this.f37267a = new HashMap<>();
+        this.a = new HashMap<>();
     }
 
     private d a(String str) {
@@ -44,15 +42,15 @@ public class ARProxyManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             if (b(str)) {
-                if (this.f37267a == null) {
-                    this.f37267a = new HashMap<>();
+                if (this.a == null) {
+                    this.a = new HashMap<>();
                 }
-                d dVar = this.f37267a.get(str);
+                d dVar = this.a.get(str);
                 if (dVar == null) {
                     dVar = c(str);
                 }
                 if (dVar != null) {
-                    this.f37267a.put(str, dVar);
+                    this.a.put(str, dVar);
                 }
                 return dVar;
             }
@@ -92,12 +90,12 @@ public class ARProxyManager {
     }
 
     public void a(c cVar, String str) {
-        d a2;
+        d a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) || (a2 = a(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) || (a = a(str)) == null) {
             return;
         }
-        a2.a(cVar);
+        a.a(cVar);
     }
 
     public boolean b(String str) {
@@ -109,7 +107,7 @@ public class ARProxyManager {
     public void d() {
         HashMap<String, d> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hashMap = this.f37267a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hashMap = this.a) == null) {
             return;
         }
         for (d dVar : hashMap.values()) {
@@ -121,7 +119,7 @@ public class ARProxyManager {
         HashMap<String, d> hashMap;
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.f37267a) == null || (dVar = hashMap.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.a) == null || (dVar = hashMap.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -173,13 +171,13 @@ public class ARProxyManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             d();
-            HashMap<String, d> hashMap = this.f37267a;
+            HashMap<String, d> hashMap = this.a;
             if (hashMap != null) {
                 for (Map.Entry<String, d> entry : hashMap.entrySet()) {
                     entry.getValue().release();
                 }
-                this.f37267a.clear();
-                this.f37267a = null;
+                this.a.clear();
+                this.a = null;
             }
         }
     }

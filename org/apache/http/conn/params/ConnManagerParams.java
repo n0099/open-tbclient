@@ -1,7 +1,6 @@
 package org.apache.http.conn.params;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,14 +66,14 @@ public final class ConnManagerParams implements ConnManagerPNames {
 
     public static void setMaxTotalConnections(HttpParams httpParams, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, httpParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, null, httpParams, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public static void setTimeout(HttpParams httpParams, long j) {
+    public static void setTimeout(HttpParams httpParams, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65542, null, httpParams, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

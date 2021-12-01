@@ -8,13 +8,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f40037a;
+    public final /* synthetic */ e a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -31,14 +29,14 @@ public class f implements Runnable {
                 return;
             }
         }
-        this.f40037a = eVar;
+        this.a = eVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0118 A[EDGE_INSN: B:114:0x0118->B:83:0x0118 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00f8 A[LOOP:0: B:5:0x001c->B:67:0x00f8, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0100  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x010f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0117 A[EDGE_INSN: B:114:0x0117->B:83:0x0117 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x00f7 A[LOOP:0: B:5:0x001c->B:67:0x00f7, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00ff  */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x0104 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -50,22 +48,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40037a.f40035h = k.e();
-            this.f40037a.b();
-            this.f40037a.a();
-            int i2 = this.f40037a.f40036i;
+            this.a.f35704h = k.e();
+            this.a.b();
+            this.a.a();
+            int i2 = this.a.f35705i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f40037a.f40035h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.a.f35704h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f39996b);
-                        httpURLConnection2.setReadTimeout(a.f39996b);
+                        httpURLConnection2.setConnectTimeout(a.f35667b);
+                        httpURLConnection2.setReadTimeout(a.f35667b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -75,85 +73,85 @@ public class f implements Runnable {
                             inputStream2 = httpURLConnection2.getInputStream();
                             try {
                                 byteArrayOutputStream = new ByteArrayOutputStream();
-                                try {
-                                    byte[] bArr = new byte[1024];
-                                    while (true) {
-                                        int read = inputStream2.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        byteArrayOutputStream.write(bArr, 0, read);
+                            } catch (Exception unused) {
+                                byteArrayOutputStream = null;
+                            } catch (Throwable th) {
+                                th = th;
+                                byteArrayOutputStream = null;
+                            }
+                            try {
+                                byte[] bArr = new byte[1024];
+                                while (true) {
+                                    int read = inputStream2.read(bArr);
+                                    if (read == -1) {
+                                        break;
                                     }
-                                    inputStream2.close();
-                                    byteArrayOutputStream.close();
-                                    this.f40037a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f40037a.a(true);
-                                    httpURLConnection2.disconnect();
-                                    z = true;
-                                } catch (Exception unused) {
-                                    inputStream = inputStream2;
-                                    httpURLConnection = httpURLConnection2;
-                                    try {
-                                        String str = a.f39995a;
-                                        if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                }
+                                inputStream2.close();
+                                byteArrayOutputStream.close();
+                                this.a.f35706j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                this.a.a(true);
+                                httpURLConnection2.disconnect();
+                                z = true;
+                            } catch (Exception unused2) {
+                                inputStream = inputStream2;
+                                httpURLConnection = httpURLConnection2;
+                                try {
+                                    String str = a.a;
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
                                         }
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (Exception e2) {
-                                                e2.printStackTrace();
-                                            }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e3) {
+                                            e3.printStackTrace();
                                         }
-                                        if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        }
-                                        z = false;
-                                        if (!z) {
-                                        }
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        inputStream3 = inputStream;
-                                        if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
-                                        }
-                                        if (inputStream3 != null) {
-                                            try {
-                                                inputStream3.close();
-                                            } catch (Exception e4) {
-                                                e4.printStackTrace();
-                                            }
-                                        }
-                                        if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception e5) {
-                                                e5.printStackTrace();
-                                            }
-                                        }
-                                        throw th;
+                                    }
+                                    z = false;
+                                    if (!z) {
                                     }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    inputStream3 = inputStream2;
-                                    httpURLConnection = httpURLConnection2;
+                                    inputStream3 = inputStream;
                                     if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
                                     }
                                     if (inputStream3 != null) {
+                                        try {
+                                            inputStream3.close();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
+                                        }
                                     }
                                     if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception e5) {
+                                            e5.printStackTrace();
+                                        }
                                     }
                                     throw th;
                                 }
-                            } catch (Exception unused2) {
-                                byteArrayOutputStream = null;
                             } catch (Throwable th3) {
                                 th = th3;
-                                byteArrayOutputStream = null;
+                                inputStream3 = inputStream2;
+                                httpURLConnection = httpURLConnection2;
+                                if (httpURLConnection != null) {
+                                }
+                                if (inputStream3 != null) {
+                                }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                throw th;
                             }
                         } else {
                             httpURLConnection2.disconnect();
@@ -204,8 +202,8 @@ public class f implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f40037a;
-            eVar.j = null;
+            e eVar = this.a;
+            eVar.f35706j = null;
             eVar.a(false);
         }
     }

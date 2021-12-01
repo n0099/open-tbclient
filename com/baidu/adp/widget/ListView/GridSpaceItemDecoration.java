@@ -8,19 +8,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f35450a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35451b;
+    public int f31880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35452c;
+    public int f31881c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,9 +35,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f35450a = i2;
-        this.f35451b = i3;
-        this.f35452c = i4;
+        this.a = i2;
+        this.f31880b = i3;
+        this.f31881c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,12 +47,12 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
-                    rect.left = this.f35450a;
-                    rect.right = this.f35451b;
+                    rect.left = this.a;
+                    rect.right = this.f31880b;
                     return;
                 }
-                rect.left = this.f35451b;
-                rect.right = this.f35452c;
+                rect.left = this.f31880b;
+                rect.right = this.f31881c;
             }
         }
     }

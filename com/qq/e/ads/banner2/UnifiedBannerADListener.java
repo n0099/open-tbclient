@@ -5,6 +5,7 @@ import com.qq.e.comm.util.AdError;
 public interface UnifiedBannerADListener {
     void onADClicked();
 
+    @Deprecated
     void onADCloseOverlay();
 
     void onADClosed();
@@ -13,6 +14,7 @@ public interface UnifiedBannerADListener {
 
     void onADLeftApplication();
 
+    @Deprecated
     void onADOpenOverlay();
 
     void onADReceive();

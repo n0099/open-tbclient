@@ -3,7 +3,6 @@ package androidx.core.graphics;
 import android.graphics.Point;
 import android.graphics.PointF;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +28,7 @@ public final class PointKt {
     public static final Point minus(Point point, Point point2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, point, point2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, point, point2)) == null) {
             Point point3 = new Point(point.x, point.y);
             point3.offset(-point2.x, -point2.y);
             return point3;
@@ -132,7 +131,7 @@ public final class PointKt {
     public static final PointF minus(PointF pointF, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.BAIDU_LOGO_ID, null, pointF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, pointF, f2)) == null) {
             PointF pointF2 = new PointF(pointF.x, pointF.y);
             float f3 = -f2;
             pointF2.offset(f3, f3);

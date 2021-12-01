@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import java.io.File;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VERSION_PREFIX = "version-";
@@ -101,13 +100,13 @@ public class PluginDirHelper {
     public static String getDalvikCacheDir(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2)), "dalvik-cache") : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2)), "dalvik-cache") : (String) invokeLI.objValue;
     }
 
     public static String getDataDir(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? buildPath(str, "data") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? buildPath(str, "data") : (String) invokeL.objValue;
     }
 
     public static String getDownloadDir() {

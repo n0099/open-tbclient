@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoEvent implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIORITY_AT_ONCE = 1;
@@ -41,12 +41,12 @@ public class VideoEvent implements IPoolItem {
     public int mType;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Type {
     }
 
@@ -374,12 +374,12 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public long getLongExtra(int i2, long j) {
+    public long getLongExtra(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             Object obj = this.mEventBundle.get(i2);
-            return obj instanceof Long ? ((Long) obj).longValue() : j;
+            return obj instanceof Long ? ((Long) obj).longValue() : j2;
         }
         return invokeCommon.longValue;
     }

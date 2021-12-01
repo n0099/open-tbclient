@@ -15,7 +15,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.Random;
 import sun.misc.Unsafe;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class Striped64 extends Number {
     public static /* synthetic */ Interceptable $ic;
     public static final int NCPU;
@@ -29,7 +29,7 @@ public abstract class Striped64 extends Number {
     public volatile transient int busy;
     public volatile transient b[] cells;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,19 +69,17 @@ public abstract class Striped64 extends Number {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f64122b;
+        public static final Unsafe f56070b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f64123c;
+        public static final long f56071c;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public volatile long f64124a;
+        public volatile long a;
 
         static {
             InterceptResult invokeClinit;
@@ -98,19 +96,19 @@ public abstract class Striped64 extends Number {
             }
             try {
                 Unsafe unsafe = Striped64.getUnsafe();
-                f64122b = unsafe;
-                f64123c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
+                f56070b = unsafe;
+                f56071c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
         }
 
-        public b(long j) {
+        public b(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -120,13 +118,13 @@ public abstract class Striped64 extends Number {
                     return;
                 }
             }
-            this.f64124a = j;
+            this.a = j2;
         }
 
-        public final boolean a(long j, long j2) {
+        public final boolean a(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? f64122b.compareAndSwapLong(this, f64123c, j, j2) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f56070b.compareAndSwapLong(this, f56071c, j2, j3) : invokeCommon.booleanValue;
         }
     }
 
@@ -187,10 +185,10 @@ public abstract class Striped64 extends Number {
         return (Unsafe) invokeV.objValue;
     }
 
-    public final boolean casBase(long j, long j2) {
+    public final boolean casBase(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? UNSAFE.compareAndSwapLong(this, baseOffset, j, j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? UNSAFE.compareAndSwapLong(this, baseOffset, j2, j3) : invokeCommon.booleanValue;
     }
 
     public final boolean casBusy() {
@@ -199,17 +197,17 @@ public abstract class Striped64 extends Number {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UNSAFE.compareAndSwapInt(this, busyOffset, 0, 1) : invokeV.booleanValue;
     }
 
-    public abstract long fn(long j, long j2);
+    public abstract long fn(long j2, long j3);
 
-    public final void internalReset(long j) {
+    public final void internalReset(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             b[] bVarArr = this.cells;
-            this.base = j;
+            this.base = j2;
             if (bVarArr != null) {
                 for (b bVar : bVarArr) {
                     if (bVar != null) {
-                        bVar.f64124a = j;
+                        bVar.a = j2;
                     }
                 }
             }
@@ -221,7 +219,7 @@ public abstract class Striped64 extends Number {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void retryUpdate(long j, int[] iArr, boolean z) {
+    public final void retryUpdate(long j2, int[] iArr, boolean z) {
         int i2;
         int[] iArr2;
         boolean z2;
@@ -229,7 +227,7 @@ public abstract class Striped64 extends Number {
         boolean z3;
         int length2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), iArr, Boolean.valueOf(z)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), iArr, Boolean.valueOf(z)}) != null) {
             return;
         }
         if (iArr == null) {
@@ -253,7 +251,7 @@ public abstract class Striped64 extends Number {
                 b bVar = bVarArr[(length - 1) & i3];
                 if (bVar == null) {
                     if (this.busy == 0) {
-                        b bVar2 = new b(j);
+                        b bVar2 = new b(j2);
                         if (this.busy == 0 && casBusy()) {
                             try {
                                 b[] bVarArr2 = this.cells;
@@ -276,8 +274,8 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j2 = bVar.f64124a;
-                    if (bVar.a(j2, fn(j2, j))) {
+                    long j3 = bVar.a;
+                    if (bVar.a(j3, fn(j3, j2))) {
                         return;
                     }
                     if (length < NCPU && this.cells == bVarArr) {
@@ -310,7 +308,7 @@ public abstract class Striped64 extends Number {
                 try {
                     if (this.cells == bVarArr) {
                         b[] bVarArr4 = new b[2];
-                        bVarArr4[i3 & 1] = new b(j);
+                        bVarArr4[i3 & 1] = new b(j2);
                         this.cells = bVarArr4;
                         z2 = true;
                     } else {
@@ -322,8 +320,8 @@ public abstract class Striped64 extends Number {
                 } finally {
                 }
             } else {
-                long j3 = this.base;
-                if (casBase(j3, fn(j3, j))) {
+                long j4 = this.base;
+                if (casBase(j4, fn(j4, j2))) {
                     return;
                 }
             }

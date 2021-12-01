@@ -38,9 +38,9 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, intent)) == null) {
             if (4098 == i2) {
-                Message a2 = a(intent);
-                PushManager.statisticMessage(context, (AppMessage) a2, PushManager.EVENT_ID_PUSH_TRANSMIT);
-                return a2;
+                Message a = a(intent);
+                PushManager.statisticMessage(context, (AppMessage) a, PushManager.EVENT_ID_PUSH_TRANSMIT);
+                return a;
             }
             return null;
         }

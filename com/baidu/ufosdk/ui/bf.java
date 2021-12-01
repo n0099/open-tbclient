@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class bf implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f57750a;
+    public final /* synthetic */ FeedbackInputActivity a;
 
     public bf(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public final class bf implements View.OnClickListener {
                 return;
             }
         }
-        this.f57750a = feedbackInputActivity;
+        this.a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,16 +34,16 @@ public final class bf implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             try {
-                if (!com.baidu.ufosdk.b.d.c(this.f57750a.getApplicationContext())) {
+                if (!com.baidu.ufosdk.b.d.c(this.a.getApplicationContext())) {
                     com.baidu.ufosdk.f.c.b("Network is not avaiable!");
                     return;
                 }
-                this.f57750a.f57681b.setVisibility(8);
-                this.f57750a.k.setVisibility(0);
-                if (this.f57750a.f57684e == null || this.f57750a.f57684e.length() <= 0) {
+                this.a.f51604b.setVisibility(8);
+                this.a.f51613k.setVisibility(0);
+                if (this.a.f51607e == null || this.a.f51607e.length() <= 0) {
                     return;
                 }
-                this.f57750a.l.execute(new bg(this));
+                this.a.l.execute(new bg(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

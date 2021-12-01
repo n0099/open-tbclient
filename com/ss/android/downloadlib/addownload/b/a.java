@@ -12,30 +12,28 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f69398a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69399b;
+    public long f61193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f69400c;
+    public long f61194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69401d;
+    public String f61195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69402e;
+    public String f61196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f69403f;
+    public String f61197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f69404g;
+    public String f61198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f69405h;
+    public volatile long f61199h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -57,14 +55,14 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mDownloadId", this.f69398a);
-                jSONObject.put("mAdId", this.f69399b);
-                jSONObject.put("mExtValue", this.f69400c);
-                jSONObject.put("mPackageName", this.f69401d);
-                jSONObject.put("mAppName", this.f69402e);
-                jSONObject.put("mLogExtra", this.f69403f);
-                jSONObject.put("mFileName", this.f69404g);
-                jSONObject.put("mTimeStamp", this.f69405h);
+                jSONObject.put("mDownloadId", this.a);
+                jSONObject.put("mAdId", this.f61193b);
+                jSONObject.put("mExtValue", this.f61194c);
+                jSONObject.put("mPackageName", this.f61195d);
+                jSONObject.put("mAppName", this.f61196e);
+                jSONObject.put("mLogExtra", this.f61197f);
+                jSONObject.put("mFileName", this.f61198g);
+                jSONObject.put("mTimeStamp", this.f61199h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -73,12 +71,12 @@ public class a {
         return (JSONObject) invokeV.objValue;
     }
 
-    public a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
+    public a(long j2, long j3, long j4, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str, str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -88,13 +86,13 @@ public class a {
                 return;
             }
         }
-        this.f69398a = j;
-        this.f69399b = j2;
-        this.f69400c = j3;
-        this.f69401d = str;
-        this.f69402e = str2;
-        this.f69403f = str3;
-        this.f69404g = str4;
+        this.a = j2;
+        this.f61193b = j3;
+        this.f61194c = j4;
+        this.f61195d = str;
+        this.f61196e = str2;
+        this.f61197f = str3;
+        this.f61198g = str4;
     }
 
     public static a a(JSONObject jSONObject) {
@@ -106,14 +104,14 @@ public class a {
             }
             a aVar = new a();
             try {
-                aVar.f69398a = l.a(jSONObject, "mDownloadId");
-                aVar.f69399b = l.a(jSONObject, "mAdId");
-                aVar.f69400c = l.a(jSONObject, "mExtValue");
-                aVar.f69401d = jSONObject.optString("mPackageName");
-                aVar.f69402e = jSONObject.optString("mAppName");
-                aVar.f69403f = jSONObject.optString("mLogExtra");
-                aVar.f69404g = jSONObject.optString("mFileName");
-                aVar.f69405h = l.a(jSONObject, "mTimeStamp");
+                aVar.a = l.a(jSONObject, "mDownloadId");
+                aVar.f61193b = l.a(jSONObject, "mAdId");
+                aVar.f61194c = l.a(jSONObject, "mExtValue");
+                aVar.f61195d = jSONObject.optString("mPackageName");
+                aVar.f61196e = jSONObject.optString("mAppName");
+                aVar.f61197f = jSONObject.optString("mLogExtra");
+                aVar.f61198g = jSONObject.optString("mFileName");
+                aVar.f61199h = l.a(jSONObject, "mTimeStamp");
                 return aVar;
             } catch (Exception e2) {
                 e2.printStackTrace();

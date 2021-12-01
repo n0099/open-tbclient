@@ -2,8 +2,6 @@ package com.baidu.apollon.restnet.http;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.http.response.StatusCodeException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class HttpStatus {
     public static final /* synthetic */ HttpStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -88,7 +86,7 @@ public final class HttpStatus {
     public final int value;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Series {
         public static final /* synthetic */ Series[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -152,7 +150,7 @@ public final class HttpStatus {
         public static Series[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (Series[]) $VALUES.clone() : (Series[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (Series[]) $VALUES.clone() : (Series[]) invokeV.objValue;
         }
 
         public int value() {
@@ -232,14 +230,14 @@ public final class HttpStatus {
         UNSUPPORTED_MEDIA_TYPE = new HttpStatus("UNSUPPORTED_MEDIA_TYPE", 38, 415, "Unsupported Media Type");
         REQUESTED_RANGE_NOT_SATISFIABLE = new HttpStatus("REQUESTED_RANGE_NOT_SATISFIABLE", 39, 416, "Requested range not satisfiable");
         EXPECTATION_FAILED = new HttpStatus("EXPECTATION_FAILED", 40, org.apache.http.HttpStatus.SC_EXPECTATION_FAILED, "Expectation Failed");
-        I_AM_A_TEAPOT = new HttpStatus("I_AM_A_TEAPOT", 41, SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, "I'm a teapot");
+        I_AM_A_TEAPOT = new HttpStatus("I_AM_A_TEAPOT", 41, 418, "I'm a teapot");
         INSUFFICIENT_SPACE_ON_RESOURCE = new HttpStatus("INSUFFICIENT_SPACE_ON_RESOURCE", 42, org.apache.http.HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "Insufficient Space On Resource");
         METHOD_FAILURE = new HttpStatus("METHOD_FAILURE", 43, org.apache.http.HttpStatus.SC_METHOD_FAILURE, "Method Failure");
         DESTINATION_LOCKED = new HttpStatus("DESTINATION_LOCKED", 44, 421, "Destination Locked");
         UNPROCESSABLE_ENTITY = new HttpStatus("UNPROCESSABLE_ENTITY", 45, org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY, "Unprocessable Entity");
         LOCKED = new HttpStatus("LOCKED", 46, org.apache.http.HttpStatus.SC_LOCKED, "Locked");
         FAILED_DEPENDENCY = new HttpStatus("FAILED_DEPENDENCY", 47, org.apache.http.HttpStatus.SC_FAILED_DEPENDENCY, "Failed Dependency");
-        UPGRADE_REQUIRED = new HttpStatus("UPGRADE_REQUIRED", 48, SDKLogTypeConstants.TYPE_SHOUBAI_APO_INFO, "Upgrade Required");
+        UPGRADE_REQUIRED = new HttpStatus("UPGRADE_REQUIRED", 48, 426, "Upgrade Required");
         PRECONDITION_REQUIRED = new HttpStatus("PRECONDITION_REQUIRED", 49, 428, "Precondition Required");
         TOO_MANY_REQUESTS = new HttpStatus("TOO_MANY_REQUESTS", 50, StatusCodeException.IGNORE_429_CODE, "Too Many Requests");
         REQUEST_HEADER_FIELDS_TOO_LARGE = new HttpStatus("REQUEST_HEADER_FIELDS_TOO_LARGE", 51, 431, "Request Header Fields Too Large");

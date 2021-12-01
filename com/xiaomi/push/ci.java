@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ci implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f71673a;
+    public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cg.a f192a;
@@ -34,7 +32,7 @@ public class ci implements Runnable {
             }
         }
         this.f192a = aVar;
-        this.f71673a = context;
+        this.a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE] complete} */
@@ -48,7 +46,7 @@ public class ci implements Runnable {
                     sQLiteDatabase = this.f192a.a();
                     if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                         sQLiteDatabase.beginTransaction();
-                        this.f192a.a(this.f71673a, sQLiteDatabase);
+                        this.f192a.a(this.a, sQLiteDatabase);
                         sQLiteDatabase.setTransactionSuccessful();
                     }
                     if (sQLiteDatabase != null) {
@@ -57,7 +55,7 @@ public class ci implements Runnable {
                         } catch (Exception e2) {
                             e = e2;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f192a.a(this.f71673a);
+                            this.f192a.a(this.a);
                         }
                     }
                     if (this.f192a.f183a != null) {
@@ -71,28 +69,28 @@ public class ci implements Runnable {
                         } catch (Exception e4) {
                             e = e4;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f192a.a(this.f71673a);
+                            this.f192a.a(this.a);
                         }
                     }
                     if (this.f192a.f183a != null) {
                         this.f192a.f183a.close();
                     }
                 }
-                this.f192a.a(this.f71673a);
+                this.f192a.a(this.a);
             } catch (Throwable th) {
                 if (sQLiteDatabase != null) {
                     try {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e5) {
                         com.xiaomi.channel.commonutils.logger.b.a(e5);
-                        this.f192a.a(this.f71673a);
+                        this.f192a.a(this.a);
                         throw th;
                     }
                 }
                 if (this.f192a.f183a != null) {
                     this.f192a.f183a.close();
                 }
-                this.f192a.a(this.f71673a);
+                this.f192a.a(this.a);
                 throw th;
             }
         }

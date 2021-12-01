@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f extends a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class f extends a implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) {
-            float[] a2 = this.zc.a(this.zb.hg(), fArr);
-            if (a2 != null) {
-                String a3 = this.yw.a(this.zb);
-                int i2 = (int) a2[0];
+            float[] a = this.zc.a(this.zb.hg(), fArr);
+            if (a != null) {
+                String a2 = this.yw.a(this.zb);
+                int i2 = (int) a[0];
                 if (i2 == 0) {
                     int b2 = b(fArr, this.zb.hg());
                     if (b2 == 0) {
@@ -66,7 +66,7 @@ public class f extends a implements c {
                     }
                     this.yw.r(new float[16]);
                 } else if (i2 == 1) {
-                    this.yw.a(a3, (int) a2[1], (int) a2[2], a.yY, this.zb.hf());
+                    this.yw.a(a2, (int) a[1], (int) a[2], a.yY, this.zb.hf());
                     this.yw.hn();
                     return true;
                 }

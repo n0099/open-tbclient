@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
@@ -19,39 +20,41 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f34589a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34590b;
+    public String f31062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34591c;
+    public String f31063c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34592d;
+    public String f31064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34593e;
+    public String f31065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34594f;
+    public String f31066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34595g;
+    public String f31067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34596h;
+    public String f31068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f34597i;
-    public String j;
-    public String k;
+    public String f31069i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f31070j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f31071k;
     public String l;
     public String m;
     public String n;
@@ -80,32 +83,32 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f34591c = "";
-        this.f34593e = "";
+        this.f31063c = "";
+        this.f31065e = "";
         this.n = "";
         this.m = "";
         this.p = "";
-        this.f34589a = "1.1";
+        this.a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f34590b = a(currentTimeMillis);
-        this.f34592d = "";
-        this.f34594f = "";
-        this.f34595g = Build.BRAND;
-        this.f34596h = Build.MODEL;
-        this.f34597i = "Android";
-        this.j = Build.VERSION.RELEASE;
-        this.k = "SDK-JJ-v3.6.2";
+        this.f31062b = a(currentTimeMillis);
+        this.f31064d = "";
+        this.f31066f = "";
+        this.f31067g = Build.BRAND;
+        this.f31068h = Build.MODEL;
+        this.f31069i = "Android";
+        this.f31070j = Build.VERSION.RELEASE;
+        this.f31071k = "SDK-JJ-v3.6.2";
         this.l = str;
         this.s = "0";
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA).format(new Date(j));
+                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA).format(new Date(j2));
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";
@@ -128,17 +131,17 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f34592d = str;
+            this.f31064d = str;
             return this;
         }
         return (b) invokeL.objValue;
     }
 
-    public b b(long j) {
+    public b b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            this.q = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+            this.q = j2;
             return this;
         }
         return (b) invokeJ.objValue;
@@ -148,7 +151,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f34593e = str;
+            this.f31065e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -158,7 +161,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f34594f = str;
+            this.f31066f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -227,17 +230,17 @@ public class b {
                 this.v = currentTimeMillis;
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v", this.f34589a);
-                jSONObject.put("t", this.f34590b);
-                jSONObject.put("tag", this.f34591c);
-                jSONObject.put("ai", this.f34592d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f34593e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f34594f);
-                jSONObject.put("br", this.f34595g);
-                jSONObject.put("ml", this.f34596h);
-                jSONObject.put("os", this.f34597i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
-                jSONObject.put("sv", this.k);
+                jSONObject.put("v", this.a);
+                jSONObject.put("t", this.f31062b);
+                jSONObject.put("tag", this.f31063c);
+                jSONObject.put("ai", this.f31064d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f31065e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f31066f);
+                jSONObject.put("br", this.f31067g);
+                jSONObject.put("ml", this.f31068h);
+                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.f31069i);
+                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f31070j);
+                jSONObject.put("sv", this.f31071k);
                 jSONObject.put("ri", this.l);
                 jSONObject.put(RetrieveTaskManager.KEY, this.m);
                 jSONObject.put("p", this.n);

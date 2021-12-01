@@ -4,14 +4,13 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ViewUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialShapeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +71,7 @@ public class MaterialShapeUtils {
 
     public static void setParentAbsoluteElevation(@NonNull View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, view) == null) {
             Drawable background = view.getBackground();
             if (background instanceof MaterialShapeDrawable) {
                 setParentAbsoluteElevation(view, (MaterialShapeDrawable) background);
@@ -82,7 +81,7 @@ public class MaterialShapeUtils {
 
     public static void setParentAbsoluteElevation(@NonNull View view, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, view, materialShapeDrawable) == null) && materialShapeDrawable.isElevationOverlayEnabled()) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, view, materialShapeDrawable) == null) && materialShapeDrawable.isElevationOverlayEnabled()) {
             materialShapeDrawable.setParentAbsoluteElevation(ViewUtils.getParentAbsoluteElevation(view));
         }
     }

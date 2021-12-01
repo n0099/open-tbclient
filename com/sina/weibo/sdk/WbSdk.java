@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +88,7 @@ public class WbSdk {
     public static boolean isWbInstall(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
             intent.addCategory("android.intent.category.DEFAULT");
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
@@ -102,6 +101,6 @@ public class WbSdk {
         InterceptResult invokeL;
         WbAppInfo wbAppInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? isWbInstall(context) && (wbAppInfo = WeiboAppManager.getInstance(context).getWbAppInfo()) != null && wbAppInfo.getSupportVersion() >= 10772 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? isWbInstall(context) && (wbAppInfo = WeiboAppManager.getInstance(context).getWbAppInfo()) != null && wbAppInfo.getSupportVersion() >= 10772 : invokeL.booleanValue;
     }
 }

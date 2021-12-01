@@ -30,7 +30,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECKED_STATE_SET;
@@ -120,7 +119,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     private StateListDrawable createDefaultBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(R.attr.colorControlHighlight, typedValue, true)) {
                 StateListDrawable stateListDrawable = new StateListDrawable();
@@ -135,7 +134,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
 
     private void setActionView(@Nullable View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, view) == null) || view == null) {
             return;
         }
         if (this.actionArea == null) {

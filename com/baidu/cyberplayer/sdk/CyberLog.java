@@ -1,7 +1,6 @@
 package com.baidu.cyberplayer.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CyberLog {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f37784a = 1;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,14 +46,14 @@ public class CyberLog {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f37784a = i2;
+            a = i2;
         }
     }
 
     @Keep
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f37784a > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 3) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -65,7 +62,7 @@ public class CyberLog {
     @Keep
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f37784a > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 6) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -74,7 +71,7 @@ public class CyberLog {
     @Keep
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) || 7 - f37784a > 6) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) || 7 - a > 6) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -84,13 +81,13 @@ public class CyberLog {
     public static int getLogLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f37784a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a : invokeV.intValue;
     }
 
     @Keep
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - f37784a > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - a > 4) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -99,7 +96,7 @@ public class CyberLog {
     @Keep
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - f37784a > 2) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - a > 2) {
             return;
         }
         String str3 = "duplayer-" + str;
@@ -108,7 +105,7 @@ public class CyberLog {
     @Keep
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - f37784a > 5) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - a > 5) {
             return;
         }
         String str3 = "duplayer-" + str;

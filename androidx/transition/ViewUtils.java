@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -182,7 +181,7 @@ public class ViewUtils {
     public static WindowIdImpl getWindowId(@NonNull View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return new WindowIdApi18(view);
             }
@@ -193,7 +192,7 @@ public class ViewUtils {
 
     public static void saveNonTransitionAlpha(@NonNull View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, view) == null) {
             IMPL.saveNonTransitionAlpha(view);
         }
     }

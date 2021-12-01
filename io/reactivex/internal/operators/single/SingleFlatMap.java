@@ -15,14 +15,14 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SingleFlatMap<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
     public final SingleSource<? extends T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SingleFlatMapCallback<T, R> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3258103020495908596L;
@@ -30,7 +30,7 @@ public final class SingleFlatMap<T, R> extends Single<R> {
         public final SingleObserver<? super R> actual;
         public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class FlatMapSingleObserver<R> implements SingleObserver<R> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

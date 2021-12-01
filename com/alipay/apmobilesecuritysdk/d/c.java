@@ -9,7 +9,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,32 +20,32 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             com.alipay.security.mobile.module.b.b b2 = com.alipay.security.mobile.module.b.b.b();
             HashMap hashMap = new HashMap();
-            f a2 = com.alipay.apmobilesecuritysdk.e.e.a(context);
-            String a3 = com.alipay.security.mobile.module.b.b.a(context);
+            f a = com.alipay.apmobilesecuritysdk.e.e.a(context);
+            String a2 = com.alipay.security.mobile.module.b.b.a(context);
             String b3 = com.alipay.security.mobile.module.b.b.b(context);
-            String k = com.alipay.security.mobile.module.b.b.k(context);
+            String k2 = com.alipay.security.mobile.module.b.b.k(context);
             String m = com.alipay.security.mobile.module.b.b.m(context);
-            if (a2 != null) {
-                if (com.alipay.security.mobile.module.a.a.a(a3)) {
-                    a3 = a2.a();
+            if (a != null) {
+                if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                    a2 = a.a();
                 }
                 if (com.alipay.security.mobile.module.a.a.a(b3)) {
-                    b3 = a2.b();
+                    b3 = a.b();
                 }
-                if (com.alipay.security.mobile.module.a.a.a(k)) {
-                    k = a2.c();
+                if (com.alipay.security.mobile.module.a.a.a(k2)) {
+                    k2 = a.c();
                 }
                 if (com.alipay.security.mobile.module.a.a.a(m)) {
-                    m = a2.e();
+                    m = a.e();
                 }
             }
-            f fVar = new f(a3, b3, k, "", m);
+            f fVar = new f(a2, b3, k2, "", m);
             if (context != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("imei", fVar.a());
                     jSONObject.put(BaseStatisContent.IMSI, fVar.b());
-                    jSONObject.put("mac", fVar.c());
+                    jSONObject.put(BaseStatisContent.MAC, fVar.c());
                     jSONObject.put("bluetoothmac", fVar.d());
                     jSONObject.put("gsi", fVar.e());
                     String jSONObject2 = jSONObject.toString();
@@ -55,13 +55,13 @@ public final class c {
                     com.alipay.apmobilesecuritysdk.c.a.a(e2);
                 }
             }
-            hashMap.put("AD1", a3);
+            hashMap.put("AD1", a2);
             hashMap.put("AD2", b3);
             hashMap.put("AD3", com.alipay.security.mobile.module.b.b.f(context));
             hashMap.put("AD5", com.alipay.security.mobile.module.b.b.h(context));
             hashMap.put("AD6", com.alipay.security.mobile.module.b.b.i(context));
             hashMap.put("AD7", com.alipay.security.mobile.module.b.b.j(context));
-            hashMap.put("AD8", k);
+            hashMap.put("AD8", k2);
             hashMap.put("AD9", com.alipay.security.mobile.module.b.b.l(context));
             hashMap.put("AD10", m);
             hashMap.put("AD11", com.alipay.security.mobile.module.b.b.e());

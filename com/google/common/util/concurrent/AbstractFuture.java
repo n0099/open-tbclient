@@ -1,11 +1,10 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.a.s;
+import c.i.d.a.n;
+import c.i.d.a.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ import java.util.concurrent.locks.LockSupport;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sun.misc.Unsafe;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractFuture<V> extends InternalFutureFailureAccess implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicHelper ATOMIC_HELPER;
@@ -46,13 +45,13 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
     public volatile Waiter waiters;
 
     /* renamed from: com.google.common.util.concurrent.AbstractFuture$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class AtomicHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +85,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Cancellation {
         public static /* synthetic */ Interceptable $ic;
         public static final Cancellation CAUSELESS_CANCELLED;
@@ -137,7 +136,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Failure {
         public static /* synthetic */ Interceptable $ic;
         public static final Failure FALLBACK_INSTANCE;
@@ -215,7 +214,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Listener {
         public static /* synthetic */ Interceptable $ic;
         public static final Listener TOMBSTONE;
@@ -260,7 +259,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SafeAtomicHelper extends AtomicHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +332,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SetFuture<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +369,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SynchronizedHelper extends AtomicHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,11 +461,11 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface Trusted<V> extends ListenableFuture<V> {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class TrustedFuture<V> extends AbstractFuture<V> implements Trusted<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -522,14 +521,14 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture, java.util.concurrent.Future
-        public final V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        public final V get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) ? (V) super.get(j, timeUnit) : (V) invokeJL.objValue;
+            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) ? (V) super.get(j2, timeUnit) : (V) invokeJL.objValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class UnsafeAtomicHelper extends AtomicHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final long LISTENERS_OFFSET;
@@ -604,7 +603,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
                 LISTENERS_OFFSET = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("listeners"));
                 VALUE_OFFSET = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("value"));
                 WAITER_THREAD_OFFSET = unsafe.objectFieldOffset(Waiter.class.getDeclaredField("thread"));
-                WAITER_NEXT_OFFSET = unsafe.objectFieldOffset(Waiter.class.getDeclaredField(UnitedSchemeConstants.UNITED_SCHEME_NEXT));
+                WAITER_NEXT_OFFSET = unsafe.objectFieldOffset(Waiter.class.getDeclaredField("next"));
                 UNSAFE = unsafe;
             } catch (Exception e3) {
                 s.f(e3);
@@ -672,7 +671,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public static final Waiter TOMBSTONE;
@@ -769,7 +768,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
         } catch (Throwable th2) {
             th = th2;
             try {
-                synchronizedHelper = new SafeAtomicHelper(AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Thread.class, "thread"), AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Waiter.class, UnitedSchemeConstants.UNITED_SCHEME_NEXT), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Waiter.class, "waiters"), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Listener.class, "listeners"), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Object.class, "value"));
+                synchronizedHelper = new SafeAtomicHelper(AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Thread.class, "thread"), AtomicReferenceFieldUpdater.newUpdater(Waiter.class, Waiter.class, "next"), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Waiter.class, "waiters"), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Listener.class, "listeners"), AtomicReferenceFieldUpdater.newUpdater(AbstractFuture.class, Object.class, "value"));
             } catch (Throwable th3) {
                 synchronizedHelper = new SynchronizedHelper(null);
                 th = th3;
@@ -1113,11 +1112,11 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
     }
 
     @Override // java.util.concurrent.Future
-    public V get(long j, TimeUnit timeUnit) throws InterruptedException, TimeoutException, ExecutionException {
+    public V get(long j2, TimeUnit timeUnit) throws InterruptedException, TimeoutException, ExecutionException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
-            long nanos = timeUnit.toNanos(j);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
+            long nanos = timeUnit.toNanos(j2);
             if (!Thread.interrupted()) {
                 Object obj = this.value;
                 if ((obj != null) & (!(obj instanceof SetFuture))) {
@@ -1166,12 +1165,12 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
                 }
                 String abstractFuture = toString();
                 String lowerCase = timeUnit.toString().toLowerCase(Locale.ROOT);
-                String str = "Waited " + j + " " + timeUnit.toString().toLowerCase(Locale.ROOT);
+                String str = "Waited " + j2 + " " + timeUnit.toString().toLowerCase(Locale.ROOT);
                 if (nanos + 1000 < 0) {
                     String str2 = str + " (plus ";
-                    long j2 = -nanos;
-                    long convert = timeUnit.convert(j2, TimeUnit.NANOSECONDS);
-                    long nanos2 = j2 - timeUnit.toNanos(convert);
+                    long j3 = -nanos;
+                    long convert = timeUnit.convert(j3, TimeUnit.NANOSECONDS);
+                    long nanos2 = j3 - timeUnit.toNanos(convert);
                     int i2 = (convert > 0L ? 1 : (convert == 0L ? 0 : -1));
                     boolean z = i2 == 0 || nanos2 > 1000;
                     if (i2 > 0) {

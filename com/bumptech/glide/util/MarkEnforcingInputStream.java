@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MarkEnforcingInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int END_OF_STREAM = -1;
@@ -39,26 +39,26 @@ public class MarkEnforcingInputStream extends FilterInputStream {
         this.availableBytes = Integer.MIN_VALUE;
     }
 
-    private long getBytesToRead(long j) {
+    private long getBytesToRead(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j2)) == null) {
             int i2 = this.availableBytes;
             if (i2 == 0) {
                 return -1L;
             }
-            return (i2 == Integer.MIN_VALUE || j <= ((long) i2)) ? j : i2;
+            return (i2 == Integer.MIN_VALUE || j2 <= ((long) i2)) ? j2 : i2;
         }
         return invokeJ.longValue;
     }
 
-    private void updateAvailableBytesAfterRead(long j) {
+    private void updateAvailableBytesAfterRead(long j2) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (i2 = this.availableBytes) == Integer.MIN_VALUE || j == -1) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j2) == null) || (i2 = this.availableBytes) == Integer.MIN_VALUE || j2 == -1) {
             return;
         }
-        this.availableBytes = (int) (i2 - j);
+        this.availableBytes = (int) (i2 - j2);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -110,11 +110,11 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            long bytesToRead = getBytesToRead(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            long bytesToRead = getBytesToRead(j2);
             if (bytesToRead == -1) {
                 return 0L;
             }

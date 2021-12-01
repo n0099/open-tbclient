@@ -15,17 +15,17 @@ public class i {
         return (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) ? (i3 <= 0 || i3 >= 100 || !a(i2)) ? i3 : (int) (Math.sqrt(i3) * 10.0d) : invokeII.intValue;
     }
 
-    public static long a(int i2, long j, long j2) {
+    public static long a(int i2, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (a(i2)) {
-                if (j <= 0) {
+                if (j2 <= 0) {
                     return 0L;
                 }
-                return j2 <= 0 ? j : (j2 * a(i2, (int) ((j * 100) / j2))) / 100;
+                return j3 <= 0 ? j2 : (j3 * a(i2, (int) ((j2 * 100) / j3))) / 100;
             }
-            return j;
+            return j2;
         }
         return invokeCommon.longValue;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.detail;
 
-import b.a.r0.s3.a;
+import c.a.r0.z3.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,6 +78,6 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         this.cardData.r(getCardResIdl.data.free_user_level.intValue());
         this.cardData.l(getCardResIdl.data.activity_url);
         this.cardData.t(getCardResIdl.data.is_finished.intValue());
-        this.cardData.o(getCardResIdl.data.daily_previlege_status.intValue());
+        this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
     }
 }

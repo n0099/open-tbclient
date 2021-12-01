@@ -11,12 +11,12 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class bm {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bArr)) == null) {
                 int i3 = i2 - 1;
                 if (i3 >= 0) {
-                    String[] strArr = br.f42031a;
+                    String[] strArr = br.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -46,7 +46,7 @@ public final class bm {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, bArr)) == null) {
                 int i3 = i2 - 1;
                 if (i3 >= 0) {
-                    String[] strArr = br.f42031a;
+                    String[] strArr = br.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -86,7 +86,7 @@ public final class bm {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,8 +121,8 @@ public final class bm {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
                 try {
-                    byte[] a2 = a(bArr, bArr2, bs.a(bArr3));
-                    return bp.b(a2) + "|" + bv.a(bArr) + "|" + bv.a(bArr2);
+                    byte[] a = a(bArr, bArr2, bs.a(bArr3));
+                    return bp.b(a) + "|" + bv.a(bArr) + "|" + bv.a(bArr2);
                 } catch (Exception unused) {
                     return "";
                 }

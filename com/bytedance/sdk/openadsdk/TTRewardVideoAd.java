@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk;
 import android.app.Activity;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface TTRewardVideoAd {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface RewardAdInteractionListener {
         void onAdClose();
 

@@ -11,7 +11,7 @@ import com.facebook.cache.disk.DiskStorageCache;
 import com.facebook.cache.disk.FileCache;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DiskStorageCacheFactory implements FileCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

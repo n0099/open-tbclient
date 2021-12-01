@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +13,19 @@ import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +34,7 @@ public final class Objects {
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +116,7 @@ public final class Objects {
                         String str2 = valueHolder.name;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append(a.f34958h);
+                            sb.append(a.f31351h);
                         }
                         sb.append(valueHolder.value);
                         str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
@@ -233,16 +232,16 @@ public final class Objects {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? addHolder(String.valueOf(i2)) : (ToStringHelper) invokeI.objValue;
         }
 
-        public ToStringHelper add(String str, long j) {
+        public ToStringHelper add(String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? addHolder(str, String.valueOf(j)) : (ToStringHelper) invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j2)) == null) ? addHolder(str, String.valueOf(j2)) : (ToStringHelper) invokeLJ.objValue;
         }
 
-        public ToStringHelper addValue(long j) {
+        public ToStringHelper addValue(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) ? addHolder(String.valueOf(j)) : (ToStringHelper) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) ? addHolder(String.valueOf(j2)) : (ToStringHelper) invokeJ.objValue;
         }
     }
 
@@ -296,13 +295,13 @@ public final class Objects {
     public static ToStringHelper toStringHelper(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? new ToStringHelper(simpleName(obj.getClass()), null) : (ToStringHelper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? new ToStringHelper(simpleName(obj.getClass()), null) : (ToStringHelper) invokeL.objValue;
     }
 
     public static ToStringHelper toStringHelper(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) ? new ToStringHelper(simpleName(cls), null) : (ToStringHelper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) ? new ToStringHelper(simpleName(cls), null) : (ToStringHelper) invokeL.objValue;
     }
 
     public static ToStringHelper toStringHelper(String str) {

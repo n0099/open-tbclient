@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NewThreadScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_NEWTHREAD_PRIORITY = "rx2.newthread-priority";

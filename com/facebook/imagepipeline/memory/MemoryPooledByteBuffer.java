@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         }
         Preconditions.checkNotNull(closeableReference);
         Preconditions.checkArgument(i2 >= 0 && i2 <= closeableReference.get().getSize());
-        this.mBufRef = closeableReference.m52clone();
+        this.mBufRef = closeableReference.m100clone();
         this.mSize = i2;
     }
 

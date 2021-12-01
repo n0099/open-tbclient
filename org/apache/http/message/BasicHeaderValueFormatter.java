@@ -2,7 +2,6 @@ package org.apache.http.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +82,7 @@ public class BasicHeaderValueFormatter implements HeaderValueFormatter {
     public static final String formatParameters(NameValuePair[] nameValuePairArr, boolean z, HeaderValueFormatter headerValueFormatter) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{nameValuePairArr, Boolean.valueOf(z), headerValueFormatter})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{nameValuePairArr, Boolean.valueOf(z), headerValueFormatter})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeCommon.objValue;

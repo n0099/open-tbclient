@@ -2,7 +2,6 @@ package org.apache.commons.lang3.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,11 +86,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            long j = i2 + i3;
-            if (j < -2147483648L || j > 2147483647L) {
+            long j2 = i2 + i3;
+            if (j2 < -2147483648L || j2 > 2147483647L) {
                 throw new ArithmeticException("overflow: add");
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeII.intValue;
     }
@@ -132,7 +131,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
     public static Fraction getFraction(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             if (i3 != 0) {
                 if (i3 < 0) {
                     if (i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE) {
@@ -249,11 +248,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
-            long j = i2 * i3;
-            if (j < -2147483648L || j > 2147483647L) {
+            long j2 = i2 * i3;
+            if (j2 < -2147483648L || j2 > 2147483647L) {
                 throw new ArithmeticException("overflow: mul");
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeII.intValue;
     }
@@ -262,9 +261,9 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i2, i3)) == null) {
-            long j = i2 * i3;
-            if (j <= 2147483647L) {
-                return (int) j;
+            long j2 = i2 * i3;
+            if (j2 <= 2147483647L) {
+                return (int) j2;
             }
             throw new ArithmeticException("overflow: mulPos");
         }
@@ -275,11 +274,11 @@ public final class Fraction extends Number implements Comparable<Fraction> {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i2, i3)) == null) {
-            long j = i2 - i3;
-            if (j < -2147483648L || j > 2147483647L) {
+            long j2 = i2 - i3;
+            if (j2 < -2147483648L || j2 > 2147483647L) {
                 throw new ArithmeticException("overflow: add");
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeII.intValue;
     }
@@ -555,13 +554,13 @@ public final class Fraction extends Number implements Comparable<Fraction> {
     public static Fraction getFraction(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
             if (i4 != 0) {
                 if (i4 >= 0) {
                     if (i3 >= 0) {
-                        long j = i2 < 0 ? (i2 * i4) - i3 : (i2 * i4) + i3;
-                        if (j >= -2147483648L && j <= 2147483647L) {
-                            return new Fraction((int) j, i4);
+                        long j2 = i2 < 0 ? (i2 * i4) - i3 : (i2 * i4) + i3;
+                        if (j2 >= -2147483648L && j2 <= 2147483647L) {
+                            return new Fraction((int) j2, i4);
                         }
                         throw new ArithmeticException("Numerator too large to represent as an Integer.");
                     }

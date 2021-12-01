@@ -18,40 +18,40 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f36863a = false;
+    public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36864b = "ImageMemoryCache";
+    public static final String f33031b = "ImageMemoryCache";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36865c = 15;
+    public static final int f33032c = 15;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f36866d = 10000;
+    public static final int f33033d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float f36867e = 0.75f;
+    public static final float f33034e = 0.75f;
 
     /* renamed from: f  reason: collision with root package name */
-    public static ConcurrentHashMap<String, SoftReference<Bitmap>> f36868f;
+    public static ConcurrentHashMap<String, SoftReference<Bitmap>> f33035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static HashMap<String, Bitmap> f36869g;
+    public static HashMap<String, Bitmap> f33036g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HandlerThread f36870h;
+    public static HandlerThread f33037h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Handler f36871i;
-    public static Runnable j;
+    public static Handler f33038i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static Runnable f33039j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public class b {
                     return;
                 }
             }
-            HandlerThread unused = b.f36870h = new HandlerThread("sb_imagecache_loop", 10);
-            b.f36870h.start();
-            Handler unused2 = b.f36871i = new Handler(b.f36870h.getLooper());
+            HandlerThread unused = b.f33037h = new HandlerThread("sb_imagecache_loop", 10);
+            b.f33037h.start();
+            Handler unused2 = b.f33038i = new Handler(b.f33037h.getLooper());
         }
 
         public a() {
@@ -102,8 +102,8 @@ public class b {
                 return;
             }
         }
-        f36868f = new ConcurrentHashMap<>(7);
-        f36869g = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.baidu.apollon.imagemanager.ImageMemoryCache$1
+        f33035f = new ConcurrentHashMap<>(7);
+        f33036g = new LinkedHashMap<String, Bitmap>(7, 0.75f, true) { // from class: com.baidu.apollon.imagemanager.ImageMemoryCache$1
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 1;
             public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, entry)) == null) {
                     if (size() > 15) {
-                        concurrentHashMap = b.f36868f;
+                        concurrentHashMap = b.f33035f;
                         concurrentHashMap.put(entry.getKey(), new SoftReference(entry.getValue()));
                         return true;
                     }
@@ -145,7 +145,7 @@ public class b {
                 return invokeL.booleanValue;
             }
         };
-        j = new Runnable() { // from class: com.baidu.apollon.imagemanager.b.1
+        f33039j = new Runnable() { // from class: com.baidu.apollon.imagemanager.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -190,21 +190,21 @@ public class b {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            synchronized (f36869g) {
-                for (Map.Entry<String, Bitmap> entry : f36869g.entrySet()) {
-                    f36868f.put(entry.getKey(), new SoftReference<>(entry.getValue()));
+            synchronized (f33036g) {
+                for (Map.Entry<String, Bitmap> entry : f33036g.entrySet()) {
+                    f33035f.put(entry.getKey(), new SoftReference<>(entry.getValue()));
                 }
-                f36869g.clear();
+                f33036g.clear();
             }
             LinkedList linkedList = new LinkedList();
-            for (Map.Entry<String, SoftReference<Bitmap>> entry2 : f36868f.entrySet()) {
+            for (Map.Entry<String, SoftReference<Bitmap>> entry2 : f33035f.entrySet()) {
                 if (entry2.getValue().get() == null) {
                     linkedList.add(entry2.getKey());
                 }
             }
             Iterator it = linkedList.iterator();
             while (it.hasNext()) {
-                f36868f.remove((String) it.next());
+                f33035f.remove((String) it.next());
             }
         }
     }
@@ -214,8 +214,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) || bitmap == null) {
             return;
         }
-        synchronized (f36869g) {
-            f36869g.put(str, bitmap);
+        synchronized (f33036g) {
+            f33036g.put(str, bitmap);
         }
     }
 
@@ -223,19 +223,19 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (f36869g) {
-                Bitmap bitmap = f36869g.get(str);
+            synchronized (f33036g) {
+                Bitmap bitmap = f33036g.get(str);
                 if (bitmap != null) {
                     return bitmap;
                 }
-                SoftReference<Bitmap> softReference = f36868f.get(str);
+                SoftReference<Bitmap> softReference = f33035f.get(str);
                 if (softReference != null) {
                     Bitmap bitmap2 = softReference.get();
                     if (bitmap2 != null) {
                         a(str, bitmap2);
                         return bitmap2;
                     }
-                    f36868f.remove(str);
+                    f33035f.remove(str);
                     return null;
                 }
                 return null;
@@ -247,13 +247,13 @@ public class b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (f36871i == null) {
+            if (f33038i == null) {
                 new a();
             }
-            Handler handler = f36871i;
+            Handler handler = f33038i;
             if (handler != null) {
-                handler.removeCallbacks(j);
-                f36871i.postDelayed(j, 10000L);
+                handler.removeCallbacks(f33039j);
+                f33038i.postDelayed(f33039j, 10000L);
             }
         }
     }

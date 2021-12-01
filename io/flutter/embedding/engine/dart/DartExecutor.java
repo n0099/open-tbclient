@@ -11,15 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.FlutterInjector;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterJNI;
+import io.flutter.embedding.engine.loader.FlutterLoader;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.StringCodec;
 import io.flutter.view.FlutterCallbackInformation;
-import io.flutter.view.FlutterMain;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DartExecutor implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DartExecutor";
@@ -39,7 +40,7 @@ public class DartExecutor implements BinaryMessenger {
     @Nullable
     public IsolateServiceIdListener isolateServiceIdListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DartCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,78 +79,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class DartEntrypoint {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final String dartEntrypointFunctionName;
-        @NonNull
-        public final String pathToBundle;
-
-        public DartEntrypoint(@NonNull String str, @NonNull String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.pathToBundle = str;
-            this.dartEntrypointFunctionName = str2;
-        }
-
-        @NonNull
-        public static DartEntrypoint createDefault() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new DartEntrypoint(FlutterMain.findAppBundlePath(), FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT) : (DartEntrypoint) invokeV.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || DartEntrypoint.class != obj.getClass()) {
-                    return false;
-                }
-                DartEntrypoint dartEntrypoint = (DartEntrypoint) obj;
-                if (this.pathToBundle.equals(dartEntrypoint.pathToBundle)) {
-                    return this.dartEntrypointFunctionName.equals(dartEntrypoint.dartEntrypointFunctionName);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.pathToBundle.hashCode() * 31) + this.dartEntrypointFunctionName.hashCode() : invokeV.intValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "DartEntrypoint( bundle path: " + this.pathToBundle + ", function: " + this.dartEntrypointFunctionName + " )";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultBinaryMessenger implements BinaryMessenger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +131,7 @@ public class DartExecutor implements BinaryMessenger {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IsolateServiceIdListener {
         void onIsolateServiceIdAvailable(@NonNull String str);
     }
@@ -262,6 +192,9 @@ public class DartExecutor implements BinaryMessenger {
         this.dartMessenger = dartMessenger;
         dartMessenger.setMessageHandler("flutter/isolate", this.isolateChannelMessageHandler);
         this.binaryMessenger = new DefaultBinaryMessenger(this.dartMessenger);
+        if (flutterJNI.isAttached()) {
+            this.isApplicationRunning = true;
+        }
     }
 
     public void executeDartCallback(@NonNull DartCallback dartCallback) {
@@ -288,7 +221,7 @@ public class DartExecutor implements BinaryMessenger {
                 return;
             }
             Log.v(TAG, "Executing Dart entrypoint: " + dartEntrypoint);
-            this.flutterJNI.runBundleAndSnapshotFromLibrary(dartEntrypoint.pathToBundle, dartEntrypoint.dartEntrypointFunctionName, null, this.assetManager);
+            this.flutterJNI.runBundleAndSnapshotFromLibrary(dartEntrypoint.pathToBundle, dartEntrypoint.dartEntrypointFunctionName, dartEntrypoint.dartEntrypointLibrary, this.assetManager);
             this.isApplicationRunning = true;
         }
     }
@@ -320,9 +253,16 @@ public class DartExecutor implements BinaryMessenger {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isApplicationRunning : invokeV.booleanValue;
     }
 
+    public void notifyLowMemoryWarning() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.flutterJNI.isAttached()) {
+            this.flutterJNI.notifyLowMemoryWarning();
+        }
+    }
+
     public void onAttachedToJNI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Log.v(TAG, "Attached to JNI. Registering the platform message handler for this Dart execution context.");
             this.flutterJNI.setPlatformMessageHandler(this.dartMessenger);
         }
@@ -330,7 +270,7 @@ public class DartExecutor implements BinaryMessenger {
 
     public void onDetachedFromJNI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Log.v(TAG, "Detached from JNI. De-registering the platform message handler for this Dart execution context.");
             this.flutterJNI.setPlatformMessageHandler(null);
         }
@@ -341,7 +281,7 @@ public class DartExecutor implements BinaryMessenger {
     @Deprecated
     public void send(@NonNull String str, @Nullable ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, byteBuffer) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, byteBuffer) == null) {
             this.binaryMessenger.send(str, byteBuffer);
         }
     }
@@ -349,7 +289,7 @@ public class DartExecutor implements BinaryMessenger {
     public void setIsolateServiceIdListener(@Nullable IsolateServiceIdListener isolateServiceIdListener) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, isolateServiceIdListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, isolateServiceIdListener) == null) {
             this.isolateServiceIdListener = isolateServiceIdListener;
             if (isolateServiceIdListener == null || (str = this.isolateServiceId) == null) {
                 return;
@@ -363,7 +303,7 @@ public class DartExecutor implements BinaryMessenger {
     @Deprecated
     public void setMessageHandler(@NonNull String str, @Nullable BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, binaryMessageHandler) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, binaryMessageHandler) == null) {
             this.binaryMessenger.setMessageHandler(str, binaryMessageHandler);
         }
     }
@@ -373,8 +313,109 @@ public class DartExecutor implements BinaryMessenger {
     @Deprecated
     public void send(@NonNull String str, @Nullable ByteBuffer byteBuffer, @Nullable BinaryMessenger.BinaryReply binaryReply) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, str, byteBuffer, binaryReply) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, byteBuffer, binaryReply) == null) {
             this.binaryMessenger.send(str, byteBuffer, binaryReply);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class DartEntrypoint {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public final String dartEntrypointFunctionName;
+        @Nullable
+        public final String dartEntrypointLibrary;
+        @NonNull
+        public final String pathToBundle;
+
+        public DartEntrypoint(@NonNull String str, @NonNull String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.pathToBundle = str;
+            this.dartEntrypointLibrary = null;
+            this.dartEntrypointFunctionName = str2;
+        }
+
+        @NonNull
+        public static DartEntrypoint createDefault() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                FlutterLoader flutterLoader = FlutterInjector.instance().flutterLoader();
+                if (flutterLoader.initialized()) {
+                    return new DartEntrypoint(flutterLoader.findAppBundlePath(), FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+                }
+                throw new AssertionError("DartEntrypoints can only be created once a FlutterEngine is created.");
+            }
+            return (DartEntrypoint) invokeV.objValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || DartEntrypoint.class != obj.getClass()) {
+                    return false;
+                }
+                DartEntrypoint dartEntrypoint = (DartEntrypoint) obj;
+                if (this.pathToBundle.equals(dartEntrypoint.pathToBundle)) {
+                    return this.dartEntrypointFunctionName.equals(dartEntrypoint.dartEntrypointFunctionName);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.pathToBundle.hashCode() * 31) + this.dartEntrypointFunctionName.hashCode() : invokeV.intValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return "DartEntrypoint( bundle path: " + this.pathToBundle + ", function: " + this.dartEntrypointFunctionName + " )";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public DartEntrypoint(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.pathToBundle = str;
+            this.dartEntrypointLibrary = str2;
+            this.dartEntrypointFunctionName = str3;
         }
     }
 }

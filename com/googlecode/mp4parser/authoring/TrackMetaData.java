@@ -189,17 +189,17 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setTimescale(long j) {
+    public void setTimescale(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.timescale = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.timescale = j2;
         }
     }
 
-    public void setTrackId(long j) {
+    public void setTrackId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            this.trackId = j;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+            this.trackId = j2;
         }
     }
 

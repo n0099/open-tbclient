@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,24 +24,22 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f42813a = "d";
+    public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42814b = "Set-Cookie";
+    public static final String f38301b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f42815c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f38302c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f42816d = "Cookie";
+    public static final String f38303d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f42817e = "https://";
+    public static final String f38304e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,12 +71,12 @@ public class d {
         }
     }
 
-    public static String a(String str, String str2, String str3, long j, boolean z) {
+    public static String a(String str, String str2, String str3, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
+            calendar.setTimeInMillis(j2);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
             StringBuilder sb = new StringBuilder();
@@ -110,12 +107,12 @@ public class d {
                 sb.append("https://");
                 sb.append(uri.getHost());
                 String cookie = cookieManager.getCookie(sb.toString());
-                String str = f42813a;
+                String str = a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("asyncCookie");
                 sb2.append(passHttpParamDTO.asyncCookie);
                 e.a(str, sb2.toString());
-                String str2 = f42813a;
+                String str2 = a;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("webviewCookies");
                 sb3.append(cookie);
@@ -144,7 +141,7 @@ public class d {
                                 if (!httpCookie.hasExpired()) {
                                     str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
                                 }
-                                String str5 = f42813a;
+                                String str5 = a;
                                 StringBuilder sb4 = new StringBuilder();
                                 sb4.append("httpCookie webview item name:");
                                 sb4.append(httpCookie.getName());
@@ -166,14 +163,14 @@ public class d {
                     return;
                 }
                 String substring = str3.substring(0, str3.length() - 1);
-                String str6 = f42813a;
+                String str6 = a;
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append("cookieStr");
                 sb5.append(substring);
                 e.a(str6, sb5.toString());
                 httpURLConnection.setRequestProperty("Cookie", substring);
             } catch (Exception e2) {
-                e.a(f42813a, "asyncWebviewCookie2NA:" + e2.toString());
+                e.a(a, "asyncWebviewCookie2NA:" + e2.toString());
             }
         }
     }
@@ -185,7 +182,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, httpURLConnection, passHttpParamDTO) == null) {
             try {
-                String str = f42813a;
+                String str = a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("asyncCookie");
                 sb.append(passHttpParamDTO.asyncCookie);
@@ -226,7 +223,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                String str3 = f42813a;
+                String str3 = a;
                 e.a(str3, "asyncNaCookie2Webview:" + e2.toString());
             }
         }
@@ -236,7 +233,7 @@ public class d {
     public static boolean a(String str, HttpCookie httpCookie) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, httpCookie)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, httpCookie)) == null) {
             try {
                 URL url = new URL(str);
                 if (!httpCookie.getDiscard() && !httpCookie.hasExpired() && a(url.getHost(), httpCookie.getDomain()) && b(url.getPath(), httpCookie.getPath())) {
@@ -269,7 +266,7 @@ public class d {
     public static boolean a(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

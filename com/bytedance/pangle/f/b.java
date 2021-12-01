@@ -32,21 +32,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate[][] f62283a;
+        public final X509Certificate[][] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f62284b;
+        public final byte[] f54575b;
 
         public a(X509Certificate[][] x509CertificateArr, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -63,8 +61,8 @@ public final class b {
                     return;
                 }
             }
-            this.f62283a = x509CertificateArr;
-            this.f62284b = bArr;
+            this.a = x509CertificateArr;
+            this.f54575b = bArr;
         }
     }
 
@@ -76,7 +74,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
             return (a) invokeL.objValue;
         }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, com.baidu.mapsdkplatform.comapi.map.r.f41000a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, "r");
         try {
             a a2 = a(randomAccessFile, f.a(randomAccessFile, (int) ApkSignatureSchemeV2Verifier.APK_SIGNATURE_SCHEME_V2_BLOCK_ID));
             randomAccessFile.close();
@@ -94,7 +92,7 @@ public final class b {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
-                    ByteBuffer a2 = f.a(mVar.f62305a);
+                    ByteBuffer a2 = f.a(mVar.a);
                     int i2 = 0;
                     while (a2.hasRemaining()) {
                         i2++;

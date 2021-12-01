@@ -11,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
-import b.a.e.f.p.l;
-import b.a.q0.h0.e.c;
+import c.a.d.f.p.k;
+import c.a.d.f.p.l;
+import c.a.q0.i0.e.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DYNAMIC_STATUS = 3;
@@ -51,28 +51,32 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public static final int TIP_POS_TYPE_CENTER = 0;
     public static final int TIP_POS_TYPE_TOP = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public b.a.q0.h0.e.a dynamicIconData;
+    public c.a.q0.i0.e.a dynamicIconData;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46815e;
+    public int f41859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46816f;
+    public View f41860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f46817g;
+    public View f41861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBLottieAnimationView f46818h;
+    public TBLottieAnimationView f41862h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46819i;
+    public TextView f41863i;
     public int iconStatus;
     public boolean isHomePageIndicator;
     public boolean isSelectHome;
     public boolean isSelected;
-    public TBLottieAnimationView j;
-    public TbImageView k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TBLottieAnimationView f41864j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TbImageView f41865k;
     public TbImageView l;
     public View m;
     public int n;
@@ -82,13 +86,13 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public int r;
     public HashMap<String, TbFragmentTabIndicator.a> s;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaintabBottomIndicator f46820e;
+        public final /* synthetic */ MaintabBottomIndicator f41866e;
 
         public a(MaintabBottomIndicator maintabBottomIndicator) {
             Interceptable interceptable = $ic;
@@ -105,7 +109,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                     return;
                 }
             }
-            this.f46820e = maintabBottomIndicator;
+            this.f41866e = maintabBottomIndicator;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -119,7 +123,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f46820e.e();
+                this.f41866e.e();
             }
         }
 
@@ -134,22 +138,20 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f46820e.f46818h.setVisibility(8);
-                this.f46820e.j.setVisibility(0);
+                this.f41866e.f41862h.setVisibility(8);
+                this.f41866e.f41864j.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f46821a;
+        public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MaintabBottomIndicator f46822b;
+        public final /* synthetic */ MaintabBottomIndicator f41867b;
 
         public b(MaintabBottomIndicator maintabBottomIndicator, String str) {
             Interceptable interceptable = $ic;
@@ -166,21 +168,21 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                     return;
                 }
             }
-            this.f46822b = maintabBottomIndicator;
-            this.f46821a = str;
+            this.f41867b = maintabBottomIndicator;
+            this.a = str;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                if (this.f46822b.dynamicIconData == null || !c.d().b()) {
-                    this.f46822b.k.setVisibility(0);
+                if (this.f41867b.dynamicIconData == null || !c.d().b()) {
+                    this.f41867b.f41865k.setVisibility(0);
                 }
-                if (!k.isEmpty(this.f46821a)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921491, this.f46821a));
+                if (!k.isEmpty(this.a)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921491, this.a));
                 }
-                this.f46822b.k.setEvent(null);
+                this.f41867b.f41865k.setEvent(null);
             }
         }
 
@@ -210,7 +212,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f46815e = 0;
+        this.f41859e = 0;
         this.o = 3;
         this.s = new HashMap<>();
         this.isHomePageIndicator = false;
@@ -223,7 +225,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void addTip(String str, TbFragmentTabIndicator.a aVar) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null || (view = aVar.f46823a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null || (view = aVar.a) == null) {
             return;
         }
         addView(view);
@@ -234,7 +236,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void addTipWrapContent(String str, TbFragmentTabIndicator.a aVar) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || aVar == null || (view = aVar.f46823a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || aVar == null || (view = aVar.a) == null) {
             return;
         }
         addView(view, -2, -2);
@@ -244,11 +246,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = b.a.q0.s.e0.b.j().k("key_lottie_show_count", 0);
-            b.a.q0.s.e0.b.j().w(KEY_LOTTIE_SHOW_EXPIRED_TIME, System.currentTimeMillis() + 86400000);
-            TBLottieAnimationView tBLottieAnimationView = this.j;
+            int k2 = c.a.q0.s.e0.b.j().k("key_lottie_show_count", 0);
+            c.a.q0.s.e0.b.j().w(KEY_LOTTIE_SHOW_EXPIRED_TIME, System.currentTimeMillis() + 86400000);
+            TBLottieAnimationView tBLottieAnimationView = this.f41864j;
             tBLottieAnimationView.setFrame(tBLottieAnimationView.getFrame());
-            if (k >= 3) {
+            if (k2 >= 3) {
                 hideLottieView();
             }
         }
@@ -257,7 +259,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.a.q0.s.e0.b.j().v("key_lottie_show_count", b.a.q0.s.e0.b.j().k("key_lottie_show_count", 0) + 1);
+            c.a.q0.s.e0.b.j().v("key_lottie_show_count", c.a.q0.s.e0.b.j().k("key_lottie_show_count", 0) + 1);
         }
     }
 
@@ -277,14 +279,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public TBLottieAnimationView getAnimationView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (TBLottieAnimationView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41864j : (TBLottieAnimationView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public View getContentTv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f46819i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41863i : (View) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -297,55 +299,55 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f46816f = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
+            this.f41860f = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.f46816f.setLayoutParams(layoutParams);
-            this.f46817g = this.f46816f.findViewById(R.id.container_common_item);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f46816f.findViewById(R.id.view_bottom_icon);
-            this.f46818h = tBLottieAnimationView;
+            this.f41860f.setLayoutParams(layoutParams);
+            this.f41861g = this.f41860f.findViewById(R.id.container_common_item);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.f41860f.findViewById(R.id.view_bottom_icon);
+            this.f41862h = tBLottieAnimationView;
             tBLottieAnimationView.setSpeed(1.1f);
-            this.f46818h.disableRestoreInstanceStateJustOnce();
-            TbImageView tbImageView = (TbImageView) this.f46816f.findViewById(R.id.image_icon);
-            this.k = tbImageView;
+            this.f41862h.disableRestoreInstanceStateJustOnce();
+            TbImageView tbImageView = (TbImageView) this.f41860f.findViewById(R.id.image_icon);
+            this.f41865k = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.k.setRadius(50);
-            this.k.setDefaultBgResource(R.color.transparent);
-            this.k.setConrers(15);
-            this.l = (TbImageView) this.f46816f.findViewById(R.id.dynamic_image_icon);
-            TextView textView = (TextView) this.f46816f.findViewById(R.id.view_bottom_text);
-            this.f46819i = textView;
+            this.f41865k.setRadius(50);
+            this.f41865k.setDefaultBgResource(R.color.transparent);
+            this.f41865k.setConrers(15);
+            this.l = (TbImageView) this.f41860f.findViewById(R.id.dynamic_image_icon);
+            TextView textView = (TextView) this.f41860f.findViewById(R.id.view_bottom_text);
+            this.f41863i = textView;
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
-            marginLayoutParams.topMargin = -l.g(getContext(), R.dimen.M_H_X001);
-            this.f46819i.setLayoutParams(marginLayoutParams);
-            TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) this.f46816f.findViewById(R.id.animation_view);
-            this.j = tBLottieAnimationView2;
+            marginLayoutParams.topMargin = -l.f(getContext(), R.dimen.M_H_X001);
+            this.f41863i.setLayoutParams(marginLayoutParams);
+            TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) this.f41860f.findViewById(R.id.animation_view);
+            this.f41864j = tBLottieAnimationView2;
             tBLottieAnimationView2.setFirstLoadInternal(true);
-            this.m = this.f46816f.findViewById(R.id.bar_cross_line);
-            addView(this.f46816f);
-            this.q = l.g(getContext(), R.dimen.tbds18);
-            this.r = l.g(getContext(), R.dimen.tbds10);
+            this.m = this.f41860f.findViewById(R.id.bar_cross_line);
+            addView(this.f41860f);
+            this.q = l.f(getContext(), R.dimen.tbds18);
+            this.r = l.f(getContext(), R.dimen.tbds10);
         }
     }
 
     public void hideLottieView() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tBLottieAnimationView = this.j) != null && tBLottieAnimationView.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tBLottieAnimationView = this.f41864j) != null && tBLottieAnimationView.getVisibility() == 0) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f, 1, 0.5f, 1, 0.5f);
             scaleAnimation.setDuration(300L);
-            this.j.startAnimation(scaleAnimation);
-            this.j.setVisibility(4);
-            this.f46818h.setVisibility(0);
-            b.a.q0.s.e0.b.j().v("key_lottie_show_count", 4);
+            this.f41864j.startAnimation(scaleAnimation);
+            this.f41864j.setVisibility(4);
+            this.f41862h.setVisibility(0);
+            c.a.q0.s.e0.b.j().v("key_lottie_show_count", 4);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (System.currentTimeMillis() > b.a.q0.s.e0.b.j().l(KEY_LOTTIE_SHOW_EXPIRED_TIME, 0L)) {
-                b.a.q0.s.e0.b.j().v("key_lottie_show_count", 0);
+            if (System.currentTimeMillis() > c.a.q0.s.e0.b.j().l(KEY_LOTTIE_SHOW_EXPIRED_TIME, 0L)) {
+                c.a.q0.s.e0.b.j().v("key_lottie_show_count", 0);
             }
         }
     }
@@ -353,15 +355,15 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public boolean isAnimating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f46818h.isAnimating() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41862h.isAnimating() : invokeV.booleanValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.dynamicIconData != null && c.d().b()) {
-            this.f46818h.setVisibility(8);
-            this.j.setVisibility(4);
-            this.k.setVisibility(8);
+            this.f41862h.setVisibility(8);
+            this.f41864j.setVisibility(4);
+            this.f41865k.setVisibility(8);
             this.l.setVisibility(0);
             if (this.isSelected) {
                 this.l.startLoad(this.dynamicIconData.l(), this.dynamicIconData.j(), false);
@@ -387,22 +389,22 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             int i3 = this.n;
             if (i3 != 0) {
-                SkinManager.setViewTextColor(this.f46819i, i3, 1, i2);
+                SkinManager.setViewTextColor(this.f41863i, i3, 1, i2);
             } else {
-                SkinManager.setViewTextColor(this.f46819i, R.color.CAM_X0107, 1, i2);
+                SkinManager.setViewTextColor(this.f41863i, R.color.CAM_X0107, 1, i2);
             }
             int i4 = this.p;
             if (i4 != 0) {
                 try {
                     if (i2 == 1) {
-                        SkinManager.setNightLottieAnimation(this.f46818h, i4);
-                        this.f46818h.setAlpha(0.66f);
+                        SkinManager.setNightLottieAnimation(this.f41862h, i4);
+                        this.f41862h.setAlpha(0.66f);
                     } else if (i2 == 4) {
-                        SkinManager.setDarkLottieAnimation(this.f46818h, i4);
-                        this.f46818h.setAlpha(0.83f);
+                        SkinManager.setDarkLottieAnimation(this.f41862h, i4);
+                        this.f41862h.setAlpha(0.83f);
                     } else {
-                        SkinManager.setLottieAnimation(this.f46818h, i4);
-                        this.f46818h.setAlpha(1.0f);
+                        SkinManager.setLottieAnimation(this.f41862h, i4);
+                        this.f41862h.setAlpha(1.0f);
                     }
                     g();
                 } catch (Exception unused) {
@@ -440,20 +442,20 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 this.o = i2;
                 int i3 = this.n;
                 if (i3 != 0) {
-                    SkinManager.setViewTextColor(this.f46819i, i3);
+                    SkinManager.setViewTextColor(this.f41863i, i3);
                 } else {
-                    SkinManager.setViewTextColor(this.f46819i, R.color.CAM_X0107);
+                    SkinManager.setViewTextColor(this.f41863i, R.color.CAM_X0107);
                 }
                 int i4 = this.p;
                 if (i4 != 0) {
                     try {
-                        SkinManager.setLottieAnimation(this.f46818h, i4);
+                        SkinManager.setLottieAnimation(this.f41862h, i4);
                         if (this.o == 1) {
-                            this.f46818h.setAlpha(0.66f);
+                            this.f41862h.setAlpha(0.66f);
                         } else if (this.o == 4) {
-                            this.f46818h.setAlpha(0.83f);
+                            this.f41862h.setAlpha(0.83f);
                         } else {
-                            this.f46818h.setAlpha(1.0f);
+                            this.f41862h.setAlpha(1.0f);
                         }
                         g();
                     } catch (Exception unused) {
@@ -468,7 +470,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void onDestory() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (tBLottieAnimationView = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (tBLottieAnimationView = this.f41864j) == null) {
             return;
         }
         tBLottieAnimationView.cancelAnimation();
@@ -487,25 +489,25 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             if (entrySet == null || (it = entrySet.iterator()) == null) {
                 return;
             }
-            while (it.hasNext() && this.f46819i != null && this.f46818h != null) {
+            while (it.hasNext() && this.f41863i != null && this.f41862h != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 if (value != null) {
-                    int measuredWidth = value.f46823a.getMeasuredWidth();
-                    int measuredHeight3 = value.f46823a.getMeasuredHeight();
-                    if (value.f46824b) {
-                        left = this.f46819i.getRight() - this.q;
+                    int measuredWidth = value.a.getMeasuredWidth();
+                    int measuredHeight3 = value.a.getMeasuredHeight();
+                    if (value.f41868b) {
+                        left = this.f41863i.getRight() - this.q;
                     } else {
-                        left = (this.f46819i.getLeft() + ((int) (this.f46819i.getMeasuredWidth() * 0.14d))) - measuredWidth;
+                        left = (this.f41863i.getLeft() + ((int) (this.f41863i.getMeasuredWidth() * 0.14d))) - measuredWidth;
                     }
-                    if (this.f46815e == 1) {
-                        measuredHeight = this.f46818h.getTop();
+                    if (this.f41859e == 1) {
+                        measuredHeight = this.f41862h.getTop();
                         measuredHeight2 = this.r;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
-                        measuredHeight2 = value.f46823a.getMeasuredHeight() / 2;
+                        measuredHeight2 = value.a.getMeasuredHeight() / 2;
                     }
                     int i6 = measuredHeight - measuredHeight2;
-                    value.f46823a.layout(left, i6, measuredWidth + left, measuredHeight3 + i6);
+                    value.a.layout(left, i6, measuredWidth + left, measuredHeight3 + i6);
                 }
             }
         }
@@ -525,10 +527,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 if (value != null) {
-                    ViewGroup.LayoutParams layoutParams = value.f46823a.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = value.a.getLayoutParams();
                     int i4 = layoutParams.width;
                     if (i4 == -2) {
-                        value.f46823a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                        value.a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                     } else {
                         if (i4 > size) {
                             i4 = size;
@@ -537,7 +539,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                         if (i5 > size2) {
                             i5 = size2;
                         }
-                        value.f46823a.measure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), View.MeasureSpec.makeMeasureSpec(i5, 1073741824));
+                        value.a.measure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), View.MeasureSpec.makeMeasureSpec(i5, 1073741824));
                     }
                 }
             }
@@ -556,30 +558,30 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
             if (z) {
-                b.a.q0.s.u.c.d(this.f46819i).A(R.string.F_X02);
-                this.k.setVisibility(8);
-                this.f46818h.playAnimation();
+                c.a.q0.s.u.c.d(this.f41863i).A(R.string.F_X02);
+                this.f41865k.setVisibility(8);
+                this.f41862h.playAnimation();
                 HashMap<String, TbFragmentTabIndicator.a> hashMap = this.s;
                 if (hashMap != null) {
                     for (TbFragmentTabIndicator.a aVar : hashMap.values()) {
-                        if (aVar != null && (view = aVar.f46823a) != null && view.isClickable()) {
-                            aVar.f46823a.performClick();
+                        if (aVar != null && (view = aVar.a) != null && view.isClickable()) {
+                            aVar.a.performClick();
                         }
                     }
                     return;
                 }
                 return;
             }
-            this.f46818h.cancelAnimation();
-            this.f46818h.setFrame(0);
-            b.a.q0.s.u.c.d(this.f46819i).A(R.string.F_X01);
+            this.f41862h.cancelAnimation();
+            this.f41862h.setFrame(0);
+            c.a.q0.s.u.c.d(this.f41863i).A(R.string.F_X01);
         }
     }
 
     public void playAnimation() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (tBLottieAnimationView = this.f46818h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (tBLottieAnimationView = this.f41862h) == null) {
             return;
         }
         tBLottieAnimationView.playAnimation();
@@ -588,9 +590,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void playDynamicAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            SkinManager.setLottieAnimation(this.f46818h, R.raw.icon_refresh2);
+            SkinManager.setLottieAnimation(this.f41862h, R.raw.icon_refresh2);
             setText(R.string.refresh);
-            this.f46818h.loop(true);
+            this.f41862h.loop(true);
             playAnimation();
         }
     }
@@ -598,9 +600,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void playLoadedAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            SkinManager.setLottieAnimation(this.f46818h, R.raw.icon_refresh3);
+            SkinManager.setLottieAnimation(this.f41862h, R.raw.icon_refresh3);
             setText(R.string.home_recommend);
-            this.f46818h.loop(false);
+            this.f41862h.loop(false);
             playAnimation();
         }
     }
@@ -609,25 +611,25 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             setAnimationResId(this.p);
-            this.f46818h.loop(false);
+            this.f41862h.loop(false);
             setText(R.string.home_recommend);
             if (z) {
-                this.f46818h.playAnimation();
-                b.a.q0.s.u.c.d(this.f46819i).A(R.string.F_X02);
+                this.f41862h.playAnimation();
+                c.a.q0.s.u.c.d(this.f41863i).A(R.string.F_X02);
                 return;
             }
-            this.f46818h.cancelAnimation();
-            this.f46818h.setFrame(0);
-            b.a.q0.s.u.c.d(this.f46819i).A(R.string.F_X01);
+            this.f41862h.cancelAnimation();
+            this.f41862h.setFrame(0);
+            c.a.q0.s.u.c.d(this.f41863i).A(R.string.F_X01);
         }
     }
 
     public void playStaticAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            SkinManager.setLottieAnimation(this.f46818h, R.raw.icon_refresh1);
+            SkinManager.setLottieAnimation(this.f41862h, R.raw.icon_refresh1);
             setText(R.string.refresh);
-            this.f46818h.loop(false);
+            this.f41862h.loop(false);
             playAnimation();
         }
     }
@@ -638,7 +640,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
             if (this.s.containsKey(str)) {
-                removeView(this.s.get(str).f46823a);
+                removeView(this.s.get(str).a);
                 return this.s.remove(str);
             }
             return null;
@@ -651,11 +653,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
             this.p = i2;
-            SkinManager.setLottieAnimation(this.f46818h, i2);
+            SkinManager.setLottieAnimation(this.f41862h, i2);
         }
     }
 
-    public void setDynamicIconData(b.a.q0.h0.e.a aVar) {
+    public void setDynamicIconData(c.a.q0.i0.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, aVar) == null) {
             this.dynamicIconData = aVar;
@@ -667,31 +669,31 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048605, this, str, str2) == null) {
             if (!k.isEmpty(str)) {
-                this.k.setVisibility(8);
-                this.k.setEvent(new b(this, str2));
-                this.k.startLoad(str, 10, false);
+                this.f41865k.setVisibility(8);
+                this.f41865k.setEvent(new b(this, str2));
+                this.f41865k.startLoad(str, 10, false);
                 return;
             }
-            this.k.setVisibility(8);
+            this.f41865k.setVisibility(8);
         }
     }
 
     public void setLottieView(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048606, this, z) == null) || this.j == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048606, this, z) == null) || this.f41864j == null) {
             return;
         }
-        String p = b.a.q0.s.e0.b.j().p("sync_send_maintab_my_tab_lottie_url", "");
+        String p = c.a.q0.s.e0.b.j().p("sync_send_maintab_my_tab_lottie_url", "");
         if (k.isEmpty(p) && z) {
             return;
         }
         i();
-        if (TimeHelper.isInTimeBlock(b.a.q0.s.e0.b.j().l("sync_send_maintab_my_tab_lottie_start_time", 0L), b.a.q0.s.e0.b.j().l("sync_send_maintab_my_tab_lottie_end_time", 0L)) && b.a.q0.s.e0.b.j().k("key_lottie_show_count", 0) < 3) {
-            this.j.playAnimation();
-            this.j.setAnimationUrl(p);
+        if (TimeHelper.isInTimeBlock(c.a.q0.s.e0.b.j().l("sync_send_maintab_my_tab_lottie_start_time", 0L), c.a.q0.s.e0.b.j().l("sync_send_maintab_my_tab_lottie_end_time", 0L)) && c.a.q0.s.e0.b.j().k("key_lottie_show_count", 0) < 3) {
+            this.f41864j.playAnimation();
+            this.f41864j.setAnimationUrl(p);
             f();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.PERSON_INFO_CENTER_LOTTIE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            this.j.addAnimatorListener(new a(this));
+            this.f41864j.addAnimatorListener(new a(this));
         }
     }
 
@@ -701,7 +703,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             super.setSelected(z);
             if (z) {
-                this.f46818h.setProgress(1.0f);
+                this.f41862h.setProgress(1.0f);
             }
         }
     }
@@ -716,7 +718,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.f46819i.setText(i2);
+            this.f41863i.setText(i2);
         }
     }
 
@@ -732,14 +734,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setTipPosType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.f46815e = i2;
+            this.f41859e = i2;
         }
     }
 
     public void setWriteIconView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            this.f46817g.setVisibility(8);
+            this.f41861g.setVisibility(8);
         }
     }
 
@@ -762,7 +764,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f46815e = 0;
+        this.f41859e = 0;
         this.o = 3;
         this.s = new HashMap<>();
         this.isHomePageIndicator = false;
@@ -790,7 +792,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f46815e = 0;
+        this.f41859e = 0;
         this.o = 3;
         this.s = new HashMap<>();
         this.isHomePageIndicator = false;

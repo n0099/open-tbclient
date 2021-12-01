@@ -16,7 +16,7 @@ public interface WebViewProviderBoundaryInterface {
 
     InvocationHandler getWebViewRendererClient();
 
-    void insertVisualStateCallback(long j, InvocationHandler invocationHandler);
+    void insertVisualStateCallback(long j2, InvocationHandler invocationHandler);
 
     void postMessageToMainFrame(InvocationHandler invocationHandler, Uri uri);
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
-import b.a.r0.f;
+import c.a.r0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,19 +18,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SelectForumPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<SelectForumActivity> f47449a;
+    public TbPageContext<SelectForumActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<f> f47450b;
+    public List<g> f42508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47451c;
+    public int f42509c;
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -47,12 +45,12 @@ public class SelectForumPagerAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f47451c = -1;
-        this.f47449a = tbPageContext;
+        this.f42509c = -1;
+        this.a = tbPageContext;
         ArrayList arrayList = new ArrayList();
-        this.f47450b = arrayList;
-        arrayList.add(new LatelyView(this.f47449a.getPageActivity()));
-        this.f47450b.add(new AttentionView(this.f47449a.getPageActivity()));
+        this.f42508b = arrayList;
+        arrayList.add(new LatelyView(this.a.getPageActivity()));
+        this.f42508b.add(new AttentionView(this.a.getPageActivity()));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -67,14 +65,14 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f47450b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f42508b) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.getItem(this.f47450b, i2) == null ? "" : ((f) ListUtils.getItem(this.f47450b, i2)).getTitle() : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.getItem(this.f42508b, i2) == null ? "" : ((g) ListUtils.getItem(this.f42508b, i2)).getTitle() : (CharSequence) invokeI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -87,8 +85,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (f fVar : this.f47450b) {
-                fVar.onDestroy();
+            for (g gVar : this.f42508b) {
+                gVar.onDestroy();
             }
         }
     }
@@ -96,8 +94,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public void onViewChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (f fVar : this.f47450b) {
-                fVar.onChangeSkinType();
+            for (g gVar : this.f42508b) {
+                gVar.onChangeSkinType();
             }
         }
     }
@@ -107,13 +105,13 @@ public class SelectForumPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (this.f47451c == i2) {
+            if (this.f42509c == i2) {
                 return;
             }
-            this.f47451c = i2;
-            f fVar = (f) ListUtils.getItem(this.f47450b, i2);
-            if (fVar != null) {
-                fVar.request(null);
+            this.f42509c = i2;
+            g gVar = (g) ListUtils.getItem(this.f42508b, i2);
+            if (gVar != null) {
+                gVar.request(null);
             }
         }
     }
@@ -121,20 +119,20 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public f instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+    public g instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
-            f fVar = (f) ListUtils.getItem(this.f47450b, i2);
-            if (fVar instanceof View) {
-                View view = (View) fVar;
+            g gVar = (g) ListUtils.getItem(this.f42508b, i2);
+            if (gVar instanceof View) {
+                View view = (View) gVar;
                 if (view.getParent() != null) {
                     viewGroup.removeView(view);
                 }
                 viewGroup.addView(view);
             }
-            return fVar;
+            return gVar;
         }
-        return (f) invokeLI.objValue;
+        return (g) invokeLI.objValue;
     }
 }

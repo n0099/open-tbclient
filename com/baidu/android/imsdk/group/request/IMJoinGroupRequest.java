@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMJoinGroupRequest";
@@ -37,7 +36,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mWhy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,12 +103,12 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMJoinGroupRequest(Context context, String str, boolean z, String str2, long j, int i2, String str3) {
+    public IMJoinGroupRequest(Context context, String str, boolean z, String str2, long j2, int i2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Boolean.valueOf(z), str2, Long.valueOf(j), Integer.valueOf(i2), str3};
+            Object[] objArr = {context, str, Boolean.valueOf(z), str2, Long.valueOf(j2), Integer.valueOf(i2), str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -122,7 +121,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
         this.mContext = context;
         this.mKey = str;
         this.mIsFansGroup = z;
-        this.mInviterbuid = j;
+        this.mInviterbuid = j2;
         this.mGroupId = str2;
         this.mChannel = i2;
         this.mWhy = str3;
@@ -131,7 +130,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("method=join");
             sb.append("&group_id=");
@@ -151,7 +150,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     private String getNormalGroupRequestParam() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
             long appid = AccountManager.getAppid(this.mContext);
             long currentTimeMillis = System.currentTimeMillis() / 1000;

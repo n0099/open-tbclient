@@ -2,7 +2,6 @@ package org.apache.commons.lang3.time;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -216,13 +215,13 @@ public class DateUtils {
     public static Date addMilliseconds(Date date, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, date, i2)) == null) ? add(date, 14, i2) : (Date) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, date, i2)) == null) ? add(date, 14, i2) : (Date) invokeLI.objValue;
     }
 
     public static Date addMinutes(Date date, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, date, i2)) == null) ? add(date, 12, i2) : (Date) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, date, i2)) == null) ? add(date, 12, i2) : (Date) invokeLI.objValue;
     }
 
     public static Date addMonths(Date date, int i2) {
@@ -714,7 +713,7 @@ public class DateUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, null, calendar, i2, timeUnit)) == null) {
             if (calendar != null) {
-                long j = 0;
+                long j2 = 0;
                 int i3 = timeUnit == TimeUnit.DAYS ? 0 : 1;
                 if (i2 == 1) {
                     convert = timeUnit.convert(calendar.get(6) - i3, TimeUnit.DAYS);
@@ -723,34 +722,34 @@ public class DateUtils {
                         convert = timeUnit.convert(calendar.get(5) - i3, TimeUnit.DAYS);
                     }
                     if (i2 != 1 || i2 == 2 || i2 == 5 || i2 == 6) {
-                        j += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
+                        j2 += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
                     } else {
                         switch (i2) {
                             case 11:
                                 break;
                             case 12:
-                                j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                                j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
                                 break;
                             case 13:
                                 break;
                             case 14:
-                                return j;
+                                return j2;
                             default:
                                 throw new IllegalArgumentException("The fragment " + i2 + " is not supported");
                         }
-                        return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                        return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
                     }
-                    j += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
-                    j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
-                    return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                    j2 += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
+                    j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                    return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
                 }
-                j = 0 + convert;
+                j2 = 0 + convert;
                 if (i2 != 1) {
                 }
-                j += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
-                j += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
-                j += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
-                return j + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
+                j2 += timeUnit.convert(calendar.get(11), TimeUnit.HOURS);
+                j2 += timeUnit.convert(calendar.get(12), TimeUnit.MINUTES);
+                j2 += timeUnit.convert(calendar.get(13), TimeUnit.SECONDS);
+                return j2 + timeUnit.convert(calendar.get(14), TimeUnit.MILLISECONDS);
             }
             throw new IllegalArgumentException("The date must not be null");
         }

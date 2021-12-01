@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -336,12 +335,12 @@ public class AsyncListUtil<T> {
             private boolean isTileLoaded(int i5) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(AdIconUtil.AD_TEXT_ID, this, i5)) == null) ? this.mLoadedTiles.get(i5) : invokeI.booleanValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(65541, this, i5)) == null) ? this.mLoadedTiles.get(i5) : invokeI.booleanValue;
             }
 
             private void log(String str, Object... objArr2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, objArr2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(65542, this, str, objArr2) == null) {
                     String str2 = "[BKGR] " + String.format(str, objArr2);
                 }
             }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class d extends com.baidu.platform.base.a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f42906b;
+    public OnGetDistricSearchResultListener f38364b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public class d extends com.baidu.platform.base.a implements e {
                 return;
             }
         }
-        this.f42906b = null;
+        this.f38364b = null;
     }
 
     @Override // com.baidu.platform.core.a.e
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42875a.lock();
-            this.f42906b = null;
-            this.f42875a.unlock();
+            this.a.lock();
+            this.f38364b = null;
+            this.a.unlock();
         }
     }
 
@@ -47,9 +47,9 @@ public class d extends com.baidu.platform.base.a implements e {
     public void a(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetDistricSearchResultListener) == null) {
-            this.f42875a.lock();
-            this.f42906b = onGetDistricSearchResultListener;
-            this.f42875a.unlock();
+            this.a.lock();
+            this.f38364b = onGetDistricSearchResultListener;
+            this.a.unlock();
         }
     }
 
@@ -60,7 +60,7 @@ public class d extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, districtSearchOption)) == null) {
             b bVar = new b();
             bVar.a(SearchType.p);
-            return a(new a(districtSearchOption), this.f42906b, bVar);
+            return a(new a(districtSearchOption), this.f38364b, bVar);
         }
         return invokeL.booleanValue;
     }

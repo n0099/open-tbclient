@@ -1,5 +1,6 @@
 package com.baidu.sofire.ac;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceEnum {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class FaceType {
         public static final /* synthetic */ FaceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +80,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -141,7 +142,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LivenessControl {
         public static final /* synthetic */ LivenessControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -164,7 +165,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new LivenessControl("NONE", 0);
+            NONE = new LivenessControl(PolyActivity.NONE_PANEL_TYPE, 0);
             LOW = new LivenessControl("LOW", 1);
             NORMAL = new LivenessControl("NORMAL", 2);
             LivenessControl livenessControl = new LivenessControl("HIGH", 3);
@@ -205,7 +206,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class QualityControl {
         public static final /* synthetic */ QualityControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -228,7 +229,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new QualityControl("NONE", 0);
+            NONE = new QualityControl(PolyActivity.NONE_PANEL_TYPE, 0);
             LOW = new QualityControl("LOW", 1);
             NORMAL = new QualityControl("NORMAL", 2);
             QualityControl qualityControl = new QualityControl("HIGH", 3);
@@ -269,7 +270,7 @@ public class FaceEnum {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SpoofingControl {
         public static final /* synthetic */ SpoofingControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -292,7 +293,7 @@ public class FaceEnum {
                     return;
                 }
             }
-            NONE = new SpoofingControl("NONE", 0);
+            NONE = new SpoofingControl(PolyActivity.NONE_PANEL_TYPE, 0);
             LOW = new SpoofingControl("LOW", 1);
             NORMAL = new SpoofingControl("NORMAL", 2);
             SpoofingControl spoofingControl = new SpoofingControl("HIGH", 3);

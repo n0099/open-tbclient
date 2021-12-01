@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -211,7 +210,7 @@ public class FocusStrategy {
     public static <T> T getNextFocusable(T t, ArrayList<T> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, t, arrayList, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, t, arrayList, z)) == null) {
             int size = arrayList.size();
             int lastIndexOf = (t == null ? -1 : arrayList.lastIndexOf(t)) + 1;
             if (lastIndexOf < size) {
@@ -228,7 +227,7 @@ public class FocusStrategy {
     public static <T> T getPreviousFocusable(T t, ArrayList<T> arrayList, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, t, arrayList, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, t, arrayList, z)) == null) {
             int size = arrayList.size();
             int indexOf = (t == null ? size : arrayList.indexOf(t)) - 1;
             if (indexOf >= 0) {

@@ -15,24 +15,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.NoProguard;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ActivityStackManager implements Application.ActivityLifecycleCallbacks, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Stack<Activity> stack;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static ActivityStackManager f63478a;
+        public static ActivityStackManager a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +46,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
                     return;
                 }
             }
-            f63478a = new ActivityStackManager(null);
+            a = new ActivityStackManager(null);
         }
     }
 
@@ -59,7 +57,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public static ActivityStackManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f63478a : (ActivityStackManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ActivityStackManager) invokeV.objValue;
     }
 
     public void addActivity(Activity activity) {

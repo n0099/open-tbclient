@@ -10,7 +10,6 @@ import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -176,7 +175,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
     public static int toVolumeStreamType(boolean z, AudioAttributesCompat audioAttributesCompat) {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZL = interceptable.invokeZL(AdIconUtil.BAIDU_LOGO_ID, null, z, audioAttributesCompat)) == null) ? toVolumeStreamType(z, audioAttributesCompat.getFlags(), audioAttributesCompat.getUsage()) : invokeZL.intValue;
+        return (interceptable == null || (invokeZL = interceptable.invokeZL(65542, null, z, audioAttributesCompat)) == null) ? toVolumeStreamType(z, audioAttributesCompat.getFlags(), audioAttributesCompat.getUsage()) : invokeZL.intValue;
     }
 
     public static int usageForStreamType(int i2) {
@@ -373,7 +372,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
     public static int toVolumeStreamType(boolean z, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if ((i2 & 1) == 1) {
                 return z ? 1 : 7;
             } else if ((i2 & 4) == 4) {

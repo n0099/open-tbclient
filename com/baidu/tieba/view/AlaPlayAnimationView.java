@@ -9,19 +9,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import com.tachikoma.core.component.anim.AnimationProperty;
+/* loaded from: classes11.dex */
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f56126e;
+    public ObjectAnimator f50175e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56127f;
+    public boolean f50176f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56128g;
+    public boolean f50177g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -41,21 +42,21 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f56127f = false;
-        this.f56128g = false;
+        this.f50176f = false;
+        this.f50177g = false;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-            this.f56126e = ofFloat;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f, 1.0f);
+            this.f50175e = ofFloat;
             ofFloat.setRepeatMode(1);
-            this.f56126e.setRepeatCount(-1);
-            this.f56126e.setDuration(700L);
+            this.f50175e.setRepeatCount(-1);
+            this.f50175e.setDuration(700L);
             setVisibility(8);
-            this.f56127f = false;
+            this.f50176f = false;
         }
     }
 
@@ -64,7 +65,7 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            if (this.f56128g) {
+            if (this.f50177g) {
                 startPlayAnimation();
             }
         }
@@ -82,32 +83,32 @@ public class AlaPlayAnimationView extends ImageView {
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f56128g = z;
+            this.f50177g = z;
         }
     }
 
     public void startPlayAnimation() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f56127f) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f50176f) {
             return;
         }
-        this.f56127f = true;
-        if (this.f56126e != null) {
+        this.f50176f = true;
+        if (this.f50175e != null) {
             setVisibility(0);
-            this.f56126e.start();
+            this.f50175e.start();
         }
     }
 
     public void stopPlayAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ObjectAnimator objectAnimator = this.f56126e;
+            ObjectAnimator objectAnimator = this.f50175e;
             if (objectAnimator != null) {
                 objectAnimator.setRepeatCount(-1);
-                this.f56126e.cancel();
+                this.f50175e.cancel();
                 clearAnimation();
             }
-            this.f56127f = false;
+            this.f50176f = false;
             setVisibility(8);
         }
     }
@@ -131,8 +132,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f56127f = false;
-        this.f56128g = false;
+        this.f50176f = false;
+        this.f50177g = false;
         a();
     }
 }

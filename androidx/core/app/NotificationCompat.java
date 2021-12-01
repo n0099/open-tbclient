@@ -36,7 +36,6 @@ import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1980,11 +1979,11 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTimeoutAfter(long j) {
+        public Builder setTimeoutAfter(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j)) == null) {
-                this.mTimeout = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j2)) == null) {
+                this.mTimeout = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -2020,11 +2019,11 @@ public class NotificationCompat {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setWhen(long j) {
+        public Builder setWhen(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j)) == null) {
-                this.mNotification.when = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j2)) == null) {
+                this.mNotification.when = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -2337,7 +2336,7 @@ public class NotificationCompat {
         private Bitmap createIconWithBackground(int i2, int i3, int i4, int i5) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(AdIconUtil.AD_TEXT_ID, this, i2, i3, i4, i5)) == null) {
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i2, i3, i4, i5)) == null) {
                 int i6 = R.drawable.notification_icon_background;
                 if (i5 == 0) {
                     i5 = 0;
@@ -2358,7 +2357,7 @@ public class NotificationCompat {
 
         private void hideNormalContent(RemoteViews remoteViews) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, remoteViews) == null) {
+            if (interceptable == null || interceptable.invokeL(65542, this, remoteViews) == null) {
                 remoteViews.setViewVisibility(R.id.title, 8);
                 remoteViews.setViewVisibility(R.id.text2, 8);
                 remoteViews.setViewVisibility(R.id.text, 8);
@@ -2379,15 +2378,15 @@ public class NotificationCompat {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:67:0x0188  */
-        /* JADX WARN: Removed duplicated region for block: B:68:0x0194  */
-        /* JADX WARN: Removed duplicated region for block: B:71:0x019c  */
-        /* JADX WARN: Removed duplicated region for block: B:74:0x01a2  */
-        /* JADX WARN: Removed duplicated region for block: B:78:0x01c4  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x0219  */
-        /* JADX WARN: Removed duplicated region for block: B:91:0x021e  */
-        /* JADX WARN: Removed duplicated region for block: B:92:0x0220  */
-        /* JADX WARN: Removed duplicated region for block: B:96:0x022a  */
+        /* JADX WARN: Removed duplicated region for block: B:67:0x0187  */
+        /* JADX WARN: Removed duplicated region for block: B:68:0x0193  */
+        /* JADX WARN: Removed duplicated region for block: B:71:0x019b  */
+        /* JADX WARN: Removed duplicated region for block: B:74:0x01a1  */
+        /* JADX WARN: Removed duplicated region for block: B:78:0x01c3  */
+        /* JADX WARN: Removed duplicated region for block: B:88:0x0215  */
+        /* JADX WARN: Removed duplicated region for block: B:91:0x021a  */
+        /* JADX WARN: Removed duplicated region for block: B:92:0x021c  */
+        /* JADX WARN: Removed duplicated region for block: B:96:0x0226  */
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -3452,7 +3451,7 @@ public class NotificationCompat {
     public static int getBadgeIconType(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, notification)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, notification)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return notification.getBadgeIconType();
             }
@@ -3465,7 +3464,7 @@ public class NotificationCompat {
     public static BubbleMetadata getBubbleMetadata(@NonNull Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, notification)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, notification)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return BubbleMetadata.fromPlatform(notification.getBubbleMetadata());
             }
@@ -3755,11 +3754,11 @@ public class NotificationCompat {
                     return (UnreadConversation) invokeV.objValue;
                 }
 
-                public Builder setLatestTimestamp(long j) {
+                public Builder setLatestTimestamp(long j2) {
                     InterceptResult invokeJ;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                        this.mLatestTimestamp = j;
+                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+                        this.mLatestTimestamp = j2;
                         return this;
                     }
                     return (Builder) invokeJ.objValue;
@@ -3787,12 +3786,12 @@ public class NotificationCompat {
                 }
             }
 
-            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j) {
+            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j)};
+                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -3807,7 +3806,7 @@ public class NotificationCompat {
                 this.mReadPendingIntent = pendingIntent2;
                 this.mReplyPendingIntent = pendingIntent;
                 this.mParticipants = strArr2;
-                this.mLatestTimestamp = j;
+                this.mLatestTimestamp = j2;
             }
 
             public long getLatestTimestamp() {
@@ -4219,7 +4218,7 @@ public class NotificationCompat {
         private boolean hasMessagesWithoutSender() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                 for (int size = this.mMessages.size() - 1; size >= 0; size--) {
                     Message message = this.mMessages.get(size);
                     if (message.getPerson() != null && message.getPerson().getName() == null) {
@@ -4235,7 +4234,7 @@ public class NotificationCompat {
         private TextAppearanceSpan makeFontColorSpan(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) ? new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i2), null) : (TextAppearanceSpan) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) ? new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i2), null) : (TextAppearanceSpan) invokeI.objValue;
         }
 
         private CharSequence makeMessageLine(Message message) {
@@ -4284,11 +4283,11 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public MessagingStyle addMessage(CharSequence charSequence, long j, CharSequence charSequence2) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j2, CharSequence charSequence2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j), charSequence2})) == null) {
-                this.mMessages.add(new Message(charSequence, j, new Person.Builder().setName(charSequence2).build()));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j2), charSequence2})) == null) {
+                this.mMessages.add(new Message(charSequence, j2, new Person.Builder().setName(charSequence2).build()));
                 if (this.mMessages.size() > 25) {
                     this.mMessages.remove(0);
                 }
@@ -4499,12 +4498,12 @@ public class NotificationCompat {
             public final CharSequence mText;
             public final long mTimestamp;
 
-            public Message(CharSequence charSequence, long j, @Nullable Person person) {
+            public Message(CharSequence charSequence, long j2, @Nullable Person person) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j), person};
+                    Object[] objArr = {charSequence, Long.valueOf(j2), person};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -4516,7 +4515,7 @@ public class NotificationCompat {
                 }
                 this.mExtras = new Bundle();
                 this.mText = charSequence;
-                this.mTimestamp = j;
+                this.mTimestamp = j2;
                 this.mPerson = person;
             }
 
@@ -4586,7 +4585,7 @@ public class NotificationCompat {
             private Bundle toBundle() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                     Bundle bundle = new Bundle();
                     CharSequence charSequence = this.mText;
                     if (charSequence != null) {
@@ -4688,13 +4687,13 @@ public class NotificationCompat {
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
             @Deprecated
-            public Message(CharSequence charSequence, long j, CharSequence charSequence2) {
-                this(charSequence, j, new Person.Builder().setName(charSequence2).build());
+            public Message(CharSequence charSequence, long j2, CharSequence charSequence2) {
+                this(charSequence, j2, new Person.Builder().setName(charSequence2).build());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j), charSequence2};
+                    Object[] objArr = {charSequence, Long.valueOf(j2), charSequence2};
                     interceptable.invokeUnInit(65537, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -4732,11 +4731,11 @@ public class NotificationCompat {
             throw new IllegalArgumentException("User's name must not be empty.");
         }
 
-        public MessagingStyle addMessage(CharSequence charSequence, long j, Person person) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j2, Person person) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j), person})) == null) {
-                addMessage(new Message(charSequence, j, person));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j2), person})) == null) {
+                addMessage(new Message(charSequence, j2, person));
                 return this;
             }
             return (MessagingStyle) invokeCommon.objValue;

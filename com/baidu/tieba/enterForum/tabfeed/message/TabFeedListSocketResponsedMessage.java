@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import b.a.e.m.e.n;
-import b.a.q0.k0.b.a;
+import c.a.d.m.e.n;
+import c.a.q0.l0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,11 +13,11 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b.a.r0.o0.l.d.a enterForumTabFeedData;
+    public c.a.r0.u0.l.d.a enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -66,7 +66,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                b.a.r0.o0.l.d.a aVar = new b.a.r0.o0.l.d.a();
+                c.a.r0.u0.l.d.a aVar = new c.a.r0.u0.l.d.a();
                 this.enterForumTabFeedData = aVar;
                 aVar.g(tabfeedlistResIdl.data);
             }

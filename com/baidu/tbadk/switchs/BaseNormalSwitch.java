@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.f.f.a;
+import c.a.d.f.f.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseNormalSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_OFF = 0;
@@ -29,14 +29,14 @@ public abstract class BaseNormalSwitch extends a {
         }
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public abstract class BaseNormalSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public abstract class BaseNormalSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public abstract class BaseNormalSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public abstract String getName();
 
-    @Override // b.a.e.f.f.a
+    @Override // c.a.d.f.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -11,9 +11,7 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f64631a;
+    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,6 +27,6 @@ public abstract class c {
                 return;
             }
         }
-        f64631a = new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(2048), new ThreadPoolExecutor.DiscardPolicy());
+        a = new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(2048), new ThreadPoolExecutor.DiscardPolicy());
     }
 }

@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f39411a;
+    public final /* synthetic */ c a;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f39411a = cVar;
+        this.a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -39,10 +37,10 @@ public class d implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
-            context = this.f39411a.f39408a;
+            context = this.a.a;
             g gVar = new g(context);
-            hashMap = this.f39411a.f39409b;
-            this.f39411a.a(gVar.a(hashMap));
+            hashMap = this.a.f35142b;
+            this.a.a(gVar.a(hashMap));
         }
     }
 }

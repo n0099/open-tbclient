@@ -3,7 +3,6 @@ package com.baidu.wallet.utils;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AesUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IV_STRING = "A-16-Byte-String";
@@ -70,7 +69,7 @@ public class AesUtils implements NoProguard {
     public static byte[] cipherOperation(byte[] bArr, byte[] bArr2, int i2) throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, bArr, bArr2, i2)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
             IvParameterSpec ivParameterSpec = new IvParameterSpec(IV_STRING.getBytes("UTF-8"));
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -83,7 +82,7 @@ public class AesUtils implements NoProguard {
     public static String getAesKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (TextUtils.isEmpty(aesKey)) {
                 aesKey = getRandomString(32);
             }

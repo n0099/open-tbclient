@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.f.p.l;
-import b.a.r0.f2.g.e;
+import c.a.d.f.p.l;
+import c.a.r0.l2.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,24 +21,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.f2.h.f.a f52796e;
+    public c.a.r0.l2.h.f.a f47264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f52797f;
+    public CustomMessageListener f47265f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CreateNewEmotionFragment f52798a;
+        public final /* synthetic */ CreateNewEmotionFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CreateNewEmotionFragment createNewEmotionFragment, int i2) {
@@ -58,7 +56,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f52798a = createNewEmotionFragment;
+            this.a = createNewEmotionFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,35 +65,35 @@ public class CreateNewEmotionFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
-                if (this.f52798a.f52796e == null) {
+                if (this.a.f47264e == null) {
                     return;
                 }
                 if (hashMap == null || hashMap.isEmpty()) {
-                    if (this.f52798a.f52796e != null) {
-                        this.f52798a.f52796e.i();
+                    if (this.a.f47264e != null) {
+                        this.a.f47264e.i();
                     }
                 } else if (!hashMap.containsKey("upload_result")) {
-                    if (this.f52798a.f52796e != null) {
-                        this.f52798a.f52796e.i();
+                    if (this.a.f47264e != null) {
+                        this.a.f47264e.i();
                     }
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    if (this.f52798a.f52796e != null) {
-                        this.f52798a.f52796e.i();
+                    if (this.a.f47264e != null) {
+                        this.a.f47264e.i();
                     }
                 } else if (!((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    if (this.f52798a.f52796e != null) {
+                    if (this.a.f47264e != null) {
                         String str = (String) hashMap.get("upload_msg");
                         if (!TextUtils.isEmpty(str)) {
-                            l.J(this.f52798a.getActivity(), str);
+                            l.J(this.a.getActivity(), str);
                         } else {
-                            l.J(this.f52798a.getActivity(), this.f52798a.getString(R.string.emotion_error_default_net_tip));
+                            l.J(this.a.getActivity(), this.a.getString(R.string.emotion_error_default_net_tip));
                         }
-                        this.f52798a.f52796e.l();
+                        this.a.f47264e.l();
                     }
                 } else {
-                    BdToast.c(this.f52798a.getPageContext().getPageActivity(), this.f52798a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                    if (this.f52798a.f52796e != null) {
-                        this.f52798a.f52796e.i();
+                    BdToast.c(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
+                    if (this.a.f47264e != null) {
+                        this.a.f47264e.i();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
                 }
@@ -116,24 +114,24 @@ public class CreateNewEmotionFragment extends BaseFragment {
                 return;
             }
         }
-        this.f52797f = new a(this, 2921040);
+        this.f47265f = new a(this, 2921040);
     }
 
-    public final void g() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52796e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47264e == null) {
             return;
         }
         if (e.l().r()) {
-            this.f52796e.j();
+            this.f47264e.j();
         } else if (e.l().k() == null) {
-            this.f52796e.i();
+            this.f47264e.i();
         } else {
-            this.f52796e.m(getString(R.string.emotion_draft_tip));
+            this.f47264e.m(getString(R.string.emotion_draft_tip));
         }
     }
 
-    public final int h() {
+    public final int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -151,7 +149,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b.a.r0.f2.h.f.a aVar = this.f52796e;
+            c.a.r0.l2.h.f.a aVar = this.f47264e;
             if (aVar != null) {
                 aVar.g(i2);
             }
@@ -163,9 +161,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            registerListener(this.f52797f);
-            b.a.r0.f2.h.f.a aVar = new b.a.r0.f2.h.f.a(getPageContext(), h());
-            this.f52796e = aVar;
+            registerListener(this.f47265f);
+            c.a.r0.l2.h.f.a aVar = new c.a.r0.l2.h.f.a(getPageContext(), j());
+            this.f47264e = aVar;
             return aVar.f();
         }
         return (View) invokeLLL.objValue;
@@ -176,7 +174,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            b.a.r0.f2.h.f.a aVar = this.f52796e;
+            c.a.r0.l2.h.f.a aVar = this.f47264e;
             if (aVar != null) {
                 aVar.h();
             }
@@ -188,7 +186,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            g();
+            i();
         }
     }
 }

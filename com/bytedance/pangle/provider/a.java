@@ -10,13 +10,12 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +29,9 @@ public final class a {
                 str2 = uri.getAuthority();
             }
             String pluginProcessNameByAuthority = contentProviderManager.getPluginProcessNameByAuthority(str2);
-            String a2 = b.a(pluginProcessNameByAuthority, str, uri);
-            String encodeToString = TextUtils.isEmpty(a2) ? "" : Base64.encodeToString(a2.getBytes(), 10);
-            String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).f62364b;
+            String a = b.a(pluginProcessNameByAuthority, str, uri);
+            String encodeToString = TextUtils.isEmpty(a) ? "" : Base64.encodeToString(a.getBytes(), 10);
+            String str3 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(pluginProcessNameByAuthority).f54616b;
             Uri parse = Uri.parse("content://" + str3 + File.separator + "proxy?provider_params=" + encodeToString);
             ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "进程[processName=" + pluginProcessNameByAuthority + "] build provider 【 uri:" + parse + " 】");
             return parse;
@@ -135,7 +134,7 @@ public final class a {
     public static Cursor a(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, str3})) == null) {
             if (contentResolver == null) {
                 return null;
             }
@@ -210,7 +209,7 @@ public final class a {
     public static Uri a(ContentResolver contentResolver, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, contentResolver, uri, contentValues, bundle, str)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, contentResolver, uri, contentValues, bundle, str)) == null) {
             if (contentResolver == null) {
                 return null;
             }
@@ -324,13 +323,13 @@ public final class a {
             if (contentResolver != null && uri != null) {
                 try {
                     try {
-                        Uri a2 = a(uri, str3);
+                        Uri a = a(uri, str3);
                         if (bundle == null) {
                             bundle = new Bundle();
                         }
                         bundle.putString("provider_params", uri.getAuthority());
-                        bundle.putString(ContentProviderManager.PROVIDER_PROXY_URI, a2.toString());
-                        return contentResolver.call(a2, str, str2, bundle);
+                        bundle.putString(ContentProviderManager.PROVIDER_PROXY_URI, a.toString());
+                        return contentResolver.call(a, str, str2, bundle);
                     } catch (Throwable th) {
                         ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "ContentProviderManager#call throw exception:", th);
                     }
@@ -359,7 +358,7 @@ public final class a {
             if (contentResolver == null) {
                 return null;
             }
-            String str5 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str)).f62364b;
+            String str5 = ContentProviderManager.getInstance().getSystemProviderInfoMap().get(ContentProviderManager.getInstance().getPluginProcessNameByAuthority(str)).f54616b;
             if (bundle == null) {
                 bundle = new Bundle();
             }
@@ -393,9 +392,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, uri, str)) == null) {
             if (ContentProviderManager.getInstance().isPluginProvider(uri)) {
-                Uri a2 = a(str, uri, (String) null);
-                ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "ContentProviderManager#buildProxyUri-->proxyUri=".concat(String.valueOf(a2)));
-                return a2;
+                Uri a = a(str, uri, (String) null);
+                ZeusLogger.d(ZeusLogger.TAG_PROVIDER, "ContentProviderManager#buildProxyUri-->proxyUri=".concat(String.valueOf(a)));
+                return a;
             }
             return uri;
         }

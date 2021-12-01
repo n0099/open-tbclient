@@ -31,12 +31,12 @@ public final class BlockRunner<T> {
     public final CoroutineScope scope;
     public final long timeoutInMs;
 
-    public BlockRunner(CoroutineLiveData<T> coroutineLiveData, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2, long j, CoroutineScope coroutineScope, Function0<Unit> function0) {
+    public BlockRunner(CoroutineLiveData<T> coroutineLiveData, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2, long j2, CoroutineScope coroutineScope, Function0<Unit> function0) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {coroutineLiveData, function2, Long.valueOf(j), coroutineScope, function0};
+            Object[] objArr = {coroutineLiveData, function2, Long.valueOf(j2), coroutineScope, function0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -48,7 +48,7 @@ public final class BlockRunner<T> {
         }
         this.liveData = coroutineLiveData;
         this.block = function2;
-        this.timeoutInMs = j;
+        this.timeoutInMs = j2;
         this.scope = coroutineScope;
         this.onDone = function0;
     }

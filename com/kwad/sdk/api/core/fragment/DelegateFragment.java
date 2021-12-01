@@ -66,6 +66,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
     }
 
     @Override // androidx.fragment.app.Fragment
+    @Deprecated
     public void onActivityCreated(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
@@ -321,7 +322,7 @@ public abstract class DelegateFragment extends Fragment implements IDelegateFrag
         }
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // androidx.fragment.app.Fragment
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048606, this, i2, strArr, iArr) == null) {

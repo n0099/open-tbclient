@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.LoadingDialog;
 import com.baidu.wallet.core.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Dialog f58982a = null;
+    public static Dialog a = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +55,7 @@ public final class WalletGlobalUtils {
     public static void DismissLoadingDialog() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f58982a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = a) == null) {
             return;
         }
         Context context = dialog.getContext();
@@ -69,11 +66,11 @@ public final class WalletGlobalUtils {
             return;
         }
         try {
-            f58982a.dismiss();
+            a.dismiss();
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
-        f58982a = null;
+        a = null;
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
@@ -105,11 +102,11 @@ public final class WalletGlobalUtils {
 
     public static void showLoadingDialog(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            if (f58982a == null) {
-                f58982a = new LoadingDialog(context);
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            if (a == null) {
+                a = new LoadingDialog(context);
             }
-            f58982a.show();
+            a.show();
         }
     }
 }

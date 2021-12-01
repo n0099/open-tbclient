@@ -1,38 +1,23 @@
 package com.kwad.sdk.reward.b;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.t;
+import java.util.Observable;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends com.kwad.sdk.reward.d implements aw.a {
+public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f66934b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdInfo f66935c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f66936d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f66937e;
+    public boolean f58880b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,98 +32,74 @@ public class a extends com.kwad.sdk.reward.d implements aw.a {
                 return;
             }
         }
-        this.f66937e = new BroadcastReceiver(this) { // from class: com.kwad.sdk.reward.b.a.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f66938a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.f66938a = this;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
-                    String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
-                    if (TextUtils.isEmpty(schemeSpecificPart)) {
-                        return;
-                    }
-                    Message obtainMessage = this.f66938a.f66934b.obtainMessage(BaseActivity.DIALOG_LOADING);
-                    obtainMessage.obj = schemeSpecificPart;
-                    obtainMessage.sendToTarget();
-                }
-            }
-        };
+        this.f58880b = false;
     }
 
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-            intentFilter.addDataScheme("package");
-            ((com.kwad.sdk.reward.d) this).f67255a.f66929g.registerReceiver(this.f66937e, intentFilter);
-        }
-    }
-
-    private void f() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = ((com.kwad.sdk.reward.d) this).f67255a.f66929g) == null) {
-            return;
-        }
-        activity.unregisterReceiver(this.f66937e);
-    }
-
-    @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.f66935c = com.kwad.sdk.core.response.b.c.i(((com.kwad.sdk.reward.d) this).f67255a.f66928f);
-            this.f66936d = ((com.kwad.sdk.reward.d) this).f67255a.f66931i;
-            this.f66934b = new aw(this);
-            e();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58880b) {
+            return;
         }
+        this.f58880b = true;
+        f();
     }
 
-    @Override // com.kwad.sdk.utils.aw.a
-    public void a(Message message) {
-        Object obj;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 242 && (obj = message.obj) != null && obj.equals(this.f66935c.adBaseInfo.appPackageName)) {
-            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f67255a.f66924b;
-            if (bVar != null) {
-                bVar.e();
-            }
-            this.f66936d.i();
-            ((com.kwad.sdk.reward.d) this).f67255a.b();
-        }
-    }
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f58880b) {
+            this.f58880b = false;
             f();
         }
+    }
+
+    @Override // com.kwad.sdk.reward.b.b
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.reward.b.b
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e() : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58880b : invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setChanged();
+            notifyObservers(Boolean.valueOf(this.f58880b));
+        }
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            try {
+                this.f58880b = jSONObject.optBoolean("selfCompleted");
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            t.a(jSONObject, "selfCompleted", this.f58880b);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -22,17 +22,15 @@ public interface ah extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ah$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2026a implements ah {
+        public static class C2117a implements ah {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: a  reason: collision with root package name */
-            public static ah f70126a;
+            public static ah a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f70127b;
+            public IBinder f61693b;
 
-            public C2026a(IBinder iBinder) {
+            public C2117a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +45,7 @@ public interface ah extends IInterface {
                         return;
                     }
                 }
-                this.f70127b = iBinder;
+                this.f61693b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ah
@@ -61,7 +59,7 @@ public interface ah extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                         obtain.writeInt(i2);
                         obtain.writeInt(i3);
-                        if (!this.f70127b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61693b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(i2, i3);
                         }
                         obtain2.readException();
@@ -78,7 +76,7 @@ public interface ah extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70127b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61693b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -109,7 +107,7 @@ public interface ah extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof ah)) {
                     return (ah) queryLocalInterface;
                 }
-                return new C2026a(iBinder);
+                return new C2117a(iBinder);
             }
             return (ah) invokeL.objValue;
         }
@@ -134,9 +132,9 @@ public interface ah extends IInterface {
                     return true;
                 }
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
-                long a2 = a(parcel.readInt(), parcel.readInt());
+                long a = a(parcel.readInt(), parcel.readInt());
                 parcel2.writeNoException();
-                parcel2.writeLong(a2);
+                parcel2.writeLong(a);
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -145,7 +143,7 @@ public interface ah extends IInterface {
         public static ah a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2026a.f70126a : (ah) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2117a.a : (ah) invokeV.objValue;
         }
     }
 }

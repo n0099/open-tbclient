@@ -16,39 +16,41 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62841a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62842b;
+    public final String f54954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f62843c;
+    public final Map<String, String> f54955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f62844d;
+    public final String f54956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62845e;
+    public boolean f54957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f62846f;
+    public final String f54958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Network f62847g;
+    public Network f54959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f62848h;
+    public long f54960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f62849i;
-    public int j;
-    public final g k;
+    public final String f54961i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f54962j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public final g f54963k;
 
     public c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -65,90 +67,90 @@ public class c {
                 return;
             }
         }
-        this.f62845e = false;
-        this.f62842b = str;
-        this.k = gVar;
-        this.f62843c = map == null ? new HashMap<>() : map;
-        this.f62841a = gVar == null ? "" : gVar.b().toString();
-        this.f62844d = str2;
-        this.f62846f = str3;
-        this.f62849i = gVar != null ? gVar.a() : "";
+        this.f54957e = false;
+        this.f54954b = str;
+        this.f54963k = gVar;
+        this.f54955c = map == null ? new HashMap<>() : map;
+        this.a = gVar == null ? "" : gVar.b().toString();
+        this.f54956d = str2;
+        this.f54958f = str3;
+        this.f54961i = gVar != null ? gVar.a() : "";
         l();
     }
 
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f62843c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
-            this.f62843c.put("Content-Type", "application/json");
-            this.f62843c.put("CMCC-EncryptType", "STD");
-            this.f62843c.put("traceId", this.f62846f);
-            this.f62843c.put("appid", this.f62849i);
-            this.f62843c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+            this.f54955c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
+            this.f54955c.put("Content-Type", "application/json");
+            this.f54955c.put("CMCC-EncryptType", "STD");
+            this.f54955c.put("traceId", this.f54958f);
+            this.f54955c.put("appid", this.f54961i);
+            this.f54955c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f62843c.put(str, str2);
+            this.f54955c.put(str, str2);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62845e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f54957e : invokeV.booleanValue;
     }
 
     public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62843c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54955c : (Map) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62841a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f62844d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54956d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62846f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f54958f : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !e.a(this.f62846f) || this.f62842b.contains("logReport") || this.f62842b.contains("uniConfig") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !e.a(this.f54958f) || this.f54954b.contains("logReport") || this.f54954b.contains("uniConfig") : invokeV.booleanValue;
     }
 
     public Network h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f62847g : (Network) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f54959g : (Network) invokeV.objValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f62848h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f54960h : invokeV.longValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int i2 = this.j;
-            this.j = i2 + 1;
+            int i2 = this.f54962j;
+            this.f54962j = i2 + 1;
             return i2 < 2;
         }
         return invokeV.booleanValue;
@@ -157,33 +159,33 @@ public class c {
     public g k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.k : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f54963k : (g) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62842b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54954b : (String) invokeV.objValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f62845e = z;
+            this.f54957e = z;
         }
     }
 
     public void a(Network network) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, network) == null) {
-            this.f62847g = network;
+            this.f54959g = network;
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f62848h = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f54960h = j2;
         }
     }
 

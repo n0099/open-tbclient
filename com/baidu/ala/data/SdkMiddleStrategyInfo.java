@@ -1,12 +1,12 @@
 package com.baidu.ala.data;
 
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SdkMiddleStrategyInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class SdkMiddleStrategyInfo {
     public StrategyExtra strategyExtra;
     public long ts;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DisplayStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class StrategyExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class SdkMiddleStrategyInfo {
             }
             this.mthid = jSONObject.optString("mthid");
             this.q_ratio = jSONObject.optInt("q_ratio");
-            this.click = jSONObject.optInt(PrefetchEvent.STATE_CLICK);
+            this.click = jSONObject.optInt("click");
             this.show = jSONObject.optInt("show");
             this.source = jSONObject.optInt("source");
             this.vertical_type = jSONObject.optInt("vertical_type");
@@ -123,7 +123,7 @@ public class SdkMiddleStrategyInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.ts = jSONObject.optLong("ts");
+        this.ts = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.score = jSONObject.optInt("score");
         this.displayStrategy = new DisplayStrategy();
         JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");

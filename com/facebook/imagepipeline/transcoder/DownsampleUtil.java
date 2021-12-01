@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.transcoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DownsampleUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;
@@ -121,7 +120,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSizeJPEG(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(65541, null, f2)) != null) {
             return invokeF.intValue;
         }
         if (f2 > 0.6666667f) {
@@ -142,7 +141,7 @@ public class DownsampleUtil {
     public static int roundToPowerOfTwo(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             int i3 = 1;
             while (i3 < i2) {
                 i3 *= 2;

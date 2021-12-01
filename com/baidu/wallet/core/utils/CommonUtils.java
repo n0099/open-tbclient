@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,7 @@ public class CommonUtils {
         view.setOnTouchListener(new View.OnTouchListener(f2) { // from class: com.baidu.wallet.core.utils.CommonUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ float f58928a;
+            public final /* synthetic */ float a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,7 +59,7 @@ public class CommonUtils {
                         return;
                     }
                 }
-                this.f58928a = f2;
+                this.a = f2;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -74,7 +72,7 @@ public class CommonUtils {
                         view2.setAlpha(1.0f);
                         return false;
                     }
-                    view2.setAlpha(this.f58928a);
+                    view2.setAlpha(this.a);
                     return false;
                 }
                 return invokeLL.booleanValue;

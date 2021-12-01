@@ -1,5 +1,6 @@
 package com.baidu.tbadk.module.frs;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\t\b\u0086\u0001\u0018\u00002\u00020\u0001B\u0011\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\tj\u0002\b\n¨\u0006\u000b"}, d2 = {"Lcom/baidu/tbadk/module/frs/Frs$From;", "Ljava/lang/Enum;", "", "callFrom", "J", "getCallFrom", "()J", "<init>", "(Ljava/lang/String;IJ)V", "ENTER_FORUM_PAGE", "FRS", "tbadkcore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+@Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\t\n\u0002\b\u0006\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\u0007j\u0002\b\b¨\u0006\t"}, d2 = {"Lcom/baidu/tbadk/module/frs/Frs$From;", "", "callFrom", "", "(Ljava/lang/String;IJ)V", "getCallFrom", "()J", "ENTER_FORUM_PAGE", "FRS", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes9.dex */
 public final class Frs$From {
     public static final /* synthetic */ Frs$From[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -18,6 +19,10 @@ public final class Frs$From {
     public static final Frs$From FRS;
     public transient /* synthetic */ FieldHolder $fh;
     public final long callFrom;
+
+    public static final /* synthetic */ Frs$From[] $values() {
+        return new Frs$From[]{ENTER_FORUM_PAGE, FRS};
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,20 +37,18 @@ public final class Frs$From {
                 return;
             }
         }
-        Frs$From frs$From = new Frs$From("ENTER_FORUM_PAGE", 0, 1L);
-        ENTER_FORUM_PAGE = frs$From;
-        Frs$From frs$From2 = new Frs$From("FRS", 1, 2L);
-        FRS = frs$From2;
-        $VALUES = new Frs$From[]{frs$From, frs$From2};
+        ENTER_FORUM_PAGE = new Frs$From("ENTER_FORUM_PAGE", 0, 1L);
+        FRS = new Frs$From("FRS", 1, 2L);
+        $VALUES = $values();
     }
 
-    public Frs$From(String str, int i2, long j) {
+    public Frs$From(String str, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
@@ -53,23 +56,23 @@ public final class Frs$From {
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.callFrom = j;
+        this.callFrom = j2;
     }
 
     public static Frs$From valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Frs$From) Enum.valueOf(Frs$From.class, str) : (Frs$From) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Frs$From) Enum.valueOf(Frs$From.class, str) : (Frs$From) invokeL.objValue;
     }
 
     public static Frs$From[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Frs$From[]) $VALUES.clone() : (Frs$From[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Frs$From[]) $VALUES.clone() : (Frs$From[]) invokeV.objValue;
     }
 
     public final long getCallFrom() {

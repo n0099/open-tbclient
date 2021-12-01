@@ -13,7 +13,6 @@ import android.webkit.ValueCallback;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +32,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,12 +55,12 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;
@@ -205,7 +204,7 @@ public class WebChromeClient {
     private String getReturnValueInJSON(int i2, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(AdIconUtil.AD_TEXT_ID, this, i2, str, str2)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i2, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("error", i2);
@@ -228,11 +227,11 @@ public class WebChromeClient {
     private boolean handleGetVersionMessage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith(MSG_PROMPT_HEADER)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str.substring(9));
-                    String optString = jSONObject.optString(KEY_FUNCTION_NAME);
+                    String optString = jSONObject.optString("func");
                     String optString2 = jSONObject.optString("callback");
                     if (MSG_METHOD_GETVERSION.equals(optString) && !TextUtils.isEmpty(optString2) && this.mWebView != null) {
                         WebView webView = this.mWebView;
@@ -485,7 +484,7 @@ public class WebChromeClient {
                 JSONObject jSONObject = new JSONObject(substring);
                 String string = jSONObject.getString("obj");
                 Object[] objArr = null;
-                String optString = jSONObject.optString(KEY_FUNCTION_NAME, null);
+                String optString = jSONObject.optString("func", null);
                 JSONArray optJSONArray = jSONObject.optJSONArray("args");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -622,10 +621,10 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j2);
         }
     }
 
@@ -740,10 +739,10 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j3);
         }
     }
 

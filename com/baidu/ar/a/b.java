@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -56,10 +56,10 @@ public class b {
         this.bM = "default";
         if (context != null) {
             this.mContext = context.getApplicationContext();
-            a a2 = d.a(context);
-            if (a2 != null) {
-                this.bJ = a2.bI;
-                this.bM = a2.bH;
+            a a = d.a(context);
+            if (a != null) {
+                this.bJ = a.bI;
+                this.bM = a.bH;
             }
         }
     }

@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParser;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZeusTransformUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginContextUtils";
@@ -138,7 +137,7 @@ public class ZeusTransformUtils {
     public static boolean equalsFragmentActivity(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
             ensureFragmentActivity();
             Class cls2 = fragmentClazz;
             return cls2 != null && cls == cls2;
@@ -149,7 +148,7 @@ public class ZeusTransformUtils {
     public static Class forName(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) ? Zeus.getPlugin(str2).mClassLoader.loadClass(str) : (Class) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? Zeus.getPlugin(str2).mClassLoader.loadClass(str) : (Class) invokeLL.objValue;
     }
 
     public static Activity getActivity(Object obj, String str) {

@@ -14,7 +14,7 @@ import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_NO_CHANGE = -1;

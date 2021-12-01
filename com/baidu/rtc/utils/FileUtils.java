@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -111,7 +110,7 @@ public class FileUtils {
     public static boolean copyFile(String str, String str2) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             if (!checkFile(str) || TextUtils.isEmpty(str2)) {
                 return false;
             }
@@ -265,10 +264,10 @@ public class FileUtils {
                 try {
                     fileChannel2 = file.getChannel();
                     long size = fileChannel.size();
-                    long j = 0;
-                    while (j < size) {
-                        long j2 = size - j;
-                        j += fileChannel2.transferFrom(fileChannel, j, j2 > 31457280 ? 31457280L : j2);
+                    long j2 = 0;
+                    while (j2 < size) {
+                        long j3 = size - j2;
+                        j2 += fileChannel2.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
                     }
                     z = true;
                     closeable = file;
@@ -348,21 +347,21 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, file)) == null) {
-            long j = 0;
+            long j2 = 0;
             FileInputStream fileInputStream = null;
             try {
                 try {
                     if (file.exists()) {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
                         try {
-                            j = fileInputStream2.available();
+                            j2 = fileInputStream2.available();
                             fileInputStream = fileInputStream2;
                         } catch (Exception e2) {
                             e = e2;
                             fileInputStream = fileInputStream2;
                             e.getMessage();
                             CloseHelper.close(fileInputStream);
-                            return j;
+                            return j2;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -377,7 +376,7 @@ public class FileUtils {
                 e = e3;
             }
             CloseHelper.close(fileInputStream);
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -408,7 +407,7 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, file)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (file == null || !file.exists()) {
                 return 0L;
             }
@@ -423,9 +422,9 @@ public class FileUtils {
                 return 0L;
             }
             for (File file2 : listFiles) {
-                j += getSize(file2);
+                j2 += getSize(file2);
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -933,7 +932,7 @@ public class FileUtils {
     public static boolean copyFile(File file, File file2) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, file, file2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, file2)) == null) {
             if (file == null || file2 == null || !file.exists() || file.isDirectory() || file.getCanonicalPath().equals(file2.getCanonicalPath())) {
                 return false;
             }

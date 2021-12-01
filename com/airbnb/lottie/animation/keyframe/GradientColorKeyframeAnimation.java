@@ -3,7 +3,7 @@ package com.airbnb.lottie.animation.keyframe;
 import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GradientColorKeyframeAnimation extends KeyframeAnimation<GradientColor> {
     public final GradientColor gradientColor;
 

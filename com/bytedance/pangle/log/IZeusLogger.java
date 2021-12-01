@@ -2,7 +2,7 @@ package com.bytedance.pangle.log;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IZeusLogger {
     void e(String str, String str2, Throwable th);
 

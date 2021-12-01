@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class GlideException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final StackTraceElement[] EMPTY_ELEMENTS;
@@ -86,7 +85,7 @@ public final class GlideException extends Exception {
 
     public static void appendCauses(List<Throwable> list, Appendable appendable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, list, appendable) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, appendable) == null) {
             try {
                 appendCausesWrapped(list, appendable);
             } catch (IOException e2) {
@@ -97,7 +96,7 @@ public final class GlideException extends Exception {
 
     public static void appendCausesWrapped(List<Throwable> list, Appendable appendable) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, list, appendable) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, appendable) == null) {
             int size = list.size();
             int i2 = 0;
             while (i2 < size) {
@@ -293,7 +292,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";

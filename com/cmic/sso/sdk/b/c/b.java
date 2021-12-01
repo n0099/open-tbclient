@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.b.b.e;
 import com.cmic.sso.sdk.b.b.g;
 import com.cmic.sso.sdk.d.r;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f62839b;
+    public final e f54952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62840c;
+    public boolean f54953c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, e eVar, String str2, String str3) {
@@ -37,30 +37,30 @@ public class b extends c {
                 return;
             }
         }
-        this.f62840c = false;
-        this.f62839b = eVar;
+        this.f54953c = false;
+        this.f54952b = eVar;
     }
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f62840c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f54953c) {
             return;
         }
-        String a2 = r.a(true);
-        String a3 = r.a(true, "1".equals(aVar.b("operatortype", "")));
-        aVar.a("ipv4_list", a2);
-        aVar.a("ipv6_list", a3);
-        com.cmic.sso.sdk.b.b.a c2 = this.f62839b.c();
+        String a = r.a(true);
+        String a2 = r.a(true, "1".equals(aVar.b("operatortype", "")));
+        aVar.a("ipv4_list", a);
+        aVar.a("ipv6_list", a2);
+        com.cmic.sso.sdk.b.b.a c2 = this.f54952b.c();
         if (!aVar.b("isCloseIpv4", false)) {
-            c2.s(a2);
+            c2.s(a);
         }
         if (!aVar.b("isCloseIpv6", false)) {
-            c2.t(a3);
+            c2.t(a2);
         }
         c2.p(c2.w(aVar.b("appkey")));
-        this.f62839b.a(c2);
-        this.f62839b.a(true);
-        this.f62841a = this.f62839b.b().toString();
-        this.f62840c = true;
+        this.f54952b.a(c2);
+        this.f54952b.a(true);
+        this.a = this.f54952b.b().toString();
+        this.f54953c = true;
     }
 }

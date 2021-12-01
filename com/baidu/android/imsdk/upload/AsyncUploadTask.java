@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +33,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -103,7 +102,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
         try {
             try {
-                long j = 0;
+                long j2 = 0;
                 if (Utility.isMediaUri(this.mFilePath)) {
                     fileInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     length = fileInputStream != null ? fileInputStream.available() : 0L;
@@ -138,9 +137,9 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                         break;
                     }
                     dataOutputStream.write(bArr, 0, read);
-                    j += read;
-                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
-                    onProgressUpdate(Integer.valueOf((int) ((100 * j) / length)));
+                    j2 += read;
+                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j2 + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
+                    onProgressUpdate(Integer.valueOf((int) ((100 * j2) / length)));
                     httpURLConnection = httpURLConnection;
                 }
                 fileInputStream.close();
@@ -193,7 +192,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private void notifyFinished() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
                 if (this.mListener != null) {
                     this.mListener.onFinished(this.mType, this.mRemoteUrl);

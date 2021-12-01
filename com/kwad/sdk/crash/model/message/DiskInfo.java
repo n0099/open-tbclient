@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -53,10 +53,10 @@ public class DiskInfo implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
-            q.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
-            q.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
-            q.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
+            t.a(jSONObject, "mDataTotalGB", this.mDataTotalGB);
+            t.a(jSONObject, "mDataAvailableGB", this.mDataAvailableGB);
+            t.a(jSONObject, "mExternalStorageTotalGB", this.mExternalStorageTotalGB);
+            t.a(jSONObject, "mExternalStorageAvailableGB", this.mExternalStorageAvailableGB);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

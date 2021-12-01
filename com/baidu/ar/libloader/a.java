@@ -4,13 +4,12 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ILibLoader sJ;
@@ -84,7 +83,7 @@ public final class a {
 
     public static void load(Context context, ILibLoader.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, bVar) == null) || sL) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) || sL) {
             return;
         }
         ff().load(context, bVar);
@@ -92,7 +91,7 @@ public final class a {
 
     public static void prepareCaseRes(ARType aRType, String str, String str2, ILibLoader.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, aRType, str, str2, aVar) == null) || sL) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, aRType, str, str2, aVar) == null) || sL) {
             return;
         }
         ff().prepareCaseRes(aRType, str, str2, aVar);

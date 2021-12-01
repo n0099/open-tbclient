@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialAttributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,13 +87,13 @@ public class MaterialAttributes {
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? resolveDimension(context, R.attr.minTouchTargetSize, R.dimen.mtrl_min_touch_target_size) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.minTouchTargetSize, R.dimen.mtrl_min_touch_target_size) : invokeL.intValue;
     }
 
     public static int resolveOrThrow(@NonNull Context context, @AttrRes int i2, @NonNull String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, context, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i2, str)) == null) {
             TypedValue resolve = resolve(context, i2);
             if (resolve != null) {
                 return resolve.data;

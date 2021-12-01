@@ -20,10 +20,4 @@ public class a {
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveInfo)) == null) ? liveInfo.user.user_id : invokeL.longValue;
     }
-
-    public static String c(@NonNull LiveInfo liveInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, liveInfo)) == null) ? liveInfo.exp_tag : (String) invokeL.objValue;
-    }
 }

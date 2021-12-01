@@ -7,6 +7,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.KsAdSdkApi;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes2.dex */
@@ -78,6 +79,10 @@ public interface KsSplashScreenAd {
     @Keep
     @Deprecated
     boolean isVideo();
+
+    @KsAdSdkApi
+    @Keep
+    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep

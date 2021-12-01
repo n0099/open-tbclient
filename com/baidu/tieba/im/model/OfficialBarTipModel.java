@@ -2,9 +2,9 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.r0.l1.f.i.b;
-import b.a.r0.l1.t.d;
+import c.a.d.a.f;
+import c.a.r0.r1.f.i.b;
+import c.a.r0.r1.t.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;
@@ -121,9 +121,9 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-        OfficialSettingItemData a2 = d.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-        if (a2 != null) {
-            buildNormalItem.setGroupSetting(a2);
+        OfficialSettingItemData a = d.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        if (a != null) {
+            buildNormalItem.setGroupSetting(a);
         }
         insertShowData(buildNormalItem, this.mList);
     }

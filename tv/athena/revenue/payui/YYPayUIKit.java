@@ -7,7 +7,6 @@ import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,11 +27,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager;
-import i.a.a.e.k.g;
-import i.a.a.e.k.h;
-import i.a.a.e.k.n;
-import i.a.a.e.l.b;
-import i.a.a.e.l.e;
+import j.a.a.e.k.g;
+import j.a.a.e.k.h;
+import j.a.a.e.k.n;
+import j.a.a.e.l.b;
+import j.a.a.e.l.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +46,7 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class YYPayUIKit implements h {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "YYPayUiKit";
@@ -62,13 +61,11 @@ public class YYPayUIKit implements h {
     public int mUserChannel;
     public List<IYYPayListener> mYYPayListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends AppPayServiceListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayUIKit f74038a;
+        public final /* synthetic */ YYPayUIKit a;
 
         public a(YYPayUIKit yYPayUIKit) {
             Interceptable interceptable = $ic;
@@ -85,7 +82,7 @@ public class YYPayUIKit implements h {
                     return;
                 }
             }
-            this.f74038a = yYPayUIKit;
+            this.a = yYPayUIKit;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
@@ -93,7 +90,7 @@ public class YYPayUIKit implements h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, currencyChargeMessage) == null) {
                 super.onCurrencyChargeMessage(currencyChargeMessage);
-                this.f74038a.notifyYYPayListener(currencyChargeMessage);
+                this.a.notifyYYPayListener(currencyChargeMessage);
             }
         }
     }
@@ -158,7 +155,7 @@ public class YYPayUIKit implements h {
                     e.e(payUIKitConfig.revenueConfig.isTestEnv());
                     YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                     yYPayUIKit.initYYPayUIKit(i2, i3, payUIKitConfig.revenueConfig);
-                    yYPayUIKit.mQueryParamsProvider = new i.a.a.e.l.g(payUIKitConfig.revenueConfig);
+                    yYPayUIKit.mQueryParamsProvider = new j.a.a.e.l.g(payUIKitConfig.revenueConfig);
                     yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
                     yYPayUIKit.mAppContext = payUIKitConfig.revenueConfig.getAppContext();
                     mPayUIKitMap.put(uIKitMapKey, yYPayUIKit);
@@ -187,7 +184,7 @@ public class YYPayUIKit implements h {
     public static YYPayUIKit getUIKit(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             RLog.info(TAG, "getUIKit appId:" + i2 + " userchannel:" + i3);
             String uIKitMapKey = getUIKitMapKey(i2, i3);
             YYPayUIKit yYPayUIKit = mPayUIKitMap.get(uIKitMapKey);
@@ -203,7 +200,7 @@ public class YYPayUIKit implements h {
     public static String getUIKitMapKey(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
             return i2 + "-" + i3;
         }
         return (String) invokeII.objValue;
@@ -222,7 +219,7 @@ public class YYPayUIKit implements h {
     private void registerPayServiceListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            IAppPayService b2 = i.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = j.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "registerPayServiceListener error null appPayService", new Object[0]);
                 return;
@@ -289,7 +286,7 @@ public class YYPayUIKit implements h {
         if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.mAppPayServiceListener == null) {
             return;
         }
-        IAppPayService b2 = i.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = j.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
         if (b2 != null) {
             b2.removePayListener(this.mAppPayServiceListener);
         }
@@ -340,14 +337,14 @@ public class YYPayUIKit implements h {
         return (H5PayFlowModel) invokeV.objValue;
     }
 
-    @Override // i.a.a.e.k.h
+    @Override // j.a.a.e.k.h
     public PayUIKitConfig getPayUIKitConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPayUIKitConfig : (PayUIKitConfig) invokeV.objValue;
     }
 
-    @Override // i.a.a.e.k.h
+    @Override // j.a.a.e.k.h
     public void notifyYYPayFailListener(int i2, String str, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, str, payCallBackBean) == null) {
@@ -380,13 +377,13 @@ public class YYPayUIKit implements h {
         }
     }
 
-    @Override // i.a.a.e.k.d
+    @Override // j.a.a.e.k.d
     public void onPayFlowFinish(PayFlowType payFlowType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, payFlowType) == null) {
             RLog.info(TAG, "onPayFlowFinish payFlowType:" + payFlowType.name());
             releasePayController();
-            IAppPayService b2 = i.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = j.a.a.e.n.b.b(this.mAppId, this.mUserChannel);
             if (b2 != null) {
                 b2.cancelAllRequest();
             } else {
@@ -404,7 +401,7 @@ public class YYPayUIKit implements h {
                 RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
                 return;
             }
-            IAppPayService b2 = i.a.a.e.n.b.b(i3, this.mUserChannel);
+            IAppPayService b2 = j.a.a.e.n.b.b(i3, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
             } else {
@@ -422,7 +419,7 @@ public class YYPayUIKit implements h {
                 RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
                 return;
             }
-            IAppPayService b2 = i.a.a.e.n.b.b(i3, this.mUserChannel);
+            IAppPayService b2 = j.a.a.e.n.b.b(i3, this.mUserChannel);
             if (b2 == null) {
                 RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
             } else {

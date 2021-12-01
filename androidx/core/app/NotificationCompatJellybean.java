@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,7 +152,7 @@ public class NotificationCompatJellybean {
     public static RemoteInput[] fromBundleArray(Bundle[] bundleArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundleArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundleArr)) == null) {
             if (bundleArr == null) {
                 return null;
             }
@@ -170,7 +169,7 @@ public class NotificationCompatJellybean {
         InterceptResult invokeLI;
         SparseArray sparseParcelableArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, notification, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, notification, i2)) == null) {
             synchronized (sActionsLock) {
                 try {
                     try {

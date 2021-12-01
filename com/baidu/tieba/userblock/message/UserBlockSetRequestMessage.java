@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PermissionList;
 import tbclient.SetUserBlack.DataReq;
 import tbclient.SetUserBlack.SetUserBlackReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UserBlockSetRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,10 +68,10 @@ public class UserBlockSetRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBlockUserId : invokeV.longValue;
     }
 
-    public void setBlockUserId(long j) {
+    public void setBlockUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.mBlockUserId = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.mBlockUserId = j2;
         }
     }
 

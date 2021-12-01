@@ -1,10 +1,9 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.a.p;
+import c.i.d.a.n;
+import c.i.d.a.p;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.SmoothRateLimiter;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class RateLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Object mutexDoNotUseDirectly;
     public final SleepingStopwatch stopwatch;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class SleepingStopwatch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,19 +70,19 @@ public abstract class RateLimiter {
                 }
 
                 @Override // com.google.common.util.concurrent.RateLimiter.SleepingStopwatch
-                public void sleepMicrosUninterruptibly(long j) {
+                public void sleepMicrosUninterruptibly(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j <= 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || j2 <= 0) {
                         return;
                     }
-                    Uninterruptibles.sleepUninterruptibly(j, TimeUnit.MICROSECONDS);
+                    Uninterruptibles.sleepUninterruptibly(j2, TimeUnit.MICROSECONDS);
                 }
             } : (SleepingStopwatch) invokeV.objValue;
         }
 
         public abstract long readMicros();
 
-        public abstract void sleepMicrosUninterruptibly(long j);
+        public abstract void sleepMicrosUninterruptibly(long j2);
     }
 
     public RateLimiter(SleepingStopwatch sleepingStopwatch) {
@@ -105,10 +104,10 @@ public abstract class RateLimiter {
         this.stopwatch = sleepingStopwatch;
     }
 
-    private boolean canAcquire(long j, long j2) {
+    private boolean canAcquire(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? queryEarliestAvailable(j) - j2 <= j : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? queryEarliestAvailable(j2) - j3 <= j2 : invokeCommon.booleanValue;
     }
 
     public static void checkPermits(int i2) {
@@ -151,7 +150,7 @@ public abstract class RateLimiter {
 
     public abstract double doGetRate();
 
-    public abstract void doSetRate(double d2, long j);
+    public abstract void doSetRate(double d2, long j2);
 
     public final double getRate() {
         InterceptResult invokeV;
@@ -166,7 +165,7 @@ public abstract class RateLimiter {
         return invokeV.doubleValue;
     }
 
-    public abstract long queryEarliestAvailable(long j);
+    public abstract long queryEarliestAvailable(long j2);
 
     public final long reserve(int i2) {
         InterceptResult invokeI;
@@ -182,13 +181,13 @@ public abstract class RateLimiter {
         return invokeI.longValue;
     }
 
-    public final long reserveAndGetWaitLength(int i2, long j) {
+    public final long reserveAndGetWaitLength(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? Math.max(reserveEarliestAvailable(i2, j) - j, 0L) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? Math.max(reserveEarliestAvailable(i2, j2) - j2, 0L) : invokeCommon.longValue;
     }
 
-    public abstract long reserveEarliestAvailable(int i2, long j);
+    public abstract long reserveEarliestAvailable(int i2, long j2);
 
     public final void setRate(double d2) {
         Interceptable interceptable = $ic;
@@ -206,16 +205,16 @@ public abstract class RateLimiter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? String.format(Locale.ROOT, "RateLimiter[stableRate=%3.1fqps]", Double.valueOf(getRate())) : (String) invokeV.objValue;
     }
 
-    public boolean tryAcquire(long j, TimeUnit timeUnit) {
+    public boolean tryAcquire(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048590, this, j, timeUnit)) == null) ? tryAcquire(1, j, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048590, this, j2, timeUnit)) == null) ? tryAcquire(1, j2, timeUnit) : invokeJL.booleanValue;
     }
 
     public static RateLimiter create(double d2, SleepingStopwatch sleepingStopwatch) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Double.valueOf(d2), sleepingStopwatch})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), sleepingStopwatch})) == null) {
             SmoothRateLimiter.SmoothBursty smoothBursty = new SmoothRateLimiter.SmoothBursty(sleepingStopwatch, 1.0d);
             smoothBursty.setRate(d2);
             return smoothBursty;
@@ -246,21 +245,21 @@ public abstract class RateLimiter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? tryAcquire(1, 0L, TimeUnit.MICROSECONDS) : invokeV.booleanValue;
     }
 
-    public static RateLimiter create(double d2, long j, TimeUnit timeUnit) {
+    public static RateLimiter create(double d2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2), Long.valueOf(j), timeUnit})) == null) {
-            n.h(j >= 0, "warmupPeriod must not be negative: %s", j);
-            return create(d2, j, timeUnit, 3.0d, SleepingStopwatch.createFromSystemTimer());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2), Long.valueOf(j2), timeUnit})) == null) {
+            n.h(j2 >= 0, "warmupPeriod must not be negative: %s", j2);
+            return create(d2, j2, timeUnit, 3.0d, SleepingStopwatch.createFromSystemTimer());
         }
         return (RateLimiter) invokeCommon.objValue;
     }
 
-    public boolean tryAcquire(int i2, long j, TimeUnit timeUnit) {
+    public boolean tryAcquire(int i2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), timeUnit})) == null) {
-            long max = Math.max(timeUnit.toMicros(j), 0L);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) {
+            long max = Math.max(timeUnit.toMicros(j2), 0L);
             checkPermits(i2);
             synchronized (mutex()) {
                 long readMicros = this.stopwatch.readMicros();
@@ -274,11 +273,11 @@ public abstract class RateLimiter {
         return invokeCommon.booleanValue;
     }
 
-    public static RateLimiter create(double d2, long j, TimeUnit timeUnit, double d3, SleepingStopwatch sleepingStopwatch) {
+    public static RateLimiter create(double d2, long j2, TimeUnit timeUnit, double d3, SleepingStopwatch sleepingStopwatch) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Double.valueOf(d2), Long.valueOf(j), timeUnit, Double.valueOf(d3), sleepingStopwatch})) == null) {
-            SmoothRateLimiter.SmoothWarmingUp smoothWarmingUp = new SmoothRateLimiter.SmoothWarmingUp(sleepingStopwatch, j, timeUnit, d3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d2), Long.valueOf(j2), timeUnit, Double.valueOf(d3), sleepingStopwatch})) == null) {
+            SmoothRateLimiter.SmoothWarmingUp smoothWarmingUp = new SmoothRateLimiter.SmoothWarmingUp(sleepingStopwatch, j2, timeUnit, d3);
             smoothWarmingUp.setRate(d2);
             return smoothWarmingUp;
         }

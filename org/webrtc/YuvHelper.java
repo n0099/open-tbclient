@@ -1,7 +1,6 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,7 +70,7 @@ public class YuvHelper {
 
     public static void I420ToNV12(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             int i7 = (i5 + 1) / 2;
             int i8 = i5 * i6;
             int i9 = (((i6 + 1) / 2) * i7 * 2) + i8;
@@ -103,7 +102,7 @@ public class YuvHelper {
 
     public static void I420ToNV12(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, ByteBuffer byteBuffer4, int i5, ByteBuffer byteBuffer5, int i6, int i7, int i8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{byteBuffer, Integer.valueOf(i2), byteBuffer2, Integer.valueOf(i3), byteBuffer3, Integer.valueOf(i4), byteBuffer4, Integer.valueOf(i5), byteBuffer5, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
             nativeI420ToNV12(byteBuffer, i2, byteBuffer2, i3, byteBuffer3, i4, byteBuffer4, i5, byteBuffer5, i6, i7, i8);
         }
     }

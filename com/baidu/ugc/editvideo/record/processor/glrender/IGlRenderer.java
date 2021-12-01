@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IGlRenderer {
     void initProgram();
 

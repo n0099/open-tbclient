@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.f.m.e;
-import b.a.q0.s.u.c;
+import c.a.d.f.m.e;
+import c.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,37 +18,41 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56842e;
+    public int f50921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56843f;
+    public int f50922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f56844g;
+    public LinearLayout f50923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f56845h;
+    public ImageView f50924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56846i;
-    public TextView j;
-    public View k;
+    public ImageView f50925i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f50926j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public View f50927k;
     public View.OnClickListener l;
     public Runnable m;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f56847e;
+        public final /* synthetic */ TitleTipView f50928e;
 
         public a(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -65,25 +69,25 @@ public class TitleTipView extends RelativeLayout {
                     return;
                 }
             }
-            this.f56847e = titleTipView;
+            this.f50928e = titleTipView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56847e.dismiss();
+                this.f50928e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f56848e;
+        public final /* synthetic */ TitleTipView f50929e;
 
         public b(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -100,14 +104,14 @@ public class TitleTipView extends RelativeLayout {
                     return;
                 }
             }
-            this.f56848e = titleTipView;
+            this.f50929e = titleTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56848e.dismiss();
+                this.f50929e.dismiss();
             }
         }
     }
@@ -130,8 +134,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f56842e = 3;
-        this.f56843f = 5000;
+        this.f50921e = 3;
+        this.f50922f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -141,13 +145,13 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View.inflate(getContext(), R.layout.title_tip_layout, this);
-            this.f56844g = (LinearLayout) findViewById(R.id.tip_bg);
-            this.f56845h = (ImageView) findViewById(R.id.img_icon);
-            this.f56846i = (ImageView) findViewById(R.id.img_close);
-            this.j = (TextView) findViewById(R.id.tv_tip);
-            this.k = findViewById(R.id.tv_line);
-            this.j.setText(R.string.add_title_tip);
-            this.f56846i.setOnClickListener(this.l);
+            this.f50923g = (LinearLayout) findViewById(R.id.tip_bg);
+            this.f50924h = (ImageView) findViewById(R.id.img_icon);
+            this.f50925i = (ImageView) findViewById(R.id.img_close);
+            this.f50926j = (TextView) findViewById(R.id.tv_tip);
+            this.f50927k = findViewById(R.id.tv_line);
+            this.f50926j.setText(R.string.add_title_tip);
+            this.f50925i.setOnClickListener(this.l);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -163,20 +167,20 @@ public class TitleTipView extends RelativeLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f56842e != i2) {
-                c d2 = c.d(this.f56844g);
+            if (this.f50921e != i2) {
+                c d2 = c.d(this.f50923g);
                 d2.n(R.string.J_X05);
                 d2.l(R.dimen.L_X01);
                 d2.k(R.color.CAM_X0602);
                 d2.f(R.color.CAM_X0206);
-                c.d(this.k).f(R.color.CAM_X0203);
-                c.d(this.j).v(R.color.CAM_X0107);
-                this.f56846i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
-                if (this.f56845h != null) {
-                    this.f56845h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
+                c.d(this.f50927k).f(R.color.CAM_X0203);
+                c.d(this.f50926j).v(R.color.CAM_X0107);
+                this.f50925i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
+                if (this.f50924h != null) {
+                    this.f50924h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
-            this.f56842e = i2;
+            this.f50921e = i2;
         }
     }
 
@@ -191,7 +195,7 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setVisibility(0);
-            e.a().postDelayed(this.m, this.f56843f);
+            e.a().postDelayed(this.m, this.f50922f);
         }
     }
 
@@ -214,8 +218,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f56842e = 3;
-        this.f56843f = 5000;
+        this.f50921e = 3;
+        this.f50922f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -240,8 +244,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f56842e = 3;
-        this.f56843f = 5000;
+        this.f50921e = 3;
+        this.f50922f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();

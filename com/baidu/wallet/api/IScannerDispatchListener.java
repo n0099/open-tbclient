@@ -1,5 +1,5 @@
 package com.baidu.wallet.api;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IScannerDispatchListener {
     void onClose();
 

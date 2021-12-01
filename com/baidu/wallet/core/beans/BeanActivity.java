@@ -26,7 +26,7 @@ import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseActivity";
@@ -34,7 +34,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public BeanActivity mAct;
     public Handler mHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class ActionBarMenu extends BdMenu {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MENU_ITEM_INDEX_LOGOUT = 35;
@@ -166,9 +166,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.core.beans.BeanActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BeanActivity f58884a;
+            public final /* synthetic */ BeanActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -185,15 +183,15 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                         return;
                     }
                 }
-                this.f58884a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f58884a.getActivity());
-                    this.f58884a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });
@@ -209,9 +207,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         bdActionBar.setLeftZoneOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.core.beans.BeanActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BeanActivity f58883a;
+            public final /* synthetic */ BeanActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -228,15 +224,15 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                         return;
                     }
                 }
-                this.f58883a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f58883a.getActivity());
-                    this.f58883a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });
@@ -250,18 +246,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
             getHandler().post(new Runnable(this, i2, i3, str) { // from class: com.baidu.wallet.core.beans.BeanActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f58889a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f58890b;
+                public final /* synthetic */ int f52378b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f58891c;
+                public final /* synthetic */ String f52379c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f58892d;
+                public final /* synthetic */ BeanActivity f52380d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -278,19 +272,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f58892d = this;
-                    this.f58889a = i2;
-                    this.f58890b = i3;
-                    this.f58891c = str;
+                    this.f52380d = this;
+                    this.a = i2;
+                    this.f52378b = i3;
+                    this.f52379c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f58892d;
+                        BeanActivity beanActivity = this.f52380d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleFailure(this.f58889a, this.f58890b, this.f58891c);
+                            beanActivity.handleFailure(this.a, this.f52378b, this.f52379c);
                         }
                     }
                 }
@@ -312,18 +306,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
             getHandler().post(new Runnable(this, i2, obj, str) { // from class: com.baidu.wallet.core.beans.BeanActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f58885a;
+                public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f58886b;
+                public final /* synthetic */ Object f52375b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f58887c;
+                public final /* synthetic */ String f52376c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f58888d;
+                public final /* synthetic */ BeanActivity f52377d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -340,19 +332,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f58888d = this;
-                    this.f58885a = i2;
-                    this.f58886b = obj;
-                    this.f58887c = str;
+                    this.f52377d = this;
+                    this.a = i2;
+                    this.f52375b = obj;
+                    this.f52376c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f58888d;
+                        BeanActivity beanActivity = this.f52377d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleResponse(this.f58885a, this.f58886b, this.f58887c);
+                            beanActivity.handleResponse(this.a, this.f52375b, this.f52376c);
                         }
                     }
                 }

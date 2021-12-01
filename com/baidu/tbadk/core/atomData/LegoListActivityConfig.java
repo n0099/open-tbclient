@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LegoListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_ID = "ad_id";
@@ -76,12 +76,12 @@ public class LegoListActivityConfig extends IntentConfig {
         return (LegoListActivityConfig) invokeCommon.objValue;
     }
 
-    public LegoListActivityConfig createNormalCfg(long j, int i2, String str, int i3, int i4, String str2) {
+    public LegoListActivityConfig createNormalCfg(long j2, int i2, String str, int i3, int i4, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("page_id", j);
+            intent.putExtra("page_id", j2);
             intent.putExtra("page_type", i2);
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra("item_id", str);

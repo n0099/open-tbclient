@@ -1,8 +1,8 @@
 package com.baidu.apollon.restnet.http;
 
-import b.c.b.u;
-import b.c.b.w;
-import b.c.b.x;
+import c.d.b.u;
+import c.d.b.w;
+import c.d.b.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.NoProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,30 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLStreamHandler;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class OkHttpFactory implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final x f36946a;
+    public final x a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URLStreamHandler f36947b;
+    public URLStreamHandler f33097b;
 
     /* renamed from: com.baidu.apollon.restnet.http.OkHttpFactory$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final OkHttpFactory f36948a;
+        public static final OkHttpFactory a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +48,7 @@ public class OkHttpFactory implements NoProguard {
                     return;
                 }
             }
-            f36948a = new OkHttpFactory(null);
+            a = new OkHttpFactory(null);
         }
 
         public a() {
@@ -77,13 +73,13 @@ public class OkHttpFactory implements NoProguard {
     public static OkHttpFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36948a : (OkHttpFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (OkHttpFactory) invokeV.objValue;
     }
 
     public w client() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36946a.a() : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (w) invokeV.objValue;
     }
 
     public URLStreamHandler getURLStreamHandler(String str) {
@@ -91,10 +87,10 @@ public class OkHttpFactory implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if ("http".equals(str) || "https".equals(str)) {
-                if (this.f36947b == null) {
-                    this.f36947b = this.f36946a.createURLStreamHandler(str);
+                if (this.f33097b == null) {
+                    this.f33097b = this.a.createURLStreamHandler(str);
                 }
-                return this.f36947b;
+                return this.f33097b;
             }
             return null;
         }
@@ -106,7 +102,7 @@ public class OkHttpFactory implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wVar) == null) || wVar == null) {
             return;
         }
-        this.f36946a.f(wVar);
+        this.a.f(wVar);
     }
 
     public OkHttpFactory() {
@@ -124,7 +120,7 @@ public class OkHttpFactory implements NoProguard {
         }
         w.b t = new w().t();
         t.e(new u(d.a()));
-        t.h(b.f36958e);
-        this.f36946a = new x(t.a());
+        t.h(b.f33108e);
+        this.a = new x(t.a());
     }
 }

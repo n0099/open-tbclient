@@ -3,7 +3,7 @@ package com.baidu.pass.face.platform;
 import android.graphics.Rect;
 import com.baidu.pass.face.platform.listener.ISecurityCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
     void livenessStrategy(byte[] bArr);
 

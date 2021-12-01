@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class JsReleaser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -37,13 +37,13 @@ public abstract class JsReleaser {
         this.mOwnedNativeEngine = 0L;
     }
 
-    public static void safeRelease(long j, long j2, long j3, boolean z, String str) {
+    public static void safeRelease(long j2, long j3, long j4, boolean z, String str) {
         V8Engine v8Engine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str}) == null) || (v8Engine = V8Engine.getInstance(j)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), str}) == null) || (v8Engine = V8Engine.getInstance(j2)) == null) {
             return;
         }
-        v8Engine.runOnJSThread(new Runnable(j3, j2, z, str, j) { // from class: com.baidu.searchbox.v8engine.JsReleaser.1
+        v8Engine.runOnJSThread(new Runnable(j4, j3, z, str, j2) { // from class: com.baidu.searchbox.v8engine.JsReleaser.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String val$className;
@@ -57,7 +57,7 @@ public abstract class JsReleaser {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j3), Long.valueOf(j2), Boolean.valueOf(z), str, Long.valueOf(j)};
+                    Object[] objArr = {Long.valueOf(j4), Long.valueOf(j3), Boolean.valueOf(z), str, Long.valueOf(j2)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -67,11 +67,11 @@ public abstract class JsReleaser {
                         return;
                     }
                 }
-                this.val$nativeObject = j3;
-                this.val$ownedThreadId = j2;
+                this.val$nativeObject = j4;
+                this.val$ownedThreadId = j3;
                 this.val$finalized = z;
                 this.val$className = str;
-                this.val$ownedNativeEngine = j;
+                this.val$ownedNativeEngine = j2;
             }
 
             @Override // java.lang.Runnable
@@ -124,12 +124,12 @@ public abstract class JsReleaser {
         }
     }
 
-    public JsReleaser(long j, long j2, long j3) {
+    public JsReleaser(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -141,8 +141,8 @@ public abstract class JsReleaser {
         }
         AtomicLong atomicLong = new AtomicLong(0L);
         this.mNativeObject = atomicLong;
-        atomicLong.set(j);
-        this.mOwnedThreadId = j3;
-        this.mOwnedNativeEngine = j2;
+        atomicLong.set(j2);
+        this.mOwnedThreadId = j4;
+        this.mOwnedNativeEngine = j3;
     }
 }

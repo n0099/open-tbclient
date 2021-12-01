@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.NamedRunnable;
@@ -37,7 +36,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
@@ -123,7 +122,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
 
     private void inspectTaskStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.store.onTaskStart(this.task.getId());
             BdDownload.with().callbackDispatcher().dispatch().taskStart(this.task);
         }
@@ -182,10 +181,10 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
     }
 
     @NonNull
-    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j) {
+    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j) : (BreakpointLocalCheck) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j2)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j2) : (BreakpointLocalCheck) invokeLJ.objValue;
     }
 
     @NonNull

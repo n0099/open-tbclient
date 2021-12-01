@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaTransition implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MediaTransition> CREATOR;
@@ -24,7 +24,7 @@ public class MediaTransition implements Parcelable, Cloneable {
     public long start;
     public List<ShaderParams> tParams;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<MediaTransition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class MediaTransition implements Parcelable, Cloneable {
                 if (this.tParams != null) {
                     ArrayList arrayList = new ArrayList();
                     for (ShaderParams shaderParams : this.tParams) {
-                        arrayList.add(shaderParams.m19clone());
+                        arrayList.add(shaderParams.m39clone());
                     }
                     mediaTransition.tParams = arrayList;
                 }

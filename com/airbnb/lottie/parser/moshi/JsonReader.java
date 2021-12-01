@@ -7,7 +7,7 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class JsonReader implements Closeable {
     public static final String[] REPLACEMENT_CHARS = new String[128];
     public boolean failOnUnknown;
@@ -17,7 +17,7 @@ public abstract class JsonReader implements Closeable {
     public String[] pathNames = new String[32];
     public int[] pathIndices = new int[32];
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Options {
         public final okio.Options doubleQuoteSuffix;
         public final String[] strings;
@@ -43,7 +43,7 @@ public abstract class JsonReader implements Closeable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum Token {
         BEGIN_ARRAY,
         END_ARRAY,

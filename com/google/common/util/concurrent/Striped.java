@@ -1,12 +1,11 @@
 package com.google.common.util.concurrent;
 
-import b.h.d.a.j;
-import b.h.d.a.n;
-import b.h.d.a.r;
-import b.h.d.c.o0;
-import b.h.d.f.c;
+import c.i.d.a.j;
+import c.i.d.a.n;
+import c.i.d.a.r;
+import c.i.d.c.o0;
+import c.i.d.f.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class Striped<L> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL_SET = -1;
@@ -39,7 +38,7 @@ public abstract class Striped<L> {
     public static final r<ReadWriteLock> WEAK_SAFE_READ_WRITE_LOCK_SUPPLIER;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class CompactStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class LargeLazyStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +150,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PaddedLock extends ReentrantLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +177,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class PaddedSemaphore extends Semaphore {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +207,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class PowerOfTwoStriped<L> extends Striped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +250,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class SmallLazyStriped<L> extends PowerOfTwoStriped<L> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +259,7 @@ public abstract class Striped<L> {
         public final int size;
         public final r<L> supplier;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static final class ArrayReference<L> extends WeakReference<L> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -372,7 +371,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class WeakSafeCondition extends ForwardingCondition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +405,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class WeakSafeLock extends ForwardingLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -447,7 +446,7 @@ public abstract class Striped<L> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class WeakSafeReadWriteLock implements ReadWriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -516,7 +515,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public ReadWriteLock get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -542,7 +541,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public ReadWriteLock get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -554,13 +553,13 @@ public abstract class Striped<L> {
     public static int ceilToPowerOfTwo(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? 1 << c.d(i2, RoundingMode.CEILING) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? 1 << c.d(i2, RoundingMode.CEILING) : invokeI.intValue;
     }
 
     public static <L> Striped<L> custom(int i2, r<L> rVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, rVar)) == null) ? new CompactStriped(i2, rVar) : (Striped) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, rVar)) == null) ? new CompactStriped(i2, rVar) : (Striped) invokeIL.objValue;
     }
 
     public static <L> Striped<L> lazy(int i2, r<L> rVar) {
@@ -591,7 +590,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public Lock get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -633,7 +632,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public Semaphore get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -664,7 +663,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public Lock get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -706,7 +705,7 @@ public abstract class Striped<L> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.r
+            @Override // c.i.d.a.r
             public Semaphore get() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

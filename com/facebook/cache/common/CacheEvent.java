@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import com.facebook.cache.common.CacheEventListener;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface CacheEvent {
     @Nullable
     CacheKey getCacheKey();

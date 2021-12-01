@@ -21,7 +21,6 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.R;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,13 +228,13 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         public static int makeFlag(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) ? i3 << (i2 * 8) : invokeII.intValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) ? i3 << (i2 * 8) : invokeII.intValue;
         }
 
         public static int makeMovementFlags(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
                 return makeFlag(2, i2) | makeFlag(1, i3) | makeFlag(0, i3 | i2);
             }
             return invokeII.intValue;
@@ -397,11 +396,11 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, recyclerView, viewHolder)) == null) ? (getAbsoluteMovementFlags(recyclerView, viewHolder) & 65280) != 0 : invokeLL.booleanValue;
         }
 
-        public int interpolateOutOfBoundsScroll(@NonNull RecyclerView recyclerView, int i2, int i3, int i4, long j) {
+        public int interpolateOutOfBoundsScroll(@NonNull RecyclerView recyclerView, int i2, int i3, int i4, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{recyclerView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)})) == null) {
-                int signum = (int) (((int) (((int) Math.signum(i3)) * getMaxDragScroll(recyclerView) * sDragViewScrollCapInterpolator.getInterpolation(Math.min(1.0f, (Math.abs(i3) * 1.0f) / i2)))) * sDragScrollInterpolator.getInterpolation(j <= 2000 ? ((float) j) / 2000.0f : 1.0f));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{recyclerView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)})) == null) {
+                int signum = (int) (((int) (((int) Math.signum(i3)) * getMaxDragScroll(recyclerView) * sDragViewScrollCapInterpolator.getInterpolation(Math.min(1.0f, (Math.abs(i3) * 1.0f) / i2)))) * sDragScrollInterpolator.getInterpolation(j2 <= 2000 ? ((float) j2) / 2000.0f : 1.0f));
                 return signum == 0 ? i3 > 0 ? 1 : -1 : signum;
             }
             return invokeCommon.intValue;
@@ -721,10 +720,10 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             }
         }
 
-        public void setDuration(long j) {
+        public void setDuration(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.mValueAnimator.setDuration(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.mValueAnimator.setDuration(j2);
             }
         }
 
@@ -1163,7 +1162,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     private List<RecyclerView.ViewHolder> findSwapTargets(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, viewHolder)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, viewHolder)) == null) {
             RecyclerView.ViewHolder viewHolder2 = viewHolder;
             List<RecyclerView.ViewHolder> list = this.mSwapTargets;
             if (list == null) {
@@ -1213,7 +1212,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         InterceptResult invokeL;
         View findChildView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, motionEvent)) == null) {
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             int i2 = this.mActivePointerId;
             if (i2 == -1) {
@@ -1669,8 +1668,8 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.mDragScrollStartTimeInMs;
-            long j2 = j == Long.MIN_VALUE ? 0L : currentTimeMillis - j;
+            long j2 = this.mDragScrollStartTimeInMs;
+            long j3 = j2 == Long.MIN_VALUE ? 0L : currentTimeMillis - j2;
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             if (this.mTmpRect == null) {
                 this.mTmpRect = new Rect();
@@ -1693,12 +1692,12 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
                         i3 = ((i6 + this.mSelected.itemView.getHeight()) + this.mTmpRect.bottom) - (this.mRecyclerView.getHeight() - this.mRecyclerView.getPaddingBottom());
                     }
                     if (i2 != 0) {
-                        i2 = this.mCallback.interpolateOutOfBoundsScroll(this.mRecyclerView, this.mSelected.itemView.getWidth(), i2, this.mRecyclerView.getWidth(), j2);
+                        i2 = this.mCallback.interpolateOutOfBoundsScroll(this.mRecyclerView, this.mSelected.itemView.getWidth(), i2, this.mRecyclerView.getWidth(), j3);
                     }
                     int i7 = i2;
                     if (i3 != 0) {
                         i4 = i7;
-                        i3 = this.mCallback.interpolateOutOfBoundsScroll(this.mRecyclerView, this.mSelected.itemView.getHeight(), i3, this.mRecyclerView.getHeight(), j2);
+                        i3 = this.mCallback.interpolateOutOfBoundsScroll(this.mRecyclerView, this.mSelected.itemView.getHeight(), i3, this.mRecyclerView.getHeight(), j3);
                     } else {
                         i4 = i7;
                     }

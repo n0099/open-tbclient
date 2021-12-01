@@ -1,12 +1,10 @@
 package io.flutter.embedding.engine.systemchannels;
 
-import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-import com.baidu.adp.widget.VerticalTranslateLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,12 +19,12 @@ import io.flutter.plugin.common.JSONMethodCodec;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PlatformChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformChannel";
@@ -40,9 +38,10 @@ public class PlatformChannel {
     public PlatformMessageHandler platformMessageHandler;
 
     /* renamed from: io.flutter.embedding.engine.systemchannels.PlatformChannel$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation;
+        public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,38 +59,56 @@ public class PlatformChannel {
                     return;
                 }
             }
-            int[] iArr = new int[SystemUiOverlay.values().length];
-            $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay = iArr;
+            int[] iArr = new int[SystemUiMode.values().length];
+            $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode = iArr;
             try {
-                iArr[SystemUiOverlay.TOP_OVERLAYS.ordinal()] = 1;
+                iArr[SystemUiMode.LEAN_BACK.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[SystemUiOverlay.BOTTOM_OVERLAYS.ordinal()] = 2;
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode[SystemUiMode.IMMERSIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
-            int[] iArr2 = new int[DeviceOrientation.values().length];
-            $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation = iArr2;
             try {
-                iArr2[DeviceOrientation.PORTRAIT_UP.ordinal()] = 1;
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode[SystemUiMode.IMMERSIVE_STICKY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.PORTRAIT_DOWN.ordinal()] = 2;
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode[SystemUiMode.EDGE_TO_EDGE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
+            int[] iArr2 = new int[SystemUiOverlay.values().length];
+            $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay = iArr2;
             try {
-                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.LANDSCAPE_LEFT.ordinal()] = 3;
+                iArr2[SystemUiOverlay.TOP_OVERLAYS.ordinal()] = 1;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.LANDSCAPE_RIGHT.ordinal()] = 4;
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[SystemUiOverlay.BOTTOM_OVERLAYS.ordinal()] = 2;
             } catch (NoSuchFieldError unused6) {
+            }
+            int[] iArr3 = new int[DeviceOrientation.values().length];
+            $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation = iArr3;
+            try {
+                iArr3[DeviceOrientation.PORTRAIT_UP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.PORTRAIT_DOWN.ordinal()] = 2;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.LANDSCAPE_LEFT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.LANDSCAPE_RIGHT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused10) {
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AppSwitcherDescription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +137,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Brightness {
         public static final /* synthetic */ Brightness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -200,7 +217,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ClipboardContentFormat {
         public static final /* synthetic */ ClipboardContentFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -278,7 +295,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceOrientation {
         public static final /* synthetic */ DeviceOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -362,7 +379,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class HapticFeedbackType {
         public static final /* synthetic */ HapticFeedbackType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -448,12 +465,12 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PlatformMessageHandler {
+        boolean clipboardHasStrings();
+
         @Nullable
         CharSequence getClipboardData(@Nullable ClipboardContentFormat clipboardContentFormat);
-
-        List<Rect> getSystemGestureExclusionRects();
 
         void playSystemSound(@NonNull SoundType soundType);
 
@@ -467,20 +484,23 @@ public class PlatformChannel {
 
         void setPreferredOrientations(int i2);
 
-        void setSystemGestureExclusionRects(@NonNull ArrayList<Rect> arrayList);
+        void setSystemUiChangeListener();
 
         void setSystemUiOverlayStyle(@NonNull SystemChromeStyle systemChromeStyle);
 
         void showSystemOverlays(@NonNull List<SystemUiOverlay> list);
 
+        void showSystemUiMode(@NonNull SystemUiMode systemUiMode);
+
         void vibrateHapticFeedback(@NonNull HapticFeedbackType hapticFeedbackType);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SoundType {
         public static final /* synthetic */ SoundType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
+        public static final SoundType ALERT;
         public static final SoundType CLICK;
         public transient /* synthetic */ FieldHolder $fh;
         @NonNull
@@ -499,9 +519,10 @@ public class PlatformChannel {
                     return;
                 }
             }
-            SoundType soundType = new SoundType("CLICK", 0, "SystemSoundType.click");
-            CLICK = soundType;
-            $VALUES = new SoundType[]{soundType};
+            CLICK = new SoundType("CLICK", 0, "SystemSoundType.click");
+            SoundType soundType = new SoundType("ALERT", 1, "SystemSoundType.alert");
+            ALERT = soundType;
+            $VALUES = new SoundType[]{CLICK, soundType};
         }
 
         public SoundType(@NonNull String str, int i2, String str2) {
@@ -554,7 +575,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SystemChromeStyle {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -565,16 +586,20 @@ public class PlatformChannel {
         @Nullable
         public final Integer systemNavigationBarColor;
         @Nullable
+        public final boolean systemNavigationBarContrastEnforced;
+        @Nullable
         public final Integer systemNavigationBarDividerColor;
         @Nullable
         public final Brightness systemNavigationBarIconBrightness;
+        @Nullable
+        public final boolean systemStatusBarContrastEnforced;
 
-        public SystemChromeStyle(@Nullable Integer num, @Nullable Brightness brightness, @Nullable Integer num2, @Nullable Brightness brightness2, @Nullable Integer num3) {
+        public SystemChromeStyle(@Nullable Integer num, @Nullable Brightness brightness, @Nullable boolean z, @Nullable Integer num2, @Nullable Brightness brightness2, @Nullable Integer num3, @Nullable boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {num, brightness, num2, brightness2, num3};
+                Object[] objArr = {num, brightness, Boolean.valueOf(z), num2, brightness2, num3, Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -586,14 +611,100 @@ public class PlatformChannel {
             }
             this.statusBarColor = num;
             this.statusBarIconBrightness = brightness;
+            this.systemStatusBarContrastEnforced = z;
             this.systemNavigationBarColor = num2;
             this.systemNavigationBarIconBrightness = brightness2;
             this.systemNavigationBarDividerColor = num3;
+            this.systemNavigationBarContrastEnforced = z2;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public static final class SystemUiMode {
+        public static final /* synthetic */ SystemUiMode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final SystemUiMode EDGE_TO_EDGE;
+        public static final SystemUiMode IMMERSIVE;
+        public static final SystemUiMode IMMERSIVE_STICKY;
+        public static final SystemUiMode LEAN_BACK;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public String encodedName;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1325373206, "Lio/flutter/embedding/engine/systemchannels/PlatformChannel$SystemUiMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1325373206, "Lio/flutter/embedding/engine/systemchannels/PlatformChannel$SystemUiMode;");
+                    return;
+                }
+            }
+            LEAN_BACK = new SystemUiMode("LEAN_BACK", 0, "SystemUiMode.leanBack");
+            IMMERSIVE = new SystemUiMode("IMMERSIVE", 1, "SystemUiMode.immersive");
+            IMMERSIVE_STICKY = new SystemUiMode("IMMERSIVE_STICKY", 2, "SystemUiMode.immersiveSticky");
+            SystemUiMode systemUiMode = new SystemUiMode("EDGE_TO_EDGE", 3, "SystemUiMode.edgeToEdge");
+            EDGE_TO_EDGE = systemUiMode;
+            $VALUES = new SystemUiMode[]{LEAN_BACK, IMMERSIVE, IMMERSIVE_STICKY, systemUiMode};
+        }
+
+        public SystemUiMode(@NonNull String str, int i2, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str3 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.encodedName = str2;
+        }
+
+        @NonNull
+        public static SystemUiMode fromValue(@NonNull String str) throws NoSuchFieldException {
+            InterceptResult invokeL;
+            SystemUiMode[] values;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                for (SystemUiMode systemUiMode : values()) {
+                    if (systemUiMode.encodedName.equals(str)) {
+                        return systemUiMode;
+                    }
+                }
+                throw new NoSuchFieldException("No such SystemUiMode: " + str);
+            }
+            return (SystemUiMode) invokeL.objValue;
+        }
+
+        public static SystemUiMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SystemUiMode) Enum.valueOf(SystemUiMode.class, str) : (SystemUiMode) invokeL.objValue;
+        }
+
+        public static SystemUiMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SystemUiMode[]) $VALUES.clone() : (SystemUiMode[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes3.dex */
     public static final class SystemUiOverlay {
         public static final /* synthetic */ SystemUiOverlay[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -710,8 +821,8 @@ public class PlatformChannel {
                 this.this$0 = this;
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:59:0x00fe A[Catch: JSONException -> 0x0229, TryCatch #5 {JSONException -> 0x0229, blocks: (B:8:0x0030, B:9:0x0034, B:49:0x00bb, B:50:0x00c0, B:51:0x00d4, B:53:0x00d8, B:57:0x00f2, B:59:0x00fe, B:60:0x010b, B:55:0x00dd, B:61:0x0110, B:63:0x0114, B:64:0x011d, B:65:0x0133, B:67:0x013f, B:68:0x0146, B:69:0x0151, B:77:0x0181, B:98:0x01f1, B:103:0x020d, B:76:0x0178, B:84:0x01a8, B:89:0x01c8, B:96:0x01e9, B:101:0x0205, B:106:0x0221, B:11:0x0039, B:14:0x0044, B:17:0x004f, B:20:0x005a, B:23:0x0064, B:26:0x006e, B:29:0x0079, B:32:0x0084, B:35:0x008e, B:38:0x0098, B:41:0x00a2, B:44:0x00ad, B:86:0x01b1), top: B:118:0x0030, inners: #0, #1, #6, #10 }] */
-            /* JADX WARN: Removed duplicated region for block: B:60:0x010b A[Catch: JSONException -> 0x0229, TryCatch #5 {JSONException -> 0x0229, blocks: (B:8:0x0030, B:9:0x0034, B:49:0x00bb, B:50:0x00c0, B:51:0x00d4, B:53:0x00d8, B:57:0x00f2, B:59:0x00fe, B:60:0x010b, B:55:0x00dd, B:61:0x0110, B:63:0x0114, B:64:0x011d, B:65:0x0133, B:67:0x013f, B:68:0x0146, B:69:0x0151, B:77:0x0181, B:98:0x01f1, B:103:0x020d, B:76:0x0178, B:84:0x01a8, B:89:0x01c8, B:96:0x01e9, B:101:0x0205, B:106:0x0221, B:11:0x0039, B:14:0x0044, B:17:0x004f, B:20:0x005a, B:23:0x0064, B:26:0x006e, B:29:0x0079, B:32:0x0084, B:35:0x008e, B:38:0x0098, B:41:0x00a2, B:44:0x00ad, B:86:0x01b1), top: B:118:0x0030, inners: #0, #1, #6, #10 }] */
+            /* JADX WARN: Removed duplicated region for block: B:63:0x0123 A[Catch: JSONException -> 0x023d, TryCatch #6 {JSONException -> 0x023d, blocks: (B:8:0x0030, B:9:0x0034, B:52:0x00c7, B:53:0x00cc, B:54:0x00e5, B:55:0x00f9, B:57:0x00fd, B:61:0x0117, B:63:0x0123, B:64:0x0130, B:59:0x0102, B:65:0x0135, B:73:0x0165, B:74:0x0173, B:102:0x0205, B:107:0x0221, B:72:0x015c, B:81:0x019a, B:88:0x01bc, B:93:0x01dc, B:100:0x01fd, B:105:0x0219, B:110:0x0235, B:11:0x0039, B:14:0x0044, B:17:0x004f, B:20:0x005b, B:23:0x0066, B:26:0x0070, B:29:0x007b, B:32:0x0085, B:35:0x008f, B:38:0x0099, B:41:0x00a3, B:44:0x00ad, B:47:0x00b8, B:90:0x01c5), top: B:122:0x0030, inners: #1, #2, #10, #12 }] */
+            /* JADX WARN: Removed duplicated region for block: B:64:0x0130 A[Catch: JSONException -> 0x023d, TryCatch #6 {JSONException -> 0x023d, blocks: (B:8:0x0030, B:9:0x0034, B:52:0x00c7, B:53:0x00cc, B:54:0x00e5, B:55:0x00f9, B:57:0x00fd, B:61:0x0117, B:63:0x0123, B:64:0x0130, B:59:0x0102, B:65:0x0135, B:73:0x0165, B:74:0x0173, B:102:0x0205, B:107:0x0221, B:72:0x015c, B:81:0x019a, B:88:0x01bc, B:93:0x01dc, B:100:0x01fd, B:105:0x0219, B:110:0x0235, B:11:0x0039, B:14:0x0044, B:17:0x004f, B:20:0x005b, B:23:0x0066, B:26:0x0070, B:29:0x007b, B:32:0x0085, B:35:0x008f, B:38:0x0099, B:41:0x00a3, B:44:0x00ad, B:47:0x00b8, B:90:0x01c5), top: B:122:0x0030, inners: #1, #2, #10, #12 }] */
             @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -732,13 +843,19 @@ public class PlatformChannel {
                     switch (str2.hashCode()) {
                         case -766342101:
                             if (str2.equals("SystemNavigator.pop")) {
-                                c2 = 7;
+                                c2 = '\t';
                                 break;
                             }
                             break;
                         case -720677196:
                             if (str2.equals("Clipboard.setData")) {
                                 c2 = 11;
+                                break;
+                            }
+                            break;
+                        case -577225884:
+                            if (str2.equals("SystemChrome.setSystemUIChangeListener")) {
+                                c2 = 6;
                                 break;
                             }
                             break;
@@ -760,27 +877,27 @@ public class PlatformChannel {
                                 break;
                             }
                             break;
-                        case 96412730:
-                            if (str2.equals("SystemGestures.getSystemGestureExclusionRects")) {
-                                c2 = '\b';
-                                break;
-                            }
-                            break;
-                        case 232206254:
-                            if (str2.equals("SystemGestures.setSystemGestureExclusionRects")) {
-                                c2 = '\t';
-                                break;
-                            }
-                            break;
                         case 241845679:
                             if (str2.equals("SystemChrome.restoreSystemUIOverlays")) {
+                                c2 = 7;
+                                break;
+                            }
+                            break;
+                        case 875995648:
+                            if (str2.equals("Clipboard.hasStrings")) {
+                                c2 = '\f';
+                                break;
+                            }
+                            break;
+                        case 1128339786:
+                            if (str2.equals("SystemChrome.setEnabledSystemUIMode")) {
                                 c2 = 5;
                                 break;
                             }
                             break;
                         case 1390477857:
                             if (str2.equals("SystemChrome.setSystemUIOverlayStyle")) {
-                                c2 = 6;
+                                c2 = '\b';
                                 break;
                             }
                             break;
@@ -850,37 +967,33 @@ public class PlatformChannel {
                                 return;
                             }
                         case 5:
-                            this.this$0.platformMessageHandler.restoreSystemUiOverlays();
-                            result.success(null);
-                            return;
-                        case 6:
                             try {
-                                this.this$0.platformMessageHandler.setSystemUiOverlayStyle(this.this$0.decodeSystemChromeStyle((JSONObject) obj));
+                                this.this$0.platformMessageHandler.showSystemUiMode(this.this$0.decodeSystemUiMode((String) obj));
                                 result.success(null);
                                 return;
                             } catch (NoSuchFieldException | JSONException e7) {
                                 result.error("error", e7.getMessage(), null);
                                 return;
                             }
+                        case 6:
+                            this.this$0.platformMessageHandler.setSystemUiChangeListener();
+                            result.success(null);
+                            return;
                         case 7:
-                            this.this$0.platformMessageHandler.popSystemNavigator();
+                            this.this$0.platformMessageHandler.restoreSystemUiOverlays();
                             result.success(null);
                             return;
                         case '\b':
-                            List<Rect> systemGestureExclusionRects = this.this$0.platformMessageHandler.getSystemGestureExclusionRects();
-                            if (systemGestureExclusionRects == null) {
-                                result.error("error", "Exclusion rects only exist for Android API 29+.", null);
+                            try {
+                                this.this$0.platformMessageHandler.setSystemUiOverlayStyle(this.this$0.decodeSystemChromeStyle((JSONObject) obj));
+                                result.success(null);
                                 return;
-                            } else {
-                                result.success(this.this$0.encodeExclusionRects(systemGestureExclusionRects));
+                            } catch (NoSuchFieldException | JSONException e8) {
+                                result.error("error", e8.getMessage(), null);
                                 return;
                             }
                         case '\t':
-                            if (!(obj instanceof JSONArray)) {
-                                result.error("inputTypeError", "Input type is incorrect. Ensure that a List<Map<String, int>> is passed as the input for SystemGestureExclusionRects.setSystemGestureExclusionRects.", null);
-                                return;
-                            }
-                            this.this$0.platformMessageHandler.setSystemGestureExclusionRects(this.this$0.decodeExclusionRects((JSONArray) obj));
+                            this.this$0.platformMessageHandler.popSystemNavigator();
                             result.success(null);
                             return;
                         case '\n':
@@ -909,14 +1022,20 @@ public class PlatformChannel {
                             this.this$0.platformMessageHandler.setClipboardData(((JSONObject) obj).getString("text"));
                             result.success(null);
                             return;
+                        case '\f':
+                            boolean clipboardHasStrings = this.this$0.platformMessageHandler.clipboardHasStrings();
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("value", clipboardHasStrings);
+                            result.success(jSONObject2);
+                            return;
                         default:
                             result.notImplemented();
                             return;
                     }
-                } catch (JSONException e8) {
-                    result.error("error", "JSON error: " + e8.getMessage(), null);
+                } catch (JSONException e9) {
+                    result.error("error", "JSON error: " + e9.getMessage(), null);
                 }
-                result.error("error", "JSON error: " + e8.getMessage(), null);
+                result.error("error", "JSON error: " + e9.getMessage(), null);
             }
         };
         MethodChannel methodChannel = new MethodChannel(dartExecutor, "flutter/platform", JSONMethodCodec.INSTANCE);
@@ -929,7 +1048,7 @@ public class PlatformChannel {
     public AppSwitcherDescription decodeAppSwitcherDescription(@NonNull JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, jSONObject)) == null) {
             int i2 = jSONObject.getInt("primaryColor");
             if (i2 != 0) {
                 i2 |= -16777216;
@@ -940,26 +1059,6 @@ public class PlatformChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public ArrayList<Rect> decodeExclusionRects(@NonNull JSONArray jSONArray) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, jSONArray)) == null) {
-            ArrayList<Rect> arrayList = new ArrayList<>();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                try {
-                    arrayList.add(new Rect(jSONObject.getInt("left"), jSONObject.getInt(VerticalTranslateLayout.TOP), jSONObject.getInt(HorizontalTranslateLayout.RIGHT), jSONObject.getInt("bottom")));
-                } catch (JSONException unused) {
-                    throw new JSONException("Incorrect JSON data shape. To set system gesture exclusion rects, \na JSONObject with top, right, bottom and left values need to be set to int values.");
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:36:0x0057 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -967,7 +1066,7 @@ public class PlatformChannel {
     public int decodeOrientations(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jSONArray)) == null) {
             boolean z = false;
             boolean z2 = false;
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -1027,12 +1126,34 @@ public class PlatformChannel {
     public SystemChromeStyle decodeSystemChromeStyle(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, jSONObject)) == null) {
-            Brightness fromValue = !jSONObject.isNull("systemNavigationBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("systemNavigationBarIconBrightness")) : null;
-            Integer valueOf = !jSONObject.isNull("systemNavigationBarColor") ? Integer.valueOf(jSONObject.getInt("systemNavigationBarColor")) : null;
-            return new SystemChromeStyle(!jSONObject.isNull("statusBarColor") ? Integer.valueOf(jSONObject.getInt("statusBarColor")) : null, !jSONObject.isNull("statusBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("statusBarIconBrightness")) : null, valueOf, fromValue, jSONObject.isNull("systemNavigationBarDividerColor") ? null : Integer.valueOf(jSONObject.getInt("systemNavigationBarDividerColor")));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, jSONObject)) == null) {
+            return new SystemChromeStyle(!jSONObject.isNull("statusBarColor") ? Integer.valueOf(jSONObject.getInt("statusBarColor")) : null, !jSONObject.isNull("statusBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("statusBarIconBrightness")) : null, !jSONObject.isNull("systemStatusBarContrastEnforced") ? jSONObject.getBoolean("systemStatusBarContrastEnforced") : true, !jSONObject.isNull("systemNavigationBarColor") ? Integer.valueOf(jSONObject.getInt("systemNavigationBarColor")) : null, !jSONObject.isNull("systemNavigationBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("systemNavigationBarIconBrightness")) : null, jSONObject.isNull("systemNavigationBarDividerColor") ? null : Integer.valueOf(jSONObject.getInt("systemNavigationBarDividerColor")), !jSONObject.isNull("systemNavigationBarContrastEnforced") ? jSONObject.getBoolean("systemNavigationBarContrastEnforced") : true);
         }
         return (SystemChromeStyle) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @NonNull
+    public SystemUiMode decodeSystemUiMode(@NonNull String str) throws JSONException, NoSuchFieldException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
+            int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiMode[SystemUiMode.fromValue(str).ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            return SystemUiMode.EDGE_TO_EDGE;
+                        }
+                        return SystemUiMode.EDGE_TO_EDGE;
+                    }
+                    return SystemUiMode.IMMERSIVE_STICKY;
+                }
+                return SystemUiMode.IMMERSIVE;
+            }
+            return SystemUiMode.LEAN_BACK;
+        }
+        return (SystemUiMode) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1040,7 +1161,7 @@ public class PlatformChannel {
     public List<SystemUiOverlay> decodeSystemUiOverlays(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 int i3 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[SystemUiOverlay.fromValue(jSONArray.getString(i2)).ordinal()];
@@ -1055,29 +1176,18 @@ public class PlatformChannel {
         return (List) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<HashMap<String, Integer>> encodeExclusionRects(List<Rect> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, list)) == null) {
-            ArrayList<HashMap<String, Integer>> arrayList = new ArrayList<>();
-            for (Rect rect : list) {
-                HashMap<String, Integer> hashMap = new HashMap<>();
-                hashMap.put(VerticalTranslateLayout.TOP, Integer.valueOf(rect.top));
-                hashMap.put(HorizontalTranslateLayout.RIGHT, Integer.valueOf(rect.right));
-                hashMap.put("bottom", Integer.valueOf(rect.bottom));
-                hashMap.put("left", Integer.valueOf(rect.left));
-                arrayList.add(hashMap);
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
     public void setPlatformMessageHandler(@Nullable PlatformMessageHandler platformMessageHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, platformMessageHandler) == null) {
             this.platformMessageHandler = platformMessageHandler;
+        }
+    }
+
+    public void systemChromeChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Log.v(TAG, "Sending 'systemUIChange' message.");
+            this.channel.invokeMethod("SystemChrome.systemUIChange", Arrays.asList(Boolean.valueOf(z)));
         }
     }
 }

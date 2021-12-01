@@ -18,8 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.r0.e4.r.a;
+import c.a.d.f.p.l;
+import c.a.r0.l4.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -38,28 +38,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View.OnClickListener, AutoChangeLineView.c {
+/* loaded from: classes11.dex */
+public class SelectTagListView extends LinearLayout implements c.a.q0.x0.a, View.OnClickListener, AutoChangeLineView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectTagActivity> f57158e;
+    public TbPageContext<SelectTagActivity> f51158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f57159f;
+    public NavigationBar f51159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f57160g;
+    public LinearLayout f51160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f57161h;
+    public EMTextView f51161h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f57162i;
+    public EMTextView f51162i;
     public boolean isCanSelectFinish;
-    public EMTextView j;
-    public EMTextView k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public EMTextView f51163j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public EMTextView f51164k;
     public RelativeLayout l;
     public ScrollView m;
     public TextView mFinishSelectTag;
@@ -76,13 +80,13 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public int r;
     public int s;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements AutoChangeLineView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57163e;
+        public final /* synthetic */ SelectTagListView f51165e;
 
         public a(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -99,40 +103,38 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57163e = selectTagListView;
+            this.f51165e = selectTagListView;
         }
 
         @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
         public void onLabelClick(TextView textView, Object obj, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, textView, obj, i2) == null) {
-                if (this.f57163e.mHadSelectTagData.size() != 0 && this.f57163e.mHadSelectTagData.contains(obj)) {
-                    if (this.f57163e.mRecommendSelectTagData.contains(obj)) {
-                        this.f57163e.n.setSelects(this.f57163e.mRecommendSelectTagData.indexOf(obj));
+                if (this.f51165e.mHadSelectTagData.size() != 0 && this.f51165e.mHadSelectTagData.contains(obj)) {
+                    if (this.f51165e.mRecommendSelectTagData.contains(obj)) {
+                        this.f51165e.n.setSelects(this.f51165e.mRecommendSelectTagData.indexOf(obj));
                     }
-                    this.f57163e.mHadSelectTagData.remove(obj);
-                    SelectTagListView selectTagListView = this.f57163e;
+                    this.f51165e.mHadSelectTagData.remove(obj);
+                    SelectTagListView selectTagListView = this.f51165e;
                     selectTagListView.mHadSelectTagView.setLabels(selectTagListView.mHadSelectTagData, selectTagListView.mLabelHadSelectTextProvider);
-                    AutoChangeLineView autoChangeLineView = this.f57163e.n;
-                    SelectTagListView selectTagListView2 = this.f57163e;
+                    AutoChangeLineView autoChangeLineView = this.f51165e.n;
+                    SelectTagListView selectTagListView2 = this.f51165e;
                     autoChangeLineView.setLabels(selectTagListView2.mRecommendSelectTagData, selectTagListView2.mLabelRecommendSelectTextProvider);
-                    this.f57163e.t();
-                    this.f57163e.l();
-                    this.f57163e.requestLayout();
-                    this.f57163e.setFinishSelectType();
+                    this.f51165e.t();
+                    this.f51165e.l();
+                    this.f51165e.requestLayout();
+                    this.f51165e.setFinishSelectType();
                 }
-                this.f57163e.setFinishSelectType();
+                this.f51165e.setFinishSelectType();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements AutoChangeLineView.b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57164a;
+        public final /* synthetic */ SelectTagListView a;
 
         public b(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -149,7 +151,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57164a = selectTagListView;
+            this.a = selectTagListView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.widget.TextView, int, java.lang.Object] */
@@ -172,7 +174,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                 }
                 textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X008), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0);
-                b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(textView);
+                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
                 d2.v(R.color.CAM_X0304);
                 d2.z(R.dimen.T_X08);
                 d2.n(R.string.J_X01);
@@ -185,13 +187,11 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements AutoChangeLineView.b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57165a;
+        public final /* synthetic */ SelectTagListView a;
 
         public c(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57165a = selectTagListView;
+            this.a = selectTagListView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.widget.TextView, int, java.lang.Object] */
@@ -223,8 +223,8 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i2, str)) == null) {
-                if (this.f57165a.mHadSelectTagData.contains(str)) {
-                    b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(textView);
+                if (this.a.mHadSelectTagData.contains(str)) {
+                    c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
                     d2.v(R.color.CAM_X0304);
                     d2.z(R.dimen.T_X08);
                     d2.n(R.string.J_X01);
@@ -232,7 +232,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     d2.k(R.color.CAM_X0302);
                     d2.f(R.color.CAM_X0905);
                 } else {
-                    b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(textView);
+                    c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(textView);
                     d3.v(R.color.CAM_X0105);
                     d3.z(R.dimen.T_X08);
                     d3.n(R.string.J_X01);
@@ -246,13 +246,13 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57166e;
+        public final /* synthetic */ SelectTagListView f51166e;
 
         public d(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -269,31 +269,29 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57166e = selectTagListView;
+            this.f51166e = selectTagListView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f57166e.mHadSelectTagData.size() >= this.f57166e.r) {
-                    this.f57166e.o.setInputType(0);
-                    new BdTopToast(this.f57166e.getContext()).setIcon(false).setContent(this.f57166e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f57166e.mRootView);
+                if (this.f51166e.mHadSelectTagData.size() >= this.f51166e.r) {
+                    this.f51166e.o.setInputType(0);
+                    new BdTopToast(this.f51166e.getContext()).setIcon(false).setContent(this.f51166e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f51166e.mRootView);
                     return;
                 }
-                this.f57166e.o.setInputType(1);
-                l.K(this.f57166e.f57158e.getPageActivity(), this.f57166e.o);
+                this.f51166e.o.setInputType(1);
+                l.K(this.f51166e.f51158e.getPageActivity(), this.f51166e.o);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57167a;
+        public final /* synthetic */ SelectTagListView a;
 
         public e(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -310,7 +308,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57167a = selectTagListView;
+            this.a = selectTagListView;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -319,52 +317,52 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    l.K(this.f57167a.f57158e.getPageActivity(), textView);
-                    if (this.f57167a.p != null && this.f57167a.p.trim().length() > 0) {
-                        if (this.f57167a.mHadSelectTagData.size() < this.f57167a.r) {
-                            SelectTagListView selectTagListView = this.f57167a;
+                    l.K(this.a.f51158e.getPageActivity(), textView);
+                    if (this.a.p != null && this.a.p.trim().length() > 0) {
+                        if (this.a.mHadSelectTagData.size() < this.a.r) {
+                            SelectTagListView selectTagListView = this.a;
                             if (selectTagListView.mHadSelectTagData.contains(selectTagListView.p)) {
-                                new BdTopToast(this.f57167a.getContext()).setIcon(false).setContent(this.f57167a.getResources().getString(R.string.can_not_select_tag_again)).show((ViewGroup) this.f57167a.mRootView);
+                                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.can_not_select_tag_again)).show((ViewGroup) this.a.mRootView);
                             } else {
-                                SelectTagListView selectTagListView2 = this.f57167a;
+                                SelectTagListView selectTagListView2 = this.a;
                                 if (selectTagListView2.mRecommendSelectTagData.contains(selectTagListView2.p)) {
-                                    AutoChangeLineView autoChangeLineView = this.f57167a.n;
-                                    SelectTagListView selectTagListView3 = this.f57167a;
+                                    AutoChangeLineView autoChangeLineView = this.a.n;
+                                    SelectTagListView selectTagListView3 = this.a;
                                     autoChangeLineView.setUnSelects(selectTagListView3.mRecommendSelectTagData.indexOf(selectTagListView3.p));
                                 }
-                                SelectTagListView selectTagListView4 = this.f57167a;
+                                SelectTagListView selectTagListView4 = this.a;
                                 selectTagListView4.s(selectTagListView4.p);
-                                SelectTagListView selectTagListView5 = this.f57167a;
+                                SelectTagListView selectTagListView5 = this.a;
                                 selectTagListView5.mHadSelectTagView.setLabels(selectTagListView5.mHadSelectTagData, selectTagListView5.mLabelHadSelectTextProvider);
-                                AutoChangeLineView autoChangeLineView2 = this.f57167a.n;
-                                SelectTagListView selectTagListView6 = this.f57167a;
+                                AutoChangeLineView autoChangeLineView2 = this.a.n;
+                                SelectTagListView selectTagListView6 = this.a;
                                 autoChangeLineView2.setLabels(selectTagListView6.mRecommendSelectTagData, selectTagListView6.mLabelRecommendSelectTextProvider);
-                                this.f57167a.o.setText("");
-                                this.f57167a.q.setVisibility(8);
-                                this.f57167a.l();
-                                this.f57167a.t();
+                                this.a.o.setText("");
+                                this.a.q.setVisibility(8);
+                                this.a.l();
+                                this.a.t();
                             }
                         } else {
-                            new BdTopToast(this.f57167a.getContext()).setIcon(false).setContent(this.f57167a.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f57167a.mRootView);
+                            new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.a.mRootView);
                         }
                     }
-                    this.f57167a.setFinishSelectType();
+                    this.a.setFinishSelectType();
                     return true;
                 }
-                this.f57167a.setFinishSelectType();
+                this.a.setFinishSelectType();
                 return false;
             }
             return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57168e;
+        public final /* synthetic */ SelectTagListView f51167e;
 
         public f(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -381,18 +379,18 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57168e = selectTagListView;
+            this.f51167e = selectTagListView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f57168e.p = editable.toString();
-                if (this.f57168e.p == null || this.f57168e.p.trim().length() <= 0) {
-                    this.f57168e.q.setVisibility(8);
+                this.f51167e.p = editable.toString();
+                if (this.f51167e.p == null || this.f51167e.p.trim().length() <= 0) {
+                    this.f51167e.q.setVisibility(8);
                 } else {
-                    this.f57168e.q.setVisibility(0);
+                    this.f51167e.q.setVisibility(0);
                 }
             }
         }
@@ -412,13 +410,11 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class g implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57169a;
+        public final /* synthetic */ SelectTagListView a;
 
         public g(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -435,25 +431,25 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57169a = selectTagListView;
+            this.a = selectTagListView;
         }
 
-        @Override // b.a.r0.e4.r.a.c
+        @Override // c.a.r0.l4.r.a.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new BdTopToast(this.f57169a.getContext()).setIcon(false).setContent(this.f57169a.getResources().getString(R.string.can_not_input_tag_more)).show((ViewGroup) this.f57169a.mRootView);
+                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.can_not_input_tag_more)).show((ViewGroup) this.a.mRootView);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57170e;
+        public final /* synthetic */ SelectTagListView f51168e;
 
         public h(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -470,54 +466,54 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57170e = selectTagListView;
+            this.f51168e = selectTagListView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f57170e.p != null && this.f57170e.p.trim().length() > 0) {
-                    if (this.f57170e.mHadSelectTagData.size() < this.f57170e.r) {
-                        SelectTagListView selectTagListView = this.f57170e;
+                if (this.f51168e.p != null && this.f51168e.p.trim().length() > 0) {
+                    if (this.f51168e.mHadSelectTagData.size() < this.f51168e.r) {
+                        SelectTagListView selectTagListView = this.f51168e;
                         if (selectTagListView.mHadSelectTagData.contains(selectTagListView.p)) {
-                            new BdTopToast(this.f57170e.getContext()).setIcon(false).setContent(this.f57170e.getResources().getString(R.string.can_not_select_tag_again)).show((ViewGroup) this.f57170e.mRootView);
+                            new BdTopToast(this.f51168e.getContext()).setIcon(false).setContent(this.f51168e.getResources().getString(R.string.can_not_select_tag_again)).show((ViewGroup) this.f51168e.mRootView);
                         } else {
-                            SelectTagListView selectTagListView2 = this.f57170e;
+                            SelectTagListView selectTagListView2 = this.f51168e;
                             if (selectTagListView2.mRecommendSelectTagData.contains(selectTagListView2.p)) {
-                                AutoChangeLineView autoChangeLineView = this.f57170e.n;
-                                SelectTagListView selectTagListView3 = this.f57170e;
+                                AutoChangeLineView autoChangeLineView = this.f51168e.n;
+                                SelectTagListView selectTagListView3 = this.f51168e;
                                 autoChangeLineView.setUnSelects(selectTagListView3.mRecommendSelectTagData.indexOf(selectTagListView3.p));
                             }
-                            SelectTagListView selectTagListView4 = this.f57170e;
+                            SelectTagListView selectTagListView4 = this.f51168e;
                             selectTagListView4.s(selectTagListView4.p);
-                            SelectTagListView selectTagListView5 = this.f57170e;
+                            SelectTagListView selectTagListView5 = this.f51168e;
                             selectTagListView5.mHadSelectTagView.setLabels(selectTagListView5.mHadSelectTagData, selectTagListView5.mLabelHadSelectTextProvider);
-                            AutoChangeLineView autoChangeLineView2 = this.f57170e.n;
-                            SelectTagListView selectTagListView6 = this.f57170e;
+                            AutoChangeLineView autoChangeLineView2 = this.f51168e.n;
+                            SelectTagListView selectTagListView6 = this.f51168e;
                             autoChangeLineView2.setLabels(selectTagListView6.mRecommendSelectTagData, selectTagListView6.mLabelRecommendSelectTextProvider);
-                            this.f57170e.o.setText("");
-                            this.f57170e.q.setVisibility(8);
-                            this.f57170e.l();
-                            this.f57170e.t();
+                            this.f51168e.o.setText("");
+                            this.f51168e.q.setVisibility(8);
+                            this.f51168e.l();
+                            this.f51168e.t();
                         }
                     } else {
-                        new BdTopToast(this.f57170e.getContext()).setIcon(false).setContent(this.f57170e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f57170e.mRootView);
+                        new BdTopToast(this.f51168e.getContext()).setIcon(false).setContent(this.f51168e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f51168e.mRootView);
                     }
-                    this.f57170e.setFinishSelectType();
+                    this.f51168e.setFinishSelectType();
                 }
-                this.f57170e.setFinishSelectType();
+                this.f51168e.setFinishSelectType();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class i implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57171e;
+        public final /* synthetic */ SelectTagListView f51169e;
 
         public i(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -534,7 +530,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57171e = selectTagListView;
+            this.f51169e = selectTagListView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -542,8 +538,8 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1 && ((SelectTagActivity) this.f57171e.f57158e.getOrignalPage()).isKeybordVisible()) {
-                    l.x(this.f57171e.f57158e.getPageActivity(), this.f57171e.o);
+                if (motionEvent.getAction() == 1 && ((SelectTagActivity) this.f51169e.f51158e.getOrignalPage()).isKeybordVisible()) {
+                    l.w(this.f51169e.f51158e.getPageActivity(), this.f51169e.o);
                 }
                 return true;
             }
@@ -551,13 +547,13 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class j implements AutoChangeLineView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTagListView f57172e;
+        public final /* synthetic */ SelectTagListView f51170e;
 
         public j(SelectTagListView selectTagListView) {
             Interceptable interceptable = $ic;
@@ -574,34 +570,34 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
                     return;
                 }
             }
-            this.f57172e = selectTagListView;
+            this.f51170e = selectTagListView;
         }
 
         @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
         public void onLabelClick(TextView textView, Object obj, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, textView, obj, i2) == null) {
-                if (this.f57172e.mHadSelectTagData.size() < this.f57172e.r) {
-                    if (!this.f57172e.mHadSelectTagData.contains(obj)) {
-                        this.f57172e.s((String) obj);
+                if (this.f51170e.mHadSelectTagData.size() < this.f51170e.r) {
+                    if (!this.f51170e.mHadSelectTagData.contains(obj)) {
+                        this.f51170e.s((String) obj);
                     } else {
-                        this.f57172e.mHadSelectTagData.remove(obj);
+                        this.f51170e.mHadSelectTagData.remove(obj);
                     }
-                } else if (!this.f57172e.mHadSelectTagData.contains(obj)) {
-                    this.f57172e.n.setSelects(i2);
-                    new BdTopToast(this.f57172e.getContext()).setIcon(false).setContent(this.f57172e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f57172e.mRootView);
+                } else if (!this.f51170e.mHadSelectTagData.contains(obj)) {
+                    this.f51170e.n.setSelects(i2);
+                    new BdTopToast(this.f51170e.getContext()).setIcon(false).setContent(this.f51170e.getResources().getString(R.string.can_not_select_tag_more)).show((ViewGroup) this.f51170e.mRootView);
                 } else {
-                    this.f57172e.mHadSelectTagData.remove(obj);
+                    this.f51170e.mHadSelectTagData.remove(obj);
                 }
-                SelectTagListView selectTagListView = this.f57172e;
+                SelectTagListView selectTagListView = this.f51170e;
                 selectTagListView.mHadSelectTagView.setLabels(selectTagListView.mHadSelectTagData, selectTagListView.mLabelHadSelectTextProvider);
-                AutoChangeLineView autoChangeLineView = this.f57172e.n;
-                SelectTagListView selectTagListView2 = this.f57172e;
+                AutoChangeLineView autoChangeLineView = this.f51170e.n;
+                SelectTagListView selectTagListView2 = this.f51170e;
                 autoChangeLineView.setLabels(selectTagListView2.mRecommendSelectTagData, selectTagListView2.mLabelRecommendSelectTextProvider);
-                this.f57172e.l();
-                this.f57172e.requestLayout();
-                this.f57172e.setFinishSelectType();
-                this.f57172e.t();
+                this.f51170e.l();
+                this.f51170e.requestLayout();
+                this.f51170e.setFinishSelectType();
+                this.f51170e.t();
             }
         }
     }
@@ -629,12 +625,12 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         this.s = 16;
         this.mLabelHadSelectTextProvider = new b(this);
         this.mLabelRecommendSelectTextProvider = new c(this);
-        this.f57158e = tbPageContext;
-        this.f57160g = linearLayout;
-        this.f57159f = navigationBar;
+        this.f51158e = tbPageContext;
+        this.f51160g = linearLayout;
+        this.f51159f = navigationBar;
         this.mHadSelectTagData = new ArrayList();
         this.mRecommendSelectTagData = new ArrayList<>();
-        LayoutInflater.from(this.f57158e.getPageActivity()).inflate(R.layout.view_select_tag_list, (ViewGroup) this.f57160g, true);
+        LayoutInflater.from(this.f51158e.getPageActivity()).inflate(R.layout.view_select_tag_list, (ViewGroup) this.f51160g, true);
         m();
         p();
         o();
@@ -649,7 +645,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHadSelectTagData : (List) invokeV.objValue;
     }
 
-    @Override // b.a.q0.w0.a
+    @Override // c.a.q0.x0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -682,7 +678,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.q0.w0.a
+    @Override // c.a.q0.x0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -692,13 +688,13 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.q0.w0.a
+    @Override // c.a.q0.x0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ScrollView scrollView = this.m;
-            return (scrollView == null || scrollView.getScrollY() != 0 || this.f57158e.getOrignalPage().isKeybordVisible()) ? false : true;
+            return (scrollView == null || scrollView.getScrollY() != 0 || this.f51158e.getOrignalPage().isKeybordVisible()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -706,7 +702,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.mHadSelectTagView = (AutoChangeLineView) this.f57160g.findViewById(R.id.had_select_tag_view);
+            this.mHadSelectTagView = (AutoChangeLineView) this.f51160g.findViewById(R.id.had_select_tag_view);
             n();
         }
     }
@@ -714,7 +710,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            EMTextView eMTextView = this.f57161h;
+            EMTextView eMTextView = this.f51161h;
             eMTextView.setText("(" + this.mHadSelectTagData.size() + "/" + this.r + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
@@ -722,8 +718,8 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f57159f.setCenterTextTitle(this.f57158e.getResources().getString(R.string.activity_select_tag_title));
-            this.mFinishSelectTag = this.f57159f.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f57158e.getResources().getString(R.string.complete));
+            this.f51159f.setCenterTextTitle(this.f51158e.getResources().getString(R.string.activity_select_tag_title));
+            this.mFinishSelectTag = this.f51159f.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f51158e.getResources().getString(R.string.complete));
         }
     }
 
@@ -738,17 +734,17 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.l = (RelativeLayout) this.f57160g.findViewById(R.id.outside_tag_input_box);
-            EditText editText = (EditText) this.f57160g.findViewById(R.id.inside_tag_input_box);
+            this.l = (RelativeLayout) this.f51160g.findViewById(R.id.outside_tag_input_box);
+            EditText editText = (EditText) this.f51160g.findViewById(R.id.inside_tag_input_box);
             this.o = editText;
             editText.setMaxLines(1);
-            this.q = (EMTextView) this.f57160g.findViewById(R.id.input_tag);
+            this.q = (EMTextView) this.f51160g.findViewById(R.id.input_tag);
             this.o.setOnClickListener(new d(this));
             this.o.setOnEditorActionListener(new e(this));
             this.o.addTextChangedListener(new f(this));
-            this.o.setFilters(new InputFilter[]{new a.C0888a(this.s, new g(this))});
+            this.o.setFilters(new InputFilter[]{new a.C1169a(this.s, new g(this))});
             this.q.setOnClickListener(new h(this));
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.l);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.l);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);
         }
@@ -768,7 +764,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         }
     }
 
-    @Override // b.a.q0.w0.a
+    @Override // c.a.q0.x0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
@@ -777,7 +773,7 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
             r();
             q();
             k();
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.o);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.o);
             d2.v(R.color.CAM_X0105);
             d2.f(R.color.CAM_X0209);
             this.mHadSelectTagView.setLabels(this.mHadSelectTagData, this.mLabelHadSelectTextProvider);
@@ -788,22 +784,22 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f57161h = (EMTextView) this.f57160g.findViewById(R.id.view_tag_counter);
-            EMTextView eMTextView = (EMTextView) this.f57160g.findViewById(R.id.view_select_tag_title);
-            this.f57162i = eMTextView;
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(eMTextView);
+            this.f51161h = (EMTextView) this.f51160g.findViewById(R.id.view_tag_counter);
+            EMTextView eMTextView = (EMTextView) this.f51160g.findViewById(R.id.view_select_tag_title);
+            this.f51162i = eMTextView;
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eMTextView);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X06);
-            this.f57162i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f57161h.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            this.f51162i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f51161h.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.n = (AutoChangeLineView) this.f57160g.findViewById(R.id.tag_select_view);
-            ScrollView scrollView = (ScrollView) this.f57160g.findViewById(R.id.tag_recommend_tag_list);
+            this.n = (AutoChangeLineView) this.f51160g.findViewById(R.id.tag_select_view);
+            ScrollView scrollView = (ScrollView) this.f51160g.findViewById(R.id.tag_recommend_tag_list);
             this.m = scrollView;
             scrollView.setOnTouchListener(new i(this));
             this.n.setOnLabelClickListener(new j(this));
@@ -813,16 +809,16 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.j = (EMTextView) this.f57160g.findViewById(R.id.custom_tag_title);
-            this.k = (EMTextView) this.f57160g.findViewById(R.id.recommend_tag_title);
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.j);
+            this.f51163j = (EMTextView) this.f51160g.findViewById(R.id.custom_tag_title);
+            this.f51164k = (EMTextView) this.f51160g.findViewById(R.id.recommend_tag_title);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f51163j);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X06);
-            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.k);
+            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f51164k);
             d3.A(R.string.F_X02);
             d3.z(R.dimen.T_X06);
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f51163j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f51164k.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 
@@ -838,9 +834,9 @@ public class SelectTagListView extends LinearLayout implements b.a.q0.w0.a, View
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             List<String> list = this.mHadSelectTagData;
             if (list != null && list.size() != 0) {
-                b.a.q0.s.u.c.d(this.mFinishSelectTag).x(R.color.CAM_X0302);
+                c.a.q0.s.u.c.d(this.mFinishSelectTag).x(R.color.CAM_X0302);
             } else {
-                this.mFinishSelectTag.setTextColor(b.a.r0.m3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mFinishSelectTag.setTextColor(c.a.r0.t3.c.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }

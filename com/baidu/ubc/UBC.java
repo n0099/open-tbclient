@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
-import b.a.t0.b0;
-import b.a.t0.d;
-import b.a.u0.a;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.t0.b0;
+import c.a.t0.d;
+import c.a.u0.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +19,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class UBC {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_KEY_DURATION = "duration";
@@ -118,11 +117,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a2 = a.a(str3);
+            String a = a.a(str3);
             if (DEBUG) {
-                String str4 = "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a2;
+                String str4 = "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a;
             }
-            d.w().z(str, str2, a2, 8);
+            d.w().z(str, str2, a, 8);
         }
     }
 
@@ -168,7 +167,7 @@ public class UBC {
     public static final Flow beginFlow(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map)) == null) ? beginFlow(str, map, 0) : (Flow) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) ? beginFlow(str, map, 0) : (Flow) invokeLL.objValue;
     }
 
     public static final void onEvent(String str, Map<String, String> map) {
@@ -196,7 +195,7 @@ public class UBC {
     public static Flow beginFlow(String str, String str2, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, str, str2, i2)) == null) ? ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2) : (Flow) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, str2, i2)) == null) ? ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2) : (Flow) invokeLLI.objValue;
     }
 
     public static void onEvent(String str, String str2, int i2) {

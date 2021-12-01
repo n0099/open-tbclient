@@ -1,5 +1,6 @@
 package com.kwad.sdk.utils;
 
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,9 +17,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Nullable
+    @WorkerThread
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return b(new File(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
             return;
         }
         try {
@@ -32,7 +47,7 @@ public class c {
     public static byte[] a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, file)) != null) {
             return (byte[]) invokeL.objValue;
         }
         if (file == null) {
@@ -61,11 +76,11 @@ public class c {
     public static String b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
             try {
-                byte[] a2 = a(file);
-                if (a2 != null && a2.length != 0) {
-                    return w.a(a2, 0, a2.length);
+                byte[] a = a(file);
+                if (a != null && a.length != 0) {
+                    return aa.a(a, 0, a.length);
                 }
             } catch (IOException | NoSuchAlgorithmException unused) {
             }

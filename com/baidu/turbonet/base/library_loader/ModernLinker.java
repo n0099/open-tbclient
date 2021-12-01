@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.library_loader.Linker;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ModernLinker extends Linker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class ModernLinker extends Linker {
         }
     }
 
-    public static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
+    public static native boolean nativeCreateSharedRelro(String str, long j2, String str2, Linker.LibInfo libInfo);
 
     public static native String nativeGetCpuAbi();
 
-    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibrary(String str, long j2, Linker.LibInfo libInfo);
 }

@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class CircularRevealHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_SHADER = 0;
@@ -55,7 +54,7 @@ public class CircularRevealHelper {
     @NonNull
     public final View view;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface Delegate {
         void actualDraw(Canvas canvas);
 
@@ -63,7 +62,7 @@ public class CircularRevealHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface Strategy {
     }
 
@@ -157,12 +156,12 @@ public class CircularRevealHelper {
     private float getDistanceToFurthestCorner(@NonNull CircularRevealWidget.RevealInfo revealInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, revealInfo)) == null) ? MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.view.getWidth(), this.view.getHeight()) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, revealInfo)) == null) ? MathUtils.distanceToFurthestCorner(revealInfo.centerX, revealInfo.centerY, 0.0f, 0.0f, this.view.getWidth(), this.view.getHeight()) : invokeL.floatValue;
     }
 
     private void invalidateRevealInfo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             if (STRATEGY == 1) {
                 this.revealPath.rewind();
                 CircularRevealWidget.RevealInfo revealInfo = this.revealInfo;

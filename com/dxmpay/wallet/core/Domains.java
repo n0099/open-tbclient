@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Domains implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EnumSet<Permission> ALL_PERMISSION;
@@ -27,18 +27,16 @@ public class Domains implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, EnumSet<Permission>> mDomainsPermissionConfig;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final Domains f63450a;
+        public static final Domains a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +52,7 @@ public class Domains implements NoProguard {
                     return;
                 }
             }
-            f63450a = new Domains(null);
+            a = new Domains(null);
         }
     }
 
@@ -91,7 +89,7 @@ public class Domains implements NoProguard {
     public static final Domains getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f63450a : (Domains) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Domains) invokeV.objValue;
     }
 
     public Map<String, EnumSet<Permission>> getDomainsPermissionConfig() {

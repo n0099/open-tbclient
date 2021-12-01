@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Uri implements Comparable<Uri> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENCODING = "UTF-8";
@@ -24,13 +23,13 @@ public abstract class Uri implements Comparable<Uri> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.v8engine.net.Uri$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class AbstractHierarchicalUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +94,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +121,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AuthorityPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final AuthorityPart EMPTY;
@@ -203,7 +202,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -345,7 +344,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HierarchicalUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +472,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class OpaqueUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,14 +606,14 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Part extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final Part EMPTY;
         public static final Part NULL;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class EmptyPart extends Part {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -702,13 +701,13 @@ public abstract class Uri implements Comparable<Uri> {
         public static Part fromEncoded(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? from(str, Uri.NOT_CACHED) : (Part) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? from(str, Uri.NOT_CACHED) : (Part) invokeL.objValue;
         }
 
         public static Part nonNull(Part part) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, part)) == null) ? part == null ? NULL : part : (Part) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, part)) == null) ? part == null ? NULL : part : (Part) invokeL.objValue;
         }
 
         public String getEncoded() {
@@ -756,7 +755,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PathPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final PathPart EMPTY;
@@ -863,7 +862,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StringUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -938,7 +937,7 @@ public abstract class Uri implements Comparable<Uri> {
         public static String parseAuthority(String str, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
                 int length = str.length();
                 int i3 = i2 + 2;
                 if (length > i3 && str.charAt(i2 + 1) == '/' && str.charAt(i3) == '/') {
@@ -961,7 +960,7 @@ public abstract class Uri implements Comparable<Uri> {
         private String parseScheme() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
                 int findSchemeSeparator = findSchemeSeparator();
                 if (findSchemeSeparator == -1) {
                     return null;
@@ -1080,7 +1079,7 @@ public abstract class Uri implements Comparable<Uri> {
     public static boolean isAllowed(char c2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2), str})) == null) ? (c2 >= 'A' && c2 <= 'Z') || (c2 >= 'a' && c2 <= 'z') || !((c2 < '0' || c2 > '9') && "_-.*".indexOf(c2) == -1 && (str == null || str.indexOf(c2) == -1)) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2), str})) == null) ? (c2 >= 'A' && c2 <= 'Z') || (c2 >= 'a' && c2 <= 'z') || !((c2 < '0' || c2 > '9') && "_-.*".indexOf(c2) == -1 && (str == null || str.indexOf(c2) == -1)) : invokeCommon.booleanValue;
     }
 
     public static Uri parse(String str) {
@@ -1148,7 +1147,7 @@ public abstract class Uri implements Comparable<Uri> {
     public static String encode(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             StringBuilder sb = null;
             if (str == null) {
                 return null;

@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements View.OnKeyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f38557a;
+    public final /* synthetic */ SafeKeyBoardEditText a;
 
     public e(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class e implements View.OnKeyListener {
                 return;
             }
         }
-        this.f38557a = safeKeyBoardEditText;
+        this.a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnKeyListener
@@ -43,14 +41,14 @@ public class e implements View.OnKeyListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
             if (keyEvent.getAction() == 0 && i2 == 4) {
-                z = this.f38557a.o;
+                z = this.a.o;
                 if (z) {
-                    safeScrollView = this.f38557a.f38522g;
+                    safeScrollView = this.a.f34448g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.f38557a.f38522g;
+                        safeScrollView2 = this.a.f34448g;
                         if (safeScrollView2.isPopupWindowShowing()) {
-                            safeScrollView3 = this.f38557a.f38522g;
-                            safeScrollView3.dismissKeyBoard(this.f38557a);
+                            safeScrollView3 = this.a.f34448g;
+                            safeScrollView3.dismissKeyBoard(this.a);
                             return true;
                         }
                     }

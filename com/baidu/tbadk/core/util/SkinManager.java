@@ -26,17 +26,16 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.b;
-import b.a.e.f.p.l;
-import b.a.q0.s.u.a;
-import b.a.r0.m3.c;
+import c.a.d.a.b;
+import c.a.d.f.p.l;
+import c.a.q0.s.u.a;
+import c.a.r0.t3.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -52,7 +51,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SkinManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float RESOURCE_ALPHA_DISABLE;
@@ -80,7 +79,7 @@ public class SkinManager {
     public static String sPackagename;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ViewType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUTTON = 3;
@@ -188,7 +187,7 @@ public class SkinManager {
     public static ColorStateList createColorStateList(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.AD_TEXT_ID, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i2, i3, i4)) == null) {
             if (i2 == 0 || i3 == 0) {
                 return null;
             }
@@ -202,7 +201,7 @@ public class SkinManager {
     public static GradientDrawable createShapeDrawable(int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             if (i3 == 0) {
                 return null;
             }
@@ -680,7 +679,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            b.a.q0.s.a0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            c.a.q0.s.a0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i2);
                 if (StringUtils.isNull(resourceName)) {
@@ -875,8 +874,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (b.a.q0.s.e0.b.j().g("key_is_dark_mode_notify_shown", false)) {
-                boolean g2 = b.a.q0.s.e0.b.j().g("key_is_follow_system_mode", false);
+            } else if (c.a.q0.s.e0.b.j().g("key_is_dark_mode_notify_shown", false)) {
+                boolean g2 = c.a.q0.s.e0.b.j().g("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
@@ -888,8 +887,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                b.a.q0.s.e0.b.j().t("key_is_dark_mode_notify_shown", true);
-                b.a.q0.s.e0.b.j().t("key_is_follow_system_mode", true);
+                c.a.q0.s.e0.b.j().t("key_is_dark_mode_notify_shown", true);
+                c.a.q0.s.e0.b.j().t("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -1269,8 +1268,8 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i2);
-            int a2 = c.a(color, RESOURCE_ALPHA_PRESS);
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a2, a2, color});
+            int a = c.a(color, RESOURCE_ALPHA_PRESS);
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;
     }

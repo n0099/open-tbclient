@@ -1,9 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.g;
-import b.h.d.a.n;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,18 +22,18 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class FuturesGetChecked {
     public static /* synthetic */ Interceptable $ic;
     public static final Ordering<Constructor<?>> WITH_STRING_PARAM_FIRST;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface GetCheckedTypeValidator {
         void validateClass(Class<? extends Exception> cls);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class GetCheckedTypeValidatorHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final GetCheckedTypeValidator BEST_VALIDATOR;
@@ -42,7 +41,7 @@ public final class FuturesGetChecked {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static final class ClassValueValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ ClassValueValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -85,7 +84,7 @@ public final class FuturesGetChecked {
                     }
 
                     /* renamed from: computeValue  reason: collision with other method in class */
-                    public /* bridge */ /* synthetic */ Object m57computeValue(Class cls) {
+                    public /* bridge */ /* synthetic */ Object m105computeValue(Class cls) {
                         return computeValue((Class<?>) cls);
                     }
 
@@ -142,7 +141,7 @@ public final class FuturesGetChecked {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static final class WeakSetValidator implements GetCheckedTypeValidator {
             public static final /* synthetic */ WeakSetValidator[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -297,7 +296,7 @@ public final class FuturesGetChecked {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.h.d.a.g
+            @Override // c.i.d.a.g
             public Boolean apply(Constructor<?> constructor) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -343,7 +342,7 @@ public final class FuturesGetChecked {
     public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, future, cls)) == null) ? (V) getChecked(bestGetCheckedTypeValidator(), future, cls) : (V) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, future, cls)) == null) ? (V) getChecked(bestGetCheckedTypeValidator(), future, cls) : (V) invokeLL.objValue;
     }
 
     public static boolean hasConstructorUsableByGetChecked(Class<? extends Exception> cls) {
@@ -437,7 +436,7 @@ public final class FuturesGetChecked {
     public static <V, X extends Exception> V getChecked(GetCheckedTypeValidator getCheckedTypeValidator, Future<V> future, Class<X> cls) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, getCheckedTypeValidator, future, cls)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, getCheckedTypeValidator, future, cls)) == null) {
             getCheckedTypeValidator.validateClass(cls);
             try {
                 return future.get();
@@ -452,13 +451,13 @@ public final class FuturesGetChecked {
         return (V) invokeLLL.objValue;
     }
 
-    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j, TimeUnit timeUnit) throws Exception {
+    public static <V, X extends Exception> V getChecked(Future<V> future, Class<X> cls, long j2, TimeUnit timeUnit) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{future, cls, Long.valueOf(j2), timeUnit})) == null) {
             bestGetCheckedTypeValidator().validateClass(cls);
             try {
-                return future.get(j, timeUnit);
+                return future.get(j2, timeUnit);
             } catch (InterruptedException e2) {
                 Thread.currentThread().interrupt();
                 throw newWithCause(cls, e2);

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LatLngBounds implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LatLngBounds> CREATOR;
@@ -20,25 +20,23 @@ public final class LatLngBounds implements Parcelable {
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public double f40446a;
+        public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f40447b;
+        public double f36042b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f40448c;
+        public double f36043c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f40449d;
+        public double f36044d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40450e;
+        public boolean f36045e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -53,13 +51,13 @@ public final class LatLngBounds implements Parcelable {
                     return;
                 }
             }
-            this.f40450e = true;
+            this.f36045e = true;
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f40447b, this.f40449d), new LatLng(this.f40446a, this.f40448c)) : (LatLngBounds) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f36042b, this.f36044d), new LatLng(this.a, this.f36043c)) : (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -69,28 +67,28 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.f40450e) {
-                    this.f40450e = false;
+                if (this.f36045e) {
+                    this.f36045e = false;
                     double d2 = latLng.latitude;
-                    this.f40446a = d2;
-                    this.f40447b = d2;
+                    this.a = d2;
+                    this.f36042b = d2;
                     double d3 = latLng.longitude;
-                    this.f40448c = d3;
-                    this.f40449d = d3;
+                    this.f36043c = d3;
+                    this.f36044d = d3;
                 }
                 double d4 = latLng.latitude;
                 double d5 = latLng.longitude;
-                if (d4 < this.f40446a) {
-                    this.f40446a = d4;
+                if (d4 < this.a) {
+                    this.a = d4;
                 }
-                if (d4 > this.f40447b) {
-                    this.f40447b = d4;
+                if (d4 > this.f36042b) {
+                    this.f36042b = d4;
                 }
-                if (d5 < this.f40448c) {
-                    this.f40448c = d5;
+                if (d5 < this.f36043c) {
+                    this.f36043c = d5;
                 }
-                if (d5 > this.f40449d) {
-                    this.f40449d = d5;
+                if (d5 > this.f36044d) {
+                    this.f36044d = d5;
                 }
                 return this;
             }

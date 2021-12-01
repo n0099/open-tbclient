@@ -168,9 +168,9 @@ public abstract class EventListener {
         }
     }
 
-    public void requestBodyEnd(Call call, long j) {
+    public void requestBodyEnd(Call call, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, call, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, call, j2) == null) {
         }
     }
 
@@ -192,9 +192,9 @@ public abstract class EventListener {
         }
     }
 
-    public void responseBodyEnd(Call call, long j) {
+    public void responseBodyEnd(Call call, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, call, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, call, j2) == null) {
         }
     }
 

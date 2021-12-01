@@ -4,22 +4,20 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.p0.m.f;
+import c.a.p0.m.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f45606a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f45607b;
+    public ProgressBar f40641b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationFooterViewHolder(View view) {
@@ -45,22 +43,22 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f45606a = (TextView) view.findViewById(f.loading_text);
-            this.f45607b = (ProgressBar) view.findViewById(f.loading_progress);
+            this.a = (TextView) view.findViewById(f.loading_text);
+            this.f40641b = (ProgressBar) view.findViewById(f.loading_progress);
         }
     }
 
     public void setLoadIconVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f45607b.setVisibility(z ? 0 : 8);
+            this.f40641b.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f45606a.setText(str);
+            this.a.setText(str);
         }
     }
 

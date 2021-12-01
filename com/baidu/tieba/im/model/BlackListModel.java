@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import b.a.e.a.f;
+import c.a.d.a.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BlackListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ISMASK_FALSE_FROM_SERVER = 0;
@@ -47,14 +47,14 @@ public class BlackListModel extends BdBaseModel {
         this.mMaskType = 2;
     }
 
-    public void addToBlackList(long j) {
+    public void addToBlackList(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             this.mUpdateMessage = requestUpdateMaskInfoMessage;
             requestUpdateMaskInfoMessage.setIsMask(1);
             this.mUpdateMessage.setMaskType(10);
-            this.mUpdateMessage.setList(String.valueOf(j));
+            this.mUpdateMessage.setList(String.valueOf(j2));
             super.sendMessage(this.mUpdateMessage);
         }
     }
@@ -70,12 +70,12 @@ public class BlackListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void checkUserMask(long j) {
+    public void checkUserMask(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             RequestCheckUserMaskMessage requestCheckUserMaskMessage = new RequestCheckUserMaskMessage();
             this.mCheckMessage = requestCheckUserMaskMessage;
-            requestCheckUserMaskMessage.setUserId(j);
+            requestCheckUserMaskMessage.setUserId(j2);
             super.sendMessage(this.mCheckMessage);
         }
     }
@@ -106,14 +106,14 @@ public class BlackListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void removeFromBlackList(long j) {
+    public void removeFromBlackList(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             this.mUpdateMessage = requestUpdateMaskInfoMessage;
             requestUpdateMaskInfoMessage.setIsMask(0);
             this.mUpdateMessage.setMaskType(10);
-            this.mUpdateMessage.setList(String.valueOf(j));
+            this.mUpdateMessage.setList(String.valueOf(j2));
             super.sendMessage(this.mUpdateMessage);
         }
     }

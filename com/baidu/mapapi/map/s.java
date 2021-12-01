@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissView f40433a;
+    public final /* synthetic */ SwipeDismissView a;
 
     public s(SwipeDismissView swipeDismissView) {
         Interceptable interceptable = $ic;
@@ -32,7 +30,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
                 return;
             }
         }
-        this.f40433a = swipeDismissView;
+        this.a = swipeDismissView;
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
@@ -49,7 +47,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public void onDismiss(View view, Object obj) {
         WearMapView.OnDismissCallback onDismissCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj) == null) || (onDismissCallback = this.f40433a.f40332a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj) == null) || (onDismissCallback = this.a.a) == null) {
             return;
         }
         onDismissCallback.onDismiss();
@@ -59,7 +57,7 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public void onNotify() {
         WearMapView.OnDismissCallback onDismissCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (onDismissCallback = this.f40433a.f40332a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (onDismissCallback = this.a.a) == null) {
             return;
         }
         onDismissCallback.onNotify();

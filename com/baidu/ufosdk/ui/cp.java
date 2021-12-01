@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class cp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ co f57798a;
+    public final /* synthetic */ co a;
 
     public cp(co coVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public final class cp implements Runnable {
                 return;
             }
         }
-        this.f57798a = coVar;
+        this.a = coVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,17 +40,17 @@ public final class cp implements Runnable {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f57798a.f57795b.f57783a;
+            FeedbackInputActivity feedbackInputActivity = this.a.f51652b.a;
             feedbackInputActivity.B = false;
             Context applicationContext = feedbackInputActivity.getApplicationContext();
             String str4 = UfoSDK.clientid;
-            FeedbackInputActivity feedbackInputActivity2 = this.f57798a.f57795b.f57783a;
-            String str5 = feedbackInputActivity2.f57684e;
+            FeedbackInputActivity feedbackInputActivity2 = this.a.f51652b.a;
+            String str5 = feedbackInputActivity2.f51607e;
             str = feedbackInputActivity2.ar;
-            str2 = this.f57798a.f57797d;
-            str3 = this.f57798a.f57795b.f57783a.aA;
-            handler = this.f57798a.f57795b.f57783a.aK;
-            i2 = this.f57798a.f57796c;
+            str2 = this.a.f51654d;
+            str3 = this.a.f51652b.a.aA;
+            handler = this.a.f51652b.a.aK;
+            i2 = this.a.f51653c;
             feedbackInputActivity.a(applicationContext, str4, str5, str, str2, str3, (String) null, handler, i2);
         }
     }

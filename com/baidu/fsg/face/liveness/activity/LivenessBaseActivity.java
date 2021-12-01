@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LivenessBaseActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,12 +110,10 @@ public class LivenessBaseActivity extends BeanActivity {
             bioAlertDialog.setPositiveBtn(getString(R.string.rim_liveness_network_set), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessBaseActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f38718a;
+                public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f38719b;
+                public final /* synthetic */ LivenessBaseActivity f34605b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,17 +130,17 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f38719b = this;
-                    this.f38718a = bioAlertDialog;
+                    this.f34605b = this;
+                    this.a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f38718a.dismiss();
+                        this.a.dismiss();
                         try {
-                            this.f38719b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            this.f34605b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -152,12 +150,10 @@ public class LivenessBaseActivity extends BeanActivity {
             bioAlertDialog.setNegativeBtn(getString(R.string.rim_liveness_cancle), new View.OnClickListener(this, bioAlertDialog) { // from class: com.baidu.fsg.face.liveness.activity.LivenessBaseActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f38720a;
+                public final /* synthetic */ BioAlertDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f38721b;
+                public final /* synthetic */ LivenessBaseActivity f34606b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -174,15 +170,15 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f38721b = this;
-                    this.f38720a = bioAlertDialog;
+                    this.f34606b = this;
+                    this.a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f38720a.dismiss();
+                        this.a.dismiss();
                     }
                 }
             });

@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BdViewOpUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdViewOpUtils";
@@ -91,7 +90,7 @@ public class BdViewOpUtils {
     public static ViewGroup getDecorView(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
             if (activity != null) {
                 return (ViewGroup) activity.getWindow().getDecorView();
             }
@@ -103,7 +102,7 @@ public class BdViewOpUtils {
     public static boolean hasChild(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, viewGroup)) == null) ? viewGroup != null && viewGroup.getChildCount() > 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, viewGroup)) == null) ? viewGroup != null && viewGroup.getChildCount() > 0 : invokeL.booleanValue;
     }
 
     public static boolean hasParent(View view) {

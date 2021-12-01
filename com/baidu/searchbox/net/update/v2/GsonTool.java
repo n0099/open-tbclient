@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.android.util.time.ServerDeltaChangeEvent;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -33,7 +32,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -58,7 +57,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -133,12 +132,12 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (TextUtils.isEmpty(str2)) {
                 return 0L;
             }
             try {
-                j = Long.parseLong(str2);
+                j2 = Long.parseLong(str2);
                 if (DEBUG) {
                     String str3 = "action = " + str + " support imsdk long connect,new data version is  " + str2;
                 }
@@ -147,7 +146,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     String str4 = "action = " + str + " support imsdk long connect,version is not right--> " + str2;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeLL.longValue;
     }
@@ -168,7 +167,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean readAction(JsonReader jsonReader, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, jsonReader, actionData, typeAdapter)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, jsonReader, actionData, typeAdapter)) == null) {
             String path = jsonReader.getPath();
             try {
                 jsonReader.beginObject();
@@ -335,7 +334,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private void readData(JsonReader jsonReader, JSONObject jSONObject) throws IOException {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, jsonReader, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, jsonReader, jSONObject) == null) {
             jsonReader.beginObject();
             Gson gson = new Gson();
             while (jsonReader.hasNext()) {

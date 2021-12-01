@@ -1,9 +1,7 @@
 package com.baidu.tieba.hottopicselect;
 
-import GetSugTopic.DataRes;
-import GetSugTopic.GetSugTopicResIdl;
-import b.a.q0.s.r.a;
-import b.a.r0.k1.c;
+import c.a.q0.s.r.a;
+import c.a.r0.q1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +12,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+import tbclient.GetSugTopic.DataRes;
+import tbclient.GetSugTopic.GetSugTopicResIdl;
+/* loaded from: classes10.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";

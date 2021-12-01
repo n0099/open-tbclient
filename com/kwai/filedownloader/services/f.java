@@ -8,7 +8,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(com.kwai.filedownloader.d.c cVar) {
+    public static void a(com.kwai.filedownloader.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, cVar) == null) {
             if (cVar == null) {
@@ -19,7 +19,7 @@ public class f {
             }
             Intent intent = new Intent("filedownloader.intent.action.completed");
             intent.putExtra("model", cVar);
-            com.kwai.filedownloader.f.c.a().sendBroadcast(intent);
+            com.kwai.filedownloader.e.c.a().sendBroadcast(intent);
         }
     }
 }

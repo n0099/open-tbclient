@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShaderConfig implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShaderConfig> CREATOR;
@@ -28,7 +27,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public List<ShaderParams> vParams;
     public String vertexShader;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<ShaderConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public static ShaderConfig getGaussianBlurHShaderConfig(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f2)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.vertexShader = "defaultGaussianBlur";
             ArrayList arrayList = new ArrayList();
@@ -143,7 +142,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public static ShaderConfig getGaussianBlurVShaderConfig(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(AdIconUtil.BAIDU_LOGO_ID, null, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f2)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.vertexShader = "defaultGaussianBlur";
             ArrayList arrayList = new ArrayList();
@@ -191,14 +190,14 @@ public class ShaderConfig implements Parcelable, Cloneable {
                 if (this.fParams != null) {
                     ArrayList arrayList = new ArrayList();
                     for (ShaderParams shaderParams : this.fParams) {
-                        arrayList.add(shaderParams.m19clone());
+                        arrayList.add(shaderParams.m39clone());
                     }
                     shaderConfig.fParams = arrayList;
                 }
                 if (this.vParams != null) {
                     ArrayList arrayList2 = new ArrayList();
                     for (ShaderParams shaderParams2 : this.vParams) {
-                        arrayList2.add(shaderParams2.m19clone());
+                        arrayList2.add(shaderParams2.m39clone());
                     }
                     shaderConfig.vParams = arrayList2;
                 }

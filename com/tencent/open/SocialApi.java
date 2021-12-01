@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SocialApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public SocialApiIml f70895a;
+    public SocialApiIml a;
 
     public SocialApi(QQToken qQToken) {
         Interceptable interceptable = $ic;
@@ -32,34 +30,34 @@ public class SocialApi {
                 return;
             }
         }
-        this.f70895a = new SocialApiIml(qQToken);
+        this.a = new SocialApiIml(qQToken);
     }
 
     public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bundle, iUiListener) == null) {
-            this.f70895a.ask(activity, bundle, iUiListener);
+            this.a.ask(activity, bundle, iUiListener);
         }
     }
 
     public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, iUiListener) == null) {
-            this.f70895a.gift(activity, bundle, iUiListener);
+            this.a.gift(activity, bundle, iUiListener);
         }
     }
 
     public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle, iUiListener) == null) {
-            this.f70895a.invite(activity, bundle, iUiListener);
+            this.a.invite(activity, bundle, iUiListener);
         }
     }
 
     public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, bundle, iUiListener) == null) {
-            this.f70895a.story(activity, bundle, iUiListener);
+            this.a.story(activity, bundle, iUiListener);
         }
     }
 }

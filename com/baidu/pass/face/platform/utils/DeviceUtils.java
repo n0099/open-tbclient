@@ -5,8 +5,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DeviceUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DeviceUtils";
@@ -54,7 +52,7 @@ public class DeviceUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
             try {
                 return MD5Utils.encryption(string.getBytes());
             } catch (Exception e2) {
@@ -90,6 +88,6 @@ public class DeviceUtils {
     public static String getUUID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 }

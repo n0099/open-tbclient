@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +16,8 @@ import com.google.zxing.common.BitSource;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.common.StringUtils;
 import com.google.zxing.datamatrix.encoder.HighLevelEncoder;
+import com.kuaishou.weapon.un.w0;
+import com.tachikoma.core.utility.FileUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +25,7 @@ import kotlin.text.Typography;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] C40_BASIC_SET_CHARS;
@@ -35,7 +36,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +81,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -163,7 +164,7 @@ public final class DecodedBitStreamParser {
             }
         }
         C40_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        char[] cArr = {'!', '\"', '#', '$', '%', Typography.amp, ExtendedMessageFormat.QUOTE, '(', ')', '*', '+', ',', SignatureImpl.SEP, '.', '/', ':', ';', Typography.less, a.f34958h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
+        char[] cArr = {'!', '\"', '#', '$', '%', Typography.amp, ExtendedMessageFormat.QUOTE, '(', ')', '*', '+', ',', SignatureImpl.SEP, '.', '/', ':', ';', Typography.less, a.f31351h, Typography.greater, '?', '@', '[', FileUtil.WINDOWS_SEPARATOR, ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;
@@ -327,7 +328,7 @@ public final class DecodedBitStreamParser {
 
     public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection<byte[]> collection) throws FormatException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bitSource, sb, collection) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, bitSource, sb, collection) == null) {
             int byteOffset = bitSource.getByteOffset() + 1;
             int i2 = byteOffset + 1;
             int unrandomize255State = unrandomize255State(bitSource.readBits(8), byteOffset);
@@ -364,7 +365,7 @@ public final class DecodedBitStreamParser {
     public static void decodeC40Segment(BitSource bitSource, StringBuilder sb) throws FormatException {
         int readBits;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bitSource, sb) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, bitSource, sb) == null) {
             int[] iArr = new int[3];
             boolean z = false;
             int i2 = 0;
@@ -396,7 +397,7 @@ public final class DecodedBitStreamParser {
                                 throw FormatException.getFormatInstance();
                             } else {
                                 if (z) {
-                                    sb.append((char) (i4 + 224));
+                                    sb.append((char) (i4 + w0.Q));
                                     z = false;
                                     i2 = 0;
                                 } else {

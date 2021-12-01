@@ -12,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,23 +52,21 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_WHAT_IS_PAY_PASSWORD = 56;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public u f61158a;
+    public u a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61159b;
+    public String f53786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61160c;
+    public boolean f53787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61161d;
+    public boolean f53788d;
 
     public PwdCheckActivity() {
         Interceptable interceptable = $ic;
@@ -84,8 +81,8 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 return;
             }
         }
-        this.f61160c = false;
-        this.f61161d = false;
+        this.f53787c = false;
+        this.f53788d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,7 +104,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 findPayPwdUrl = BeanConstants.API_FIND_PAY_PWD_URL;
             }
             BaiduWalletDelegate.getInstance().openH5Module(getActivity(), findPayPwdUrl, false);
-            this.f61161d = true;
+            this.f53788d = true;
         }
     }
 
@@ -115,7 +112,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            if (i2 == this.f61158a.getBeanId()) {
+            if (i2 == this.a.getBeanId()) {
                 resetPwd();
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 if (i3 == 100018) {
@@ -136,9 +133,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                     PassUtil.passNormalized(getActivity(), str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.12
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ PwdCheckActivity f61166a;
+                        public final /* synthetic */ PwdCheckActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -155,7 +150,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                     return;
                                 }
                             }
-                            this.f61166a = this;
+                            this.a = this;
                         }
 
                         @Override // com.dxmpay.wallet.core.utils.PassUtil.PassNormalize, com.dxmpay.wallet.core.utils.PassUtil.IPassNormalize
@@ -164,10 +159,10 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, context, i4, map)) == null) {
                                 if (super.onNormalize(context, i4, map)) {
-                                    this.f61166a.d();
+                                    this.a.d();
                                     return false;
                                 }
-                                this.f61166a.finish();
+                                this.a.finish();
                                 return false;
                             }
                             return invokeLIL.booleanValue;
@@ -198,7 +193,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
-            if (i2 == this.f61158a.getBeanId()) {
+            if (i2 == this.a.getBeanId()) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 PwdRequest pwdRequest = this.mPwdRequest;
                 if (pwdRequest.mFrom == 2) {
@@ -208,9 +203,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                     new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.11
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ PwdCheckActivity f61165a;
+                        public final /* synthetic */ PwdCheckActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -227,14 +220,14 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                     return;
                                 }
                             }
-                            this.f61165a = this;
+                            this.a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f61165a.finishWithoutAnim();
+                                this.a.finishWithoutAnim();
                             }
                         }
                     }, 500L);
@@ -242,7 +235,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 }
                 finishWithoutAnim();
                 BaiduWalletUtils.startActivityAnim(this);
-                if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f61159b)) {
+                if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b)) {
                     PasswordController.getPassWordInstance().checkPwdSucceed(str);
                 } else {
                     PasswordController.getPassWordInstance().checkPwdSucceed(getPwd());
@@ -252,7 +245,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 UserInfoContentResponse userInfoContentResponse = (UserInfoContentResponse) obj;
                 userInfoContentResponse.user_info.decrypt();
                 userInfoContentResponse.decrypt();
-                forgetPasswd(this.f61159b);
+                forgetPasswd(this.f53786b);
             } else if (i2 == 529) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 PasswordController.getPassWordInstance().checkPwdSucceed(getPwd());
@@ -270,7 +263,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i2 = this.mPwdRequest.mFrom;
             if (i2 == 1) {
-                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f61159b)) {
+                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
                     StatisticManager.onEvent("Intermediarypay_cancel");
                 }
                 PasswordController.getPassWordInstance().checkPwdFail(2, "");
@@ -328,11 +321,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
             super.onCreate(bundle);
             getWindow().setSoftInputMode(2);
             if (bundle == null) {
-                this.f61159b = getIntent().getStringExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY);
+                this.f53786b = getIntent().getStringExtra(BeanConstants.CHECK_PWD_FROM_TYPE_KEY);
             } else {
-                this.f61159b = bundle.getString(SapiAccount.SAPI_ACCOUNT_FROMTYPE);
+                this.f53786b = bundle.getString(SapiAccount.SAPI_ACCOUNT_FROMTYPE);
             }
-            this.f61158a = (u) PayBeanFactory.getInstance().getBean((Context) this, getMobilePwdBeanId(), "PwdCheckActivity");
+            this.a = (u) PayBeanFactory.getInstance().getBean((Context) this, getMobilePwdBeanId(), "PwdCheckActivity");
             if (this.mPwdRequest == null) {
                 finish();
                 return;
@@ -344,29 +337,29 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 string = ResUtils.getString(getActivity(), "ebpay_pwd_check_tip_modify_pwd");
                 str = "ebpay_check_pwd_modify_pwd";
             } else {
-                if (BeanConstants.FROM_PASSFREE_SAVE.equals(this.f61159b)) {
+                if (BeanConstants.FROM_PASSFREE_SAVE.equals(this.f53786b)) {
                     string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_save");
                     str = "ebpay_check_pwd_save";
                 } else {
-                    if (BeanConstants.FROM_UNBIND.equals(this.f61159b)) {
+                    if (BeanConstants.FROM_UNBIND.equals(this.f53786b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_unbind_card");
-                    } else if (BeanConstants.FROM_BIND_PAY.equals(this.f61159b)) {
+                    } else if (BeanConstants.FROM_BIND_PAY.equals(this.f53786b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_bind_or_complete_card");
-                    } else if (BeanConstants.FROM_COMPLETE_PAY.equals(this.f61159b)) {
+                    } else if (BeanConstants.FROM_COMPLETE_PAY.equals(this.f53786b)) {
                         string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_complete_pay");
-                    } else if (!BeanConstants.FROM_BIND.equals(this.f61159b) && !BeanConstants.FROM_COMPLETE.equals(this.f61159b)) {
-                        if (BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f61159b)) {
+                    } else if (!BeanConstants.FROM_BIND.equals(this.f53786b) && !BeanConstants.FROM_COMPLETE.equals(this.f53786b)) {
+                        if (BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f53786b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_close_showcode");
-                        } else if (BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f61159b)) {
+                        } else if (BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f53786b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_tip_save");
-                        } else if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f61159b)) {
+                        } else if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
                             string = ResUtils.getString(getActivity(), "ebpay_intermediarypay_pwdcheck_tip");
                             str = "ebpay_intermediarypay_pwdcheck";
-                        } else if (BeanConstants.FROM_CLOSE_HCE.equals(this.f61159b)) {
+                        } else if (BeanConstants.FROM_CLOSE_HCE.equals(this.f53786b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_close_hce");
-                        } else if (BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f61159b)) {
+                        } else if (BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f53786b)) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_check_sub_tip_for_open_hce");
-                        } else if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f61159b) && this.isOpenHalfScreenPwdVerify) {
+                        } else if (BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b) && this.isOpenHalfScreenPwdVerify) {
                             string2 = ResUtils.getString(getActivity(), "ebpay_pwd_use_explain");
                         }
                         str = "ebpay_check_pwd_close_showcode";
@@ -387,12 +380,10 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 this.mSafeEditText.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61162a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public boolean f61163b;
+                    public boolean f53789b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -409,8 +400,8 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61162a = this;
-                        this.f61163b = false;
+                        this.a = this;
+                        this.f53789b = false;
                     }
 
                     @Override // android.text.TextWatcher
@@ -430,11 +421,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                     @Override // android.text.TextWatcher
                     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f61163b) {
+                        if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f53789b) {
                             return;
                         }
                         StatisticManager.onEvent("clickCheckPwd");
-                        this.f61163b = true;
+                        this.f53789b = true;
                     }
                 });
                 EventBus.getInstance().register(this, BeanConstants.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
@@ -453,12 +444,10 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
             this.mSafeEditText.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdCheckActivity f61162a;
+                public final /* synthetic */ PwdCheckActivity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f61163b;
+                public boolean f53789b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -475,8 +464,8 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             return;
                         }
                     }
-                    this.f61162a = this;
-                    this.f61163b = false;
+                    this.a = this;
+                    this.f53789b = false;
                 }
 
                 @Override // android.text.TextWatcher
@@ -496,11 +485,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f61163b) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) || this.f53789b) {
                         return;
                     }
                     StatisticManager.onEvent("clickCheckPwd");
-                    this.f61163b = true;
+                    this.f53789b = true;
                 }
             });
             EventBus.getInstance().register(this, BeanConstants.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
@@ -516,7 +505,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             BeanManager.getInstance().removeAllBeans("PwdCheckActivity");
-            if (this.f61161d) {
+            if (this.f53788d) {
                 PasswordController.getPassWordInstance().clearForgetPasswdCallback();
             }
             EventBus.getInstance().unregister(this);
@@ -547,9 +536,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                             new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.10
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ PwdCheckActivity f61164a;
+                                public final /* synthetic */ PwdCheckActivity a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -566,7 +553,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                             return;
                                         }
                                     }
-                                    this.f61164a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -574,13 +561,13 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         BaseActivity.clearTasksWithActivityName(OrderConfirmActivity.class);
-                                        BaiduPayDelegate.getInstance().reOrderPay(this.f61164a.getActivity());
+                                        BaiduPayDelegate.getInstance().reOrderPay(this.a.getActivity());
                                     }
                                 }
                             }, 1000L);
                         }
                         hideErrorMsg();
-                        this.f61160c = true;
+                        this.f53787c = true;
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
@@ -616,9 +603,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 promptDialog.setPositiveBtn(ResUtils.getString(getActivity(), "ebpay_find_password"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61167a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -635,26 +620,24 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61167a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdCheckActivity pwdCheckActivity = this.f61167a;
+                            PwdCheckActivity pwdCheckActivity = this.a;
                             pwdCheckActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdCheckActivity.getActivity(), "ebpay_find_password"));
-                            WalletGlobalUtils.safeDismissDialog(this.f61167a, 17);
-                            this.f61167a.c();
+                            WalletGlobalUtils.safeDismissDialog(this.a, 17);
+                            this.a.c();
                         }
                     }
                 });
                 promptDialog.setNegativeBtn(ResUtils.getString(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61168a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -671,16 +654,16 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61168a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdCheckActivity pwdCheckActivity = this.f61168a;
+                            PwdCheckActivity pwdCheckActivity = this.a;
                             pwdCheckActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdCheckActivity.getActivity(), "dxm_ebpay_know"));
-                            WalletGlobalUtils.safeDismissDialog(this.f61168a, 17);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 17);
                         }
                     }
                 });
@@ -692,9 +675,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 promptDialog2.setPositiveBtn(ResUtils.string(this.mAct, "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61169a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -711,14 +692,14 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61169a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f61169a.mAct, 55);
+                            WalletGlobalUtils.safeDismissDialog(this.a.mAct, 55);
                         }
                     }
                 });
@@ -732,9 +713,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 promptDialog3.setPositiveBtn(ResUtils.getString(getActivity(), "ebpay_title_find_pwd"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61170a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -751,32 +730,30 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61170a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdCheckActivity pwdCheckActivity = this.f61170a;
+                            PwdCheckActivity pwdCheckActivity = this.a;
                             pwdCheckActivity.a(ResUtils.getString(pwdCheckActivity.getActivity(), "ebpay_find_password"));
-                            WalletGlobalUtils.safeDismissDialog(this.f61170a, 56);
-                            if (!TextUtils.isEmpty(this.f61170a.f61159b) && BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f61170a.f61159b)) {
-                                this.f61170a.f61160c = false;
-                                this.f61170a.d();
+                            WalletGlobalUtils.safeDismissDialog(this.a, 56);
+                            if (!TextUtils.isEmpty(this.a.f53786b) && BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.a.f53786b)) {
+                                this.a.f53787c = false;
+                                this.a.d();
                                 return;
                             }
-                            PwdCheckActivity pwdCheckActivity2 = this.f61170a;
-                            pwdCheckActivity2.forgetPasswd(pwdCheckActivity2.f61159b);
+                            PwdCheckActivity pwdCheckActivity2 = this.a;
+                            pwdCheckActivity2.forgetPasswd(pwdCheckActivity2.f53786b);
                         }
                     }
                 });
                 promptDialog3.setNegativeBtn(ResUtils.getString(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdCheckActivity f61171a;
+                    public final /* synthetic */ PwdCheckActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -793,16 +770,16 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                                 return;
                             }
                         }
-                        this.f61171a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdCheckActivity pwdCheckActivity = this.f61171a;
+                            PwdCheckActivity pwdCheckActivity = this.a;
                             pwdCheckActivity.a(ResUtils.getString(pwdCheckActivity.getActivity(), "dxm_ebpay_know"));
-                            WalletGlobalUtils.safeDismissDialog(this.f61171a, 56);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 56);
                         }
                     }
                 });
@@ -823,18 +800,18 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 }
                 this.mPwdRequest.mPayPass = getPwd();
                 WalletGlobalUtils.safeShowDialog(this, 0, "");
-                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f61159b)) {
-                    h hVar = (h) PayBeanFactory.getInstance().getBean((Context) this, 529, "PwdCheckActivity");
+                if (BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b)) {
+                    h hVar = (h) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_CHECK_PWD, "PwdCheckActivity");
                     hVar.setResponseCallback(this);
                     hVar.execBean();
                     return;
                 }
-                this.f61158a.setResponseCallback(this);
+                this.a.setResponseCallback(this);
                 if (this.isOpenHalfScreenPwdVerify) {
-                    this.f61158a.a(this.extraFromH5);
-                    this.f61158a.a(this.isOpenHalfScreenPwdVerify);
+                    this.a.a(this.extraFromH5);
+                    this.a.a(this.isOpenHalfScreenPwdVerify);
                 }
-                this.f61158a.execBean();
+                this.a.execBean();
                 return;
             }
             this.mErrorTip.setVisibility(4);
@@ -855,7 +832,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f61159b);
+            bundle.putString(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f53786b);
         }
     }
 
@@ -888,9 +865,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         this.mSubTipWrap.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PwdCheckActivity f61174a;
+            public final /* synthetic */ PwdCheckActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -907,7 +882,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                         return;
                     }
                 }
-                this.f61174a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -916,10 +891,10 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                     if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                        ViewHelper.setAlpha(this.f61174a.mSubTipWrap, 1.0f);
+                        ViewHelper.setAlpha(this.a.mSubTipWrap, 1.0f);
                         return false;
                     }
-                    ViewHelper.setAlpha(this.f61174a.mSubTipWrap, 0.5f);
+                    ViewHelper.setAlpha(this.a.mSubTipWrap, 0.5f);
                     return false;
                 }
                 return invokeLL.booleanValue;
@@ -928,9 +903,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         this.mSubTipWrap.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PwdCheckActivity f61175a;
+            public final /* synthetic */ PwdCheckActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -947,15 +920,15 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                         return;
                     }
                 }
-                this.f61175a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f61175a, 0);
-                    WalletGlobalUtils.safeShowDialog(this.f61175a, 56, "");
+                    WalletGlobalUtils.safeDismissDialog(this.a, 0);
+                    WalletGlobalUtils.safeShowDialog(this.a, 56, "");
                 }
             }
         });
@@ -965,11 +938,11 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            if ((TextUtils.isEmpty(this.f61159b) || (!BeanConstants.FROM_B_SAO_C_TYPE.equalsIgnoreCase(this.f61159b) && !BeanConstants.FROM_PASSFREE_SAVE.equalsIgnoreCase(this.f61159b))) && !BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f61159b) && !BeanConstants.FROM_VOICEPRINT_PAY.equals(this.f61159b) && !BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f61159b) && !BeanConstants.FROM_CLOSE_HCE.equals(this.f61159b) && !BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f61159b) && !BeanConstants.FROM_CHECK_FOR_SP.equals(this.f61159b) && !BeanConstants.FROM_COMMON_CHECK_PWD.equals(this.f61159b) && !BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f61159b) && !this.f61160c) {
-                forgetPasswd(this.f61159b);
+            if ((TextUtils.isEmpty(this.f53786b) || (!BeanConstants.FROM_B_SAO_C_TYPE.equalsIgnoreCase(this.f53786b) && !BeanConstants.FROM_PASSFREE_SAVE.equalsIgnoreCase(this.f53786b))) && !BeanConstants.FROM_CLOSE_SHOWCODE.equals(this.f53786b) && !BeanConstants.FROM_VOICEPRINT_PAY.equals(this.f53786b) && !BeanConstants.FROM_FINGERPRINT_PAY.equals(this.f53786b) && !BeanConstants.FROM_CLOSE_HCE.equals(this.f53786b) && !BeanConstants.FROM_OPEN_HCE_PAY.equals(this.f53786b) && !BeanConstants.FROM_CHECK_FOR_SP.equals(this.f53786b) && !BeanConstants.FROM_COMMON_CHECK_PWD.equals(this.f53786b) && !BeanConstants.FROM_COMMON_CHECK_PWD_FROM_H5.equals(this.f53786b) && !this.f53787c) {
+                forgetPasswd(this.f53786b);
                 return;
             }
-            this.f61160c = false;
+            this.f53787c = false;
             d();
         }
     }
@@ -983,9 +956,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         this.mLeftImageGoback.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PwdCheckActivity f61172a;
+            public final /* synthetic */ PwdCheckActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1002,7 +973,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                         return;
                     }
                 }
-                this.f61172a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -1011,10 +982,10 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                     if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                        ViewHelper.setAlpha(this.f61172a.mLeftImageGoback, 1.0f);
+                        ViewHelper.setAlpha(this.a.mLeftImageGoback, 1.0f);
                         return false;
                     }
-                    ViewHelper.setAlpha(this.f61172a.mLeftImageGoback, 0.5f);
+                    ViewHelper.setAlpha(this.a.mLeftImageGoback, 0.5f);
                     return false;
                 }
                 return invokeLL.booleanValue;
@@ -1023,9 +994,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
         this.mLeftImageGoback.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdCheckActivity.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PwdCheckActivity f61173a;
+            public final /* synthetic */ PwdCheckActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1042,15 +1011,15 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
                         return;
                     }
                 }
-                this.f61173a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f61173a.getActivity());
-                    this.f61173a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.a.getActivity());
+                    this.a.onBackPressed();
                 }
             }
         });
@@ -1059,7 +1028,7 @@ public class PwdCheckActivity extends PwdBaseActivity implements View.OnClickLis
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || TextUtils.isEmpty(BeanConstants.API_VERIFY_MOBILE_PWD_NEW)) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || TextUtils.isEmpty(BeanConstants.API_VERIFY_MOBILE_PWD_NEW)) {
             return;
         }
         ArrayList arrayList = new ArrayList();

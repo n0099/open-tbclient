@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -59,7 +58,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
 
     private void verifyAllLength(String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, set) == null) || set == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, this, str, set) == null) || set == null) {
             return;
         }
         for (String str2 : set) {
@@ -70,7 +69,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
     @SuppressLint({"BDThrowableCheck"})
     private void verifyLength(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {
+        if ((interceptable == null || interceptable.invokeLL(65542, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {
             throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
         }
     }
@@ -151,12 +150,12 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
             SharedPreferences sharedPreferences = this.mSp;
-            return sharedPreferences == null ? j : sharedPreferences.getLong(str, j);
+            return sharedPreferences == null ? j2 : sharedPreferences.getLong(str, j2);
         }
         return invokeLJ.longValue;
     }
@@ -210,13 +209,13 @@ public class SharedPrefsWrapper implements SharedPreferences {
         sharedPreferences.edit().putInt(str, i2).apply();
     }
 
-    public void putLong(String str, long j) {
+    public void putLong(String str, long j2) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) || (sharedPreferences = this.mSp) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) || (sharedPreferences = this.mSp) == null) {
             return;
         }
-        sharedPreferences.edit().putLong(str, j).apply();
+        sharedPreferences.edit().putLong(str, j2).apply();
     }
 
     public void putString(String str, String str2) {

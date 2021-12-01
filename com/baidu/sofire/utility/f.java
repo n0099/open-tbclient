@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,19 +22,19 @@ public final class f {
         byte[] bytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, str, bArr, str2)) == null) {
-            byte[] a2 = com.baidu.sofire.core.h.a();
+            byte[] a = com.baidu.sofire.core.h.a();
             if (!TextUtils.isEmpty(str)) {
-                bytes = F.getInstance().ae(k.a(str.getBytes()), a2);
+                bytes = F.getInstance().ae(k.a(str.getBytes()), a);
             } else {
                 bytes = "".getBytes();
             }
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("data", Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
             jSONObject.put("app", "android");
-            String encodeToString = Base64.encodeToString(F.getInstance().re(a2, q.a(e.b(context)).getBytes()), 0);
-            String a3 = q.a(e.b(context));
+            String encodeToString = Base64.encodeToString(F.getInstance().re(a, q.a(e.b(context)).getBytes()), 0);
+            String a2 = q.a(e.b(context));
             if (bArr != null && bArr.length != 0 && !TextUtils.isEmpty(str2)) {
-                byte[] ae = F.getInstance().ae(WbEncryptUtil.wbEncrypt(context, bArr), a2);
+                byte[] ae = F.getInstance().ae(WbEncryptUtil.wbEncrypt(context, bArr), a);
                 File file = new File(str2);
                 if (file.exists() && file.isFile()) {
                     file.delete();
@@ -44,11 +44,11 @@ public final class f {
                 }
                 File file2 = new File(file, "tmp_v_" + System.currentTimeMillis());
                 if (c.a(context, ae, file2)) {
-                    return new RequestInfo(encodeToString, a3, jSONObject, file2.getAbsolutePath());
+                    return new RequestInfo(encodeToString, a2, jSONObject, file2.getAbsolutePath());
                 }
                 throw new RuntimeException("Wirte File Error.");
             }
-            return new RequestInfo(encodeToString, a3, jSONObject);
+            return new RequestInfo(encodeToString, a2, jSONObject);
         }
         return (RequestInfo) invokeLLLL.objValue;
     }

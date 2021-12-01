@@ -1,290 +1,180 @@
 package com.kwad.sdk.core.network.a;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import com.kwad.sdk.core.network.c;
-import com.kwad.sdk.core.network.f;
-import com.kwad.sdk.core.network.k;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.SocketTimeoutException;
-import java.net.URLEncoder;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.GZIPInputStream;
-import okhttp3.ConnectionSpec;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.report.d;
+import com.kwad.sdk.internal.api.SceneImpl;
 /* loaded from: classes2.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f65692a = "UTF-8";
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f65693b;
-    public transient /* synthetic */ FieldHolder $fh;
+    public long f57499b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-360684867, "Lcom/kwad/sdk/core/network/a/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-360684867, "Lcom/kwad/sdk/core/network/a/b;");
+    /* renamed from: c  reason: collision with root package name */
+    public long f57500c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f57501d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f57502e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SceneImpl f57503f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f57504g;
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f65693b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
+        this.f57504g = "";
     }
 
-    public static c a(String str, @Nullable Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) ? a(str, map, true) : (c) invokeLL.objValue;
-    }
-
-    public static c a(String str, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, map, map2)) == null) {
-            c cVar = new c();
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                b(url, map2);
-                Response execute = a().newCall(url.build()).execute();
-                cVar.f65710a = execute.code();
-                cVar.f65711b = a(execute);
-            } catch (Exception e2) {
-                a(cVar, e2);
-            }
-            return cVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = SystemClock.uptimeMillis();
         }
-        return (c) invokeLLL.objValue;
     }
 
-    public static c a(String str, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, map, jSONObject)) == null) {
-            c cVar = new c();
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                a(url, jSONObject);
-                Response execute = a().newCall(url.build()).execute();
-                cVar.f65710a = execute.code();
-                cVar.f65711b = a(execute);
-            } catch (Exception e2) {
-                a(cVar, e2);
-            }
-            return cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f57504g = str;
         }
-        return (c) invokeLLL.objValue;
     }
 
-    public static c a(String str, @Nullable Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
+    public void a(String str, SceneImpl sceneImpl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map, z)) == null) {
-            c cVar = new c();
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                Response execute = a().newCall(url.build()).execute();
-                cVar.f65710a = execute.code();
-                cVar.f65711b = z ? a(execute) : "";
-            } catch (Exception e2) {
-                a(cVar, e2);
-            }
-            return cVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, sceneImpl) == null) {
+            this.f57502e = str;
+            this.f57503f = sceneImpl;
         }
-        return (c) invokeLLZ.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f57499b = SystemClock.uptimeMillis();
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0065 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0012 */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.util.zip.GZIPInputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String a(Response response) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        InputStream inputStream2;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, response)) != null) {
-            return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f57500c = SystemClock.uptimeMillis();
         }
-        StringBuilder sb = new StringBuilder();
-        GZIPInputStream gZIPInputStream = 0;
-        gZIPInputStream = 0;
-        gZIPInputStream = 0;
-        try {
-            inputStream = response.body().byteStream();
-            try {
-                List<String> headers = response.headers("Content-Encoding");
-                boolean z = false;
-                if (headers != null) {
-                    Iterator<String> it = headers.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        } else if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(it.next())) {
-                            z = true;
-                            break;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f57501d = SystemClock.uptimeMillis();
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0058  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void e() {
+        long j2;
+        long j3;
+        long j4;
+        long j5;
+        long j6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a aVar = new a();
+            aVar.f57498g = this.f57502e;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            long j7 = this.a;
+            aVar.a = j7 != 0 ? uptimeMillis - j7 : 0L;
+            long j8 = this.f57499b;
+            if (j8 != 0) {
+                long j9 = this.a;
+                if (j9 != 0) {
+                    j2 = j8 - j9;
+                    aVar.f57493b = j2;
+                    j3 = this.f57500c;
+                    if (j3 != 0) {
+                        long j10 = this.f57499b;
+                        if (j10 != 0) {
+                            j4 = j3 - j10;
+                            aVar.f57494c = j4;
+                            j5 = this.f57501d;
+                            if (j5 != 0) {
+                                long j11 = this.f57500c;
+                                if (j11 != 0) {
+                                    j6 = j5 - j11;
+                                    aVar.f57495d = j6;
+                                    long j12 = this.f57501d;
+                                    aVar.f57496e = j12 != 0 ? uptimeMillis - j12 : 0L;
+                                    aVar.f57497f = this.f57504g;
+                                    d.a(this.f57503f, aVar);
+                                    com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
+                                }
+                            }
+                            j6 = 0;
+                            aVar.f57495d = j6;
+                            long j122 = this.f57501d;
+                            aVar.f57496e = j122 != 0 ? uptimeMillis - j122 : 0L;
+                            aVar.f57497f = this.f57504g;
+                            d.a(this.f57503f, aVar);
+                            com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
                         }
                     }
-                }
-                if (z) {
-                    inputStream2 = new GZIPInputStream(inputStream);
-                    gZIPInputStream = inputStream2;
-                } else {
-                    inputStream2 = inputStream;
-                }
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f65692a), 8);
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
+                    j4 = 0;
+                    aVar.f57494c = j4;
+                    j5 = this.f57501d;
+                    if (j5 != 0) {
                     }
-                    sb.append(readLine);
-                }
-                if (gZIPInputStream != 0) {
-                    gZIPInputStream.close();
-                }
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-                return sb.toString();
-            } catch (Throwable th) {
-                th = th;
-                if (gZIPInputStream != 0) {
-                    gZIPInputStream.close();
-                }
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = null;
-        }
-    }
-
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f65693b : (OkHttpClient) invokeV.objValue;
-    }
-
-    public static void a(@NonNull c cVar, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, cVar, exc) == null) {
-            f fVar = exc instanceof SocketTimeoutException ? f.f65713a : f.f65714b;
-            cVar.f65710a = fVar.m;
-            cVar.f65711b = fVar.n;
-            if (com.kwad.sdk.b.f64912b.booleanValue()) {
-                com.kwad.sdk.core.d.a.b(exc);
-            }
-        }
-    }
-
-    public static void a(Request.Builder builder, @Nullable Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, builder, map) == null) || builder == null || map == null || map.isEmpty()) {
-            return;
-        }
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            if (entry != null) {
-                try {
-                    builder.removeHeader(entry.getKey());
-                    builder.addHeader(entry.getKey(), entry.getValue());
-                } catch (Exception unused) {
+                    j6 = 0;
+                    aVar.f57495d = j6;
+                    long j1222 = this.f57501d;
+                    aVar.f57496e = j1222 != 0 ? uptimeMillis - j1222 : 0L;
+                    aVar.f57497f = this.f57504g;
+                    d.a(this.f57503f, aVar);
+                    com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
                 }
             }
-        }
-    }
-
-    public static void a(Request.Builder builder, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, builder, jSONObject) == null) {
-            builder.post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString()));
-        }
-    }
-
-    public static void b(Request.Builder builder, Map<String, String> map) {
-        FormBody formBody;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, builder, map) == null) {
-            if (map == null || map.isEmpty()) {
-                formBody = null;
-            } else {
-                FormBody.Builder builder2 = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (entry != null) {
-                        try {
-                            builder2.addEncoded(entry.getKey(), a(entry.getValue()));
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-                formBody = builder2.build();
+            j2 = 0;
+            aVar.f57493b = j2;
+            j3 = this.f57500c;
+            if (j3 != 0) {
             }
-            if (builder == null || formBody == null) {
-                return;
+            j4 = 0;
+            aVar.f57494c = j4;
+            j5 = this.f57501d;
+            if (j5 != 0) {
             }
-            builder.post(formBody);
+            j6 = 0;
+            aVar.f57495d = j6;
+            long j12222 = this.f57501d;
+            aVar.f57496e = j12222 != 0 ? uptimeMillis - j12222 : 0L;
+            aVar.f57497f = this.f57504g;
+            d.a(this.f57503f, aVar);
+            com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
         }
     }
 }

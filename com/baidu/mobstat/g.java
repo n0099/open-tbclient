@@ -8,39 +8,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final g f42442a;
+    public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f42443b;
+    public static final g f37487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f42444c;
+    public static final g f37488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f42445d;
+    public static final g f37489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f42446e;
+    public static final g f37490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f42447f;
+    public static final g f37491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final g f42448g;
+    public static final g f37492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final g f42449h;
+    public static final g f37493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final g f42450i;
-    public static final /* synthetic */ g[] k;
+    public static final g f37494i;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final /* synthetic */ g[] f37495k;
     public transient /* synthetic */ FieldHolder $fh;
-    public long j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f37496j;
 
     static {
         InterceptResult invokeClinit;
@@ -55,17 +57,17 @@ public final class g {
                 return;
             }
         }
-        f42442a = new g("AP_LIST", 0);
-        f42443b = new g("APP_USER_LIST", 1);
-        f42444c = new g("APP_SYS_LIST", 2);
-        f42445d = new g("APP_TRACE_CURRENT", 3);
-        f42446e = new g("APP_TRACE_HIS", 4);
-        f42447f = new g("APP_CHANGE", 5);
-        f42448g = new g("APP_APK", 6);
-        f42449h = new g("LAST_SEND", 7);
+        a = new g("AP_LIST", 0);
+        f37487b = new g("APP_USER_LIST", 1);
+        f37488c = new g("APP_SYS_LIST", 2);
+        f37489d = new g("APP_TRACE_CURRENT", 3);
+        f37490e = new g("APP_TRACE_HIS", 4);
+        f37491f = new g("APP_CHANGE", 5);
+        f37492g = new g("APP_APK", 6);
+        f37493h = new g("LAST_SEND", 7);
         g gVar = new g("LAST_UPDATE", 8);
-        f42450i = gVar;
-        k = new g[]{f42442a, f42443b, f42444c, f42445d, f42446e, f42447f, f42448g, f42449h, gVar};
+        f37494i = gVar;
+        f37495k = new g[]{a, f37487b, f37488c, f37489d, f37490e, f37491f, f37492g, f37493h, gVar};
     }
 
     public g(String str, int i2) {
@@ -96,6 +98,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) k.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f37495k.clone() : (g[]) invokeV.objValue;
     }
 }

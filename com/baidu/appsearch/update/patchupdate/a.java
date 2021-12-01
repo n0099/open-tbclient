@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f37265a;
+    public ByteBuffer a;
 
     public a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class a implements d {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f37265a = byteBuffer;
+        this.a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
@@ -68,10 +66,10 @@ public class a implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            if (this.f37265a.hasRemaining()) {
+            if (this.a.hasRemaining()) {
                 int i2 = 0;
-                while (this.f37265a.hasRemaining() && byteBuffer.hasRemaining()) {
-                    byteBuffer.put(this.f37265a.get());
+                while (this.a.hasRemaining() && byteBuffer.hasRemaining()) {
+                    byteBuffer.put(this.a.get());
                     i2++;
                 }
                 return i2;
@@ -82,14 +80,14 @@ public class a implements d {
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j <= this.f37265a.limit()) {
-                this.f37265a.position((int) j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            if (j2 <= this.a.limit()) {
+                this.a.position((int) j2);
                 return;
             }
-            throw new IOException("pos " + j + " cannot seek " + this.f37265a.limit());
+            throw new IOException("pos " + j2 + " cannot seek " + this.a.limit());
         }
     }
 
@@ -97,7 +95,7 @@ public class a implements d {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f37265a = null;
+            this.a = null;
         }
     }
 
@@ -105,7 +103,7 @@ public class a implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "BBSeekable bb=" + this.f37265a.position() + "-" + this.f37265a.limit();
+            return "BBSeekable bb=" + this.a.position() + "-" + this.a.limit();
         }
         return (String) invokeV.objValue;
     }

@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public EventBus.Event f36783a;
+    public EventBus.Event a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f36784b;
+    public g f32972b;
 
     public d(EventBus.Event event, g gVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +30,8 @@ public final class d {
                 return;
             }
         }
-        this.f36783a = event;
-        this.f36784b = gVar;
+        this.a = event;
+        this.f32972b = gVar;
     }
 
     public static d a(g gVar, EventBus.Event event) {

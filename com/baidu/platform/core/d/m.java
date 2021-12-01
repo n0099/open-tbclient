@@ -9,7 +9,6 @@ import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class m extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -168,8 +167,8 @@ public class m extends k {
                 if (optJSONObject4 == null) {
                     return false;
                 }
-                RouteNode a2 = a(optJSONObject4, "start");
-                RouteNode a3 = a(optJSONObject4, "end");
+                RouteNode a = a(optJSONObject4, "start");
+                RouteNode a2 = a(optJSONObject4, "end");
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("routes");
                 if (optJSONArray == null || optJSONArray.length() <= 0) {
                     return false;
@@ -182,8 +181,8 @@ public class m extends k {
                         TransitRouteLine transitRouteLine = new TransitRouteLine();
                         transitRouteLine.setDistance(jSONObject2.optInt("distance"));
                         transitRouteLine.setDuration(jSONObject2.optInt("duration"));
-                        transitRouteLine.setStarting(a2);
-                        transitRouteLine.setTerminal(a3);
+                        transitRouteLine.setStarting(a);
+                        transitRouteLine.setTerminal(a2);
                         JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             ArrayList arrayList2 = new ArrayList();
@@ -192,14 +191,14 @@ public class m extends k {
                                 JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i4).optJSONArray(ShaderParams.VALUE_TYPE_STEP);
                                 if (optJSONArray3 == null || optJSONArray3.length() <= 0) {
                                     jSONArray2 = optJSONArray;
-                                    routeNode2 = a3;
+                                    routeNode2 = a2;
                                 } else {
                                     JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i2);
                                     TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();
                                     transitStep.setEntrace(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("start_location"))));
                                     transitStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("end_location"))));
                                     jSONArray2 = optJSONArray;
-                                    routeNode2 = a3;
+                                    routeNode2 = a2;
                                     transitStep.setStepType(optJSONObject5.optInt("type") == 5 ? TransitRouteLine.TransitStep.TransitRouteStepType.WAKLING : TransitRouteLine.TransitStep.TransitRouteStepType.BUSLINE);
                                     transitStep.setInstructions(b(optJSONObject5.optString("instructions")));
                                     transitStep.setDistance(optJSONObject5.optInt("distance"));
@@ -219,24 +218,24 @@ public class m extends k {
                                 }
                                 i4++;
                                 optJSONArray = jSONArray2;
-                                a3 = routeNode2;
+                                a2 = routeNode2;
                                 i2 = 0;
                             }
                             jSONArray = optJSONArray;
-                            routeNode = a3;
+                            routeNode = a2;
                             transitRouteLine.setSteps(arrayList2);
                             arrayList.add(transitRouteLine);
                             i3++;
                             optJSONArray = jSONArray;
-                            a3 = routeNode;
+                            a2 = routeNode;
                             i2 = 0;
                         }
                     }
                     jSONArray = optJSONArray;
-                    routeNode = a3;
+                    routeNode = a2;
                     i3++;
                     optJSONArray = jSONArray;
-                    a3 = routeNode;
+                    a2 = routeNode;
                     i2 = 0;
                 }
                 transitRouteResult.setRoutelines(arrayList);
@@ -253,7 +252,7 @@ public class m extends k {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {

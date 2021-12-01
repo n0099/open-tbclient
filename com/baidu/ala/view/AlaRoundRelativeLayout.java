@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.mRoundLayoutRadius = g2;
-        this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRoundLayoutRadius = f2;
+        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();
     }
 
@@ -115,9 +115,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.mRoundLayoutRadius = g2;
-        this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRoundLayoutRadius = f2;
+        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();
     }
 
@@ -140,9 +140,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-        this.mRoundLayoutRadius = g2;
-        this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};
+        float f2 = l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+        this.mRoundLayoutRadius = f2;
+        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
         init();
     }
 }

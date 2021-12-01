@@ -1,0 +1,7 @@
+package c.a.d.f.a;
+
+import java.io.File;
+/* loaded from: classes.dex */
+public interface a {
+    boolean compare(File file);
+}

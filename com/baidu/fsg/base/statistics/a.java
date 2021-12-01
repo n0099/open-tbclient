@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.Formatter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,15 +20,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38300a = "utf-8";
+    public static final String a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38301b = "c82c403505338808201aad86f8194734";
+    public static final String f34266b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -114,7 +111,7 @@ public class a {
 
     public static void a(Context context, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
@@ -148,7 +145,7 @@ public class a {
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             if (context == null) {
                 return false;
             }
@@ -159,20 +156,20 @@ public class a {
 
     public static String b(Context context) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-                j = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
+                j2 = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
                 try {
                     bufferedReader.close();
                 } catch (IOException unused) {
                 }
             } catch (IOException unused2) {
-                j = 0;
+                j2 = 0;
             }
-            return Formatter.formatFileSize(context, j);
+            return Formatter.formatFileSize(context, j2);
         }
         return (String) invokeL.objValue;
     }

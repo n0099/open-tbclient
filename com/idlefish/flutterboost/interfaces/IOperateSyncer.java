@@ -4,6 +4,8 @@ import android.content.Intent;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface IOperateSyncer {
+    boolean isLocked();
+
     void onActivityResult(int i2, int i3, Intent intent);
 
     void onAppear();

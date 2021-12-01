@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface SapiEnv {
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
     public static final String CHECK_USER_FACE_ID = "/v3/security/sapi/faceCheck";
@@ -21,6 +21,7 @@ public interface SapiEnv {
     public static final String GET_QR_LOGIN_STATUS_CHECK = "/channel/unicast";
     public static final String GET_STOKEN_URI = "/v3/login/api/auth/";
     public static final String GET_USER_INFO_URI = "/v2/sapi/center/getuinfo";
+    public static final String GET_VR_SMS_GUIDE = "/v3/api/util/vrsmsguide";
     public static final String HASH_TIMESTAMP_URL = "https://openapi.baidu.com/oauth/2.0/token";
     public static final String LOAD_ONE_KEY_LOGIN = "/v3/login/onekeylogin";
     public static final String LOGIN_URI = "/v2/sapi/login";
@@ -29,8 +30,9 @@ public interface SapiEnv {
     public static final String ONE_KEY_LOGIN_ABILITY = "/v3/login/api/ability";
     public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin";
     public static final String QUERY_CONTACTS_DATA = "/v3/ucenter/contacts/get";
-    public static final String SAPI_CONFIG_HTTPS_URI = "/static/appsapi/conf/android-conf.txt";
+    public static final String SAPI_CONFIG_HTTPS_URI = "/v8/sdkconfig/init";
     public static final String SAPI_CONFIG_URI = "/static/appsapi/conf/android-conf.txt";
+    public static final String SHARE_LOGIN_GET_ONLINE_APP = "/v3/api/device/getonlineapp";
     public static final String SOCIAL_AFTER_AUTH_URI = "/phoenix/account/afterauth";
     public static final String SOCIAL_FINISH_AUTH_URI = "/phoenix/account/finishbind";
     public static final String SOCIAL_START_URI = "/phoenix/account/startlogin";

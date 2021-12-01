@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.ugc.editvideo.data.Div;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BitmapType {
     public static final /* synthetic */ BitmapType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -260,13 +259,13 @@ public class BitmapType {
     public static BitmapType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (BitmapType) Enum.valueOf(BitmapType.class, str) : (BitmapType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (BitmapType) Enum.valueOf(BitmapType.class, str) : (BitmapType) invokeL.objValue;
     }
 
     public static BitmapType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (BitmapType[]) $VALUES.clone() : (BitmapType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (BitmapType[]) $VALUES.clone() : (BitmapType[]) invokeV.objValue;
     }
 
     public NinePatchChunk createChunk(Bitmap bitmap) {

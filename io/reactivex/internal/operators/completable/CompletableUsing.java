@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CompletableUsing<R> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class CompletableUsing<R> extends Completable {
     public final boolean eager;
     public final Callable<R> resourceSupplier;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UsingObserver<R> extends AtomicReference<Object> implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -674404550052917487L;
@@ -37,7 +37,7 @@ public final class CompletableUsing<R> extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73411d;
+        public Disposable f63972d;
         public final Consumer<? super R> disposer;
         public final boolean eager;
 
@@ -68,8 +68,8 @@ public final class CompletableUsing<R> extends Completable {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73411d.dispose();
-                this.f73411d = DisposableHelper.DISPOSED;
+                this.f63972d.dispose();
+                this.f63972d = DisposableHelper.DISPOSED;
                 disposeResourceAfter();
             }
         }
@@ -92,14 +92,14 @@ public final class CompletableUsing<R> extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73411d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63972d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f73411d = DisposableHelper.DISPOSED;
+                this.f63972d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -125,7 +125,7 @@ public final class CompletableUsing<R> extends Completable {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.f73411d = DisposableHelper.DISPOSED;
+                this.f63972d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -149,8 +149,8 @@ public final class CompletableUsing<R> extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f73411d, disposable)) {
-                this.f73411d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f63972d, disposable)) {
+                this.f63972d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

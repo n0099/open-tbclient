@@ -7,12 +7,10 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f68581a = a();
+    public static Map<String, String> a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f68582b = new ArrayList(f68581a.keySet());
+    public static final List<String> f60545b = new ArrayList(a.keySet());
 
     public static String a(String str) {
         String str2;
@@ -22,8 +20,8 @@ public class a {
         try {
             if (str.length() > 3) {
                 String substring = str.substring(0, 3);
-                if (f68581a.containsKey(substring)) {
-                    String str3 = f68581a.get(substring);
+                if (a.containsKey(substring)) {
+                    String str3 = a.get(substring);
                     str2 = str.substring(3, str.length());
                     try {
                         char[] cArr = new char[str2.length() / 2];
@@ -40,7 +38,7 @@ public class a {
                         }
                         return new String(String.valueOf(cArr).getBytes("iso-8859-1"), "UTF-8");
                     } catch (Exception unused) {
-                        b.j.a.a.a.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
+                        c.k.a.a.a.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
                         return str;
                     }
                 }
@@ -53,35 +51,35 @@ public class a {
     }
 
     public static Map<String, String> a() {
-        if (a(f68581a)) {
+        if (a(a)) {
             synchronized (a.class) {
-                if (a(f68581a)) {
+                if (a(a)) {
                     TreeMap treeMap = new TreeMap();
-                    f68581a = treeMap;
+                    a = treeMap;
                     treeMap.put("UCI", "v9tC0Myz1MGwXRFy");
-                    f68581a.put("G3G", "XAsFqhhaf4gKpmAi");
-                    f68581a.put("V5R", "cOqH18NXwBtZVkvz");
-                    f68581a.put("0XC", "IgSEKZ3Ea6Pm4woS");
-                    f68581a.put("Z9K", "pH6J9DMPNgqQp8m8");
-                    f68581a.put("EIM", "K11Rs9HAKRXeNwq8");
-                    f68581a.put("SO7", "T8LquL1DvwVcogiU");
-                    f68581a.put("DDI", "d02F6ttOtV05MYCQ");
-                    f68581a.put("ULY", "ToZZIhAywnUfHShN");
-                    f68581a.put("0EV", "r5D5RRwQhfV0AYLb");
-                    f68581a.put("N6A", "QAtSBFcXnQoUgHO2");
-                    f68581a.put("S5Q", "sDWLrZINnum227am");
-                    f68581a.put("RA5", "4Uq3Ruxo1FTBdHQE");
-                    f68581a.put("J04", "N5hViUTdLCpN59H0");
-                    f68581a.put("B68", "EY3sH1KKtalg5ZaT");
-                    f68581a.put("9IW", "q1u0MiuFyim4pCYY");
-                    f68581a.put("UU3", "syLnkkd8AqNykVV7");
-                    f68581a.put("Z49", "V00FiWu124yE91sH");
-                    f68581a.put("BNA", "rPP7AK1VWpKEry3p");
-                    f68581a.put("WXG", "om8w5ahkJJgpAH9v");
+                    a.put("G3G", "XAsFqhhaf4gKpmAi");
+                    a.put("V5R", "cOqH18NXwBtZVkvz");
+                    a.put("0XC", "IgSEKZ3Ea6Pm4woS");
+                    a.put("Z9K", "pH6J9DMPNgqQp8m8");
+                    a.put("EIM", "K11Rs9HAKRXeNwq8");
+                    a.put("SO7", "T8LquL1DvwVcogiU");
+                    a.put("DDI", "d02F6ttOtV05MYCQ");
+                    a.put("ULY", "ToZZIhAywnUfHShN");
+                    a.put("0EV", "r5D5RRwQhfV0AYLb");
+                    a.put("N6A", "QAtSBFcXnQoUgHO2");
+                    a.put("S5Q", "sDWLrZINnum227am");
+                    a.put("RA5", "4Uq3Ruxo1FTBdHQE");
+                    a.put("J04", "N5hViUTdLCpN59H0");
+                    a.put("B68", "EY3sH1KKtalg5ZaT");
+                    a.put("9IW", "q1u0MiuFyim4pCYY");
+                    a.put("UU3", "syLnkkd8AqNykVV7");
+                    a.put("Z49", "V00FiWu124yE91sH");
+                    a.put("BNA", "rPP7AK1VWpKEry3p");
+                    a.put("WXG", "om8w5ahkJJgpAH9v");
                 }
             }
         }
-        return f68581a;
+        return a;
     }
 
     public static <K, V> boolean a(Map<K, V> map) {

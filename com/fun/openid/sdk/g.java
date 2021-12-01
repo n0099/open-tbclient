@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.fun.openid.sdk.g;
 import com.fun.openid.sdk.v;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f63799a;
+    public boolean a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -31,17 +29,17 @@ public class g implements f {
                 return;
             }
         }
-        this.f63799a = false;
+        this.a = false;
     }
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, final f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.f63799a) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.a) {
             return;
         }
         v vVar = new v();
-        v.a aVar2 = new v.a() { // from class: b.f.f0.a.b
+        v.a aVar2 = new v.a() { // from class: c.g.f0.a.b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,13 +51,13 @@ public class g implements f {
                 }
             }
         };
-        vVar.f63825a = context;
-        vVar.f63828d = aVar2;
-        vVar.f63827c = new u(vVar);
+        vVar.a = context;
+        vVar.f55779d = aVar2;
+        vVar.f55778c = new u(vVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = vVar.f63825a.bindService(intent, vVar.f63827c, 1) ? (char) 1 : (char) 65535;
-        this.f63799a = true;
+        char c2 = vVar.a.bindService(intent, vVar.f55778c, 1) ? (char) 1 : (char) 65535;
+        this.a = true;
         if (c2 != 1) {
             aVar.a(true, null);
         }
@@ -81,15 +79,15 @@ public class g implements f {
         if (interceptable == null || interceptable.invokeLLL(65537, this, aVar, str, vVar) == null) {
             vVar.getClass();
             try {
-                tVar2 = vVar.f63826b;
+                tVar2 = vVar.f55777b;
             } catch (RemoteException unused) {
             }
             if (tVar2 != null) {
                 z = tVar2.a();
                 if (!z) {
-                    if (vVar.f63825a != null) {
+                    if (vVar.a != null) {
                         try {
-                            tVar = vVar.f63826b;
+                            tVar = vVar.f55777b;
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
@@ -106,16 +104,16 @@ public class g implements f {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                 }
-                vVar.f63825a.unbindService(vVar.f63827c);
-                vVar.f63826b = null;
-                this.f63799a = false;
+                vVar.a.unbindService(vVar.f55778c);
+                vVar.f55777b = null;
+                this.a = false;
             }
             z = false;
             if (!z) {
             }
-            vVar.f63825a.unbindService(vVar.f63827c);
-            vVar.f63826b = null;
-            this.f63799a = false;
+            vVar.a.unbindService(vVar.f55778c);
+            vVar.f55777b = null;
+            this.a = false;
         }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.searchbox.fluency.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SharedPrefsUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.fluency.utils.SharedPrefsUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FpsPreferences extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FLUENCY_FPS_PREF_NAME = "com.baidu.searchbox.fluency.fps.pref";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final FpsPreferences INSTANCE;
@@ -132,16 +131,16 @@ public class SharedPrefsUtil {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) ? getFpsPreference().getInt(str, i2) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j) {
+    public static long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, str, j)) == null) ? getFpsPreference().getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j2)) == null) ? getFpsPreference().getLong(str, j2) : invokeLJ.longValue;
     }
 
     public static String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) ? getFpsPreference().getString(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? getFpsPreference().getString(str, str2) : (String) invokeLL.objValue;
     }
 
     public static void putBoolean(String str, boolean z) {
@@ -158,10 +157,10 @@ public class SharedPrefsUtil {
         }
     }
 
-    public static void putLong(String str, long j) {
+    public static void putLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65545, null, str, j) == null) {
-            getFpsPreference().putLong(str, j);
+        if (interceptable == null || interceptable.invokeLJ(65545, null, str, j2) == null) {
+            getFpsPreference().putLong(str, j2);
         }
     }
 

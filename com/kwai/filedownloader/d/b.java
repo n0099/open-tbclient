@@ -1,173 +1,126 @@
 package com.kwai.filedownloader.d;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.kwai.filedownloader.e.c;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.RandomAccessFile;
 /* loaded from: classes2.dex */
-public class b implements Parcelable {
+public class b implements com.kwai.filedownloader.d.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BufferedOutputStream a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, List<String>> f67776a;
+    /* renamed from: b  reason: collision with root package name */
+    public final FileDescriptor f59908b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1185710495, "Lcom/kwai/filedownloader/d/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* renamed from: c  reason: collision with root package name */
+    public final RandomAccessFile f59909c;
+
+    /* loaded from: classes2.dex */
+    public static class a implements c.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1185710495, "Lcom/kwai/filedownloader/d/b;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<b>() { // from class: com.kwai.filedownloader.d.b.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
-            public b createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new b(parcel) : (b) invokeL.objValue;
-            }
+        @Override // com.kwai.filedownloader.e.c.e
+        public com.kwai.filedownloader.d.a a(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? new b(file) : (com.kwai.filedownloader.d.a) invokeL.objValue;
+        }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            /* renamed from: a */
-            public b[] newArray(int i2) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new b[i2] : (b[]) invokeI.objValue;
+        @Override // com.kwai.filedownloader.e.c.e
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
             }
-        };
-    }
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            return invokeV.booleanValue;
         }
     }
 
-    public b(Parcel parcel) {
+    public b(File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {file};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f67776a = parcel.readHashMap(String.class.getClassLoader());
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        this.f59909c = randomAccessFile;
+        this.f59908b = randomAccessFile.getFD();
+        this.a = new BufferedOutputStream(new FileOutputStream(this.f59909c.getFD()));
     }
 
-    public HashMap<String, List<String>> a() {
-        InterceptResult invokeV;
+    @Override // com.kwai.filedownloader.d.a
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67776a : (HashMap) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        HashMap<String, List<String>> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (hashMap = this.f67776a) == null) {
-            return;
-        }
-        hashMap.remove(str);
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            if (str == null) {
-                throw new NullPointerException("name == null");
-            }
-            if (str.isEmpty()) {
-                throw new IllegalArgumentException("name is empty");
-            }
-            if (str2 == null) {
-                throw new NullPointerException("value == null");
-            }
-            if (this.f67776a == null) {
-                this.f67776a = new HashMap<>();
-            }
-            List<String> list = this.f67776a.get(str);
-            if (list == null) {
-                list = new ArrayList<>();
-                this.f67776a.put(str, list);
-            }
-            if (list.contains(str2)) {
-                return;
-            }
-            list.add(str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.flush();
+            this.f59908b.sync();
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    @Override // com.kwai.filedownloader.d.a
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f59909c.seek(j2);
         }
-        return invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.kwai.filedownloader.d.a
+    public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67776a.toString() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
+            this.a.write(bArr, i2, i3);
+        }
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    @Override // com.kwai.filedownloader.d.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeMap(this.f67776a);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.close();
+            this.f59909c.close();
+        }
+    }
+
+    @Override // com.kwai.filedownloader.d.a
+    public void b(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.f59909c.setLength(j2);
         }
     }
 }

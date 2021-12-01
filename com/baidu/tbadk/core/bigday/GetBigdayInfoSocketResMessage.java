@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
-import b.a.e.f.d.l;
-import b.a.q0.s.n.a;
+import c.a.d.f.d.l;
+import c.a.q0.s.n.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            b.a.q0.s.r.a.f();
-            l<byte[]> d2 = b.a.q0.s.r.a.d("tb.bigday_datas");
+            c.a.q0.s.r.a.f();
+            l<byte[]> d2 = c.a.q0.s.r.a.d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }

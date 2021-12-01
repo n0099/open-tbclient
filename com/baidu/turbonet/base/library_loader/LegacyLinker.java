@@ -11,25 +11,25 @@ import com.baidu.turbonet.base.ThreadUtils;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LegacyLinker extends Linker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f57313e;
+        public final /* synthetic */ long f51289e;
 
-        public a(long j) {
+        public a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -39,14 +39,14 @@ public class LegacyLinker extends Linker {
                     return;
                 }
             }
-            this.f57313e = j;
+            this.f51289e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LegacyLinker.nativeRunCallbackOnUiThread(this.f57313e);
+                LegacyLinker.nativeRunCallbackOnUiThread(this.f51289e);
             }
         }
     }
@@ -80,21 +80,21 @@ public class LegacyLinker extends Linker {
         }
     }
 
-    public static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
+    public static native boolean nativeCreateSharedRelro(String str, long j2, Linker.LibInfo libInfo);
 
-    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibrary(String str, long j2, Linker.LibInfo libInfo);
 
-    public static native boolean nativeLoadLibraryInZipFile(@Nullable String str, String str2, long j, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibraryInZipFile(@Nullable String str, String str2, long j2, Linker.LibInfo libInfo);
 
-    public static native void nativeRunCallbackOnUiThread(long j);
+    public static native void nativeRunCallbackOnUiThread(long j2);
 
     public static native boolean nativeUseSharedRelro(String str, Linker.LibInfo libInfo);
 
     @CalledByNative
-    public static void postCallbackOnMainThread(long j) {
+    public static void postCallbackOnMainThread(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
-            ThreadUtils.b(new a(j));
+        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
+            ThreadUtils.b(new a(j2));
         }
     }
 }

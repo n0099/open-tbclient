@@ -16,11 +16,9 @@ public final class BrowserType {
     public static final BrowserType Sys;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BrowserType[] f68742b;
+    public static final /* synthetic */ BrowserType[] f60684b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f68743a;
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +37,7 @@ public final class BrowserType {
         Inner = new BrowserType("Inner", 1, 1);
         BrowserType browserType = new BrowserType("Sys", 2, 2);
         Sys = browserType;
-        f68742b = new BrowserType[]{Default, Inner, browserType};
+        f60684b = new BrowserType[]{Default, Inner, browserType};
     }
 
     public BrowserType(String str, int i2, int i3) {
@@ -60,7 +58,7 @@ public final class BrowserType {
                 return;
             }
         }
-        this.f68743a = i3;
+        this.a = i3;
     }
 
     public static BrowserType valueOf(String str) {
@@ -72,12 +70,12 @@ public final class BrowserType {
     public static BrowserType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f68742b.clone() : (BrowserType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f60684b.clone() : (BrowserType[]) invokeV.objValue;
     }
 
     public int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68743a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

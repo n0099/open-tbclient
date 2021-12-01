@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class y extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f39925a;
+    public final /* synthetic */ x a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
@@ -35,7 +33,7 @@ public class y extends Handler {
                 return;
             }
         }
-        this.f39925a = xVar;
+        this.a = xVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009d -> B:44:0x00a0). Please submit an issue!!! */
@@ -44,7 +42,7 @@ public class y extends Handler {
         com.baidu.location.c.a c2;
         com.baidu.location.c.h n;
         Location d2;
-        String a2;
+        String a;
         Handler handler;
         Handler handler2;
         Interceptable interceptable = $ic;
@@ -56,12 +54,12 @@ public class y extends Handler {
                         c2 = t.c();
                         n = com.baidu.location.c.i.a().n();
                         d2 = t.d();
-                        a2 = t.a();
+                        a = t.a();
                     } else if (i2 == 3) {
                         c2 = t.c();
                         n = null;
                         d2 = t.d();
-                        a2 = a.a().c();
+                        a = a.a().c();
                     } else if (i2 != 4) {
                         if (i2 == 7) {
                             w.a().c();
@@ -80,13 +78,13 @@ public class y extends Handler {
                         if (i3) {
                             h.a().d();
                         }
-                        handler = this.f39925a.f39923d;
+                        handler = this.a.f35608d;
                         if (handler != null) {
-                            handler2 = this.f39925a.f39923d;
+                            handler2 = this.a.f35608d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }
-                    w.a(c2, n, d2, a2);
+                    w.a(c2, n, d2, a);
                     return;
                 }
                 Bundle data = message.getData();

@@ -14,20 +14,20 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableIgnoreElementsCompletable<T> extends Completable implements FuseToObservable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class IgnoreObservable<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73454d;
+        public Disposable f64015d;
 
         public IgnoreObservable(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73454d.dispose();
+                this.f64015d.dispose();
             }
         }
 
@@ -59,7 +59,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73454d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64015d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -89,7 +89,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                this.f73454d = disposable;
+                this.f64015d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

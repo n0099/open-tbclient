@@ -113,12 +113,12 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         public final int code;
         public final ByteString reason;
 
-        public Close(int i2, ByteString byteString, long j) {
+        public Close(int i2, ByteString byteString, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), byteString, Long.valueOf(j)};
+                Object[] objArr = {Integer.valueOf(i2), byteString, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -130,7 +130,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             }
             this.code = i2;
             this.reason = byteString;
-            this.cancelAfterCloseMillis = j;
+            this.cancelAfterCloseMillis = j2;
         }
     }
 
@@ -239,12 +239,12 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         ONLY_HTTP1 = Collections.singletonList(Protocol.HTTP_1_1);
     }
 
-    public RealWebSocket(Request request, WebSocketListener webSocketListener, Random random, long j) {
+    public RealWebSocket(Request request, WebSocketListener webSocketListener, Random random, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {request, webSocketListener, random, Long.valueOf(j)};
+            Object[] objArr = {request, webSocketListener, random, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -261,7 +261,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             this.originalRequest = request;
             this.listener = webSocketListener;
             this.random = random;
-            this.pingIntervalMillis = j;
+            this.pingIntervalMillis = j2;
             byte[] bArr = new byte[16];
             random.nextBytes(bArr);
             this.key = ByteString.of(bArr).base64();
@@ -586,13 +586,13 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     @Override // okhttp3.WebSocket
     public synchronized long queueSize() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                j = this.queueSize;
+                j2 = this.queueSize;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -763,10 +763,10 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    public synchronized boolean close(int i2, String str, long j) {
+    public synchronized boolean close(int i2, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 WebSocketProtocol.validateCloseCode(i2);
                 ByteString byteString = null;
@@ -778,7 +778,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 }
                 if (!this.failed && !this.enqueuedClose) {
                     this.enqueuedClose = true;
-                    this.messageAndCloseQueue.add(new Close(i2, byteString, j));
+                    this.messageAndCloseQueue.add(new Close(i2, byteString, j2));
                     runWriter();
                     return true;
                 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -73,11 +73,11 @@ public class e extends j {
     private void a(Quaternion quaternion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, quaternion) == null) {
-            Quaternion m13clone = quaternion.m13clone();
-            m13clone.w(-m13clone.w());
+            Quaternion m33clone = quaternion.m33clone();
+            m33clone.w(-m33clone.w());
             synchronized (this.sy) {
                 this.sB.copyVec4(quaternion);
-                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m13clone.toArray());
+                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m33clone.toArray());
                 int i2 = this.rB + 1;
                 this.rB = i2;
                 if (i2 > 20) {
@@ -146,9 +146,9 @@ public class e extends j {
             } else if (sensorEvent.sensor.getType() == 4) {
                 synchronized (this.sw) {
                     if (this.sx.booleanValue()) {
-                        long j = this.timestamp;
-                        if (j != 0) {
-                            float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
+                        long j2 = this.timestamp;
+                        if (j2 != 0) {
+                            float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
                             float[] fArr2 = sensorEvent.values;
                             float f3 = fArr2[0];
                             float f4 = fArr2[1];

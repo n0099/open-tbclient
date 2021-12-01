@@ -34,19 +34,17 @@ public class a implements j {
     public void b(DownloadInfo downloadInfo, @NonNull com.ss.android.downloadlib.guide.install.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, downloadInfo, aVar) == null) {
-            com.ss.android.downloadad.api.a.b a2 = f.a().a(downloadInfo);
-            boolean a3 = com.ss.android.downloadlib.b.f.a(a2);
-            boolean b2 = com.ss.android.downloadlib.b.f.b(a2);
-            if (a3 && b2) {
-                com.ss.android.downloadlib.b.c.a(a2, new com.ss.android.downloadlib.guide.install.a(this, aVar) { // from class: com.ss.android.downloadlib.f.a.3
+            com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
+            boolean a2 = com.ss.android.downloadlib.b.f.a(a);
+            boolean b2 = com.ss.android.downloadlib.b.f.b(a);
+            if (a2 && b2) {
+                com.ss.android.downloadlib.b.c.a(a, new com.ss.android.downloadlib.guide.install.a(this, aVar) { // from class: com.ss.android.downloadlib.f.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f69722a;
+                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f69723b;
+                    public final /* synthetic */ a f61402b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -63,15 +61,15 @@ public class a implements j {
                                 return;
                             }
                         }
-                        this.f69723b = this;
-                        this.f69722a = aVar;
+                        this.f61402b = this;
+                        this.a = aVar;
                     }
 
                     @Override // com.ss.android.downloadlib.guide.install.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f69722a.a();
+                            this.a.a();
                         }
                     }
                 });
@@ -88,12 +86,10 @@ public class a implements j {
             a(downloadInfo, new com.ss.android.downloadlib.guide.install.a(this, iVar) { // from class: com.ss.android.downloadlib.f.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ i f69717a;
+                public final /* synthetic */ i a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f69718b;
+                public final /* synthetic */ a f61399b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -110,15 +106,15 @@ public class a implements j {
                             return;
                         }
                     }
-                    this.f69718b = this;
-                    this.f69717a = iVar;
+                    this.f61399b = this;
+                    this.a = iVar;
                 }
 
                 @Override // com.ss.android.downloadlib.guide.install.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69717a.a();
+                        this.a.a();
                     }
                 }
             });
@@ -128,20 +124,18 @@ public class a implements j {
     public void a(DownloadInfo downloadInfo, @NonNull com.ss.android.downloadlib.guide.install.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, downloadInfo, aVar) == null) {
-            com.ss.android.downloadad.api.a.b a2 = f.a().a(downloadInfo);
-            if (a2 != null && com.ss.android.downloadlib.b.i.a(a2)) {
-                TTDelegateActivity.a(a2, new com.ss.android.downloadlib.guide.install.a(this, downloadInfo, aVar) { // from class: com.ss.android.downloadlib.f.a.2
+            com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
+            if (a != null && com.ss.android.downloadlib.b.i.a(a)) {
+                TTDelegateActivity.a(a, new com.ss.android.downloadlib.guide.install.a(this, downloadInfo, aVar) { // from class: com.ss.android.downloadlib.f.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f69719a;
+                    public final /* synthetic */ DownloadInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f69720b;
+                    public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61400b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f69721c;
+                    public final /* synthetic */ a f61401c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -158,16 +152,16 @@ public class a implements j {
                                 return;
                             }
                         }
-                        this.f69721c = this;
-                        this.f69719a = downloadInfo;
-                        this.f69720b = aVar;
+                        this.f61401c = this;
+                        this.a = downloadInfo;
+                        this.f61400b = aVar;
                     }
 
                     @Override // com.ss.android.downloadlib.guide.install.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f69721c.b(this.f69719a, this.f69720b);
+                            this.f61401c.b(this.a, this.f61400b);
                         }
                     }
                 });

@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.fun.ad.sdk.FunAdSdk;
+/* loaded from: classes9.dex */
 public class MultipartHashMapWrap extends MultipartHashMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class MultipartHashMapWrap extends MultipartHashMap {
     public void doSign(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            put("sig", SapiUtils.calculateSig(getMap(), str));
+            put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
         }
     }
 }

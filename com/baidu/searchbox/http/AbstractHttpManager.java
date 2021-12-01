@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.DeleteRequest;
@@ -38,7 +37,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpManager";
@@ -153,7 +152,7 @@ public abstract class AbstractHttpManager {
 
     private void cancleTagByCall(Call call, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, call, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, call, obj) == null) {
             if (obj.equals(call.request().tag())) {
                 call.cancel();
             } else if ((call.request().tag() instanceof HttpRequest) && obj.equals(((HttpRequest) call.request().tag()).tag())) {
@@ -165,7 +164,7 @@ public abstract class AbstractHttpManager {
     public static String getClientIP() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sClientIP : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sClientIP : (String) invokeV.objValue;
     }
 
     public static ProductUserAgentHandler getProductUserAgent() {

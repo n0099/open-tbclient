@@ -1,9 +1,8 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.math.BigInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedLong extends Number implements Comparable<UnsignedLong>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UnsignedLong MAX_VALUE;
@@ -41,12 +40,12 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         MAX_VALUE = new UnsignedLong(-1L);
     }
 
-    public UnsignedLong(long j) {
+    public UnsignedLong(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,21 +55,21 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
                 return;
             }
         }
-        this.value = j;
+        this.value = j2;
     }
 
-    public static UnsignedLong fromLongBits(long j) {
+    public static UnsignedLong fromLongBits(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new UnsignedLong(j) : (UnsignedLong) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new UnsignedLong(j2) : (UnsignedLong) invokeJ.objValue;
     }
 
-    public static UnsignedLong valueOf(long j) {
+    public static UnsignedLong valueOf(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            n.h(j >= 0, "value (%s) is outside the range for an unsigned long value", j);
-            return fromLongBits(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
+            n.h(j2 >= 0, "value (%s) is outside the range for an unsigned long value", j2);
+            return fromLongBits(j2);
         }
         return (UnsignedLong) invokeJ.objValue;
     }
@@ -89,9 +88,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unsignedLong)) == null) {
-            long j = this.value;
+            long j2 = this.value;
             n.p(unsignedLong);
-            return fromLongBits(UnsignedLongs.b(j, unsignedLong.value));
+            return fromLongBits(UnsignedLongs.b(j2, unsignedLong.value));
         }
         return (UnsignedLong) invokeL.objValue;
     }
@@ -101,9 +100,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j = this.value;
-            double d2 = Long.MAX_VALUE & j;
-            return j < 0 ? d2 + 9.223372036854776E18d : d2;
+            long j2 = this.value;
+            double d2 = Long.MAX_VALUE & j2;
+            return j2 < 0 ? d2 + 9.223372036854776E18d : d2;
         }
         return invokeV.doubleValue;
     }
@@ -119,9 +118,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = this.value;
-            float f2 = (float) (Long.MAX_VALUE & j);
-            return j < 0 ? f2 + 9.223372E18f : f2;
+            long j2 = this.value;
+            float f2 = (float) (Long.MAX_VALUE & j2);
+            return j2 < 0 ? f2 + 9.223372E18f : f2;
         }
         return invokeV.floatValue;
     }
@@ -150,9 +149,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, unsignedLong)) == null) {
-            long j = this.value;
+            long j2 = this.value;
             n.p(unsignedLong);
-            return fromLongBits(j - unsignedLong.value);
+            return fromLongBits(j2 - unsignedLong.value);
         }
         return (UnsignedLong) invokeL.objValue;
     }
@@ -161,9 +160,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, unsignedLong)) == null) {
-            long j = this.value;
+            long j2 = this.value;
             n.p(unsignedLong);
-            return fromLongBits(UnsignedLongs.e(j, unsignedLong.value));
+            return fromLongBits(UnsignedLongs.e(j2, unsignedLong.value));
         }
         return (UnsignedLong) invokeL.objValue;
     }
@@ -172,9 +171,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, unsignedLong)) == null) {
-            long j = this.value;
+            long j2 = this.value;
             n.p(unsignedLong);
-            return fromLongBits(j + unsignedLong.value);
+            return fromLongBits(j2 + unsignedLong.value);
         }
         return (UnsignedLong) invokeL.objValue;
     }
@@ -183,9 +182,9 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, unsignedLong)) == null) {
-            long j = this.value;
+            long j2 = this.value;
             n.p(unsignedLong);
-            return fromLongBits(j * unsignedLong.value);
+            return fromLongBits(j2 * unsignedLong.value);
         }
         return (UnsignedLong) invokeL.objValue;
     }
@@ -217,7 +216,7 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
     public static UnsignedLong valueOf(BigInteger bigInteger) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bigInteger)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bigInteger)) == null) {
             n.p(bigInteger);
             n.k(bigInteger.signum() >= 0 && bigInteger.bitLength() <= 64, "value (%s) is outside the range for an unsigned long value", bigInteger);
             return fromLongBits(bigInteger.longValue());
@@ -234,6 +233,6 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
     public static UnsignedLong valueOf(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) ? fromLongBits(UnsignedLongs.d(str, i2)) : (UnsignedLong) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) ? fromLongBits(UnsignedLongs.d(str, i2)) : (UnsignedLong) invokeLI.objValue;
     }
 }

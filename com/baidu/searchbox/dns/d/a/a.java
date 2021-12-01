@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class a {
     public String T;
     public List<String> m;
 
-    public a(String str, int i2, String str2, long j, List<String> list, List<String> list2) {
+    public a(String str, int i2, String str2, long j2, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j), list, list2};
+            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j2), list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -48,7 +48,7 @@ public class a {
         this.C = str;
         this.B = i2;
         this.R = str2;
-        this.D = j;
+        this.D = j2;
         this.m = list;
         this.S = list2;
         this.T = z();

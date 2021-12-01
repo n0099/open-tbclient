@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Throwables;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PooledByteBufferOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

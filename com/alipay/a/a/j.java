@@ -1,5 +1,5 @@
 package com.alipay.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface j {
     Object a(Object obj);
 

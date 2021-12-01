@@ -1,191 +1,53 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.api.core.fragment.FileProvider;
-import java.io.File;
+import java.util.Map;
 /* loaded from: classes2.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, com.kwad.sdk.core.download.a.b> a;
 
-    public static String a(String str) {
+    /* renamed from: b  reason: collision with root package name */
+    public Map<String, com.kwad.sdk.core.webview.kwai.c> f59594b;
+
+    public com.kwad.sdk.core.download.a.b a(String str) {
         InterceptResult invokeL;
-        PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (!new File(str).exists()) {
-                com.kwad.sdk.core.d.a.d("PackageUtil", "cannot save package, download apk is not exists.");
-                return null;
-            }
-            Context context = KsAdSDKImpl.get().getContext();
-            if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
-                return null;
-            }
-            return packageArchiveInfo.applicationInfo.packageName;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (com.kwad.sdk.core.download.a.b) invokeL.objValue;
     }
 
-    public static void a(String str, String str2) {
-        String str3;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            com.kwad.sdk.core.d.a.d("PackageUtil", "saveDownloadFile " + str2);
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                str3 = "cannot save package, has no download apk info.";
-            } else {
-                File file = new File(str);
-                if (file.exists()) {
-                    Context context = KsAdSDKImpl.get().getContext();
-                    if (context == null) {
-                        return;
-                    }
-                    am.b(context, str2, file.length());
-                    try {
-                        am.a(context, str2, c.b(file));
-                        return;
-                    } catch (Exception e2) {
-                        com.kwad.sdk.core.d.a.a(e2);
-                        return;
-                    }
-                }
-                str3 = "cannot save package, download apk is not exists.";
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (com.kwad.sdk.core.download.a.b bVar : this.a.values()) {
+                bVar.j();
             }
-            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
+            this.a.clear();
+            this.f59594b.clear();
         }
     }
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public void a(String str, com.kwad.sdk.core.download.a.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(str, 0) != null;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
+            this.a.put(str, bVar);
         }
-        return invokeLL.booleanValue;
     }
 
-    public static int b(@Nullable Context context, String str) {
-        InterceptResult invokeLL;
+    public void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (context == null || str == null || ContextCompat.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") != 0) {
-                return -1;
-            }
-            String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            File file = new File(absolutePath + "/Android/data/" + str);
-            return (file.exists() && file.isDirectory()) ? 1 : 0;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cVar) == null) {
+            this.f59594b.put(str, cVar);
         }
-        return invokeLL.intValue;
     }
 
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        ApplicationInfo applicationInfo;
+    public com.kwad.sdk.core.webview.kwai.c b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            com.kwad.sdk.core.d.a.d("PackageUtil", "isPackageChanged " + str + " packageName " + str2);
-            Context context = KsAdSDKImpl.get().getContext();
-            if (context == null) {
-                return 0;
-            }
-            long b2 = am.b(context, str);
-            String c2 = am.c(context, str);
-            if (TextUtils.isEmpty(c2) || b2 <= 0) {
-                str3 = "cannot judge package, has no download apk info.";
-            } else {
-                try {
-                    PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str2, 0);
-                    if (TextUtils.isEmpty(str2) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
-                        str3 = "cannot judge package, cannot get installed apk info.";
-                    } else {
-                        File file = new File(packageInfo.applicationInfo.publicSourceDir);
-                        if (!file.exists()) {
-                            str3 = "cannot judge package, insgtalled apk is not exists.";
-                        } else if (b2 != file.length()) {
-                            return 1;
-                        } else {
-                            if (TextUtils.isEmpty(c2)) {
-                                str3 = "cannot judge package, cannot calculate md5 of download file.";
-                            } else {
-                                String b3 = c.b(file);
-                                if (!TextUtils.isEmpty(b3)) {
-                                    return c2.equalsIgnoreCase(b3) ? 2 : 1;
-                                }
-                                str3 = "cannot judge package, cannot calculate md5 of installed file.";
-                            }
-                        }
-                    }
-                } catch (PackageManager.NameNotFoundException e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    return 0;
-                }
-            }
-            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-                if (launchIntentForPackage == null) {
-                    return false;
-                }
-                launchIntentForPackage.setFlags(337641472);
-                context.startActivity(launchIntentForPackage);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) && context != null && !TextUtils.isEmpty(str)) {
-            try {
-                File file = new File(str);
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(268435456);
-                intent.addFlags(3);
-                Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
-                intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
-                for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 65536)) {
-                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 3);
-                }
-                context.startActivity(intent);
-            } catch (Exception unused) {
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f59594b.get(str) : (com.kwad.sdk.core.webview.kwai.c) invokeL.objValue;
     }
 }

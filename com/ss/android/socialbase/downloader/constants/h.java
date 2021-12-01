@@ -11,35 +11,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final h f70114a;
+    public static final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f70115b;
+    public static final h f61683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f70116c;
+    public static final h f61684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f70117d;
+    public static final h f61685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f70118e;
+    public static final h f61686e;
     @Deprecated
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f70119f;
+    public static final h f61687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f70120g;
+    public static final h f61688g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f70121h;
+    public static final h f61689h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f70122i;
-    public static final /* synthetic */ h[] j;
+    public static final h f61690i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final /* synthetic */ h[] f61691j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,17 +55,17 @@ public final class h {
                 return;
             }
         }
-        f70114a = new h("RUN_STATUS_NONE", 0);
-        f70115b = new h("RUN_STATUS_PAUSE", 1);
-        f70116c = new h("RUN_STATUS_CANCELED", 2);
-        f70117d = new h("RUN_STATUS_ERROR", 3);
-        f70118e = new h("RUN_STATUS_END_RIGHT_NOW", 4);
-        f70119f = new h("RUN_STATUS_RETRY_DELAY", 5);
-        f70120g = new h("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
-        f70121h = new h("RUN_STATUS_END_FOR_FILE_EXIST", 7);
+        a = new h("RUN_STATUS_NONE", 0);
+        f61683b = new h("RUN_STATUS_PAUSE", 1);
+        f61684c = new h("RUN_STATUS_CANCELED", 2);
+        f61685d = new h("RUN_STATUS_ERROR", 3);
+        f61686e = new h("RUN_STATUS_END_RIGHT_NOW", 4);
+        f61687f = new h("RUN_STATUS_RETRY_DELAY", 5);
+        f61688g = new h("RUN_STATUS_WAITING_ASYNC_HANDLER", 6);
+        f61689h = new h("RUN_STATUS_END_FOR_FILE_EXIST", 7);
         h hVar = new h("RUN_STATUS_ALL_CHUNK_RETRY_WITH_RESET", 8);
-        f70122i = hVar;
-        j = new h[]{f70114a, f70115b, f70116c, f70117d, f70118e, f70119f, f70120g, f70121h, hVar};
+        f61690i = hVar;
+        f61691j = new h[]{a, f61683b, f61684c, f61685d, f61686e, f61687f, f61688g, f61689h, hVar};
     }
 
     public h(String str, int i2) {
@@ -96,6 +96,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) j.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f61691j.clone() : (h[]) invokeV.objValue;
     }
 }

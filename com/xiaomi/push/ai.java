@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +14,10 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile ai f71576a;
+    public static volatile ai a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,7 +32,7 @@ public class ai {
     /* renamed from: a  reason: collision with other field name */
     public ScheduledThreadPoolExecutor f114a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,16 +52,14 @@ public class ai {
         }
 
         /* renamed from: a */
-        public abstract String mo187a();
+        public abstract String mo236a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public a f71577a;
+        public a a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +76,7 @@ public class ai {
                     return;
                 }
             }
-            this.f71577a = aVar;
+            this.a = aVar;
         }
 
         public void a() {
@@ -101,7 +96,7 @@ public class ai {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 a();
-                this.f71577a.run();
+                this.a.run();
                 b();
             }
         }
@@ -132,14 +127,14 @@ public class ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f71576a == null) {
+            if (a == null) {
                 synchronized (ai.class) {
-                    if (f71576a == null) {
-                        f71576a = new ai(context);
+                    if (a == null) {
+                        a = new ai(context);
                     }
                 }
             }
-            return f71576a;
+            return a;
         }
         return (ai) invokeL.objValue;
     }
@@ -157,9 +152,9 @@ public class ai {
         InterceptResult invokeL;
         ScheduledFuture scheduledFuture;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             synchronized (this.f112a) {
-                scheduledFuture = this.f113a.get(aVar.mo187a());
+                scheduledFuture = this.f113a.get(aVar.mo236a());
             }
             return scheduledFuture;
         }
@@ -181,7 +176,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m145a(a aVar) {
+    public boolean m194a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? b(aVar, 0) : invokeL.booleanValue;
@@ -206,7 +201,7 @@ public class ai {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            String a2 = a(aVar.mo187a());
+            String a2 = a(aVar.mo236a());
             aj ajVar = new aj(this, aVar, z, a2);
             if (!z) {
                 long abs = Math.abs(System.currentTimeMillis() - this.f111a.getLong(a2, 0L)) / 1000;
@@ -217,7 +212,7 @@ public class ai {
             try {
                 ScheduledFuture<?> scheduleAtFixedRate = this.f114a.scheduleAtFixedRate(ajVar, i3, i2, TimeUnit.SECONDS);
                 synchronized (this.f112a) {
-                    this.f113a.put(aVar.mo187a(), scheduleAtFixedRate);
+                    this.f113a.put(aVar.mo236a(), scheduleAtFixedRate);
                 }
                 return true;
             } catch (Exception e2) {
@@ -229,7 +224,7 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m146a(String str) {
+    public boolean m195a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -254,7 +249,7 @@ public class ai {
             }
             ScheduledFuture<?> schedule = this.f114a.schedule(new ak(this, aVar), i2, TimeUnit.SECONDS);
             synchronized (this.f112a) {
-                this.f113a.put(aVar.mo187a(), schedule);
+                this.f113a.put(aVar.mo236a(), schedule);
             }
             return true;
         }

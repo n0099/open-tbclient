@@ -10,12 +10,10 @@ import java.io.IOException;
 public class h implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final e f70256a;
+    public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f70257b;
+    public final e f61793b;
 
     public h(e eVar, e eVar2) {
         Interceptable interceptable = $ic;
@@ -32,16 +30,16 @@ public class h implements e {
                 return;
             }
         }
-        this.f70256a = eVar;
-        this.f70257b = eVar2;
+        this.a = eVar;
+        this.f61793b = eVar2;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.f70235b = this.f70257b;
-            this.f70256a.b(aVar);
+            aVar.f61770b = this.f61793b;
+            this.a.b(aVar);
         }
     }
 }

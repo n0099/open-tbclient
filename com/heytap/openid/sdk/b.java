@@ -24,29 +24,25 @@ import java.security.NoSuchAlgorithmException;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public volatile com.heytap.openid.a f64618a;
+    public volatile com.heytap.openid.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64619b;
+    public String f56534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64620c;
+    public String f56535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f64621d;
+    public final Object f56536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f64622e;
+    public ServiceConnection f56537e;
 
     /* loaded from: classes2.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f64623a;
+        public final /* synthetic */ b a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -63,16 +59,16 @@ public class b {
                     return;
                 }
             }
-            this.f64623a = bVar;
+            this.a = bVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f64623a.f64618a = a.AbstractBinderC1922a.a(iBinder);
-                synchronized (this.f64623a.f64621d) {
-                    this.f64623a.f64621d.notify();
+                this.a.a = a.AbstractBinderC1994a.a(iBinder);
+                synchronized (this.a.f56536d) {
+                    this.a.f56536d.notify();
                 }
             }
         }
@@ -81,18 +77,16 @@ public class b {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f64623a.f64618a = null;
+                this.a.a = null;
             }
         }
     }
 
     /* renamed from: com.heytap.openid.sdk.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1924b {
+    public static class C1996b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final b f64624a;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -108,7 +102,7 @@ public class b {
                     return;
                 }
             }
-            f64624a = new b();
+            a = new b();
         }
     }
 
@@ -125,11 +119,11 @@ public class b {
                 return;
             }
         }
-        this.f64618a = null;
-        this.f64619b = null;
-        this.f64620c = null;
-        this.f64621d = new Object();
-        this.f64622e = new a(this);
+        this.a = null;
+        this.f56534b = null;
+        this.f56535c = null;
+        this.f56536d = new Object();
+        this.f56537e = new a(this);
     }
 
     public synchronized String a(Context context, String str) {
@@ -138,7 +132,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             synchronized (this) {
                 String str2 = "getOpenID:" + str;
-                if (this.f64618a != null) {
+                if (this.a != null) {
                     try {
                         return b(context, str);
                     } catch (RemoteException unused) {
@@ -149,11 +143,11 @@ public class b {
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 try {
-                    if (context.bindService(intent, this.f64622e, 1) && this.f64618a == null) {
-                        synchronized (this.f64621d) {
+                    if (context.bindService(intent, this.f56537e, 1) && this.a == null) {
+                        synchronized (this.f56536d) {
                             try {
-                                if (this.f64618a == null) {
-                                    this.f64621d.wait(3000L);
+                                if (this.a == null) {
+                                    this.f56536d.wait(3000L);
                                 }
                             } catch (InterruptedException unused2) {
                             }
@@ -165,7 +159,7 @@ public class b {
                     sb.append(e2.getMessage() != null ? e2.getMessage() : e2.getLocalizedMessage());
                     sb.toString();
                 }
-                if (this.f64618a == null) {
+                if (this.a == null) {
                     return "";
                 }
                 try {
@@ -183,13 +177,13 @@ public class b {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f64619b)) {
-                this.f64619b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f56534b)) {
+                this.f56534b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f64620c)) {
+            if (TextUtils.isEmpty(this.f56535c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f64619b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f56534b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -210,10 +204,10 @@ public class b {
                         e3.printStackTrace();
                     }
                 }
-                this.f64620c = str2;
+                this.f56535c = str2;
             }
-            if (this.f64618a != null) {
-                String a2 = this.f64618a.a(this.f64619b, this.f64620c, str);
+            if (this.a != null) {
+                String a2 = this.a.a(this.f56534b, this.f56535c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             String str3 = context.getPackageName() + ":openIDService is NULL, return NULL";

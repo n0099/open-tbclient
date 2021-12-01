@@ -2,7 +2,6 @@ package com.googlecode.mp4parser;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +115,7 @@ public abstract class AbstractBox implements Box {
 
     private synchronized void readContent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             synchronized (this) {
                 if (!this.isRead) {
                     try {
@@ -136,7 +135,7 @@ public abstract class AbstractBox implements Box {
         InterceptResult invokeL;
         ByteBuffer byteBuffer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, byteBuffer)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(getContentSize() + (this.deadBytes != null ? byteBuffer2.limit() : 0)));
             getContent(allocate);
             ByteBuffer byteBuffer3 = this.deadBytes;
@@ -240,19 +239,19 @@ public abstract class AbstractBox implements Box {
     @Override // com.coremedia.iso.boxes.Box
     public long getSize() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!this.isRead) {
-                j = this.memMapSize;
+                j2 = this.memMapSize;
             } else if (this.isParsed) {
-                j = getContentSize();
+                j2 = getContentSize();
             } else {
                 ByteBuffer byteBuffer2 = this.content;
-                j = byteBuffer2 != null ? byteBuffer2.limit() : 0;
+                j2 = byteBuffer2 != null ? byteBuffer2.limit() : 0;
             }
-            return j + (j >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
+            return j2 + (j2 >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
         }
         return invokeV.longValue;
     }
@@ -280,15 +279,15 @@ public abstract class AbstractBox implements Box {
 
     @Override // com.coremedia.iso.boxes.Box
     @DoNotParseDetail
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             long position = dataSource.position();
             this.contentStartPosition = position;
             this.offset = position - byteBuffer.remaining();
-            this.memMapSize = j;
+            this.memMapSize = j2;
             this.dataSource = dataSource;
-            dataSource.position(dataSource.position() + j);
+            dataSource.position(dataSource.position() + j2);
             this.isRead = false;
             this.isParsed = false;
         }

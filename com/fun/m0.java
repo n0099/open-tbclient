@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
 import androidx.annotation.Nullable;
-import b.f.m0;
+import c.g.k0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,23 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class m0 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile NetworkInfo f63764a;
+    public static volatile NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<b> f63765b;
+    public static final HashSet<b> f55740b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +58,7 @@ public class m0 {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(@Nullable NetworkInfo networkInfo);
     }
@@ -80,7 +77,7 @@ public class m0 {
             }
         }
         a aVar = new a();
-        f63765b = new HashSet<>();
+        f55740b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -88,19 +85,19 @@ public class m0 {
     public static void a(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, intent) == null) {
-            if (intent == null || context.checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, Process.myPid(), Process.myUid()) != 0) {
-                f63764a = null;
+            if (intent == null || context.checkPermission("android.permission.ACCESS_NETWORK_STATE", Process.myPid(), Process.myUid()) != 0) {
+                a = null;
                 return;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                f63764a = null;
+                a = null;
                 return;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
-            f63764a = activeNetworkInfo;
-            HashSet<b> hashSet = f63765b;
+            a = activeNetworkInfo;
+            HashSet<b> hashSet = f55740b;
             synchronized (hashSet) {
                 Iterator<b> it = hashSet.iterator();
                 while (it.hasNext()) {
@@ -113,11 +110,11 @@ public class m0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet<b> hashSet = f63765b;
+            HashSet<b> hashSet = f55740b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
-            ((m0.b) bVar).a(f63764a);
+            ((k0.b) bVar).a(a);
         }
     }
 }

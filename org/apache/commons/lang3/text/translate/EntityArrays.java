@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.text.translate;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -92,13 +91,13 @@ public class EntityArrays {
     public static String[][] BASIC_UNESCAPE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (String[][]) BASIC_UNESCAPE.clone() : (String[][]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (String[][]) BASIC_UNESCAPE.clone() : (String[][]) invokeV.objValue;
     }
 
     public static String[][] HTML40_EXTENDED_ESCAPE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (String[][]) HTML40_EXTENDED_ESCAPE.clone() : (String[][]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (String[][]) HTML40_EXTENDED_ESCAPE.clone() : (String[][]) invokeV.objValue;
     }
 
     public static String[][] HTML40_EXTENDED_UNESCAPE() {

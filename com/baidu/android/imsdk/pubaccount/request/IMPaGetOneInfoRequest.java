@@ -28,7 +28,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetOneInfoRequest";
@@ -38,12 +38,12 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public ArrayList<Long> mPaids;
     public long mUk;
 
-    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j, long j2) {
+    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, arrayList, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {context, str, arrayList, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,9 +54,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
-        this.mUk = j2;
+        this.mUk = j3;
         this.mPaids = arrayList;
     }
 
@@ -155,7 +155,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x01e5  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x01df  */
     /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

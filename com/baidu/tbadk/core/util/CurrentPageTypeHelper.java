@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CurrentPageTypeHelper {
     public static /* synthetic */ Interceptable $ic;
     public static PageType currentPageType;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class PageType {
         public static final /* synthetic */ PageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -47,7 +48,7 @@ public class CurrentPageTypeHelper {
             SMART_APP = new PageType("SMART_APP", 3);
             OTHER = new PageType("OTHER", 4);
             NATIVE_WEB = new PageType("NATIVE_WEB", 5);
-            PageType pageType = new PageType("NONE", 6);
+            PageType pageType = new PageType(PolyActivity.NONE_PANEL_TYPE, 6);
             NONE = pageType;
             $VALUES = new PageType[]{NATIVE, FLUTTER, WEB, SMART_APP, OTHER, NATIVE_WEB, pageType};
         }

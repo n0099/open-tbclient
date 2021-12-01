@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.c1.a;
-import b.a.p0.i.b.i.c;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.p0.a.c1.a;
+import c.a.p0.i.b.i.c;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
@@ -74,21 +73,21 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a2 = a.n().a();
-            if (!TextUtils.isEmpty(a2)) {
-                if (a2.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
+            String a = a.n().a();
+            if (!TextUtils.isEmpty(a)) {
+                if (a.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
                 }
-                if (a2.equals("baiduboxlite")) {
+                if (a.equals("baiduboxlite")) {
                     return "baiduboxlite://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
                 }
-                if (a2.equals("tiebaclient")) {
+                if (a.equals("tiebaclient")) {
                     return "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
                 }
-                if (a2.equals("baiduhaokan")) {
+                if (a.equals("baiduhaokan")) {
                     return "baiduhaokan://swan?params=%7B%22swanScheme%22%3A%22baiduhaokan%3A%2F%2Fswan%2FT43rINkXjgPfdKNXTuhQER2KdACVdB00%2Fpages%2Fdownload%2Findex%3F_baiduboxapp%3D%257B%2522from%2522%253A%25221151005410000000%2522%252C%2522ext%2522%253A%257B%257D%257D%22%7D";
                 }
-                if (a2.equals("bdnetdisk")) {
+                if (a.equals("bdnetdisk")) {
                     return "bdnetdisk://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
                 }
             }
@@ -99,18 +98,18 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
 
     private void startInstall(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
             String stringExtra = intent.getStringExtra(KEY_PACKAGE_NAME);
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            b.a.p0.i.b.a.n().q(stringExtra, this.mOpportunity);
+            c.a.p0.i.b.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
     private void startInstallPage(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
                 c.b("notifyList", this.mOpportunity);
             }
@@ -152,8 +151,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            b.a.p0.i.b.h.a.f().l();
-            b.a.p0.i.b.h.a.f().n("todayfirst");
+            c.a.p0.i.b.h.a.f().l();
+            c.a.p0.i.b.h.a.f().n("todayfirst");
         }
     }
 

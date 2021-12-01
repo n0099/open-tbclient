@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.b;
-import b.a.q0.a.d;
-import b.a.q0.a.g;
-import b.a.q0.a.w;
-import b.a.r0.m3.j0.n;
+import c.a.d.a.b;
+import c.a.q0.a.d;
+import c.a.q0.a.g;
+import c.a.q0.a.w;
+import c.a.r0.t3.j0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -23,7 +23,9 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.Anniversary18thActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -39,6 +41,8 @@ import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageLightActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -54,19 +58,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g.b mOnSchemeParsedCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f55349a;
+        public final /* synthetic */ SchemaRouteActivity a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -83,17 +85,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f55349a = schemaRouteActivity;
+            this.a = schemaRouteActivity;
         }
 
-        @Override // b.a.q0.a.g.b
+        @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.A) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f55349a.getActivity(), null, (String) hashMap.get(g.A), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.B) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.getActivity(), null, (String) hashMap.get(g.B), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
-                tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.O));
-                this.f55349a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.P));
+                this.a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -127,7 +129,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        b.a.q0.s.y.a.d(intent.getDataString(), false);
+        c.a.q0.s.y.a.l(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
@@ -139,7 +141,7 @@ public class SchemaRouteActivity extends BaseActivity {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2003000, frsActivityConfig));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains("unidispatch/pb"))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
                 if (b.g().i("MainTabActivity")) {
@@ -149,7 +151,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 return;
             }
             sendMessage(new CustomMessage(2004001, PbActivityConfig.createCfgFromUri(getActivity(), intent.getData())));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
             Uri data = intent.getData();
             if (g.c(data)) {
@@ -159,49 +161,49 @@ public class SchemaRouteActivity extends BaseActivity {
                 tbWebViewActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbtopicdetail") || dataString.contains("unidispatch/topicdetail"))) {
             TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
             topicDetailActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbusercenter") || dataString.contains("unidispatch/usercenter") || dataString.contains("usercenter"))) {
             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
             personPolymericActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains(UrlSchemaHelper.FROM_FORUM_SQUARE)) {
             ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
             forumSquareActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/hotuserrank")) {
             HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
             hotUserRankActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-            d.y().M(true);
+            d.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
             if (!b.g().i("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig((Context) getActivity(), false)));
             }
-            d.y().M(true);
+            d.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12529b + g.k)) {
+                if (dataString.contains(g.f11640b + g.f11649k)) {
                     Uri parse = Uri.parse(dataString);
-                    String queryParameter = parse.getQueryParameter(g.J);
-                    String queryParameter2 = parse.getQueryParameter(g.K);
+                    String queryParameter = parse.getQueryParameter(g.K);
+                    String queryParameter2 = parse.getQueryParameter(g.L);
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
-                    d.y().M(true);
+                    d.y().N(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12529b + g.l)) {
-                    String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.L);
+                if (dataString.contains(g.f11640b + g.l)) {
+                    String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.M);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
-                        d.y().M(true);
+                        d.y().N(true);
                         return;
                     }
                     return;
@@ -215,23 +217,29 @@ public class SchemaRouteActivity extends BaseActivity {
                 } else {
                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this).createNormalCfg(1)));
                 }
-                d.y().M(true);
+                d.y().N(true);
             } else if (!TextUtils.isEmpty(dataString) && dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_MY_CONCERN_LIST)) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                 mainTabActivityConfig.setTargetScheme(dataString);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
+                if (!TextUtils.isEmpty(dataString)) {
+                    if (dataString.contains(g.f11640b + g.q)) {
+                        Anniversary18thActivityConfig.open(this);
+                        return;
+                    }
+                }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/forumRuleDetail")) {
-                    sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(g.P), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
+                    sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this, Uri.parse(dataString).getQueryParameter(g.Q), ForumRulesShowActivityConfig.FORUM_RULE_H5_FROM_SHOW)));
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/categorylist")) {
                     Uri parse2 = Uri.parse(dataString);
-                    String queryParameter4 = parse2.getQueryParameter(g.R);
-                    String queryParameter5 = parse2.getQueryParameter(g.W);
-                    String queryParameter6 = parse2.getQueryParameter(g.S);
-                    String queryParameter7 = parse2.getQueryParameter(g.T);
-                    String queryParameter8 = parse2.getQueryParameter(g.U);
-                    String queryParameter9 = parse2.getQueryParameter(g.V);
+                    String queryParameter4 = parse2.getQueryParameter(g.S);
+                    String queryParameter5 = parse2.getQueryParameter(g.X);
+                    String queryParameter6 = parse2.getQueryParameter(g.T);
+                    String queryParameter7 = parse2.getQueryParameter(g.U);
+                    String queryParameter8 = parse2.getQueryParameter(g.V);
+                    String queryParameter9 = parse2.getQueryParameter(g.W);
                     HashMap hashMap = new HashMap();
                     hashMap.put("item_id", queryParameter4);
                     hashMap.put("tab_id", queryParameter5);
@@ -243,23 +251,23 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("/itemDetailsPage")) {
                     Uri parse3 = Uri.parse(dataString);
-                    String queryParameter10 = parse3.getQueryParameter(g.Z);
+                    String queryParameter10 = parse3.getQueryParameter(g.a0);
                     if (!StringUtils.isNull(queryParameter10)) {
                         setSearchSource(dataString);
                         String str8 = "com.baidu.tieba://unidispatch/itemDetailsPage?name=" + queryParameter10 + "&from=" + FrsActivityConfig.FRS_FROM_ITEM;
                         FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
                         frsActivityConfig2.setUri(Uri.parse(str8));
                         sendMessage(new CustomMessage(2003000, frsActivityConfig2));
-                        d.y().M(true);
+                        d.y().N(true);
                     } else {
-                        String queryParameter11 = parse3.getQueryParameter(g.R);
+                        String queryParameter11 = parse3.getQueryParameter(g.S);
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("itemID", String.valueOf(queryParameter11));
                         sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap2)));
                     }
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/item") && !dataString.contains("/itemDetailsPage")) {
-                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(g.Q);
+                    String queryParameter12 = Uri.parse(dataString).getQueryParameter(g.R);
                     HashMap hashMap3 = new HashMap();
                     hashMap3.put("itemID", String.valueOf(queryParameter12));
                     sendMessage(new CustomMessage(2002015, new n(this, "GameItemDetailsPage", hashMap3)));
@@ -275,8 +283,8 @@ public class SchemaRouteActivity extends BaseActivity {
                     str4 = "author_name";
                 } else {
                     Uri parse4 = Uri.parse(dataString);
-                    String queryParameter13 = parse4.getQueryParameter(g.t);
-                    String queryParameter14 = parse4.getQueryParameter(g.P);
+                    String queryParameter13 = parse4.getQueryParameter(g.u);
+                    String queryParameter14 = parse4.getQueryParameter(g.Q);
                     String queryParameter15 = parse4.getQueryParameter("title");
                     obj = "room_id";
                     String queryParameter16 = parse4.getQueryParameter("author_name");
@@ -319,8 +327,8 @@ public class SchemaRouteActivity extends BaseActivity {
                     str7 = "author_nick_name";
                 } else {
                     Uri parse5 = Uri.parse(dataString);
-                    String queryParameter23 = parse5.getQueryParameter(g.t);
-                    String queryParameter24 = parse5.getQueryParameter(g.P);
+                    String queryParameter23 = parse5.getQueryParameter(g.u);
+                    String queryParameter24 = parse5.getQueryParameter(g.Q);
                     String queryParameter25 = parse5.getQueryParameter("title");
                     str6 = str4;
                     String queryParameter26 = parse5.getQueryParameter(str6);
@@ -357,8 +365,8 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
                     Uri parse6 = Uri.parse(dataString);
-                    String queryParameter33 = parse6.getQueryParameter(g.t);
-                    String queryParameter34 = parse6.getQueryParameter(g.P);
+                    String queryParameter33 = parse6.getQueryParameter(g.u);
+                    String queryParameter34 = parse6.getQueryParameter(g.Q);
                     String queryParameter35 = parse6.getQueryParameter("title");
                     String queryParameter36 = parse6.getQueryParameter("author_uid");
                     String queryParameter37 = parse6.getQueryParameter(str6);
@@ -389,26 +397,36 @@ public class SchemaRouteActivity extends BaseActivity {
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this);
                     loginActivityConfig.setAutoLogin(dataString);
                     sendMessage(new CustomMessage(2002001, loginActivityConfig));
-                    d.y().M(true);
+                    d.y().N(true);
                 }
-                if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/voiceRoom")) {
+                if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/voiceRoom")) {
+                    try {
+                        Uri parse7 = Uri.parse(dataString);
+                        HashMap hashMap4 = new HashMap();
+                        for (String str9 : parse7.getQueryParameterNames()) {
+                            hashMap4.put(str9, parse7.getQueryParameter(str9));
+                        }
+                        Object obj2 = obj;
+                        if (hashMap4.containsKey(obj2)) {
+                            ((c.a.q0.j0.c.a) ServiceManager.getService(c.a.q0.j0.c.a.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), c.a.d.f.m.b.g((String) hashMap4.get(obj2), 0L));
+                        }
+                    } catch (Exception unused) {
+                        if (BdBaseApplication.getInst().isDebugMode()) {
+                            BdLog.e("Yuyinfang schema parse exception");
+                        }
+                    }
+                }
+                if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/searchResultPage")) {
                     return;
                 }
-                try {
-                    Uri parse7 = Uri.parse(dataString);
-                    HashMap hashMap4 = new HashMap();
-                    for (String str9 : parse7.getQueryParameterNames()) {
-                        hashMap4.put(str9, parse7.getQueryParameter(str9));
-                    }
-                    Object obj2 = obj;
-                    if (hashMap4.containsKey(obj2)) {
-                        ((b.a.q0.i0.c.a) ServiceManager.getService(b.a.q0.i0.c.a.f13386a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), b.a.e.f.m.b.g((String) hashMap4.get(obj2), 0L));
-                    }
-                } catch (Exception unused) {
-                    if (BdBaseApplication.getInst().isDebugMode()) {
-                        BdLog.e("Yuyinfang schema parse exception");
-                    }
+                String queryParameter42 = Uri.parse(dataString).getQueryParameter(g.Y);
+                IntentConfig intentConfig = new IntentConfig(this);
+                if (!StringUtils.isNull(queryParameter42)) {
+                    intentConfig.getIntent().putExtra(IntentConfig.SEARCH_PAGE_QUERY_CONTENT_KEY, queryParameter42);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2015003, intentConfig));
+                    return;
                 }
+                sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
         }
     }
@@ -429,22 +447,36 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65539, this, uri) == null) || uri == null) {
             return;
         }
-        b.a.q0.c1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+        c.a.q0.d1.g.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+    }
+
+    private void setDayOrDarkSkin() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || b.g().i("MainTabActivity")) {
+            return;
+        }
+        int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
+        if (loadInt != 1) {
+            SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
+            return;
+        }
+        TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
+        TbadkCoreApplication.getInst().SendSkinTypeBroadcast(loadInt);
     }
 
     private void setSearchSource(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String queryParameter = Uri.parse(str).getQueryParameter(g.Y);
+        String queryParameter = Uri.parse(str).getQueryParameter(g.Z);
         if (StringUtils.isNull(queryParameter)) {
             return;
         }
         TbSingleton.getInstance().setFromWhichSearchSource(queryParameter);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -456,9 +488,10 @@ public class SchemaRouteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                b.a.q0.b0.a.f12715a = true;
+                c.a.q0.b0.a.a = true;
             }
             super.onCreate(bundle);
+            setDayOrDarkSkin();
             checkSchema(getIntent());
             finish();
         }

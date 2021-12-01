@@ -12,25 +12,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final as f41860e;
+    public static final as f37022e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f41861a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f41862b;
+    public float f37023b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f41863c;
+    public long f37024c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f41864d;
+    public volatile boolean f37025d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +43,7 @@ public class as {
                 return;
             }
         }
-        f41860e = new as();
+        f37022e = new as();
     }
 
     public as() {
@@ -61,28 +59,28 @@ public class as {
                 return;
             }
         }
-        this.f41861a = false;
-        this.f41862b = 50.0f;
-        this.f41863c = 500L;
+        this.a = false;
+        this.f37023b = 50.0f;
+        this.f37024c = 500L;
     }
 
     public static as a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41860e : (as) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37022e : (as) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41861a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            float f2 = this.f41862b;
+            float f2 = this.f37023b;
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             } else if (f2 > 100.0f) {
@@ -96,7 +94,7 @@ public class as {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41863c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37024c : invokeV.longValue;
     }
 
     public void a(String str) {
@@ -110,19 +108,19 @@ public class as {
                 int optInt = jSONObject.optInt(IntentConfig.CLOSE);
                 String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                 String optString2 = jSONObject.optString("duration");
-                this.f41861a = optInt != 0;
+                this.a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f41862b = Float.valueOf(optString).floatValue();
+                        this.f37023b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f41863c = Long.valueOf(optString2).longValue();
+                    this.f37024c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f41864d = true;
+        this.f37025d = true;
     }
 }

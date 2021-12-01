@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,10 +35,10 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
     }
 
     @VisibleForTesting
-    public float calculateScore(DiskStorage.Entry entry, long j) {
+    public float calculateScore(DiskStorage.Entry entry, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, entry, j)) == null) ? (this.mAgeWeight * ((float) (j - entry.getTimestamp()))) + (this.mSizeWeight * ((float) entry.getSize())) : invokeLJ.floatValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, entry, j2)) == null) ? (this.mAgeWeight * ((float) (j2 - entry.getTimestamp()))) + (this.mSizeWeight * ((float) entry.getSize())) : invokeLJ.floatValue;
     }
 
     @Override // com.facebook.cache.disk.EntryEvictionComparatorSupplier

@@ -13,12 +13,12 @@ public final class ReplaySubject$ReplaySizeAndTimeBoundBuffer$TimedNode<T> exten
     public final long timestamp;
     public final T value;
 
-    public ReplaySubject$ReplaySizeAndTimeBoundBuffer$TimedNode(T t, long j) {
+    public ReplaySubject$ReplaySizeAndTimeBoundBuffer$TimedNode(T t, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t, Long.valueOf(j)};
+            Object[] objArr = {t, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,6 +29,6 @@ public final class ReplaySubject$ReplaySizeAndTimeBoundBuffer$TimedNode<T> exten
             }
         }
         this.value = t;
-        this.timestamp = j;
+        this.timestamp = j2;
     }
 }

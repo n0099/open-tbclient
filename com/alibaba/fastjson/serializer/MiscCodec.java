@@ -51,7 +51,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.cookie.ClientCookie;
 import org.w3c.dom.Node;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static boolean FILE_RELATIVE_PATH_SUPPORT;

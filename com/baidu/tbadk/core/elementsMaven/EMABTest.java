@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
-import b.a.q0.s.u.a;
+import c.a.q0.s.u.a;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EMABTest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_ARRAY = "array";
@@ -39,11 +39,11 @@ public class EMABTest {
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
-            String a2 = b.a.r0.m0.a.a(o);
-            if (TextUtils.isEmpty(a2)) {
+            String a = c.a.r0.s0.a.a(o);
+            if (TextUtils.isEmpty(a)) {
                 return 0;
             }
-            return a.s(a2, str);
+            return a.s(a, str);
         }
         return invokeIL.intValue;
     }

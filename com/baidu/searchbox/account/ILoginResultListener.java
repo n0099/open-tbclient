@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.NoProGuard;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ILoginResultListener extends NoProGuard {
     public static final int CANCELD = -2;
     public static final int FAILED = -1;

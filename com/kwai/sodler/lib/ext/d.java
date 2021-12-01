@@ -25,8 +25,8 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
                 Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
-                Field a2 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
-                File[] fileArr = (File[]) a2.get(obj);
+                Field a = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
+                File[] fileArr = (File[]) a.get(obj);
                 ArrayList arrayList = new ArrayList();
                 for (File file2 : fileArr) {
                     if (!file.equals(file2)) {
@@ -34,7 +34,7 @@ public class d {
                     }
                 }
                 arrayList.add(file);
-                a2.set(obj, arrayList.toArray(new File[0]));
+                a.set(obj, arrayList.toArray(new File[0]));
             }
         }
     }
@@ -48,8 +48,8 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
                 Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
-                Field a2 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
-                Collection collection = (List) a2.get(obj);
+                Field a = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
+                Collection collection = (List) a.get(obj);
                 if (collection == null) {
                     collection = new ArrayList(2);
                 }
@@ -60,8 +60,8 @@ public class d {
                     }
                 }
                 arrayList.add(file);
-                a2.set(obj, arrayList);
-                if (a2.get(obj) != arrayList) {
+                a.set(obj, arrayList);
+                if (a.get(obj) != arrayList) {
                     com.kwai.sodler.lib.ext.e.b(obj, "nativeLibraryDirectories").set(obj, arrayList);
                 }
                 List list = (List) com.kwai.sodler.lib.ext.e.a(obj, "systemNativeLibraryDirectories").get(obj);
@@ -72,9 +72,9 @@ public class d {
                 arrayList2.addAll(arrayList);
                 arrayList2.addAll(list);
                 Object[] objArr = (Object[]) com.kwai.sodler.lib.ext.e.a(obj, "makePathElements", List.class, File.class, List.class).invoke(obj, arrayList2, null, new ArrayList());
-                Field a3 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements");
-                a3.set(obj, objArr);
-                if (a3.get(obj) != objArr) {
+                Field a2 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements");
+                a2.set(obj, objArr);
+                if (a2.get(obj) != objArr) {
                     com.kwai.sodler.lib.ext.e.b(obj, "nativeLibraryPathElements").set(obj, objArr);
                 }
             }
@@ -114,7 +114,7 @@ public class d {
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C1988d {
+    public static final class C2079d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,18 +153,18 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
                 String path = file.getPath();
-                Field a2 = com.kwai.sodler.lib.ext.e.a(classLoader, "libPath");
-                String valueOf = String.valueOf(a2.get(classLoader));
-                a2.set(classLoader, TextUtils.isEmpty(valueOf) ? path : valueOf + ":" + path);
-                Field a3 = com.kwai.sodler.lib.ext.e.a(classLoader, "libraryPathElements");
-                List<String> list = (List) a3.get(classLoader);
+                Field a = com.kwai.sodler.lib.ext.e.a(classLoader, "libPath");
+                String valueOf = String.valueOf(a.get(classLoader));
+                a.set(classLoader, TextUtils.isEmpty(valueOf) ? path : valueOf + ":" + path);
+                Field a2 = com.kwai.sodler.lib.ext.e.a(classLoader, "libraryPathElements");
+                List<String> list = (List) a2.get(classLoader);
                 for (String str : list) {
                     if (path.equals(str)) {
                         return;
                     }
                 }
                 list.add(path);
-                a3.set(classLoader, list);
+                a2.set(classLoader, list);
             }
         }
     }
@@ -176,7 +176,7 @@ public class d {
                 if (file != null) {
                     if (file.exists()) {
                         if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                            C1988d.b(classLoader, file);
+                            C2079d.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT == 24) {
                             c.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT >= 23) {

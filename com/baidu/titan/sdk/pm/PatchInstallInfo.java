@@ -2,7 +2,6 @@ package com.baidu.titan.sdk.pm;
 
 import android.os.Build;
 import androidx.multidex.MultiDexExtractor;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.internal.util.Closes;
 import com.baidu.titan.sdk.internal.util.EncodeUtils;
 import java.io.BufferedReader;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PatchInstallInfo {
     public File mPatchDir;
     public FileLock mShareFileLock;
@@ -331,7 +330,7 @@ public class PatchInstallInfo {
 
     public boolean shareLock() {
         try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), r.f41000a).getChannel().tryLock(0L, 0L, true);
+            FileLock tryLock = new RandomAccessFile(getLockFile(), "r").getChannel().tryLock(0L, 0L, true);
             this.mShareFileLock = tryLock;
             return tryLock != null;
         } catch (IOException unused) {

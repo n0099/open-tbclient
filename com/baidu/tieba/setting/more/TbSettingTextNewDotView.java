@@ -2,15 +2,12 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbSettingTextNewDotView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,11 +36,6 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (PluginPackageManager.O().g0()) {
-                this.tipView.setVisibility(0);
-                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
-                return;
-            }
             this.tipView.setVisibility(4);
         }
     }

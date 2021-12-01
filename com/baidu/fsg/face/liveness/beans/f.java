@@ -7,38 +7,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f38949a = "https://passport.baidu.com";
+    public static String a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38950b = "https://passport.qatest.baidu.com";
+    public static String f34749b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38951c = "http://passport.rdtest.baidu.com";
+    public static String f34750c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38952d = "http://wappass.baidu.com";
+    public static String f34751d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f38953e = "http://wappass.qatest.baidu.com";
+    public static String f34752e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f38954f = "http://wappass.rdtest.baidu.com";
+    public static String f34753f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f38955g = "https://gss0.bdstatic.com";
+    public static String f34754g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f38956h = "https://passport.baidu.com";
+    public static String f34755h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f38957i = "https://passport.qatest.baidu.com";
-    public static String j = "https://voiceprint.baidu.com/echo.fcgi";
-    public static String k = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String f34756i = "https://passport.qatest.baidu.com";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static String f34757j = "https://voiceprint.baidu.com/echo.fcgi";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static String f34758k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
     public static String m = "/risk/living/authfacematch";
     public static String n = "/risk/living/facedetect";

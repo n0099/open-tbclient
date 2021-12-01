@@ -1,0 +1,56 @@
+package com.tachikoma.core.component.recyclerview;
+
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.yoga.YogaUnit;
+import com.kwad.yoga.YogaValue;
+import com.tachikoma.core.yoga.layout.YogaLayout;
+/* loaded from: classes2.dex */
+public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public YogaValue mOriginHeight;
+    public YogaValue mOriginWidth;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeaderFooterViewHolder(@NonNull View view, YogaValue yogaValue, YogaValue yogaValue2) {
+        super(view);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view, yogaValue, yogaValue2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mOriginWidth = yogaValue;
+        this.mOriginHeight = yogaValue2;
+    }
+
+    public void maybeReset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View view = this.itemView;
+            if (view instanceof YogaLayout) {
+                if (this.mOriginWidth.unit == YogaUnit.AUTO) {
+                    ((YogaLayout) view).getYogaNode().setWidthAuto();
+                }
+                if (this.mOriginHeight.unit == YogaUnit.AUTO) {
+                    ((YogaLayout) this.itemView).getYogaNode().setHeightAuto();
+                }
+            }
+        }
+    }
+}

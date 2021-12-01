@@ -1,14 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedSet;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ImmutableSortedSetFauxverideShim<E> extends ImmutableSet<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +70,7 @@ public abstract class ImmutableSortedSetFauxverideShim<E> extends ImmutableSet<E
     public static <E> ImmutableSortedSet<E> of(E e2, E e3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, e2, e3)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, e2, e3)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedSet) invokeLL.objValue;
@@ -81,7 +80,7 @@ public abstract class ImmutableSortedSetFauxverideShim<E> extends ImmutableSet<E
     public static <E> ImmutableSortedSet<E> of(E e2, E e3, E e4) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, e2, e3, e4)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, e2, e3, e4)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedSet) invokeLLL.objValue;

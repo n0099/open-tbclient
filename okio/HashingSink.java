@@ -2,7 +2,6 @@ package okio;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,13 +70,13 @@ public final class HashingSink extends ForwardingSink {
     public static HashingSink md5(Sink sink) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, sink)) == null) ? new HashingSink(sink, "MD5") : (HashingSink) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sink)) == null) ? new HashingSink(sink, "MD5") : (HashingSink) invokeL.objValue;
     }
 
     public static HashingSink sha1(Sink sink) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sink)) == null) ? new HashingSink(sink, "SHA-1") : (HashingSink) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sink)) == null) ? new HashingSink(sink, "SHA-1") : (HashingSink) invokeL.objValue;
     }
 
     public static HashingSink sha256(Sink sink) {
@@ -103,24 +102,24 @@ public final class HashingSink extends ForwardingSink {
     }
 
     @Override // okio.ForwardingSink, okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j) == null) {
-            Util.checkOffsetAndCount(buffer.size, 0L, j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2) == null) {
+            Util.checkOffsetAndCount(buffer.size, 0L, j2);
             Segment segment = buffer.head;
-            long j2 = 0;
-            while (j2 < j) {
-                int min = (int) Math.min(j - j2, segment.limit - segment.pos);
+            long j3 = 0;
+            while (j3 < j2) {
+                int min = (int) Math.min(j2 - j3, segment.limit - segment.pos);
                 MessageDigest messageDigest = this.messageDigest;
                 if (messageDigest != null) {
                     messageDigest.update(segment.data, segment.pos, min);
                 } else {
                     this.mac.update(segment.data, segment.pos, min);
                 }
-                j2 += min;
+                j3 += min;
                 segment = segment.next;
             }
-            super.write(buffer, j);
+            super.write(buffer, j2);
         }
     }
 

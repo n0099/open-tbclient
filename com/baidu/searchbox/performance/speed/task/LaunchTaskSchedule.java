@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @MainThread
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LaunchTaskSchedule {
     public static /* synthetic */ Interceptable $ic;
     public static LaunchTaskSchedule sInstance;
@@ -67,7 +66,7 @@ public class LaunchTaskSchedule {
 
     private void startAsyncTask(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             AsyncTaskAssistant.executeOnThreadPool(new Runnable(this, i2) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +112,7 @@ public class LaunchTaskSchedule {
     private void startSyncTask(int i2) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, false)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65542, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, false)) == null) {
             return;
         }
         for (LaunchTask launchTask : taskList) {

@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import b.a.e.f.p.l;
-import b.a.q0.s.e0.b;
+import c.a.d.f.p.l;
+import c.a.q0.s.e0.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
@@ -56,7 +56,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, l.g(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, l.f(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -93,6 +93,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, l.g(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, l.f(context, R.dimen.ds30), 0);
     }
 }

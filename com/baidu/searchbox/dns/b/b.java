@@ -2,10 +2,10 @@ package com.baidu.searchbox.dns.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.util.DnsChecker;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, List<String>> s;
@@ -70,8 +70,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             if (map != null) {
-                if (map.containsKey("local")) {
-                    return map.get("local");
+                if (map.containsKey(MainTabActivity.TAB_CODE_LOCAL)) {
+                    return map.get(MainTabActivity.TAB_CODE_LOCAL);
                 }
                 if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
                     return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
@@ -92,12 +92,12 @@ public class b {
     public static Map<String, List<String>> h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             HashMap hashMap = new HashMap();
             try {
                 List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
                 if (parseRawAddressList != null) {
-                    hashMap.put("local", parseRawAddressList);
+                    hashMap.put(MainTabActivity.TAB_CODE_LOCAL, parseRawAddressList);
                 }
                 return hashMap;
             } catch (UnknownHostException e2) {
@@ -126,7 +126,7 @@ public class b {
     public static String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             com.baidu.searchbox.dns.d.a.a d2 = com.baidu.searchbox.dns.a.a.e().d(str);
             List<String> ipList = d2 != null ? d2.getIpList() : null;
             if (ipList == null || ipList.size() == 0) {

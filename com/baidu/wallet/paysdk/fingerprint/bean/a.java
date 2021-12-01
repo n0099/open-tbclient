@@ -13,13 +13,11 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f60665a;
+    public String a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -39,13 +37,13 @@ public class a extends BaseBean {
                 return;
             }
         }
-        this.f60665a = null;
+        this.a = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f60665a = str;
+            this.a = str;
         }
     }
 
@@ -63,8 +61,8 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f60665a != null) {
-                arrayList.add(new RestNameValuePair("serial_num", SecurePay.getInstance().encryptProxy(this.f60665a)));
+            if (this.a != null) {
+                arrayList.add(new RestNameValuePair("serial_num", SecurePay.getInstance().encryptProxy(this.a)));
             }
             arrayList.add(new RestNameValuePair("pay_type", "1"));
             return arrayList;

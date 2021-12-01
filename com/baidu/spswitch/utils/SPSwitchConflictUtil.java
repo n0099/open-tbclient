@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SPSwitchConflictUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface SwitchClickListener {
         void onClickSwitch(View view, boolean z);
     }
@@ -156,7 +155,7 @@ public class SPSwitchConflictUtil {
     public static boolean showPanel(View view, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, view, view2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view, view2)) == null) {
             if (EmotionUtils.getInstance().isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
                 view.setVisibility(0);
                 if (view2 != null) {
@@ -172,7 +171,7 @@ public class SPSwitchConflictUtil {
 
     public static void showSoftInput(View view, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, view, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, view, view2) == null) {
             SoftInputUtil.showSoftInput(view2);
             if (isHandleByPlaceholder(view.getContext())) {
                 view.setVisibility(4);

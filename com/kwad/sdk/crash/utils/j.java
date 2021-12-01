@@ -9,9 +9,7 @@ import java.text.SimpleDateFormat;
 /* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f66432a;
+    public static SimpleDateFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,26 +25,26 @@ public class j {
                 return;
             }
         }
-        f66432a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         String valueOf;
         String valueOf2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            long j2 = j / 60000;
-            long j3 = (j - (60000 * j2)) / 1000;
-            if (j2 < 10) {
-                valueOf = "0" + j2;
-            } else {
-                valueOf = String.valueOf(j2);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
+            long j3 = j2 / 60000;
+            long j4 = (j2 - (60000 * j3)) / 1000;
             if (j3 < 10) {
-                valueOf2 = "0" + j3;
+                valueOf = "0" + j3;
             } else {
-                valueOf2 = String.valueOf(j3);
+                valueOf = String.valueOf(j3);
+            }
+            if (j4 < 10) {
+                valueOf2 = "0" + j4;
+            } else {
+                valueOf2 = String.valueOf(j4);
             }
             return valueOf + ":" + valueOf2;
         }

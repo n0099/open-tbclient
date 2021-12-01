@@ -19,7 +19,7 @@ public final class ErrorBehaviour {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66780c;
+    public final int f58670c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public final class ErrorBehaviour {
                 return;
             }
         }
-        this.f66780c = i3;
+        this.f58670c = i3;
     }
 
     public static ErrorBehaviour valueOf(String str) {

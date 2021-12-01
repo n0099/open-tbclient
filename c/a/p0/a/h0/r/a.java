@@ -1,0 +1,105 @@
+package c.a.p0.a.h0.r;
+
+import android.app.Application;
+import android.content.Context;
+import c.a.p0.a.k;
+import c.a.p0.a.z2.h;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+/* loaded from: classes.dex */
+public class a extends b {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f5958b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5959c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1087196359, "Lc/a/p0/a/h0/r/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1087196359, "Lc/a/p0/a/h0/r/a;");
+                return;
+            }
+        }
+        f5958b = k.a;
+        f5959c = "swan_preset" + File.separator + "preset_list.json";
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // c.a.p0.a.h0.r.b
+    public boolean e(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            if (cVar == null) {
+                return false;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + cVar.f10717g + File.separator + cVar.q;
+            try {
+                File j2 = j(cVar.f10718h, cVar.f10717g, cVar.f10719i);
+                if (j2 == null) {
+                    boolean z = f5958b;
+                    return false;
+                }
+                return n(new BufferedInputStream(appContext.getAssets().open(str)), j2);
+            } catch (IOException e2) {
+                if (f5958b) {
+                    e2.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // c.a.p0.a.h0.r.b
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Application c2 = c.a.p0.a.c1.a.c();
+            return h.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // c.a.p0.a.h0.r.b
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h.b(c.a.p0.a.c1.a.c(), f5959c) : (String) invokeV.objValue;
+    }
+}

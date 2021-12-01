@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.n0.a;
+import c.a.n0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OneKeyLoginSdkCall {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONNECT_TIMEOUT = 15000;
@@ -48,7 +48,7 @@ public class OneKeyLoginSdkCall {
     public static String signFromAbilityApi;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface TokenListener extends NoProguard {
         void onGetTokenComplete(JSONObject jSONObject);
     }
@@ -109,99 +109,108 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
-                a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0099a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ OneKeyLoginSdkCall this$0;
-                    public final /* synthetic */ TokenListener val$listener;
+                try {
+                    a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0155a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ OneKeyLoginSdkCall this$0;
+                        public final /* synthetic */ TokenListener val$listener;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, tokenListener};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, tokenListener};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
+                            this.this$0 = this;
+                            this.val$listener = tokenListener;
                         }
-                        this.this$0 = this;
-                        this.val$listener = tokenListener;
-                    }
 
-                    @Override // b.a.n0.a.InterfaceC0099a
-                    public void onFinish(String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                            Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
-                            OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
-                            String extraStr = formatOptResult.getExtraStr();
-                            SapiStatUtil.statOneKeyOauthToken(formatOptResult.getCode(), formatOptResult.getSubCode(), 1 ^ (TextUtils.isEmpty(extraStr) ? 1 : 0));
-                            JSONObject jSONObject = new JSONObject();
-                            if (OneKeyLoginOptResult.isValid(formatOptResult)) {
-                                try {
-                                    jSONObject.put("errno", 0);
-                                    jSONObject.put("operator", this.this$0.getOperatorType());
-                                    jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
-                                    jSONObject.put("token", extraStr);
-                                    jSONObject.put("oneKeySdkVersion", "v2");
-                                } catch (Exception e2) {
-                                    Log.e(OneKeyLoginSdkCall.TAG, e2);
+                        @Override // c.a.n0.a.InterfaceC0155a
+                        public void onFinish(String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                                Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
+                                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
+                                String extraStr = formatOptResult.getExtraStr();
+                                SapiStatUtil.statOneKeyOauthToken(formatOptResult.getCode(), formatOptResult.getSubCode(), 1 ^ (TextUtils.isEmpty(extraStr) ? 1 : 0));
+                                JSONObject jSONObject = new JSONObject();
+                                if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                                    try {
+                                        jSONObject.put("errno", 0);
+                                        jSONObject.put("operator", this.this$0.getOperatorType());
+                                        jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
+                                        jSONObject.put("token", extraStr);
+                                        jSONObject.put("oneKeySdkVersion", "v2");
+                                    } catch (Exception e2) {
+                                        Log.e(OneKeyLoginSdkCall.TAG, e2);
+                                    }
+                                } else {
+                                    try {
+                                        jSONObject.put("errno", 0);
+                                        jSONObject.put("operator", this.this$0.getOperatorType());
+                                    } catch (JSONException e3) {
+                                        Log.e(OneKeyLoginSdkCall.TAG, e3);
+                                    }
                                 }
-                            } else {
-                                try {
-                                    jSONObject.put("errno", 0);
-                                    jSONObject.put("operator", this.this$0.getOperatorType());
-                                } catch (JSONException e3) {
-                                    Log.e(OneKeyLoginSdkCall.TAG, e3);
-                                }
-                            }
-                            if (this.val$listener != null) {
-                                new Handler(Looper.getMainLooper()).post(new Runnable(this, jSONObject) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass3 this$1;
-                                    public final /* synthetic */ JSONObject val$json;
+                                if (this.val$listener != null) {
+                                    new Handler(Looper.getMainLooper()).post(new Runnable(this, jSONObject) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass3 this$1;
+                                        public final /* synthetic */ JSONObject val$json;
 
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this, jSONObject};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, jSONObject};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$json = jSONObject;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                this.this$1.val$listener.onGetTokenComplete(this.val$json);
                                             }
                                         }
-                                        this.this$1 = this;
-                                        this.val$json = jSONObject;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.this$1.val$listener.onGetTokenComplete(this.val$json);
-                                        }
-                                    }
-                                });
+                                    });
+                                }
                             }
                         }
+                    });
+                } catch (NoClassDefFoundError unused) {
+                    if (tokenListener != null) {
+                        tokenListener.onGetTokenComplete(new JSONObject());
                     }
-                });
+                    Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
+                }
             } catch (Exception e2) {
+                if (tokenListener != null) {
+                    tokenListener.onGetTokenComplete(new JSONObject());
+                }
                 Log.e(TAG, e2.getMessage());
-                tokenListener.onGetTokenComplete(new JSONObject());
             }
         }
     }
@@ -237,99 +246,119 @@ public class OneKeyLoginSdkCall {
     public void getToken(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
-            a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0099a(this, sapiConfiguration, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ OneKeyLoginSdkCall this$0;
-                public final /* synthetic */ SapiConfiguration val$configuration;
-                public final /* synthetic */ TokenListener val$listener;
+            try {
+                try {
+                    a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0155a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ OneKeyLoginSdkCall this$0;
+                        public final /* synthetic */ TokenListener val$listener;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sapiConfiguration, tokenListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$configuration = sapiConfiguration;
-                    this.val$listener = tokenListener;
-                }
-
-                @Override // b.a.n0.a.InterfaceC0099a
-                public void onFinish(String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
-                        OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
-                        String extraStr = formatOptResult.getExtraStr();
-                        SapiStatUtil.statOneKeyLoginSDKAction(formatOptResult.getCode(), formatOptResult.getSubCode(), !TextUtils.isEmpty(extraStr) ? 1 : 0);
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (OneKeyLoginOptResult.isValid(formatOptResult)) {
-                                jSONObject.put("errno", 0);
-                                jSONObject.put("code", 0);
-                                jSONObject.put("appid", this.val$configuration.context.getPackageName());
-                                jSONObject.put("token", extraStr);
-                                jSONObject.put("oneKeySdkVersion", "v2");
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, tokenListener};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
-                        } catch (JSONException e2) {
-                            Log.e(OneKeyLoginSdkCall.TAG, e2.getMessage());
+                            this.this$0 = this;
+                            this.val$listener = tokenListener;
                         }
-                        if (this.val$listener != null) {
-                            new Handler(Looper.getMainLooper()).post(new Runnable(this, jSONObject) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass2 this$1;
-                                public final /* synthetic */ JSONObject val$jsonObj;
 
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, jSONObject};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
+                        @Override // c.a.n0.a.InterfaceC0155a
+                        public void onFinish(String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                                Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
+                                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
+                                String extraStr = formatOptResult.getExtraStr();
+                                SapiStatUtil.statOneKeyLoginSDKAction(formatOptResult.getCode(), formatOptResult.getSubCode(), !TextUtils.isEmpty(extraStr) ? 1 : 0);
+                                JSONObject jSONObject = new JSONObject();
+                                try {
+                                    if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                                        jSONObject.put("errno", 0);
+                                        jSONObject.put("code", 0);
+                                        jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
+                                        jSONObject.put("token", extraStr);
+                                        jSONObject.put("oneKeySdkVersion", "v2");
+                                        jSONObject.put("operator", this.this$0.getOperatorType());
+                                        if (formatOptResult.getOperateType().equals("2")) {
+                                            jSONObject.put("CUVersion", "2");
                                         }
                                     }
-                                    this.this$1 = this;
-                                    this.val$jsonObj = jSONObject;
+                                } catch (JSONException e2) {
+                                    Log.e(OneKeyLoginSdkCall.TAG, e2.getMessage());
                                 }
+                                if (this.val$listener != null) {
+                                    new Handler(Looper.getMainLooper()).post(new Runnable(this, jSONObject) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass2 this$1;
+                                        public final /* synthetic */ JSONObject val$jsonObj;
 
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.this$1.val$listener.onGetTokenComplete(this.val$jsonObj);
-                                    }
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, jSONObject};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$jsonObj = jSONObject;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                this.this$1.val$listener.onGetTokenComplete(this.val$jsonObj);
+                                            }
+                                        }
+                                    });
                                 }
-                            });
+                            }
                         }
+                    });
+                } catch (NoClassDefFoundError unused) {
+                    if (tokenListener != null) {
+                        tokenListener.onGetTokenComplete(new JSONObject());
                     }
+                    Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
                 }
-            });
+            } catch (Exception e2) {
+                if (tokenListener != null) {
+                    tokenListener.onGetTokenComplete(new JSONObject());
+                }
+                Log.e(TAG, e2.getMessage());
+            }
         }
     }
 
     public void initOneKeyLoginSdk(SapiConfiguration sapiConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
-            a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-            a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+            try {
+                a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+            } catch (NoClassDefFoundError unused) {
+                Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
+            }
         }
     }
 
@@ -379,7 +408,11 @@ public class OneKeyLoginSdkCall {
     public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, sapiConfiguration, str) == null) {
-            preGetPhoneInfo(sapiConfiguration, str, 15000, null);
+            try {
+                preGetPhoneInfo(sapiConfiguration, str, 15000, null);
+            } catch (NoClassDefFoundError unused) {
+                Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
+            }
         }
     }
 
@@ -394,9 +427,18 @@ public class OneKeyLoginSdkCall {
         oneKeyLoginCallback.onFail(oneKeyLoginResult);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0056 A[Catch: NoClassDefFoundError -> 0x00c4, TryCatch #0 {NoClassDefFoundError -> 0x00c4, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0077, B:27:0x0085, B:28:0x009b, B:30:0x00b6), top: B:40:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x009b A[Catch: NoClassDefFoundError -> 0x00c4, TryCatch #0 {NoClassDefFoundError -> 0x00c4, blocks: (B:5:0x0008, B:7:0x0012, B:9:0x001d, B:11:0x002e, B:13:0x0040, B:15:0x0048, B:21:0x0056, B:23:0x005c, B:25:0x0077, B:27:0x0085, B:28:0x009b, B:30:0x00b6), top: B:40:0x0008 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, String str, int i2, OneKeyLoginOptCallback oneKeyLoginOptCallback) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048588, this, sapiConfiguration, str, i2, oneKeyLoginOptCallback) == null) {
+        if (interceptable != null && interceptable.invokeLLIL(1048588, this, sapiConfiguration, str, i2, oneKeyLoginOptCallback) != null) {
+            return;
+        }
+        try {
             if (SapiAccountManager.getInstance().isLogin()) {
                 Log.d(TAG, "preGetPhoneInfo account is logined");
                 if (oneKeyLoginOptCallback != null) {
@@ -409,103 +451,119 @@ public class OneKeyLoginSdkCall {
                 return;
             }
             String b2 = a.c().b(sapiConfiguration.context);
-            if (TextUtils.equals(b2, OPERATOR_CHINA_MOBILE) || TextUtils.equals(b2, OPERATOR_CHINA_UNICOM) || TextUtils.equals(b2, OPERATOR_CHINA_TELECOM)) {
-                if (!isMeetOneKeyLoginGray(b2)) {
-                    Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b2);
-                    if (oneKeyLoginOptCallback != null) {
-                        OneKeyLoginOptResult oneKeyLoginOptResult2 = new OneKeyLoginOptResult();
-                        oneKeyLoginOptResult2.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY);
-                        oneKeyLoginOptCallback.onFinish(oneKeyLoginOptResult2);
+            if (!TextUtils.equals(b2, OPERATOR_CHINA_MOBILE) && !TextUtils.equals(b2, OPERATOR_CHINA_UNICOM) && !TextUtils.equals(b2, OPERATOR_CHINA_TELECOM)) {
+                z = false;
+                if (!z) {
+                    if (!isMeetOneKeyLoginGray(b2)) {
+                        Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b2);
+                        if (oneKeyLoginOptCallback != null) {
+                            OneKeyLoginOptResult oneKeyLoginOptResult2 = new OneKeyLoginOptResult();
+                            oneKeyLoginOptResult2.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY);
+                            oneKeyLoginOptCallback.onFinish(oneKeyLoginOptResult2);
+                            return;
+                        }
                         return;
                     }
-                    return;
-                }
-                a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0099a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ OneKeyLoginSdkCall this$0;
-                    public final /* synthetic */ OneKeyLoginOptCallback val$callback;
-                    public final /* synthetic */ String val$netType;
-                    public final /* synthetic */ String val$scene;
+                    a.c().g(sapiConfiguration.context, i2, new a.InterfaceC0155a(this, str, SapiUtils.getNetworkClass(sapiConfiguration.context), oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ OneKeyLoginSdkCall this$0;
+                        public final /* synthetic */ OneKeyLoginOptCallback val$callback;
+                        public final /* synthetic */ String val$netType;
+                        public final /* synthetic */ String val$scene;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, r8, oneKeyLoginOptCallback};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, str, r8, oneKeyLoginOptCallback};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
+                            this.this$0 = this;
+                            this.val$scene = str;
+                            this.val$netType = r8;
+                            this.val$callback = oneKeyLoginOptCallback;
                         }
-                        this.this$0 = this;
-                        this.val$scene = str;
-                        this.val$netType = r8;
-                        this.val$callback = oneKeyLoginOptCallback;
-                    }
 
-                    @Override // b.a.n0.a.InterfaceC0099a
-                    public void onFinish(String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
-                            Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
-                            OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);
-                            if (OneKeyLoginOptResult.isValid(formatOptResult)) {
-                                formatOptResult.generateSecurityPhone();
-                                OneKeyLoginOptResult unused = OneKeyLoginSdkCall.preLoginOptResult = formatOptResult;
-                            }
-                            SapiStatUtil.statOneKeyPreGetPhone(formatOptResult.getCode(), formatOptResult.getSubCode(), formatOptResult.getSecurityPhone(), formatOptResult.getOperateType(), this.val$scene, this.val$netType);
-                            if (this.val$callback != null) {
-                                new Handler(Looper.getMainLooper()).post(new Runnable(this, formatOptResult) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass1 this$1;
-                                    public final /* synthetic */ OneKeyLoginOptResult val$result;
+                        @Override // c.a.n0.a.InterfaceC0155a
+                        public void onFinish(String str2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
+                                Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
+                                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);
+                                if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                                    formatOptResult.generateSecurityPhone();
+                                    OneKeyLoginOptResult unused = OneKeyLoginSdkCall.preLoginOptResult = formatOptResult;
+                                }
+                                SapiStatUtil.statOneKeyPreGetPhone(formatOptResult.getCode(), formatOptResult.getSubCode(), formatOptResult.getSecurityPhone(), formatOptResult.getOperateType(), this.val$scene, this.val$netType);
+                                if (this.val$callback != null) {
+                                    new Handler(Looper.getMainLooper()).post(new Runnable(this, formatOptResult) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass1 this$1;
+                                        public final /* synthetic */ OneKeyLoginOptResult val$result;
 
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this, formatOptResult};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i3 = newInitContext.flag;
-                                            if ((i3 & 1) != 0) {
-                                                int i4 = i3 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, formatOptResult};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i3 = newInitContext.flag;
+                                                if ((i3 & 1) != 0) {
+                                                    int i4 = i3 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$result = formatOptResult;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                this.this$1.val$callback.onFinish(this.val$result);
                                             }
                                         }
-                                        this.this$1 = this;
-                                        this.val$result = formatOptResult;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.this$1.val$callback.onFinish(this.val$result);
-                                        }
-                                    }
-                                });
+                                    });
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                    return;
+                }
+                Log.d(TAG, "不能获取正确的运营商信息，请检查手机是否有sim卡，operator=" + b2);
+                if (oneKeyLoginOptCallback != null) {
+                    OneKeyLoginOptResult oneKeyLoginOptResult3 = new OneKeyLoginOptResult();
+                    oneKeyLoginOptResult3.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_INVALID_OPERATOR);
+                    oneKeyLoginOptCallback.onFinish(oneKeyLoginOptResult3);
+                    return;
+                }
                 return;
             }
-            Log.d(TAG, "不能获取正确的运营商信息，请检查手机是否有sim卡，operator=" + b2);
-            if (oneKeyLoginOptCallback != null) {
-                OneKeyLoginOptResult oneKeyLoginOptResult3 = new OneKeyLoginOptResult();
-                oneKeyLoginOptResult3.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_INVALID_OPERATOR);
-                oneKeyLoginOptCallback.onFinish(oneKeyLoginOptResult3);
+            z = true;
+            if (!z) {
             }
+        } catch (NoClassDefFoundError unused) {
+            if (oneKeyLoginOptCallback != null) {
+                OneKeyLoginOptResult oneKeyLoginOptResult4 = new OneKeyLoginOptResult();
+                oneKeyLoginOptResult4.setCode(-101);
+                oneKeyLoginOptResult4.setSubCode(-101);
+                oneKeyLoginOptCallback.onFinish(oneKeyLoginOptResult4);
+            }
+            Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
         }
     }
 

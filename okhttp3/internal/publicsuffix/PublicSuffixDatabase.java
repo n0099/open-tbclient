@@ -3,7 +3,6 @@ package okhttp3.internal.publicsuffix;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -252,7 +251,7 @@ public final class PublicSuffixDatabase {
     private void readTheList() throws IOException {
         InputStream resourceAsStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
             return;
         }
         BufferedSource buffer = Okio.buffer(new GzipSource(Okio.source(resourceAsStream)));
@@ -273,7 +272,7 @@ public final class PublicSuffixDatabase {
 
     private void readTheListUninterruptibly() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             boolean z = false;
             while (true) {
                 try {

@@ -7,8 +7,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.a;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +21,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Dev {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALLATION = "INSTALLATION";
@@ -52,7 +50,7 @@ public class Dev {
         this.brand = "";
         this.sysVersion = "";
         this.packagename = "";
-        this.sdkVersion = a.k;
+        this.sdkVersion = a.f34143k;
         this.firstRun = false;
     }
 
@@ -67,7 +65,7 @@ public class Dev {
             } catch (Exception unused) {
                 uuid = UUID.randomUUID().toString();
             }
-            String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
             if ("9774d56d682e549c".equals(string)) {
                 string = UUID.randomUUID().toString();
             }
@@ -109,7 +107,7 @@ public class Dev {
             RandomAccessFile randomAccessFile3 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f41000a);
+                    randomAccessFile = new RandomAccessFile(file, "r");
                 } catch (Throwable th) {
                     th = th;
                 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
 /* loaded from: classes2.dex */
-public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.a {
+public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T mCallerContext;
@@ -37,8 +37,8 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f66923a) {
-            aVar.a();
+        for (com.kwad.sdk.reward.a.a aVar : t.a) {
+            aVar.a(this);
         }
     }
 
@@ -48,8 +48,8 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f66923a) {
-            aVar.d();
+        for (com.kwad.sdk.reward.a.a aVar : t.a) {
+            aVar.d(this);
         }
     }
 
@@ -59,8 +59,8 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f66923a) {
-            aVar.c();
+        for (com.kwad.sdk.reward.a.a aVar : t.a) {
+            aVar.c(this);
         }
     }
 
@@ -70,8 +70,8 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f66923a) {
-            aVar.b();
+        for (com.kwad.sdk.reward.a.a aVar : t.a) {
+            aVar.b(this);
         }
     }
 
@@ -83,7 +83,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
             if (this.mPresenter == null) {
                 Presenter onCreatePresenter = onCreatePresenter();
                 this.mPresenter = onCreatePresenter;
-                onCreatePresenter.a(this.mRootView);
+                onCreatePresenter.c(this.mRootView);
             }
             this.mPresenter.a(this.mCallerContext);
             notifyOnCreate();
@@ -94,7 +94,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
 
     public abstract Presenter onCreatePresenter();
 
-    @Override // com.kwad.sdk.c.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -105,7 +105,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
             }
             Presenter presenter = this.mPresenter;
             if (presenter != null) {
-                presenter.h();
+                presenter.k();
             }
         }
     }
@@ -118,7 +118,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         }
     }
 
-    @Override // com.kwad.sdk.c.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

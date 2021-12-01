@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NpsLoadChainLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
@@ -41,7 +40,7 @@ public class NpsLoadChainLog {
     public String sessionId;
     public UBCManager ubcManager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;
@@ -176,7 +175,7 @@ public class NpsLoadChainLog {
                 jSONObject2.put("is_end", 0);
                 jSONObject2.put("session_id", this.sessionId);
                 jSONObject2.put("hdid", "");
-                jSONObject2.put(IAdRequestParam.APV, this.hostVersion);
+                jSONObject2.put("app_ver", this.hostVersion);
                 jSONObject2.put("sid", "");
                 jSONObject2.put("tpl_id", "");
                 jSONObject2.put("is_Mix", 0);
@@ -197,10 +196,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endDownloadLiveNps(long j, long j2) {
+    public void endDownloadLiveNps(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            postTask(new Runnable(this, j, j2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            postTask(new Runnable(this, j2, j3) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -212,7 +211,7 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2)};
+                        Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -223,8 +222,8 @@ public class NpsLoadChainLog {
                         }
                     }
                     this.this$0 = this;
-                    this.val$downloadSize = j;
-                    this.val$totalSize = j2;
+                    this.val$downloadSize = j2;
+                    this.val$totalSize = j3;
                 }
 
                 @Override // java.lang.Runnable
@@ -1044,14 +1043,14 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject genNodeJsonObj(int i2, int i3, long j, long j2) {
+    public JSONObject genNodeJsonObj(int i2, int i3, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             JSONObject genNodeJsonObj = genNodeJsonObj(i2, i3);
             try {
-                genNodeJsonObj.put("downloadSize", j);
-                genNodeJsonObj.put("totalSize", j2);
+                genNodeJsonObj.put("downloadSize", j2);
+                genNodeJsonObj.put("totalSize", j3);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

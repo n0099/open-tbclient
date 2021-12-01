@@ -12,9 +12,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 /* loaded from: classes2.dex */
 public class c {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Charset f68626a = Charset.forName("UTF-8");
+    public static final Charset a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         if (str != null) {
@@ -22,9 +20,9 @@ public class c {
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                return new String(a(a(str), b(str2)), f68626a);
+                return new String(a(a(str), b(str2)), a);
             } catch (Exception e2) {
-                b.j.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
+                c.k.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
                 return null;
             }
         }
@@ -41,21 +39,21 @@ public class c {
             sb.append("loadPublicKey IOException ");
             message = e2.getMessage();
             sb.append(message);
-            b.j.a.a.a.b("RSAUtils", sb.toString());
+            c.k.a.a.a.b("RSAUtils", sb.toString());
             return null;
         } catch (NoSuchAlgorithmException e3) {
             sb = new StringBuilder();
             sb.append("loadPublicKey NoSuchAlgorithmException ");
             message = e3.getMessage();
             sb.append(message);
-            b.j.a.a.a.b("RSAUtils", sb.toString());
+            c.k.a.a.a.b("RSAUtils", sb.toString());
             return null;
         } catch (InvalidKeySpecException e4) {
             sb = new StringBuilder();
             sb.append("loadPublicKey InvalidKeySpecException ");
             message = e4.getMessage();
             sb.append(message);
-            b.j.a.a.a.b("RSAUtils", sb.toString());
+            c.k.a.a.a.b("RSAUtils", sb.toString());
             return null;
         }
     }

@@ -16,13 +16,11 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class x extends BaseBean<QueryPayResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<RestNameValuePair> f60546a;
+    public List<RestNameValuePair> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> x(Context context) {
@@ -57,7 +55,7 @@ public class x extends BaseBean<QueryPayResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<RestNameValuePair> list = this.f60546a;
+            List<RestNameValuePair> list = this.a;
             if (list != null) {
                 return list;
             }
@@ -72,7 +70,7 @@ public class x extends BaseBean<QueryPayResponse> {
                 arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
             }
             arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
-            this.f60546a = arrayList;
+            this.a = arrayList;
             return arrayList;
         }
         return (List) invokeV.objValue;

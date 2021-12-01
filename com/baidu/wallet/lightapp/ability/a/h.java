@@ -19,7 +19,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.lightapp.ability.datamodle.NativeAbilityDeviceInfoModel;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class h extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public class h extends com.baidu.wallet.lightapp.ability.b {
             nativeAbilityDeviceInfoModel.cnt.data.networktype = "" + NetworkUtils.getNetworkType(activity);
             String phisicalMac = PhoneUtils.getPhisicalMac(activity);
             nativeAbilityDeviceInfoModel.cnt.data.macAddress = phisicalMac != null ? phisicalMac : "";
-            Bundle a2 = com.baidu.wallet.lightapp.ability.b.a.a().a(activity, JsonUtils.toJson(nativeAbilityDeviceInfoModel.cnt.data));
-            nativeAbilityDeviceInfoModel.cnt.aesdata = a2.getString("aesContent");
-            nativeAbilityDeviceInfoModel.cnt.aeskey = a2.getString("aesKey");
+            Bundle a = com.baidu.wallet.lightapp.ability.b.a.a().a(activity, JsonUtils.toJson(nativeAbilityDeviceInfoModel.cnt.data));
+            nativeAbilityDeviceInfoModel.cnt.aesdata = a.getString("aesContent");
+            nativeAbilityDeviceInfoModel.cnt.aeskey = a.getString("aesKey");
             nativeAbilityDeviceInfoModel.cnt.data = null;
             String json = nativeAbilityDeviceInfoModel.toJson();
             iLightappInvokerCallback.onResult(0, json);

@@ -30,7 +30,6 @@ import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +59,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -162,7 +161,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     public static synchronized void clearTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -174,7 +173,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     public static synchronized void clearTaskExcept(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, baseActivity) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -274,9 +273,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     obj2 = Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler(this) { // from class: com.baidu.wallet.core.BaseActivity.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f58860a;
+                        public final /* synthetic */ BaseActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -293,7 +290,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                     return;
                                 }
                             }
-                            this.f58860a = this;
+                            this.a = this;
                         }
 
                         @Override // java.lang.reflect.InvocationHandler
@@ -401,9 +398,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 application.registerComponentCallbacks(new ComponentCallbacks(application) { // from class: com.baidu.wallet.core.BaseActivity.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Application f58869a;
+                    public final /* synthetic */ Application a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -420,7 +415,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58869a = application;
+                        this.a = application;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -429,7 +424,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) || configuration == null || configuration.fontScale <= 0.0f) {
                             return;
                         }
-                        float unused = BaseActivity.sNocompatScaleDensity = this.f58869a.getResources().getDisplayMetrics().scaledDensity;
+                        float unused = BaseActivity.sNocompatScaleDensity = this.a.getResources().getDisplayMetrics().scaledDensity;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -830,9 +825,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 loadingDialog.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58862a;
+                    public final /* synthetic */ BaseActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -849,14 +842,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58862a = this;
+                        this.a = this;
                     }
 
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f58862a.cancleRequest();
+                            this.a.cancleRequest();
                         }
                     }
                 }, loadingDialog));
@@ -866,9 +859,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.wallet.core.BaseActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58861a;
+                    public final /* synthetic */ BaseActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -885,14 +876,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58861a = this;
+                        this.a = this;
                     }
 
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f58861a.onBackPressed();
+                            this.a.onBackPressed();
                         }
                     }
                 }, loadingDialog2));
@@ -910,9 +901,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58863a;
+                    public final /* synthetic */ BaseActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -929,23 +918,21 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58863a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f58863a, 11);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 11);
                         }
                     }
                 });
                 promptDialog2.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_setting"), new View.OnClickListener(this) { // from class: com.baidu.wallet.core.BaseActivity.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58864a;
+                    public final /* synthetic */ BaseActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -962,16 +949,16 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58864a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f58864a, 11);
+                            WalletGlobalUtils.safeDismissDialog(this.a, 11);
                             try {
-                                this.f58864a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                                this.a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                             } catch (Exception e2) {
                                 LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
                             }
@@ -987,12 +974,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 promptDialog3.setPositiveBtn(ResUtils.getString(getActivity(), "ebpay_confirm"), new View.OnClickListener(this, promptDialog3) { // from class: com.baidu.wallet.core.BaseActivity.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f58865a;
+                    public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58866b;
+                    public final /* synthetic */ BaseActivity f52363b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1009,18 +994,18 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58866b = this;
-                        this.f58865a = promptDialog3;
+                        this.f52363b = this;
+                        this.a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f58865a.dismiss();
+                            this.a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f58866b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f58866b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f52363b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f52363b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1029,12 +1014,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 promptDialog3.setNegativeBtn(ResUtils.getString(getActivity(), "ebpay_cancel"), new View.OnClickListener(this, promptDialog3) { // from class: com.baidu.wallet.core.BaseActivity.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f58867a;
+                    public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f58868b;
+                    public final /* synthetic */ BaseActivity f52364b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1051,15 +1034,15 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f58868b = this;
-                        this.f58867a = promptDialog3;
+                        this.f52364b = this;
+                        this.a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f58867a.dismiss();
+                            this.a.dismiss();
                         }
                     }
                 });

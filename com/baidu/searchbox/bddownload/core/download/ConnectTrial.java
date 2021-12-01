@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -26,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ConnectTrial {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_DISPOSITION_NON_QUOTED_PATTERN;
@@ -108,7 +107,7 @@ public class ConnectTrial {
     public static long findInstanceLength(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, connected)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, connected)) == null) {
             long parseContentRangeFoInstanceLength = parseContentRangeFoInstanceLength(connected.getResponseHeaderField("Content-Range"));
             if (parseContentRangeFoInstanceLength != -1) {
                 return parseContentRangeFoInstanceLength;
@@ -266,12 +265,12 @@ public class ConnectTrial {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.info.getEtag() == null || this.info.getEtag().equals(this.responseEtag)) ? false : true : invokeV.booleanValue;
     }
 
-    public boolean isNeedTrialHeadMethodForInstanceLength(long j, @NonNull DownloadConnection.Connected connected) {
+    public boolean isNeedTrialHeadMethodForInstanceLength(long j2, @NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeJL;
         String responseHeaderField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, connected)) == null) {
-            if (j != -1) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, connected)) == null) {
+            if (j2 != -1) {
                 return false;
             }
             String responseHeaderField2 = connected.getResponseHeaderField("Content-Range");
@@ -304,7 +303,7 @@ public class ConnectTrial {
     public static boolean isAcceptRange(@NonNull DownloadConnection.Connected connected) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, connected)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, connected)) == null) {
             if (connected.getResponseCode() == 206) {
                 return true;
             }

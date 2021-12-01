@@ -8,13 +8,11 @@ import com.vivo.push.cache.ISubscribeAppAliasManager;
 import com.vivo.push.cache.ISubscribeAppTagManager;
 import com.vivo.push.model.SubscribeAppInfo;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f71225a;
+    public final /* synthetic */ LocalAliasTagsManager a;
 
     public g(LocalAliasTagsManager localAliasTagsManager) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class g implements Runnable {
                 return;
             }
         }
-        this.f71225a = localAliasTagsManager;
+        this.a = localAliasTagsManager;
     }
 
     @Override // java.lang.Runnable
@@ -42,7 +40,7 @@ public final class g implements Runnable {
         ISubscribeAppTagManager iSubscribeAppTagManager2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iSubscribeAppAliasManager = this.f71225a.mSubscribeAppAliasManager;
+            iSubscribeAppAliasManager = this.a.mSubscribeAppAliasManager;
             SubscribeAppInfo retrySubscribeAppInfo = iSubscribeAppAliasManager.getRetrySubscribeAppInfo();
             boolean z2 = true;
             if (retrySubscribeAppInfo != null) {
@@ -60,7 +58,7 @@ public final class g implements Runnable {
             } else {
                 z = false;
             }
-            iSubscribeAppTagManager = this.f71225a.mSubscribeAppTagManager;
+            iSubscribeAppTagManager = this.a.mSubscribeAppTagManager;
             ArrayList<String> retrySubscribeAppInfo2 = iSubscribeAppTagManager.getRetrySubscribeAppInfo();
             if (retrySubscribeAppInfo2 != null && retrySubscribeAppInfo2.size() > 0) {
                 if (z) {
@@ -75,7 +73,7 @@ public final class g implements Runnable {
                 p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo2);
                 z = z2;
             }
-            iSubscribeAppTagManager2 = this.f71225a.mSubscribeAppTagManager;
+            iSubscribeAppTagManager2 = this.a.mSubscribeAppTagManager;
             ArrayList<String> retryUnsubscribeAppInfo = iSubscribeAppTagManager2.getRetryUnsubscribeAppInfo();
             if (retryUnsubscribeAppInfo == null || retryUnsubscribeAppInfo.size() <= 0) {
                 return;

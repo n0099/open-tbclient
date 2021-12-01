@@ -17,25 +17,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MzNotifyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f36645a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36646b;
+    public String f32865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36647c;
+    public String f32866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36648d;
+    public String f32867d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36649e;
+    public String f32868e;
 
     public MzNotifyActivity() {
         Interceptable interceptable = $ic;
@@ -85,37 +83,37 @@ public class MzNotifyActivity extends Activity {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                             if (!jSONObject2.isNull("Msgid")) {
-                                this.f36645a = jSONObject2.getString("Msgid");
+                                this.a = jSONObject2.getString("Msgid");
                             }
                             if (!jSONObject2.isNull("msgBody")) {
-                                this.f36647c = jSONObject2.getString("msgBody");
+                                this.f32866c = jSONObject2.getString("msgBody");
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f36647c)) {
-                            JSONObject jSONObject3 = new JSONObject(this.f36647c);
+                        if (!TextUtils.isEmpty(this.f32866c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f32866c);
                             if (!jSONObject3.isNull("custom_content")) {
-                                this.f36648d = jSONObject3.getString("custom_content");
+                                this.f32867d = jSONObject3.getString("custom_content");
                             }
                             if (!jSONObject3.isNull("pkg_content")) {
-                                this.f36649e = jSONObject3.getString("pkg_content");
+                                this.f32868e = jSONObject3.getString("pkg_content");
                             }
                             if (!jSONObject3.isNull("mzpri_signinfo")) {
-                                this.f36646b = jSONObject3.getString("mzpri_signinfo");
+                                this.f32865b = jSONObject3.getString("mzpri_signinfo");
                             }
                         }
                     }
-                    if (f.a(this, this.f36646b, (this.f36645a + this.f36648d).replaceAll("\\\\", ""))) {
-                        if (TextUtils.isEmpty(this.f36649e)) {
+                    if (f.a(this, this.f32865b, (this.a + this.f32867d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f32868e)) {
                             parseUri = new Intent();
                             parseUri.setClassName(getPackageName(), a(this, getPackageName()));
                             parseUri.setFlags(268435456);
                         } else {
-                            parseUri = Intent.parseUri(this.f36649e, 0);
+                            parseUri = Intent.parseUri(this.f32868e, 0);
                             parseUri.setPackage(getPackageName());
                             parseUri.addFlags(268435456);
                         }
-                        if (!TextUtils.isEmpty(this.f36648d)) {
-                            JSONObject jSONObject4 = new JSONObject(this.f36648d);
+                        if (!TextUtils.isEmpty(this.f32867d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f32867d);
                             Iterator<String> keys = jSONObject4.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();

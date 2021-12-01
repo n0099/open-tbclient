@@ -34,7 +34,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CloudControlRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TIME = "300";
@@ -51,7 +51,7 @@ public class CloudControlRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public final SharedPrefsWrapper mSharedPrefsWrapper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,17 +138,17 @@ public class CloudControlRequest {
             }
         }
 
-        public void setPostLength(long j) {
+        public void setPostLength(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                this.mPostLength = j;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+                this.mPostLength = j2;
             }
         }
 
-        public void setStart(long j) {
+        public void setStart(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-                this.mStart = j;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+                this.mStart = j2;
             }
         }
 
@@ -231,11 +231,11 @@ public class CloudControlRequest {
         if (interceptable == null || interceptable.invokeLL(65537, this, str, httpRequest) == null) {
             try {
                 String bdTraceId = httpRequest.getBdTraceId();
-                long j = -1;
+                long j2 = -1;
                 if (httpRequest.getOkRequest() != null && httpRequest.getOkRequest().body() != null) {
-                    j = httpRequest.getOkRequest().body().contentLength();
+                    j2 = httpRequest.getOkRequest().body().contentLength();
                 }
-                CloudStabilityUBCUtils.doRequestStatistics(str, bdTraceId, j);
+                CloudStabilityUBCUtils.doRequestStatistics(str, bdTraceId, j2);
             } catch (Exception e2) {
                 if (AppConfig.isDebug()) {
                     String str2 = "doStabilityRequestUBCEvent error " + e2.toString();
@@ -250,13 +250,13 @@ public class CloudControlRequest {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (TextUtils.equals(str, "1")) {
                 String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_HOTRUNTIME_INTERVAL, DEFAULT_TIME);
-                long j = this.mSharedPrefsWrapper.getLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, 0L);
+                long j2 = this.mSharedPrefsWrapper.getLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, 0L);
                 try {
                     long parseLong = Long.parseLong(string);
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = currentTimeMillis - j;
-                    if (currentTimeMillis > j) {
-                        if ((j2 / 1000) - parseLong >= 0) {
+                    long j3 = currentTimeMillis - j2;
+                    if (currentTimeMillis > j2) {
+                        if ((j3 / 1000) - parseLong >= 0) {
                             return true;
                         }
                     }

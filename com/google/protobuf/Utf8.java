@@ -1,13 +1,12 @@
 package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Utf8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMPLETE = 0;
@@ -87,7 +86,7 @@ public final class Utf8 {
     public static boolean isValidUtf8(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? isValidUtf8(bArr, 0, bArr.length) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? isValidUtf8(bArr, 0, bArr.length) : invokeL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0019, code lost:
@@ -221,7 +220,7 @@ public final class Utf8 {
     public static boolean isValidUtf8(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) ? partialIsValidUtf8(bArr, i2, i3) == 0 : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) ? partialIsValidUtf8(bArr, i2, i3) == 0 : invokeLII.booleanValue;
     }
 
     public static int partialIsValidUtf8(byte[] bArr, int i2, int i3) {

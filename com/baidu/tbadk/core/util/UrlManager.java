@@ -1,22 +1,20 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.e;
-import b.a.e.f.p.l;
-import b.a.q0.e1.n.f;
-import b.a.r0.m3.j0.n;
+import c.a.d.f.m.e;
+import c.a.d.f.p.l;
+import c.a.q0.f1.n.f;
+import c.a.r0.t3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UrlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PARAM = "default_param";
@@ -52,22 +50,22 @@ public class UrlManager {
     public final List<UrlDealListener> mListeners;
     public UrlWebDealListener mWebListener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface UrlDealListener {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface UrlSchemaHandler {
         void deal(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface UrlWebDealListener {
         void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface UrlWebDialogCancelListener {
         void onCancel();
     }
@@ -116,11 +114,11 @@ public class UrlManager {
         this.mListeners.add(urlDealListener);
     }
 
-    public static SpannableString findAllWebUrl(Context context, String str) {
-        InterceptResult invokeLL;
+    public static SpannableString findAllWebUrl(String str) {
+        InterceptResult invokeL;
         int start;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             Matcher matcher = pattern.matcher(str);
             SpannableString spannableString = new SpannableString(str);
             while (matcher.find()) {
@@ -134,13 +132,13 @@ public class UrlManager {
             }
             return spannableString;
         }
-        return (SpannableString) invokeLL.objValue;
+        return (SpannableString) invokeL.objValue;
     }
 
     private Map<String, String> getInnerParamPair(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -264,7 +262,7 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (l.C()) {
+            if (l.B()) {
                 addListenerInner(urlDealListener);
             } else {
                 e.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2

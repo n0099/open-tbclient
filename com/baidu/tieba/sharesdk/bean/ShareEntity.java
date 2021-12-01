@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ShareEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShareEntity> CREATOR;
@@ -40,7 +40,7 @@ public class ShareEntity implements Parcelable {
     public int typeShareToSmallApp;
     public String videoUrl;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<ShareEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -359,10 +359,10 @@ public class ShareEntity implements Parcelable {
         }
     }
 
-    public void setReadCount(long j) {
+    public void setReadCount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
-            this.readCount = j;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
+            this.readCount = j2;
         }
     }
 

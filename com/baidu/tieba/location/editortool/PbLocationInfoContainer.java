@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.n.b;
-import b.a.q0.x.a;
-import b.a.q0.x.n;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.n.b;
+import c.a.q0.x.a;
+import c.a.q0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -21,22 +21,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f52199e;
+    public TBSpecificationBtn f46747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditorTools f52200f;
+    public EditorTools f46748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52201g;
+    public int f46749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52202h;
+    public boolean f46750h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbLocationInfoContainer(Context context) {
@@ -56,8 +56,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 return;
             }
         }
-        this.f52201g = 0;
-        this.f52202h = true;
+        this.f46749g = 0;
+        this.f46750h = true;
         a();
     }
 
@@ -66,72 +66,72 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setGravity(16);
             setOrientation(0);
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, l.g(getContext(), R.dimen.ds48));
-            layoutParams.setMargins(0, l.g(getContext(), R.dimen.ds30), 0, l.g(getContext(), R.dimen.ds12));
+            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, l.f(getContext(), R.dimen.ds48));
+            layoutParams.setMargins(0, l.f(getContext(), R.dimen.ds30), 0, l.f(getContext(), R.dimen.ds12));
             setLayoutParams(layoutParams);
             b bVar = new b();
             bVar.p(R.color.CAM_X0209, R.color.CAM_X0105);
             bVar.h(R.color.CAM_X0110);
             bVar.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            bVar.m(l.g(getContext(), R.dimen.M_W_X004), l.g(getContext(), R.dimen.M_W_X004));
-            bVar.n(l.g(getContext(), R.dimen.M_H_X002));
+            bVar.m(l.f(getContext(), R.dimen.M_W_X004), l.f(getContext(), R.dimen.M_W_X004));
+            bVar.n(l.f(getContext(), R.dimen.M_H_X002));
             bVar.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
             bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.f52199e = tBSpecificationBtn;
+            this.f46747e = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f52199e.setTextSize(R.dimen.tbds32);
-            this.f52199e.setOnClickListener(this);
-            this.f52199e.setText(getContext().getString(R.string.location_where_are_you));
-            addView(this.f52199e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds63)));
+            this.f46747e.setTextSize(R.dimen.tbds32);
+            this.f46747e.setOnClickListener(this);
+            this.f46747e.setText(getContext().getString(R.string.location_where_are_you));
+            addView(this.f46747e, new LinearLayout.LayoutParams(-2, l.f(getContext(), R.dimen.tbds63)));
         }
     }
 
     public void changeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f52199e.changeSkinType(i2);
+            this.f46747e.changeSkinType(i2);
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void display() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f52202h) {
-            this.f52202h = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f46750h) {
+            this.f46750h = false;
             sendAction(new a(18, -1, "first"));
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52201g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46749g : invokeV.intValue;
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f52199e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f46747e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // b.a.q0.x.b
+    @Override // c.a.q0.x.b
     public void onAction(a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i2 = aVar.f14962a;
+        int i2 = aVar.a;
         if (i2 != 19) {
             if (i2 == 20) {
                 hide();
@@ -139,22 +139,22 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             }
             return;
         }
-        Object obj = aVar.f14964c;
+        Object obj = aVar.f13679c;
         if (obj == null) {
             hide();
             return;
         }
-        b.a.q0.x.v.a aVar2 = (b.a.q0.x.v.a) obj;
-        if (aVar2.f14995a == 1) {
-            this.f52199e.setText(getContext().getString(R.string.location_loading));
-        } else if (!TextUtils.isEmpty(aVar2.f14996b)) {
-            this.f52199e.setText(aVar2.f14996b);
+        c.a.q0.x.v.a aVar2 = (c.a.q0.x.v.a) obj;
+        if (aVar2.a == 1) {
+            this.f46747e.setText(getContext().getString(R.string.location_loading));
+        } else if (!TextUtils.isEmpty(aVar2.f13707b)) {
+            this.f46747e.setText(aVar2.f13707b);
         } else {
-            this.f52199e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f46747e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
@@ -165,34 +165,34 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && view == this.f52199e) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && view == this.f46747e) {
             sendAction(new a(18, -1, null));
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void sendAction(a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) || (editorTools = this.f52200f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) || (editorTools = this.f46748f) == null) {
             return;
         }
         editorTools.sendAction(aVar);
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
-            this.f52200f = editorTools;
+            this.f46748f = editorTools;
         }
     }
 
-    @Override // b.a.q0.x.n
+    @Override // c.a.q0.x.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f52201g = i2;
+            this.f46749g = i2;
         }
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.bytedance.pangle.plugin.Plugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface b {
     void finish();
 

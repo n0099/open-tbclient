@@ -44,6 +44,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Deprecated
     public void onActivityCreated(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

@@ -2,19 +2,16 @@ package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f62893a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +27,7 @@ public class s {
                 return;
             }
         }
-        f62893a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(byte[] bArr) {
@@ -44,7 +41,7 @@ public class s {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f62893a;
+                char[] cArr2 = a;
                 cArr[i2] = cArr2[(b2 >>> 4) & 15];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];
@@ -63,12 +60,12 @@ public class s {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
     }
 
     public static void b(com.cmic.sso.sdk.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, aVar, str) == null) {
             if (TextUtils.isEmpty(aVar.b("interfaceCode", ""))) {
                 aVar.a("interfaceCode", str);
                 return;

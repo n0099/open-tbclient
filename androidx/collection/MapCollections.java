@@ -310,10 +310,10 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Set, java.util.Collection
-        public boolean add(K k) {
+        public boolean add(K k2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeL.booleanValue;
@@ -852,7 +852,7 @@ public abstract class MapCollections<K, V> {
 
     public abstract int colIndexOfValue(Object obj);
 
-    public abstract void colPut(K k, V v);
+    public abstract void colPut(K k2, V v);
 
     public abstract void colRemoveAt(int i2);
 

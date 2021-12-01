@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.retry.HttpRetryStatistic;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.aj;
 import com.baidu.mobstat.ak;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +31,7 @@ import java.util.ArrayList;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class am {
     public static /* synthetic */ Interceptable $ic;
     public static final am B;
@@ -43,35 +42,37 @@ public class am {
     public boolean E;
     public JSONArray F;
     public Object G;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f41808a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ak f41809b;
+    public ak f36977b;
 
     /* renamed from: c  reason: collision with root package name */
-    public aj f41810c;
+    public aj f36978c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f41811d;
+    public Activity f36979d;
 
     /* renamed from: e  reason: collision with root package name */
-    public an f41812e;
+    public an f36980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f41813f;
+    public Handler f36981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HandlerThread f41814g;
+    public HandlerThread f36982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f41815h;
+    public Handler f36983h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f41816i;
-    public volatile boolean j;
-    public volatile boolean k;
+    public HandlerThread f36984i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile boolean f36985j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public volatile boolean f36986k;
     public volatile boolean l;
     public volatile boolean m;
     public volatile boolean n;
@@ -88,13 +89,11 @@ public class am {
     public JSONObject y;
     public JSONObject z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ am f41819a;
+        public final /* synthetic */ am a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(am amVar, Looper looper) {
@@ -114,7 +113,7 @@ public class am {
                     return;
                 }
             }
-            this.f41819a = amVar;
+            this.a = amVar;
         }
 
         @Override // android.os.Handler
@@ -123,18 +122,18 @@ public class am {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 21:
-                        this.f41819a.l();
+                        this.a.l();
                         return;
                     case 22:
-                        this.f41819a.m();
+                        this.a.m();
                         return;
                     case 23:
-                        this.f41819a.n();
+                        this.a.n();
                         return;
                     case 24:
                         Bundle data = message.getData();
                         if (data != null) {
-                            this.f41819a.b(data.getString("autoconfig.key"));
+                            this.a.b(data.getString("autoconfig.key"));
                             return;
                         }
                         return;
@@ -145,13 +144,11 @@ public class am {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements aj.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ am f41820a;
+        public final /* synthetic */ am a;
 
         public b(am amVar) {
             Interceptable interceptable = $ic;
@@ -168,14 +165,14 @@ public class am {
                     return;
                 }
             }
-            this.f41820a = amVar;
+            this.a = amVar;
         }
 
         @Override // com.baidu.mobstat.aj.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41820a.j();
+                this.a.j();
             }
         }
 
@@ -183,7 +180,7 @@ public class am {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f41820a.k();
+                this.a.k();
             }
         }
 
@@ -191,7 +188,7 @@ public class am {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f41820a.b(z);
+                this.a.b(z);
             }
         }
 
@@ -199,22 +196,20 @@ public class am {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                Message obtainMessage = this.f41820a.f41813f.obtainMessage(24);
+                Message obtainMessage = this.a.f36981f.obtainMessage(24);
                 Bundle bundle = new Bundle();
                 bundle.putString("autoconfig.key", str);
                 obtainMessage.setData(bundle);
-                this.f41820a.f41813f.sendMessage(obtainMessage);
+                this.a.f36981f.sendMessage(obtainMessage);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ am f41821a;
+        public final /* synthetic */ am a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(am amVar, Looper looper) {
@@ -234,7 +229,7 @@ public class am {
                     return;
                 }
             }
-            this.f41821a = amVar;
+            this.a = amVar;
         }
 
         @Override // android.os.Handler
@@ -243,10 +238,10 @@ public class am {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    this.f41821a.o();
+                    this.a.o();
                 } else if (i2 != 2) {
                 } else {
-                    this.f41821a.s();
+                    this.a.s();
                 }
             }
         }
@@ -287,9 +282,7 @@ public class am {
         this.C = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.am.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ am f41817a;
+            public final /* synthetic */ am a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -309,7 +302,7 @@ public class am {
                         return;
                     }
                 }
-                this.f41817a = this;
+                this.a = this;
             }
 
             @Override // android.os.Handler
@@ -318,13 +311,13 @@ public class am {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     switch (message.what) {
                         case 32:
-                            this.f41817a.b();
+                            this.a.b();
                             return;
                         case 33:
-                            this.f41817a.c();
+                            this.a.c();
                             return;
                         case 34:
-                            this.f41817a.h();
+                            this.a.h();
                             return;
                         default:
                             return;
@@ -335,9 +328,7 @@ public class am {
         this.D = new ak.a(this) { // from class: com.baidu.mobstat.am.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ am f41818a;
+            public final /* synthetic */ am a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -354,7 +345,7 @@ public class am {
                         return;
                     }
                 }
-                this.f41818a = this;
+                this.a = this;
             }
 
             @Override // com.baidu.mobstat.ak.a
@@ -364,32 +355,32 @@ public class am {
                     if (bd.c().b()) {
                         bd.c().a("onGesture");
                     }
-                    this.f41818a.i();
+                    this.a.i();
                 }
             }
         };
         this.E = true;
         this.F = new JSONArray();
         this.G = new Object();
-        this.f41812e = new an();
+        this.f36980e = new an();
         HandlerThread handlerThread = new HandlerThread("crawlerThread");
-        this.f41816i = handlerThread;
+        this.f36984i = handlerThread;
         handlerThread.start();
-        this.f41815h = new c(this, this.f41816i.getLooper());
+        this.f36983h = new c(this, this.f36984i.getLooper());
         HandlerThread handlerThread2 = new HandlerThread("downloadThread");
-        this.f41814g = handlerThread2;
+        this.f36982g = handlerThread2;
         handlerThread2.start();
-        this.f41813f = new a(this, this.f41814g.getLooper());
+        this.f36981f = new a(this, this.f36982g.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65567, this) == null) {
-            this.j = true;
-            if (p() && this.j) {
+            this.f36985j = true;
+            if (p() && this.f36985j) {
                 this.C.sendMessage(this.C.obtainMessage(32));
-                this.f41815h.sendMessage(this.f41815h.obtainMessage(2));
+                this.f36983h.sendMessage(this.f36983h.obtainMessage(2));
             }
         }
     }
@@ -397,13 +388,13 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.k) {
+        if (!(interceptable == null || interceptable.invokeV(65568, this) == null) || this.f36986k) {
             return;
         }
-        boolean a2 = bg.a(this.f41808a, this.v, 0, true);
-        this.k = true;
+        boolean a2 = bg.a(this.a, this.v, 0, true);
+        this.f36986k = true;
         if (a2) {
-            this.p = bo.a(this.f41808a, "mtj_vizParser.js");
+            this.p = bo.a(this.a, "mtj_vizParser.js");
         }
     }
 
@@ -413,10 +404,10 @@ public class am {
         if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || this.l) {
             return;
         }
-        boolean a2 = bg.a(this.f41808a, this.v, 1, true);
+        boolean a2 = bg.a(this.a, this.v, 1, true);
         this.l = true;
         if (a2) {
-            this.q = bo.a(this.f41808a, "mtj_autoTracker.js");
+            this.q = bo.a(this.a, "mtj_autoTracker.js");
         }
     }
 
@@ -426,7 +417,7 @@ public class am {
         if (!(interceptable == null || interceptable.invokeV(65570, this) == null) || this.m) {
             return;
         }
-        boolean a2 = bg.a(this.f41808a, this.v, 2, true);
+        boolean a2 = bg.a(this.a, this.v, 2, true);
         this.m = true;
         if (a2) {
             this.C.sendMessage(this.C.obtainMessage(34));
@@ -443,7 +434,7 @@ public class am {
                 bc.c().a("autotrace: connect established, no need to duplicate connect");
                 return;
             }
-            String a2 = a(this.f41808a);
+            String a2 = a(this.a);
             if (bd.c().b()) {
                 String str = HttpRetryStatistic.RETRY_URL;
                 if (!TextUtils.isEmpty(a2)) {
@@ -452,7 +443,7 @@ public class am {
                 bd.c().a(str);
             }
             try {
-                this.f41810c = new aj(URI.create(a2), new b());
+                this.f36978c = new aj(URI.create(a2), new b());
             } catch (Exception unused) {
             }
         }
@@ -462,7 +453,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) {
-            aj ajVar = this.f41810c;
+            aj ajVar = this.f36978c;
             return ajVar != null && ajVar.b();
         }
         return invokeV.booleanValue;
@@ -478,7 +469,7 @@ public class am {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
-            Activity activity = this.f41811d;
+            Activity activity = this.f36979d;
             if (activity != null) {
                 return activity.getClass().getName();
             }
@@ -490,49 +481,49 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.j) {
-            JSONObject a2 = a(this.f41812e.a(this.f41811d));
+        if ((interceptable == null || interceptable.invokeV(65575, this) == null) && p() && this.f36985j) {
+            JSONObject a2 = a(this.f36980e.a(this.f36979d));
             if (a2 != null) {
                 if (bd.c().b()) {
                     bd c2 = bd.c();
                     c2.a("doSendSnapshot:" + a2.toString());
                 }
                 try {
-                    this.f41810c.a(a2);
+                    this.f36978c.a(a2);
                 } catch (Exception unused) {
                 }
             }
-            this.f41815h.sendMessageDelayed(this.f41815h.obtainMessage(2), 2000L);
+            this.f36983h.sendMessageDelayed(this.f36983h.obtainMessage(2), 2000L);
         }
     }
 
     private void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65576, this) == null) && bw.s(this.f41808a) && !this.m) {
+        if ((interceptable == null || interceptable.invokeV(65576, this) == null) && bw.s(this.a) && !this.m) {
             if (this.u == 0) {
-                this.u = bq.a().p(this.f41808a);
+                this.u = bq.a().p(this.a);
             }
             if (System.currentTimeMillis() - this.u > 86400000) {
-                this.f41813f.sendMessage(this.f41813f.obtainMessage(23));
+                this.f36981f.sendMessage(this.f36981f.obtainMessage(23));
             }
         }
     }
 
     private void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65577, this) == null) && bw.s(this.f41808a) && !this.l) {
+        if ((interceptable == null || interceptable.invokeV(65577, this) == null) && bw.s(this.a) && !this.l) {
             if (!this.n) {
-                this.q = bo.a(this.f41808a, "mtj_autoTracker.js");
+                this.q = bo.a(this.a, "mtj_autoTracker.js");
                 this.n = true;
             }
             if (this.s == 0) {
-                this.s = bq.a().n(this.f41808a);
-                this.t = bq.a().o(this.f41808a);
+                this.s = bq.a().n(this.a);
+                this.t = bq.a().o(this.a);
             }
             if (!(this.n && TextUtils.isEmpty(this.q)) && System.currentTimeMillis() - this.s <= this.t) {
                 return;
             }
-            this.f41813f.sendMessage(this.f41813f.obtainMessage(22));
+            this.f36981f.sendMessage(this.f36981f.obtainMessage(22));
         }
     }
 
@@ -570,7 +561,7 @@ public class am {
             if (!TextUtils.isEmpty(g2)) {
                 launchInfo.setRefererPkgName(g2);
             }
-            BDStatCore.instance().autoTrackLaunchInfo(this.f41808a, launchInfo, true);
+            BDStatCore.instance().autoTrackLaunchInfo(this.a, launchInfo, true);
         } else {
             LaunchInfo launchInfo2 = new LaunchInfo();
             if (booleanExtra) {
@@ -580,7 +571,7 @@ public class am {
             if (!TextUtils.isEmpty(g3)) {
                 launchInfo2.setRefererPkgName(g3);
             }
-            BDStatCore.instance().autoTrackLaunchInfo(this.f41808a, launchInfo2, false);
+            BDStatCore.instance().autoTrackLaunchInfo(this.a, launchInfo2, false);
         }
         this.E = false;
     }
@@ -592,7 +583,7 @@ public class am {
                 bd.c().a("installConnectionTracker");
             }
             ak akVar = new ak(this.D);
-            this.f41809b = akVar;
+            this.f36977b = akVar;
             akVar.a(activity);
         }
     }
@@ -603,10 +594,10 @@ public class am {
             if (bd.c().b()) {
                 bd.c().a("uninstallConnectionTracker");
             }
-            ak akVar = this.f41809b;
+            ak akVar = this.f36977b;
             if (akVar != null) {
                 akVar.b();
-                this.f41809b = null;
+                this.f36977b = null;
             }
         }
     }
@@ -614,7 +605,7 @@ public class am {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            if (p() && this.j) {
+            if (p() && this.f36985j) {
                 b();
             } else {
                 c();
@@ -626,7 +617,7 @@ public class am {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            this.r = bo.a(this.f41808a, "mtj_auto.config");
+            this.r = bo.a(this.a, "mtj_auto.config");
             c(this.r);
             av.b(this.r);
             ar.a(this.r);
@@ -641,34 +632,34 @@ public class am {
         }
         bc.c().a("autotrace: gesture success");
         a(0);
-        if (!bw.s(this.f41808a)) {
+        if (!bw.s(this.a)) {
             bc.c().a("autotrace: network invalid, failed to connect to circle server");
             return;
         }
-        this.f41815h.sendMessage(this.f41815h.obtainMessage(1));
+        this.f36983h.sendMessage(this.f36983h.obtainMessage(1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.k) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f36986k) {
             return;
         }
-        this.f41813f.sendMessage(this.f41813f.obtainMessage(21));
+        this.f36981f.sendMessage(this.f36981f.obtainMessage(21));
     }
 
     public void b(Activity activity) {
         Intent intent;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && q()) {
-            this.f41808a = activity.getApplicationContext();
+            this.a = activity.getApplicationContext();
             if (activity != null && (intent = activity.getIntent()) != null && a(activity, intent)) {
                 a().i();
             }
-            if (this.f41811d != null) {
+            if (this.f36979d != null) {
                 c();
             }
-            this.f41811d = activity;
+            this.f36979d = activity;
             d(activity);
             v();
             t();
@@ -683,7 +674,7 @@ public class am {
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && q()) {
-            this.f41811d = null;
+            this.f36979d = null;
             b(activity, false);
             f();
             a(activity, false);
@@ -715,10 +706,10 @@ public class am {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             synchronized (this.G) {
-                if (this.f41808a == null) {
+                if (this.a == null) {
                     return new JSONArray();
                 }
-                String a2 = bo.a(this.f41808a, "trace_circle.data");
+                String a2 = bo.a(this.a, "trace_circle.data");
                 JSONArray jSONArray = null;
                 try {
                     if (!TextUtils.isEmpty(a2)) {
@@ -731,7 +722,7 @@ public class am {
                 }
                 JSONArray jSONArray2 = new JSONArray();
                 this.F = jSONArray2;
-                bo.a(this.f41808a, "trace_circle.data", jSONArray2.toString(), false);
+                bo.a(this.a, "trace_circle.data", jSONArray2.toString(), false);
                 return jSONArray;
             }
         }
@@ -777,7 +768,7 @@ public class am {
     public void c() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f41811d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (activity = this.f36979d) == null) {
             return;
         }
         ai.a(activity);
@@ -788,7 +779,7 @@ public class am {
         if (!(interceptable == null || interceptable.invokeLLL(65550, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f41811d, webView, str, a(this.y, r()), true);
+        blVar.a(this.f36979d, webView, str, a(this.y, r()), true);
     }
 
     private void c(String str) {
@@ -822,7 +813,7 @@ public class am {
     public void b() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f41811d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (activity = this.f36979d) == null) {
             return;
         }
         ai.b(activity);
@@ -832,9 +823,9 @@ public class am {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            this.j = false;
+            this.f36985j = false;
             an.b();
-            this.f41815h.removeMessages(2);
+            this.f36983h.removeMessages(2);
             this.C.sendMessage(this.C.obtainMessage(33));
         }
     }
@@ -854,7 +845,7 @@ public class am {
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && p()) {
-            this.f41810c.a();
+            this.f36978c.a();
         }
     }
 
@@ -862,11 +853,11 @@ public class am {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, blVar) == null) {
             if (TextUtils.isEmpty(this.p)) {
-                this.p = bo.a(this.f41808a, "mtj_vizParser.js");
+                this.p = bo.a(this.a, "mtj_vizParser.js");
             }
             b(webView, this.p, blVar);
             if (TextUtils.isEmpty(this.q)) {
-                this.q = bo.a(this.f41808a, "mtj_autoTracker.js");
+                this.q = bo.a(this.a, "mtj_autoTracker.js");
             }
             c(webView, this.q, blVar);
         }
@@ -875,11 +866,11 @@ public class am {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, str) == null) || this.f41808a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, str) == null) || this.a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        bq.a().c(this.f41808a, System.currentTimeMillis());
-        bo.a(this.f41808a, "mtj_auto.config", str, false);
+        bq.a().c(this.a, System.currentTimeMillis());
+        bo.a(this.a, "mtj_auto.config", str, false);
         this.C.sendMessage(this.C.obtainMessage(34));
     }
 
@@ -967,7 +958,7 @@ public class am {
     private JSONObject a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, str)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, this, jSONObject, str)) != null) {
             return (JSONObject) invokeLL.objValue;
         }
         if (jSONObject == null || TextUtils.isEmpty(str)) {
@@ -1018,21 +1009,21 @@ public class am {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             synchronized (this.G) {
-                if (this.f41808a == null) {
+                if (this.a == null) {
                     return;
                 }
                 if (str == null) {
                     str = "";
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean s = bw.s(this.f41808a);
+                boolean s = bw.s(this.a);
                 StringBuilder sb = new StringBuilder();
                 sb.append(s ? 1 : 0);
                 sb.append("|");
                 sb.append(str);
                 String sb2 = sb.toString();
                 this.F.put(i2 + "_" + currentTimeMillis + "_" + sb2);
-                bo.a(this.f41808a, "trace_circle.data", this.F.toString(), false);
+                bo.a(this.a, "trace_circle.data", this.F.toString(), false);
             }
         }
     }

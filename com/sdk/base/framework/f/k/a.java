@@ -3,7 +3,6 @@ package com.sdk.base.framework.f.k;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.packet.e;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69178a;
+    public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f69179b;
+    public static Boolean f61022b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +39,8 @@ public class a {
             }
         }
         new TreeMap();
-        f69178a = a.class.getSimpleName();
-        f69179b = Boolean.valueOf(f.f69125b);
+        a = a.class.getSimpleName();
+        f61022b = Boolean.valueOf(f.f60988b);
     }
 
     public a() {
@@ -70,8 +67,8 @@ public class a {
                 return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
-                String str2 = f69178a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f69179b);
+                String str2 = a;
+                c.b(str2, "SDK解密异常：" + th.toString(), f61022b);
                 return null;
             }
         }
@@ -90,8 +87,8 @@ public class a {
                     dataInfo.putData("status", String.valueOf(i2));
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
-                    dataInfo.putData(IAdRequestParam.SEQ, str2);
-                    aVar.a(aVar.f69135c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f69085b);
+                    dataInfo.putData("seq", str2);
+                    aVar.a(aVar.f60996c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f60954b);
                 } catch (Throwable unused) {
                 }
             }
@@ -105,8 +102,8 @@ public class a {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
-                String str2 = f69178a;
-                c.c(str2, "out data error" + e2, f69179b);
+                String str2 = a;
+                c.c(str2, "out data error" + e2, f61022b);
                 return true;
             }
         }

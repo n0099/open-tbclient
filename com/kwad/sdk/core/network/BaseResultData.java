@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.an;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -63,8 +63,8 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         this.result = jSONObject.optInt("result");
         this.errorMsg = jSONObject.optString("errorMsg");
         String optString = jSONObject.optString("extra");
-        if (!an.a(optString)) {
-            this.extra = com.kwad.sdk.core.b.d.b(optString);
+        if (!at.a(optString)) {
+            this.extra = com.kwad.sdk.core.a.d.b(optString);
         }
         String optString2 = jSONObject.optString("cookie");
         this.cookie = optString2;
@@ -80,11 +80,11 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "llsid", this.llsid);
-            q.a(jSONObject, "extra", this.extra);
-            q.a(jSONObject, "result", this.result);
-            q.a(jSONObject, "errorMsg", this.errorMsg);
-            q.a(jSONObject, "cookie", this.cookie);
+            t.a(jSONObject, "llsid", this.llsid);
+            t.a(jSONObject, "extra", this.extra);
+            t.a(jSONObject, "result", this.result);
+            t.a(jSONObject, "errorMsg", this.errorMsg);
+            t.a(jSONObject, "cookie", this.cookie);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

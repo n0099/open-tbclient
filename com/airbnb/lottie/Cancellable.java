@@ -1,6 +1,6 @@
 package com.airbnb.lottie;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface Cancellable {
     void cancel();
 }

@@ -1,13 +1,11 @@
 package com.kwad.sdk.core.imageloader.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.d.a;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -84,10 +82,6 @@ public final class IoUtils {
         return invokeLLLI.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x003b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String inputStreamToString(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
@@ -97,49 +91,41 @@ public final class IoUtils {
         }
         char[] cArr = new char[1024];
         StringBuilder sb = new StringBuilder();
-        Closeable closeable = null;
+        InputStreamReader inputStreamReader2 = null;
         try {
-            try {
-                inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-                while (true) {
-                    try {
-                        int read = inputStreamReader.read(cArr, 0, 1024);
-                        if (read < 0) {
-                            closeSilently(inputStreamReader);
-                            return sb.toString();
-                        }
-                        sb.append(cArr, 0, read);
-                    } catch (Exception e2) {
-                        e = e2;
-                        a.a(e);
-                        if (inputStreamReader != null) {
-                            closeSilently(inputStreamReader);
-                        }
-                        return null;
+            inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            while (true) {
+                try {
+                    int read = inputStreamReader.read(cArr, 0, 1024);
+                    if (read < 0) {
+                        closeSilently(inputStreamReader);
+                        return sb.toString();
                     }
+                    sb.append(cArr, 0, read);
+                } catch (Exception unused) {
+                    if (inputStreamReader != null) {
+                        closeSilently(inputStreamReader);
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    inputStreamReader2 = inputStreamReader;
+                    if (inputStreamReader2 != null) {
+                        closeSilently(inputStreamReader2);
+                    }
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                closeable = 65540;
-                if (closeable != null) {
-                    closeSilently(closeable);
-                }
-                throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception unused2) {
             inputStreamReader = null;
         } catch (Throwable th2) {
             th = th2;
-            if (closeable != null) {
-            }
-            throw th;
         }
     }
 
     public static void readAndCloseStream(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, inputStream) == null) {
             do {
                 try {
                 } catch (IOException unused) {
@@ -155,6 +141,6 @@ public final class IoUtils {
     public static boolean shouldStopLoading(CopyListener copyListener, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, copyListener, i2, i3)) == null) ? (copyListener == null || copyListener.onBytesCopied(i2, i3) || (i2 * 100) / i3 >= 75) ? false : true : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, copyListener, i2, i3)) == null) ? (copyListener == null || copyListener.onBytesCopied(i2, i3) || (i2 * 100) / i3 >= 75) ? false : true : invokeLII.booleanValue;
     }
 }

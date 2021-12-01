@@ -16,7 +16,6 @@ import androidx.core.view.accessibility.AccessibilityClickableSpanCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -210,7 +209,7 @@ public class AccessibilityDelegateCompat {
         InterceptResult invokeIL;
         WeakReference weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, view)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, view)) == null) {
             SparseArray sparseArray = (SparseArray) view.getTag(R.id.tag_accessibility_clickable_spans);
             if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i2)) == null) {
                 return false;

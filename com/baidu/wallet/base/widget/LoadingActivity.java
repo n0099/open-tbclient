@@ -21,7 +21,7 @@ import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.SDKBaseActivity;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoadingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_LOGIN_LOADING = 256;

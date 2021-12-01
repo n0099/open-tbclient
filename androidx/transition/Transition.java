@@ -28,7 +28,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -375,7 +374,7 @@ public abstract class Transition implements Cloneable {
     public static boolean alreadyContains(int[] iArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, iArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, iArr, i2)) == null) {
             int i3 = iArr[i2];
             for (int i4 = 0; i4 < i2; i4++) {
                 if (iArr[i4] == i3) {
@@ -389,7 +388,7 @@ public abstract class Transition implements Cloneable {
 
     private void captureHierarchy(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, view, z) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(65542, this, view, z) == null) || view == null) {
             return;
         }
         int id = view.getId();
@@ -959,7 +958,7 @@ public abstract class Transition implements Cloneable {
             ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
             SparseIntArray sparseIntArray = new SparseIntArray();
             int size = arrayList.size();
-            long j = Long.MAX_VALUE;
+            long j2 = Long.MAX_VALUE;
             int i4 = 0;
             while (i4 < size) {
                 TransitionValues transitionValues3 = arrayList.get(i4);
@@ -1023,11 +1022,11 @@ public abstract class Transition implements Cloneable {
                             if (transitionPropagation != null) {
                                 long startDelay = transitionPropagation.getStartDelay(viewGroup, this, transitionValues3, transitionValues4);
                                 sparseIntArray.put(this.mAnimators.size(), (int) startDelay);
-                                j = Math.min(startDelay, j);
+                                j2 = Math.min(startDelay, j2);
                             }
                             runningAnimators.put(animator, new AnimationInfo(view, getName(), this, ViewUtils.getWindowId(viewGroup), transitionValues));
                             this.mAnimators.add(animator);
-                            j = j;
+                            j2 = j2;
                         }
                         i4 = i3 + 1;
                         size = i2;
@@ -1041,7 +1040,7 @@ public abstract class Transition implements Cloneable {
             if (sparseIntArray.size() != 0) {
                 for (int i7 = 0; i7 < sparseIntArray.size(); i7++) {
                     Animator animator3 = this.mAnimators.get(sparseIntArray.keyAt(i7));
-                    animator3.setStartDelay((sparseIntArray.valueAt(i7) - j) + animator3.getStartDelay());
+                    animator3.setStartDelay((sparseIntArray.valueAt(i7) - j2) + animator3.getStartDelay());
                 }
             }
         }
@@ -1486,11 +1485,11 @@ public abstract class Transition implements Cloneable {
     }
 
     @NonNull
-    public Transition setDuration(long j) {
+    public Transition setDuration(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
-            this.mDuration = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
+            this.mDuration = j2;
             return this;
         }
         return (Transition) invokeJ.objValue;
@@ -1563,11 +1562,11 @@ public abstract class Transition implements Cloneable {
     }
 
     @NonNull
-    public Transition setStartDelay(long j) {
+    public Transition setStartDelay(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
-            this.mStartDelay = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) {
+            this.mStartDelay = j2;
             return this;
         }
         return (Transition) invokeJ.objValue;

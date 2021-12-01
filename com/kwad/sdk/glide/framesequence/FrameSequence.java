@@ -3,7 +3,6 @@ package com.kwad.sdk.glide.framesequence;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,12 +32,12 @@ public class FrameSequence implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
         public long mNativeState;
 
-        public State(long j) {
+        public State(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -48,15 +47,15 @@ public class FrameSequence implements Serializable {
                     return;
                 }
             }
-            this.mNativeState = j;
+            this.mNativeState = j2;
         }
 
         public void destroy() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j = this.mNativeState;
-                if (j != 0) {
-                    FrameSequence.nativeDestroyState(j);
+                long j2 = this.mNativeState;
+                if (j2 != 0) {
+                    FrameSequence.nativeDestroyState(j2);
                     this.mNativeState = 0L;
                 }
             }
@@ -69,9 +68,9 @@ public class FrameSequence implements Serializable {
                 if (bitmap == null || bitmap.getConfig() != Bitmap.Config.ARGB_8888) {
                     throw new IllegalArgumentException("Bitmap passed must be non-null and ARGB_8888");
                 }
-                long j = this.mNativeState;
-                if (j != 0) {
-                    return FrameSequence.nativeGetFrame(j, i2, bitmap, i3);
+                long j2 = this.mNativeState;
+                if (j2 != 0) {
+                    return FrameSequence.nativeGetFrame(j2, i2, bitmap, i3);
                 }
                 throw new IllegalStateException("attempted to draw destroyed FrameSequenceState");
             }
@@ -115,12 +114,12 @@ public class FrameSequence implements Serializable {
         }
     }
 
-    public FrameSequence(long j, int i2, int i3, boolean z, int i4, int i5) {
+    public FrameSequence(long j2, int i2, int i3, boolean z, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -130,7 +129,7 @@ public class FrameSequence implements Serializable {
                 return;
             }
         }
-        this.mNativeFrameSequence = j;
+        this.mNativeFrameSequence = j2;
         this.mWidth = i2;
         this.mHeight = i3;
         this.mOpaque = z;
@@ -142,7 +141,7 @@ public class FrameSequence implements Serializable {
     public static FrameSequence decodeByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             if (ISLOADED.get()) {
                 return decodeByteArray(bArr, 0, bArr.length);
             }
@@ -155,7 +154,7 @@ public class FrameSequence implements Serializable {
     public static FrameSequence decodeByteArray(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             if (ISLOADED.get()) {
                 if (bArr != null) {
                     if (i2 < 0 || i3 < 0 || i2 + i3 > bArr.length) {
@@ -214,7 +213,7 @@ public class FrameSequence implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? ISLOADED.get() : invokeV.booleanValue;
     }
 
-    public static native long nativeCreateState(long j);
+    public static native long nativeCreateState(long j2);
 
     public static native FrameSequence nativeDecodeByteArray(byte[] bArr, int i2, int i3);
 
@@ -222,19 +221,19 @@ public class FrameSequence implements Serializable {
 
     public static native FrameSequence nativeDecodeStream(InputStream inputStream, byte[] bArr);
 
-    public static native void nativeDestroyFrameSequence(long j);
+    public static native void nativeDestroyFrameSequence(long j2);
 
-    public static native void nativeDestroyState(long j);
+    public static native void nativeDestroyState(long j2);
 
-    public static native long nativeGetFrame(long j, int i2, Bitmap bitmap, int i3);
+    public static native long nativeGetFrame(long j2, int i2, Bitmap bitmap, int i3);
 
     public State createState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.mNativeFrameSequence;
-            if (j != 0) {
-                long nativeCreateState = nativeCreateState(j);
+            long j2 = this.mNativeFrameSequence;
+            if (j2 != 0) {
+                long nativeCreateState = nativeCreateState(j2);
                 if (nativeCreateState == 0) {
                     return null;
                 }
@@ -248,9 +247,9 @@ public class FrameSequence implements Serializable {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.mNativeFrameSequence;
-            if (j != 0) {
-                nativeDestroyFrameSequence(j);
+            long j2 = this.mNativeFrameSequence;
+            if (j2 != 0) {
+                nativeDestroyFrameSequence(j2);
             }
         }
     }

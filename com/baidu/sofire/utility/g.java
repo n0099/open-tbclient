@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,16 @@ public final class g {
                 throw new NetworkErrorException("conn is blocked");
             }
             String valueOf = String.valueOf(new Date().getTime() / 1000);
-            String a2 = q.a(str3 + valueOf + str4);
-            byte[] a3 = com.baidu.sofire.core.h.a();
+            String a = q.a(str3 + valueOf + str4);
+            byte[] a2 = com.baidu.sofire.core.h.a();
             String str5 = "";
             if (!TextUtils.isEmpty(str2)) {
-                bytes = F.getInstance().ae(k.a(str2.getBytes()), a3);
+                bytes = F.getInstance().ae(k.a(str2.getBytes()), a2);
             } else {
                 bytes = "".getBytes();
             }
             byte[] bytes2 = q.a(e.b(context)).getBytes();
-            String encodeToString = Base64.encodeToString(F.getInstance().re(a3, bytes2), 0);
+            String encodeToString = Base64.encodeToString(F.getInstance().re(a2, bytes2), 0);
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append("/100/");
@@ -54,7 +54,7 @@ public final class g {
             sb.append("/");
             sb.append(valueOf);
             sb.append("/");
-            sb.append(a2);
+            sb.append(a);
             if (!TextUtils.isEmpty(encodeToString)) {
                 sb.append("?skey=");
                 sb.append(URLEncoder.encode(encodeToString, "utf-8"));
@@ -85,32 +85,32 @@ public final class g {
                 return str5;
             }
             try {
-                com.baidu.sofire.h.a a4 = com.baidu.sofire.h.a.a(context);
+                com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = a4.f44016a.getLong("pu_cl_fd", 0L);
-                if (j == 0) {
-                    j = System.currentTimeMillis();
-                    a4.f();
+                long j2 = a3.a.getLong("pu_cl_fd", 0L);
+                if (j2 == 0) {
+                    j2 = System.currentTimeMillis();
+                    a3.f();
                 }
-                if (currentTimeMillis - j > 86400000) {
+                if (currentTimeMillis - j2 > 86400000) {
                     HashMap hashMap = new HashMap();
                     if (c.e(context)) {
-                        hashMap.put("0", Integer.valueOf(a4.h() + 1));
-                        hashMap.put("1", Integer.valueOf(a4.i()));
+                        hashMap.put("0", Integer.valueOf(a3.h() + 1));
+                        hashMap.put("1", Integer.valueOf(a3.i()));
                     } else {
-                        hashMap.put("0", Integer.valueOf(a4.h()));
-                        hashMap.put("1", Integer.valueOf(a4.i() + 1));
+                        hashMap.put("0", Integer.valueOf(a3.h()));
+                        hashMap.put("1", Integer.valueOf(a3.i() + 1));
                     }
-                    a4.f44017b.putInt("mo_fa_pu_cl", 0);
-                    a4.f44017b.commit();
-                    a4.f44017b.putInt("wi_fa_pu_cl", 0);
-                    a4.f44017b.commit();
-                    a4.f();
+                    a3.f39120b.putInt("mo_fa_pu_cl", 0);
+                    a3.f39120b.commit();
+                    a3.f39120b.putInt("wi_fa_pu_cl", 0);
+                    a3.f39120b.commit();
+                    a3.f();
                     c.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (c.e(context)) {
-                    a4.a(a4.h() + 1);
+                    a3.a(a3.h() + 1);
                 } else {
-                    a4.b(a4.i() + 1);
+                    a3.b(a3.i() + 1);
                 }
             } catch (Throwable unused2) {
                 c.a();

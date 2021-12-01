@@ -11,42 +11,44 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AdSlot implements TTAdSlot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TTAdLoadType A;
     public int B;
     public int C;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62432a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62433b;
+    public int f54656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62434c;
+    public int f54657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f62435d;
+    public float f54658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f62436e;
+    public float f54659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62437f;
+    public int f54660f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f62438g;
+    public boolean f54661g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f62439h;
+    public boolean f54662h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62440i;
-    public int j;
-    public String k;
+    public String f54663i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f54664j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f54665k;
     public String l;
     public int m;
     public int n;
@@ -64,47 +66,49 @@ public class AdSlot implements TTAdSlot {
     public String z;
 
     /* renamed from: com.bytedance.sdk.openadsdk.AdSlot$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String A;
         public String B;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f62441a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f62442b;
+        public int f54666b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62443c;
+        public int f54667c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f62444d;
+        public boolean f54668d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f62445e;
+        public boolean f54669e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f62446f;
+        public int f54670f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f62447g;
+        public String f54671g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f62448h;
+        public int f54672h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f62449i;
-        public String j;
-        public int k;
+        public String f54673i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public String f54674j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public int f54675k;
         public int l;
         public String m;
         public int n;
@@ -134,15 +138,15 @@ public class AdSlot implements TTAdSlot {
                     return;
                 }
             }
-            this.f62442b = 640;
-            this.f62443c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            this.f62444d = true;
-            this.f62445e = false;
-            this.f62446f = 1;
-            this.f62447g = "";
-            this.f62448h = 0;
-            this.j = "defaultUser";
-            this.k = 2;
+            this.f54666b = 640;
+            this.f54667c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            this.f54668d = true;
+            this.f54669e = false;
+            this.f54670f = 1;
+            this.f54671g = "";
+            this.f54672h = 0;
+            this.f54674j = "defaultUser";
+            this.f54675k = 2;
             this.q = true;
             this.w = 1;
             this.x = 0;
@@ -154,25 +158,25 @@ public class AdSlot implements TTAdSlot {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 AdSlot adSlot = new AdSlot(null);
-                adSlot.f62432a = this.f62441a;
-                adSlot.f62437f = this.f62446f;
-                adSlot.f62438g = this.f62444d;
-                adSlot.f62439h = this.f62445e;
-                adSlot.f62433b = this.f62442b;
-                adSlot.f62434c = this.f62443c;
+                adSlot.a = this.a;
+                adSlot.f54660f = this.f54670f;
+                adSlot.f54661g = this.f54668d;
+                adSlot.f54662h = this.f54669e;
+                adSlot.f54656b = this.f54666b;
+                adSlot.f54657c = this.f54667c;
                 float f2 = this.o;
                 if (f2 <= 0.0f) {
-                    adSlot.f62435d = this.f62442b;
-                    adSlot.f62436e = this.f62443c;
+                    adSlot.f54658d = this.f54666b;
+                    adSlot.f54659e = this.f54667c;
                 } else {
-                    adSlot.f62435d = f2;
-                    adSlot.f62436e = this.p;
+                    adSlot.f54658d = f2;
+                    adSlot.f54659e = this.p;
                 }
-                adSlot.f62440i = this.f62447g;
-                adSlot.j = this.f62448h;
-                adSlot.k = this.f62449i;
-                adSlot.l = this.j;
-                adSlot.m = this.k;
+                adSlot.f54663i = this.f54671g;
+                adSlot.f54664j = this.f54672h;
+                adSlot.f54665k = this.f54673i;
+                adSlot.l = this.f54674j;
+                adSlot.m = this.f54675k;
                 adSlot.o = this.l;
                 adSlot.q = this.q;
                 adSlot.r = this.r;
@@ -205,7 +209,7 @@ public class AdSlot implements TTAdSlot {
                     d.b(TTAdConstant.TAG, "setAdCount: adCount must less than or equal to 20 ");
                     i2 = 20;
                 }
-                this.f62446f = i2;
+                this.f54670f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -255,7 +259,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f62441a = str;
+                this.a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -329,8 +333,8 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i2, i3)) == null) {
-                this.f62442b = i2;
-                this.f62443c = i3;
+                this.f54666b = i2;
+                this.f54667c = i3;
                 return this;
             }
             return (Builder) invokeII.objValue;
@@ -350,7 +354,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-                this.f62449i = str;
+                this.f54673i = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -370,7 +374,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.k = i2;
+                this.f54675k = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -390,7 +394,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-                this.f62448h = i2;
+                this.f54672h = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -400,7 +404,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-                this.f62447g = str;
+                this.f54671g = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -423,7 +427,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-                this.f62444d = z;
+                this.f54668d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -443,7 +447,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-                this.j = str;
+                this.f54674j = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -453,7 +457,7 @@ public class AdSlot implements TTAdSlot {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-                this.f62445e = true;
+                this.f54669e = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -481,7 +485,7 @@ public class AdSlot implements TTAdSlot {
     public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62437f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54660f : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
@@ -523,7 +527,7 @@ public class AdSlot implements TTAdSlot {
     public String getCodeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62432a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
@@ -551,14 +555,14 @@ public class AdSlot implements TTAdSlot {
     public float getExpressViewAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62436e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f54659e : invokeV.floatValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public float getExpressViewAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f62435d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f54658d : invokeV.floatValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
@@ -586,21 +590,21 @@ public class AdSlot implements TTAdSlot {
     public int getImgAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f62434c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f54657c : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public int getImgAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f62433b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f54656b : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public String getMediaExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f54665k : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
@@ -632,14 +636,14 @@ public class AdSlot implements TTAdSlot {
     public int getRewardAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f54664j : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public String getRewardName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f62440i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f54663i : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
@@ -674,21 +678,21 @@ public class AdSlot implements TTAdSlot {
     public boolean isSupportDeepLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f62438g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f54661g : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public boolean isSupportRenderConrol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f62439h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f54662h : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdSlot
     public void setAdCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.f62437f = i2;
+            this.f54660f = i2;
         }
     }
 
@@ -749,18 +753,18 @@ public class AdSlot implements TTAdSlot {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mCodeId", this.f62432a);
+                jSONObject.put("mCodeId", this.a);
                 jSONObject.put("mIsAutoPlay", this.q);
-                jSONObject.put("mImgAcceptedWidth", this.f62433b);
-                jSONObject.put("mImgAcceptedHeight", this.f62434c);
-                jSONObject.put("mExpressViewAcceptedWidth", this.f62435d);
-                jSONObject.put("mExpressViewAcceptedHeight", this.f62436e);
-                jSONObject.put("mAdCount", this.f62437f);
-                jSONObject.put("mSupportDeepLink", this.f62438g);
-                jSONObject.put("mSupportRenderControl", this.f62439h);
-                jSONObject.put("mRewardName", this.f62440i);
-                jSONObject.put("mRewardAmount", this.j);
-                jSONObject.put("mMediaExtra", this.k);
+                jSONObject.put("mImgAcceptedWidth", this.f54656b);
+                jSONObject.put("mImgAcceptedHeight", this.f54657c);
+                jSONObject.put("mExpressViewAcceptedWidth", this.f54658d);
+                jSONObject.put("mExpressViewAcceptedHeight", this.f54659e);
+                jSONObject.put("mAdCount", this.f54660f);
+                jSONObject.put("mSupportDeepLink", this.f54661g);
+                jSONObject.put("mSupportRenderControl", this.f54662h);
+                jSONObject.put("mRewardName", this.f54663i);
+                jSONObject.put("mRewardAmount", this.f54664j);
+                jSONObject.put("mMediaExtra", this.f54665k);
                 jSONObject.put("mUserID", this.l);
                 jSONObject.put("mOrientation", this.m);
                 jSONObject.put("mNativeAdType", this.o);
@@ -786,7 +790,7 @@ public class AdSlot implements TTAdSlot {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return "AdSlot{mCodeId='" + this.f62432a + ExtendedMessageFormat.QUOTE + ", mImgAcceptedWidth=" + this.f62433b + ", mImgAcceptedHeight=" + this.f62434c + ", mExpressViewAcceptedWidth=" + this.f62435d + ", mExpressViewAcceptedHeight=" + this.f62436e + ", mAdCount=" + this.f62437f + ", mSupportDeepLink=" + this.f62438g + ", mSupportRenderControl=" + this.f62439h + ", mRewardName='" + this.f62440i + ExtendedMessageFormat.QUOTE + ", mRewardAmount=" + this.j + ", mMediaExtra='" + this.k + ExtendedMessageFormat.QUOTE + ", mUserID='" + this.l + ExtendedMessageFormat.QUOTE + ", mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + ", mExt" + this.y + ", mUserData" + this.z + ", mAdLoadType" + this.A + ", mSplashButtonType=" + this.B + ", mDownloadType=" + this.C + ExtendedMessageFormat.END_FE;
+            return "AdSlot{mCodeId='" + this.a + ExtendedMessageFormat.QUOTE + ", mImgAcceptedWidth=" + this.f54656b + ", mImgAcceptedHeight=" + this.f54657c + ", mExpressViewAcceptedWidth=" + this.f54658d + ", mExpressViewAcceptedHeight=" + this.f54659e + ", mAdCount=" + this.f54660f + ", mSupportDeepLink=" + this.f54661g + ", mSupportRenderControl=" + this.f54662h + ", mRewardName='" + this.f54663i + ExtendedMessageFormat.QUOTE + ", mRewardAmount=" + this.f54664j + ", mMediaExtra='" + this.f54665k + ExtendedMessageFormat.QUOTE + ", mUserID='" + this.l + ExtendedMessageFormat.QUOTE + ", mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.u + ", mAdloadSeq" + this.t + ", mAdId" + this.w + ", mCreativeId" + this.x + ", mExt" + this.y + ", mUserData" + this.z + ", mAdLoadType" + this.A + ", mSplashButtonType=" + this.B + ", mDownloadType=" + this.C + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

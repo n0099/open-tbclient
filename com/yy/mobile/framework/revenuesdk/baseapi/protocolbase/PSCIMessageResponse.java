@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PSCIMessageResponse extends ResponsePacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +50,7 @@ public class PSCIMessageResponse extends ResponsePacket {
             try {
                 this.responseJson = popStingWithOutLength();
                 JSONObject jSONObject = new JSONObject(this.responseJson);
-                this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                this.seq = jSONObject.optString("seq");
                 this.result = jSONObject.optInt("result");
                 this.cmd = jSONObject.optInt("cmd");
                 this.appId = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);

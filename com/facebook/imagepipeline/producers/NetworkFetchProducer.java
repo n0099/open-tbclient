@@ -3,7 +3,6 @@ package com.facebook.imagepipeline.producers;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
@@ -76,7 +75,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
 
     public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i2, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLILL(AdIconUtil.AD_TEXT_ID, null, pooledByteBufferOutputStream, i2, bytesRange, consumer) != null) {
+        if (interceptable != null && interceptable.invokeLILL(65541, null, pooledByteBufferOutputStream, i2, bytesRange, consumer) != null) {
             return;
         }
         CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
@@ -104,7 +103,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
     /* JADX INFO: Access modifiers changed from: private */
     public void onCancellation(FetchState fetchState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fetchState) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, fetchState) == null) {
             fetchState.getListener().onProducerFinishWithCancellation(fetchState.getId(), PRODUCER_NAME, null);
             fetchState.getConsumer().onCancellation();
         }

@@ -5,17 +5,16 @@ import android.os.Bundle;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
@@ -80,20 +79,12 @@ public class KsFragmentActivity extends FragmentActivity {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            LogUtil.logActivity(this, "onCreate");
-        }
-    }
-
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
+            ComponentDestroyer.destroyActivity(this);
         }
     }
 
@@ -101,7 +92,7 @@ public class KsFragmentActivity extends FragmentActivity {
     @Keep
     public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, fragment, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, fragment, intent, i2) == null) {
             super.startActivityFromFragment(fragment, intent, i2);
         }
     }
@@ -110,7 +101,7 @@ public class KsFragmentActivity extends FragmentActivity {
     @Keep
     public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048583, this, fragment, intent, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048582, this, fragment, intent, i2, bundle) == null) {
             super.startActivityFromFragment(fragment, intent, i2, bundle);
         }
     }
@@ -119,7 +110,7 @@ public class KsFragmentActivity extends FragmentActivity {
     @Keep
     public void supportFinishAfterTransition() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.supportFinishAfterTransition();
         }
     }

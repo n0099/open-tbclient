@@ -280,10 +280,10 @@ public class WebRtcAudioRecord {
         }
     }
 
-    private native void nativeCacheDirectBufferAddress(long j, ByteBuffer byteBuffer);
+    private native void nativeCacheDirectBufferAddress(long j2, ByteBuffer byteBuffer);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDataIsRecorded(long j, int i2);
+    public native void nativeDataIsRecorded(long j2, int i2);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;
@@ -419,10 +419,10 @@ public class WebRtcAudioRecord {
     }
 
     @CalledByNative
-    public void setNativeAudioRecord(long j) {
+    public void setNativeAudioRecord(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.nativeAudioRecord = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.nativeAudioRecord = j2;
         }
     }
 

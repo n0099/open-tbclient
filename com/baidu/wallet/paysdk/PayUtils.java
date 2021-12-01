@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.utils.Md5Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -34,18 +33,16 @@ public final class PayUtils {
     public static final String KEY_IDENTITY_CODE = "identity_code";
     public static final String KEY_PHONE_NUMBER = "phone_number";
     public static final String KEY_VALID_DATE = "valid_date";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f60386a = "PayUtils";
+    public static String a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60387b = "";
+    public static final String f53330b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f60388c;
+    public static ArrayList<String> f53331c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,12 +85,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f60388c = arrayList;
+        f53331c = arrayList;
         arrayList.add("card_no");
-        f60388c.add("valid_date");
-        f60388c.add("cvv2");
-        f60388c.add("identity_code");
-        f60388c.add("phone_number");
+        f53331c.add("valid_date");
+        f53331c.add("cvv2");
+        f53331c.add("identity_code");
+        f53331c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +129,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f60388c.contains(str)) {
+            if (f53331c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -148,7 +145,7 @@ public final class PayUtils {
     public static String genAPIsig(List<RestNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
             for (RestNameValuePair restNameValuePair : list) {
                 arrayList.add(restNameValuePair.getName() + "=" + restNameValuePair.getValue());
@@ -161,7 +158,7 @@ public final class PayUtils {
     public static String getNewCookie(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             Map<String, String> loginData = AccountManager.getInstance(context).getLoginData();
             if (loginData == null) {
@@ -250,7 +247,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f34958h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31351h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

@@ -9,7 +9,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.OpenClientUtil;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,12 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaiduMapPoiSearch {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f40751a = true;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +56,7 @@ public class BaiduMapPoiSearch {
     public static void a(PoiParaOption poiParaOption, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, poiParaOption, context) == null) {
-            Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.f40752a + "&output=html&src=" + context.getPackageName());
+            Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.a + "&output=html&src=" + context.getPackageName());
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
             intent.setFlags(268435456);
@@ -74,9 +71,9 @@ public class BaiduMapPoiSearch {
             StringBuilder sb = new StringBuilder();
             sb.append("http://api.map.baidu.com/place/search?");
             sb.append("query=");
-            sb.append(poiParaOption.f40753b);
+            sb.append(poiParaOption.f36285b);
             sb.append("&location=");
-            LatLng latLng = poiParaOption.f40754c;
+            LatLng latLng = poiParaOption.f36286c;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
@@ -84,7 +81,7 @@ public class BaiduMapPoiSearch {
             sb.append(",");
             sb.append(latLng.longitude);
             sb.append("&radius=");
-            sb.append(poiParaOption.f40755d);
+            sb.append(poiParaOption.f36287d);
             sb.append("&output=html");
             sb.append("&src=");
             sb.append(context.getPackageName());
@@ -99,7 +96,7 @@ public class BaiduMapPoiSearch {
 
     public static void b(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, context) == null) {
             if (str == null || str.length() == 0) {
                 throw new RuntimeException("BDMapSDKException: pano id can not be null.");
             }
@@ -128,7 +125,7 @@ public class BaiduMapPoiSearch {
     public static boolean dispatchPoiToBaiduMap(List<DispathcPoiData> list, Context context) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, list, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, list, context)) == null) {
             if (list.isEmpty() || list.size() <= 0) {
                 throw new NullPointerException("BDMapSDKException: dispatch poidata is null");
             }
@@ -163,14 +160,14 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f40752a;
+            String str = poiParaOption.a;
             if (str != null) {
                 if (str.equals("")) {
                     return false;
                 }
                 int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
                 if (baiduMapVersion == 0) {
-                    if (f40751a) {
+                    if (a) {
                         a(poiParaOption, context);
                         return true;
                     }
@@ -178,7 +175,7 @@ public class BaiduMapPoiSearch {
                 } else if (baiduMapVersion >= 810) {
                     return com.baidu.mapapi.utils.b.a(poiParaOption, context, 3);
                 } else {
-                    if (f40751a) {
+                    if (a) {
                         a(poiParaOption, context);
                         return true;
                     }
@@ -197,20 +194,20 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f40753b;
+            String str = poiParaOption.f36285b;
             if (str != null) {
-                LatLng latLng = poiParaOption.f40754c;
+                LatLng latLng = poiParaOption.f36286c;
                 if (latLng != null) {
                     if (latLng.longitude == 0.0d || latLng.latitude == 0.0d) {
                         throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center longitude or latitude can not be 0.");
                     }
-                    if (poiParaOption.f40755d != 0) {
+                    if (poiParaOption.f36287d != 0) {
                         if (str.equals("")) {
                             return false;
                         }
                         int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
                         if (baiduMapVersion == 0) {
-                            if (f40751a) {
+                            if (a) {
                                 b(poiParaOption, context);
                                 return true;
                             }
@@ -218,7 +215,7 @@ public class BaiduMapPoiSearch {
                         } else if (baiduMapVersion >= 810) {
                             return com.baidu.mapapi.utils.b.a(poiParaOption, context, 4);
                         } else {
-                            if (f40751a) {
+                            if (a) {
                                 b(poiParaOption, context);
                                 return true;
                             }
@@ -237,7 +234,7 @@ public class BaiduMapPoiSearch {
     public static void setSupportWebPoi(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            f40751a = z;
+            a = z;
         }
     }
 }

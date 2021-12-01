@@ -4,7 +4,6 @@ import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -467,7 +466,7 @@ public class ArrayRow implements LinearSystem.Row {
             if (z) {
                 return str;
             }
-            return str + XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+            return str + "0.0";
         }
         return (String) invokeV.objValue;
     }

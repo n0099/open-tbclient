@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebStorage {
     public static /* synthetic */ Interceptable $ic;
     public static final WebStorage mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Origin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -24,12 +24,12 @@ public class WebStorage {
         public long mQuota;
         public long mUsage;
 
-        public Origin(String str, long j, long j2) {
+        public Origin(String str, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -40,8 +40,8 @@ public class WebStorage {
                 }
             }
             this.mOrigin = str;
-            this.mQuota = j;
-            this.mUsage = j2;
+            this.mQuota = j2;
+            this.mUsage = j3;
         }
 
         public String getOrigin() {
@@ -64,9 +64,9 @@ public class WebStorage {
     }
 
     @Deprecated
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface QuotaUpdater {
-        void updateQuota(long j);
+        void updateQuota(long j2);
     }
 
     static {
@@ -148,10 +148,10 @@ public class WebStorage {
     }
 
     @Deprecated
-    public void setQuotaForOrigin(String str, long j) {
+    public void setQuotaForOrigin(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
-            WebViewFactory.getProvider().getWebStorage().setQuotaForOrigin(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j2) == null) {
+            WebViewFactory.getProvider().getWebStorage().setQuotaForOrigin(str, j2);
         }
     }
 }

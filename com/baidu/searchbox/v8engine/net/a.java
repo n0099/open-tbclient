@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.net;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.v8engine.net.Uri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import okio.Buffer;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +200,7 @@ public class a {
         InterceptResult invokeLII;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i2, i3)) == null) {
             byte[] bArr = new byte[16];
             int i5 = 0;
             int i6 = -1;
@@ -243,11 +242,11 @@ public class a {
                         i2 = i7;
                         int i92 = 0;
                         while (i2 < i3) {
-                            int a2 = a(str.charAt(i2));
-                            if (a2 == -1) {
+                            int a = a(str.charAt(i2));
+                            if (a == -1) {
                                 break;
                             }
-                            i92 = (i92 << 4) + a2;
+                            i92 = (i92 << 4) + a;
                             i2++;
                         }
                         i4 = i2 - i7;
@@ -284,19 +283,19 @@ public class a {
 
     public static String a(String str) {
         InterceptResult invokeL;
-        InetAddress a2;
+        InetAddress a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (str.contains(":")) {
                 if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
-                    a2 = a(str, 1, str.length() - 1);
+                    a = a(str, 1, str.length() - 1);
                 } else {
-                    a2 = a(str, 0, str.length());
+                    a = a(str, 0, str.length());
                 }
-                if (a2 == null) {
+                if (a == null) {
                     return null;
                 }
-                byte[] address = a2.getAddress();
+                byte[] address = a.getAddress();
                 if (address.length == 16) {
                     return a(address);
                 }
@@ -362,7 +361,7 @@ public class a {
     public static String a(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, strArr)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, strArr)) != null) {
             return (String) invokeL.objValue;
         }
         try {

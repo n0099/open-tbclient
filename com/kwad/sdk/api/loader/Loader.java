@@ -7,7 +7,6 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,22 +23,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class Loader {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f64814a;
+    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Context f64815b;
+    public volatile Context f56968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IKsAdSDK f64816c;
+    public IKsAdSDK f56969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f64817d;
+    public j f56970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f64818e;
+    public AtomicBoolean f56971e;
 
     /* renamed from: com.kwad.sdk.api.loader.Loader$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -51,9 +48,7 @@ public class Loader {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final Loader f64819a;
+        public static final Loader a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -69,7 +64,7 @@ public class Loader {
                     return;
                 }
             }
-            f64819a = new Loader(null);
+            a = new Loader(null);
         }
     }
 
@@ -86,7 +81,7 @@ public class Loader {
                 return;
             }
         }
-        f64814a = !Loader.class.desiredAssertionStatus();
+        a = !Loader.class.desiredAssertionStatus();
     }
 
     public Loader() {
@@ -102,9 +97,9 @@ public class Loader {
                 return;
             }
         }
-        this.f64816c = null;
-        this.f64817d = null;
-        this.f64818e = new AtomicBoolean(false);
+        this.f56969c = null;
+        this.f56970d = null;
+        this.f56971e = new AtomicBoolean(false);
     }
 
     public /* synthetic */ Loader(AnonymousClass1 anonymousClass1) {
@@ -121,7 +116,7 @@ public class Loader {
             synchronized (Loader.class) {
                 try {
                     KsAdSdkDynamicApi ksAdSdkDynamicApi = (KsAdSdkDynamicApi) IKsAdSDK.class.getAnnotation(KsAdSdkDynamicApi.class);
-                    if (!f64814a && ksAdSdkDynamicApi == null) {
+                    if (!a && ksAdSdkDynamicApi == null) {
                         throw new AssertionError();
                     }
                     Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod("get", new Class[0]).invoke(null, new Object[0]);
@@ -148,16 +143,16 @@ public class Loader {
     private boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             String a2 = a(context);
             String b2 = b(context);
             if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(b2)) {
                 return false;
             }
             if (!TextUtils.isEmpty(b2) && f.a(b2, a2)) {
-                f.a(context, f.f64852b, b2);
+                f.a(context, f.f57000b, b2);
                 a(context, a2);
-                f.a(context, f.f64851a, "");
+                f.a(context, f.a, "");
                 a2 = b2;
             }
             return !TextUtils.isEmpty(a2);
@@ -167,14 +162,14 @@ public class Loader {
 
     private void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             String a2 = f.a(context);
-            if (TextUtils.isEmpty(a2) || !a2.equals("3.3.11.4")) {
-                String a3 = f.a(context, f.f64852b);
-                f.a(context, f.f64852b, "");
-                f.a(context, f.f64851a, "");
+            if (TextUtils.isEmpty(a2) || !a2.equals("3.3.17.4")) {
+                String a3 = f.a(context, f.f57000b);
+                f.a(context, f.f57000b, "");
+                f.a(context, f.a, "");
                 g.b(g.c(context, a3));
-                f.b(context, "3.3.11.4");
+                f.b(context, "3.3.17.4");
             }
         }
     }
@@ -182,32 +177,32 @@ public class Loader {
     public static Loader get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.f64819a : (Loader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.a : (Loader) invokeV.objValue;
     }
 
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? f.a(context, f.f64852b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? f.a(context, f.f57000b) : (String) invokeL.objValue;
     }
 
     public String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? f.a(context, f.f64851a) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? f.a(context, f.a) : (String) invokeL.objValue;
     }
 
-    public void checkUpdate() {
+    public void checkUpdate(IKsAdSDK iKsAdSDK) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            r.a(this.f64815b);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iKsAdSDK) == null) {
+            r.a(this.f56968b, iKsAdSDK);
         }
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64815b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56968b : (Context) invokeV.objValue;
     }
 
     @MainThread
@@ -215,7 +210,7 @@ public class Loader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            j jVar = this.f64817d;
+            j jVar = this.f56970d;
             if (jVar != null) {
                 return jVar.b();
             }
@@ -229,7 +224,7 @@ public class Loader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            j jVar = this.f64817d;
+            j jVar = this.f56970d;
             if (jVar != null) {
                 return jVar.a();
             }
@@ -243,17 +238,17 @@ public class Loader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            j jVar = this.f64817d;
+            j jVar = this.f56970d;
             if (jVar != null) {
                 IKsAdSDK c2 = jVar.c();
                 c2.setIsExternal(true);
                 return c2;
             }
-            if (this.f64816c == null) {
-                this.f64816c = a(this.f64815b != null ? this.f64815b.getClassLoader() : Loader.class.getClassLoader());
+            if (this.f56969c == null) {
+                this.f56969c = a(this.f56968b != null ? this.f56968b.getClassLoader() : Loader.class.getClassLoader());
             }
-            this.f64816c.setIsExternal(false);
-            return this.f64816c;
+            this.f56969c.setIsExternal(false);
+            return this.f56969c;
         }
         return (IKsAdSDK) invokeV.objValue;
     }
@@ -262,7 +257,7 @@ public class Loader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            j jVar = this.f64817d;
+            j jVar = this.f56970d;
             return jVar != null ? jVar.b() : Loader.class.getClassLoader();
         }
         return (ClassLoader) invokeV.objValue;
@@ -271,24 +266,24 @@ public class Loader {
     @MainThread
     public void init(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) || this.f64818e.get()) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) || this.f56971e.get()) {
             return;
         }
-        this.f64818e.set(true);
-        this.f64815b = context.getApplicationContext();
-        d(this.f64815b);
+        this.f56971e.set(true);
+        this.f56968b = context.getApplicationContext();
+        d(this.f56968b);
         if (c(context)) {
-            this.f64817d = j.a(this.f64815b, a(context));
+            this.f56970d = j.a(this.f56968b, a(context));
         }
-        if (this.f64817d == null) {
-            this.f64816c = a(Loader.class.getClassLoader());
+        if (this.f56970d == null) {
+            this.f56969c = a(Loader.class.getClassLoader());
         }
     }
 
     public boolean isExternalLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64817d != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f56970d != null : invokeV.booleanValue;
     }
 
     @MainThread
@@ -296,7 +291,7 @@ public class Loader {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cls, obj)) == null) {
-            if (!this.f64818e.get()) {
+            if (!this.f56971e.get()) {
                 KsAdSDK.init(context, SdkConfig.create(q.a(context, "sdkconfig")));
             }
             return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
@@ -309,7 +304,7 @@ public class Loader {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, context, cls, obj)) == null) {
-            if (!this.f64818e.get()) {
+            if (!this.f56971e.get()) {
                 KsAdSDK.init(context, SdkConfig.create(q.a(context, "sdkconfig")));
             }
             return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);

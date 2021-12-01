@@ -26,8 +26,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.face.platform.FaceEnvironment;
@@ -40,7 +38,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -55,21 +52,19 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bw {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f42032a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42033b;
+    public static String f37157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42034c;
+    public static String f37158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f42035d;
+    public static final Pattern f37159d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,13 +80,13 @@ public class bw {
                 return;
             }
         }
-        f42035d = Pattern.compile("\\s*|\t|\r|\n");
+        f37159d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             try {
                 ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
                 if (applicationInfo != null) {
@@ -206,7 +201,7 @@ public class bw {
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((bo.e(context, "android.permission.ACCESS_FINE_LOCATION") || bo.e(context, "android.permission.ACCESS_COARSE_LOCATION")) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((bo.e(context, com.kuaishou.weapon.un.s.f56842g) || bo.e(context, com.kuaishou.weapon.un.s.f56843h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -226,7 +221,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             try {
-                return (!bo.e(context, "android.permission.ACCESS_FINE_LOCATION") || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
+                return (!bo.e(context, com.kuaishou.weapon.un.s.f56842g) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             } catch (Exception unused) {
                 return "";
             }
@@ -252,7 +247,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                if (!bo.e(context, "android.permission.ACCESS_WIFI_STATE") || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+                if (!bo.e(context, com.kuaishou.weapon.un.s.f56839d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
                 String macAddress = connectionInfo.getMacAddress();
@@ -317,17 +312,17 @@ public class bw {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:10|11|12|(11:14|15|16|17|19|20|(1:24)|25|(2:26|(1:1)(8:32|33|(1:35)|36|(1:44)(1:40)|41|42|43))|48|(1:50)(6:51|52|53|(1:55)|56|57))|67|15|16|17|19|20|(2:22|24)|25|(3:26|(2:28|60)(1:61)|43)|48|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x003f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x003e, code lost:
         r4 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00bc A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00bd  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x00b6 A[ADDED_TO_REGION, EDGE_INSN: B:73:0x00b6->B:44:0x00b6 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x005a  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00ba A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00b4 A[ADDED_TO_REGION, EDGE_INSN: B:72:0x00b4->B:44:0x00b4 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -341,10 +336,10 @@ public class bw {
         if (interceptable != null && (invokeL = interceptable.invokeL(65570, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (context == null || !bo.e(context, "android.permission.ACCESS_WIFI_STATE")) {
+        if (context == null || !bo.e(context, com.kuaishou.weapon.un.s.f56839d)) {
             return "";
         }
-        if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION")) {
+        if (bo.e(context, com.kuaishou.weapon.un.s.f56842g)) {
             z = ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps");
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -518,7 +513,7 @@ public class bw {
             if (context != null) {
                 try {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                    if (!bo.e(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                    if (!bo.e(context, "android.permission.ACCESS_NETWORK_STATE") || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                         return false;
                     }
                     return activeNetworkInfo.isAvailable();
@@ -541,7 +536,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f42033b;
+            String str = f37157b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -549,7 +544,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f42033b = str;
+                f37157b = str;
             }
             return str;
         }
@@ -609,7 +604,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -646,7 +641,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            String str = f42032a;
+            String str = a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -666,7 +661,7 @@ public class bw {
                 if (str == null) {
                     str = "";
                 }
-                f42032a = str;
+                a = str;
             }
             return str;
         }
@@ -704,7 +699,7 @@ public class bw {
             }
             try {
                 for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
+                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
                         byte[] hardwareAddress = networkInterface.getHardwareAddress();
                         if (hardwareAddress == null) {
                             return "";
@@ -836,7 +831,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f42034c;
+            String str2 = f37158c;
             if (str2 != null) {
                 return str2;
             }
@@ -857,7 +852,7 @@ public class bw {
                     str = "flyme";
                 }
             }
-            f42034c = str;
+            f37158c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -883,7 +878,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f42035d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f37159d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {
@@ -987,7 +982,7 @@ public class bw {
     public static String a(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
             String m = m(context);
             return TextUtils.isEmpty(m) ? "" : bm.b.c(i2, m.getBytes());
         }

@@ -8,18 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PortraitCategory {
     public static /* synthetic */ Interceptable $ic;
     public static final PortraitCategory NEW;
     public static final PortraitCategory NORMAL;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ PortraitCategory[] f43551b;
+    public static final /* synthetic */ PortraitCategory[] f38750b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f43552a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +35,7 @@ public final class PortraitCategory {
         NORMAL = new PortraitCategory("NORMAL", 0, "");
         PortraitCategory portraitCategory = new PortraitCategory("NEW", 1, "new");
         NEW = portraitCategory;
-        f43551b = new PortraitCategory[]{NORMAL, portraitCategory};
+        f38750b = new PortraitCategory[]{NORMAL, portraitCategory};
     }
 
     public PortraitCategory(String str, int i2, String str2) {
@@ -58,7 +56,7 @@ public final class PortraitCategory {
                 return;
             }
         }
-        this.f43552a = str2;
+        this.a = str2;
     }
 
     public static PortraitCategory valueOf(String str) {
@@ -70,12 +68,12 @@ public final class PortraitCategory {
     public static PortraitCategory[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) f43551b.clone() : (PortraitCategory[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) f38750b.clone() : (PortraitCategory[]) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43552a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

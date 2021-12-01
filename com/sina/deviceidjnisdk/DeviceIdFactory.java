@@ -2,7 +2,6 @@ package com.sina.deviceidjnisdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +77,7 @@ public class DeviceIdFactory {
         InterceptResult invokeL;
         IDeviceId iDeviceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (DeviceIdFactory.class) {
                 if (sInstance == null) {
                     sInstance = new DeviceId(context);

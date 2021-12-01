@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,10 +57,10 @@ public class c {
         return invokeLI.intValue;
     }
 
-    public static long a(Object obj, long j) {
+    public static long a(Object obj, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, obj, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, obj, j2)) == null) {
             if (obj != null) {
                 if ((obj instanceof Long) || (obj instanceof Float)) {
                     return ((Long) obj).longValue();
@@ -70,12 +70,12 @@ public class c {
                         return Long.parseLong((String) obj);
                     } catch (NumberFormatException e2) {
                         e2.printStackTrace();
-                        return j;
+                        return j2;
                     }
                 }
-                return j;
+                return j2;
             }
-            return j;
+            return j2;
         }
         return invokeLJ.longValue;
     }

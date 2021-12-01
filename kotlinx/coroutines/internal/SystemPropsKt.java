@@ -12,8 +12,8 @@ public final class SystemPropsKt {
         return SystemPropsKt__SystemProps_commonKt.systemProp(str, i2, i3, i4);
     }
 
-    public static final long systemProp(String str, long j, long j2, long j3) {
-        return SystemPropsKt__SystemProps_commonKt.systemProp(str, j, j2, j3);
+    public static final long systemProp(String str, long j2, long j3, long j4) {
+        return SystemPropsKt__SystemProps_commonKt.systemProp(str, j2, j3, j4);
     }
 
     public static final String systemProp(String str) {

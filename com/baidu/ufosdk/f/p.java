@@ -5,23 +5,21 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static PackageManager f57623a;
+    public static PackageManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f57624b;
+    public static Context f51554b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            f57624b = context;
+            f51554b = context;
             PackageManager packageManager = context.getPackageManager();
-            f57623a = packageManager;
+            a = packageManager;
             if (packageManager == null) {
                 c.d("PermissionUtil#init fail to get PackageManager.");
             }
@@ -32,13 +30,13 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PackageManager packageManager = f57623a;
+            PackageManager packageManager = a;
             if (packageManager == null) {
                 c.d("PermissionUtil fail to get PackageManager.");
                 return false;
             }
             try {
-                return packageManager.checkPermission(str, f57624b.getPackageName()) == 0;
+                return packageManager.checkPermission(str, f51554b.getPackageName()) == 0;
             } catch (RuntimeException e2) {
                 c.a("PermissionUtil#hasPermission failed.", e2);
                 return false;

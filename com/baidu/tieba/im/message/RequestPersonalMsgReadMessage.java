@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import b.a.e.c.e.c.a;
+import c.a.d.c.e.c.a;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,13 +19,13 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
     public long toUid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestPersonalMsgReadMessage(long j, long j2) {
+    public RequestPersonalMsgReadMessage(long j2, long j3) {
         super(205006);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,8 +36,8 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
                 return;
             }
         }
-        this.hasSentMsgId = j;
-        this.toUid = j2;
+        this.hasSentMsgId = j2;
+        this.toUid = j3;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -47,7 +47,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = b.a.r0.l1.s.a.f21868i;
+                builder.groupId = c.a.r0.r1.s.a.f23117i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);
@@ -62,7 +62,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         return invokeV.objValue;
     }
 
-    @Override // b.a.e.c.e.c.a
+    @Override // c.a.d.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

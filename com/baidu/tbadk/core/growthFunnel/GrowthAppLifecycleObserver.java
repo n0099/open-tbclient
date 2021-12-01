@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.growthFunnel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import b.a.q0.s.y.a;
+import c.a.q0.s.y.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f46011e = true;
+    public static boolean f41029e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f46012f;
+    public static long f41030f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,8 +57,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a();
-            a.d(null, true);
+            a.j();
+            a.l(null, true);
         }
     }
 
@@ -66,19 +66,19 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (f46011e) {
-                f46011e = false;
-                a.c();
-                a.e();
+            if (f41029e) {
+                f41029e = false;
+                a.i();
+                a.m();
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - f46012f;
+            long currentTimeMillis = System.currentTimeMillis() - f41030f;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            a.b(currentTimeMillis);
-            a.c();
-            a.e();
+            a.h(currentTimeMillis);
+            a.i();
+            a.m();
         }
     }
 
@@ -86,8 +86,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.d(null, true);
-            f46012f = System.currentTimeMillis();
+            a.l(null, true);
+            f41030f = System.currentTimeMillis();
         }
     }
 }

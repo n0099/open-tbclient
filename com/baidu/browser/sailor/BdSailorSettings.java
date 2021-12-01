@@ -13,7 +13,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class BdSailorSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public final class BdSailorSettings implements INoProGuard {
     public final boolean isDebugEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getStaticWebSeting(WebViewFactoryProvider.SETTING_DEBUG) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getStaticWebSeting("Debug") : invokeV.booleanValue;
     }
 
     public final boolean isGifFirstFrameOnly() {
@@ -228,7 +228,7 @@ public final class BdSailorSettings implements INoProGuard {
     public final void setDebugEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            setStaticWebSeting(WebViewFactoryProvider.SETTING_DEBUG, z);
+            setStaticWebSeting("Debug", z);
         }
     }
 

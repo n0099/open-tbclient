@@ -5,28 +5,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Method f34662a;
+    public Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f34663b;
+    public byte[] f31114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34664c;
+    public String f31115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34665d;
+    public int f31116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34666e;
+    public String f31117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34667f;
+    public boolean f31118f;
 
     public a(Method method, int i2, String str, byte[] bArr, String str2, boolean z) {
         Interceptable interceptable = $ic;
@@ -43,11 +41,11 @@ public abstract class a implements v {
                 return;
             }
         }
-        this.f34662a = method;
-        this.f34665d = i2;
-        this.f34664c = str;
-        this.f34663b = bArr;
-        this.f34666e = str2;
-        this.f34667f = z;
+        this.a = method;
+        this.f31116d = i2;
+        this.f31115c = str;
+        this.f31114b = bArr;
+        this.f31117e = str2;
+        this.f31118f = z;
     }
 }

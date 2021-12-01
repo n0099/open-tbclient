@@ -11,7 +11,6 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_HEAD_LENGTH = 5;
@@ -61,7 +61,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                     BatteryInfo batteryInfo = new BatteryInfo();
                     batteryInfo.level = intExtra2;
                     batteryInfo.status = intExtra;
-                    batteryInfo.pecent = (intExtra2 * 100) / registerReceiver.getIntExtra("scale", -1);
+                    batteryInfo.pecent = (intExtra2 * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
                     batteryInfo.chargePlugged = intExtra3;
                     return batteryInfo;
                 } catch (Throwable th) {
@@ -114,19 +114,19 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long time;
         public float[] value;
 
-        public SensorRecord(float[] fArr, long j) {
+        public SensorRecord(float[] fArr, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fArr, Long.valueOf(j)};
+                Object[] objArr = {fArr, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -137,7 +137,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 }
             }
             this.value = fArr;
-            this.time = j;
+            this.time = j2;
         }
     }
 
@@ -237,7 +237,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public static float[] copyFloatArray(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, fArr)) == null) {
             float[] fArr2 = new float[fArr.length];
             System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
             return fArr2;
@@ -247,7 +247,7 @@ public class SensorController implements SensorEventListener, SensorListener {
 
     public static synchronized void initRecord(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             synchronized (SensorController.class) {
                 StatisContent loadFileAndClear = loadFileAndClear(context);
                 if (loadFileAndClear != null && !loadFileAndClear.isEmpty()) {

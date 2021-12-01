@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,10 +45,10 @@ public class a implements m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, downloadInfo)) == null) {
             String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
             File file = new File(str);
-            String a2 = com.ss.android.socialbase.appdownloader.f.a.e.a(j.getContext(), com.ss.android.socialbase.appdownloader.c.a(downloadInfo, file), str);
+            String a = com.ss.android.socialbase.appdownloader.f.a.e.a(j.getContext(), com.ss.android.socialbase.appdownloader.c.a(downloadInfo, file), str);
             boolean z = false;
-            if (!TextUtils.isEmpty(a2)) {
-                String str2 = a2 + ".apk";
+            if (!TextUtils.isEmpty(a)) {
+                String str2 = a + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
                 if (str2.equals(downloadInfo.getName())) {
                     return true;
                 }
@@ -97,12 +98,10 @@ public class a implements m {
                 MediaScannerConnection.scanFile(context, new String[]{str}, new String[]{"application/vnd.android.package-archive"}, new MediaScannerConnection.OnScanCompletedListener(this, downloadInfo) { // from class: com.ss.android.downloadlib.c.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f69657a;
+                    public final /* synthetic */ DownloadInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f69658b;
+                    public final /* synthetic */ a f61367b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -119,8 +118,8 @@ public class a implements m {
                                 return;
                             }
                         }
-                        this.f69658b = this;
-                        this.f69657a = downloadInfo;
+                        this.f61367b = this;
+                        this.a = downloadInfo;
                     }
 
                     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
@@ -129,8 +128,8 @@ public class a implements m {
                         if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, uri) == null) || uri == null) {
                             return;
                         }
-                        this.f69657a.safePutToDBJsonData("file_content_uri", uri.toString());
-                        com.ss.android.socialbase.downloader.downloader.c.x().a(this.f69657a);
+                        this.a.safePutToDBJsonData("file_content_uri", uri.toString());
+                        com.ss.android.socialbase.downloader.downloader.c.x().a(this.a);
                     }
                 });
             }

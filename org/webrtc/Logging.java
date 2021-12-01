@@ -1,7 +1,6 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -277,7 +276,7 @@ public class Logging {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
             log(Severity.LS_ERROR, str, str2);
         }
     }
@@ -398,7 +397,7 @@ public class Logging {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, th) == null) {
             log(Severity.LS_ERROR, str, str2);
             log(Severity.LS_ERROR, str, th.toString());
             log(Severity.LS_ERROR, str, getStackTraceString(th));

@@ -10,7 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class StatusBarUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +27,7 @@ public final class StatusBarUtil {
     public boolean transparentStatusBar;
     public Window window;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +57,7 @@ public final class StatusBarUtil {
         public Builder setWindow(Window window) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, window)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, window)) == null) {
                 this.window = window;
                 return this;
             }
@@ -116,7 +115,7 @@ public final class StatusBarUtil {
         public Builder setWindow(Dialog dialog) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, dialog)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, dialog)) == null) {
                 this.window = dialog.getWindow();
                 return this;
             }
@@ -154,7 +153,7 @@ public final class StatusBarUtil {
     public static int getStatusBarOffsetPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (isLessKitkat()) {
                 return 0;
             }
@@ -171,7 +170,7 @@ public final class StatusBarUtil {
     public static boolean isKitkat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.VERSION.SDK_INT == 19 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT == 19 : invokeV.booleanValue;
     }
 
     public static boolean isLessKitkat() {

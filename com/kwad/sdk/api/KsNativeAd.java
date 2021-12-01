@@ -1,14 +1,16 @@
 package com.kwad.sdk.api;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.kwad.sdk.api.model.AdSourceLogoType;
 import java.util.List;
 @KsAdSdkApi
 @Keep
@@ -28,6 +30,14 @@ public interface KsNativeAd {
         @KsAdSdkApi
         @Keep
         void onAdShow(KsNativeAd ksNativeAd);
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogDismiss();
+
+        @KsAdSdkApi
+        @Keep
+        void onDownloadTipsDialogShow();
     }
 
     @KsAdSdkApi
@@ -59,6 +69,11 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     String getAdSource();
+
+    @Nullable
+    @KsAdSdkApi
+    @Keep
+    String getAdSourceLogoUrl(@AdSourceLogoType int i2);
 
     @Nullable
     @KsAdSdkApi
@@ -125,14 +140,14 @@ public interface KsNativeAd {
     @Keep
     String getPermissionInfo();
 
+    @Nullable
+    @KsAdSdkApi
+    @Keep
+    String getPermissionInfoUrl();
+
     @KsAdSdkApi
     @Keep
     String getProductName();
-
-    @NonNull
-    @KsAdSdkApi
-    @Keep
-    Bitmap getSdkLogo();
 
     @Nullable
     @KsAdSdkApi
@@ -169,7 +184,16 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
+    void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull List<View> list, AdInteractionListener adInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
+    @Deprecated
     void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, AdInteractionListener adInteractionListener);
+
+    @KsAdSdkApi
+    @Keep
+    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep

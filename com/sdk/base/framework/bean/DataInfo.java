@@ -1,7 +1,6 @@
 package com.sdk.base.framework.bean;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +27,7 @@ public class DataInfo extends JSONObject {
             }
         }
         try {
-            put(r.f41000a, System.currentTimeMillis());
+            put("r", System.currentTimeMillis());
         } catch (JSONException unused) {
         }
     }

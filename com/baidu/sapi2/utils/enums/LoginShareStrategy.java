@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.button.StyleHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class LoginShareStrategy {
     public static final /* synthetic */ LoginShareStrategy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public final class LoginShareStrategy {
                 return;
             }
         }
-        DISABLED = new LoginShareStrategy("DISABLED", 0, "disabled");
+        DISABLED = new LoginShareStrategy("DISABLED", 0, StyleHelper.KEY_ONDISABLE);
         LoginShareStrategy loginShareStrategy = new LoginShareStrategy("CHOICE", 1, "choice");
         CHOICE = loginShareStrategy;
         $VALUES = new LoginShareStrategy[]{DISABLED, loginShareStrategy};
@@ -93,7 +93,7 @@ public final class LoginShareStrategy {
     public static LoginShareStrategy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (LoginShareStrategy[]) $VALUES.clone() : (LoginShareStrategy[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LoginShareStrategy[]) $VALUES.clone() : (LoginShareStrategy[]) invokeV.objValue;
     }
 
     public String getStrValue() {

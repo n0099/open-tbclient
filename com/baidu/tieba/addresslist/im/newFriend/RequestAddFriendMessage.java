@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AddFriend.AddFriendReqIdl;
 import tbclient.AddFriend.ReqData;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RequestAddFriendMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +69,10 @@ public class RequestAddFriendMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.st_type : (String) invokeV.objValue;
     }
 
-    public void setFriendId(long j) {
+    public void setFriendId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.friendId = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.friendId = j2;
         }
     }
 

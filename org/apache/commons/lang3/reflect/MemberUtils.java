@@ -2,7 +2,6 @@ package org.apache.commons.lang3.reflect;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +51,7 @@ public abstract class MemberUtils {
         public static Executable of(Method method) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, method)) == null) ? new Executable(method) : (Executable) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, method)) == null) ? new Executable(method) : (Executable) invokeL.objValue;
         }
 
         public Class<?>[] getParameterTypes() {
@@ -152,7 +151,7 @@ public abstract class MemberUtils {
     public static float getObjectTransformationCost(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, cls2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) {
             if (cls2.isPrimitive()) {
                 return getPrimitivePromotionCost(cls, cls2);
             }
@@ -178,7 +177,7 @@ public abstract class MemberUtils {
         InterceptResult invokeLL;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, cls2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, cls2)) == null) {
             if (cls.isPrimitive()) {
                 f2 = 0.0f;
             } else {
@@ -215,13 +214,13 @@ public abstract class MemberUtils {
             if (isVarArgs) {
                 length--;
             }
-            long j = length;
-            if (clsArr.length < j) {
+            long j2 = length;
+            if (clsArr.length < j2) {
                 return Float.MAX_VALUE;
             }
             boolean z = false;
             float f2 = 0.0f;
-            for (int i2 = 0; i2 < j; i2++) {
+            for (int i2 = 0; i2 < j2; i2++) {
                 f2 += getObjectTransformationCost(clsArr[i2], parameterTypes[i2]);
             }
             if (isVarArgs) {

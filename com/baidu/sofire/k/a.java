@@ -11,27 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f44051a;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f44052b;
+    public b f39149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44053c;
+    public boolean f39150c;
 
     /* renamed from: com.baidu.sofire.k.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f44054a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,25 +44,25 @@ public class a implements b {
                 }
             }
             int[] iArr = new int[b.a.values().length];
-            f44054a = iArr;
+            a = iArr;
             try {
-                iArr[b.a.f44099d.ordinal()] = 1;
+                iArr[b.a.f39178d.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f44054a[b.a.f44100e.ordinal()] = 2;
+                a[b.a.f39179e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f44054a[b.a.f44098c.ordinal()] = 3;
+                a[b.a.f39177c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f44054a[b.a.f44097b.ordinal()] = 4;
+                a[b.a.f39176b.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f44054a[b.a.f44096a.ordinal()] = 5;
+                a[b.a.a.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -85,22 +81,22 @@ public class a implements b {
                 return;
             }
         }
-        this.f44052b = null;
-        this.f44053c = false;
+        this.f39149b = null;
+        this.f39150c = false;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f44051a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    if (f44051a == null) {
-                        f44051a = new a();
+                    if (a == null) {
+                        a = new a();
                     }
                 }
             }
-            return f44051a;
+            return a;
         }
         return (a) invokeV.objValue;
     }
@@ -118,11 +114,11 @@ public class a implements b {
             return;
         }
         try {
-            if (this.f44053c) {
+            if (this.f39150c) {
                 return;
             }
-            this.f44053c = true;
-            int i2 = AnonymousClass1.f44054a[b.a.a(Build.MANUFACTURER).ordinal()];
+            this.f39150c = true;
+            int i2 = AnonymousClass1.a[b.a.a(Build.MANUFACTURER).ordinal()];
             if (i2 == 1) {
                 cVar2 = new com.baidu.sofire.n.c();
             } else if (i2 == 2) {
@@ -131,18 +127,18 @@ public class a implements b {
                 cVar2 = new com.baidu.sofire.o.b();
             } else if (i2 != 4) {
                 if (i2 == 5) {
-                    this.f44052b = null;
+                    this.f39149b = null;
                 }
-                if (this.f44052b == null) {
-                    this.f44052b.a(context, cVar);
+                if (this.f39149b == null) {
+                    this.f39149b.a(context, cVar);
                     return;
                 }
                 return;
             } else {
                 cVar2 = new com.baidu.sofire.l.b();
             }
-            this.f44052b = cVar2;
-            if (this.f44052b == null) {
+            this.f39149b = cVar2;
+            if (this.f39149b == null) {
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -154,7 +150,7 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f44052b;
+            b bVar = this.f39149b;
             if (bVar == null) {
                 return null;
             }

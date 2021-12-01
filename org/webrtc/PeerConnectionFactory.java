@@ -3,7 +3,6 @@ package org.webrtc;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCLoadManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -405,7 +404,7 @@ public class PeerConnectionFactory {
 
     private void checkPeerConnectionFactoryExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.nativeFactory == 0) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.nativeFactory == 0) {
             throw new IllegalStateException("PeerConnectionFactory has been disposed.");
         }
     }
@@ -413,7 +412,7 @@ public class PeerConnectionFactory {
     public static String fieldTrialsFindFullName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? NativeLibrary.isLoaded() ? nativeFindFieldTrialsFullName(str) : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? NativeLibrary.isLoaded() ? nativeFindFieldTrialsFullName(str) : "" : (String) invokeL.objValue;
     }
 
     public static void initialize(InitializationOptions initializationOptions) {
@@ -454,27 +453,27 @@ public class PeerConnectionFactory {
         }
     }
 
-    public static native long nativeCreateAudioSource(long j, MediaConstraints mediaConstraints);
+    public static native long nativeCreateAudioSource(long j2, MediaConstraints mediaConstraints);
 
-    public static native long nativeCreateAudioTrack(long j, String str, long j2);
+    public static native long nativeCreateAudioTrack(long j2, String str, long j3);
 
-    public static native long nativeCreateLocalMediaStream(long j, String str);
+    public static native long nativeCreateLocalMediaStream(long j2, String str);
 
-    public static native long nativeCreatePeerConnection(long j, PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, long j2, SSLCertificateVerifier sSLCertificateVerifier);
+    public static native long nativeCreatePeerConnection(long j2, PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, long j3, SSLCertificateVerifier sSLCertificateVerifier);
 
-    public static native long nativeCreatePeerConnectionFactory(Context context, Options options, long j, long j2, long j3, VideoEncoderFactory videoEncoderFactory, VideoDecoderFactory videoDecoderFactory, long j4, long j5, long j6);
+    public static native long nativeCreatePeerConnectionFactory(Context context, Options options, long j2, long j3, long j4, VideoEncoderFactory videoEncoderFactory, VideoDecoderFactory videoDecoderFactory, long j5, long j6, long j7);
 
-    public static native long nativeCreateVideoSource(long j, boolean z, boolean z2);
+    public static native long nativeCreateVideoSource(long j2, boolean z, boolean z2);
 
-    public static native long nativeCreateVideoTrack(long j, String str, long j2);
+    public static native long nativeCreateVideoTrack(long j2, String str, long j3);
 
     public static native void nativeDeleteLoggable();
 
     public static native String nativeFindFieldTrialsFullName(String str);
 
-    public static native void nativeFreeFactory(long j);
+    public static native void nativeFreeFactory(long j2);
 
-    public static native long nativeGetNativePeerConnectionFactory(long j);
+    public static native long nativeGetNativePeerConnectionFactory(long j2);
 
     public static native void nativeInitializeAndroidGlobals();
 
@@ -484,15 +483,15 @@ public class PeerConnectionFactory {
 
     public static native void nativeInjectLoggable(JNILogging jNILogging, int i2);
 
-    public static native void nativeInvokeThreadsCallbacks(long j);
+    public static native void nativeInvokeThreadsCallbacks(long j2);
 
     public static native void nativeShutdownInternalTracer();
 
-    public static native boolean nativeStartAecDump(long j, int i2, int i3);
+    public static native boolean nativeStartAecDump(long j2, int i2, int i3);
 
     public static native boolean nativeStartInternalTracingCapture(String str);
 
-    public static native void nativeStopAecDump(long j);
+    public static native void nativeStopAecDump(long j2);
 
     public static native void nativeStopInternalTracingCapture();
 
@@ -763,12 +762,12 @@ public class PeerConnectionFactory {
     }
 
     @CalledByNative
-    public PeerConnectionFactory(long j) {
+    public PeerConnectionFactory(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -779,8 +778,8 @@ public class PeerConnectionFactory {
             }
         }
         checkInitializeHasBeenCalled();
-        if (j != 0) {
-            this.nativeFactory = j;
+        if (j2 != 0) {
+            this.nativeFactory = j2;
             return;
         }
         throw new RuntimeException("Failed to initialize PeerConnectionFactory!");

@@ -13,38 +13,35 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-import com.kwad.sdk.utils.v;
+import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public class KSRelativeLayout extends RelativeLayout implements c {
+public class KSRelativeLayout extends RelativeLayout implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f67672a;
+    public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f67673b;
+    public h f59729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f67674c;
+    public j f59730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f67675d;
+    public i f59731d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f67676e;
+    public float f59732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final v.a f67677f;
+    public final z.a f59733f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSRelativeLayout(@NonNull Context context) {
@@ -64,9 +61,9 @@ public class KSRelativeLayout extends RelativeLayout implements c {
                 return;
             }
         }
-        this.f67672a = new AtomicBoolean(true);
-        this.f67676e = 0.0f;
-        this.f67677f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59732e = 0.0f;
+        this.f59733f = new z.a();
         a(context, null);
     }
 
@@ -89,9 +86,9 @@ public class KSRelativeLayout extends RelativeLayout implements c {
                 return;
             }
         }
-        this.f67672a = new AtomicBoolean(true);
-        this.f67676e = 0.0f;
-        this.f67677f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59732e = 0.0f;
+        this.f59733f = new z.a();
         a(context, attributeSet);
     }
 
@@ -114,9 +111,9 @@ public class KSRelativeLayout extends RelativeLayout implements c {
                 return;
             }
         }
-        this.f67672a = new AtomicBoolean(true);
-        this.f67676e = 0.0f;
-        this.f67677f = new v.a();
+        this.a = new AtomicBoolean(true);
+        this.f59732e = 0.0f;
+        this.f59733f = new z.a();
         a(context, attributeSet);
     }
 
@@ -128,21 +125,21 @@ public class KSRelativeLayout extends RelativeLayout implements c {
                 int[] iArr = {i2};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f67676e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+                this.f59732e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
                 obtainStyledAttributes.recycle();
             }
-            a aVar = new a(this, this);
-            this.f67673b = aVar;
-            aVar.a(c());
-            b bVar = new b();
-            this.f67675d = bVar;
-            bVar.a(context, attributeSet);
+            h hVar = new h(this, this);
+            this.f59729b = hVar;
+            hVar.a(c());
+            i iVar = new i();
+            this.f59731d = iVar;
+            iVar.a(context, attributeSet);
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f67672a.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewAttached");
             a();
         }
@@ -150,7 +147,7 @@ public class KSRelativeLayout extends RelativeLayout implements c {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f67672a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewDetached");
@@ -161,26 +158,26 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f67673b.b();
+            this.f59729b.b();
         }
     }
 
-    @Override // com.kwad.sdk.widget.c
+    @Override // com.kwad.sdk.widget.j
     @CallSuper
     public void a(View view) {
-        c cVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (cVar = this.f67674c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (jVar = this.f59730c) == null) {
             return;
         }
-        cVar.a(view);
+        jVar.a(view);
     }
 
     @CallSuper
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f67673b.c();
+            this.f59729b.c();
         }
     }
 
@@ -197,9 +194,9 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            this.f67675d.c(canvas);
+            this.f59731d.c(canvas);
             super.dispatchDraw(canvas);
-            this.f67675d.d(canvas);
+            this.f59731d.d(canvas);
         }
     }
 
@@ -210,10 +207,10 @@ public class KSRelativeLayout extends RelativeLayout implements c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f67677f.a(getWidth(), getHeight());
-                this.f67677f.a(motionEvent.getX(), motionEvent.getY());
+                this.f59733f.a(getWidth(), getHeight());
+                this.f59733f.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                this.f67677f.b(motionEvent.getX(), motionEvent.getY());
+                this.f59733f.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -224,23 +221,23 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            this.f67675d.a(canvas);
+            this.f59731d.a(canvas);
             super.draw(canvas);
-            this.f67675d.b(canvas);
+            this.f59731d.b(canvas);
         }
     }
 
     @MainThread
-    public v.a getTouchCoords() {
+    public z.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f67677f : (v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59733f : (z.a) invokeV.objValue;
     }
 
     public float getVisiblePercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67673b.a() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59729b.a() : invokeV.floatValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -276,8 +273,8 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            if (this.f67676e != 0.0f) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f67676e), 1073741824);
+            if (this.f59732e != 0.0f) {
+                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f59732e), 1073741824);
             }
             super.onMeasure(i2, i3);
         }
@@ -287,10 +284,10 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
-            this.f67673b.a(i2, i3, i4, i5);
+            this.f59729b.a(i2, i3, i4, i5);
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f67673b.b(i2, i3, i4, i5);
-            this.f67675d.a(i2, i3);
+            this.f59729b.b(i2, i3, i4, i5);
+            this.f59731d.a(i2, i3);
         }
     }
 
@@ -306,7 +303,7 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.f67675d.a(f2);
+            this.f59731d.a(f2);
             postInvalidate();
         }
     }
@@ -314,21 +311,21 @@ public class KSRelativeLayout extends RelativeLayout implements c {
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f67676e = f2;
+            this.f59732e = f2;
         }
     }
 
-    public void setViewVisibleListener(c cVar) {
+    public void setViewVisibleListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
-            this.f67674c = cVar;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) {
+            this.f59730c = jVar;
         }
     }
 
     public void setVisiblePercent(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f67673b.a(f2);
+            this.f59729b.a(f2);
         }
     }
 }

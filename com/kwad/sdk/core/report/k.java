@@ -1,192 +1,75 @@
 package com.kwad.sdk.core.report;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import androidx.annotation.NonNull;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.aa;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes2.dex */
-public class k implements h<ReportAction> {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile k f65928a;
+public class k extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f65929b;
+    public String f57673b;
 
-    public k(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-615486186, "Lcom/kwad/sdk/core/report/k;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-615486186, "Lcom/kwad/sdk/core/report/k;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(@Nullable Context context, int i2) {
+        super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f65929b = new j(context, j.f65926a).getWritableDatabase();
+        this.f57673b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
     }
 
-    private synchronized ReportAction a(@NonNull Cursor cursor) {
-        InterceptResult invokeL;
-        ReportAction reportAction;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
-            synchronized (this) {
-                reportAction = new ReportAction(cursor.getString(cursor.getColumnIndex("aLog")));
-            }
-            return reportAction;
-        }
-        return (ReportAction) invokeL.objValue;
-    }
-
-    public static k a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f65928a == null) {
-                synchronized (k.class) {
-                    if (f65928a == null) {
-                        f65928a = new k(context);
-                    }
-                }
-            }
-            return f65928a;
-        }
-        return (k) invokeL.objValue;
-    }
-
-    private synchronized void b(ReportAction reportAction) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, reportAction) == null) {
-            synchronized (this) {
-                com.kwad.sdk.core.d.a.a("ReportActionDBManager", "deleteAction action = " + reportAction);
-                try {
-                    this.f65929b.delete("ksad_actions", "actionId=?", new String[]{reportAction.f65918a});
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(this.f57673b);
         }
     }
 
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized long a() {
-        InterceptResult invokeV;
-        long j;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                Cursor cursor = null;
-                try {
-                    cursor = this.f65929b.rawQuery("select count(*) from ksad_actions", null);
-                    cursor.moveToFirst();
-                    j = cursor.getLong(0);
-                    aa.a(cursor);
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                    aa.a(cursor);
-                    j = 0;
-                }
-            }
-            return j;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
         }
-        return invokeV.longValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized void a(ReportAction reportAction) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reportAction) == null) {
-            synchronized (this) {
-                com.kwad.sdk.core.d.a.a("ReportActionDBManager", "write = " + reportAction);
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("actionId", reportAction.f65918a);
-                    contentValues.put("aLog", reportAction.toJson().toString());
-                    try {
-                        this.f65929b.insert("ksad_actions", null, contentValues);
-                    } catch (Exception e2) {
-                        com.kwad.sdk.core.d.a.a(e2);
-                    }
-                } catch (Exception e3) {
-                    com.kwad.sdk.core.d.a.a(e3);
-                }
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized void a(List<ReportAction> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                com.kwad.sdk.core.d.a.a("ReportActionDBManager", "delete size= " + list.size());
-                try {
-                    this.f65929b.beginTransaction();
-                    for (ReportAction reportAction : list) {
-                        b(reportAction);
-                    }
-                    this.f65929b.setTransactionSuccessful();
-                    this.f65929b.endTransaction();
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                }
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.core.report.h
-    public synchronized List<ReportAction> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                Cursor cursor = null;
-                try {
-                    cursor = this.f65929b.rawQuery("select  * from ksad_actions", null);
-                    if (cursor != null) {
-                        ArrayList arrayList = new ArrayList();
-                        while (cursor.moveToNext()) {
-                            try {
-                                arrayList.add(a(cursor));
-                            } catch (Exception e2) {
-                                com.kwad.sdk.core.d.a.a(e2);
-                            }
-                        }
-                        com.kwad.sdk.core.d.a.a("ReportActionDBManager", "read size= " + arrayList.size());
-                        Iterator it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            com.kwad.sdk.core.d.a.a("ReportActionDBManager", "read action=" + ((ReportAction) it.next()));
-                        }
-                        aa.a(cursor);
-                        return arrayList;
-                    }
-                } catch (Exception e3) {
-                    com.kwad.sdk.core.d.a.a(e3);
-                }
-                aa.a(cursor);
-                return new ArrayList();
-            }
-        }
-        return (List) invokeV.objValue;
     }
 }

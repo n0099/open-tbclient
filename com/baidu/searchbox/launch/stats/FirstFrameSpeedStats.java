@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_LIVE_TAB_ON_CREATE_DURATION = "AlaLiveTabFragmentOnCreate";
@@ -205,111 +205,111 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j) {
+    public void addStatsTimeStamp(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.addStatsTimeStamp(i2, j);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            super.addStatsTimeStamp(i2, j2);
             switch (i2) {
                 case 5000:
                     int i3 = this.mMeasureCount;
                     if (i3 == 0) {
-                        this.mFirstMeasureStartStamp = j;
+                        this.mFirstMeasureStartStamp = j2;
                         return;
                     } else if (i3 == 1) {
-                        this.mSecondMeasureStartStamp = j;
+                        this.mSecondMeasureStartStamp = j2;
                         return;
                     } else if (i3 == 2) {
-                        this.mThirdMeasureStartStamp = j;
+                        this.mThirdMeasureStartStamp = j2;
                         return;
                     } else {
                         return;
                     }
                 case 5001:
-                    this.mSearchBoxViewOnMeasureStartStamp = j;
+                    this.mSearchBoxViewOnMeasureStartStamp = j2;
                     return;
                 case 5002:
-                    this.mSearchBoxViewOnMeasureEndStamp = j;
-                    this.mSearchboxViewOnMeasureTotal = (this.mSearchboxViewOnMeasureTotal + j) - this.mSearchBoxViewOnMeasureStartStamp;
+                    this.mSearchBoxViewOnMeasureEndStamp = j2;
+                    this.mSearchboxViewOnMeasureTotal = (this.mSearchboxViewOnMeasureTotal + j2) - this.mSearchBoxViewOnMeasureStartStamp;
                     this.mSearchboxViewOnMeasureCount++;
                     return;
                 case 5003:
-                    this.mFeedTabLayoutOnMeasureStartStamp = j;
+                    this.mFeedTabLayoutOnMeasureStartStamp = j2;
                     return;
                 case 5004:
-                    this.mFeedTabLayoutOnMeasureEndStamp = j;
-                    this.mFeedTabLayoutOnMeasureTotal = (this.mFeedTabLayoutOnMeasureTotal + j) - this.mFeedTabLayoutOnMeasureStartStamp;
+                    this.mFeedTabLayoutOnMeasureEndStamp = j2;
+                    this.mFeedTabLayoutOnMeasureTotal = (this.mFeedTabLayoutOnMeasureTotal + j2) - this.mFeedTabLayoutOnMeasureStartStamp;
                     this.mFeedTabLayoutOnMeasureCount++;
                     return;
                 case 5005:
-                    this.mTabViewPagerOnMeasureStartStamp = j;
+                    this.mTabViewPagerOnMeasureStartStamp = j2;
                     return;
                 case 5006:
-                    this.mTabViewPagerOnMeasureEndStamp = j;
-                    this.mTabViewPagerOnMeasureTotal = (this.mTabViewPagerOnMeasureTotal + j) - this.mTabViewPagerOnMeasureStartStamp;
+                    this.mTabViewPagerOnMeasureEndStamp = j2;
+                    this.mTabViewPagerOnMeasureTotal = (this.mTabViewPagerOnMeasureTotal + j2) - this.mTabViewPagerOnMeasureStartStamp;
                     this.mTabViewPagerOnMeasureCount++;
                     return;
                 case 5007:
                     int i4 = this.mMeasureCount;
                     if (i4 == 0) {
-                        this.mFirstMeasureEndStamp = j;
+                        this.mFirstMeasureEndStamp = j2;
                     } else if (i4 == 1) {
-                        this.mSecondMeasureEndStamp = j;
+                        this.mSecondMeasureEndStamp = j2;
                     } else if (i4 == 2) {
-                        this.mThirdMeasureEndStamp = j;
+                        this.mThirdMeasureEndStamp = j2;
                     }
                     this.mMeasureCount++;
                     return;
                 case 5008:
                     int i5 = this.mLayoutCount;
                     if (i5 == 0) {
-                        this.mFirstLayoutStartStamp = j;
+                        this.mFirstLayoutStartStamp = j2;
                         return;
                     } else if (i5 == 1) {
-                        this.mSecondLayoutStartStamp = j;
+                        this.mSecondLayoutStartStamp = j2;
                         return;
                     } else {
                         return;
                     }
                 case 5009:
-                    this.mSearchBoxViewOnLayoutStartStamp = j;
+                    this.mSearchBoxViewOnLayoutStartStamp = j2;
                     return;
                 case 5010:
-                    this.mSearchBoxViewOnLayoutEndStamp = j;
-                    this.mSearchboxViewOnLayoutTotal = (this.mSearchboxViewOnLayoutTotal + j) - this.mSearchBoxViewOnLayoutStartStamp;
+                    this.mSearchBoxViewOnLayoutEndStamp = j2;
+                    this.mSearchboxViewOnLayoutTotal = (this.mSearchboxViewOnLayoutTotal + j2) - this.mSearchBoxViewOnLayoutStartStamp;
                     this.mSearchboxViewOnLayoutCount++;
                     return;
                 case 5011:
-                    this.mFeedTabLayoutOnLayoutStartStamp = j;
+                    this.mFeedTabLayoutOnLayoutStartStamp = j2;
                     return;
                 case 5012:
-                    this.mFeedTabLayoutOnLayoutEndStamp = j;
-                    this.mFeedTabLayoutOnLayoutTotal = (this.mFeedTabLayoutOnLayoutTotal + j) - this.mFeedTabLayoutOnLayoutStartStamp;
+                    this.mFeedTabLayoutOnLayoutEndStamp = j2;
+                    this.mFeedTabLayoutOnLayoutTotal = (this.mFeedTabLayoutOnLayoutTotal + j2) - this.mFeedTabLayoutOnLayoutStartStamp;
                     this.mFeedTabLayoutOnLayoutCount++;
                     return;
                 case 5013:
-                    this.mTabViewPagerOnLayoutStartStamp = j;
+                    this.mTabViewPagerOnLayoutStartStamp = j2;
                     return;
                 case 5014:
-                    this.mTabViewPagerOnLayoutEndStamp = j;
-                    this.mTabViewPagerOnLayoutTotal = (this.mTabViewPagerOnLayoutTotal + j) - this.mTabViewPagerOnLayoutStartStamp;
+                    this.mTabViewPagerOnLayoutEndStamp = j2;
+                    this.mTabViewPagerOnLayoutTotal = (this.mTabViewPagerOnLayoutTotal + j2) - this.mTabViewPagerOnLayoutStartStamp;
                     this.mTabViewPagerOnLayoutCount++;
                     return;
                 case SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY /* 5015 */:
                     int i6 = this.mLayoutCount;
                     if (i6 == 0) {
-                        this.mFirstLayoutEndStamp = j;
+                        this.mFirstLayoutEndStamp = j2;
                     } else if (i6 == 1) {
-                        this.mSecondLayoutEndStamp = j;
+                        this.mSecondLayoutEndStamp = j2;
                     }
                     this.mLayoutCount++;
                     return;
                 case SpeedStatsStampTable.HOME_VIEW_DISPATCH_DRAW_START_STAMP_KEY /* 5016 */:
                     int i7 = this.mDispatchDrawCount;
                     if (i7 == 0) {
-                        this.mFirstDispatchDrawStartStamp = j;
+                        this.mFirstDispatchDrawStartStamp = j2;
                         return;
                     } else if (i7 == 1) {
-                        this.mSecondDispatchDrawStartStamp = j;
+                        this.mSecondDispatchDrawStartStamp = j2;
                         return;
                     } else {
                         return;
@@ -317,9 +317,9 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
                 case SpeedStatsStampTable.HOME_VIEW_DISPATCH_DRAW_END_STAMP_KEY /* 5017 */:
                     int i8 = this.mDispatchDrawCount;
                     if (i8 == 0) {
-                        this.mFirstDispatchDrawEndStamp = j;
+                        this.mFirstDispatchDrawEndStamp = j2;
                     } else if (i8 == 1) {
-                        this.mSecondDispatchDrawEndStamp = j;
+                        this.mSecondDispatchDrawEndStamp = j2;
                     }
                     this.mDispatchDrawCount++;
                     return;
@@ -334,88 +334,88 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
                 default:
                     return;
                 case 5022:
-                    this.mConcernTabFragmentOnCreateViewStartTimeStamp = j;
+                    this.mConcernTabFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.CONCERN_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5023 */:
-                    this.mConcernTabFragmentOnCreateViewEndTimeStamp = j;
+                    this.mConcernTabFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case 5024:
-                    this.mConcernTabFragmentOnResumeStartTimeStamp = j;
+                    this.mConcernTabFragmentOnResumeStartTimeStamp = j2;
                     return;
                 case 5025:
-                    this.mConcernTabFragmentOnResumeEndTimeStamp = j;
+                    this.mConcernTabFragmentOnResumeEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_START_STAMP_KEY /* 5028 */:
-                    this.mHotTopicTabFragmentOnCreateViewStartTimeStamp = j;
+                    this.mHotTopicTabFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5029 */:
-                    this.mHotTopicTabFragmentOnCreateViewEndTimeStamp = j;
+                    this.mHotTopicTabFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_START_STAMP_KEY /* 5030 */:
-                    this.mHotTopicTabFragmentOnCreateStartTimeStamp = j;
+                    this.mHotTopicTabFragmentOnCreateStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_END_STAMP_KEY /* 5031 */:
-                    this.mHotTopicTabFragmentOnCreateEndTimeStamp = j;
+                    this.mHotTopicTabFragmentOnCreateEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY /* 5032 */:
-                    this.mVideoTabFragmentOnCreateStartTimeStamp = j;
+                    this.mVideoTabFragmentOnCreateStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY /* 5033 */:
-                    this.mVideoTabFragmentOnCreateEndTimeStamp = j;
+                    this.mVideoTabFragmentOnCreateEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY /* 5034 */:
-                    this.mVideoTabFragmentOnCreateViewStartTimeStamp = j;
+                    this.mVideoTabFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5035 */:
-                    this.mVideoTabFragmentOnCreateViewEndTimeStamp = j;
+                    this.mVideoTabFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY /* 5036 */:
-                    this.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY /* 5037 */:
-                    this.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp = j2;
                     return;
                 case 5038:
-                    this.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case 5039:
-                    this.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case 5040:
-                    this.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp = j2;
                     return;
                 case 5041:
-                    this.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp = j;
+                    this.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp = j2;
                     return;
                 case 5042:
-                    this.mGameVideoFragmentOnCreateStartTimeStamp = j;
+                    this.mGameVideoFragmentOnCreateStartTimeStamp = j2;
                     return;
                 case 5043:
-                    this.mGameVideoFragmentOnCreateEndTimeStamp = j;
+                    this.mGameVideoFragmentOnCreateEndTimeStamp = j2;
                     return;
                 case 5044:
-                    this.mGameVideoFragmentOnCreateViewStartTimeStamp = j;
+                    this.mGameVideoFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case 5045:
-                    this.mGameVideoFragmentOnCreateViewEndTimeStamp = j;
+                    this.mGameVideoFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY /* 5048 */:
-                    this.mPersonalizeFragmentOnCreateStartTimeStamp = j;
+                    this.mPersonalizeFragmentOnCreateStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY /* 5049 */:
-                    this.mPersonalizeFragmentOnCreateEndTimeStamp = j;
+                    this.mPersonalizeFragmentOnCreateEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY /* 5050 */:
-                    this.mPersonalizeFragmentOnCreateViewStartTimeStamp = j;
+                    this.mPersonalizeFragmentOnCreateViewStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_END_STAMP_KEY /* 5051 */:
-                    this.mPersonalizeFragmentOnCreateViewEndTimeStamp = j;
+                    this.mPersonalizeFragmentOnCreateViewEndTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY /* 5052 */:
-                    this.mPersonalizeFragmentOnResumeStartTimeStamp = j;
+                    this.mPersonalizeFragmentOnResumeStartTimeStamp = j2;
                     return;
                 case SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY /* 5053 */:
-                    this.mPersonalizeFragmentOnResumeEndTimeStamp = j;
+                    this.mPersonalizeFragmentOnResumeEndTimeStamp = j2;
                     return;
             }
         }
@@ -450,84 +450,84 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
             if (jSONObject == null) {
                 return true;
             }
-            long j = this.mFirstDispatchDrawEndStamp;
-            long j2 = this.mFirstMeasureStartStamp;
-            long j3 = j - j2;
-            long j4 = this.mFirstMeasureEndStamp - j2;
-            long j5 = this.mSecondMeasureEndStamp - this.mSecondMeasureStartStamp;
-            long j6 = this.mFirstLayoutEndStamp - this.mFirstLayoutStartStamp;
-            long j7 = this.mThirdMeasureEndStamp - this.mThirdMeasureStartStamp;
-            long j8 = j - this.mFirstDispatchDrawStartStamp;
-            long j9 = this.mSecondLayoutEndStamp - this.mSecondLayoutStartStamp;
-            long j10 = this.mVideoTabFragmentOnCreateEndTimeStamp - this.mVideoTabFragmentOnCreateStartTimeStamp;
-            long j11 = this.mVideoTabFragmentOnCreateViewEndTimeStamp - this.mVideoTabFragmentOnCreateViewStartTimeStamp;
-            long j12 = this.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp;
-            long j13 = this.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp;
-            long j14 = this.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp;
-            long j15 = this.mGameVideoFragmentOnCreateEndTimeStamp - this.mGameVideoFragmentOnCreateStartTimeStamp;
-            long j16 = this.mGameVideoFragmentOnCreateViewEndTimeStamp - this.mGameVideoFragmentOnCreateViewStartTimeStamp;
-            long j17 = this.mConcernTabFragmentOnCreateViewEndTimeStamp - this.mConcernTabFragmentOnCreateViewStartTimeStamp;
-            long j18 = this.mConcernTabFragmentOnResumeEndTimeStamp - this.mConcernTabFragmentOnResumeStartTimeStamp;
-            long j19 = this.mHotTopicTabFragmentOnCreateEndTimeStamp - this.mHotTopicTabFragmentOnCreateStartTimeStamp;
-            long j20 = this.mHotTopicTabFragmentOnCreateViewEndTimeStamp - this.mHotTopicTabFragmentOnCreateViewStartTimeStamp;
-            long j21 = this.mPersonalizeFragmentOnCreateEndTimeStamp - this.mPersonalizeFragmentOnCreateStartTimeStamp;
-            long j22 = this.mPersonalizeFragmentOnCreateViewEndTimeStamp - this.mPersonalizeFragmentOnCreateViewStartTimeStamp;
-            long j23 = this.mPersonalizeFragmentOnResumeEndTimeStamp - this.mPersonalizeFragmentOnResumeStartTimeStamp;
+            long j2 = this.mFirstDispatchDrawEndStamp;
+            long j3 = this.mFirstMeasureStartStamp;
+            long j4 = j2 - j3;
+            long j5 = this.mFirstMeasureEndStamp - j3;
+            long j6 = this.mSecondMeasureEndStamp - this.mSecondMeasureStartStamp;
+            long j7 = this.mFirstLayoutEndStamp - this.mFirstLayoutStartStamp;
+            long j8 = this.mThirdMeasureEndStamp - this.mThirdMeasureStartStamp;
+            long j9 = j2 - this.mFirstDispatchDrawStartStamp;
+            long j10 = this.mSecondLayoutEndStamp - this.mSecondLayoutStartStamp;
+            long j11 = this.mVideoTabFragmentOnCreateEndTimeStamp - this.mVideoTabFragmentOnCreateStartTimeStamp;
+            long j12 = this.mVideoTabFragmentOnCreateViewEndTimeStamp - this.mVideoTabFragmentOnCreateViewStartTimeStamp;
+            long j13 = this.mAlaLiveTabFeedPageFragmentOnCreateEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateStartTimeStamp;
+            long j14 = this.mAlaLiveTabFeedPageFragmentOnCreateViewEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnCreateViewStartTimeStamp;
+            long j15 = this.mAlaLiveTabFeedPageFragmentOnResumeEndTimeStamp - this.mAlaLiveTabFeedPageFragmentOnResumeStartTimeStamp;
+            long j16 = this.mGameVideoFragmentOnCreateEndTimeStamp - this.mGameVideoFragmentOnCreateStartTimeStamp;
+            long j17 = this.mGameVideoFragmentOnCreateViewEndTimeStamp - this.mGameVideoFragmentOnCreateViewStartTimeStamp;
+            long j18 = this.mConcernTabFragmentOnCreateViewEndTimeStamp - this.mConcernTabFragmentOnCreateViewStartTimeStamp;
+            long j19 = this.mConcernTabFragmentOnResumeEndTimeStamp - this.mConcernTabFragmentOnResumeStartTimeStamp;
+            long j20 = this.mHotTopicTabFragmentOnCreateEndTimeStamp - this.mHotTopicTabFragmentOnCreateStartTimeStamp;
+            long j21 = this.mHotTopicTabFragmentOnCreateViewEndTimeStamp - this.mHotTopicTabFragmentOnCreateViewStartTimeStamp;
+            long j22 = this.mPersonalizeFragmentOnCreateEndTimeStamp - this.mPersonalizeFragmentOnCreateStartTimeStamp;
+            long j23 = this.mPersonalizeFragmentOnCreateViewEndTimeStamp - this.mPersonalizeFragmentOnCreateViewStartTimeStamp;
+            long j24 = this.mPersonalizeFragmentOnResumeEndTimeStamp - this.mPersonalizeFragmentOnResumeStartTimeStamp;
             long durationWithoutAD = SpeedStatsManager.getInstance().getDurationWithoutAD(this.mFirstMeasureStartStamp, this.mFirstDispatchDrawEndStamp);
-            if (j3 < 0 || j3 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j19 < 0 || j19 > 60000 || j20 < 0 || j20 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000) {
+            if (j4 < 0 || j4 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000) {
                 return false;
             }
-            long j24 = this.mSearchboxViewOnMeasureTotal;
-            if (j24 < 0 || j24 > 60000) {
-                return false;
-            }
-            long j25 = this.mSearchboxViewOnLayoutTotal;
+            long j25 = this.mSearchboxViewOnMeasureTotal;
             if (j25 < 0 || j25 > 60000) {
                 return false;
             }
-            long j26 = this.mFeedTabLayoutOnMeasureTotal;
+            long j26 = this.mSearchboxViewOnLayoutTotal;
             if (j26 < 0 || j26 > 60000) {
                 return false;
             }
-            long j27 = this.mFeedTabLayoutOnLayoutTotal;
+            long j27 = this.mFeedTabLayoutOnMeasureTotal;
             if (j27 < 0 || j27 > 60000) {
                 return false;
             }
-            long j28 = this.mTabViewPagerOnMeasureTotal;
+            long j28 = this.mFeedTabLayoutOnLayoutTotal;
             if (j28 < 0 || j28 > 60000) {
                 return false;
             }
-            long j29 = this.mTabViewPagerOnLayoutTotal;
+            long j29 = this.mTabViewPagerOnMeasureTotal;
             if (j29 < 0 || j29 > 60000) {
                 return false;
             }
+            long j30 = this.mTabViewPagerOnLayoutTotal;
+            if (j30 < 0 || j30 > 60000) {
+                return false;
+            }
             HashMap hashMap = new HashMap();
-            hashMap.put(FIRST_MEASURE, String.valueOf(j4));
-            hashMap.put(SECOND_MEASURE, String.valueOf(j5));
-            hashMap.put(FIRST_LAYOUT, String.valueOf(j6));
-            hashMap.put(THIRD_MEASURE, String.valueOf(j7));
-            hashMap.put(FIRST_DISPATCH_DRAW, String.valueOf(j8));
-            hashMap.put(SECOND_LAYOUT, String.valueOf(j9));
+            hashMap.put(FIRST_MEASURE, String.valueOf(j5));
+            hashMap.put(SECOND_MEASURE, String.valueOf(j6));
+            hashMap.put(FIRST_LAYOUT, String.valueOf(j7));
+            hashMap.put(THIRD_MEASURE, String.valueOf(j8));
+            hashMap.put(FIRST_DISPATCH_DRAW, String.valueOf(j9));
+            hashMap.put(SECOND_LAYOUT, String.valueOf(j10));
             hashMap.put(SEARCHBOX_VIEW_ON_MEASURE, String.valueOf(this.mSearchboxViewOnMeasureTotal));
             hashMap.put(SEARCHBOX_VIEW_ON_LAYOUT, String.valueOf(this.mSearchboxViewOnLayoutTotal));
             hashMap.put(HOME_TAB_BAR_VIEW_ON_MEASURE, String.valueOf(this.mFeedTabLayoutOnMeasureTotal));
             hashMap.put(HOME_TAB_BAR_VIEW_ON_LAYOUT, String.valueOf(this.mFeedTabLayoutOnLayoutTotal));
             hashMap.put(TAB_VIEW_PAGER_ON_MEASURE, String.valueOf(this.mTabViewPagerOnMeasureTotal));
             hashMap.put(TAB_VIEW_PAGER_ON_LAYOUT, String.valueOf(this.mTabViewPagerOnLayoutTotal));
-            hashMap.put(VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j10));
-            hashMap.put(VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j11));
-            hashMap.put(ALA_LIVE_TAB_ON_CREATE_DURATION, String.valueOf(j12));
-            hashMap.put(ALA_LIVE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j13));
-            hashMap.put(ALA_LIVE_TAB_ON_RESUME_DURATION, String.valueOf(j14));
-            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j15));
-            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j16));
-            hashMap.put(CONCERN_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j17));
-            hashMap.put(CONCERN_TAB_ON_RESUME_DURATION, String.valueOf(j18));
-            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_DURATION, String.valueOf(j19));
-            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j20));
-            hashMap.put(PERSONALIZE_TAB_ON_CREATE_DURATION, String.valueOf(j21));
-            hashMap.put(PERSONALIZE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j22));
-            hashMap.put(PERSONALIZE_TAB_ON_RESUME_DURATION, String.valueOf(j23));
+            hashMap.put(VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j11));
+            hashMap.put(VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j12));
+            hashMap.put(ALA_LIVE_TAB_ON_CREATE_DURATION, String.valueOf(j13));
+            hashMap.put(ALA_LIVE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j14));
+            hashMap.put(ALA_LIVE_TAB_ON_RESUME_DURATION, String.valueOf(j15));
+            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_DURATION, String.valueOf(j16));
+            hashMap.put(GAME_VIDEO_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j17));
+            hashMap.put(CONCERN_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j18));
+            hashMap.put(CONCERN_TAB_ON_RESUME_DURATION, String.valueOf(j19));
+            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_DURATION, String.valueOf(j20));
+            hashMap.put(HOT_TOPIC_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j21));
+            hashMap.put(PERSONALIZE_TAB_ON_CREATE_DURATION, String.valueOf(j22));
+            hashMap.put(PERSONALIZE_TAB_ON_CREATE_VIEW_DURATION, String.valueOf(j23));
+            hashMap.put(PERSONALIZE_TAB_ON_RESUME_DURATION, String.valueOf(j24));
             hashMap.put(SCROLL_FRAGMENT_TAB_HOST_MEASURE_COUNT, String.valueOf(this.mMeasureCount));
             hashMap.put(SCROLL_FRAGMENT_TAB_HOST_LAYOUT_COUNT, String.valueOf(this.mLayoutCount));
             JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);

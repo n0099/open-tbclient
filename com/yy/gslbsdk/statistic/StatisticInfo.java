@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.gslbsdk.util.LogTools;
 import com.yy.gslbsdk.util.StringTools;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatisticInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StatisticInfo";
@@ -91,7 +92,7 @@ public class StatisticInfo {
                 linkedHashMap.put("rsIpV4", this.rsIpV4.toString());
                 linkedHashMap.put("rsIpV6", this.rsIpV6.toString());
                 linkedHashMap.put("cacheType", String.valueOf(this.cacheType));
-                linkedHashMap.put("ts", String.valueOf(this.ts));
+                linkedHashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, String.valueOf(this.ts));
                 synchronized (this.srvIp) {
                     linkedHashMap.put("srvIp", this.srvIp.toString());
                 }

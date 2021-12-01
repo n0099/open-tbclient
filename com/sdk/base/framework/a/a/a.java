@@ -2,7 +2,6 @@ package com.sdk.base.framework.a.a;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,12 +17,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69008a = "a";
+    public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f69009b;
+    public static Boolean f60895b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f69009b = Boolean.valueOf(f.f69125b);
+        f60895b = Boolean.valueOf(f.f60988b);
     }
 
     public a() {
@@ -81,7 +78,7 @@ public class a {
                         String b3 = b(b2);
                         String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                         if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                            c.a(f69008a, "can use cache", f69009b);
+                            c.a(a, "can use cache", f60895b);
                             JSONObject jSONObject = new JSONObject(a3);
                             if (i2 == 1) {
                                 jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
@@ -92,7 +89,7 @@ public class a {
                             sb.append(b3);
                             return sb.toString();
                         }
-                        c.a(f69008a, "OutDate cache invalid", f69009b);
+                        c.a(a, "OutDate cache invalid", f60895b);
                     }
                 }
                 return null;
@@ -114,13 +111,13 @@ public class a {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str.split("-")[0] : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str.split("-")[0] : (String) invokeL.objValue;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            c.a(f69008a, "cache clear", f69009b);
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            c.a(a, "cache clear", f60895b);
             com.sdk.base.framework.f.b.a.d(context, YYInnerSSOLoginActivity.o);
         }
     }
@@ -144,7 +141,7 @@ public class a {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a(f69008a, "oauth cache clear", f69009b);
+            c.a(a, "oauth cache clear", f60895b);
             com.sdk.base.framework.f.b.a.d(context, "accessCode1");
         }
     }

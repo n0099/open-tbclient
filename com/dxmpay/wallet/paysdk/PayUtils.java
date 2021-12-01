@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -33,12 +32,10 @@ public final class PayUtils {
     public static final String KEY_IDENTITY_CODE = "identity_code";
     public static final String KEY_PHONE_NUMBER = "phone_number";
     public static final String KEY_VALID_DATE = "valid_date";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f63564a;
+    public static ArrayList<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements Comparator<RestNameValuePair> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +64,7 @@ public final class PayUtils {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,12 +111,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f63564a = arrayList;
+        a = arrayList;
         arrayList.add("card_no");
-        f63564a.add("valid_date");
-        f63564a.add("cvv2");
-        f63564a.add("identity_code");
-        f63564a.add("phone_number");
+        a.add("valid_date");
+        a.add("cvv2");
+        a.add("identity_code");
+        a.add("phone_number");
     }
 
     public PayUtils() {
@@ -175,7 +172,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             String str3 = str + "加密=" + str2;
-            if (f63564a.contains(str)) {
+            if (a.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -191,7 +188,7 @@ public final class PayUtils {
     public static String genAPIsig(List<RestNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
             for (RestNameValuePair restNameValuePair : list) {
                 arrayList.add(restNameValuePair.getName() + "=" + restNameValuePair.getValue());
@@ -204,7 +201,7 @@ public final class PayUtils {
     public static String getCookie(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             if (AccountManager.getInstance(context).getLoginType() == 1) {
                 stringBuffer.append("access_token=");
@@ -286,7 +283,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f34958h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31351h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

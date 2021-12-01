@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,39 +53,39 @@ import com.dxmpay.wallet.core.utils.NFCUtil;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
-public class WalletPayResultCommonActivity extends PayBaseBeanActivity implements View.OnClickListener, b.InterfaceC1857b {
+/* loaded from: classes12.dex */
+public class WalletPayResultCommonActivity extends PayBaseBeanActivity implements View.OnClickListener, b.InterfaceC1929b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_FEEDBACK = 74081;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60723b;
+    public static final String f53538b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public b.a f60724a;
+    public b.a a;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f60725c;
+    public NetImageView f53539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f60726d;
+    public TextView f53540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f60727e;
+    public View f53541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60728f;
+    public View f53542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f60729g;
+    public View f53543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60730h;
+    public int f53544h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60731i;
-    public boolean j;
+    public boolean f53545i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f53546j;
     public TextView mMainTip;
     public View mPayResultOrderAmountLayout;
     public TextView mPayResultOrderAmountText;
@@ -120,7 +119,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 return;
             }
         }
-        f60723b = WalletPayResultCommonActivity.class.getSimpleName();
+        f53538b = WalletPayResultCommonActivity.class.getSimpleName();
     }
 
     public WalletPayResultCommonActivity() {
@@ -137,9 +136,9 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             }
         }
         this.strRmbUnit = "";
-        this.f60730h = 0;
-        this.f60731i = true;
-        this.j = true;
+        this.f53544h = 0;
+        this.f53545i = true;
+        this.f53546j = true;
     }
 
     private void b() {
@@ -155,14 +154,14 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || isFinishing()) {
             return;
         }
-        this.f60724a.h();
+        this.a.h();
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f60729g.getLayoutParams();
-            if (this.f60731i) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f53543g.getLayoutParams();
+            if (this.f53545i) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mResultImg.getLayoutParams();
                 layoutParams2.setMargins(0, DisplayUtils.dip2px(this, 100.0f), 0, 0);
                 this.mResultImg.setLayoutParams(layoutParams2);
@@ -170,21 +169,21 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 findViewById(ResUtils.id(this, "pay_result_content_info_foot_wave")).setVisibility(8);
                 findViewById(ResUtils.id(this, "pay_result_content_info_white")).setBackgroundColor(ResUtils.getColor(this, "ebpay_f7f8fa"));
                 layoutParams.height = DisplayUtils.dip2px(this, 230.0f);
-                this.f60729g.setLayoutParams(layoutParams);
+                this.f53543g.setLayoutParams(layoutParams);
                 return;
             }
-            if (this.j) {
-                this.f60728f.setVisibility(8);
-                this.f60730h++;
+            if (this.f53546j) {
+                this.f53542f.setVisibility(8);
+                this.f53544h++;
             }
-            int i2 = this.f60726d.getVisibility() == 0 ? 16 : 0;
-            int dip2px = DisplayUtils.dip2px(this, 320 - (this.f60730h * 35));
+            int i2 = this.f53540d.getVisibility() == 0 ? 16 : 0;
+            int dip2px = DisplayUtils.dip2px(this, 320 - (this.f53544h * 35));
             int displayHeight = (DisplayUtils.getDisplayHeight(this) - DisplayUtils.dip2px(this, 258.0f)) - i2;
             if (dip2px <= displayHeight) {
                 dip2px = displayHeight;
             }
             layoutParams.height = dip2px;
-            this.f60729g.setLayoutParams(layoutParams);
+            this.f53543g.setLayoutParams(layoutParams);
         }
     }
 
@@ -197,7 +196,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         return invokeII.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void finishPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -219,7 +218,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.dxmpay.wallet.core.beans.BeanActivity, com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity, com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void initActionBar(String str) {
         BdActionBar bdActionBar;
         Interceptable interceptable = $ic;
@@ -230,7 +229,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         bdActionBar.hideLeftZone();
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void initViewElements() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -240,7 +239,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             this.mPaySuccess = button;
             button.setOnClickListener(this);
             this.mPaySuccess.setVisibility(0);
-            this.f60729g = findViewById(ResUtils.id(this, "pay_result_content_info"));
+            this.f53543g = findViewById(ResUtils.id(this, "pay_result_content_info"));
             this.mPayResultPayTypeGroup = findViewById(ResUtils.id(this, "payresult_pay_type_group"));
             this.mPayResultPayType = (TextView) findViewById(ResUtils.id(this, "payresult_pay_type_info"));
             this.mPayResultPayTypePrefix = (TextView) findViewById(ResUtils.id(this, "payresult_pay_type_pfefix"));
@@ -255,12 +254,12 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             this.mpayResultDiscountTypeTip = (TextView) findViewById(ResUtils.id(this, "payresult_discount_info_tip"));
             this.mPayResultRealMoneyLayout = findViewById(ResUtils.id(this, "payresult_pay_info_group"));
             this.mPayResultRealMoneyText = (TextView) findViewById(ResUtils.id(this, "payresult_pay_info"));
-            this.f60725c = (NetImageView) findViewById(ResUtils.id(this, "payresult_title"));
-            this.f60725c.setImageResource(ResUtils.drawable(getApplicationContext(), "wallet_cashdesk_logo"));
+            this.f53539c = (NetImageView) findViewById(ResUtils.id(this, "payresult_title"));
+            this.f53539c.setImageResource(ResUtils.drawable(getApplicationContext(), "wallet_cashdesk_logo"));
             this.mSubtitleView = (TextView) findViewById(ResUtils.id(this, "payresult_maininfo_sub_tip"));
-            this.f60726d = (TextView) findViewById(ResUtils.id(this, "authorize_text"));
-            this.f60727e = findViewById(ResUtils.id(this, "statusbar_top"));
-            this.f60728f = findViewById(ResUtils.id(this, "divider_line"));
+            this.f53540d = (TextView) findViewById(ResUtils.id(this, "authorize_text"));
+            this.f53541e = findViewById(ResUtils.id(this, "statusbar_top"));
+            this.f53542f = findViewById(ResUtils.id(this, "divider_line"));
             setTop();
         }
     }
@@ -291,15 +290,15 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, view) == null) && view == this.mPaySuccess) {
-            StatisticManager.onEventWithValues("resultClickBtn", this.f60724a.f());
-            if (this.f60724a.j()) {
+            StatisticManager.onEventWithValues("resultClickBtn", this.a.f());
+            if (this.a.j()) {
                 FeedbackDialog feedbackDialog = new FeedbackDialog(getActivity());
-                feedbackDialog.initDialog(this.f60724a.k());
+                feedbackDialog.initDialog(this.a.k());
                 feedbackDialog.show();
                 return;
             }
             finishWithoutAnim();
-            this.f60724a.g();
+            this.a.g();
         }
     }
 
@@ -311,19 +310,19 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             setContentView(ResUtils.layout(this, "wallet_cashdesk_pay_result_common_activity"));
             this.strRmbUnit = ResUtils.getString(this, "dxm_wallet_base_unit");
             a aVar = new a(this, this, bundle);
-            this.f60724a = aVar;
+            this.a = aVar;
             if (!aVar.a()) {
                 PayCallBackManager.callBackClientCancel(this, "WalletPayResultCommonActivity.onCreate().1");
                 finish();
                 return;
             }
-            if (this.f60724a.b()) {
+            if (this.a.b()) {
                 setFlagPaySdk();
             }
-            if (!this.f60724a.a(bundle)) {
+            if (!this.a.a(bundle)) {
                 PayCallBackManager.callBackClientCancel(this, "WalletPayResultCommonActivity.onCreate().2");
                 finish();
-            } else if (this.f60724a.c(bundle)) {
+            } else if (this.a.c(bundle)) {
                 d();
                 b();
             }
@@ -335,7 +334,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            b.a aVar = this.f60724a;
+            b.a aVar = this.a;
             if (aVar != null) {
                 aVar.c();
             }
@@ -375,11 +374,11 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            this.f60724a.b(bundle);
+            this.a.b(bundle);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void setOKBtnText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
@@ -387,13 +386,13 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void setTitleLogo(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60725c.setImageUrl(str);
+        this.f53539c.setImageUrl(str);
     }
 
     public void setTop() {
@@ -401,11 +400,11 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        this.f60727e.setLayoutParams(new LinearLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(getActivity())));
-        ImmersiveStatusBarManager.setTopBar(getActivity(), this.f60727e, isStatusbarTextColorBlack());
+        this.f53541e.setLayoutParams(new LinearLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(getActivity())));
+        ImmersiveStatusBarManager.setTopBar(getActivity(), this.f53541e, isStatusbarTextColorBlack());
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public boolean showAuthDialog(Compliance compliance) {
         InterceptResult invokeL;
         Compliance.AntiMoneyLaundering antiMoneyLaundering;
@@ -426,7 +425,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showAuthorizeMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
@@ -434,11 +433,11 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 if (TextUtils.isEmpty(this.mSubtitleView.getText())) {
                     this.mSubtitleView.setVisibility(8);
                 }
-                this.f60726d.setVisibility(0);
-                this.f60726d.setText(str);
+                this.f53540d.setVisibility(0);
+                this.f53540d.setText(str);
                 return;
             }
-            this.f60726d.setVisibility(8);
+            this.f53540d.setVisibility(8);
         }
     }
 
@@ -448,7 +447,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showDiscountTypeInfo(String[][] strArr, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, strArr, str, str2) == null) {
@@ -458,8 +457,8 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             layoutParams.gravity = 5;
             layoutParams.setMargins(0, DisplayUtils.dip2px(this, 15.0f), 0, 0);
             if (strArr != null) {
-                this.f60731i = false;
-                this.j = false;
+                this.f53545i = false;
+                this.f53546j = false;
                 this.mpayResultDiscountTypeGroup.setVisibility(0);
                 int i2 = 0;
                 for (int i3 = 0; i3 < strArr.length; i3++) {
@@ -471,7 +470,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                             if (i3 == 0) {
                                 a(strArr[i3][0], strArr[i3][1], layoutParams2);
                             } else {
-                                this.f60730h--;
+                                this.f53544h--;
                                 a(strArr[i3][0], strArr[i3][1], layoutParams);
                             }
                         }
@@ -483,7 +482,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                     this.mPayResultTotalDiscount.setText(new SpannableString("-" + this.strRmbUnit + str));
                     return;
                 }
-                this.f60730h++;
+                this.f53544h++;
                 this.mPayResultTotalDiscountGroup.setVisibility(8);
                 return;
             }
@@ -492,7 +491,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showExpectedTime(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || TextUtils.isEmpty(str)) {
@@ -501,7 +500,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         this.mSubtitleView.setText(str);
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showMarketDialog(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, str, str2) == null) {
@@ -509,18 +508,16 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             imageViewDialog.initDialog(str, new ImageViewDialog.a(this, str2, (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY), imageViewDialog) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f60736a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayRequest f60737b;
+                public final /* synthetic */ PayRequest f53549b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ImageViewDialog f60738c;
+                public final /* synthetic */ ImageViewDialog f53550c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ WalletPayResultCommonActivity f60739d;
+                public final /* synthetic */ WalletPayResultCommonActivity f53551d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -537,10 +534,10 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                             return;
                         }
                     }
-                    this.f60739d = this;
-                    this.f60736a = str2;
-                    this.f60737b = r8;
-                    this.f60738c = imageViewDialog;
+                    this.f53551d = this;
+                    this.a = str2;
+                    this.f53549b = r8;
+                    this.f53550c = imageViewDialog;
                 }
 
                 @Override // com.baidu.wallet.paysdk.ui.widget.ImageViewDialog.a
@@ -548,15 +545,15 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (CheckUtils.isFastDoubleClick()) {
-                            String unused = WalletPayResultCommonActivity.f60723b;
+                            String unused = WalletPayResultCommonActivity.f53538b;
                             return;
                         }
-                        BaiduWalletDelegate.getInstance().openH5Module(this.f60739d.getActivity(), this.f60736a);
-                        PayRequest payRequest = this.f60737b;
+                        BaiduWalletDelegate.getInstance().openH5Module(this.f53551d.getActivity(), this.a);
+                        PayRequest payRequest = this.f53549b;
                         if (payRequest != null) {
-                            StatisticManager.onEventWithValues("payResultCrossMarketImageClick", Arrays.asList(payRequest.mSpNO, this.f60736a));
+                            StatisticManager.onEventWithValues("payResultCrossMarketImageClick", Arrays.asList(payRequest.mSpNO, this.a));
                         }
-                        this.f60738c.dismiss();
+                        this.f53550c.dismiss();
                     }
                 }
 
@@ -564,54 +561,54 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 public void b() {
                     PayRequest payRequest;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (payRequest = this.f60737b) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (payRequest = this.f53549b) == null) {
                         return;
                     }
-                    StatisticManager.onEventWithValues("payResultCrossMarketCloseClick", Arrays.asList(payRequest.mSpNO, this.f60736a));
+                    StatisticManager.onEventWithValues("payResultCrossMarketCloseClick", Arrays.asList(payRequest.mSpNO, this.a));
                 }
 
                 @Override // com.baidu.wallet.paysdk.ui.widget.ImageViewDialog.a
                 public void c() {
                     PayRequest payRequest;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (payRequest = this.f60737b) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (payRequest = this.f53549b) == null) {
                         return;
                     }
-                    StatisticManager.onEventWithValues("payResultCrossMarketBackClick", Arrays.asList(payRequest.mSpNO, this.f60736a));
+                    StatisticManager.onEventWithValues("payResultCrossMarketBackClick", Arrays.asList(payRequest.mSpNO, this.a));
                 }
             });
             imageViewDialog.show();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showPayResultMoneyLayoutVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showPayResultRealMoneyText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f60728f.setVisibility(0);
+                this.f53542f.setVisibility(0);
                 this.mPayResultRealMoneyLayout.setVisibility(0);
                 RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(0.75f);
                 SpannableString spannableString = new SpannableString(this.strRmbUnit + str);
                 spannableString.setSpan(relativeSizeSpan, 0, 1, 33);
                 this.mPayResultRealMoneyText.setText(spannableString);
-                this.f60731i = false;
+                this.f53545i = false;
                 return;
             }
-            this.f60728f.setVisibility(8);
+            this.f53542f.setVisibility(8);
             this.mPayResultRealMoneyLayout.setVisibility(8);
-            this.f60730h += 2;
+            this.f53544h += 2;
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showPaySuccess(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, hashMap) == null) {
@@ -629,13 +626,13 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showPayTypeInfo(String[][] strArr, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048604, this, strArr, str, str2, str3) == null) {
             if (strArr != null && strArr.length > 0) {
-                this.f60731i = false;
-                this.j = false;
+                this.f53545i = false;
+                this.f53546j = false;
                 this.mPayResultPayTypeGroup.setVisibility(0);
                 if (strArr[0].length > 1) {
                     this.mPayResultPayTypePrefix.setText(strArr[0][0]);
@@ -644,12 +641,12 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 }
                 return;
             }
-            this.f60730h++;
+            this.f53544h++;
             this.mPayResultPayTypeGroup.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showPaying(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, hashMap) == null) {
@@ -666,13 +663,13 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1857b
+    @Override // com.baidu.wallet.paysdk.payresult.presenter.b.InterfaceC1929b
     public void showTotalAmountInfo(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048606, this, str, str2, str3) == null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f60731i = false;
-                this.j = false;
+                this.f53545i = false;
+                this.f53546j = false;
                 this.mPayResultOrderAmountLayout.setVisibility(0);
                 this.mPayResultOrderAmountText.setText(this.strRmbUnit + str);
                 if (!TextUtils.isEmpty(str2)) {
@@ -687,7 +684,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                 }
             }
             this.mPayResultOrderAmountLayout.setVisibility(8);
-            this.f60730h++;
+            this.f53544h++;
         }
     }
 
@@ -697,12 +694,10 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
             view.post(new Runnable(this, view) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f60732a;
+                public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ WalletPayResultCommonActivity f60733b;
+                public final /* synthetic */ WalletPayResultCommonActivity f53547b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -719,15 +714,15 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                             return;
                         }
                     }
-                    this.f60733b = this;
-                    this.f60732a = view;
+                    this.f53547b = this;
+                    this.a = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int bottom = this.f60732a.getBottom();
+                        int bottom = this.a.getBottom();
                         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
                         ofFloat.setDuration(500L);
                         ofFloat.setInterpolator(new DecelerateInterpolator());
@@ -735,12 +730,10 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, bottom) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ int f60734a;
+                            public final /* synthetic */ int a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f60735b;
+                            public final /* synthetic */ AnonymousClass1 f53548b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -757,8 +750,8 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                         return;
                                     }
                                 }
-                                this.f60735b = this;
-                                this.f60734a = bottom;
+                                this.f53548b = this;
+                                this.a = bottom;
                             }
 
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -766,9 +759,9 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, valueAnimator) == null) {
                                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                                    ViewHelper.setTranslationY(this.f60735b.f60732a, (-this.f60734a) * floatValue);
+                                    ViewHelper.setTranslationY(this.f53548b.a, (-this.a) * floatValue);
                                     if (floatValue <= 0.0f) {
-                                        this.f60735b.f60733b.c();
+                                        this.f53548b.f53547b.c();
                                     }
                                 }
                             }
@@ -781,7 +774,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
 
     private void a(String str, String str2, LinearLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, str, str2, layoutParams) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, this, str, str2, layoutParams) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         View inflate = getLayoutInflater().inflate(ResUtils.layout(this, "wallet_cashdesk_discount_info_group"), (ViewGroup) null);
@@ -792,19 +785,17 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, str2) == null) {
             new Handler().post(new Runnable(this, str, str2) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f60740a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f60741b;
+                public final /* synthetic */ String f53552b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ WalletPayResultCommonActivity f60742c;
+                public final /* synthetic */ WalletPayResultCommonActivity f53553c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -821,28 +812,26 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                             return;
                         }
                     }
-                    this.f60742c = this;
-                    this.f60740a = str;
-                    this.f60741b = str2;
+                    this.f53553c = this;
+                    this.a = str;
+                    this.f53552b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        PromptDialog promptDialog = new PromptDialog(this.f60742c.getActivity());
-                        promptDialog.setMessage(this.f60740a);
+                        PromptDialog promptDialog = new PromptDialog(this.f53553c.getActivity());
+                        promptDialog.setMessage(this.a);
                         promptDialog.setCanceledOnTouchOutside(false);
                         promptDialog.setCancelable(true);
-                        promptDialog.setPositiveBtn(ResUtils.string(this.f60742c.getApplicationContext(), "wallet_hce_do_auth"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.1
+                        promptDialog.setPositiveBtn(ResUtils.string(this.f53553c.getApplicationContext(), "wallet_hce_do_auth"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ PromptDialog f60743a;
+                            public final /* synthetic */ PromptDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass3 f60744b;
+                            public final /* synthetic */ AnonymousClass3 f53554b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -859,24 +848,22 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                         return;
                                     }
                                 }
-                                this.f60744b = this;
-                                this.f60743a = promptDialog;
+                                this.f53554b = this;
+                                this.a = promptDialog;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
-                                    PromptDialog promptDialog2 = this.f60743a;
+                                    PromptDialog promptDialog2 = this.a;
                                     if (promptDialog2 != null && promptDialog2.isShowing()) {
-                                        this.f60743a.dismiss();
+                                        this.a.dismiss();
                                     }
-                                    BaiduPayDelegate.getInstance().doPayRNAuth(this.f60744b.f60742c.getActivity(), this.f60744b.f60741b, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.1.1
+                                    BaiduPayDelegate.getInstance().doPayRNAuth(this.f53554b.f53553c.getActivity(), this.f53554b.f53552b, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-
-                                        /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass1 f60745a;
+                                        public final /* synthetic */ AnonymousClass1 a;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -893,7 +880,7 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                                     return;
                                                 }
                                             }
-                                            this.f60745a = this;
+                                            this.a = this;
                                         }
 
                                         @Override // com.baidu.wallet.rnauth.RNAuthCallBack
@@ -906,15 +893,13 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                 }
                             }
                         });
-                        promptDialog.setNegativeBtn(ResUtils.string(this.f60742c.getApplicationContext(), "dxm_ebpay_cancel"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.2
+                        promptDialog.setNegativeBtn(ResUtils.string(this.f53553c.getApplicationContext(), "dxm_ebpay_cancel"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.payresult.view.WalletPayResultCommonActivity.3.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ PromptDialog f60746a;
+                            public final /* synthetic */ PromptDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass3 f60747b;
+                            public final /* synthetic */ AnonymousClass3 f53555b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -931,16 +916,16 @@ public class WalletPayResultCommonActivity extends PayBaseBeanActivity implement
                                         return;
                                     }
                                 }
-                                this.f60747b = this;
-                                this.f60746a = promptDialog;
+                                this.f53555b = this;
+                                this.a = promptDialog;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 PromptDialog promptDialog2;
                                 Interceptable interceptable3 = $ic;
-                                if ((interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) && (promptDialog2 = this.f60746a) != null && promptDialog2.isShowing()) {
-                                    this.f60746a.dismiss();
+                                if ((interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) && (promptDialog2 = this.a) != null && promptDialog2.isShowing()) {
+                                    this.a.dismiss();
                                 }
                             }
                         });

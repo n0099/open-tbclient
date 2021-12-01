@@ -4,7 +4,6 @@ import android.util.SparseLongArray;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,10 +36,10 @@ public final class SparseLongArrayKt {
     }
 
     @RequiresApi(18)
-    public static final boolean containsValue(SparseLongArray sparseLongArray, long j) {
+    public static final boolean containsValue(SparseLongArray sparseLongArray, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, sparseLongArray, j)) == null) ? sparseLongArray.indexOfValue(j) >= 0 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, sparseLongArray, j2)) == null) ? sparseLongArray.indexOfValue(j2) >= 0 : invokeLJ.booleanValue;
     }
 
     @RequiresApi(18)
@@ -55,17 +54,17 @@ public final class SparseLongArrayKt {
     }
 
     @RequiresApi(18)
-    public static final long getOrDefault(SparseLongArray sparseLongArray, int i2, long j) {
+    public static final long getOrDefault(SparseLongArray sparseLongArray, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? sparseLongArray.get(i2, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? sparseLongArray.get(i2, j2) : invokeCommon.longValue;
     }
 
     @RequiresApi(18)
     public static final long getOrElse(SparseLongArray sparseLongArray, int i2, Function0<Long> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, sparseLongArray, i2, function0)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseLongArray, i2, function0)) == null) {
             int indexOfKey = sparseLongArray.indexOfKey(i2);
             return indexOfKey >= 0 ? sparseLongArray.valueAt(indexOfKey) : function0.invoke().longValue();
         }
@@ -76,7 +75,7 @@ public final class SparseLongArrayKt {
     public static final int getSize(SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sparseLongArray)) == null) ? sparseLongArray.size() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseLongArray)) == null) ? sparseLongArray.size() : invokeL.intValue;
     }
 
     @RequiresApi(18)
@@ -181,12 +180,12 @@ public final class SparseLongArrayKt {
     }
 
     @RequiresApi(18)
-    public static final boolean remove(SparseLongArray sparseLongArray, int i2, long j) {
+    public static final boolean remove(SparseLongArray sparseLongArray, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             int indexOfKey = sparseLongArray.indexOfKey(i2);
-            if (indexOfKey < 0 || j != sparseLongArray.valueAt(indexOfKey)) {
+            if (indexOfKey < 0 || j2 != sparseLongArray.valueAt(indexOfKey)) {
                 return false;
             }
             sparseLongArray.removeAt(indexOfKey);
@@ -196,10 +195,10 @@ public final class SparseLongArrayKt {
     }
 
     @RequiresApi(18)
-    public static final void set(SparseLongArray sparseLongArray, int i2, long j) {
+    public static final void set(SparseLongArray sparseLongArray, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            sparseLongArray.put(i2, j);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            sparseLongArray.put(i2, j2);
         }
     }
 

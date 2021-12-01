@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;
@@ -57,10 +57,10 @@ public class TimeSource {
         this.fixedTimeZone = timeZone;
     }
 
-    public static TimeSource fixed(long j, @Nullable TimeZone timeZone) {
+    public static TimeSource fixed(long j2, @Nullable TimeZone timeZone) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, timeZone)) == null) ? new TimeSource(Long.valueOf(j), timeZone) : (TimeSource) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j2, timeZone)) == null) ? new TimeSource(Long.valueOf(j2), timeZone) : (TimeSource) invokeJL.objValue;
     }
 
     public static TimeSource system() {
@@ -75,10 +75,10 @@ public class TimeSource {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? now(this.fixedTimeZone) : (Calendar) invokeV.objValue;
     }
 
-    public static TimeSource fixed(long j) {
+    public static TimeSource fixed(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new TimeSource(Long.valueOf(j), null) : (TimeSource) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new TimeSource(Long.valueOf(j2), null) : (TimeSource) invokeJ.objValue;
     }
 
     public Calendar now(@Nullable TimeZone timeZone) {

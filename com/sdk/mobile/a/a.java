@@ -35,7 +35,7 @@ public final class a {
         InterceptResult invokeLLLL;
         DataInfo dataInfo;
         String str3;
-        b<T> a2;
+        b<T> a;
         j jVar;
         int i2;
         String str4;
@@ -45,22 +45,22 @@ public final class a {
             if (c.a(str2).booleanValue()) {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                str3 = aVar2.f69134b;
-                a2 = aVar2.a();
-                jVar = j.f69085b;
+                str3 = aVar2.f60995b;
+                a = aVar2.a();
+                jVar = j.f60954b;
                 i2 = 0;
                 str4 = "/api/netm/v1.0/qhbt";
             } else {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
                 dataInfo.putData("mobile", str2);
-                str3 = aVar2.f69134b;
-                a2 = aVar2.a();
-                jVar = j.f69085b;
+                str3 = aVar2.f60995b;
+                a = aVar2.a();
+                jVar = j.f60954b;
                 i2 = 0;
                 str4 = "/api/netm/v1.0/qhbv";
             }
-            return aVar2.a(str3, str4, dataInfo, a2, i2, jVar);
+            return aVar2.a(str3, str4, dataInfo, a, i2, jVar);
         }
         return (f) invokeLLLL.objValue;
     }

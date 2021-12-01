@@ -5,7 +5,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -129,14 +128,14 @@ public class BoundaryInterfaceReflectionUtil {
     public static InvocationHandler createInvocationHandlerFor(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? new InvocationHandlerWithDelegateGetter(obj) : (InvocationHandler) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new InvocationHandlerWithDelegateGetter(obj) : (InvocationHandler) invokeL.objValue;
     }
 
     @TargetApi(19)
     public static InvocationHandler[] createInvocationHandlersForArray(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
             if (objArr == null) {
                 return null;
             }

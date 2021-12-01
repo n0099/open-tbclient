@@ -10,9 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile h f69447a;
+    public static volatile h a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -33,14 +31,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f69447a == null) {
+            if (a == null) {
                 synchronized (d.class) {
-                    if (f69447a == null) {
-                        f69447a = new h();
+                    if (a == null) {
+                        a = new h();
                     }
                 }
             }
-            return f69447a;
+            return a;
         }
         return (h) invokeV.objValue;
     }

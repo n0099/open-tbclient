@@ -3,7 +3,6 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +142,7 @@ public class MediaCodecUtils {
         InterceptResult invokeLL;
         int[] iArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, iArr, codecCapabilities)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, codecCapabilities)) == null) {
             for (int i2 : iArr) {
                 for (int i3 : codecCapabilities.colorFormats) {
                     if (i3 == i2) {

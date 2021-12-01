@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long KEEP_ALIVE_TIME_OPEN = 5000;

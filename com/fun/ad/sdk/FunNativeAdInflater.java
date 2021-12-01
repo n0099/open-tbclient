@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunNativeAdInflater {
     ViewGroup getAdContainer(FunNativeAd funNativeAd);
 

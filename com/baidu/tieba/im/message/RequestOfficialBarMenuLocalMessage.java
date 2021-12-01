@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import b.a.e.f.m.b;
+import c.a.d.f.m.b;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,10 +68,10 @@ public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
         }
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.timestamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.timestamp = j2;
         }
     }
 }

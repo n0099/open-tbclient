@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class RestDebugConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static RestDebugConfig f63032b;
+    public static RestDebugConfig f55107b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f63033a;
+    public boolean a;
 
     public RestDebugConfig() {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class RestDebugConfig {
                 return;
             }
         }
-        this.f63033a = false;
+        this.a = false;
     }
 
     public static synchronized RestDebugConfig getInstance() {
@@ -40,10 +38,10 @@ public final class RestDebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RestDebugConfig.class) {
-                if (f63032b == null) {
-                    f63032b = new RestDebugConfig();
+                if (f55107b == null) {
+                    f55107b = new RestDebugConfig();
                 }
-                restDebugConfig = f63032b;
+                restDebugConfig = f55107b;
             }
             return restDebugConfig;
         }
@@ -53,7 +51,7 @@ public final class RestDebugConfig {
     public boolean isQAEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63033a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public void setDebugOn(boolean z) {
@@ -66,7 +64,7 @@ public final class RestDebugConfig {
     public void setQAEnv(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f63033a = z;
+            this.a = z;
         }
     }
 }

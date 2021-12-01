@@ -4,13 +4,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.flutter.base.util.OpenNative;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +16,6 @@ import com.idlefish.flutterboost.FlutterViewContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
-import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.io.Serializable;
@@ -39,8 +32,8 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Set<EventListener>> mEventListeners;
     public final Set<MethodChannel.MethodCallHandler> mMethodCallHandlers;
-    public final MethodChannel mMethodChannel;
-    public final EventListener splashEventListener;
+    public MethodChannel mMethodChannel;
+    public ParseNativeResult parseNativeResult;
 
     /* loaded from: classes2.dex */
     public interface ActionAfterRegistered {
@@ -51,6 +44,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     public class BoostMethodHandler implements MethodChannel.MethodCallHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FlutterBoostPlugin this$0;
 
         public BoostMethodHandler(FlutterBoostPlugin flutterBoostPlugin) {
             Interceptable interceptable = $ic;
@@ -64,8 +58,10 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.this$0 = flutterBoostPlugin;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -127,6 +123,9 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                     HashMap hashMap = new HashMap();
                     try {
                         IContainerRecord currentTopRecord = flutterViewContainerManager.getCurrentTopRecord();
+                        if (currentTopRecord == null) {
+                            currentTopRecord = flutterViewContainerManager.getLastGenerateRecord();
+                        }
                         if (currentTopRecord != null) {
                             hashMap.put("name", currentTopRecord.getContainer().getContainerUrl());
                             hashMap.put("params", currentTopRecord.getContainer().getContainerUrlParams());
@@ -169,12 +168,15 @@ public class FlutterBoostPlugin implements FlutterPlugin {
 
                             @Override // com.idlefish.flutterboost.FlutterViewContainerManager.OnResult
                             public void onResult(Map<String, Object> map) {
-                                MethodChannel.Result result2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || (result2 = this.val$result) == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || this.val$result == null) {
                                     return;
                                 }
-                                result2.success(this.this$1.parseNativeResult(this.val$url, map));
+                                if (this.this$1.this$0.parseNativeResult != null) {
+                                    this.val$result.success(this.this$1.this$0.parseNativeResult.parseResult(this.val$url, map));
+                                } else {
+                                    this.val$result.success(map);
+                                }
                             }
                         });
                     } catch (Throwable th2) {
@@ -219,35 +221,16 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                 }
             }
         }
-
-        public Map<String, Object> parseNativeResult(String str, Map<String, Object> map) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map)) == null) {
-                HashMap hashMap = new HashMap();
-                if (str.contains(OpenNative.kNativePageKeyEditProfile)) {
-                    if (map.containsKey("data") && (map.get("data") instanceof PersonChangeData)) {
-                        hashMap.put("intro", ((PersonChangeData) map.get("data")).getIntro());
-                    }
-                    return hashMap;
-                } else if (str.contains(OpenNative.kNativePageKeyItemEvaluatePage)) {
-                    if (map.containsKey("post_write_callback_data") && (map.get("post_write_callback_data") instanceof PostWriteCallBackData)) {
-                        PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) map.get("post_write_callback_data");
-                        hashMap.put("errorCode", Integer.valueOf(postWriteCallBackData.getErrorCode()));
-                        hashMap.put("errorMsg", postWriteCallBackData.getErrorString());
-                    }
-                    return hashMap;
-                } else {
-                    return map;
-                }
-            }
-            return (Map) invokeLL.objValue;
-        }
     }
 
     /* loaded from: classes2.dex */
     public interface EventListener {
         void onEvent(String str, Map map);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface ParseNativeResult {
+        Map<String, Object> parseResult(String str, Map<String, Object> map);
     }
 
     static {
@@ -281,60 +264,19 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         }
         this.mMethodCallHandlers = new HashSet();
         this.mEventListeners = new HashMap();
-        this.splashEventListener = new EventListener(this) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                    }
-                }
-            }
-
-            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
-            public void onEvent(String str, Map map) {
-                char c2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, map) == null) {
-                    int hashCode = str.hashCode();
-                    if (hashCode != -263576197) {
-                        if (hashCode == -253456115 && str.equals("dataInitFinish")) {
-                            c2 = 0;
-                        }
-                        c2 = 65535;
-                    } else {
-                        if (str.equals("pageLifeCycle")) {
-                            c2 = 1;
-                        }
-                        c2 = 65535;
-                    }
-                    if (c2 == 0) {
-                        FlutterBoost.instance().isReady = true;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
-                    } else if (c2 != 1) {
-                    } else {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921478, map));
-                    }
-                }
-            }
-        };
-        this.mMethodChannel = null;
     }
 
     public static FlutterBoostPlugin singleton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sInstance : (FlutterBoostPlugin) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            FlutterBoostPlugin flutterBoostPlugin = sInstance;
+            if (flutterBoostPlugin != null) {
+                return flutterBoostPlugin;
+            }
+            throw new RuntimeException("FlutterBoostPlugin not register yet");
+        }
+        return (FlutterBoostPlugin) invokeV.objValue;
     }
 
     public void addEventListener(String str, EventListener eventListener) {
@@ -360,10 +302,74 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         }
     }
 
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mMethodChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler(this) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ FlutterBoostPlugin this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
+                public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+                    Object[] array;
+                    Object[] array2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, methodCall, result) == null) {
+                        int i2 = 0;
+                        if (!methodCall.method.equals("__event__")) {
+                            synchronized (this.this$0.mMethodCallHandlers) {
+                                array = this.this$0.mMethodCallHandlers.toArray();
+                            }
+                            int length = array.length;
+                            while (i2 < length) {
+                                ((MethodChannel.MethodCallHandler) array[i2]).onMethodCall(methodCall, result);
+                                i2++;
+                            }
+                            return;
+                        }
+                        String str = (String) methodCall.argument("name");
+                        Map map = (Map) methodCall.argument("arguments");
+                        synchronized (this.this$0.mEventListeners) {
+                            Set set = (Set) this.this$0.mEventListeners.get(str);
+                            array2 = set != null ? set.toArray() : null;
+                        }
+                        if (array2 != null) {
+                            int length2 = array2.length;
+                            while (i2 < length2) {
+                                ((EventListener) array2[i2]).onEvent(str, map);
+                                i2++;
+                            }
+                        }
+                    }
+                }
+            });
+            addMethodCallHandler(new BoostMethodHandler(this));
+        }
+    }
+
     public void invokeMethod(String str, Serializable serializable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, serializable) == null) {
-            invokeMethod(str, serializable, new MethodChannel.Result(this, str) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.4
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, serializable) == null) {
+            invokeMethod(str, serializable, new MethodChannel.Result(this, str) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$name;
@@ -414,8 +420,8 @@ public class FlutterBoostPlugin implements FlutterPlugin {
 
     public void invokeMethodUnsafe(String str, Serializable serializable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, serializable) == null) {
-            invokeMethod(str, serializable, new MethodChannel.Result(this, str) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.3
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, serializable) == null) {
+            invokeMethod(str, serializable, new MethodChannel.Result(this, str) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$name;
@@ -467,8 +473,10 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            sInstance = new FlutterBoostPlugin(flutterPluginBinding.getBinaryMessenger());
+        if (interceptable == null || interceptable.invokeL(1048582, this, flutterPluginBinding) == null) {
+            this.mMethodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_boost");
+            sInstance = this;
+            init();
             for (ActionAfterRegistered actionAfterRegistered : sActions) {
                 actionAfterRegistered.onChannelRegistered(sInstance);
             }
@@ -479,13 +487,13 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, flutterPluginBinding) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, flutterPluginBinding) == null) {
         }
     }
 
     public void removeEventListener(EventListener eventListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eventListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eventListener) == null) {
             synchronized (this.mEventListeners) {
                 for (Set<EventListener> set : this.mEventListeners.values()) {
                     set.remove(eventListener);
@@ -496,7 +504,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
 
     public void sendEvent(String str, Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("name", str);
             hashMap.put("arguments", map);
@@ -504,141 +512,20 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         }
     }
 
+    public void setParseNativeResult(@NonNull ParseNativeResult parseNativeResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, parseNativeResult) == null) {
+            this.parseNativeResult = parseNativeResult;
+        }
+    }
+
     public void invokeMethod(String str, Serializable serializable, MethodChannel.Result result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, serializable, result) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, serializable, result) == null) {
             if ("__event__".equals(str)) {
                 Debuger.exception("method name should not be __event__");
             }
             this.mMethodChannel.invokeMethod(str, serializable, result);
         }
-    }
-
-    public FlutterBoostPlugin(BinaryMessenger binaryMessenger) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {binaryMessenger};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMethodCallHandlers = new HashSet();
-        this.mEventListeners = new HashMap();
-        this.splashEventListener = new EventListener(this) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                    }
-                }
-            }
-
-            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
-            public void onEvent(String str, Map map) {
-                char c2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, map) == null) {
-                    int hashCode = str.hashCode();
-                    if (hashCode != -263576197) {
-                        if (hashCode == -253456115 && str.equals("dataInitFinish")) {
-                            c2 = 0;
-                        }
-                        c2 = 65535;
-                    } else {
-                        if (str.equals("pageLifeCycle")) {
-                            c2 = 1;
-                        }
-                        c2 = 65535;
-                    }
-                    if (c2 == 0) {
-                        FlutterBoost.instance().isReady = true;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921459));
-                    } else if (c2 != 1) {
-                    } else {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921478, map));
-                    }
-                }
-            }
-        };
-        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "flutter_boost");
-        this.mMethodChannel = methodChannel;
-        methodChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler(this) { // from class: com.idlefish.flutterboost.FlutterBoostPlugin.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ FlutterBoostPlugin this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
-            public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
-                Object[] array;
-                Object[] array2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, methodCall, result) == null) {
-                    int i4 = 0;
-                    if (!methodCall.method.equals("__event__")) {
-                        synchronized (this.this$0.mMethodCallHandlers) {
-                            array = this.this$0.mMethodCallHandlers.toArray();
-                        }
-                        int length = array.length;
-                        while (i4 < length) {
-                            ((MethodChannel.MethodCallHandler) array[i4]).onMethodCall(methodCall, result);
-                            i4++;
-                        }
-                        return;
-                    }
-                    String str = (String) methodCall.argument("name");
-                    Map map = (Map) methodCall.argument("arguments");
-                    synchronized (this.this$0.mEventListeners) {
-                        Set set = (Set) this.this$0.mEventListeners.get(str);
-                        array2 = set != null ? set.toArray() : null;
-                    }
-                    if (array2 != null) {
-                        int length2 = array2.length;
-                        while (i4 < length2) {
-                            ((EventListener) array2[i4]).onEvent(str, map);
-                            i4++;
-                        }
-                    }
-                }
-            }
-        });
-        addEventListener("dataInitFinish", this.splashEventListener);
-        addEventListener("pageLifeCycle", this.splashEventListener);
-        addMethodCallHandler(new BoostMethodHandler(this));
     }
 }

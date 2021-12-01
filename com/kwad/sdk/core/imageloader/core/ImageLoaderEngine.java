@@ -2,13 +2,11 @@ package com.kwad.sdk.core.imageloader.core;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.i.b;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import java.io.File;
 import java.util.Collections;
@@ -58,7 +56,7 @@ public class ImageLoaderEngine {
         this.configuration = imageLoaderConfiguration;
         this.taskExecutor = imageLoaderConfiguration.taskExecutor;
         this.taskExecutorForCachedImages = imageLoaderConfiguration.taskExecutorForCachedImages;
-        this.taskDistributor = b.e();
+        this.taskDistributor = imageLoaderConfiguration.taskDistributor;
     }
 
     private Executor createTaskExecutor() {
@@ -74,7 +72,7 @@ public class ImageLoaderEngine {
     /* JADX INFO: Access modifiers changed from: private */
     public void initExecutorsIfNeed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (!this.configuration.customExecutor && ((ExecutorService) this.taskExecutor).isShutdown()) {
                 this.taskExecutor = createTaskExecutor();
             }

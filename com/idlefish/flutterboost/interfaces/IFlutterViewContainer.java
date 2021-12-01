@@ -11,7 +11,7 @@ public interface IFlutterViewContainer {
 
     String getContainerUrl();
 
-    Map<String, Object> getContainerUrlParams();
+    Map getContainerUrlParams();
 
     Activity getContextActivity();
 

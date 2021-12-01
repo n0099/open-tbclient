@@ -5,9 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.r0.j1.d;
-import b.a.r0.j1.e;
-import b.a.r0.j1.f;
+import c.a.r0.p1.d;
+import c.a.r0.p1.e;
+import c.a.r0.p1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TabItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f51037e;
+    public View f45764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51038f;
+    public TextView f45765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51039g;
+    public TextView f45766g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabItemView(Context context) {
@@ -48,27 +48,27 @@ public class TabItemView extends RelativeLayout {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(f.topic_tab_item_view, this);
-        this.f51037e = inflate;
-        this.f51038f = (TextView) inflate.findViewById(e.topic_tab_item_textview);
-        this.f51039g = (TextView) this.f51037e.findViewById(e.topic_tab_item_red_tip);
+        this.f45764e = inflate;
+        this.f45765f = (TextView) inflate.findViewById(e.topic_tab_item_textview);
+        this.f45766g = (TextView) this.f45764e.findViewById(e.topic_tab_item_red_tip);
     }
 
     public TextView getRedTipView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51039g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45766g : (TextView) invokeV.objValue;
     }
 
     public TextView getTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51038f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45765f : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f51039g, d.icon_news_down_bar_one);
+            SkinManager.setBackgroundResource(this.f45766g, d.icon_news_down_bar_one);
         }
     }
 }

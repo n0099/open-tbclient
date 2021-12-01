@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.OrientationEventListener;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class OrientationManager extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isScreenOrientationLandscape;
@@ -23,7 +22,7 @@ public class OrientationManager extends OrientationEventListener {
     public Orientation mCurrentOrientation;
     public List<OrientationListener> mListeners;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface OrientationListener {
         void onRotateOrientation(Orientation orientation);
     }
@@ -114,13 +113,13 @@ public class OrientationManager extends OrientationEventListener {
     public static Orientation nearOrientation(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? ((i2 < 0 || i2 > 45) && (i2 < 315 || i2 >= 360)) ? (i2 <= 45 || i2 >= 135) ? (i2 < 135 || i2 > 225) ? (i2 <= 225 || i2 >= 315) ? Orientation.PORTRAIT : Orientation.LANDSCAPE_REVERSE : Orientation.PORTRAIT_REVERSE : Orientation.LANDSCAPE : Orientation.PORTRAIT : (Orientation) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? ((i2 < 0 || i2 > 45) && (i2 < 315 || i2 >= 360)) ? (i2 <= 45 || i2 >= 135) ? (i2 < 135 || i2 > 225) ? (i2 <= 225 || i2 >= 315) ? Orientation.PORTRAIT : Orientation.LANDSCAPE_REVERSE : Orientation.PORTRAIT_REVERSE : Orientation.LANDSCAPE : Orientation.PORTRAIT : (Orientation) invokeI.objValue;
     }
 
     public static Orientation[] probablyOrientation(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? (i2 <= 0 || i2 >= 90) ? (i2 <= 90 || i2 >= 180) ? (i2 <= 180 || i2 >= 270) ? new Orientation[]{Orientation.LANDSCAPE_REVERSE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT_REVERSE, Orientation.LANDSCAPE_REVERSE} : new Orientation[]{Orientation.LANDSCAPE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT, Orientation.LANDSCAPE} : (Orientation[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? (i2 <= 0 || i2 >= 90) ? (i2 <= 90 || i2 >= 180) ? (i2 <= 180 || i2 >= 270) ? new Orientation[]{Orientation.LANDSCAPE_REVERSE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT_REVERSE, Orientation.LANDSCAPE_REVERSE} : new Orientation[]{Orientation.LANDSCAPE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT, Orientation.LANDSCAPE} : (Orientation[]) invokeI.objValue;
     }
 
     public static void setGlobalOrientation(Orientation orientation) {

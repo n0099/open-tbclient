@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 
-import b.a.t0.m;
-import b.a.t0.s;
-import b.a.t0.w;
+import c.a.t0.m;
+import c.a.t0.s;
+import c.a.t0.w;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface UBCManager {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -38,7 +38,7 @@ public interface UBCManager {
 
     void flowAddEvent(Flow flow, String str, String str2);
 
-    void flowAddEventWithDate(Flow flow, String str, String str2, long j);
+    void flowAddEventWithDate(Flow flow, String str, String str2, long j2);
 
     void flowCancel(Flow flow);
 

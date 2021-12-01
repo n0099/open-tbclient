@@ -3,7 +3,6 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bm {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f72391a;
+    public static String a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f945a;
@@ -50,7 +47,7 @@ public class bm {
         f946a = new AtomicLong(0L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f945a = simpleDateFormat;
-        f72391a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ie a(String str, String str2, hi hiVar) {
@@ -66,9 +63,9 @@ public class bm {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (bm.class) {
                 String format = f945a.format(Long.valueOf(System.currentTimeMillis()));
-                if (!TextUtils.equals(f72391a, format)) {
+                if (!TextUtils.equals(a, format)) {
                     f946a.set(0L);
-                    f72391a = format;
+                    a = format;
                 }
                 str = format + "-" + f946a.incrementAndGet();
             }
@@ -97,23 +94,23 @@ public class bm {
                 for (int i5 = 0; i5 < list.size(); i5++) {
                     hj hjVar = list.get(i5);
                     if (hjVar != null) {
-                        if (hjVar.m379a() == null || !hjVar.m379a().containsKey("item_size")) {
+                        if (hjVar.m428a() == null || !hjVar.m428a().containsKey("item_size")) {
                             i3 = 0;
                         } else {
-                            String str4 = hjVar.m379a().get("item_size");
+                            String str4 = hjVar.m428a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i3 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
-                                if (hjVar.m379a().size() != 1) {
+                                if (hjVar.m428a().size() != 1) {
                                     hjVar.a((Map<String, String>) null);
                                 } else {
-                                    hjVar.m379a().remove("item_size");
+                                    hjVar.m428a().remove("item_size");
                                 }
                             }
                             i3 = 0;
-                            if (hjVar.m379a().size() != 1) {
+                            if (hjVar.m428a().size() != 1) {
                             }
                         }
                         if (i3 <= 0) {
@@ -145,13 +142,13 @@ public class bm {
         return (ArrayList) invokeLLLI.objValue;
     }
 
-    public static void a(Context context, String str, String str2, long j, String str3) {
+    public static void a(Context context, String str, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j2), str3}) == null) {
             hj hjVar = new hj();
             hjVar.d(str);
             hjVar.c(str2);
-            hjVar.a(j);
+            hjVar.a(j2);
             hjVar.b(str3);
             hjVar.a("push_sdk_channel");
             hjVar.g(context.getPackageName());
@@ -167,7 +164,7 @@ public class bm {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, hjVar, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, hjVar, z)) == null) {
             if (hjVar == null) {
                 str = "item is null, verfiy ClientUploadDataItem failed.";
             } else if (!z && TextUtils.isEmpty(hjVar.f486a)) {
@@ -176,9 +173,9 @@ public class bm {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
             } else if (TextUtils.isEmpty(hjVar.f492c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bm.m184a(hjVar.f493d)) {
+            } else if (!com.xiaomi.push.bm.m233a(hjVar.f493d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bm.m184a(hjVar.f492c)) {
+            } else if (com.xiaomi.push.bm.m233a(hjVar.f492c)) {
                 String str2 = hjVar.f491b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
@@ -187,7 +184,7 @@ public class bm {
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }
-            com.xiaomi.channel.commonutils.logger.b.m73a(str);
+            com.xiaomi.channel.commonutils.logger.b.m122a(str);
             return true;
         }
         return invokeLZ.booleanValue;
@@ -196,6 +193,6 @@ public class bm {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? !com.xiaomi.push.t.m644b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !com.xiaomi.push.t.m693b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

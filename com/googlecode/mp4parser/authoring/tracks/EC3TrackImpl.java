@@ -120,8 +120,8 @@ public class EC3TrackImpl extends AbstractTrack {
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE9);
             audioSampleEntry.setChannelCount(2);
-            long j = i4;
-            audioSampleEntry.setSampleRate(j);
+            long j2 = i4;
+            audioSampleEntry.setSampleRate(j2);
             audioSampleEntry.setDataReferenceIndex(1);
             audioSampleEntry.setSampleSize(16);
             EC3SpecificBox eC3SpecificBox = new EC3SpecificBox();
@@ -158,7 +158,7 @@ public class EC3TrackImpl extends AbstractTrack {
             this.sampleDescriptionBox.addBox(audioSampleEntry);
             this.trackMetaData.setCreationTime(new Date());
             this.trackMetaData.setModificationTime(new Date());
-            this.trackMetaData.setTimescale(j);
+            this.trackMetaData.setTimescale(j2);
             this.trackMetaData.setVolume(1.0f);
             dataSource.position(0L);
             List<Sample> readSamples = readSamples();

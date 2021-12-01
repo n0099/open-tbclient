@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Report {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Report f44105a;
+    public static Report a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f44106b;
+    public Context f39186b;
 
     public Report(Context context) {
         Interceptable interceptable = $ic;
@@ -36,7 +34,7 @@ public class Report {
                 return;
             }
         }
-        this.f44106b = context.getApplicationContext();
+        this.f39186b = context.getApplicationContext();
     }
 
     public static synchronized Report getInstance(Context context) {
@@ -45,10 +43,10 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (Report.class) {
-                if (f44105a == null) {
-                    f44105a = new Report(context);
+                if (a == null) {
+                    a = new Report(context);
                 }
-                report = f44105a;
+                report = a;
             }
             return report;
         }
@@ -59,10 +57,10 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                d a2 = d.a(this.f44106b);
+                d a2 = d.a(this.f39186b);
                 Message message = new Message();
                 message.what = 9;
-                a2.f44119b.a(message);
+                a2.f39198b.a(message);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -73,7 +71,7 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
             try {
-                c.a(this.f44106b, str, str2, str3, str4, str5);
+                c.a(this.f39186b, str, str2, str3, str4, str5);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -84,10 +82,10 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                d a2 = d.a(this.f44106b);
+                d a2 = d.a(this.f39186b);
                 Message message = new Message();
                 message.what = 6;
-                a2.f44119b.a(message);
+                a2.f39198b.a(message);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -98,7 +96,7 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             try {
-                d.a(this.f44106b).a();
+                d.a(this.f39186b).a();
             } catch (Throwable unused) {
                 c.a();
             }
@@ -116,11 +114,11 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
-                d a2 = d.a(this.f44106b);
+                d a2 = d.a(this.f39186b);
                 Message message = new Message();
                 message.what = 11;
                 message.obj = str;
-                a2.f44119b.a(message);
+                a2.f39198b.a(message);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -131,7 +129,7 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
-                c.a(this.f44106b, str);
+                c.a(this.f39186b, str);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -142,7 +140,7 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
             try {
-                c.a(this.f44106b, str, z);
+                c.a(this.f39186b, str, z);
             } catch (Throwable unused) {
                 c.a();
             }
